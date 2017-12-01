@@ -1,0 +1,10 @@
+{
+  "exclude": ["node_modules", "build"],
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+  }
+}
