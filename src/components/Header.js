@@ -6,10 +6,11 @@ import ButtonPrimaryStyled from './ButtonPrimaryStyled';
 
 const HeaderStyled = styled('div')`
   background: #fff;
-  padding: 26px 22px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const LogoStyled = styled('img')``;
