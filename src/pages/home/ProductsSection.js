@@ -4,6 +4,7 @@ import colors from 'common/colors';
 import { container } from 'common/layout';
 import styled, { css } from 'react-emotion';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import Waypoint from 'react-waypoint';
 import ProductItem from './ProductItem';
 
 const tabStyles = {
@@ -73,69 +74,78 @@ const TabSeparator = () => (
 
 const enhance = compose(withState('tabIndex', 'setTabIndex', 0));
 
-const DummyContent = ({ id }) => (
-  <div
-    id={id}
-    className={css`
-      ${container};
-    `}
-  >
-    <div
-      className={css`
-        display: flex;
-        margin-top: 4em;
-        margin-bottom: 4em;
-      `}
-    >
+class DummyContent extends React.Component {
+  render() {
+    const { id, innerRef } = this.props;
+    return (
       <div
+        ref={innerRef}
+        id={id}
         className={css`
-          width: 30em;
-          line-height: 1.67;
+          ${container};
         `}
       >
-        Clouds can be costly to setup and operate, our tools facilitates some of
-        those operations, let user monitor their usage and allows you to recover
-        some of the operating costs via a simple and easy to understand
-        cost-recovery model.
+        <div
+          className={css`
+            display: flex;
+            margin-top: 4em;
+            margin-bottom: 4em;
+          `}
+        >
+          <div
+            className={css`
+              width: 30em;
+              line-height: 1.67;
+            `}
+          >
+            Clouds can be costly to setup and operate, our tools facilitates
+            some of those operations, let user monitor their usage and allows
+            you to recover some of the operating costs via a simple and easy to
+            understand cost-recovery model.
+          </div>
+          <img
+            className={css`
+              margin-left: auto;
+              margin-right: 5%;
+            `}
+            src={require('./images/operate.svg')}
+          />
+        </div>
+        <div
+          className={css`
+            display: flex;
+            margin-top: 4em;
+            margin-bottom: 4em;
+            justify-content: space-between;
+          `}
+        >
+          <ProductItem
+            className={styles.productItem}
+            title={`Enrolment app`}
+            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
+            learnMoreLink={'/enrolment'}
+            logoUrl={require('assets/logos/ego.png')}
+          />
+          <ProductItem
+            className={styles.productItem}
+            title={`Usage`}
+            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
+            logoUrl={require('assets/logos/ego.png')}
+          />
+          <ProductItem
+            className={styles.productItem}
+            title={`Billing`}
+            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
+            logoUrl={require('assets/logos/ego.png')}
+          />
+        </div>
       </div>
-      <img
-        className={css`
-          margin-left: auto;
-          margin-right: 5%;
-        `}
-        src={require('./images/operate.svg')}
-      />
-    </div>
-    <div
-      className={css`
-        display: flex;
-        margin-top: 4em;
-        margin-bottom: 4em;
-        justify-content: space-between;
-      `}
-    >
-      <ProductItem
-        className={styles.productItem}
-        title={`Enrolment app`}
-        description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-        learnMoreLink={'/enrolment'}
-        logoUrl={require('assets/logos/ego.png')}
-      />
-      <ProductItem
-        className={styles.productItem}
-        title={`Usage`}
-        description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-        logoUrl={require('assets/logos/ego.png')}
-      />
-      <ProductItem
-        className={styles.productItem}
-        title={`Billing`}
-        description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-        logoUrl={require('assets/logos/ego.png')}
-      />
-    </div>
-  </div>
-);
+    );
+  }
+}
+
+const isScrollingDown = (previousPosition, currentPosition) =>
+  previousPosition < currentPosition;
 
 const ProductsSection = ({ tabIndex, setTabIndex }) => (
   <WrapperStyled>
@@ -155,10 +165,35 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => (
           <Tab>Share</Tab>
         </TabList>
       </div>
-
+      <TabPanel />
+      <TabPanel />
+      <TabPanel />
+      <TabPanel />
+      <Waypoint
+        onEnter={(previousPosition, currentPosition) => setTabIndex(0)}
+        bottomOffset={500}
+      />
       <DummyContent id={`operate`} />
+      <Waypoint
+        onEnter={(previousPosition, currentPosition) =>
+          setTabIndex(isScrollingDown ? 1 : 0)
+        }
+        bottomOffset={500}
+      />
       <DummyContent id={`transfer`} />
+      <Waypoint
+        onEnter={(previousPosition, currentPosition) =>
+          setTabIndex(isScrollingDown ? 2 : 1)
+        }
+        bottomOffset={500}
+      />
       <DummyContent id={`science`} />
+      <Waypoint
+        onEnter={(previousPosition, currentPosition) =>
+          setTabIndex(isScrollingDown ? 3 : 2)
+        }
+        bottomOffset={500}
+      />
       <DummyContent id={`share`} />
 
       {/* <TabPanel>
