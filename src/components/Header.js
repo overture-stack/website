@@ -13,7 +13,10 @@ const HeaderStyled = styled('div')`
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.2);
 `;
 
-const LogoStyled = styled('img')``;
+const LogoStyled = styled('img')`
+  width: 40px;
+  height: auto;
+`;
 const NavItemStyled = styled(ButtonStyled)`
   &:hover {
     text-decoration: underline;
@@ -26,7 +29,7 @@ const greenBg = css`
 
 export default () => (
   <HeaderStyled>
-    <LogoStyled src={require('assets/logo-small.svg')} />
+    <LogoStyled src={require('assets/logo-small.png')} />
     <NavItemStyled
       className={css`
         margin-left: auto;
