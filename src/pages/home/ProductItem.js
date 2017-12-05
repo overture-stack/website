@@ -12,7 +12,7 @@ const WrapperStyled = styled(`div`)`
 
 const LogoStyled = styled(`img`)`
   width: 40%;
-  align-self: end;
+  align-self: flex-end;
   margin-top: auto;
 `;
 

@@ -9,6 +9,8 @@ import ProductItem from './ProductItem';
 
 const tabStyles = {
   tabs: css`
+    position: sticky;
+    top: -1px;
     .react-tabs__tab-list {
       ${container};
       list-style-type: none;
@@ -39,8 +41,6 @@ const tabStyles = {
   tabListWrapper: css`
     background-color: ${colors.green};
     padding-top: 6px;
-    position: sticky;
-    top: -1px;
   `,
 };
 
@@ -169,93 +169,34 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => (
       <TabPanel />
       <TabPanel />
       <TabPanel />
-      <Waypoint
-        onEnter={(previousPosition, currentPosition) => setTabIndex(0)}
-        bottomOffset={500}
-      />
-      <DummyContent id={`operate`} />
-      <Waypoint
-        onEnter={(previousPosition, currentPosition) =>
-          setTabIndex(isScrollingDown ? 1 : 0)
-        }
-        bottomOffset={500}
-      />
-      <DummyContent id={`transfer`} />
-      <Waypoint
-        onEnter={(previousPosition, currentPosition) =>
-          setTabIndex(isScrollingDown ? 2 : 1)
-        }
-        bottomOffset={500}
-      />
-      <DummyContent id={`science`} />
-      <Waypoint
-        onEnter={(previousPosition, currentPosition) =>
-          setTabIndex(isScrollingDown ? 3 : 2)
-        }
-        bottomOffset={500}
-      />
-      <DummyContent id={`share`} />
-
-      {/* <TabPanel>
-        <div
-          className={css`
-            display: flex;
-            margin-top: 4em;
-            margin-bottom: 4em;
-          `}
-        >
-          <div
-            className={css`
-              width: 30em;
-              line-height: 1.67;
-            `}
-          >
-            Clouds can be costly to setup and operate, our tools facilitates
-            some of those operations, let user monitor their usage and allows
-            you to recover some of the operating costs via a simple and easy to
-            understand cost-recovery model.
-          </div>
-          <img
-            className={css`
-              margin-left: auto;
-              margin-right: 5%;
-            `}
-            src={require('./images/operate.svg')}
-          />
-        </div>
-        <div
-          className={css`
-            display: flex;
-            margin-top: 4em;
-            margin-bottom: 4em;
-            justify-content: space-between;
-          `}
-        >
-          <ProductItem
-            className={styles.productItem}
-            title={`Enrolment app`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            learnMoreLink={'/enrolment'}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-          <ProductItem
-            className={styles.productItem}
-            title={`Usage`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-          <ProductItem
-            className={styles.productItem}
-            title={`Billing`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-        </div>
-      </TabPanel>
-      <TabPanel>Tranfser and Store</TabPanel>
-      <TabPanel>Do Science</TabPanel>
-      <TabPanel>Share</TabPanel> */}
     </Tabs>
+    <Waypoint
+      onEnter={(previousPosition, currentPosition) => setTabIndex(0)}
+      bottomOffset={500}
+    >
+      <DummyContent id={`operate`} />
+    </Waypoint>
+
+    <Waypoint
+      onEnter={(previousPosition, currentPosition) => setTabIndex(1)}
+      bottomOffset={500}
+    >
+      <DummyContent id={`transfer`} />
+    </Waypoint>
+
+    <Waypoint
+      onEnter={(previousPosition, currentPosition) => setTabIndex(2)}
+      bottomOffset={500}
+    >
+      <DummyContent id={`science`} />
+    </Waypoint>
+
+    <Waypoint
+      onEnter={(previousPosition, currentPosition) => setTabIndex(3)}
+      bottomOffset={500}
+    >
+      <DummyContent id={`share`} />
+    </Waypoint>
   </WrapperStyled>
 );
 
