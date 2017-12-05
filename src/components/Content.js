@@ -69,8 +69,8 @@ class Content extends React.Component {
         <div
           className={css`
             display: flex;
-            margin-top: 4em;
             margin-bottom: 4em;
+            margin-bottom: 8vh;
           `}
         >
           <div
@@ -96,7 +96,7 @@ class Content extends React.Component {
           className={css`
             display: flex;
             margin-top: 4em;
-            margin-bottom: 4em;
+            margin-top: 8vh;
             justify-content: space-between;
           `}
         >

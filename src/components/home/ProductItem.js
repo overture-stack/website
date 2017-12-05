@@ -14,6 +14,9 @@ const LogoStyled = styled(`img`)`
   width: 40%;
   align-self: flex-end;
   margin-top: auto;
+  @media (max-height: 700px) {
+    width: 30%;
+  }
 `;
 
 const ProductHeaderStyled = styled(`div`)`
@@ -59,8 +62,20 @@ class ProductItem extends React.Component {
       <WrapperStyled className={className}>
         <ProductHeaderStyled>{title}</ProductHeaderStyled>
         <ProductDescriptionStyled>{description}</ProductDescriptionStyled>
-        {learnMoreLink && <LearnMore link={learnMoreLink} />}
-        <LogoStyled src={logoUrl} />
+        <div
+          className={css`
+            display: flex;
+            flex-direction: column;
+            @media (max-height: 700px) {
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+            }
+          `}
+        >
+          {learnMoreLink && <LearnMore link={learnMoreLink} />}
+          <LogoStyled src={logoUrl} />
+        </div>
       </WrapperStyled>
     );
   }
