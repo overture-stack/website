@@ -11,18 +11,20 @@ import BoxyImage from './BoxyImage';
 const Illustration = withState('shouldAnimate', 'setShouldAnimate', false)(
   ({ shouldAnimate, setShouldAnimate }) => (
     <Waypoint onEnter={() => !shouldAnimate && setShouldAnimate(true)}>
-      <BoxyImage
-        className={css`
-          position: absolute;
-          bottom: 0;
-          width: 180px;
-          left: 0;
-          right: 0;
-          margin-left: auto;
-          margin-right: auto;
-        `}
-        shouldAnimate={shouldAnimate}
-      />
+      <div>
+        <BoxyImage
+          className={css`
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+          `}
+          shouldAnimate={shouldAnimate}
+        />
+      </div>
     </Waypoint>
   ),
 );
