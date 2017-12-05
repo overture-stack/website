@@ -9,7 +9,7 @@ export default [
       you to recover some of the operating costs via a simple and easy to
       understand cost-recovery model.
     `,
-    icon: require('./images/operate.svg'),
+    icon: require('components/home/images/operate.svg'),
     cards: [
       {
         title: 'Enrolment app',
@@ -42,7 +42,7 @@ export default [
       you to recover some of the operating costs via a simple and easy to
       understand cost-recovery model.
     `,
-    icon: require('./images/transfer.svg'),
+    icon: require('components/home/images/transfer.svg'),
     cards: [
       {
         title: 'Enrolment app',
@@ -75,7 +75,7 @@ export default [
       you to recover some of the operating costs via a simple and easy to
       understand cost-recovery model.
     `,
-    icon: require('./images/science.svg'),
+    icon: require('components/home/images/science.svg'),
     cards: [
       {
         title: 'Enrolment app',
@@ -108,7 +108,7 @@ export default [
       you to recover some of the operating costs via a simple and easy to
       understand cost-recovery model.
     `,
-    icon: require('./images/share.svg'),
+    icon: require('components/home/images/share.svg'),
     cards: [
       {
         title: 'Enrolment app',

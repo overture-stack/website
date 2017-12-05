@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion';
 import { TweenMax as Tween } from 'gsap';
 
 import { container } from 'common/layout';
-import ProductItem from './ProductItem';
+import ProductItem from 'components/home/ProductItem';
 
 const styles = {
   productItem: css`
