@@ -1,22 +1,30 @@
 import React from 'react';
+import { withState } from 'recompose';
 import Link from 'gatsby-link';
-import colors from 'common/colors';
+import Waypoint from 'react-waypoint';
 import styled, { css } from 'react-emotion';
-import { container } from 'common/layout';
 
-const Illustration = () => (
-  <img
-    className={css`
-      position: absolute;
-      bottom: 0;
-      width: 180px;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-    `}
-    src={require('./images/about-us.png')}
-  />
+import colors from 'common/colors';
+import { container } from 'common/layout';
+import BoxyImage from './BoxyImage';
+
+const Illustration = withState('shouldAnimate', 'setShouldAnimate', false)(
+  ({ shouldAnimate, setShouldAnimate }) => (
+    <Waypoint onEnter={() => !shouldAnimate && setShouldAnimate(true)}>
+      <BoxyImage
+        className={css`
+          position: absolute;
+          bottom: 0;
+          width: 180px;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+        `}
+        shouldAnimate={shouldAnimate}
+      />
+    </Waypoint>
+  ),
 );
 
 const moreAboutUs = css`
