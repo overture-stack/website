@@ -8,6 +8,10 @@ const WrapperStyled = styled(`div`)`
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 0 7.5px 0 rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const LogoStyled = styled(`img`)`
