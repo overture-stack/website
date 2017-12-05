@@ -5,6 +5,7 @@ import colors from 'common/colors';
 import { container } from 'common/layout';
 
 import Header from 'components/Header';
+import AboutUs from './home/AboutUs';
 import ProductsSection from './home/ProductsSection';
 
 const HeroSectionStyled = styled(`div`)`
@@ -81,7 +82,7 @@ const IndexPage = () => (
       </TextWrapperStyled>
     </HeroSectionStyled>
     <ProductsSection />
-    <Link to="/page-2/">Go to page 2</Link>
+    <AboutUs />
   </React.Fragment>
 );
 
