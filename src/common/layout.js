@@ -6,6 +6,6 @@ export const container = css`
   margin-left: auto;
   margin-right: auto;
   @media (max-width: ${medium}px) {
-    max-width: 600px;
+    max-width: calc(100% - 60px);
   }
 `;
