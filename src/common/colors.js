@@ -8,10 +8,13 @@ export const green = '#00DDBE';
 
 export const yellow = '#F6D100';
 
+export const greyLight = '#d4d4d4';
+
 export default {
   blueDark,
   blue,
   blueLight,
   green,
   yellow,
+  greyLight,
 };

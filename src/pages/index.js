@@ -64,7 +64,7 @@ const TextWrapperStyled = styled(`div`)`
 `;
 
 const IndexPage = () => (
-  <div>
+  <React.Fragment>
     <Header />
     <HeroSectionStyled>
       <HeroIllustrationStyled />
@@ -82,7 +82,7 @@ const IndexPage = () => (
     </HeroSectionStyled>
     <ProductsSection />
     <Link to="/page-2/">Go to page 2</Link>
-  </div>
+  </React.Fragment>
 );
 
 export default IndexPage;

@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
 import './index.css';
+import Footer from 'components/Footer';
 
 const TemplateWrapper = ({ children }) => (
   <React.Fragment>
@@ -20,6 +21,7 @@ const TemplateWrapper = ({ children }) => (
       />
     </Helmet>
     {children()}
+    <Footer />
   </React.Fragment>
 );
 
