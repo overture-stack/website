@@ -13,8 +13,10 @@
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-react-next": "^1.0.5",
     "gatsby-plugin-resolve-src": "^1.0.0",
+    "gsap": "^1.20.3",
     "react-emotion": "^8.0.12",
     "react-tabs": "^2.1.1",
+    "react-transition-group-plus": "^0.5.2",
     "react-waypoint": "^7.3.1",
     "recompose": "^0.26.0",
     "styled-components": "^2.2.4"
@@ -25,6 +27,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "start": "npm run develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",

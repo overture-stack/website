@@ -5,12 +5,12 @@ import { container } from 'common/layout';
 import styled, { css } from 'react-emotion';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Waypoint from 'react-waypoint';
-import ProductItem from './ProductItem';
+import TransitionGroup from 'react-transition-group-plus';
+import Content from './Content';
+import tabs from './tabs';
 
 const tabStyles = {
   tabs: css`
-    position: sticky;
-    top: -1px;
     .react-tabs__tab-list {
       ${container};
       list-style-type: none;
@@ -44,15 +44,14 @@ const tabStyles = {
   `,
 };
 
-const styles = {
-  productItem: css`
-    width: calc((100% - 100px) / 3);
-  `,
-};
-
 const WrapperStyled = styled(`div`)`
   color: ${colors.blueDark};
+  position: sticky;
+  top: -1px;
+  height: 100vh;
+  max-height: 900px;
 `;
+
 const TabSeparatorStyled = styled(`div`)`
   &::after {
     content: '';
@@ -72,132 +71,55 @@ const TabSeparator = () => (
   />
 );
 
-const enhance = compose(withState('tabIndex', 'setTabIndex', 0));
+const enhance = compose(withState('tabIndex', 'setTabIndex', -1));
 
-class DummyContent extends React.Component {
-  render() {
-    const { id, innerRef } = this.props;
-    return (
-      <div
-        ref={innerRef}
-        id={id}
-        className={css`
-          ${container};
-        `}
-      >
-        <div
-          className={css`
-            display: flex;
-            margin-top: 4em;
-            margin-bottom: 4em;
-          `}
+const ProductsSection = ({ tabIndex, setTabIndex }) => {
+  return (
+    <div>
+      <WrapperStyled>
+        <Tabs
+          className={`react-tabs ${tabStyles.tabs}`}
+          selectedIndex={tabIndex}
+          onSelect={(index, lastIndex, event) => setTabIndex(index)}
         >
-          <div
-            className={css`
-              width: 30em;
-              line-height: 1.67;
-            `}
-          >
-            Clouds can be costly to setup and operate, our tools facilitates
-            some of those operations, let user monitor their usage and allows
-            you to recover some of the operating costs via a simple and easy to
-            understand cost-recovery model.
+          <div className={tabStyles.tabListWrapper}>
+            <TabList>
+              {tabs.reduce((acc, tab, i) => {
+                if (i > 0) {
+                  acc.push(<TabSeparator key={i} />);
+                }
+                acc.push(<Tab key={tab.tabText}>{tab.tabText}</Tab>);
+                return acc;
+              }, [])}
+            </TabList>
           </div>
-          <img
-            className={css`
-              margin-left: auto;
-              margin-right: 5%;
-            `}
-            src={require('./images/operate.svg')}
-          />
-        </div>
-        <div
-          className={css`
-            display: flex;
-            margin-top: 4em;
-            margin-bottom: 4em;
-            justify-content: space-between;
-          `}
-        >
-          <ProductItem
-            className={styles.productItem}
-            title={`Enrolment app`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            learnMoreLink={'/enrolment'}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-          <ProductItem
-            className={styles.productItem}
-            title={`Usage`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-          <ProductItem
-            className={styles.productItem}
-            title={`Billing`}
-            description={`Define an hourly cost per CPU or GB of storage, the system will automatically connect to Freshbooks and send monthly invoices.`}
-            logoUrl={require('assets/logos/ego.png')}
-          />
-        </div>
-      </div>
-    );
-  }
-}
-
-const isScrollingDown = (previousPosition, currentPosition) =>
-  previousPosition < currentPosition;
-
-const ProductsSection = ({ tabIndex, setTabIndex }) => (
-  <WrapperStyled>
-    <Tabs
-      className={`react-tabs ${tabStyles.tabs}`}
-      selectedIndex={tabIndex}
-      onSelect={(index, lastIndex, event) => setTabIndex(index)}
-    >
-      <div className={tabStyles.tabListWrapper}>
-        <TabList>
-          <Tab>Operate</Tab>
-          <TabSeparator />
-          <Tab>Transfer &amp; Store</Tab>
-          <TabSeparator />
-          <Tab>Do Science</Tab>
-          <TabSeparator />
-          <Tab>Share</Tab>
-        </TabList>
-      </div>
-      <TabPanel />
-      <TabPanel />
-      <TabPanel />
-      <TabPanel />
-    </Tabs>
-    <Waypoint
-      onEnter={(previousPosition, currentPosition) => setTabIndex(0)}
-      bottomOffset={500}
-    >
-      <DummyContent id={`operate`} />
-    </Waypoint>
-
-    <Waypoint
-      onEnter={(previousPosition, currentPosition) => setTabIndex(1)}
-      bottomOffset={500}
-    >
-      <DummyContent id={`transfer`} />
-    </Waypoint>
-
-    <Waypoint
-      onEnter={(previousPosition, currentPosition) => setTabIndex(2)}
-      bottomOffset={500}
-    >
-      <DummyContent id={`science`} />
-    </Waypoint>
-
-    <Waypoint
-      onEnter={(previousPosition, currentPosition) => setTabIndex(3)}
-      bottomOffset={500}
-    >
-      <DummyContent id={`share`} />
-    </Waypoint>
-  </WrapperStyled>
-);
+          {tabs.map((tab, i) => <TabPanel key={i} />)}
+        </Tabs>
+        <TransitionGroup transitionMode="out-in">
+          {tabIndex >= 0 && (
+            <Content key={tabs[tabIndex].tabText} {...tabs[tabIndex]} />
+          )}
+        </TransitionGroup>
+      </WrapperStyled>
+      {tabs.map((tab, i, arr) => {
+        return (
+          <Waypoint
+            key={tab.tabText}
+            bottomOffset={i === 0 ? -500 : 0}
+            onEnter={(previousPosition, currentPosition) => setTabIndex(i)}
+          >
+            <div
+              style={
+                arr.length - 1 === i
+                  ? { height: '100vh' }
+                  : { height: 1, marginBottom: '101vh' }
+              }
+            />
+          </Waypoint>
+        );
+      })}
+    </div>
+  );
+};
 
 export default enhance(ProductsSection);
