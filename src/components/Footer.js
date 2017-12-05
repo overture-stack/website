@@ -53,8 +53,8 @@ const OicrLogo = () => (
   />
 );
 
-const NavLink = ({ link, children }) => (
-  <Link className={navItemStyles} to={link}>
+const NavLink = ({ to, children }) => (
+  <Link className={navItemStyles} to={to}>
     {children}
   </Link>
 );
@@ -67,7 +67,7 @@ export default () => (
       </ColumnStyled>
       <ColumnStyled>
         <NavHeadingStyled>About</NavHeadingStyled>
-        <NavLink>About ICGC</NavLink>
+        <NavLink to="">About ICGC</NavLink>
         <a
           className={navItemStyles}
           href={`mailto:dcc-support@oicr.on.ca`}

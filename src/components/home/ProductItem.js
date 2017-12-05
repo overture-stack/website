@@ -46,19 +46,23 @@ const LearnMore = ({ link }) => (
   </Link>
 );
 
-const ProductItem = ({
-  title,
-  className,
-  description,
-  learnMoreLink,
-  logoUrl,
-}) => (
-  <WrapperStyled className={className}>
-    <ProductHeaderStyled>{title}</ProductHeaderStyled>
-    <ProductDescriptionStyled>{description}</ProductDescriptionStyled>
-    {learnMoreLink && <LearnMore link={learnMoreLink} />}
-    <LogoStyled src={logoUrl} />
-  </WrapperStyled>
-);
-
+class ProductItem extends React.Component {
+  render() {
+    const {
+      title,
+      className,
+      description,
+      learnMoreLink,
+      logoUrl,
+    } = this.props;
+    return (
+      <WrapperStyled className={className}>
+        <ProductHeaderStyled>{title}</ProductHeaderStyled>
+        <ProductDescriptionStyled>{description}</ProductDescriptionStyled>
+        {learnMoreLink && <LearnMore link={learnMoreLink} />}
+        <LogoStyled src={logoUrl} />
+      </WrapperStyled>
+    );
+  }
+}
 export default ProductItem;

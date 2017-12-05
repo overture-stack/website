@@ -5,8 +5,8 @@ import colors from 'common/colors';
 import { container } from 'common/layout';
 
 import Header from 'components/Header';
-import AboutUs from './home/AboutUs';
-import ProductsSection from './home/ProductsSection';
+import AboutUs from 'components/home/AboutUs';
+import ProductsSection from 'components/home/ProductsSection';
 
 const HeroSectionStyled = styled(`div`)`
   position: relative;
