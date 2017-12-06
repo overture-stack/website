@@ -69,6 +69,7 @@ class Content extends React.Component {
         <div
           className={css`
             display: flex;
+            margin-top: 4em;
             margin-bottom: 4em;
             margin-bottom: 8vh;
           `}
@@ -78,6 +79,7 @@ class Content extends React.Component {
             className={css`
               width: 30em;
               line-height: 1.67;
+              font-size: 24px;
             `}
           >
             {description}

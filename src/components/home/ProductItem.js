@@ -29,19 +29,20 @@ const ProductHeaderStyled = styled(`div`)`
   background-image: linear-gradient(to right, #00a1d9, #47d9bf);
   color: #fff;
   font-weight: 300;
-  padding: 15px 17px;
+  font-size: 20px;
+  padding: 29px 34px;
 `;
 
 const ProductDescriptionStyled = styled(`div`)`
   line-height: 1.67;
-  margin: 16px;
-  font-size: 16px;
+  margin: 34px 34px 0;
+  font-size: 18px;
 `;
 
 const LearnMore = ({ link }) => (
   <Link
     className={css`
-      margin: 16px;
+      margin-top: 1em;
       color: ${colors.blueLight};
       &:not(:hover) {
         text-decoration: none;
@@ -70,7 +71,8 @@ class ProductItem extends React.Component {
           className={css`
             display: flex;
             flex-direction: column;
-            @media (max-height: 700px) {
+            margin: 0 34px;
+            @media (max-height: 800px) {
               flex-direction: row;
               align-items: center;
               justify-content: space-between;

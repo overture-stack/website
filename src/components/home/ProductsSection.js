@@ -20,14 +20,16 @@ const tabStyles = {
     }
     .react-tabs__tab {
       margin-bottom: 0;
-      padding: 0.5em 2em;
+      padding: 0.8em 2em;
       border-top-right-radius: 2.5px;
       border-top-left-radius: 2.5px;
       transition: 0.1s background-color;
       &:not(.react-tabs__tab--selected) {
         cursor: pointer;
         &:hover {
-          background-color: rgba(255, 255, 255, 0.3);
+          span {
+            border-bottom: 3px solid ${colors.blueDark};
+          }
         }
       }
     }
@@ -41,6 +43,7 @@ const tabStyles = {
   tabListWrapper: css`
     background-color: ${colors.green};
     padding-top: 6px;
+    font-size: 20px;
   `,
 };
 
@@ -90,7 +93,11 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
                 if (i > 0) {
                   acc.push(<TabSeparator key={i} />);
                 }
-                acc.push(<Tab key={tab.tabText}>{tab.tabText}</Tab>);
+                acc.push(
+                  <Tab key={tab.tabText}>
+                    <span>{tab.tabText}</span>
+                  </Tab>,
+                );
                 return acc;
               }, [])}
             </TabList>
