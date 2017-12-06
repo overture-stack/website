@@ -2,6 +2,7 @@ import React from 'react';
 
 export default [
   {
+    key: 'operate',
     tabText: 'Operate',
     description: `
       Clouds can be costly to setup and operate, our tools facilitates
@@ -35,6 +36,7 @@ export default [
     ],
   },
   {
+    key: 'transfer',
     tabText: <span>Transfer &amp; Store</span>,
     description: `
       Clouds can be costly to setup and operate, our tools facilitates
@@ -68,6 +70,7 @@ export default [
     ],
   },
   {
+    key: 'science',
     tabText: 'Do Science',
     description: `
       Clouds can be costly to setup and operate, our tools facilitates
@@ -101,6 +104,7 @@ export default [
     ],
   },
   {
+    key: 'share',
     tabText: 'Share',
     description: `
       Clouds can be costly to setup and operate, our tools facilitates

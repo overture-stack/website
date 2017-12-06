@@ -109,14 +109,14 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
           style={{ position: 'relative', flexGrow: 1 }}
         >
           {tabIndex >= 0 && (
-            <Content key={tabs[tabIndex].tabText} {...tabs[tabIndex]} />
+            <Content key={tabs[tabIndex].key} {...tabs[tabIndex]} />
           )}
         </TransitionGroup>
       </WrapperStyled>
       {tabs.map((tab, i, arr) => {
         return (
           <Waypoint
-            key={tab.tabText}
+            key={tab.key}
             bottomOffset={i === 0 ? -500 : 0}
             onEnter={(previousPosition, currentPosition) => setTabIndex(i)}
           >
