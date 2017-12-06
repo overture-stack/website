@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1366" height="622" viewBox="0 0 1366 622">
+  <defs>
+    <linearGradient id="product-splash-bg-a" x1="71.749%" x2="50.742%" y1="-13.584%" y2="68.778%">
+      <stop offset="0%" stop-color="#47D9BF"/>
+      <stop offset="100%" stop-color="#00A1D9"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#product-splash-bg-a)" fill-rule="evenodd" d="M0,85 L1366,85 L1366,327.414372 C1256.17638,409.119864 1095.05835,478.86216 882.64591,536.641257 C653.153987,599.06621 358.938684,655.852457 0,707 L0,85 Z" transform="translate(0 -85)"/>
+</svg>
