@@ -9,6 +9,7 @@ import Header from 'components/Header';
 import KeyPoint from 'components/product/KeyPoint';
 import SecondaryPoint from 'components/product/SecondaryPoint';
 import GetStarted from 'components/GetStarted';
+import StorageSystem from '../components/StorageSystem';
 
 const Song = () => (
   <React.Fragment>
@@ -191,6 +192,7 @@ const Song = () => (
         />
       </div>
     </div>
+    <StorageSystem />
     <GetStarted />
   </React.Fragment>
 );
