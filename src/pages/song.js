@@ -146,6 +146,7 @@ const Song = () => (
               &:nth-child(2n - 1) {
                 justify-content: flex-end;
                 .secondary-point__wrapper {
+                  padding-left: 25px;
                   width: ${containerMaxWidth / 2}px;
                 }
               }
