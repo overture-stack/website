@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled, { css } from 'react-emotion';
 
+import { containerMaxWidth } from 'common/dimensions';
 import { container, slimContainer } from 'common/layout';
 import colors from 'common/colors';
 import Header from 'components/Header';
@@ -93,7 +94,7 @@ const Song = () => (
     </div>
     <div
       className={
-        `key-points` +
+        `key-points ` +
         css`
           ${container};
           display: flex;
@@ -122,6 +123,52 @@ const Song = () => (
         title={`Accurate and Efficient`}
         body={`Specifically designed to track genome data, SONG tracks and validates your submissions.`}
       />
+    </div>
+    <div className={`secondary-points ` + css``}>
+      <div
+        className={css`
+          display: flex;
+          flex-wrap: wrap;
+          .secondary-point {
+            flex-basis: 50%;
+            background-color: ${colors.greyLighter};
+            margin-top: 2px;
+            padding-top: 74px;
+            padding-bottom: 74px;
+            display: flex;
+            &:nth-child(2n - 1) {
+              justify-content: flex-end;
+              .secondary-point__wrapper {
+                width: ${containerMaxWidth / 2 - 42}px;
+              }
+            }
+            &:nth-child(2n) {
+              padding-left: 100px;
+              border-left: 2px solid #fff;
+            }
+          }
+          .secondary-point__body {
+            max-width: 22em;
+          }
+        `}
+      >
+        <SecondaryPoint
+          title={`It's fast`}
+          body={`Allows asynchronous uploads, so that invalid uploads don't stop valid ones from going through. Processes submissions with billions of entities in __ hours. `}
+        />
+        <SecondaryPoint
+          title={`Turn-key solution`}
+          body={`Uses industry standard technologies, like JSON, YAML, and REST, so you don't have to learn anything new or difficult to use SONG.`}
+        />
+        <SecondaryPoint
+          title={`Tracks and validate`}
+          body={`Automatically validates your metadata submissions against a JSON schema to ensure that all your metadata is correct before it gets published.`}
+        />
+        <SecondaryPoint
+          title={`Connected metadata`}
+          body={`Supports ACLs out of the box, so you control who and how your metadata gets published.  Easy to keep track of  which researcher updated which data set, and when.`}
+        />
+      </div>
     </div>
   </React.Fragment>
 );
