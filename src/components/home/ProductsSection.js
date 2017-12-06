@@ -3,7 +3,6 @@ import { compose, withState } from 'recompose';
 import colors from 'common/colors';
 import { container } from 'common/layout';
 import styled, { css } from 'react-emotion';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Waypoint from 'react-waypoint';
 import TransitionGroup from 'react-transition-group-plus';
 import Content from 'components/Content';
@@ -11,20 +10,22 @@ import tabs from 'common/tabs';
 
 const tabStyles = {
   tabs: css`
-    .react-tabs__tab-list {
+    background-color: ${colors.green};
+    padding-top: 6px;
+    .tab-list {
       ${container};
       list-style-type: none;
       display: flex;
       margin-bottom: 0;
       justify-content: space-between;
     }
-    .react-tabs__tab {
+    .tab {
       margin-bottom: 0;
       padding: 0.8em 2em;
       border-top-right-radius: 2.5px;
       border-top-left-radius: 2.5px;
       transition: 0.1s background-color;
-      &:not(.react-tabs__tab--selected) {
+      &:not(.active) {
         cursor: pointer;
         &:hover {
           span {
@@ -32,18 +33,10 @@ const tabStyles = {
           }
         }
       }
+      &.active {
+        background-color: #fff;
+      }
     }
-    .react-tabs__tab--selected {
-      background-color: #fff;
-    }
-    .react-tabs__tab-panel {
-      ${container};
-    }
-  `,
-  tabListWrapper: css`
-    background-color: ${colors.green};
-    padding-top: 6px;
-    font-size: 20px;
   `,
 };
 
@@ -55,15 +48,6 @@ const WrapperStyled = styled(`div`)`
   max-height: 900px;
   display: flex;
   flex-direction: column;
-`;
-
-const TabSeparatorStyled = styled(`div`)`
-  &::after {
-    content: '';
-    display: block;
-    width: 10px;
-    background-image: url(${require('assets/glyph-arrow.svg')});
-  }
 `;
 
 const TabSeparator = () => (
@@ -82,45 +66,48 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
   return (
     <div>
       <WrapperStyled>
-        <Tabs
-          className={`react-tabs ${tabStyles.tabs}`}
-          selectedIndex={tabIndex}
-          onSelect={(index, lastIndex, event) => setTabIndex(index)}
-        >
-          <div className={tabStyles.tabListWrapper}>
-            <TabList>
-              {tabs.reduce((acc, tab, i) => {
-                if (i > 0) {
-                  acc.push(<TabSeparator key={i} />);
-                }
-                acc.push(
-                  <Tab key={tab.tabText}>
-                    <span>{tab.tabText}</span>
-                  </Tab>,
-                );
-                return acc;
-              }, [])}
-            </TabList>
+        <div className={`${tabStyles.tabs}`}>
+          <div className="tab-list">
+            {tabs.reduce((acc, tab, i) => {
+              if (i > 0) {
+                acc.push(<TabSeparator key={i} />);
+              }
+              acc.push(
+                <div
+                  key={tab.key}
+                  className={`tab ${tabIndex === i ? 'active' : ''}`}
+                  onClick={() =>
+                    document
+                      .querySelector(`.waypoint.${tab.key}`)
+                      .scrollIntoView()
+                  }
+                >
+                  {tab.tabText}
+                </div>,
+              );
+              return acc;
+            }, [])}
           </div>
-          {tabs.map((tab, i) => <TabPanel key={i} />)}
-        </Tabs>
+        </div>
         <TransitionGroup
           transitionMode="out-in"
           style={{ position: 'relative', flexGrow: 1 }}
         >
           {tabIndex >= 0 && (
-            <Content key={tabs[tabIndex].tabText} {...tabs[tabIndex]} />
+            <Content key={tabs[tabIndex].key} {...tabs[tabIndex]} />
           )}
         </TransitionGroup>
       </WrapperStyled>
       {tabs.map((tab, i, arr) => {
         return (
           <Waypoint
-            key={tab.tabText}
+            key={tab.key}
             bottomOffset={i === 0 ? -500 : 0}
             onEnter={(previousPosition, currentPosition) => setTabIndex(i)}
+            fireOnRapidScroll={false}
           >
             <div
+              className={`waypoint ${tab.key}`}
               style={
                 arr.length - 1 === i
                   ? { height: '100vh' }

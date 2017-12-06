@@ -15,7 +15,6 @@
     "gatsby-plugin-resolve-src": "^1.0.0",
     "gsap": "^1.20.3",
     "react-emotion": "^8.0.12",
-    "react-tabs": "^2.1.1",
     "react-transition-group-plus": "^0.5.2",
     "react-waypoint": "^7.3.1",
     "recompose": "^0.26.0",
