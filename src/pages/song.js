@@ -8,6 +8,7 @@ import colors from 'common/colors';
 import Header from 'components/Header';
 import KeyPoint from 'components/product/KeyPoint';
 import SecondaryPoint from 'components/product/SecondaryPoint';
+import GetStarted from 'components/GetStarted';
 
 const Song = () => (
   <React.Fragment>
@@ -190,6 +191,7 @@ const Song = () => (
         />
       </div>
     </div>
+    <GetStarted />
   </React.Fragment>
 );
 
