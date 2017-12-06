@@ -49,7 +49,6 @@ class BoxyImage extends React.Component {
         viewBox="0 0 224 187"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        ref={el => (this.el = el)}
         {...props}
       >
         <defs>
@@ -116,7 +115,11 @@ class BoxyImage extends React.Component {
                   />
                 </g>
               </g>
-              <g id="about-box" transform="translate(32)">
+              <g
+                id="about-box"
+                transform="translate(32)"
+                ref={el => (this.el = el)}
+              >
                 <path
                   id="Fill-1"
                   fill="#FEFEFE"
