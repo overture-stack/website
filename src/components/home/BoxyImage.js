@@ -4,14 +4,22 @@ import { TweenMax as Tween } from 'gsap';
 class BoxyImage extends React.Component {
   tween = null;
   startAnimating() {
-    this.tween = Tween.to(this.el, 1, {
+    const delay = 0.5;
+
+    Tween.to(this.el, 1, {
+      delay,
       opacity: 1,
+      ease: Linear.easeNone,
+    });
+
+    this.tween = Tween.to(this.el, 0.8, {
+      delay,
       y: 0,
-      ease: Sine.easeOut,
+      ease: Circ.easeOut,
       onComplete: () => {
         this.tween = Tween.to(this.el, 2, {
           ease: Sine.easeInOut,
-          y: 10,
+          y: 7,
           repeat: -1,
           yoyo: true,
         });
@@ -27,7 +35,7 @@ class BoxyImage extends React.Component {
   componentDidMount() {
     Tween.set(this.el, {
       opacity: 0,
-      y: 20,
+      y: 26,
     });
   }
   componentWillUnmount() {
