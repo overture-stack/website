@@ -130,25 +130,44 @@ const Song = () => (
           display: flex;
           flex-wrap: wrap;
           .secondary-point {
-            flex-basis: 50%;
             background-color: ${colors.greyLighter};
-            margin-top: 2px;
             padding-top: 74px;
             padding-bottom: 74px;
             display: flex;
-            &:nth-child(2n - 1) {
-              justify-content: flex-end;
-              .secondary-point__wrapper {
-                width: ${containerMaxWidth / 2 - 42}px;
+            padding-left: 42px;
+            padding-right: 42px;
+            flex-grow: 1;
+          }
+
+          @media (min-width: 1160px) {
+            flex-basis: 50%;
+            .secondary-point {
+              margin-top: 2px;
+              &:nth-child(2n - 1) {
+                justify-content: flex-end;
+                .secondary-point__wrapper {
+                  width: ${containerMaxWidth / 2}px;
+                }
+              }
+              &:nth-child(2n) {
+                padding-left: 100px;
+                border-left: 2px solid #fff;
               }
             }
-            &:nth-child(2n) {
-              padding-left: 100px;
-              border-left: 2px solid #fff;
+            .secondary-point__body {
+              max-width: 22em;
             }
           }
-          .secondary-point__body {
-            max-width: 22em;
+
+          @media (max-width: 1160px) {
+            .secondary-point {
+              &:not(:first-child) {
+                padding-top: 34px;
+              }
+              &:not(:last-child) {
+                padding-bottom: 34px;
+              }
+            }
           }
         `}
       >
