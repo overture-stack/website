@@ -50,6 +50,8 @@ const WrapperStyled = styled(`div`)`
   top: -1px;
   height: 100vh;
   max-height: 900px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TabSeparatorStyled = styled(`div`)`
@@ -95,7 +97,10 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
           </div>
           {tabs.map((tab, i) => <TabPanel key={i} />)}
         </Tabs>
-        <TransitionGroup transitionMode="out-in">
+        <TransitionGroup
+          transitionMode="out-in"
+          style={{ position: 'relative', flexGrow: 1 }}
+        >
           {tabIndex >= 0 && (
             <Content key={tabs[tabIndex].tabText} {...tabs[tabIndex]} />
           )}
