@@ -1,8 +1,8 @@
 import styled, { css } from 'react-emotion';
-import { large, medium, small } from 'common/dimensions';
+import { large, medium, small, containerMaxWidth } from 'common/dimensions';
 
 export const container = css`
-  max-width: 1160px;
+  max-width: ${containerMaxWidth}px;
   margin-left: auto;
   margin-right: auto;
   @media (max-width: ${medium}px) {
