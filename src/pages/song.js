@@ -16,11 +16,27 @@ const Song = () => (
         color: #fff;
       `}
     >
-      <div>Song</div>
+      <div
+        className={css`
+          font-size: 56px;
+          font-weight: 700;
+          line-height: 1.25;
+          text-align: center;
+          padding-top: 80px;
+          padding-bottom: 50px;
+        `}
+      >
+        Song
+      </div>
       <p
         className={css`
           font-size: 30px;
           font-weight: 300;
+          line-height: 1.23;
+          text-align: center;
+          max-width: 22em;
+          margin-left: auto;
+          margin-right: auto;
         `}
       >
         Quickly and reliably track genome data scattered across multiple Cloud
