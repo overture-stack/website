@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'react-emotion';
-import GetStartedButton from './GetStartedButton';
+import GetStartedButton from 'components/GetStartedButton';
 
 const GetStarted = () => {
   return (

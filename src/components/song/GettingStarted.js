@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from 'react-emotion';
-import { container } from '../common/layout';
 import Link from 'gatsby-link';
-import GetStartedButton from './GetStartedButton';
+
+import { container } from 'common/layout';
+import GetStartedButton from 'components/GetStartedButton';
 
 const Line = () => (
   <div
@@ -44,24 +45,22 @@ const styled = {
 
 const Step = ({ num, text, right, align }) => {
   return (
-    <div>
+    <React.Fragment>
       <div>
-        <div>
-          <div css={styled.stepNumber}>{num}</div>
-          <div
-            css={`
+        <div css={styled.stepNumber}>{num}</div>
+        <div
+          css={`
               display: flex;
               justify-content: space-between;
               align-items: ${align};
             `}
-          >
-            <div css={styled.stepText}>{text}</div>
-            {right}
-          </div>
+        >
+          <div css={styled.stepText}>{text}</div>
+          {right}
         </div>
       </div>
       <Line />
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -81,7 +80,7 @@ const GettingStarted = () => {
         right={
           <img
             css={`margin-top: -28px; max-width: 694px;`}
-            src={require('../assets/step2.png')}
+            src={require('assets/step2.png')}
           />
         }
         align="flex-start"
@@ -92,7 +91,7 @@ const GettingStarted = () => {
         right={
           <img
             css={`margin-top: -28px; max-width: 694px;`}
-            src={require('../assets/step3.png')}
+            src={require('assets/step3.png')}
           />
         }
         align="flex-start"
