@@ -40,17 +40,7 @@ export default [
         Transferring and storing petabytes of data is challenging! Our
         high-performance tools, optimized for genomic data processing, offer a
         secure and fast framework for transferring large data sets from public
-        and private cloud providers like AWS, Azure, and OpenStack.<br />
-        Some input for the paragraph (doesn’t mean all need to be there):
-        <ul>
-          <li>Secure</li>
-          <li>High performance</li>
-          <li>Large-scale</li>
-          <li>Business-specific logic (BAM slicing)</li>
-          <li>
-            Cloud-agnostic / multiple providers (such as AWS, Azure, OpenStack…)
-          </li>
-        </ul>
+        and private cloud providers like AWS, Azure, and OpenStack.
       </span>
     ),
     icon: require('components/home/images/transfer.svg'),
@@ -86,12 +76,7 @@ export default [
         You’re all set up operationally and you’ve gathered your data. It’s time
         to put on your lab coat, grab a keyboard, and do some science! Our
         workflow and analytics tools make working on large datasets easier than
-        ever.<br />Some input for the paragraph (doesn’t mean all need to be
-        there):
-        <ul>
-          <li>Workflows</li>
-          <li>Analytics on the data</li>
-        </ul>
+        ever.
       </span>
     ),
     icon: require('components/home/images/science.svg'),
@@ -114,11 +99,7 @@ export default [
         growing size of genomic data often makes sharing complicated. Whether
         it’s an entire data portal or a comprehensive library for
         visualizations, our tools are specifically developed to make sharing
-        your data and analytics a breeze!<br />Some input for the paragraph
-        (doesn’t mean all need to be there):
-        <ul>
-          <li>Make data available, through visualization or data portals</li>
-        </ul>
+        your data and analytics a breeze!
       </span>
     ),
     icon: require('components/home/images/share.svg'),

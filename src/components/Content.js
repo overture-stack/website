@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled, { css } from 'react-emotion';
 import { TweenMax as Tween } from 'gsap';
 
-import { container } from 'common/layout';
+import { container, smallHeight } from 'common/layout';
 import ProductItem from 'components/home/ProductItem';
 
 const styles = {
@@ -76,9 +76,27 @@ class Content extends React.Component {
           <div
             ref={el => (this.order[0] = el)}
             className={css`
-              width: 32em;
+              margin-right: 2em;
               line-height: 1.67;
               font-size: 24px;
+              ul {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 0;
+                margin-top: 0.4em;
+                margin-left: 1em;
+                line-height: 1.2;
+              }
+              ul li {
+                width: 50%;
+              }
+              ul li:last-child {
+                margin-bottom: 0;
+                flex-grow: 1;
+              }
+              @media (max-height: ${smallHeight}px) {
+                font-size: 20px;
+              }
             `}
           >
             {description}
@@ -89,6 +107,7 @@ class Content extends React.Component {
               margin-left: auto;
               margin-right: 5%;
               height: 120px;
+              flex: none;
             `}
             src={icon}
           />

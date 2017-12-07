@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import colors from 'common/colors';
 import styled, { css } from 'react-emotion';
+import { smallHeight } from 'common/dimensions';
 
 const WrapperStyled = styled(`div`)`
   color: ${colors.blueDark};
@@ -18,8 +19,10 @@ const LogoStyled = styled(`img`)`
   width: 40%;
   align-self: flex-end;
   margin-top: auto;
-  @media (max-height: 700px) {
+  margin-bottom: 0;
+  @media (max-height: ${smallHeight}px) {
     width: 30%;
+    margin-top: 0;
   }
 `;
 
@@ -35,7 +38,7 @@ const ProductHeaderStyled = styled(`div`)`
 
 const ProductDescriptionStyled = styled(`div`)`
   line-height: 1.67;
-  margin: 34px 34px 0;
+  margin: 32px 34px 0;
   font-size: 18px;
 `;
 
@@ -46,6 +49,9 @@ const LearnMore = ({ link }) => (
       color: ${colors.blueLight};
       &:not(:hover) {
         text-decoration: none;
+      }
+      @media (max-height: ${smallHeight}px) {
+        margin-top: 0;
       }
     `}
     to={link}
@@ -71,11 +77,14 @@ class ProductItem extends React.Component {
           className={css`
             display: flex;
             flex-direction: column;
-            margin: auto 34px 0;
-            @media (max-height: 800px) {
+            margin: 0 34px 0;
+            height: 100%;
+            @media (max-height: ${smallHeight}px) {
+              margin-top: auto;
               flex-direction: row;
               align-items: center;
               justify-content: space-between;
+              height: auto;
             }
           `}
         >
