@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { css } from 'react-emotion';
+import Link from 'gatsby-link';
+
 import { green } from 'common/colors';
 import ButtonStyled from './ButtonStyled';
 import ButtonPrimaryStyled from './ButtonPrimaryStyled';
@@ -29,7 +31,9 @@ const greenBg = css`
 
 export default () => (
   <HeaderStyled>
-    <LogoStyled src={require('assets/logo-small.png')} />
+    <Link to="/">
+      <LogoStyled src={require('assets/logo-small.png')} />
+    </Link>
     <NavItemStyled
       className={css`
         margin-left: auto;

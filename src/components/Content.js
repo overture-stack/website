@@ -8,7 +8,11 @@ import ProductItem from 'components/home/ProductItem';
 
 const styles = {
   productItem: css`
-    width: calc((100% - 100px) / 3);
+    width: 33%;
+    margin-right: 50px;
+    &:last-child {
+      margin-right: 0;
+    }
   `,
 };
 
@@ -117,7 +121,7 @@ class Content extends React.Component {
             display: flex;
             margin: 4em 0 0 0;
             margin-top: 8vh;
-            justify-content: space-between;
+            justify-content: center;
           `}
         >
           {cards.map((card, i) => {
