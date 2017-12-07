@@ -66,7 +66,7 @@ const TextWrapperStyled = styled(`div`)`
 
 const IndexPage = () => (
   <React.Fragment>
-    <Header />
+    <Header aboutUs />
     <HeroSectionStyled>
       <HeroIllustrationStyled />
       <TextWrapperStyled>

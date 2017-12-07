@@ -1,5 +1,8 @@
 import React from 'react';
 import { css } from 'react-emotion';
+// import ButtonStyled from './ButtonStyled';
+// import ButtonPrimaryStyled from './ButtonPrimaryStyled';
+// <ButtonPrimaryStyled className={greenBg}>Get Started</ButtonPrimaryStyled>
 
 export default () => {
   return (
@@ -15,7 +18,9 @@ export default () => {
         color: #ffffff;
         border: none;
         padding: 9px 32px;
+        cursor: pointer;
       `}
+      onClick={() => window.open('https://github.com/overture-stack')}
     >
       Get Started
     </button>

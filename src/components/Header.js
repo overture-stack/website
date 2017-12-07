@@ -3,8 +3,7 @@ import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 
 import { green } from 'common/colors';
-import ButtonStyled from './ButtonStyled';
-import ButtonPrimaryStyled from './ButtonPrimaryStyled';
+import GetStartedButton from './GetStartedButton';
 
 const HeaderStyled = styled('div')`
   background: #fff;
@@ -19,7 +18,14 @@ const LogoStyled = styled('img')`
   width: 40px;
   height: auto;
 `;
-const NavItemStyled = styled(ButtonStyled)`
+const AnchorStyled = styled('a')`
+  display: inline-flex;
+  padding: 13px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #004773;
   &:hover {
     text-decoration: underline;
   }
@@ -29,18 +35,17 @@ const greenBg = css`
   background-color: ${green};
 `;
 
-export default () => (
+export default ({ aboutUs }) => (
   <HeaderStyled>
-    <Link to="/">
-      <LogoStyled src={require('assets/logo-small.png')} />
-    </Link>
-    <NavItemStyled
+    <Link
+      to="/"
       className={css`
-        margin-left: auto;
+        margin-right: auto;
       `}
     >
-      About Us
-    </NavItemStyled>
-    <ButtonPrimaryStyled className={greenBg}>Get Started</ButtonPrimaryStyled>
+      <LogoStyled src={require('assets/logo-small.png')} />
+    </Link>
+    {aboutUs && <AnchorStyled href="#about-us">About Us</AnchorStyled>}
+    <GetStartedButton />
   </HeaderStyled>
 );

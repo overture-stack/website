@@ -11,7 +11,7 @@ import BoxyImage from './BoxyImage';
 const Illustration = withState('shouldAnimate', 'setShouldAnimate', false)(
   ({ shouldAnimate, setShouldAnimate }) => (
     <Waypoint onEnter={() => !shouldAnimate && setShouldAnimate(true)}>
-      <div>
+      <a name="about-us">
         <BoxyImage
           className={css`
             position: absolute;
@@ -24,7 +24,7 @@ const Illustration = withState('shouldAnimate', 'setShouldAnimate', false)(
           `}
           shouldAnimate={shouldAnimate}
         />
-      </div>
+      </a>
     </Waypoint>
   ),
 );

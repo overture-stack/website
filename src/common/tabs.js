@@ -13,22 +13,22 @@ export default [
         title: 'Enrolment',
         description:
           'Easily apply to onboard new Collaboratory projects and users into any cloud infrastructure and manage your current projects.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/enrolment',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/enrolment',
       },
       {
         title: 'Usage',
         description:
           'Let your OpenStack users track and monitor their resource usage, including things like compute & storage, over time.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/usage',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/usage',
       },
       {
         title: 'Billing',
         description:
           'Connect OpenStack usage data directly to Freshbooks to help automate invoicing for OpenStack infrastructure costs.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/billing',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/billing',
       },
     ],
   },
@@ -47,14 +47,14 @@ export default [
         title: 'SCORe',
         description:
           'SCORe provides fast and secure access to the Controlled Data in your Object Storage buckets using parallel multi-part uploads and downloads.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/score',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/score',
       },
       {
         title: 'SONG',
         description:
           'Validate metadata completeness, track files across multiple clouds, and publish raw data submissions all in an easy to adopt command line or REST API.  ',
-        logoUrl: require('assets/logos/ego.png'),
+        // logoUrl: require('assets/logos/ego.png'),
         learnMoreLink: '/song',
       },
     ],
@@ -74,15 +74,15 @@ export default [
         title: 'Jupyter',
         description:
           'Ready to crunch some data but don’t have space?  Spin up a shareable notebook on our servers, complete with live access to ICGC data, in seconds. ',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/jupyter',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/jupyter',
       },
       {
         title: 'OncoJS',
         description:
           'Bring beautiful images to your analytics with a library of javascript visualizations build especially for cancer analytics. ',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/oncojs',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/oncojs',
       },
     ],
   },
@@ -102,15 +102,15 @@ export default [
         title: 'Ego',
         description:
           'Need a scalable, stateless Authorization service that works with multiple Identity Providers? Provide Single Sign-On in microservices by letting Ego manage authorization  through popular IdPs like Facebook, Google, and Github.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/ego',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/ego',
       },
       {
         title: 'Persona',
         description:
           'Let your users build a personalized profile with highly configurable, schemaless profile metadata management. ',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/persona',
+        // logoUrl: require('assets/logos/ego.png'),
+        // learnMoreLink: '/persona',
       },
     ],
   },

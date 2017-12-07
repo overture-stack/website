@@ -3,9 +3,7 @@ import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 import colors from 'common/colors';
 import { container } from 'common/layout';
-
-import ButtonStyled from './ButtonStyled';
-import ButtonPrimaryStyled from './ButtonPrimaryStyled';
+import tabs from '../common/tabs';
 
 const WrapperStyled = styled('div')`
   border-top: 1px solid #ddd;
@@ -40,12 +38,9 @@ const navItemStyles = css`
   }
 `;
 
-const NavItemStyled = styled(`div`)`
-  ${navItemStyles};
-`;
-
 const OicrLogo = () => (
   <img
+    alt=""
     className={css`
       width: 70%;
     `}
@@ -53,11 +48,14 @@ const OicrLogo = () => (
   />
 );
 
-const NavLink = ({ to, children }) => (
-  <Link className={navItemStyles} to={to}>
-    {children}
-  </Link>
-);
+const NavLink = ({ to, children }) =>
+  to ? (
+    <Link className={navItemStyles} to={to}>
+      {children}
+    </Link>
+  ) : (
+    <div className={navItemStyles}>{children}</div>
+  );
 
 export default () => (
   <WrapperStyled>
@@ -76,28 +74,17 @@ export default () => (
           Contact
         </a>
       </ColumnStyled>
-      <ColumnStyled>
-        <NavHeadingStyled>Operate</NavHeadingStyled>
-        <NavItemStyled>Enrolment app</NavItemStyled>
-        <NavItemStyled>Usage</NavItemStyled>
-        <NavItemStyled>Billing</NavItemStyled>
-      </ColumnStyled>
-      <ColumnStyled>
-        <NavHeadingStyled>Transfer & Store</NavHeadingStyled>
-        <NavItemStyled>Song</NavItemStyled>
-        <NavItemStyled>Score</NavItemStyled>
-        <NavItemStyled>Ego</NavItemStyled>
-      </ColumnStyled>
-      <ColumnStyled>
-        <NavHeadingStyled>Do science</NavHeadingStyled>
-        <NavItemStyled>ICGC</NavItemStyled>
-        <NavItemStyled>Component 2</NavItemStyled>
-      </ColumnStyled>
-      <ColumnStyled>
-        <NavHeadingStyled>Share</NavHeadingStyled>
-        <NavItemStyled>OncoJS</NavItemStyled>
-        <NavItemStyled>Component 2</NavItemStyled>
-      </ColumnStyled>
+
+      {tabs.map(tab => {
+        return (
+          <ColumnStyled key={tab.key}>
+            <NavHeadingStyled>{tab.tabText}</NavHeadingStyled>
+            {tab.cards.map(card => {
+              return <NavLink to={card.learnMoreLink}>{card.title}</NavLink>;
+            })}
+          </ColumnStyled>
+        );
+      })}
     </FooterRowStyled>
   </WrapperStyled>
 );

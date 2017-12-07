@@ -77,7 +77,7 @@ class ProductItem extends React.Component {
           className={css`
             display: flex;
             flex-direction: column;
-            margin: 0 34px 0;
+            margin: 0 34px 32px;
             height: 100%;
             @media (max-height: ${smallHeight}px) {
               margin-top: auto;
@@ -89,7 +89,7 @@ class ProductItem extends React.Component {
           `}
         >
           {learnMoreLink && <LearnMore link={learnMoreLink} />}
-          <LogoStyled src={logoUrl} />
+          {logoUrl && <LogoStyled src={logoUrl} />}
         </div>
       </WrapperStyled>
     );
