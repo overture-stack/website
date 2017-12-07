@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, { css } from 'react-emotion';
+import { css } from 'react-emotion';
 import { TweenMax as Tween } from 'gsap';
 
-import { container, smallHeight } from 'common/layout';
+import { container } from 'common/layout';
 import ProductItem from 'components/home/ProductItem';
+import { smallHeight, medium } from 'common/dimensions';
 
 const styles = {
   productItem: css`
-    width: 33%;
+    width: 100%;
+    max-width: 400px;
     margin-right: 50px;
+    @media (max-width: ${medium}px) {
+      margin-right: 20px;
+    }
     &:last-child {
       margin-right: 0;
     }
@@ -55,7 +60,7 @@ class Content extends React.Component {
   }
 
   render() {
-    const { id, description, cards, icon } = this.props;
+    const { description, cards, icon } = this.props;
 
     return (
       <div
@@ -107,6 +112,7 @@ class Content extends React.Component {
           </div>
           <img
             ref={el => (this.order[1] = el)}
+            alt=""
             className={css`
               margin-left: auto;
               margin-right: 5%;
