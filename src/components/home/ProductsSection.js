@@ -45,7 +45,6 @@ const WrapperStyled = styled(`div`)`
   position: sticky;
   top: -1px;
   height: 100vh;
-  max-height: 900px;
   display: flex;
   flex-direction: column;
 `;

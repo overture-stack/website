@@ -69,15 +69,14 @@ class Content extends React.Component {
         <div
           className={css`
             display: flex;
-            margin-top: 4em;
-            margin-bottom: 4em;
+            margin: 0 0 0 4em;
             margin-bottom: 8vh;
           `}
         >
           <div
             ref={el => (this.order[0] = el)}
             className={css`
-              width: 30em;
+              width: 32em;
               line-height: 1.67;
               font-size: 24px;
             `}
@@ -97,7 +96,7 @@ class Content extends React.Component {
         <div
           className={css`
             display: flex;
-            margin-top: 4em;
+            margin: 4em 0 0 0;
             margin-top: 8vh;
             justify-content: space-between;
           `}

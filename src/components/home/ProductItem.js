@@ -71,7 +71,7 @@ class ProductItem extends React.Component {
           className={css`
             display: flex;
             flex-direction: column;
-            margin: 0 34px;
+            margin: auto 34px 0;
             @media (max-height: 800px) {
               flex-direction: row;
               align-items: center;
