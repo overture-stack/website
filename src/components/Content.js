@@ -64,45 +64,31 @@ class Content extends React.Component {
 
     return (
       <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          right: 0,
-          transform: 'translateY(-50%)',
-        }}
         className={css`
           ${container};
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translateY(-50%);
         `}
       >
         <div
           className={css`
             display: flex;
-            margin: 0 0 0 4em;
+            margin: 0;
             margin-bottom: 8vh;
+            justify-content: space-between;
           `}
         >
           <div
             ref={el => (this.order[0] = el)}
             className={css`
-              margin-right: 2em;
+              margin-right: 20px;
+              margin-right: 8vw;
+              max-width: 1000px;
               line-height: 1.67;
               font-size: 24px;
-              ul {
-                display: flex;
-                flex-wrap: wrap;
-                margin-bottom: 0;
-                margin-top: 0.4em;
-                margin-left: 1em;
-                line-height: 1.2;
-              }
-              ul li {
-                width: 50%;
-              }
-              ul li:last-child {
-                margin-bottom: 0;
-                flex-grow: 1;
-              }
               @media (max-height: ${smallHeight}px) {
                 font-size: 20px;
               }
@@ -114,8 +100,6 @@ class Content extends React.Component {
             ref={el => (this.order[1] = el)}
             alt=""
             className={css`
-              margin-left: auto;
-              margin-right: 5%;
               height: 120px;
               flex: none;
             `}

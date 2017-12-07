@@ -1,5 +1,5 @@
-import styled, { css } from 'react-emotion';
-import { large, medium, small, containerMaxWidth } from 'common/dimensions';
+import { css } from 'react-emotion';
+import { medium, containerMaxWidth } from 'common/dimensions';
 
 export const container = css`
   max-width: ${containerMaxWidth}px;

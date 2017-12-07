@@ -35,23 +35,14 @@ export default [
   {
     key: 'transfer',
     tabText: <span>Transfer &amp; Store</span>,
-    description: (
-      <span>
-        Transferring and storing petabytes of data is challenging! Our
-        high-performance tools, optimized for genomic data processing, offer a
-        secure and fast framework for transferring large data sets from public
-        and private cloud providers like AWS, Azure, and OpenStack.
-      </span>
-    ),
+    description: `
+      Transferring and storing petabytes of data is challenging! Our
+      high-performance tools, optimized for genomic data processing, offer a
+      secure and fast framework for transferring large data sets from public
+      and private cloud providers like AWS, Azure, and OpenStack.
+    `,
     icon: require('components/home/images/transfer.svg'),
     cards: [
-      {
-        title: 'Ego',
-        description:
-          'Need a scalable, stateless Authorization service that works with multiple Identity Providers? Provide Single Sign-On in microservices by letting Ego manage authorization  through popular IdPs like Facebook, Google, and Github.',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/ego',
-      },
       {
         title: 'SCORe',
         description:
@@ -71,14 +62,12 @@ export default [
   {
     key: 'science',
     tabText: 'Do Science',
-    description: (
-      <span>
-        You’re all set up operationally and you’ve gathered your data. It’s time
-        to put on your lab coat, grab a keyboard, and do some science! Our
-        workflow and analytics tools make working on large datasets easier than
-        ever.
-      </span>
-    ),
+    description: `
+      You’re all set up operationally and you’ve gathered your data. It’s time
+      to put on your lab coat, grab a keyboard, and do some science! Our
+      workflow and analytics tools make working on large datasets easier than
+      ever.
+    `,
     icon: require('components/home/images/science.svg'),
     cards: [
       {
@@ -88,35 +77,40 @@ export default [
         logoUrl: require('assets/logos/ego.png'),
         learnMoreLink: '/jupyter',
       },
+      {
+        title: 'OncoJS',
+        description:
+          'Bring beautiful images to your analytics with a library of javascript visualizations build especially for cancer analytics. ',
+        logoUrl: require('assets/logos/ego.png'),
+        learnMoreLink: '/oncojs',
+      },
     ],
   },
   {
     key: 'share',
     tabText: 'Share',
-    description: (
-      <span>
-        Sharing knowledge is the foundation of the scientific community, but the
-        growing size of genomic data often makes sharing complicated. Whether
-        it’s an entire data portal or a comprehensive library for
-        visualizations, our tools are specifically developed to make sharing
-        your data and analytics a breeze!
-      </span>
-    ),
+    description: `
+      Sharing knowledge is the foundation of the scientific community, but the
+      growing size of genomic data often makes sharing complicated. Whether
+      it’s an entire data portal or a comprehensive library for
+      visualizations, our tools are specifically developed to make sharing
+      your data and analytics a breeze!
+    `,
     icon: require('components/home/images/share.svg'),
     cards: [
+      {
+        title: 'Ego',
+        description:
+          'Need a scalable, stateless Authorization service that works with multiple Identity Providers? Provide Single Sign-On in microservices by letting Ego manage authorization  through popular IdPs like Facebook, Google, and Github.',
+        logoUrl: require('assets/logos/ego.png'),
+        learnMoreLink: '/ego',
+      },
       {
         title: 'Persona',
         description:
           'Let your users build a personalized profile with highly configurable, schemaless profile metadata management. ',
         logoUrl: require('assets/logos/ego.png'),
         learnMoreLink: '/persona',
-      },
-      {
-        title: 'OncoJS',
-        description:
-          'cLibrary of javascript visualizations for cancer analytics',
-        logoUrl: require('assets/logos/ego.png'),
-        learnMoreLink: '/oncojs',
       },
     ],
   },
