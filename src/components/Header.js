@@ -35,7 +35,7 @@ const greenBg = css`
   background-color: ${green};
 `;
 
-export default ({ aboutUs }) => (
+export default ({ aboutUs, getStartedTo }) => (
   <HeaderStyled>
     <Link
       to="/"
@@ -46,6 +46,6 @@ export default ({ aboutUs }) => (
       <LogoStyled src={require('assets/logo-small.png')} />
     </Link>
     {aboutUs && <AnchorStyled href="#about-us">About Us</AnchorStyled>}
-    <GetStartedButton />
+    <GetStartedButton to={getStartedTo} />
   </HeaderStyled>
 );

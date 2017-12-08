@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 
 import { container } from 'common/layout';
 import GetStartedButton from 'components/GetStartedButton';
-
+import { products } from 'common/products';
 const Line = () => (
   <div
     css={`
@@ -71,7 +71,7 @@ const GettingStarted = () => {
       <Step
         num={1}
         text="Download the SONG client - SING, our command line interface."
-        right={<GetStartedButton to="https://github.com/icgc-dcc/SONG" />}
+        right={<GetStartedButton to={products.song.getStarted} />}
         align="flex-end"
       />
       <Step
@@ -79,6 +79,7 @@ const GettingStarted = () => {
         text="Build and run the source using maven with simple instructions."
         right={
           <img
+            alt=""
             css={`margin-top: -28px; max-width: 694px;`}
             src={require('assets/step2.png')}
           />

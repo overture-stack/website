@@ -3,7 +3,7 @@ import styled, { css } from 'react-emotion';
 import Link from 'gatsby-link';
 import colors from 'common/colors';
 import { container } from 'common/layout';
-import tabs from '../common/tabs';
+import tabs from '../common/products';
 
 const WrapperStyled = styled('div')`
   border-top: 1px solid #ddd;

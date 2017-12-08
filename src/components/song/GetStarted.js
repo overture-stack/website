@@ -1,5 +1,6 @@
 import React from 'react';
 import GetStartedButton from 'components/GetStartedButton';
+import { products } from 'common/products';
 
 const GetStarted = () => {
   return (
@@ -26,7 +27,7 @@ const GetStarted = () => {
           A flexible data model for tracking your data across the cloud:<br />
           one specifically dedicated to genomic research.
         </p>
-        <GetStartedButton to="https://github.com/icgc-dcc/SONG" />
+        <GetStartedButton to={products.song.getStarted} />
       </div>
     </div>
   );

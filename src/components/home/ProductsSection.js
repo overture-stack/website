@@ -6,7 +6,7 @@ import styled, { css } from 'react-emotion';
 import Waypoint from 'react-waypoint';
 import TransitionGroup from 'react-transition-group-plus';
 import Content from 'components/Content';
-import tabs from 'common/tabs';
+import tabs from 'common/products';
 
 const tabStyles = {
   tabs: css`

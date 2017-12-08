@@ -7,10 +7,11 @@ import SecondaryPoints from 'components/song/SecondaryPoints';
 import GettingStarted from 'components/song/GettingStarted';
 import StorageSystem from 'components/song/StorageSystem';
 import GetStarted from 'components/song/GetStarted';
+import { products } from 'common/products';
 
 const Song = () => (
   <React.Fragment>
-    <Header />
+    <Header getStartedTo={products.song.getStarted} />
     <Intro />
     <KeyPoints />
     <SecondaryPoints />
