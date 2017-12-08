@@ -60,7 +60,7 @@ class Content extends React.Component {
   }
 
   render() {
-    const { description, cards, icon } = this.props;
+    const { description, key, cards, icon } = this.props;
 
     return (
       <div
@@ -94,6 +94,9 @@ class Content extends React.Component {
               }
             `}
           >
+            <a 
+              name="{key}">
+            </a> 
             {description}
           </div>
           <img
