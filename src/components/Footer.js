@@ -65,7 +65,6 @@ export default () => (
       </ColumnStyled>
       <ColumnStyled>
         <NavHeadingStyled>About</NavHeadingStyled>
-        <NavLink to="">About ICGC</NavLink>
         <a
           className={navItemStyles}
           href={`mailto:dcc-support@oicr.on.ca`}
