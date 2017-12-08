@@ -25,6 +25,7 @@ const tabStyles = {
       border-top-right-radius: 2.5px;
       border-top-left-radius: 2.5px;
       transition: 0.1s background-color;
+      font-weight: 700;
       &:not(.active) {
         cursor: pointer;
         &:hover {
@@ -51,6 +52,7 @@ const WrapperStyled = styled(`div`)`
 
 const TabSeparator = () => (
   <img
+    alt=""
     className={css`
       margin-left: 2em;
       margin-right: 2em;
@@ -101,8 +103,8 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
         return (
           <Waypoint
             key={tab.key}
-            bottomOffset={i === 0 ? -500 : 0}
-            onEnter={(previousPosition, currentPosition) => setTabIndex(i)}
+            bottomOffset={i === 0 ? '-68%' : 0}
+            onEnter={() => setTabIndex(i)}
             fireOnRapidScroll={false}
           >
             <div
