@@ -10,8 +10,8 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="Overture"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Open, composable and extendable components for data science in the cloud. Each component can operate on its own or interact with the rest of the overture stack, your choice!' },
+        { name: 'keywords', content: 'data, genomic, cloud, software, big data, openstack, oicr, softeng, open-source' },
       ]}
     >
       <link
