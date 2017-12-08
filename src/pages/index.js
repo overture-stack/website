@@ -22,6 +22,7 @@ const PreHeadingStyled = styled(`div`)`
   line-height: 1.25;
   padding-top: 3em;
   padding-bottom: 1em;
+  font-weight: 700;
   &:after {
     content: '';
     display: block;
@@ -35,6 +36,7 @@ const PreHeadingStyled = styled(`div`)`
 
 const HeadingStyled = styled(`div`)`
   line-height: 1.25;
+  font-weight: 700;
 `;
 
 const SubHeadingStyled = styled(`div`)`

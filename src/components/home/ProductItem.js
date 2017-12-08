@@ -33,12 +33,13 @@ const ProductHeaderStyled = styled(`div`)`
   color: #fff;
   font-weight: 300;
   font-size: 20px;
-  padding: 29px 34px;
+  font-weight: 700;
+  padding: 20px 25px;
 `;
 
 const ProductDescriptionStyled = styled(`div`)`
   line-height: 1.67;
-  margin: 32px 34px 0;
+  margin: 20px 25px 0;
   font-size: 18px;
 `;
 
@@ -77,7 +78,7 @@ class ProductItem extends React.Component {
           className={css`
             display: flex;
             flex-direction: column;
-            margin: 0 34px 32px;
+            margin: 0 24px 32px;
             height: 100%;
             @media (max-height: ${smallHeight}px) {
               margin-top: auto;

@@ -7,7 +7,7 @@ import GetStartedButton from './GetStartedButton';
 
 const HeaderStyled = styled('div')`
   background: #fff;
-  padding: 20px 22px;
+  padding: 10px 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
