@@ -95,7 +95,7 @@ class Content extends React.Component {
             `}
           >
             <a 
-              name="{key}">
+              name={key}>
             </a> 
             {description}
           </div>
