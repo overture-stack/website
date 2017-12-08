@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from 'react-emotion';
 import GetStartedButton from 'components/GetStartedButton';
 
 const GetStarted = () => {
@@ -27,7 +26,7 @@ const GetStarted = () => {
           A flexible data model for tracking your data across the cloud:<br />
           one specifically dedicated to genomic research.
         </p>
-        <GetStartedButton />
+        <GetStartedButton to="https://github.com/icgc-dcc/SONG" />
       </div>
     </div>
   );

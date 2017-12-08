@@ -80,7 +80,11 @@ export default () => (
           <ColumnStyled key={tab.key}>
             <NavHeadingStyled>{tab.tabText}</NavHeadingStyled>
             {tab.cards.map(card => {
-              return <NavLink to={card.learnMoreLink}>{card.title}</NavLink>;
+              return (
+                <NavLink key={card.title} to={card.learnMoreLink}>
+                  {card.title}
+                </NavLink>
+              );
             })}
           </ColumnStyled>
         );

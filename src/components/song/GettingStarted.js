@@ -71,7 +71,7 @@ const GettingStarted = () => {
       <Step
         num={1}
         text="Download the SONG client - SING, our command line interface."
-        right={<GetStartedButton />}
+        right={<GetStartedButton to="https://github.com/icgc-dcc/SONG" />}
         align="flex-end"
       />
       <Step

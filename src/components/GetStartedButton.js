@@ -4,7 +4,7 @@ import { css } from 'react-emotion';
 // import ButtonPrimaryStyled from './ButtonPrimaryStyled';
 // <ButtonPrimaryStyled className={greenBg}>Get Started</ButtonPrimaryStyled>
 
-export default () => {
+export default ({ to }) => {
   return (
     <button
       css={`
@@ -20,7 +20,9 @@ export default () => {
         padding: 9px 32px;
         cursor: pointer;
       `}
-      onClick={() => window.open('https://github.com/overture-stack')}
+      onClick={() => {
+        window.open(to || 'https://github.com/overture-stack');
+      }}
     >
       Get Started
     </button>
