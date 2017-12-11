@@ -73,7 +73,7 @@ const AboutUs = ({}) => (
           `}
         >
           We created Overture to share with the community, components actively
-          use in our projects.
+          used in our projects.
         </p>
       </div>
       <div
