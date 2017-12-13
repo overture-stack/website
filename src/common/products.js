@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const products = {
   enrolment: {
     title: 'Enrolment',
@@ -77,7 +75,7 @@ export const operate = {
 };
 export const transfer = {
   key: 'transfer',
-  tabText: <span>Transfer &amp; Store</span>,
+  tabText: 'Transfer & Store',
   description: `
     Transferring and storing petabytes of data is challenging! Our
     high-performance tools, optimized for genomic data processing, offer a

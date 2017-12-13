@@ -31,10 +31,6 @@ const AnchorStyled = styled('a')`
   }
 `;
 
-const greenBg = css`
-  background-color: ${green};
-`;
-
 export default ({ aboutUs, getStartedTo }) => (
   <HeaderStyled>
     <Link

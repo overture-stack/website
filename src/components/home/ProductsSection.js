@@ -111,8 +111,8 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
               className={`waypoint ${tab.key}`}
               style={
                 arr.length - 1 === i
-                  ? { height: '75vh' }
-                  : { height: 1, marginBottom: '76vh' }
+                  ? { height: '100vh' }
+                  : { height: 1, marginBottom: '100vh' }
               }
             />
           </Waypoint>
