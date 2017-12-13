@@ -1,5 +1,5 @@
 import React from 'react';
-import { compose, withState } from 'recompose';
+import { compose, withState, withProps } from 'recompose';
 import colors from 'common/colors';
 import { container } from 'common/layout';
 import styled, { css } from 'react-emotion';
@@ -61,9 +61,12 @@ const TabSeparator = () => (
   />
 );
 
-const enhance = compose(withState('tabIndex', 'setTabIndex', -1));
+const enhance = compose(
+  withState('onScreenTabs', 'setOnscreenTabs', tabs.map(() => false)),
+  withProps(({ onScreenTabs }) => ({ tabIndex: onScreenTabs.indexOf(true) })),
+);
 
-const ProductsSection = ({ tabIndex, setTabIndex }) => {
+const ProductsSection = ({ tabIndex, onScreenTabs, setOnscreenTabs }) => {
   return (
     <div>
       <WrapperStyled>
@@ -77,11 +80,15 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
                 <div
                   key={tab.key}
                   className={`tab ${tabIndex === i ? 'active' : ''}`}
-                  onClick={() =>
-                    document
-                      .querySelector(`.waypoint.${tab.key}`)
-                      .scrollIntoView()
-                  }
+                  onClick={() => {
+                    if (window.location.hash === `#${tab.key}`) {
+                      document
+                        .querySelector(`.waypoint.${tab.key}`)
+                        .scrollIntoView();
+                    } else {
+                      window.location.hash = tab.key;
+                    }
+                  }}
                 >
                   {tab.tabText}
                 </div>,
@@ -103,18 +110,32 @@ const ProductsSection = ({ tabIndex, setTabIndex }) => {
         return (
           <Waypoint
             key={tab.key}
-            bottomOffset={i === 0 ? '-68%' : 0}
-            onEnter={() => setTabIndex(i)}
+            onEnter={() =>
+              setOnscreenTabs(Object.assign(onScreenTabs, { [i]: true }))
+            }
+            onLeave={() =>
+              setOnscreenTabs(Object.assign(onScreenTabs, { [i]: false }))
+            }
             fireOnRapidScroll={false}
+            topOffset={1}
           >
-            <div
+            <a
+              name={tab.key}
               className={`waypoint ${tab.key}`}
-              style={
-                arr.length - 1 === i
-                  ? { height: '100vh' }
-                  : { height: 1, marginBottom: '100vh' }
-              }
-            />
+              style={{
+                display: 'block',
+                height: '75vh',
+                ...(i === arr.length - 1 && {
+                  height: '100vh',
+                }),
+                ...(i === 0 && {
+                  height: '1px',
+                  marginTop: '-100vh',
+                }),
+              }}
+            >
+              <div />
+            </a>
           </Waypoint>
         );
       })}
