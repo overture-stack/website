@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import colors from 'common/colors';
 import { container } from 'common/layout';
 import tabs from '../common/products';
+import Octocat from './Octocat';
 
 const WrapperStyled = styled('div')`
   border-top: 1px solid #ddd;
@@ -48,13 +49,19 @@ const OicrLogo = () => (
   />
 );
 
-const NavLink = ({ to, children }) =>
+const NavLink = ({ to, children, href }) =>
   to ? (
     <Link className={navItemStyles} to={to}>
       {children}
     </Link>
   ) : (
-    <div className={navItemStyles}>{children}</div>
+    <a className={navItemStyles} href={href}>
+      {children} &nbsp;<Octocat
+        width={12}
+        height={12}
+        fill="rgb(96, 102, 126)"
+      />
+    </a>
   );
 
 export default () => (
@@ -78,13 +85,15 @@ export default () => (
         return (
           <ColumnStyled key={tab.key}>
             <NavHeadingStyled>{tab.tabText}</NavHeadingStyled>
-            {tab.cards.map(card => {
-              return (
-                <NavLink key={card.title} to={card.learnMoreLink}>
-                  {card.title}
-                </NavLink>
-              );
-            })}
+            {tab.cards.map(card => (
+              <NavLink
+                key={card.title}
+                to={card.learnMoreLink}
+                href={card.github}
+              >
+                {card.title}
+              </NavLink>
+            ))}
           </ColumnStyled>
         );
       })}

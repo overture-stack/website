@@ -5,6 +5,7 @@ export const products = {
       'Easily apply to onboard new Collaboratory projects and users into any cloud infrastructure and manage your current projects.',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/enrolment',
+    github: 'https://github.com/overture-stack/enrolment',
   },
   usage: {
     title: 'Usage',
@@ -12,6 +13,7 @@ export const products = {
       'Let your OpenStack users track and monitor their resource usage, including things like compute & storage, over time.',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/usage',
+    github: 'https://github.com/CancerCollaboratory/billing',
   },
   billing: {
     title: 'Billing',
@@ -19,6 +21,7 @@ export const products = {
       'Connect OpenStack usage data directly to Freshbooks to help automate invoicing for OpenStack infrastructure costs.',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/billing',
+    github: 'https://github.com/CancerCollaboratory/billing',
   },
   score: {
     title: 'SCORe',
@@ -26,6 +29,7 @@ export const products = {
       'SCORe provides fast and secure access to the Controlled Data in your Object Storage buckets using parallel multi-part uploads and downloads.',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/score',
+    github: 'https://github.com/overture-stack/score',
   },
   song: {
     title: 'SONG',
@@ -41,6 +45,7 @@ export const products = {
       'Ready to crunch some data but don’t have space?  Spin up a shareable notebook on our servers, complete with live access to ICGC data, in seconds. ',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/jupyter',
+    github: 'https://github.com/overture-stack/Jupyter',
   },
   oncojs: {
     title: 'OncoJS',
@@ -48,6 +53,7 @@ export const products = {
       'Bring beautiful images to your analytics with a library of javascript visualizations build especially for cancer analytics. ',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/oncojs',
+    github: 'https://github.com/oncojs',
   },
   ego: {
     title: 'Ego',
@@ -55,6 +61,7 @@ export const products = {
       'Need a scalable, stateless Authorization service that works with multiple Identity Providers? Provide Single Sign-On in microservices by letting Ego manage authorization  through popular IdPs like Facebook, Google, and Github.',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/ego',
+    github: 'https://github.com/overture-stack/ego',
   },
   persona: {
     title: 'Persona',
@@ -62,6 +69,7 @@ export const products = {
       'Let your users build a personalized profile with highly configurable, schemaless profile metadata management. ',
     // logoUrl: require('assets/logos/ego.png'),
     // learnMoreLink: '/persona',
+    github: 'https://github.com/overture-stack/persona',
   },
 };
 export const operate = {
