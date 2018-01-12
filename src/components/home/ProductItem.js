@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 import colors from 'common/colors';
 import styled, { css } from 'react-emotion';
 import { smallHeight } from 'common/dimensions';
+import Octocat from '../Octocat';
 
 const WrapperStyled = styled(`div`)`
   color: ${colors.blueDark};
@@ -61,6 +62,24 @@ const LearnMore = ({ link }) => (
   </Link>
 );
 
+const LearnMoreGithub = ({ link }) => (
+  <a
+    className={css`
+      margin-top: 1em;
+      color: ${colors.blueLight};
+      &:not(:hover) {
+        text-decoration: none;
+      }
+      @media (max-height: ${smallHeight}px) {
+        margin-top: 0;
+      }
+    `}
+    href={link}
+  >
+    Learn More &nbsp;<Octocat width={12} height={12} fill="rgb(96, 102, 126)" />
+  </a>
+);
+
 class ProductItem extends React.Component {
   render() {
     const {
@@ -68,6 +87,7 @@ class ProductItem extends React.Component {
       className,
       description,
       learnMoreLink,
+      github,
       logoUrl,
     } = this.props;
     return (
@@ -90,6 +110,7 @@ class ProductItem extends React.Component {
           `}
         >
           {learnMoreLink && <LearnMore link={learnMoreLink} />}
+          {!learnMoreLink && github && <LearnMoreGithub link={github} />}
           {logoUrl && <LogoStyled src={logoUrl} />}
         </div>
       </WrapperStyled>
