@@ -1,0 +1,12 @@
+.Score {
+  
+  // prodcuct "target" features: grey background fuss
+  .target-box {
+    min-height: 240px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+  }
+}

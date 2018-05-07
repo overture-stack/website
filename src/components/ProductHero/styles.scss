@@ -1,0 +1,56 @@
+.ProductHero {
+
+  .badge {
+    padding: 0 14px;
+    background-color: #C66FA5;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;    border-radius: 8px;
+    text-transform: uppercase;
+    border-color: grey;
+  }
+
+  .hero-gradient {
+    background-image: url("./bg_blue_curved.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  
+  .card-img-box {
+    background-color: #F2F3F5;
+    height: 280px;
+
+    @media (max-width: 1139px) {
+      height: auto;
+    }
+
+  }
+  
+  .card-img {
+    margin-top: -25px;
+    
+    @media (min-width: 1140px) and (max-width: 1400px) {
+      margin-top: 0;
+    }
+
+    @media (max-width: 1139px) {
+      margin-top: 0;
+      height: auto;
+    }
+  }
+  
+  .title {
+    color: white;
+    font-size: 54px;
+    font-weight: 700;
+    margin: 32px 0;
+  }
+
+  .subtitle {
+    color: white;
+    font-size: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+}

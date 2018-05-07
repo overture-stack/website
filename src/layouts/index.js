@@ -1,31 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-
-import './index.css';
-import Footer from 'components/Footer';
+/**
+ * Site wide shared templates (headers, footers, etc.)
+ **/
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import './styles.sass'
+import config from '../../meta/config'
 
 const TemplateWrapper = ({ children }) => (
-  <React.Fragment>
-    <Helmet
-      title="Overture"
-      meta={[
-        { name: 'description', content: 'Open, composable and extendable components for data science in the cloud. Each component can operate on its own or interact with the rest of the overture stack, your choice!' },
-        { name: 'keywords', content: 'data, genomic, cloud, software, big data, openstack, oicr, softeng, open-source' },
-      ]}
-    >
-      <link
-        href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
-        rel="stylesheet"
-      />
+  <div>
+    <Helmet>
+      <title>{config.siteTitle}</title>
+      <meta name="description" content={config.siteDescription} />
     </Helmet>
-    {children()}
+    <NavBar />
+    <div>{children()}</div>
     <Footer />
-  </React.Fragment>
-);
+  </div>
+)
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-};
+}
 
-export default TemplateWrapper;
+export default TemplateWrapper
