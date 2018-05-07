@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.scss'
+import Badge from "../Badge/index";
 import bg from './bg_blue_curved.svg' // used in css
 import logoScore from './images/score.png'
 import logoSong from './images/song.png'
@@ -11,7 +12,6 @@ const logos = {
   logoEgo,
 }
 
-const Badge = () => <div className="button badge">Core</div>
 
 const HeroCard = ({ cardText, logo }) => (
   <div className="container my3">
@@ -44,11 +44,11 @@ const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink }) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py3">
       <div className="hero-body has-text-centered">
-        <div className="py2">
-          <Badge />
-        </div>
         <div className="has-text-centered">
+          <span className="flex justify-center">
           <h1 className="title">{title}</h1>
+          <Badge color="pink" className="ml1 mt3" >Core</Badge>
+          </span>
           <h2 className="subtitle py3">{subTitle}</h2>
           <HeroCard cardText={cardText} logo={logo} />
         </div>

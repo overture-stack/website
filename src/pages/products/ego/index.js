@@ -94,8 +94,8 @@ const EgoPage = () => (
           <div>
             <H4>To get started, you’ll first need to setup a database.</H4>
             <ul className="py3">
-              <li className="list">Install Postgres. </li>
-              <li className="list">
+              <li className="bullet">Install Postgres. </li>
+              <li className="bullet">
                 Create a database: ego with user postgres and empty password
               </li>
             </ul>
@@ -114,12 +114,18 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build the Score client</H4>
+            <H4>Define the tables in your database.</H4>
 
-            <div className="py3">
-              The Score client communicates with the Score server, which uploads
-              and downloads your files.
-            </div>
+            <ul className="py3">
+              <li className="bullet">
+                Copy the psql-schema.sql file locally. {/* TJS NEEDS LINK */}
+              </li> 
+              <li className="bullet">
+                Execute the SQL script to setup the tables. {/* TJS NEEDS LINK */}
+              </li>
+            </ul>
+
+            
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -128,6 +134,42 @@ const EgoPage = () => (
           <Terminal prompts={['mvn -am -pl score-client']} />
         </div>
       </div>
+
+
+      {/* Getting Started: step 3 */}
+
+      <div className="columns py3">
+        <div className="column is-3">
+          <H2 className="pb1">2</H2>
+          <div>
+            <H4>Run one of the three supported Ego profiles.</H4>
+
+            <ul className="py3">
+              <li className="bullet">
+                <span className="bold">Default: </span>The most simple profile which  allows you to test API endpoints with a valid JWT.
+              </li> 
+
+              <li className="bullet">
+                <span className="bold">Auth: </span>
+                The next step up, which allows you to include JWT validations.
+              </li> 
+
+              <li className="bullet">
+                <span className="bold">Secure: </span>
+                Our highest level, which allows integration with https protocol.
+              </li> 
+            </ul>
+
+            
+          </div>
+          <div className="mt3 yellow-bar" />
+        </div>
+
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal prompts={["mvn clean package", "mvn spring-boot:run"]} />
+        </div>
+      </div>
+
     </GettingStarted>
 
 
@@ -138,7 +180,7 @@ const EgoPage = () => (
           <div className="pt3 columns column is-8-desktop text-white">
             Single sign on functionality for your users in multiple microservices.
           </div>
-          <button className="button is-primary is-medium mt3">
+          <button className="button is-primary is-medium mt1">
             <Icon size={24} img="githubWhite" />
             <div className="ml1 text-white">Get Started</div>
           </button>

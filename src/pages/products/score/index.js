@@ -141,9 +141,9 @@ const ScorePage = () => (
           <div className="pt3 columns column is-8-desktop text-white">
             Transfer and store your data seamlessly for cloud-based projects.
           </div>
-          <button className="button is-primary is-medium mt3">
+          <button className="button is-primary is-medium mt2">
             <Icon size={24} img="githubWhite" />
-            <div className="ml1">Get Started</div>
+            <div className="ml1 text-white">Get Started</div>
           </button>
         </div>
 

@@ -9,7 +9,7 @@ const Terminal = ({ prompts }) => (
   <div className="Terminal">
     <div className="Terminal-inner">
       {prompts.map(p => (
-        <div className="Terminal-text">
+        <div key={p} className="Terminal-text">
           <span className="pr2">$</span>
           {p}
         </div>

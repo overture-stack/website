@@ -2,8 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 32px 0;
+  
+  .header-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 0;
+  }
 
   .center {
     flex: 1;
@@ -23,4 +30,15 @@
     letter-spacing: 0;
     padding-right: 16px;
   }
+  
+  .bullet {
+    list-style-type: disc;
+    color: #003055; // VARIABLE plz
+    padding-bottom: 4px;
+  }
+
+
 }
+
+
+  

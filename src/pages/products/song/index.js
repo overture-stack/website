@@ -10,9 +10,9 @@ import Icon from '../../../components/Icon/index'
 import './style.scss'
 
 // images
-import azure from './imgs/azure.png'
+import azure from './imgs/azure.svg'
 import pgsql from './imgs/pgsql.png'
-import aws from './imgs/aws.png'
+import aws from './imgs/aws.svg'
 
 const SongPage = () => (
   <main className="Song">
@@ -191,7 +191,7 @@ const SongPage = () => (
             A flexible data model for tracking your genomic data across the
             cloud.{' '}
           </div>
-          <button className="button is-primary is-medium mt3">
+          <button className="button is-primary is-medium mt2">
             <Icon size={24} img="githubWhite" />
             <div className="ml1 text-white">Get Started</div>
           </button>
@@ -221,7 +221,7 @@ const SongPage = () => (
             method specific security.
           </div>
 
-          <button className="button is-primary is-medium mt3">
+          <button className="button is-primary is-medium mt2">
             <Icon size={24} img="githubWhite" />
             <div className="ml1 text-white">Get Started</div>
           </button>
