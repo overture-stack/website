@@ -1,16 +1,17 @@
 .ProductsPopup {
   position: absolute;
-  width: 500px;
+  // width: 500px;
   height: 200px;
   top: 68px;
   background-color: white;
-  border: 1px solid #efef;
+  border: 1px solid #dfdfdf;
   display: flex;
   border-radius: 4px;
 
   
   .core {
-    // display: flex;
+    display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: #F2F3F5;
     width: 200px;
@@ -19,6 +20,13 @@
   
   .core-left-link {
     width: 70px;
+  }
+  
+  .menu-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 24px 32px;
   }
   
 }
