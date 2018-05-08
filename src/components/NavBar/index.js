@@ -170,20 +170,20 @@ class NavBar extends Component {
 
           <div className="navbar-start">
             <a
-              className="navbar-item pointer"
+              className="navbar-item mr3 pointer"
               ref={r => (this.productsRef = r)}
             >
               Products
             </a>
 
-            <Link className="navbar-item" to="/case-studies">
+            <Link className="navbar-item mr3" to="/case-studies">
               Case Studies
             </Link>
-            <Link className="navbar-item" to="/services">
+            <Link className="navbar-item mr3" to="/services">
               Services
             </Link>
 
-            <Link className="navbar-item" to="/contact">
+            <Link className="navbar-item mr3" to="/contact">
               Contact
             </Link>
           </div>

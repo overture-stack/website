@@ -1,0 +1,10 @@
+.HomePage {
+  .science-hero {
+    height: 600px;
+    
+    @media(max-width: 900px) {
+      height: auto;
+    }
+  }
+  
+}

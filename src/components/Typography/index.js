@@ -5,6 +5,11 @@
 import React from 'react'
 import './styles.scss'
 
+
+export const H1 = ({ className, children }) => (
+  <h1 className={`${className ? className : ''} t-h1`}>{children}</h1>
+)
+
 export const H2 = ({ className, children }) => (
   <h2 className={`${className ? className : ''} t-h2`}>{children}</h2>
 )
