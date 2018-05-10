@@ -7,6 +7,11 @@ import './styles.scss'
 
 const Terminal = ({ prompts }) => (
   <div className="Terminal">
+    <div className="circle-container">
+      <div className="circle"></div>
+      <div className="circle"></div>
+      <div className="circle"></div>
+    </div>
     <div className="Terminal-inner">
       {prompts.map(p => (
         <div key={p} className="Terminal-text">

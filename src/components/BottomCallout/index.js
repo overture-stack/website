@@ -1,15 +1,28 @@
 import React from 'react'
 import './styles.scss'
+import Icon from "../Icon/index";
 
-const BottomCallout = ({children }) => (
-  <section className="BottomCallout bg-blue text-white py4">
+export const BottomCallout = ({children, className }) => (
+  <section 
+    className={`${className ? className : "" } BottomCallout bg-blue section text-white py4`}>
     <div className="container">
-    <div className="columns column is-10 is-offset-1">
+    <div className="columns justify-around ">
       {children}
     </div>
     </div>
   </section>
   
 )
+
+export const Callout = ({icon, description, children, className}) => (
+  <div className={`${className ? className : "" } Callout `}>
+    <Icon size={32} img={icon} />
+    <div className="py3 text-white">
+      {description}
+    </div>
+    {children}
+  </div>
+)
+
 
 export default BottomCallout

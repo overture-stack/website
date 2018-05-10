@@ -1,14 +1,20 @@
 .ProductsPopup {
   position: absolute;
-  // width: 500px;
-  height: 200px;
-  top: 68px;
-  background-color: white;
-  border: 1px solid #dfdfdf;
   display: flex;
-  border-radius: 4px;
-
+  display: flex;
+  flex-direction: column;
   
+  .menu-items {
+    border-radius: 4px;
+    border: 1px solid #dfdfdf;
+    background: white;
+  }
+  
+  .spacer {
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
   .core {
     display: flex;
     justify-content: flex-start;
@@ -22,6 +28,8 @@
     width: 70px;
   }
   
+  // custom styles to override / build on top of bulma's nav link
+  
   .menu-section {
     display: flex;
     flex-direction: column;
@@ -29,4 +37,15 @@
     padding: 24px 32px;
   }
   
+}
+
+
+.NavHeader {
+  height: 70px;
+
+  .navbar-item {
+    font-family: Lato-Regular;
+    font-size: 18px;
+    letter-spacing: 0;
+  }
 }

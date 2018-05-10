@@ -1,84 +1,84 @@
-import React from 'react'
-import ProductFeature from '../../../components/ProductFeature'
-import ProductTarget from '../../../components/ProductTarget'
-import ProductHero from '../../../components/ProductHero'
-import GettingStarted from '../../../components/GettingStarted/index'
-import BottomCallout from '../../../components/BottomCallout/index'
-import Icon from '../../../components/Icon/index'
-import Terminal from '../../../components/Terminal/index'
-import { H2, H4 } from '../../../components/Typography/index'
-import screenshot from './images/screenshot.png'
-import bg from './images/bg_grey_curved.svg'
-import './style.scss'
+import React from "react";
+import {
+  ProductFeature,
+  ProductFeatureRow
+} from "../../../components/ProductFeature";
+import ProductTarget from "../../../components/ProductTarget";
+import ProductHero from "../../../components/ProductHero";
+import GettingStarted from "../../../components/GettingStarted/index";
+import {BottomCallout, Callout} from "../../../components/BottomCallout/index";
+import Icon from "../../../components/Icon/index";
+import Terminal from "../../../components/Terminal/index";
+import { H2, H4 } from "../../../components/Typography/index";
+import screenshot from "./images/screenshot.png";
+import bg from "./images/bg_grey_curved.svg";
+import "./style.scss";
 
 const EgoPage = () => (
   <main className="Ego">
     {/* Hero */}
     <ProductHero
       title="Ego"
-      subTitle="A stateless authority system and user management service for identity providers such as Google and Facebook."
+      subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, a well as providing an intuitive GUI for painless user management."
+      getStartedLink="https://github.com/overture-stack/ego"
       logo="logoEgo"
     />
 
     {/* Features  */}
-    <section className="columns column is-10 is-offset-1 my2">
-      <div className="column is-one-third px3">
-        <ProductFeature
-          header="Single Sign On"
-          icon="security"
-          details="No more usernames and passwords for your users to remember."
-        />
-      </div>
+    <ProductFeatureRow>
+      <ProductFeature
+        header="Single sign on"
+        icon="security"
+        details="No more usernames and passwords for your users to remember."
+      />
 
-      <div className="column is-one-third px3">
-        <ProductFeature
-          header="Scalable"
-          icon="barGraph"
-          details="No sessions management means less code to write"
-        />
-      </div>
+      <ProductFeature
+        header="Scalable"
+        icon="barGraph"
+        details="No sessions management means less code to write."
+      />
 
-      <div className="column is-one-third px3">
-        <ProductFeature
-          header="User Administration"
-          icon="user"
-          details="Manage users, groups and applications"
-        />
-      </div>
-    </section>
+      <ProductFeature
+        header="User Administration"
+        icon="user"
+        details="Manage users, groups and applications."
+      />
+    </ProductFeatureRow>
 
     {/* Target Features + Screenshot */}
-    <section className="bg-curve-grey">
-      <div className="columns column is-10 is-offset-1">
-        {/* targets */}
+    <section className="bg-curve-grey pb4">
+      <div className="container">
+        <div className="columns column pt4">
+          {/* targets */}
 
-        <div className="column pt4 is-3-desktop">
-          <div className="py3">
-            <ProductTarget
-              header="It’s stateless"
-              details="Ego uses JSON Web Tokens (JWT) for authentication."
-            />
+          <div className="column pt2 is-3-desktop pt2">
+            <div className="py2">
+              <ProductTarget
+                header="It’s stateless"
+                details="Ego uses JSON Web Tokens (JWT) for authentication."
+              />
+            </div>
+
+            <div className="py2">
+              <ProductTarget
+                header="It's secure"
+                details="Built with modern frameworks such as Spring Security, you can rest assured that users will be authorized securely."
+              />
+            </div>
+
+            <div className="py2">
+              <ProductTarget
+                header="Scale up"
+                details="There are no limits to the number of applications you can use Ego alongside."
+              />
+            </div>
           </div>
 
-          <div className="py3">
-            <ProductTarget
-              header="It's secure"
-              details="Built with modern frameworks such as Spring Security, you can rest assured that users will be authorized securely."
-            />
+          {/* screenshot */}
+          <div className="column is-8  is-offset-1 flex items-center">
+            <img src={screenshot} />
           </div>
-
-          <div className="py3">
-            <ProductTarget
-              header="Scale up"
-              details="There are no limits to the number of applications you can use Ego alongside."
-            />
-          </div>
-        </div>
-
-        {/* screenshot */}
-        <div className="column is-8  is-offset-1 flex items-center">
-          <img src={screenshot} />
         </div>
       </div>
     </section>
@@ -92,7 +92,7 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>To get started, you’ll first need to setup a database.</H4>
+            <H4>To get started, you’ll first need to set up a database.</H4>
             <ul className="py3">
               <li className="bullet">Install Postgres. </li>
               <li className="bullet">
@@ -104,7 +104,13 @@ const EgoPage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={['mvn -am -pl score-server']} />
+          <Terminal
+            prompts={[
+              "sudo -u postgres psql",
+              "create database ego;",
+              "q  exit out of psql"
+            ]}
+          />
         </div>
       </div>
 
@@ -118,49 +124,55 @@ const EgoPage = () => (
 
             <ul className="py3">
               <li className="bullet">
-                Copy the psql-schema.sql file locally. {/* TJS NEEDS LINK */}
-              </li> 
+                Copy the{" "}
+                <a
+                  target="_blank"
+                  href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/psql-schema.sql"
+                >
+                  psql-schema.sql
+                </a>{" "}
+                file locally. {/* TJS NEEDS LINK */}
+              </li>
               <li className="bullet">
-                Execute the SQL script to setup the tables. {/* TJS NEEDS LINK */}
+                Execute the SQL script to setup the tables.{" "}
+                {/* TJS NEEDS LINK */}
               </li>
             </ul>
-
-            
           </div>
           <div className="mt3 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={['mvn -am -pl score-client']} />
+          <Terminal
+            prompts={["psql -U postgres -d ego -a -f psql-schema.sql"]}
+          />
         </div>
       </div>
-
 
       {/* Getting Started: step 3 */}
 
       <div className="columns py3">
         <div className="column is-3">
-          <H2 className="pb1">2</H2>
+          <H2 className="pb1">3</H2>
           <div>
             <H4>Run one of the three supported Ego profiles.</H4>
 
             <ul className="py3">
               <li className="bullet">
-                <span className="bold">Default: </span>The most simple profile which  allows you to test API endpoints with a valid JWT.
-              </li> 
+                <span className="bold">Default: </span>The most simple profile
+                which  allows you to test API endpoints with a valid JWT.
+              </li>
 
               <li className="bullet">
                 <span className="bold">Auth: </span>
                 The next step up, which allows you to include JWT validations.
-              </li> 
+              </li>
 
               <li className="bullet">
                 <span className="bold">Secure: </span>
                 Our highest level, which allows integration with https protocol.
-              </li> 
+              </li>
             </ul>
-
-            
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -169,42 +181,21 @@ const EgoPage = () => (
           <Terminal prompts={["mvn clean package", "mvn spring-boot:run"]} />
         </div>
       </div>
-
     </GettingStarted>
 
-
     <BottomCallout>
-      <div className="columns column is-12 is-offset-1">
-        <div className="column is-half pr4">
-          <Icon size={32} img="githubYellow" />
-          <div className="pt3 columns column is-8-desktop text-white">
-            Single sign on functionality for your users in multiple microservices.
-          </div>
-          <button className="button is-primary is-medium mt1">
-            <Icon size={24} img="githubWhite" />
-            <div className="ml1 text-white">Get Started</div>
-          </button>
-        </div>
-
-        <div className="column is-half pr4">
-          <Icon size={32} img="rocketWhite" />
-          <div className="pt3 columns column is-8-desktop text-white">
-            Read about how this product has been utilized within our case
-            studies:
-          </div>
-          <div className="flex flex-column pt2">
-            <a className="text-green bold" href="#">
-              Kids First DRC >
-            </a>
-            <a className="text-green bold" href="#">
-              HCMI Searchable Catalog >
-            </a>
-          </div>
-        </div>
-      </div>
+      <Callout
+        icon="githubYellow"
+        description="Single sign on functionality for your users in multiple microservices."
+        className="center"
+        >
+        <button className="button is-primary is-medium mt2">
+          <Icon size={24} img="githubWhite" />
+          <div className="ml1 text-white">Get Started</div>
+        </button>
+      </Callout>
     </BottomCallout>
-
   </main>
-)
+);
 
-export default EgoPage
+export default EgoPage;

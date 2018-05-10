@@ -10,6 +10,7 @@ import dna from './icons/dna.svg'
 import download from './icons/download.svg'
 import fingerSnap from './icons/finger_snap.svg'
 import githubWhite from './icons/github_white.svg'
+import githubGrey from './icons/github_grey.svg'
 import githubYellow from './icons/github_yellow.svg'
 import lock from './icons/lock.svg'
 import pageWhite from './icons/page_white.svg'
@@ -28,6 +29,7 @@ const icons = {
   dna,
   download,
   fingerSnap,
+  githubGrey,
   githubWhite,
   githubYellow,
   lock,
@@ -39,9 +41,9 @@ const icons = {
   user,
 }
 
-const Icon = ({ img, size }) => (
+const Icon = ({ img, size, className }) => (
   <img
-    className="Icon"
+    className={`${className ? className : "" } Icon`}
     src={icons[img]}
     style={{ width: size, height: 'auto' }}
   />

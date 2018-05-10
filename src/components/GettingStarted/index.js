@@ -8,7 +8,7 @@ import { H2 } from '../Typography/index'
 
 const GettingStarted = ({ pinnedLink, children }) => (
   <section className="GettingStarted container py3">
-    <div className="columns column is-10 is-offset-1 flex-column">
+    <div className="columns column flex-column">
       <div className="header-wrap">
         <div className="center">
           <H2 className="header-offset">Getting Started</H2>

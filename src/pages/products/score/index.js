@@ -1,13 +1,16 @@
-import GettingStarted from '../../../components/GettingStarted/index'
-import ProductFeature from '../../../components/ProductFeature'
-import ProductHero from '../../../components/ProductHero'
-import BottomCallout from '../../../components/BottomCallout/index'
-import Icon from '../../../components/Icon/index'
-import Terminal from '../../../components/Terminal/index'
-import { H2, H4 } from '../../../components/Typography/index'
-import ProductTarget from '../../../components/ProductTarget'
-import React from 'react'
-import './style.scss'
+import GettingStarted from "../../../components/GettingStarted/index";
+import {
+  ProductFeature,
+  ProductFeatureRow
+} from "../../../components/ProductFeature";
+import ProductHero from "../../../components/ProductHero";
+import {BottomCallout, Callout } from "../../../components/BottomCallout/index";
+import Icon from "../../../components/Icon/index";
+import Terminal from "../../../components/Terminal/index";
+import { H2, H4 } from "../../../components/Typography/index";
+import ProductTarget from "../../../components/ProductTarget";
+import React from "react";
+import "./style.scss";
 
 const ScorePage = () => (
   <main className="Score">
@@ -16,40 +19,33 @@ const ScorePage = () => (
       title="Score"
       subTitle="Transfer data quickly and easily to and from any cloud-based storage system."
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
+      getStartedLink="https://github.com/overture-stack/score"
       logo="logoScore"
     />
 
     {/* Features  */}
 
-    <section className="container mt4">
-      <div className="columns column is-10 is-offset-1">
-        <div className="column is-one-third px3">
-          <ProductFeature
-            header="Genomic solutions"
-            icon="dna"
-            details="Slice and dice BAM and CRAM files with integrated command line tools."
-          />
-        </div>
+    <ProductFeatureRow>
+      <ProductFeature
+        header="Genomic solutions"
+        icon="dna"
+        details="Slice and dice BAM and CRAM files with integrated command line tools."
+      />
 
-        <div className="column is-one-third px3">
-          <ProductFeature
-            header="Accessible"
-            icon="fingerSnap"
-            iconSize={45}
-            details="Once your server is set up, transferring data is simple. Access any data, anytime on all major cloud services."
-          />
-        </div>
+      <ProductFeature
+        header="Accessible"
+        icon="fingerSnap"
+        iconSize={45}
+        details="Once your server is set up, transferring data is simple. Access any data, anytime on all major cloud services."
+      />
 
-        <div className="column is-one-third px3">
-          <ProductFeature
-            header="Streamlined"
-            icon="cloud"
-            iconSize={68}
-            details="Score’s parallel solution makes the upload and download of files efficient and fast."
-          />
-        </div>
-      </div>
-    </section>
+      <ProductFeature
+        header="Streamlined"
+        icon="cloud"
+        iconSize={68}
+        details="Score’s parallel solution makes the upload and download of files efficient and fast."
+      />
+    </ProductFeatureRow>
 
     {/* Target Features Things */}
     <section className="my4">
@@ -106,7 +102,7 @@ const ScorePage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={['mvn -am -pl score-server']} />
+          <Terminal prompts={["mvn -am -pl score-server"]} />
         </div>
       </div>
 
@@ -127,41 +123,27 @@ const ScorePage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={['mvn -am -pl score-client']} />
+          <Terminal prompts={["mvn -am -pl score-client"]} />
         </div>
       </div>
     </GettingStarted>
 
     {/*Footer */}
 
-    <BottomCallout>
-      <div className="columns column is-12 is-offset-1">
-        <div className="column is-half pr4">
-          <Icon size={32} img="githubYellow" />
-          <div className="pt3 columns column is-8-desktop text-white">
-            Transfer and store your data seamlessly for cloud-based projects.
-          </div>
-          <button className="button is-primary is-medium mt2">
-            <Icon size={24} img="githubWhite" />
-            <div className="ml1 text-white">Get Started</div>
-          </button>
-        </div>
+    <BottomCallout className="justify-center">
+      <Callout
+        icon="githubYellow"
+        className="center"
+        description="Transfer and store your data seamlessly for cloud-based projects."
+        >
+        <button className="button is-primary is-medium mt2">
+          <Icon size={24} img="githubWhite" />
+          <div className="ml1 text-white">Get Started</div>
+        </button>
+      </Callout>
 
-        <div className="column is-half pr4">
-          <Icon size={32} img="rocketWhite" />
-          <div className="pt3 columns column is-8-desktop text-white">
-            Read about how this product has been utilized within our case
-            studies:
-          </div>
-          <div className="flex flex-column pt2">
-            <a className="text-green bold" href="#">
-              ICGC Data Portal >
-            </a>
-          </div>
-        </div>
-      </div>
     </BottomCallout>
   </main>
-)
+);
 
-export default ScorePage
+export default ScorePage;

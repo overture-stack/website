@@ -1,33 +1,43 @@
-import React from 'react'
-import './styles.scss'
+import Icon from "../Icon/index";
+import React from "react";
+import "./styles.scss";
 import Badge from "../Badge/index";
-import bg from './bg_blue_curved.svg' // used in css
-import logoScore from './images/score.png'
-import logoSong from './images/song.png'
-import logoEgo from './images/ego.png'
+import bg from "./bg_blue_curved.svg"; // used in css
+import logoScore from "./images/score.png";
+import logoSong from "./images/song.png";
+import logoEgo from "./images/ego.png";
 
 const logos = {
   logoScore,
   logoSong,
-  logoEgo,
-}
+  logoEgo
+};
 
-
-const HeroCard = ({ cardText, logo }) => (
+const HeroCard = ({ cardText, getStartedLink, logo }) => (
   <div className="container my3">
-    <div className="card column is-10 is-offset-1">
+    <div className="card column">
       <div className="columns">
         {/* Left Column */}
         <div className="card-content is-two-thirds flex flex-column justify-center">
           {/* TODO font colour */}
-          <div className="content h2 bold left-align">{cardText}</div>
+          <div className="card-text">{cardText}</div>
           <div className="left-align">
-            <button className="button is-primary is-medium mr2">
+            <a
+              className="button is-primary is-medium"
+              target="_blank"
+              href={getStartedLink}
+            >
+              <Icon className="pr2" img="githubWhite" />
               Get Started
-            </button>
+            </a>
+
+            {/* Hiding for now
+
             <button className="button is-primary is-medium">
               Download Core
             </button>
+
+              */}
           </div>
         </div>
 
@@ -38,7 +48,7 @@ const HeroCard = ({ cardText, logo }) => (
       </div>
     </div>
   </div>
-)
+);
 
 const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink }) => (
   <div className="ProductHero">
@@ -46,15 +56,21 @@ const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink }) => (
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
           <span className="flex justify-center">
-          <h1 className="title">{title}</h1>
-          <Badge color="pink" className="ml1 mt3" >Core</Badge>
+            <h1 className="title">{title}</h1>
+            <Badge color="pink" className="ml1 mt3">
+              Core
+            </Badge>
           </span>
           <h2 className="subtitle py3">{subTitle}</h2>
-          <HeroCard cardText={cardText} logo={logo} />
+          <HeroCard
+            getStartedLink={getStartedLink}
+            cardText={cardText}
+            logo={logo}
+          />
         </div>
       </div>
     </section>
   </div>
-)
+);
 
-export default ProductHero
+export default ProductHero;

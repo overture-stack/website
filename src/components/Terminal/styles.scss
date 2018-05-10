@@ -1,7 +1,21 @@
 .Terminal {
   background: #F2F3F5;
-  padding: 20px 2px 2px;
+  padding: 16px 2px 2px;
+  border-radius: 4px;
   margin-bottom: 16px;
+}
+
+.circle-container {
+  margin-left: 12px;
+  padding-bottom: 4px;
+  display: flex;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: #D8D8D8;
+  margin-right: 8px;
 }
 
 .Terminal-inner {

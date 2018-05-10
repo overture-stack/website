@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1366px" height="574px" viewBox="0 0 1366 574" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="71.7486391%" y1="-13.5835182%" x2="50.7415085%" y2="68.7780135%" id="linearGradient-1">
+            <stop stop-color="#47D9BF" offset="0%"></stop>
+            <stop stop-color="#00A1D9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Song" transform="translate(0.000000, -69.000000)" fill="url(#linearGradient-1)">
+            <path d="M0,69 L1366,69 L1366,292.707153 C1256.17638,368.107399 1095.05835,432.467652 882.64591,485.787913 C653.153987,543.395505 358.938684,595.799534 0,643 L0,69 Z" id="Rectangle-10"></path>
+        </g>
+    </g>
+</svg>

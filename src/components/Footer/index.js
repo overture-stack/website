@@ -1,39 +1,85 @@
 /**
  * Created  on 31/3/18
  */
-import React from 'react'
-import { Link } from 'gatsby-link'
-import './styles.scss'
-import logo from './logo.svg'
+import React from "react";
+import { Link } from "gatsby-link";
+import "./styles.scss";
+import logo from "./logo.svg";
+import Icon from "../Icon/index";
 
 const links = {
   Core: {
-    Ego: '/products/ego',
-    Score: '/products/score',
-    Song: '/products/song',
-    Indexer: '#',
+    Ego: {
+      link: "/products/ego",
+      icon: null
+    },
+    Score: {
+      link: "/products/score",
+      icon: null
+    },
+    Song: {
+      link: "/products/song",
+      icon: null
+    }
+    //   Indexer: {
+    //     link: "#",
+    //     icon: null,
+    //   }
   },
   Discovery: {
-    Jupyter: '#',
-    JTracker: '#',
+    Arranger: {
+      icon: "githubGrey",
+      link: "https://github.com/overture-stack/arranger",
+    },
+    OncoJS: {
+      link: "https://github.com/oncojs",
+      icon: "githubGrey",
+    }
   },
   Analysis: {
-    Persona: '#',
-    Riff: '#',
+    Jukebox: {
+      link: "#",
+    },
+    JTracker: {
+      link: "https://github.com/jtracker-io",
+      icon: "githubGrey",
+    }
   },
   Social: {
-    Persona: '#',
-    Riff: '#',
+    Persona: {
+      icon: "githubGrey",
+      link: "https://github.com/overture-stack/persona",
+    },
+    Riff: {
+      link: "https://github.com/overture-stack/riff",
+      icon: "githubGrey",
+    }
   },
   Management: {
-    'Billing & Usage': '#',
-    Enrolment: '#',
+    "Billing & Usage": {
+      link: "https://github.com/CancerCollaboratory/billing",
+      icon: "githubGrey",
+    },
+    Enrolment: {
+      link: "https://github.com/overture-stack/enrolment",
+      icon: "githubGrey",
+    }
   },
   About: {
-    'Case Studies': '#',
-    Servies: '#',
-  },
-}
+    "Services": {
+      link: "#",
+      icon: null,
+    },
+    Blog: {
+      link: "http://softeng.oicr.on.ca/",
+      icon: null,
+    },
+    Contact: {
+      link: "#",
+      icon: null,
+    }
+  }
+};
 
 const FooterLinks = () => {
   return (
@@ -44,32 +90,36 @@ const FooterLinks = () => {
             <div className="link-group-header">{v}</div>
             <ul className="list-reset">
               {Object.keys(links[v]).map((y, i) => {
+                let footerLink = links[v][y]["link"];
+                let linkIcon = links[v][y]["icon"];
                 return (
                   <li key={y}>
-                    <a className="link" href={links[v][y]}>{y}</a>{' '}
-                    {/* TODO change this to a gatsby link ? */}
+                    <a className="link" href={footerLink}>
+                      <span className="pr1">{y}</span>
+                      {linkIcon && <Icon img={linkIcon} />}
+                    </a>{" "}
                   </li>
-                )
+                );
               })}
             </ul>
           </section>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 const Footer = () => {
   return (
     <footer className="Footer">
       <div className="container">
         <div className="flex">
-          <img src={logo}/>
+          <img src={logo} style={{maxHeight: "100px", paddingRight: "32px"}} />
           <FooterLinks />
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

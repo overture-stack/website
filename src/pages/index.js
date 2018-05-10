@@ -50,11 +50,16 @@ const HomePage = () => (
         <H1 className="flex-auto pr2">
           Get started with our bioinformatics core bundle:
         </H1>
+
+        {/* Hiding for now
+
         <button className="button is-primary is-medium">Download Core</button>
+          * */}
+
       </div>
 
       <div className="columns column">
-        <div className="column is-3">
+        <div className="column">
           <BundleCard icon="lock" header="Ego">
             <div className="py2">
               Authorization service for identity providers such as Google and Facebook.
@@ -63,7 +68,7 @@ const HomePage = () => (
           </BundleCard>
         </div>
 
-        <div className="column is-3">
+        <div className="column ">
           <BundleCard icon="database" header="Score">
             <div className="py2">
               Facilitates the transfer and storage of data seamlessly for cloud-based projects.
@@ -72,7 +77,7 @@ const HomePage = () => (
           </BundleCard>
         </div>
 
-        <div className="column is-3">
+        <div className="column ">
           <BundleCard icon="shield" header="Song">
             <div className="py2">
               Tracks genomic data scattered across multiple cloud storage systems.
@@ -81,7 +86,8 @@ const HomePage = () => (
           </BundleCard>
         </div>
 
-        <div className="column is-3">
+        {/*  
+        <div className="column ">
           <BundleCard icon="cardStack" header="Indexer">
             <div className="py2">
               Sources and combines data from multiple remote repositories into a single reference index.
@@ -90,6 +96,8 @@ const HomePage = () => (
           </BundleCard>
 
         </div>
+        */}
+
       </div>
 
       {/* BADGES */}
@@ -125,8 +133,16 @@ const HomePage = () => (
             </p>
 
             <div className="mt3">
-              <button className="button is-primary is-medium mr2">More about us</button>
+              <a href="http://softeng.oicr.on.ca/team/" target="_blank">
+                <button className="button is-primary is-medium mr2">
+                  More about us
+                </button>
+              </a>
+
+              {/* Hiding for now:
               <button className="button is-primary is-medium">Case studies</button>
+                * */}
+
             </div>
 
           </div>

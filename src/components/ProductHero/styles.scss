@@ -1,8 +1,9 @@
 .ProductHero {
   .hero-gradient {
-    background-image: url("./bg_blue_curved.svg");
+    background-image: url("./images/bg_blue_curved2.svg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    background-position: bottom;
   }
   
   .card-img-box {
@@ -15,8 +16,18 @@
 
   }
   
+  .card-text {
+    font-family: Lato-Regular;
+    font-size: 24px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 40px;
+    text-align: left;
+    padding-bottom: 24px;
+  }
+  
   .card-img {
-    margin-top: -25px;
+    margin-top: -40px;
     
     @media (min-width: 1140px) and (max-width: 1400px) {
       margin-top: 0;
@@ -29,17 +40,25 @@
   }
   
   .title {
-    color: white;
-    font-size: 54px;
-    font-weight: 700;
-    margin: 32px 0;
+    margin: 28px 0;
+    font-family: Lato-Bold;
+    font-size: 56px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    line-height: 70px;
+
   }
 
   .subtitle {
-    color: white;
-    font-size: 32px;
     max-width: 900px;
     margin: 0 auto;
+    font-family: Lato-Regular;
+    font-size: 30px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 45px;
+
   }
 
 }

@@ -9,15 +9,23 @@
   }
   
   .header {
-    font-size: 28px;
-    font-weight: 700;
-    padding-top: 12px;
+    font-family: Lato-Regular;
+    font-size: 30px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 37px;
+    padding: 16px 0 24px;
+
   }
   
   .details {
-    font-size: 16px;
-    padding: 16px 0;
-    font-weight: 700;
+    font-family: Lato-Regular;
+    font-size: 18px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 30px;
+    max-width: 300px;
+
   }
 
 
