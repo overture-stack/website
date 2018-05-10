@@ -40,3 +40,32 @@ nav
 // globals
 
 @import "~bulma"
+
+
+
+// general usefuls across pages
+  
+// for target boxes that span full width etc etc (found on Song page etc)
+
+.target-box 
+  min-height: 240px
+  border: 1px solid white
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 24px
+  
+.box-right
+  justify-content: flex-start
+  padding-left: 92px
+  @media screen and (max-width: 768px)
+    justify-content: center
+    padding: 64px
+
+
+.box-left
+  justify-content: flex-end
+  padding-right: 92px
+  @media screen and (max-width: 768px)
+    justify-content: center
+    padding: 64px

@@ -53,7 +53,7 @@ const SongPage = () => (
     <section className="columns is-12 my4">
       {/* top row */}
       <article className="column is-half p0">
-        <div className="target-box bg-grey">
+        <div className="target-box box-left bg-grey">
           <div className="">
             <ProductTarget
               header="It's fast"
@@ -63,7 +63,7 @@ const SongPage = () => (
           </div>
         </div>
 
-        <div className="target-box bg-grey">
+        <div className="target-box box-left bg-grey">
           <div className="">
             <ProductTarget
               header="Tracks and validate"
@@ -76,7 +76,7 @@ const SongPage = () => (
 
       {/* bottom row */}
       <article className="column is-half p0">
-        <div className="target-box bg-grey">
+        <div className="target-box box-right bg-grey">
           <div className="">
             <ProductTarget
               header="Turn-key Solution"
@@ -86,7 +86,7 @@ const SongPage = () => (
           </div>
         </div>
 
-        <div className="target-box bg-grey">
+        <div className="target-box box-right bg-grey">
           <div className="">
             <ProductTarget
               header="Connected metadata"
