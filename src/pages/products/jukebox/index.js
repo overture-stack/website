@@ -31,10 +31,10 @@ const SongPage = () => (
         <div>
           Jukebox automates set-up and deployment of
           <a target="_blank" href="http://jupyter.org/index.html">
-            JupyterHub
+              {" "} JupyterHub
           </a>. Your users can access personal
           <a target="_blank" href="http://jupyter.org/install.html">
-            Jupyter notebooks
+              {" "} Jupyter notebooks {" "}
           </a>
           in one click to do science right from the web browser in a live,
           collaborative environment."
