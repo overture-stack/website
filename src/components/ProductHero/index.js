@@ -3,9 +3,9 @@ import React from "react";
 import "./styles.scss";
 import Badge from "../Badge/index";
 import bg from "./bg_blue_curved.svg"; // used in css
-import logoScore from "./images/score.png";
-import logoSong from "./images/song.png";
-import logoEgo from "./images/ego.png";
+import logoScore from "./images/score.svg";
+import logoSong from "./images/song.svg";
+import logoEgo from "./images/ego.svg";
 import logoJukebox from "./images/jukebox.svg";
 
 const logos = {
@@ -21,7 +21,6 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
       <div className="columns">
         {/* Left Column */}
         <div className="card-content is-two-thirds flex flex-column justify-center">
-          {/* TODO font colour */}
           <div className="card-text">{cardText}</div>
           <div className="left-align">
             <a
@@ -45,7 +44,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
 
         {/* Right Column */}
         <div className="column is-one-third card-img-box">
-          <img className="card-img" src={logos[logo]} />
+          <img className={`card-img ${logo}`} src={logos[logo]} />
         </div>
       </div>
     </div>

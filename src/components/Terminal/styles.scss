@@ -5,18 +5,7 @@
   margin-bottom: 16px;
 }
 
-.circle-container {
-  margin-left: 12px;
-  padding-bottom: 4px;
-  display: flex;
-}
 
-.circle {
-  width: 10px;
-  height: 10px;
-  background-color: #D8D8D8;
-  margin-right: 8px;
-}
 
 .Terminal-inner {
   background-color: #282A35;
@@ -29,3 +18,37 @@
   color: #82EE86;
 }
 
+
+.Browser {
+  background: #F2F3F5;
+  display: flex;
+  align-items: center;
+  padding: 12px 6px;
+  border-radius: 4px;
+  // margin-bottom: 16px;
+  
+  .url-bar {
+    flex: 1 1 auto;
+  }
+  
+  .url-text {
+    background: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+  }
+
+}
+
+.Traffic-Lights{
+  margin-left: 12px;
+  padding-bottom: 4px;
+  display: flex;
+
+  .circle {
+    width: 10px;
+    height: 10px;
+    background-color: #D8D8D8;
+    margin-right: 8px;
+  }
+
+}

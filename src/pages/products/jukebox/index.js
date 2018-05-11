@@ -5,9 +5,12 @@ import {
 } from "../../../components/ProductFeature";
 import ProductTarget from "../../../components/ProductTarget";
 import ProductHero from "../../../components/ProductHero";
-import Terminal from "../../../components/Terminal/index";
+import {Terminal, UrlBar} from "../../../components/Terminal/index";
 import GettingStarted from "../../../components/GettingStarted/index";
-import {BottomCallout, Callout} from "../../../components/BottomCallout/index";
+import {
+  BottomCallout,
+  Callout
+} from "../../../components/BottomCallout/index";
 import { H2, H4 } from "../../../components/Typography/index";
 import Icon from "../../../components/Icon/index";
 import "./style.scss";
@@ -20,14 +23,26 @@ import aws from "./imgs/aws.svg";
 const SongPage = () => (
   <main className="Jukebox">
     {/* Hero */}
-      {/*  TODO : dangerously set inner html to get links in here.*/}
+    {/*  Ugly html inside props so that I can add links to the cardText..*/}
     <ProductHero
       title="Jukebox"
       subTitle="Spinning up interactive development environments is hard!"
-      cardText="Jukebox automates set-up and deployment of JupyterHub.  Your users can access personal Jupyter notebooks in one click to do science right from the web browser in a live,  collaborative environment.  "
-      getStartedLink="https://github.com/overture-stack/song"
+      cardText={
+        <div>
+          Jukebox automates set-up and deployment of
+          <a target="_blank" href="http://jupyter.org/index.html">
+            JupyterHub
+          </a>. Your users can access personal
+          <a target="_blank" href="http://jupyter.org/install.html">
+            Jupyter notebooks
+          </a>
+          in one click to do science right from the web browser in a live,
+          collaborative environment."
+        </div>
+      }
+      getStartedLink="https://github.com/overture-stack/jupyter"
       logo="logoJukebox"
-      badge={{color: "yellow", text: "Analysis"}}
+      badge={{ color: "yellow", text: "Analysis" }}
     />
 
     {/* Features  */}
@@ -106,13 +121,19 @@ const SongPage = () => (
           <H2 className="pb1">1</H2>
           <div>
             <H4> To set up locally, clone the Jupyter repository. </H4>
-            <div className="py3">Edit default permissions and configurations if needed.</div>
+            <div className="py3">
+              Edit default permissions and configurations if needed.
+            </div>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={["mvn -am -pl score-server"]} />
+          <Terminal
+            prompts={[
+              "git clone https://github.com/overture-stack/Jupyter.git"
+            ]}
+          />
         </div>
       </div>
 
@@ -122,45 +143,70 @@ const SongPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build the Score client</H4>
+            <H4>Use Ansible to deploy Jukebox.</H4>
+          </div>
+          <div className="mt3 yellow-bar" />
+        </div>
 
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal
+            prompts={["ansible-playbook setup-jukebox.yml"]}
+          />
+        </div>
+      </div>
+
+
+      {/* Getting Started: step 3 */}
+
+      <div className="columns py3">
+        <div className="column is-3">
+          <H2 className="pb1">3</H2>
+          <div>
+            <H4>Learn, explore, experiment</H4>
             <div className="py3">
-              The Score client communicates with the Score server, which uploads
-              and downloads your files.
+                Experiment with scientific packages such as NumPy, SciPy, Pandas and Seaborn and languages including Python, Scala and R.
             </div>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={["mvn -am -pl score-client"]} />
+          <UrlBar
+            prompts={["Visit http://localhost:<your port number>"]}
+          />
         </div>
       </div>
+
     </GettingStarted>
 
     {/* Footer */}
     <BottomCallout>
-
       <Callout
         icon="githubYellow"
-        description="A flexible data model for tracking your genomic data across the cloud."
+        description="Explore and manipulate data without having to set up the environment yourself."
+      >
+        <a
+          target="_blank"
+          href="http://github.com/overture-stack/jupyter"
+          className="button is-primary is-medium mt2"
         >
-        <button className="button is-primary is-medium mt2">
           <Icon size={24} img="githubWhite" />
-          <div className="ml1 text-white">Get Started</div>
-        </button>
+          <div className="ml1 text-white">Get started</div>
+        </a>
       </Callout>
 
       <Callout
         icon="pageWhite"
-        description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific security."
+        description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
+      >
+        <a
+          target="_blank"
+          href="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
+          className="button is-primary is-medium mt2"
         >
-        <button className="button is-primary is-medium mt2">
-          <Icon size={24} img="githubWhite" />
-          <div className="ml1 text-white">Get Started</div>
-        </button>
+          <div className="ml1 text-white">Related blog post</div>
+        </a>
       </Callout>
-
     </BottomCallout>
   </main>
 );
