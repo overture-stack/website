@@ -38,7 +38,7 @@ const links = {
   },
   Analysis: {
     Jukebox: {
-      link: "#",
+      link: "/products/jukebox",
     },
     JTracker: {
       link: "https://github.com/jtracker-io",

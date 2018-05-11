@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
-import { H1, H2 } from "../components/Typography/index";
+import { H1, H2, H4 } from "../components/Typography/index";
 import Badge from "../components/Badge/index";
 
 const BundleCard = ({ header, icon, children }) => (
@@ -28,12 +28,12 @@ const HomePage = () => (
       <div className="hero-body">
         <div className="container flex">
           <div className="flex flex-column column is-half justify-center">
-            <h1 className="hero-header mb3">
+            <h1 className="t-jumbo mb3">
               Worry less, Science More
             </h1>
-            <h2 className="hero-subheader py3">
+            <H4 className="py3">
               Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research.
-            </h2>
+            </H4>
           </div>
 
           <div className="column is-half is-hidden-mobile">
