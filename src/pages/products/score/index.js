@@ -21,6 +21,7 @@ const ScorePage = () => (
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
       getStartedLink="https://github.com/overture-stack/score"
       logo="logoScore"
+      badge={{color: "pink", text: "Core"}}
     />
 
     {/* Features  */}
@@ -85,14 +86,14 @@ const ScorePage = () => (
 
     {/* Getting Started */}
 
-    <GettingStarted pinnedLink="hii">
+    <GettingStarted>
       {/* Getting Started: Step 1 */}
 
       <div className="columns py3">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Build the Score server</H4>
+            <H4>Build the Score server.</H4>
             <div className="py3">
               This will be your users method of interfacing with the cloud-based
               service you choose to store your data on.
@@ -112,7 +113,7 @@ const ScorePage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build the Score client</H4>
+            <H4>Build the Score client.</H4>
 
             <div className="py3">
               The Score client communicates with the Score server, which uploads

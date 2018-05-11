@@ -22,6 +22,7 @@ const EgoPage = () => (
       subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, a well as providing an intuitive GUI for painless user management."
       getStartedLink="https://github.com/overture-stack/ego"
+      badge={{color: "pink", text: "Core"}}
       logo="logoEgo"
     />
 
@@ -85,7 +86,7 @@ const EgoPage = () => (
 
     {/* Getting Started Terminals / steps */}
 
-    <GettingStarted pinnedLink="hii">
+    <GettingStarted pinnedLink="http://ego.readthedocs.io/en/latest/">
       {/* Getting Started: Step 1 */}
 
       <div className="columns py3">

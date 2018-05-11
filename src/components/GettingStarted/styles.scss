@@ -20,7 +20,7 @@
   .header-offset {
     display: inline-block;
     position:relative;
-    transform:translateX(35%); // haaaaaacky
+    // transform:translateX(35%); // haaaaaacky
   }
   
   .pinned-link {
@@ -29,6 +29,7 @@
     color: #9E005D;
     letter-spacing: 0;
     padding-right: 16px;
+    margin-left: -40px;
   }
   
   .bullet {

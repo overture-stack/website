@@ -96,7 +96,7 @@ const ProductsPopup = ({ closePopOver }) => (
 
       <section className="menu-section">
         <Badge color="yellow">Analysis</Badge>
-        <Link onClick={() => closePopOver()} className="bold pt2" to="/jupyter">
+        <Link onClick={() => closePopOver()} className="bold pt2" to="/products/jukebox">
           Jukebox
         </Link>
         <a

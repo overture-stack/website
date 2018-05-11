@@ -6,10 +6,12 @@ import bg from "./bg_blue_curved.svg"; // used in css
 import logoScore from "./images/score.png";
 import logoSong from "./images/song.png";
 import logoEgo from "./images/ego.png";
+import logoJukebox from "./images/jukebox.svg";
 
 const logos = {
   logoScore,
   logoSong,
+  logoJukebox,
   logoEgo
 };
 
@@ -50,15 +52,15 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
   </div>
 );
 
-const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink }) => (
+const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge}) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py3">
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
           <span className="flex justify-center">
             <h1 className="title">{title}</h1>
-            <Badge color="pink" className="ml1 mt3">
-              Core
+            <Badge color={badge.color} className="ml1 mt3">
+              {badge.text}
             </Badge>
           </span>
           <h2 className="subtitle py3">{subTitle}</h2>

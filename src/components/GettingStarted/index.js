@@ -2,9 +2,9 @@
  * getting started + documentation header.
  **/
 
-import React from 'react'
-import './styles.scss'
-import { H2 } from '../Typography/index'
+import React from "react";
+import "./styles.scss";
+import { H2 } from "../Typography/index";
 
 const GettingStarted = ({ pinnedLink, children }) => (
   <section className="GettingStarted container py3">
@@ -13,14 +13,20 @@ const GettingStarted = ({ pinnedLink, children }) => (
         <div className="center">
           <H2 className="header-offset">Getting Started</H2>
         </div>
-        <a className="pinned-link" href={pinnedLink}>
-          Documentation >
-        </a>
+        {pinnedLink ? (
+          <a target="_blank"
+             className="pinned-link" 
+             href={pinnedLink}>
+            Documentation >
+          </a>
+        ) : (
+          <div />
+        )}
       </div>
 
       {children}
     </div>
   </section>
-)
+);
 
-export default GettingStarted
+export default GettingStarted;
