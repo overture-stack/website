@@ -53,7 +53,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
 
 const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge}) => (
   <div className="ProductHero">
-    <section className="hero hero-gradient py3">
+    <section className="hero hero-gradient py1">
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
           <span className="flex justify-center">
@@ -62,7 +62,7 @@ const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge}) 
               {badge.text}
             </Badge>
           </span>
-          <h2 className="subtitle py3">{subTitle}</h2>
+          <h2 className="subtitle py1">{subTitle}</h2>
           <HeroCard
             getStartedLink={getStartedLink}
             cardText={cardText}

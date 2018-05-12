@@ -26,7 +26,7 @@ const SongPage = () => (
     {/* Hero */}
     <ProductHero
       title="Song"
-      subTitle="Quickly and reliably track genome data scattered across multiple Cloud storage systems."
+      subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
       cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
       getStartedLink="https://github.com/overture-stack/song"
       badge={{ color: "pink", text: "Core" }}
@@ -44,13 +44,13 @@ const SongPage = () => (
         header="Easy to adopt"
         icon="download"
         iconSize={54}
-        details="Relying on a standard REST API. Get started running SONG with two Docker commands."
+        details="Relying on a standard REST API. Get started running Song with two Docker commands."
       />
 
       <ProductFeature
         header="Accurate and efficient"
         icon="user"
-        details="Specifically designed to track genome data, SONG tracks and validates your submissions."
+        details="Specifically designed to track genome data, Song tracks and validates your submissions."
       />
     </ProductFeatureRow>
 
@@ -167,7 +167,7 @@ const SongPage = () => (
       {/* Storage Solutions */}
 
       <section className="py4">
-        <H2 className="center pb3">Your choice of storage system</H2>
+        <H2 className="center pb3">Compatible storage partners</H2>
 
         <div className="flex column items-center  justify-around pb4">
           <img src={aws} style={{ width: "120px" }} />

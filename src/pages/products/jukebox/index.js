@@ -37,7 +37,7 @@ const SongPage = () => (
               {" "} Jupyter notebooks {" "}
           </a>
           in one click to do science right from the web browser in a live,
-          collaborative environment."
+          collaborative environment.
         </div>
       }
       getStartedLink="https://github.com/overture-stack/jupyter"
@@ -50,18 +50,20 @@ const SongPage = () => (
       <ProductFeature
         header="Quick start"
         icon="power"
+        iconSize={92}
         details="The setup has been done for you, all that’s left for you to do is your research."
       />
       <ProductFeature
         header="Contained"
         icon="spiral"
-        iconSize={54}
+        iconSize={72}
         details="Users operate in a virtual machine, so everything is contained. Nothing can be broken, so experiment away with the API and data sets."
       />
 
       <ProductFeature
         header="Automation"
         icon="cloudSquare"
+        iconSize={82}
         details="Cloud deployment automation through OpenStack Ansible. "
       />
     </ProductFeatureRow>

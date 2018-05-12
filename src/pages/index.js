@@ -5,6 +5,7 @@ import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
 import { H1, H2, H4 } from "../components/Typography/index";
 import Badge from "../components/Badge/index";
+import Link from "gatsby-link";
 
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
@@ -13,26 +14,23 @@ const BundleCard = ({ header, icon, children }) => (
       <Icon img={icon} />
     </header>
 
-    <section className="card-body">
-      {children}
-    </section>
+    <section className="card-body">{children}</section>
   </div>
 );
 
 const HomePage = () => (
   <main className="HomePage">
-
     {/* HERO */}
 
     <section className="hero bg-green science-hero">
       <div className="hero-body">
         <div className="container flex">
           <div className="flex flex-column column is-half justify-center">
-            <h1 className="t-jumbo mb3">
-              Worry less, Science More
-            </h1>
+            <h1 className="t-jumbo mb3">Worry less, Science More</h1>
             <H4 className="py3">
-              Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research.
+              Overture is a collection of open-source, extendable solutions for
+              big-data genomic science that you can use to support your
+              research.
             </H4>
           </div>
 
@@ -55,36 +53,44 @@ const HomePage = () => (
 
         <button className="button is-primary is-medium">Download Core</button>
           * */}
-
       </div>
 
       <div className="columns column">
-        <div className="column">
+        <Link className="column" to="/products/ego">
           <BundleCard icon="lock" header="Ego">
             <div className="py2">
-              Authorization service for identity providers such as Google and Facebook.
+              Authorization service for identity providers such as Google and
+              Facebook.
             </div>
-            <a href="#" className="link-magenta">Learn More &gt;</a>
+            <Link to="/products/ego" className="link-magenta">
+              Learn More &gt;
+            </Link>
           </BundleCard>
-        </div>
+        </Link>
 
-        <div className="column ">
+        <Link className="column" to="/products/score">
           <BundleCard icon="database" header="Score">
             <div className="py2">
-              Facilitates the transfer and storage of data seamlessly for cloud-based projects.
+              Facilitates the transfer and storage of data seamlessly for
+              cloud-based projects.
             </div>
-            <a href="#" className="link-magenta">Learn More &gt;</a>
+            <Link to="/products/score" className="link-magenta">
+              Learn More &gt;
+            </Link>
           </BundleCard>
-        </div>
+        </Link>
 
-        <div className="column ">
+        <Link className="column" to="/products/song">
           <BundleCard icon="shield" header="Song">
             <div className="py2">
-              Tracks genomic data scattered across multiple cloud storage systems.
+              Tracks genomic data scattered across multiple cloud storage
+              systems.
             </div>
-            <a href="#" className="link-magenta">Learn More &gt;</a>
+            <Link to="/products/song" className="link-magenta">
+              Learn More &gt;
+            </Link>
           </BundleCard>
-        </div>
+        </Link>
 
         {/*  
         <div className="column ">
@@ -97,7 +103,6 @@ const HomePage = () => (
 
         </div>
         */}
-
       </div>
 
       {/* BADGES */}
@@ -105,10 +110,18 @@ const HomePage = () => (
         <div className="flex items-center">
           <H2 className="flex-auto pr2"> Then explore our solutions for:</H2>
           <div>
-            <Badge className="mr2" color="blue">Discovery</Badge>
-            <Badge className="mr2" color="yellow">Analysis</Badge>
-            <Badge className="mr2" color="green">Social</Badge>
-            <Badge className="mr2" color="red">Management</Badge>
+            <Badge className="mr2" color="blue">
+              Discovery
+            </Badge>
+            <Badge className="mr2" color="yellow">
+              Analysis
+            </Badge>
+            <Badge className="mr2" color="green">
+              Social
+            </Badge>
+            <Badge className="mr2" color="red">
+              Management
+            </Badge>
           </div>
         </div>
       </div>
@@ -121,33 +134,43 @@ const HomePage = () => (
         <div className="columns">
           <div className="column is-half">
             <h1 className="bottom-header">
-              We created Overture to share our data science components with the community.
+              We created Overture to share our data science components with the
+              community.
             </h1>
           </div>
 
           <div className="column is-half mt2">
-            <span className="pt3">Overture uses OICR’s experience in building</span>
-            <span className="bold"> large scale infrastructures, big data ETL and portals supporting genomic research. </span>
+            <span className="pt3">
+              Overture uses OICR’s experience in building
+            </span>
+            <span className="bold">
+              {" "}
+              large scale infrastructures, big data ETL and portals supporting
+              genomic research.{" "}
+            </span>
             <p className="pt3">
-              Built to be reusable and scalable, Overture’s components are well documented, actively supported and welcome <a href="#">external feedback and contributions</a>. If you need assistance, we also offer <a href="#">consulting, support and collaborative services.</a>
+              Built to be reusable and scalable, Overture’s components are well
+              documented, actively supported and welcome{" "}
+              <a href="#">external feedback and contributions</a>. If you need
+              assistance, we also offer{" "}
+              <a href="#">consulting, support and collaborative services.</a>
             </p>
 
             <div className="mt3">
               <a href="http://softeng.oicr.on.ca/team/" target="_blank">
-                <button className="button is-primary is-medium mr2">Meet the team</button>
+                <button className="button is-primary is-medium mr2">
+                  Meet the team
+                </button>
               </a>
 
               {/* Hiding for now:
               <button className="button is-primary is-medium">Case studies</button>
                 * */}
-
             </div>
-
           </div>
         </div>
       </div>
     </section>
-
   </main>
 );
 
