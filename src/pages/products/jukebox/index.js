@@ -162,7 +162,7 @@ const SongPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Learn, explore, experiment</H4>
+              <H4>Learn, explore, experiment.</H4>
             <div className="py3">
                 Experiment with scientific packages such as NumPy, SciPy, Pandas and Seaborn and languages including Python, Scala and R.
             </div>

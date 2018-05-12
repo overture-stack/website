@@ -35,14 +35,9 @@ export default class HTML extends Component {
             content="width=device-width, initial-scale=1, user-scalable=no"
           />
           {this.props.headComponents}
-          {/*TJS TODO Could use npm*/}
-          <link
-            // href="https://unpkg.com/basscss@8.0.2/css/basscss.min.css"
-            // hardcore mode important!
-            href="https://unpkg.com/basscss@8.0.2/css/basscss-important.css"
-            rel="stylesheet"
-          />
+
           <link rel="shortcut icon" href={favicon} />
+          <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
           {css}
         </head>
         <body>

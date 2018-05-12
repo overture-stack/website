@@ -20,7 +20,7 @@ const ServicesPage = () => (
               Services
             </h1>
             <H4>
-              Interested by our expertise or software stack and need help getting started? Want to collaborate with us on exciting new projects? We are here to help!  We operate as a not-for-profit organization, so all our funds are directed toward improving our software.
+              Interested by our expertise or software stack and need help getting started? Want to collaborate with us on exciting new projects? We are here to help!  We operate as a not-for-profit organization, so all our funds are reinvested into our projects.
             </H4>
           </div>
 

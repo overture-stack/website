@@ -4,12 +4,17 @@
   align-items: center;
   padding: 32px 0;
   
+  
   .header-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 32px 0;
+
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .center {
@@ -20,25 +25,15 @@
   .header-offset {
     display: inline-block;
     position:relative;
-    // transform:translateX(35%); // haaaaaacky
   }
   
   .pinned-link {
-    font-family: Lato-Bold;
-    font-size: 20px;
-    color: #9E005D;
-    letter-spacing: 0;
-    padding-right: 16px;
-    margin-left: -40px;
+    margin-left: -128px;
+    @media(max-width: 768px) {
+      margin-left: 0px;
+      margin: 16px 0;
+    }
   }
-  
-  .bullet {
-    list-style-type: disc;
-    color: #003055; // VARIABLE plz
-    padding-bottom: 4px;
-    margin-left: 20px;
-  }
-
 
 }
 

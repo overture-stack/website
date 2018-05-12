@@ -209,7 +209,7 @@ const SongPage = () => (
           href="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
           className="button is-primary is-medium mt2"
         >
-          <div className="ml1 text-white">Get Started</div>
+          <div className="ml1 text-white">Related blog post</div>
         </a>
       </Callout>
     </BottomCallout>

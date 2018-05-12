@@ -1,3 +1,11 @@
+.ProductFeatureRow {
+  display: flex;
+  @media(max-width: 768px){
+    flex-direction: column
+  }
+}
+
+
 .ProductFeature {
   display: flex;
   flex-direction: column;

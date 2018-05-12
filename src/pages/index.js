@@ -134,9 +134,7 @@ const HomePage = () => (
 
             <div className="mt3">
               <a href="http://softeng.oicr.on.ca/team/" target="_blank">
-                <button className="button is-primary is-medium mr2">
-                  More about us
-                </button>
+                <button className="button is-primary is-medium mr2">Meet the team</button>
               </a>
 
               {/* Hiding for now:

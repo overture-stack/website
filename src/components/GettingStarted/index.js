@@ -7,6 +7,7 @@ import "./styles.scss";
 import { H2 } from "../Typography/index";
 
 const GettingStarted = ({ pinnedLink, children }) => (
+  <div className="section">
   <section className="GettingStarted container py3">
     <div className="columns column flex-column">
       <div className="header-wrap">
@@ -15,9 +16,9 @@ const GettingStarted = ({ pinnedLink, children }) => (
         </div>
         {pinnedLink ? (
           <a target="_blank"
-             className="pinned-link" 
+             className="button is-medium is-primary pinned-link" 
              href={pinnedLink}>
-            Documentation >
+            Documentation
           </a>
         ) : (
           <div />
@@ -26,7 +27,7 @@ const GettingStarted = ({ pinnedLink, children }) => (
 
       {children}
     </div>
-  </section>
+  </section></div>
 );
 
 export default GettingStarted;
