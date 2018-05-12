@@ -25,9 +25,9 @@ const HomePage = () => (
     <section className="hero bg-green science-hero">
       <div className="hero-body">
         <div className="container flex">
-          <div className="flex flex-column column is-half justify-center">
-            <h1 className="t-jumbo mb3">Worry less, Science More</h1>
-            <H4 className="py3">
+          <div className="hero-header-text flex flex-column column is-half justify-center">
+            <H1>Worry less, Science More</H1>
+            <H4 className="py3" style={{maxWidth: "585px"}}>
               Overture is a collection of open-source, extendable solutions for
               big-data genomic science that you can use to support your
               research.
@@ -45,9 +45,9 @@ const HomePage = () => (
 
     <section className="container mt4 pt2">
       <div className="flex column items-center py4">
-        <H1 className="flex-auto pr2">
+        <H2 className="flex-auto pr2">
           Get started with our bioinformatics core bundle:
-        </H1>
+        </H2>
 
         {/* Hiding for now
 
@@ -62,9 +62,9 @@ const HomePage = () => (
               Authorization service for identity providers such as Google and
               Facebook.
             </div>
-            <Link to="/products/ego" className="link-magenta">
+            <div to="/products/ego" className="link-magenta">
               Learn More &gt;
-            </Link>
+            </div>
           </BundleCard>
         </Link>
 
@@ -74,9 +74,9 @@ const HomePage = () => (
               Facilitates the transfer and storage of data seamlessly for
               cloud-based projects.
             </div>
-            <Link to="/products/score" className="link-magenta">
+            <div to="/products/score" className="link-magenta">
               Learn More &gt;
-            </Link>
+            </div>
           </BundleCard>
         </Link>
 
@@ -86,9 +86,9 @@ const HomePage = () => (
               Tracks genomic data scattered across multiple cloud storage
               systems.
             </div>
-            <Link to="/products/song" className="link-magenta">
+            <div to="/products/song" className="link-magenta">
               Learn More &gt;
-            </Link>
+            </div>
           </BundleCard>
         </Link>
 
@@ -133,10 +133,10 @@ const HomePage = () => (
       <div className="hero-body container">
         <div className="columns">
           <div className="column is-half">
-            <h1 className="bottom-header">
+            <H1 className="bottom-header">
               We created Overture to share our data science components with the
               community.
-            </h1>
+            </H1>
           </div>
 
           <div className="column is-half mt2">
@@ -148,12 +148,12 @@ const HomePage = () => (
               large scale infrastructures, big data ETL and portals supporting
               genomic research.{" "}
             </span>
-            <p className="pt3">
+            <p className="pt4">
               Built to be reusable and scalable, Overture’s components are well
               documented, actively supported and welcome{" "}
-              <a href="#">external feedback and contributions</a>. If you need
+              <a target="_blank" href="https://github.com/overture-stack">external feedback and contributions</a>. If you need
               assistance, we also offer{" "}
-              <a href="#">consulting, support and collaborative services.</a>
+              <Link to="/services">consulting, support and collaborative services.</Link>
             </p>
 
             <div className="mt3">

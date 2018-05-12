@@ -16,9 +16,9 @@ const ServicesPage = () => (
     <section className="hero section bg-green services-top-hero">
         <div className="container flex">
           <div className="flex flex-column column is-half justify-center">
-            <h1 className="t-jumbo mb3">
+            <H1 className="py2">
               Services
-            </h1>
+            </H1>
             <H4>
               Interested by our expertise or software stack and need help getting started? Want to collaborate with us on exciting new projects? We are here to help!  We operate as a not-for-profit organization, so all our funds are reinvested into our projects.
             </H4>
@@ -59,7 +59,7 @@ const ServicesPage = () => (
 
           {/* Copy  */}
           <div className="column is-offset-1">
-            <H2>Academic Collaborations</H2>
+            <H2>Consulting.</H2>
             <div className="my3 yellow-bar" />
             <p> We will work autonomously or alongside your team to fully understand your business needs and integrate Overture into your projects. We will help accelerate your success at any stage of your project ! </p>
             <ul className="py3">

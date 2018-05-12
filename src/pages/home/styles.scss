@@ -1,4 +1,8 @@
 .HomePage {
+
+  font-size: 18px;
+  line-height: 32px;
+
   .science-hero {
     height: 600px;
     @media(max-width: 900px) {
@@ -6,12 +10,12 @@
     }
   }
   
-  .hero-header {
-    font-family: Lato-Bold;
-    font-size: 50px;
-    color: #003055;
-    letter-spacing: 0;
-    line-height: 70px;
+  .hero-header-text {
+    margin-top: -128px;
+
+    @media(max-width: 1200px) {
+      margin-top: 0px;
+    }
   }
   
   .hero-subheader {

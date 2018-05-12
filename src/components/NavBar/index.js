@@ -205,7 +205,7 @@ class NavBar extends Component {
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item pr4">
+          <Link to="/" className="navbar-item mr4">
             <img src={logo} />
           </Link>
 
