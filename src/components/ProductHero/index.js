@@ -17,7 +17,7 @@ const logos = {
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
   <div className="container my3">
-    <div className="card column">
+    <div className="HeroCard card column">
       <div className="columns">
         {/* Left Column */}
         <div className="card-content is-two-thirds flex flex-column justify-center">

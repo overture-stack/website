@@ -6,11 +6,18 @@
     background-position: bottom;
   }
   
+  .HeroCard {
+    background: #FFFFFF;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.15);
+    border-radius: 5px;
+  }
+  
   .card-img-box {
     justify-content: center;
     display: flex;
     background-color: #F2F3F5;
     height: 280px;
+    border-top-right-radius: 5px;
 
     @media (max-width: 1139px) {
       height: auto;
