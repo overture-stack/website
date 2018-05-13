@@ -31,7 +31,7 @@ const SongPage = () => (
       getStartedLink="https://github.com/overture-stack/song"
       badge={{ color: "pink", text: "Core" }}
       logo="logoSong"
-    />
+      />
 
     {/* Features  */}
     <ProductFeatureRow>
@@ -39,20 +39,79 @@ const SongPage = () => (
         header="Scalable"
         icon="security"
         details="Designed to handle the volume of your requests in an efficient and timely manner."
-      />
+        />
       <ProductFeature
         header="Easy to adopt"
         icon="download"
         iconSize={54}
         details="Relying on a standard REST API. Get started running Song with two Docker commands."
-      />
+        />
 
       <ProductFeature
         header="Accurate and efficient"
         icon="user"
         details="Specifically designed to track genome data, Song tracks and validates your submissions."
-      />
+        />
     </ProductFeatureRow>
+
+
+    <div className="bg-grey">
+    <section className="" style={{borderBottom: "2px solid white"}}>
+      <div className="container">
+        {/* top row */}
+        <article className="columns">
+          <div className="column is-half py0" style={{borderRight: "2px solid white"}}>
+            <div className="">
+              <ProductTarget
+                header="It's fast"
+                details="Allows asynchronous uploads, so that invalid uploads don't stops valid ones from going through. Processes submissision with billlions of entities in hours."
+                icon="security"
+                />
+            </div>
+          </div>
+
+          <div className="column is-half py0">
+            <div className="">
+              <ProductTarget
+                header="Turn-key Solution"
+                details="Uses industry standard technologies, like JSON, YAML, and REST, so you don't have to learn anything new or difficult to use Song."
+                icon="security"
+                />
+            </div>
+          </div>
+        </article>
+        </div>
+    </section>
+
+    <section className="" style={{borderBottom: "2px solid white"}}>
+      <div className="container">
+        {/* top row */}
+        <article className="columns">
+          <div className="column is-half py0" style={{borderRight: "2px solid white"}}>
+            <div className="">
+              <ProductTarget
+                header="It's fast"
+                details="Allows asynchronous uploads, so that invalid uploads don't stops valid ones from going through. Processes submissision with billlions of entities in hours."
+                icon="security"
+                />
+            </div>
+          </div>
+
+          <div className="column is-half py0">
+            <div className="">
+              <ProductTarget
+                header="Turn-key Solution"
+                details="Uses industry standard technologies, like JSON, YAML, and REST, so you don't have to learn anything new or difficult to use Song."
+                icon="security"
+                />
+            </div>
+          </div>
+        </article>
+        </div>
+    </section>
+
+    </div>
+
 
     {/* Target Features Things */}
     <section className="columns is-12 my4">
@@ -64,7 +123,7 @@ const SongPage = () => (
               header="It's fast"
               details="Allows asynchronous uploads, so that invalid uploads don't stops valid ones from going through. Processes submissision with billlions of entities in hours."
               icon="security"
-            />
+              />
           </div>
         </div>
 
@@ -74,7 +133,7 @@ const SongPage = () => (
               header="Tracks and validate"
               details="Automatically validates your metadata submissions against a JSON schema to ensure that all your metadata is correct before it gets published."
               icon="security"
-            />
+              />
           </div>
         </div>
       </article>
@@ -87,7 +146,7 @@ const SongPage = () => (
               header="Turn-key Solution"
               details="Uses industry standard technologies, like JSON, YAML, and REST, so you don't have to learn anything new or difficult to use Song."
               icon="security"
-            />
+              />
           </div>
         </div>
 
@@ -96,7 +155,7 @@ const SongPage = () => (
             <ProductTarget
               header="Connected metadata"
               details="Supports ACLs out of the box, so you control who and how your metadata gets published. Easy to keep track of which researcher updated which data set, and when."
-            />
+              />
           </div>
         </div>
       </article>
@@ -121,7 +180,7 @@ const SongPage = () => (
         <div className="column is-8 is-offset-1 self-center">
           <Terminal
             prompts={["git clone https://github.com/overture-stack/SONG.git"]}
-          />
+            />
         </div>
       </div>
 
@@ -144,7 +203,7 @@ const SongPage = () => (
               "cd SONG/song-server",
               "mvn spring-boot:run -Drun.profiles=dev,test"
             ]}
-          />
+            />
         </div>
       </div>
 
@@ -189,12 +248,12 @@ const SongPage = () => (
       <Callout
         icon="githubYellow"
         description="A flexible data model for tracking your genomic data across the cloud."
-      >
+        >
         <a
           target="_blank"
           href="https://github.com/overture-stack/song"
           className="button is-primary is-medium mt2"
-        >
+          >
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </a>
@@ -203,12 +262,12 @@ const SongPage = () => (
       <Callout
         icon="pageWhite"
         description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific security."
-      >
+        >
         <a
           target="_blank"
           href="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
           className="button is-primary is-medium mt2"
-        >
+          >
           <div className="ml1 text-white">Related blog post</div>
         </a>
       </Callout>

@@ -1,9 +1,10 @@
 .ProductTarget {
   display: flex;
   flex-direction: column;
+  padding: 32px;
   
   .details {
-    max-width: 400px;
+    max-width: 500px;
     font-size: 18px;
     line-height: 32px;
   }
