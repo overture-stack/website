@@ -1,6 +1,34 @@
 .Footer {
   padding: 64px;
   
+  .footer-box {
+    display: flex;
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  
+  .oicr-logo {
+    width: 140px;
+    padding-right: 16px;
+    order: 1;
+    align-self: center;
+    
+    @media(max-width: 768px) {
+      margin: 64px;
+    padding-right: 0px;
+      order: 2;
+    }
+  }
+  
+  .footer-links {
+    order: 2;
+
+    @media(max-width: 768px) {
+      order: 1;
+    }
+  }
+  
   .link-group-header {
     color: #47D9BF;
     font-weight: 700;
