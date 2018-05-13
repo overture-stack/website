@@ -4,7 +4,10 @@ import {
   ProductFeatureRow
 } from "../../../components/ProductFeature";
 import ProductHero from "../../../components/ProductHero";
-import {BottomCallout, Callout } from "../../../components/BottomCallout/index";
+import {
+  BottomCallout,
+  Callout
+} from "../../../components/BottomCallout/index";
 import Icon from "../../../components/Icon/index";
 import Terminal from "../../../components/Terminal/index";
 import { H2, H4 } from "../../../components/Typography/index";
@@ -21,7 +24,7 @@ const ScorePage = () => (
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
       getStartedLink="https://github.com/overture-stack/score"
       logo="logoScore"
-      badge={{color: "pink", text: "Core"}}
+      badge={{ color: "pink", text: "Core" }}
     />
 
     {/* Features  */}
@@ -49,42 +52,53 @@ const ScorePage = () => (
     </ProductFeatureRow>
 
     {/* Target Features Things */}
-    <section>
-      {/* top row */}
-      <div className="bg-grey">
-      <article className="container columns p0 mb0" style={{margin: "0 auto"}}>
-        <div className="target-box column is-half bg-grey target-left" >
-          <div className="">
-            <ProductTarget
-              header="Data Integrity"
-              details="Leave corrupted files behind as downloaded files are always verified against their MD5sum."
-            />
-          </div>
-        </div>
 
-        <div className="target-box column is-half bg-grey target-right" >
-          <div className="">
-            <ProductTarget
-              header="Tracks and validate"
-              details="The transfer protocols allow setup with any public or private cloud service."
-            />
-          </div>
-        </div>
-      </article>
-      </div>
+    {/* Target Section */}
+    <div className="bg-grey">
+      <section className="" style={{ borderBottom: "2px solid white" }}>
+        <div className="container">
+          {/* top row */}
+          <article className="columns mb0">
+            <div
+              className="column is-half"
+              style={{ borderRight: "2px solid white" }}
+            >
+              <div className="target-box">
+                <ProductTarget
+                  header="Data Integrity"
+                  details="Leave corrupted files behind as downloaded files are always verified against their MD5sum."
+                />
+              </div>
+            </div>
 
-      {/* bottom row */}
-      <article className="column p0">
-        <div className="target-box bg-grey">
-          <div className="">
-            <ProductTarget
-              header="Pick up where you left off"
-              details="Score allows you to resume file transfer when a process stops mid-transfer."
-            />
-          </div>
+            <div className="column is-half ">
+              <div className="target-box">
+                <ProductTarget
+                  header="Tracks and validate"
+                  details="The transfer protocols allow setup with any public or private cloud service."
+                />
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-    </section>
+      </section>
+
+      <section className="" style={{ borderBottom: "2px solid white" }}>
+        <div className="container">
+          {/* top row */}
+          <article className="columns">
+            <div className="column flex justify-center">
+              <div className="target-box">
+                <ProductTarget
+                  header="Pick up where you left off"
+                  details="Score allows you to resume file transfer when a process stops mid-transfer."
+                />
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
 
     {/* Getting Started */}
 
@@ -138,13 +152,12 @@ const ScorePage = () => (
         icon="githubYellow"
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
-        >
+      >
         <button className="button is-primary is-medium mt2">
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </button>
       </Callout>
-
     </BottomCallout>
   </main>
 );

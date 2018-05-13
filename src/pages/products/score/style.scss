@@ -1,22 +1,2 @@
 .Score {
-  
-  // score specific target boxes
-  .target-left {
-    border-left: none;
-    justify-content: flex-end;
-    padding-right: 92px;
-    @media screen and (max-width: 768px){
-      justify-content: flex-start;
-      padding: 24px;
-    }
-  }
-  .target-right {
-    border-right: none;
-    justify-content: flex-start;
-    padding-left: 92px;
-    @media screen and (max-width: 768px){
-      // justify-content: center;
-      padding: 24px;
-    }
-  }
 }
