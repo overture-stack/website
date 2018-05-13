@@ -4,13 +4,11 @@ import Icon from '../Icon/index'
 
 // consistent container for product feature row
 export const ProductFeatureRow = ({children}) => (
-  <div className="section">
-  <div className="container ">
+  <div className="container mb4">
     <div className="ProductFeatureRow flex justify-around my2">
       {children}
     </div>
   </div>
-</div>
 )
   
 

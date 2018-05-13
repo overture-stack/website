@@ -49,11 +49,11 @@ const ScorePage = () => (
     </ProductFeatureRow>
 
     {/* Target Features Things */}
-    <section className="my4">
+    <section>
       {/* top row */}
       <div className="bg-grey">
       <article className="container columns p0 mb0" style={{margin: "0 auto"}}>
-        <div className="target-box column is-half bg-grey" style={{borderLeft: "none"}}>
+        <div className="target-box column is-half bg-grey target-left" >
           <div className="">
             <ProductTarget
               header="Data Integrity"
@@ -62,7 +62,7 @@ const ScorePage = () => (
           </div>
         </div>
 
-        <div className="target-box column is-half bg-grey" style={{borderRight: "none"}}>
+        <div className="target-box column is-half bg-grey target-right" >
           <div className="">
             <ProductTarget
               header="Tracks and validate"

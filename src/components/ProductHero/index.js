@@ -16,7 +16,7 @@ const logos = {
 };
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
-  <div className="container my3">
+  <div className="container mt3 mb2">
     <div className="HeroCard card column">
       <div className="columns">
         {/* Left Column */}
@@ -57,7 +57,7 @@ const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge}) 
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
           <span className="flex justify-center">
-            <h1 className="title">{title}</h1>
+            <h1 className="title mb1">{title}</h1>
             <Badge color={badge.color} className="ml1 mt3">
               {badge.text}
             </Badge>
