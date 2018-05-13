@@ -69,49 +69,65 @@ const SongPage = () => (
     </ProductFeatureRow>
 
     {/* Target Features Things */}
-    <section className="columns is-12 my4">
-      {/* top row */}
-      <article className="column is-half p0">
-        <div className="target-box box-left bg-grey">
-          <div className="">
-            <ProductTarget
-              header="Learn"
-              details="This environment allows you to learn as you go without having to do any of the setup yourself."
-            />
-          </div>
-        </div>
+    <div className="bg-grey">
+      <section className="" style={{ borderBottom: "2px solid white" }}>
+        <div className="container">
+          {/* top row */}
+          <article className="columns">
+            <div
+              className="column is-half py0"
+              style={{ borderRight: "2px solid white" }}
+            >
+              <div className="target-box">
+                <ProductTarget
+                  header="Learn"
+                  details="This environment allows you to learn as you go without having to do any of the setup yourself."
+                />
+              </div>
+            </div>
 
-        <div className="target-box box-left bg-grey">
-          <div className="">
-            <ProductTarget
-              header="Experiment"
-              details="Forget the expense. Now you can run experiments on datasets cost effectively and worry free."
-            />
-          </div>
+            <div className="column is-half py0">
+              <div className="target-box">
+                <ProductTarget
+                  header="Experiment"
+                  details="Forget the expense. Now you can run experiments on datasets cost effectively and worry free."
+                  icon="security"
+                />
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
+      </section>
 
-      {/* bottom row */}
-      <article className="column is-half p0">
-        <div className="target-box box-right bg-grey">
-          <div className="">
-            <ProductTarget
-              header="Collaborative"
-              details="Jupyter Hub allows multiple people within your group to use and access the notebooks."
-            />
-          </div>
-        </div>
+      <section className="" style={{ borderBottom: "2px solid white" }}>
+        <div className="container">
+          {/* top row */}
+          <article className="columns">
+            <div
+              className="column is-half py0"
+              style={{ borderRight: "2px solid white" }}
+            >
+              <div className="target-box">
+                <ProductTarget
+                  header="Collaborative"
+                  details="Jupyter Hub allows multiple people within your group to use and access the notebooks."
+                  icon="security"
+                />
+              </div>
+            </div>
 
-        <div className="target-box box-right bg-grey">
-          <div className="">
-            <ProductTarget
-              header="Cloud-based"
-              details="Cloud deployment for data co-location, take your analysis to the data."
-            />
-          </div>
+            <div className="column is-half py0">
+              <div className="target-box">
+                <ProductTarget
+                  header="Cloud-based"
+                  details="Cloud deployment for data co-location, take your analysis to the data."
+                />
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-    </section>
+      </section>
+    </div>
 
     {/* Getting Started /  Terminals */}
 
