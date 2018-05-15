@@ -68,6 +68,9 @@ const ProductsPopup = ({ closePopOver }) => (
 
       </section>
 
+
+    <div className="arrow-up"/>
+
       {/* section: DISCOVERY */}
 
       <section className="menu-section">

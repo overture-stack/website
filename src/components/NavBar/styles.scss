@@ -3,6 +3,18 @@
   display: flex;
   display: flex;
   flex-direction: column;
+  margin-left: -160px;
+
+// .arrow-up {
+//   width: 0; 
+//   height: 0;
+//   position: relative;
+//   top: -8px;
+//   border-left: 9px solid grey;
+//   border-right: 9px solid transparent;
+  
+//   border-bottom: 9px solid white;
+// }
   
   // used via gatsby activeClasses
   
@@ -11,6 +23,22 @@
     border: 1px solid #dfdfdf;
     background: white;
   }
+
+  .menu-items:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 75px;
+    left: 203px;
+    right:-7px;
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    border-right:1px solid #CAD5E0;
+    border-bottom:1px solid #CAD5E0;
+    -moz-transform:rotate(225deg);
+    -webkit-transform:rotate(225deg);
+}
   
   .spacer {
     height: 80px;
@@ -23,7 +51,7 @@
     flex-direction: column;
     background-color: #F2F3F5;
     width: 200px;
-    padding: 24px;
+    padding: 32px;
   }
   
   .core-left-link {
@@ -36,7 +64,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 24px 32px;
+    padding: 32px;
   }
   
 }
