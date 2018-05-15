@@ -51,14 +51,14 @@ const ServicesPage = () => (
 
 
     {/* Consulting  */}
-    <section className="hero consulting-hero bg-grey">
-      <div className="hero-body">
+    <section className="hero  bg-grey">
+      <div className="">
         <div className="container flex items-center">
           {/* Img  placeholder */}
-          <div className="column is-5 is-hidden-mobile"> </div>
+          <div className="column consulting-hero is-5 is-hidden-mobile"> </div>
 
           {/* Copy  */}
-          <div className="column is-offset-1">
+          <div className="column is-offset-1 p3">
             <H2>Consulting.</H2>
             <div className="my3 yellow-bar" />
             <p> We will work autonomously or alongside your team to fully understand your business needs and integrate Overture into your projects. We will help accelerate your success at any stage of your project ! </p>

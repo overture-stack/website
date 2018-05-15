@@ -1,7 +1,7 @@
 .ServicesPage {
 
   p, li {
-    font-family: Lato-Regular;
+    font-family: Lato;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
@@ -17,6 +17,10 @@
     background-position-y: 16px;
     display: flex;
     justify-content: center;
+    @media(min-width: 1300px) {
+      background-size: 50%
+    }
+
     @media(max-width: 768px) {
       background-image: none;
     }
@@ -31,24 +35,14 @@
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
-    background-position-x: 10%;
+    background-position-x: 20%;
+    height: 600px;
     padding: 48px 0;
-
-    @media(max-width: 900px) {
-      background-size: 50%;
-      background-position-x: 0%;
-      background-position-y: 0%;
-    }
-
-    @media(max-width: 768px) {
-      background-image: none;
-      padding: 0px;
-    }
 
   }
   
   .hero-subheader {
-    font-family: Lato-Regular;
+    font-family: Lato;
     font-size: 24px;
     color: #003055;
     letter-spacing: 0;

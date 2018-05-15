@@ -28,7 +28,8 @@ p, div
   color: #9E005D
   
 .link-magenta
-  font-family: Lato-Bold
+  font-family: Lato
+  font-weight: 700
   /* font-size: 20px
   color: #9E005D
   letter-spacing: 0
@@ -38,6 +39,11 @@ p, div
   
 .pointer
   cursor: pointer
+  
+// Bulma buttons are behaving a bit strangely; not quite centered
+// this is a temporary fix until we have button components.
+.button
+  padding-bottom: calc(0.5em - 1px) !important
   
 
 // Page specific / half component / whatever stuff 

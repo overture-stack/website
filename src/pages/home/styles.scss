@@ -18,12 +18,13 @@
   }
   
   .hero-subheader {
-    font-family: Lato-Regular;
+    font-family: Lato;
     font-size: 24px;
     color: #003055;
     letter-spacing: 0;
     line-height: 40px;
   }
+  
   
   .bottom-hero {
     margin-top: 64px;
@@ -50,25 +51,26 @@
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.15);
 
   .card-header {
-    // background: linear-gradient(-90deg, #00A1D9 2%, #47D9BF 100%);
     background: linear-gradient(-90deg, #47D9BF  2%,  #00A1D9  100%);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     color: #FFFFFF;
     display: flex;
-    font-family: Lato-Bold;
+    font-family: Lato;
+    font-weight: 700;
     font-size: 26px;
     justify-content: space-between;
+    align-items: center;
     letter-spacing: 0;
-    padding: 8px 16px;
+    padding: 8px 24px;
   }
   
   .card-body {
-    font-family: Lato-Regular;
+    font-family: Lato;
     font-size: 18px;
     color: #003055;
     letter-spacing: 0;
     line-height: 30px;
-    padding: 24px 16px;
+    padding: 24px;
   }
 }

@@ -1,6 +1,6 @@
 
 .t-h2 {
-  font-family: Lato-Regular;
+  font-family: Lato, "Arial";
   font-size: 30px;
   color: #004773;
   letter-spacing: 0;
@@ -9,7 +9,7 @@
 
 
 .t-h4 {
-  font-family: Lato-Regular;
+  font-family: Lato, "Arial";
   font-size: 24px;
   color: #003055;
   letter-spacing: 0;
@@ -19,7 +19,8 @@
 
 // for hero headers
 .t-h1 {
-  font-family: Lato-Bold;
+  font-family: Lato, "Arial";
+  font-weight: 700;
   font-size: 50px;
   color: #003055;
   letter-spacing: 0;

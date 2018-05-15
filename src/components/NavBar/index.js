@@ -237,7 +237,7 @@ class NavBar extends Component {
             </Link>
             */}
 
-            <Link className="navbar-item nav-link mr3" to="/services">
+            <Link className="navbar-item nav-link mr3" activeClassName="active-item" to="/services">
               Services
             </Link>
 
@@ -252,7 +252,7 @@ class NavBar extends Component {
               <div className="field is-grouped">
                 <p className="control">
                   <a className="button is-primary is-large" target="_blank" href="https://github.com/overture-stack">
-                    <Icon className="pr2" img="githubWhite" />
+                    <Icon className="mr2" img="githubWhite" />
                     Get Started
                   </a>
                 </p>

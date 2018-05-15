@@ -108,7 +108,7 @@ const HomePage = () => (
       {/* BADGES */}
       <div className="flex column py3">
         <div className="flex items-center">
-          <H2 className="flex-auto pr2"> Then explore our solutions for:</H2>
+          <div style={{fontSize: "28px"}} className="flex-auto pr2"> Then explore our solutions for:</div>
           <div>
             <Badge className="mr2" color="blue">
               Discovery
@@ -157,10 +157,8 @@ const HomePage = () => (
             </p>
 
             <div className="mt3">
-              <a href="http://softeng.oicr.on.ca/team/" target="_blank">
-                <button className="button is-primary is-medium mr2">
+              <a className="button is-primary is-medium" href="http://softeng.oicr.on.ca/team/" target="_blank">
                   Meet the team
-                </button>
               </a>
 
               {/* Hiding for now:

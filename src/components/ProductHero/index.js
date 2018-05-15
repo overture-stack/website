@@ -28,7 +28,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
               target="_blank"
               href={getStartedLink}
             >
-              <Icon className="pr2" img="githubWhite" />
+              <Icon className="mr2" img="githubWhite" />
               Get Started
             </a>
 

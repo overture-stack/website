@@ -39,6 +39,7 @@ export default class HTML extends Component {
 
           <link rel="shortcut icon" href={favicon} />
           <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"/>
           {css}
         </head>
         <body>
