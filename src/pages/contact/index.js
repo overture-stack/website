@@ -6,17 +6,54 @@ import { H1, H2, H4 } from "../../components/Typography/index";
 import "./styles.scss";
 
 class ContactPage extends Component {
+  componentDidMount() {
+    // Mount jira plugin
+    window.jellDeskSettings = {
+      sourceType: "web",
+      source: window.location.href,
+      position: { horizontal: "right", vertical: "bottom" },
+      offset: { horizontal: "50px", vertical: "50px" },
+      serviceUrl:
+        "https://extsd.oicr.on.ca/plugins/servlet/widget?jellToken=1234567890123456789&projectKey=OV&serviceDeskId=7"
+    };
+  }
+
+  jiraEndpoint = "https://extsd.oicr.on.ca/rest/embeddable/1.0/client/tickets/create-request?projectKey=OV&apiToken=1234567890123456789";
+
   state = {
-    requestType: "General inquiry",
+    requestType: "1",
     name: "",
     email: "",
     description: ""
   };
-  
-  handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(this.state)
-  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    let payload = {
+      jellToken: "1234567890123456789",
+      defaultOrg: "null",
+      serviceDeskId: "7",
+      fullname: this.state.name,
+      email: this.state.email,
+      summary: this.state.description,
+      requestTypeId: this.state.requestType,
+      projectKey: "OV",
+      source: "null",
+      fingerprint: 2226868218
+    };
+    
+    // FIXME: This is failing on a CORS issue! 
+    fetch(this.jiraEndpoint, {
+      method: "post",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then(response => {
+      console.log("response is ", response)
+    });
+  };
 
   render() {
     return (
@@ -66,15 +103,18 @@ class ContactPage extends Component {
                     Request Type
                   </label>
                   <div className="select">
-                    <select 
-                      value={this.state.requestType} 
-                      onChange={(e) => this.setState({requestType: e.target.value})}>
-                      <option>Academic Collaborations</option>
-                      <option>Consulting services</option>
-                      <option>Technical support</option>
-                      <option>Employment</option>
-                      <option>General inquiry</option>
-                      <option>Other</option>
+                    <select
+                      value={this.state.requestType}
+                      onChange={e =>
+                        this.setState({ requestType: e.target.value })
+                      }
+                    >
+                      <option value="1">Academic Collaborations</option>
+                      <option value="2">Consulting services</option>
+                      <option value="3">Technical support</option>
+                      <option value="4">Employment</option>
+                      <option value="5">General inquiry</option>
+                      <option value="6">Other</option>
                     </select>
                   </div>
                 </div>
@@ -87,7 +127,7 @@ class ContactPage extends Component {
                     className="input"
                     type="text"
                     value={this.state.name}
-                    onChange={(e) => this.setState({name: e.target.value})}
+                    onChange={e => this.setState({ name: e.target.value })}
                   />
                 </div>
                 <div className="field">
@@ -99,7 +139,7 @@ class ContactPage extends Component {
                     className="input"
                     type="text"
                     value={this.state.email}
-                    onChange={(e) => this.setState({email: e.target.value})}
+                    onChange={e => this.setState({ email: e.target.value })}
                   />
                 </div>
                 <div className="field">
@@ -111,7 +151,9 @@ class ContactPage extends Component {
                     className="textarea"
                     type="text"
                     value={this.state.description}
-                    onChange={(e) => this.setState({description: e.target.value})}
+                    onChange={e =>
+                      this.setState({ description: e.target.value })
+                    }
                   />
                 </div>
 
