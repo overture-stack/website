@@ -241,11 +241,9 @@ class NavBar extends Component {
               Services
             </Link>
 
-      {/*
-            <Link className="navbar-item nav-link mr3" to="/contact">
+            <Link className="navbar-item nav-link mr3" activeClassName="active-item" to="/contact">
               Contact
             </Link>
-       */}
           </div>
           <div className="navbar-end">
             <div className="navbar-item">
