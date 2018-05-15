@@ -1,6 +1,5 @@
 import Icon from "../components/Icon/index";
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
 import { H1, H2, H4 } from "../components/Typography/index";
