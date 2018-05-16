@@ -1,4 +1,12 @@
 .ContactPage {
+  p, div, li {
+    font-family: Lato;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 30px;
+    color: #003055;
+  }
+
   .contact-hero-img {
     margin-bottom: -150px
   }

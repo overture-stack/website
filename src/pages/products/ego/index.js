@@ -57,7 +57,7 @@ const EgoPage = () => (
             <div className="py2">
               <ProductTarget
                 header="It’s stateless"
-                details="Ego uses JSON Web Tokens (JWT) for authentication."
+                details="Ego uses JSON Web Tokens (JWT) for authorization."
               />
             </div>
 

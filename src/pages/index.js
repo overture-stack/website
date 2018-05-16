@@ -43,10 +43,13 @@ const HomePage = () => (
     {/* Bundle Section */}
 
     <section className="container mt4 pt2">
-      <div className="flex column items-center py4">
+      <div className="flex flex-column column items-center py4">
         <H2 className="flex-auto pr2">
-          Get started with our bioinformatics core bundle:
+          Bioinformatics Core Bundle
         </H2>
+        <div className="pt2 center" style={{maxWidth: "700px"}}>
+          Data is the essence of our field, Overture’s bioinformatics bundle focuses on tracking, transferring and securing genomic data across multiple cloud providers.
+        </div>
 
         {/* Hiding for now
 
@@ -105,9 +108,9 @@ const HomePage = () => (
       </div>
 
       {/* BADGES */}
-      <div className="flex column py3">
+      <div className="flex column py3 justify-center">
         <div className="flex items-center">
-          <div style={{fontSize: "28px"}} className="flex-auto pr2"> Then explore our solutions for:</div>
+          <div style={{fontSize: "28px"}} className="flex-auto pr2 center"> Also explore our solutions for:</div>
           <div>
             <Badge className="mr2" color="blue">
               Discovery
@@ -140,12 +143,13 @@ const HomePage = () => (
 
           <div className="column is-half mt2">
             <span className="pt3">
-              Overture uses OICR’s experience in building
+              Our team has extensive experience building
             </span>
             <span className="bold">
               {" "}
-              large scale infrastructures, big data ETL and portals supporting
-              genomic research.{" "}
+              large scale infrastructures, big data ETL and portals supporting genomic research.
+
+              {" "}
             </span>
             <p className="pt4">
               Built to be reusable and scalable, Overture’s components are well

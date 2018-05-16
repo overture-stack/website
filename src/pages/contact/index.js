@@ -79,7 +79,7 @@ class ContactPage extends Component {
             <div className="columns">
               <div className="column is-half is-offset-3">
                 <div>
-                  <H4>Send us a message</H4>
+                  <H2>Send us a message</H2>
                   <div className="mt3 yellow-bar" />
                   <ul className="py3">
                     <li className="bullet">

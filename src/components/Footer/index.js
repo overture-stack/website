@@ -96,12 +96,12 @@ const links = {
       newTab: true,
       className: "",
     },
-  //   Contact: {
-  //     link: "#",
-  //     icon: null,
-  //     newTab: true,
-  // className: "",
-  //   }
+    Contact: {
+      link: "/contact",
+      icon: null,
+      newTab: false,
+      className: "",
+    }
   }
 };
 
