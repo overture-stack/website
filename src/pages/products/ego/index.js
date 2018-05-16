@@ -190,10 +190,14 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
         >
-        <button className="button is-primary is-medium mt2">
+        <a
+          target="_blank"
+          href="https://github.com/overture-stack/ego"
+          className="button is-primary is-medium mt2"
+        >
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
-        </button>
+        </a>
       </Callout>
     </BottomCallout>
   </main>
