@@ -38,7 +38,7 @@ const ServicesPage = () => (
             <p className="">
               We welcome collaborations in the academic domain. We have extensive experience and can team up with you as a co-applicant for your grant proposals. Our team’s extensive knowledge can help deliver high-profile projects by deploying or modifying our software stacks and building custom solutions for joint projects.
             </p>
-            <a href="#" className="mt3 button is-primary is-medium">Request a collaboration</a>
+            <a href="/contact" className="mt3 button is-primary is-medium">Request a collaboration</a>
           </div>
 
           {/* Img  */}
@@ -68,7 +68,7 @@ const ServicesPage = () => (
               <li className="bullet">Custom development</li>
               <li className="bullet">Scalability</li>
             </ul>
-            <a href="#" className="mt1 button is-primary is-medium">Request a collaboration</a>
+            <a href="/contact" className="mt1 button is-primary is-medium">Request consulting</a>
           </div>
 
         </div>
@@ -90,7 +90,7 @@ const ServicesPage = () => (
               <li className="bullet">Step-by-step guidance</li>
               <li className="bullet">Troubleshooting</li>
             </ul>
-            <a href="#" className="mt1 button is-primary is-medium">Request technical support</a>
+            <a href="/contact" className="mt1 button is-primary is-medium">Request technical support</a>
           </div>
 
           {/* Img  */}
