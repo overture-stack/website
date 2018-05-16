@@ -1,0 +1,33 @@
+.Badge {
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;    
+  text-transform: uppercase;
+  border: none;
+  color: white ;
+  align-self: flex-start;
+  display: inline;
+  padding: 4px 8px;
+  border-radius: 4px;
+  
+  &.pink {
+    background-color: #C66FA5;
+  }
+
+  &.blue {
+    background-color: #6AC3E8;
+  }
+
+  &.yellow {
+    background-color: #C9CF36;
+    border: none;
+  }
+
+  &.green {
+    background-color: #5DB9AE;
+  }
+
+  &.red {
+    background-color: #C86370;
+  }
+}

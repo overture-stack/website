@@ -1,91 +1,174 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import styled, { css } from 'react-emotion';
-import colors from 'common/colors';
-import { container } from 'common/layout';
+import Icon from "../components/Icon/index";
+import React, { Component } from "react";
+import heroImg from "./home/hero_img.svg";
+import "./home/styles.scss";
+import { H1, H2, H4 } from "../components/Typography/index";
+import Badge from "../components/Badge/index";
+import Link from "gatsby-link";
 
-import Header from 'components/Header';
-import AboutUs from 'components/home/AboutUs';
-import ProductsSection from 'components/home/ProductsSection';
+const BundleCard = ({ header, icon, children }) => (
+  <div className="BundleCard">
+    <header className="card-header">
+      <div className="text-white">{header}</div>
+      <Icon img={icon} />
+    </header>
 
-const HeroSectionStyled = styled(`div`)`
-  position: relative;
-  background-color: ${colors.green};
-  min-height: 300px;
-  color: ${colors.blueDark};
-`;
-
-const PreHeadingStyled = styled(`div`)`
-  position: relative;
-  color: #fff;
-  font-size: 30px;
-  line-height: 1.25;
-  padding-top: 3em;
-  padding-bottom: 1em;
-  font-weight: 700;
-  &:after {
-    content: '';
-    display: block;
-    width: 3em;
-    height: 5px;
-    background-color: #fff;
-    margin-top: 1em;
-    margin-left: 0.1em;
-  }
-`;
-
-const HeadingStyled = styled(`div`)`
-  line-height: 1.25;
-  font-weight: 700;
-`;
-
-const SubHeadingStyled = styled(`div`)`
-  font-size: 24px;
-  line-height: 1.6;
-  margin-top: 2em;
-  margin-bottom: 3.2em;
-`;
-
-const HeroIllustrationStyled = styled(`div`)`
-  position: absolute;
-  background-image: url(${require('assets/hero-illustration.svg')});
-  background-size: cover;
-  top: 0;
-  right: 0;
-  width: 45%;
-  height: 100%;
-`;
-
-const TextWrapperStyled = styled(`div`)`
-  position: relative;
-  font-size: 56px;
-  overflow: hidden;
-  ${container};
-  @media (min-width: 1000px) {
-    padding-right: 8.5em;
-  }
-`;
-
-const IndexPage = () => (
-  <React.Fragment>
-    <Header aboutUs />
-    <HeroSectionStyled>
-      <HeroIllustrationStyled />
-      <TextWrapperStyled>
-        <PreHeadingStyled>Overture</PreHeadingStyled>
-        <HeadingStyled>
-          Open, composable and extendable components for data science in the
-          cloud
-        </HeadingStyled>
-        <SubHeadingStyled>
-          Each component can operate on its own or interact with the rest of the
-          overture stack, your&nbsp;choice!
-        </SubHeadingStyled>
-      </TextWrapperStyled>
-    </HeroSectionStyled>
-    <ProductsSection />
-    <AboutUs />
-  </React.Fragment>
+    <section className="card-body">{children}</section>
+  </div>
 );
 
-export default IndexPage;
+const HomePage = () => (
+  <main className="HomePage">
+    {/* HERO */}
+
+    <section className="hero bg-green science-hero">
+      <div className="hero-body">
+        <div className="container flex">
+          <div className="hero-header-text flex flex-column column is-half justify-center">
+            <H1>Worry less, Science More</H1>
+            <H4 className="py3" style={{maxWidth: "585px"}}>
+              Overture is a collection of open-source, extendable solutions for
+              big-data genomic science that you can use to support your
+              research.
+            </H4>
+          </div>
+
+          <div className="column is-half is-hidden-mobile">
+            <img src={heroImg} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Bundle Section */}
+
+    <section className="container mt4 pt2">
+      <div className="flex column items-center py4">
+        <H2 className="flex-auto pr2">
+          Get started with our bioinformatics core bundle:
+        </H2>
+
+        {/* Hiding for now
+
+        <button className="button is-primary is-medium">Download Core</button>
+          * */}
+      </div>
+
+      <div className="columns column">
+        <Link className="column" to="/products/ego">
+          <BundleCard icon="lock" header="Ego">
+            <div className="py2">
+              Authorization service for identity providers such as Google and
+              Facebook.
+            </div>
+            <div to="/products/ego" className="link-magenta">
+              Learn More &gt;
+            </div>
+          </BundleCard>
+        </Link>
+
+        <Link className="column" to="/products/score">
+          <BundleCard icon="database" header="Score">
+            <div className="py2">
+              Facilitates the transfer and storage of data seamlessly for
+              cloud-based projects.
+            </div>
+            <div to="/products/score" className="link-magenta">
+              Learn More &gt;
+            </div>
+          </BundleCard>
+        </Link>
+
+        <Link className="column" to="/products/song">
+          <BundleCard icon="shield" header="Song">
+            <div className="py2">
+              Tracks genomic data scattered across multiple cloud storage
+              systems.
+            </div>
+            <div to="/products/song" className="link-magenta">
+              Learn More &gt;
+            </div>
+          </BundleCard>
+        </Link>
+
+        {/*  
+        <div className="column ">
+          <BundleCard icon="cardStack" header="Indexer">
+            <div className="py2">
+              Sources and combines data from multiple remote repositories into a single reference index.
+            </div>
+            <a href="#" className="link-magenta">Learn More &gt;</a>
+          </BundleCard>
+
+        </div>
+        */}
+      </div>
+
+      {/* BADGES */}
+      <div className="flex column py3">
+        <div className="flex items-center">
+          <div style={{fontSize: "28px"}} className="flex-auto pr2"> Then explore our solutions for:</div>
+          <div>
+            <Badge className="mr2" color="blue">
+              Discovery
+            </Badge>
+            <Badge className="mr2" color="yellow">
+              Analysis
+            </Badge>
+            <Badge className="mr2" color="green">
+              Social
+            </Badge>
+            <Badge className="mr2" color="red">
+              Management
+            </Badge>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Bottom Hero */}
+
+    <section className="hero bottom-hero bg-grey">
+      <div className="hero-body container">
+        <div className="columns">
+          <div className="column is-half">
+            <H1 className="bottom-header">
+              We created Overture to share our data science components with the
+              community.
+            </H1>
+          </div>
+
+          <div className="column is-half mt2">
+            <span className="pt3">
+              Overture uses OICR’s experience in building
+            </span>
+            <span className="bold">
+              {" "}
+              large scale infrastructures, big data ETL and portals supporting
+              genomic research.{" "}
+            </span>
+            <p className="pt4">
+              Built to be reusable and scalable, Overture’s components are well
+              documented, actively supported and welcome{" "}
+              <a target="_blank" href="https://github.com/overture-stack">external feedback and contributions</a>. If you need
+              assistance, we also offer{" "}
+              <Link to="/services">consulting, support and collaborative services.</Link>
+            </p>
+
+            <div className="mt3">
+              <a className="button is-primary is-medium" href="http://softeng.oicr.on.ca/team/" target="_blank">
+                  Meet the team
+              </a>
+
+              {/* Hiding for now:
+              <button className="button is-primary is-medium">Case studies</button>
+                * */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+);
+
+export default HomePage;

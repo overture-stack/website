@@ -1,0 +1,45 @@
+.ProductFeatureRow {
+  display: flex;
+  @media(max-width: 768px){
+    flex-direction: column
+  }
+}
+
+
+.ProductFeature {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  
+  .icon {
+    width: 64px;
+    height: 64px;
+    margin: 24px 0;
+  }
+  
+  .header {
+    font-family: Lato;
+    font-size: 30px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 37px;
+    padding: 16px 0 24px;
+
+  }
+  
+  .details {
+    font-family: Lato;
+    font-size: 18px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 30px;
+    max-width: 350px;
+    @media(max-width: 768px) {
+      max-width: none;
+      
+    }
+
+  }
+
+
+}

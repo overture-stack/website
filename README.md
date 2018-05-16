@@ -1,13 +1,20 @@
-# gatsby-starter-default
-The default Gatsby starter
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+Build off:
+[Gatsby Starter Business](https://gatsby-starter-business.netlify.com)
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+## Develop:
+
 ```
-gatsby new gatsby-example-site
+npm install
+gatsby develop
 ```
 
-## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Features
+* Complete Business Website Suite - Home Page, About Page, Pricing Page, Contact Page and Blog
+* Netlify CMS for Content Management
+* SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc)
+* Bulma and Sass Support for styling
+* Progressive Web App & Offline Support
+* Tags and RSS Feed for Blog
+* Disqus and Share Support

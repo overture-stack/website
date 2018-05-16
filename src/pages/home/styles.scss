@@ -1,0 +1,76 @@
+.HomePage {
+  font-size: 18px;
+  line-height: 32px;
+
+  .science-hero {
+    height: 600px;
+    @media(max-width: 900px) {
+      height: auto;
+    }
+  }
+  
+  .hero-header-text {
+    margin-top: -128px;
+
+    @media(max-width: 1200px) {
+      margin-top: 0px;
+    }
+  }
+  
+  .hero-subheader {
+    font-family: Lato;
+    font-size: 24px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 40px;
+  }
+  
+  
+  .bottom-hero {
+    margin-top: 64px;
+    padding: 64px 0 128px 0;
+    background-image: url("./footer_img.svg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-position-x: 400px;
+  }
+
+  .bottom-header {
+    font-family: "Lato";
+    font-size: 40px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 68px;
+  }
+}
+
+
+.BundleCard {
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.15);
+
+  .card-header {
+    background: linear-gradient(-90deg, #47D9BF  2%,  #00A1D9  100%);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 26px;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0;
+    padding: 8px 24px;
+  }
+  
+  .card-body {
+    font-family: Lato;
+    font-size: 18px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 30px;
+    padding: 24px;
+  }
+}

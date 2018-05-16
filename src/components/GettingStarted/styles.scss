@@ -1,0 +1,43 @@
+.GettingStarted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0;
+  font-size: 18px;
+  line-height: 32px;
+  
+  
+  .header-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 32px 0;
+
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .center {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .header-offset {
+    display: inline-block;
+    position:relative;
+  }
+  
+  .pinned-link {
+    margin-left: -128px;
+    @media(max-width: 768px) {
+      margin-left: 0px;
+      margin: 16px 0;
+    }
+  }
+
+}
+
+
+  

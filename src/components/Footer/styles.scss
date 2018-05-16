@@ -1,0 +1,47 @@
+.Footer {
+  border-top: 1px solid #D4D4D4;
+  padding: 64px 16px;
+  
+  .footer-box {
+    display: flex;
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  
+  .oicr-logo {
+    width: 140px;
+    margin-right: 64px;
+    order: 1;
+    align-self: center;
+    
+    @media(max-width: 768px) {
+      margin: 64px;
+    padding-right: 0px;
+      order: 2;
+    }
+  }
+  
+  .footer-links {
+    order: 2;
+
+    @media(max-width: 768px) {
+      order: 1;
+    }
+  }
+  
+  .link-group-header {
+    color: #47D9BF;
+    font-weight: 700;
+  }
+  
+  .link {
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 16px;
+    color: #003055;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+  
+}
