@@ -131,7 +131,7 @@ const SongPage = () => (
 
     {/* Getting Started /  Terminals */}
 
-    <GettingStarted pinnedLink="hii">
+    <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
       {/* Getting Started: Step 1 */}
 
       <div className="columns py3">
