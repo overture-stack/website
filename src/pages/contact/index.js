@@ -77,7 +77,7 @@ class ContactPage extends Component {
         <section className="section">
           <div className="container">
             <div className="columns">
-              <div className="column is-half">
+              <div className="column is-half is-offset-3">
                 <div>
                   <H4>Send us a message</H4>
                   <div className="mt3 yellow-bar" />
@@ -93,10 +93,13 @@ class ContactPage extends Component {
                     There are many reasons to get in touch  with us and we want to
                     hear from you!
                   </div>
+                  <a href="mailto:dcc-support@oicr.on.ca" className="button is-primary my2">Contact Us</a>
                 </div>
               </div>
 
-              {/* contact form */}
+              {/* contact form HIDDEN FOR NOW */}
+              
+              {/*
               <div className="column is-half self-center">
                 <form onSubmit={this.handleSubmit}>
                   <div className="field">
@@ -164,6 +167,7 @@ class ContactPage extends Component {
                   </div>
                 </form>
               </div>
+              */}
             </div>
         </div></section>
       </main>
