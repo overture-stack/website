@@ -84,6 +84,12 @@ const links = {
     }
   },
   About: {
+    "Our Vision": {
+      link: "/our-vision",
+      icon: null,
+      newTab: false,
+      className: "",
+    },
     "Services": {
       link: "/services",
       icon: null,
