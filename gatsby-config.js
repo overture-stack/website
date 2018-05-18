@@ -21,6 +21,20 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    // Google Analytics
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID, // don't forget the environment variable.
+        // Puts tracking script in the head instead of the body
+        head: false,
+        anonymize: true, // optional
+        respectDNT: true, // optional
+        // Avoids sending pageview hits from custom paths
+        exclude: [],
+      },
+    },
+
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
