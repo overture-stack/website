@@ -13,8 +13,11 @@ import fingerSnap from './icons/finger_snap.svg'
 import githubGrey from './icons/github_grey.svg'
 import githubWhite from './icons/github_white.svg'
 import githubYellow from './icons/github_yellow.svg'
+import graphCycle from './icons/graph_cycle.svg'
 import lock from './icons/lock.svg'
+import lockCode from './icons/lock_code.svg'
 import pageWhite from './icons/page_white.svg'
+import palette from './icons/palette.svg'
 import power from './icons/power.svg'
 import rocketWhite from './icons/rocket_white.svg'
 import security from './icons/security.svg'
@@ -36,8 +39,11 @@ const icons = {
   githubGrey,
   githubWhite,
   githubYellow,
+  graphCycle,
   lock,
+  lockCode,
   pageWhite,
+  palette,
   power,
   rocketWhite,
   security,

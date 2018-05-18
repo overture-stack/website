@@ -153,10 +153,15 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-        <button className="button is-primary is-medium mt2">
+
+        <a
+          target="_blank"
+          href="https://github.com/overture-stack/score"
+          className="button is-primary is-medium mt2"
+        >
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
-        </button>
+        </a>
       </Callout>
     </BottomCallout>
   </main>
