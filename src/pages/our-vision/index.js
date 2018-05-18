@@ -86,7 +86,7 @@ class OurVisionPage extends Component {
 
               {/* Img  */}
               <div className="column is-3 is-offset-1 is-hidden-mobile">
-                <Icon img="dna" size={128}/>
+                <Icon img="palette" size={128}/>
               </div>
             </div>
           </div>

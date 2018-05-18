@@ -234,7 +234,7 @@ class NavBar extends Component {
               Products
             </a>
 
-            <Link className="navbar-item nav-link mr3" to="/our_vision">
+            <Link className="navbar-item nav-link mr3" to="/our-vision">
         Our &nbsp; Vision
             </Link>
 
