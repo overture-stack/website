@@ -65,7 +65,7 @@ class OurVisionPage extends Component {
                 <H2>An open world.</H2>
                 <div className="my3 yellow-bar" />
                 <p className="">
-                  We are strong believers in open-source software, open science, and open communication. Don’t hesitate to follow our team activities on <a href="https://github.com/overture-stack">GitHub</a> by taking a look at upcoming or in-progress tickets, or even be the first to test out a feature detailed in a Pull Request.
+                  We are strong believers in open-source software, open science, and open communication. Don’t hesitate to follow our team activities on <a href="https://waffle.io/overture-stack/roadmap">GitHub</a> by taking a look at upcoming or in-progress tickets, or even be the first to test out a feature detailed in a Pull Request.
                 </p>
               </div>
             </div>
