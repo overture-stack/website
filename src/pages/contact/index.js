@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
+import Helmet from "react-helmet"
 import { H1, H2, H4 } from "../../components/Typography/index";
 
 import "./styles.scss";

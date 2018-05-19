@@ -1,4 +1,5 @@
 import GettingStarted from "../../../components/GettingStarted/index";
+import Helmet from 'react-helmet'
 import {
   ProductFeature,
   ProductFeatureRow

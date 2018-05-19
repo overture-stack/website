@@ -4,6 +4,7 @@ import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
 import { H1, H2, H4 } from "../components/Typography/index";
 import Badge from "../components/Badge/index";
+import Helmet from 'react-helmet'
 import Link from "gatsby-link";
 
 const BundleCard = ({ header, icon, children }) => (

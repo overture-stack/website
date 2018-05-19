@@ -1,5 +1,6 @@
 import Icon from "../../components/Icon/index";
 import React, { Component } from "react";
+import Helmet from 'react-helmet'
 import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
 import academicImg from "./academic.svg";
