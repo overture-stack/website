@@ -21,7 +21,7 @@ const PrivacyPage = () => (
     </section>
     
     {/* Application  */}
-    <article className="container py2">
+    <article className="container section py2">
       <section>
         <Heading>Application</Heading>
         <p>
