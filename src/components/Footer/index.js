@@ -151,6 +151,12 @@ const Footer = () => {
           <FooterLinks />
         </div>
       </div>
+      <div className="flex justify-center bg-grey p2">
+        <span className="px2 copyright">© 2018 Overture.</span>
+        <a className="px1" href="/privacy">Privacy</a>
+        <span className="px1">|</span>
+        <a className="px1" href="/terms-conditions">Terms & Conditions</a>
+      </div>
     </footer>
   );
 };
