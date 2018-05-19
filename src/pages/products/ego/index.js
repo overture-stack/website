@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet"
 import {
   ProductFeature,
   ProductFeatureRow
@@ -16,6 +17,14 @@ import "./style.scss";
 
 const EgoPage = () => (
   <main className="Ego">
+
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Ego </title>
+      <meta name="description" content="Ego provides single sign-on through Facebook, Google and Github, a well as providing an intuitive GUI for painless user management."/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, single sign-on, facebook authentication, google authentication, user management, JSON web tokens, Spring Security, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
+
     {/* Hero */}
     <ProductHero
       title="Ego"

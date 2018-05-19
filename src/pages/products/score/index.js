@@ -17,6 +17,13 @@ import "./style.scss";
 
 const ScorePage = () => (
   <main className="Score">
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Score </title>
+      <meta name="description" content="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, BAM slicing, CRAM slicing, data integrity, data transfer, genomic solutions, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
+
     {/* Hero */}
     <ProductHero
       title="Score"
