@@ -1,0 +1,48 @@
+.PrivacyPage {
+  p, div, li {
+    font-family: Lato;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 30px;
+    color: #003055;
+  }
+  
+  p {
+    margin: 20px 0;
+  }
+  
+  /** YUCK BELOW: **/
+
+  ol > li {
+    font-size: 30px;
+  }
+
+  ol > li > p {
+    margin-left: 48px;
+  }
+
+  ol {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  ol > li {
+    counter-increment: customlistcounter;
+  }
+
+  ol > li:before { /* the only way to remove "." from an OL ?! */
+    content: counter(customlistcounter) " ";
+    font-weight: bold;
+    float: left;
+    width: 1em;
+  }
+
+  ol:first-child {
+    counter-reset: customlistcounter;
+  }
+
+  .contact-hero-img {
+    margin-bottom: -150px
+  }
+  
+}
