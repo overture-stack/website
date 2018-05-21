@@ -1,5 +1,6 @@
 import Icon from "../../components/Icon/index";
 import React, { Component } from "react";
+import Helmet from 'react-helmet'
 import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
 import academicImg from "./academic.svg";
@@ -10,6 +11,13 @@ import Badge from "../../components/Badge/index";
 
 const ServicesPage = () => (
   <main className="ServicesPage">
+
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Services</title>
+      <meta name="description" content="Interested by our expertise or the Overture software stack and need help getting started? Want to collaborate with us on exciting new projects?  We operate as a not-for-profit organization, so all our funds are reinvested into our projects."/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, academic collaborations, grant co-applicant, software consulting, project architecture, migration, custom development, scalability, technical support, troubleshooting, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
 
     {/* HERO */}
 

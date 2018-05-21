@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from 'react-helmet'
 import {
   ProductFeature,
   ProductFeatureRow
@@ -20,8 +21,16 @@ import azure from "./imgs/azure.svg";
 import pgsql from "./imgs/pgsql.png";
 import aws from "./imgs/aws.svg";
 
-const SongPage = () => (
+const JukeboxPage = () => (
   <main className="Jukebox">
+
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Jukebox </title>
+      <meta name="description" content=""/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
+
     {/* Hero */}
     {/*  Ugly html inside props so that I can add links to the cardText..*/}
     <ProductHero
@@ -229,4 +238,4 @@ const SongPage = () => (
   </main>
 );
 
-export default SongPage;
+export default JukeboxPage;

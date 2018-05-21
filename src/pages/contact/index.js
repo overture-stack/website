@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
+import Helmet from "react-helmet"
 import { H1, H2, H4 } from "../../components/Typography/index";
 
 import "./styles.scss";
@@ -58,6 +59,14 @@ class ContactPage extends Component {
   render() {
     return (
       <main className="ContactPage">
+
+        {/* Metadata */}
+        <Helmet>
+          <title>Overture - Contact Us</title>
+          <meta name="description" content=" Looking for help with our software stack? Want to collaborate? Looking for employment? Get in touch with the Overture team."/>
+          <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, Ontario Institute for Cancer Research, OICR, development careers"/>
+        </Helmet>
+
         {/* HERO */}
         <section className="hero bg-green py4">
           <div className="container flex">

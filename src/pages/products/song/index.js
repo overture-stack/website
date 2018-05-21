@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
+import Helmet from 'react-helmet'
 import {
   ProductFeature,
   ProductFeatureRow
@@ -23,6 +24,14 @@ import aws from "./imgs/aws.svg";
 
 const SongPage = () => (
   <main className="Song">
+
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Song </title>
+      <meta name="description" content="Song is an open source system for validating and tracking metadata from genomic  raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
+
     {/* Hero */}
     <ProductHero
       title="Song"

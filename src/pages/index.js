@@ -4,6 +4,7 @@ import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
 import { H1, H2, H4 } from "../components/Typography/index";
 import Badge from "../components/Badge/index";
+import Helmet from 'react-helmet'
 import Link from "gatsby-link";
 
 const BundleCard = ({ header, icon, children }) => (
@@ -20,6 +21,12 @@ const BundleCard = ({ header, icon, children }) => (
 const HomePage = () => (
   <main className="HomePage">
     {/* HERO */}
+
+    <Helmet>
+      <title>Overture - Software for big data genomic science</title>
+      <meta name="description" content="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."/>
+      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, genomic data, big data, data portals, Ontario Institute for Cancer Research, OICR"/>
+    </Helmet>
 
     <section className="hero bg-green science-hero">
       <div className="hero-body">
