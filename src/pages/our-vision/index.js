@@ -18,7 +18,7 @@ class OurVisionPage extends Component {
             <div className="hero-header-text flex flex-column column is-half justify-center my2">
               <H1>Our Vision</H1>
               <H4 className="py3" style={{maxWidth: "585px"}}>
-                Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge software solutions.
+                Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions.
               </H4>
             </div>
             <div className="column is-half is-hidden-mobile vision-hero-img">
