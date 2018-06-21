@@ -7,6 +7,7 @@ import logo from "./overture_logo.svg";
 import Badge from "../Badge/index";
 import "./styles.scss";
 import Icon from "../Icon/index";
+import SlackButton from '../SlackButton'
 
 const ProductsPopup = ({ closePopOver }) => (
   <div className="ProductsPopup">
@@ -249,6 +250,9 @@ class NavBar extends Component {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="field is-grouped">
+                <p className="control">
+                  <SlackButton className='is-large'/>
+                </p>
                 <p className="control">
                   <a className="button is-primary is-large" target="_blank" href="https://github.com/overture-stack">
                     <Icon className="mr2" img="githubWhite" />

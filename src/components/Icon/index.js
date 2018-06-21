@@ -25,6 +25,7 @@ import shield from './icons/shield.svg'
 import spiral from './icons/spiral.svg'
 import target from './icons/target.svg'
 import user from './icons/user.svg'
+import slack from './icons/icon-slack.svg'
 
 const icons = {
   barGraph,
@@ -51,13 +52,14 @@ const icons = {
   spiral,
   target,
   user,
+  slack
 }
 
-const Icon = ({ img, size, className }) => (
+const Icon = ({ img, size, className, style }) => (
   <img
     className={`${className ? className : "" } Icon`}
     src={icons[img]}
-    style={{ width: size, height: 'auto' }}
+    style={{ width: size, height: 'auto', ...style }}
   />
 )
 
