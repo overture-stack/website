@@ -103,7 +103,7 @@ class ContactPage extends Component {
                     There are many reasons to get in touch  with us and we want to
                     hear from you!
                   </div>
-                  <a href="mailto:dcc-support@oicr.on.ca" className="button is-primary my2">Contact Us</a>
+                  <a href="mailto:contact@overture.bio" className="button is-primary my2">Contact Us</a>
                   <SlackButton className="my2"/>
                 </div>
               </div>
