@@ -1,4 +1,3 @@
-
 Build off:
 [Gatsby Starter Business](https://gatsby-starter-business.netlify.com)
 
@@ -6,11 +5,11 @@ Build off:
 
 ```
 npm install
-gatsby develop
+npm start
 ```
 
-
 ## Features
+
 * Complete Business Website Suite - Home Page, About Page, Pricing Page, Contact Page and Blog
 * Netlify CMS for Content Management
 * SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc)

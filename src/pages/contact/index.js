@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
 import Helmet from "react-helmet"
 import { H1, H2, H4 } from "../../components/Typography/index";
+import SlackButton from '../../components/SlackButton'
 
 import "./styles.scss";
 
@@ -42,8 +43,8 @@ class ContactPage extends Component {
       source: "null",
       fingerprint: 2226868218
     };
-    
-    // FIXME: This is failing on a CORS issue! 
+
+    // FIXME: This is failing on a CORS issue!
     fetch(this.jiraEndpoint, {
       method: "post",
       headers: {
@@ -103,11 +104,12 @@ class ContactPage extends Component {
                     hear from you!
                   </div>
                   <a href="mailto:dcc-support@oicr.on.ca" className="button is-primary my2">Contact Us</a>
+                  <SlackButton className="my2"/>
                 </div>
               </div>
 
               {/* contact form HIDDEN FOR NOW */}
-              
+
               {/*
               <div className="column is-half self-center">
                 <form onSubmit={this.handleSubmit}>
