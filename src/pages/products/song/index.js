@@ -125,7 +125,6 @@ const SongPage = () => (
       </section>
     </div>
 
-
     {/* Getting Started /  Terminals */}
 
     <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
