@@ -124,11 +124,10 @@ const SongPage = () => (
         </div>
       </section>
     </div>
-    
 
     {/* Getting Started /  Terminals */}
 
-    <GettingStarted pinnedLink="http://song-docs.readthedocs.io/en/develop/?badge=develop">
+    <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
       {/* Getting Started: Step 1 */}
 
       <div className="columns py3">
