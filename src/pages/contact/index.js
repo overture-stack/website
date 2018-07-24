@@ -1,9 +1,10 @@
+import Button from "../../components/Button/index";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
-import Helmet from "react-helmet"
+import Helmet from "react-helmet";
 import { H1, H2, H4 } from "../../components/Typography/index";
-import SlackButton from '../../components/SlackButton'
+import SlackButton from "../../components/SlackButton";
 
 import "./styles.scss";
 
@@ -53,19 +54,24 @@ class ContactPage extends Component {
       },
       body: JSON.stringify(payload)
     }).then(response => {
-      console.log("response is ", response)
+      console.log("response is ", response);
     });
   };
 
   render() {
     return (
       <main className="ContactPage">
-
         {/* Metadata */}
         <Helmet>
           <title>Overture - Contact Us</title>
-          <meta name="description" content=" Looking for help with our software stack? Want to collaborate? Looking for employment? Get in touch with the Overture team."/>
-          <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, Ontario Institute for Cancer Research, OICR, development careers"/>
+          <meta
+            name="description"
+            content=" Looking for help with our software stack? Want to collaborate? Looking for employment? Get in touch with the Overture team."
+          />
+          <meta
+            name="keywords"
+            content="Overture, data science software, bioinformatics software, open-source software, cancer research, Ontario Institute for Cancer Research, OICR, development careers"
+          />
         </Helmet>
 
         {/* HERO */}
@@ -81,7 +87,10 @@ class ContactPage extends Component {
           </div>
         </section>
 
-        <div className="is-hidden-mobile" style={{ width: "1px", height: "72px" }} />
+        <div
+          className="is-hidden-mobile"
+          style={{ width: "1px", height: "72px" }}
+        />
 
         {/* Details / info */}
         <section className="section">
@@ -95,16 +104,22 @@ class ContactPage extends Component {
                     <li className="bullet">
                       Looking for help with our software stack?
                     </li>
-                    <li className="bullet">Want to learn more about Overture?</li>
+                    <li className="bullet">
+                      Want to learn more about Overture?
+                    </li>
                     <li className="bullet">Want to collaborate?</li>
                     <li className="bullet">Looking for employment? </li>
                   </ul>
                   <div>
-                    There are many reasons to get in touch  with us and we want to
-                    hear from you!
+                    There are many reasons to get in touch  with us and we want
+                    to hear from you!
                   </div>
-                  <a href="mailto:contact@overture.bio" className="button is-primary my2">Contact Us</a>
-                  <SlackButton className="my2"/>
+
+                  <Button type="primary" className="my2" internalLink="mailto:contact@overture.bio" >
+                    Contact Us
+                  </Button>
+                  
+                  <SlackButton className="my2" />
                 </div>
               </div>
 
@@ -180,7 +195,8 @@ class ContactPage extends Component {
               </div>
               */}
             </div>
-        </div></section>
+          </div>
+        </section>
       </main>
     );
   }

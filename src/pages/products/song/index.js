@@ -39,6 +39,7 @@ const SongPage = () => (
       cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
       getStartedLink="https://github.com/overture-stack/song"
       badge={{ color: "pink", text: "Core" }}
+      progressType="ga"
       logo="logoSong"
     />
 
@@ -46,7 +47,7 @@ const SongPage = () => (
     <ProductFeatureRow>
       <ProductFeature
         header="Scalable"
-        icon="security"
+        icon="barGraph"
         details="Designed to handle the volume of your requests in an efficient and timely manner."
       />
       <ProductFeature

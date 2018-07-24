@@ -6,6 +6,7 @@ import { H1, H2, H4 } from "../../components/Typography/index";
 import "./styles.scss";
 import Icon from "../../components/Icon/index";
 import {BottomCallout, Callout } from "../../components/BottomCallout/index";
+import Button from "../../components/Button/index";
 
 class OurVisionPage extends Component {
   
@@ -118,14 +119,16 @@ class OurVisionPage extends Component {
             description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
             className="center"
             >
-            <a
-              target="_blank"
-              href="https://github.com/overture-stack"
-              className="button is-primary is-medium mt2"
+
+            <Button
+              type="primary"
+              size="medium"
+              externalLink="https://github.com/overture-stack"
+              icon="githubWhite"
               >
-              <Icon size={24} img="githubWhite" />
-              <div className="ml1 text-white">Get Started</div>
-            </a>
+              Get Started
+            </Button>
+            
           </Callout>
         </BottomCallout>
 

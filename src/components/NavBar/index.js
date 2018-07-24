@@ -7,7 +7,8 @@ import logo from "./overture_logo.svg";
 import Badge from "../Badge/index";
 import "./styles.scss";
 import Icon from "../Icon/index";
-import SlackButton from '../SlackButton'
+import SlackButton from "../SlackButton";
+import Button from "../Button";
 
 const ProductsPopup = ({ closePopOver }) => (
   <div className="ProductsPopup">
@@ -66,11 +67,9 @@ const ProductsPopup = ({ closePopOver }) => (
         </a>
 
           */}
-
       </section>
 
-
-    <div className="arrow-up"/>
+      <div className="arrow-up" />
 
       {/* section: DISCOVERY */}
 
@@ -100,7 +99,11 @@ const ProductsPopup = ({ closePopOver }) => (
 
       <section className="menu-section">
         <Badge color="yellow">Analysis</Badge>
-        <Link onClick={() => closePopOver()} className="bold pt2" to="/products/jukebox">
+        <Link
+          onClick={() => closePopOver()}
+          className="bold pt2"
+          to="/products/jukebox"
+        >
           Jukebox
         </Link>
         <a
@@ -236,14 +239,22 @@ class NavBar extends Component {
             </a>
 
             <Link className="navbar-item nav-link mr3" to="/our-vision">
-        Our &nbsp; Vision
+              Our &nbsp; Vision
             </Link>
 
-            <Link className="navbar-item nav-link mr3" activeClassName="active-item" to="/services">
+            <Link
+              className="navbar-item nav-link mr3"
+              activeClassName="active-item"
+              to="/services"
+            >
               Services
             </Link>
 
-            <Link className="navbar-item nav-link mr3" activeClassName="active-item" to="/contact">
+            <Link
+              className="navbar-item nav-link mr3"
+              activeClassName="active-item"
+              to="/contact"
+            >
               Contact
             </Link>
           </div>
@@ -251,13 +262,18 @@ class NavBar extends Component {
             <div className="navbar-item">
               <div className="field is-grouped">
                 <p className="control">
-                  <SlackButton className='is-large'/>
+                  <SlackButton className="is-large" />
                 </p>
                 <p className="control">
-                  <a className="button is-primary is-large" target="_blank" href="https://github.com/overture-stack">
-                    <Icon className="mr2" img="githubWhite" />
+                  <Button
+                    type="primary"
+                    size="large"
+                    externalLink="https://github.com/overture-stack"
+                    icon="githubWhite"
+                  >
                     Get Started
-                  </a>
+                  </Button>
+                  
                 </p>
               </div>
             </div>
