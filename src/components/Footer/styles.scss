@@ -1,11 +1,14 @@
+@import "../../styles/variables";
+
 .Footer {
   border-top: 1px solid #D4D4D4;
   
   .footer-box {
   padding: 48px 0;
     display: flex;
-    @media(max-width: 768px) {
+    @include breakpoint(desktop-below) {
       flex-direction: column;
+      padding: 20px;
     }
   }
   
@@ -19,9 +22,9 @@
     order: 1;
     align-self: center;
     
-    @media(max-width: 768px) {
-      margin: 64px;
-    padding-right: 0px;
+    @include breakpoint(mobile) {
+      margin: 32px;
+      padding-right: 0px;
       order: 2;
     }
   }

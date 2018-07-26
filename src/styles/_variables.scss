@@ -2,24 +2,31 @@ $mobile: 768px;
 $tablet: 1024px;
 $desktop:  1216px;
 
-$biz: red;
-
 
 @mixin breakpoint($class) {
   @if $class == mobile {
     @media (max-width: 767px) { @content; }
   }
  
-  @else if $class == tablet+up {
+  @else if $class == tablet-up {
     @media (min-width: 768px) { @content; }
   }
+
  
-  @else if $class == desktop+up {
+  @else if $class == desktop-up {
     @media (min-width: 992px) { @content; }
   }
+
+  @else if $class == desktop-below {
+    @media (max-width: 992px) { @content; }
+  }
  
-  @else if $class == wide+up {
+  @else if $class == wide-up {
     @media (min-width: 1200px) { @content; }
+  }
+
+  @else if $class == wide-down {
+    @media (max-width: 1200px) { @content; }
   }
  
   @else {

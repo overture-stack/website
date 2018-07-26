@@ -29,7 +29,7 @@ const HomePage = () => (
     </Helmet>
 
     <section className="hero bg-green science-hero">
-      <div className="hero-body">
+      <div className="">
         <div className="container flex">
           <div className="hero-header-text flex flex-column column is-half justify-center">
             <H1>Worry less, Science More</H1>
@@ -49,8 +49,8 @@ const HomePage = () => (
 
     {/* Bundle Section */}
 
-    <section className="container mt4 pt2">
-      <div className="flex flex-column column items-center py4">
+    <section className="container">
+      <div className="bioinformatics-bundle column ">
         <H2 className="flex-auto pr2">
           Bioinformatics Core Bundle
         </H2>
@@ -115,10 +115,10 @@ const HomePage = () => (
       </div>
 
       {/* BADGES */}
-      <div className="flex column py3 justify-center">
-        <div className="flex items-center">
-          <div style={{fontSize: "28px"}} className="flex-auto pr2 center"> Also explore our solutions for:</div>
-          <div>
+      <div className="flex column justify-center">
+        <div className="explore-solutions">
+          <div style={{fontSize: "28px"}} className="flex-auto pr3 center"> Also explore our solutions for:</div>
+          <div className="py1">
             <Badge className="mr2" color="blue">
               Discovery
             </Badge>
@@ -148,7 +148,7 @@ const HomePage = () => (
             </H1>
           </div>
 
-          <div className="column is-half mt2">
+          <div className="column is-half pb4 mt2">
             <span className="pt3">
               Our team has extensive experience building
             </span>
@@ -158,7 +158,7 @@ const HomePage = () => (
 
               {" "}
             </span>
-            <p className="pt4">
+            <p className="pt2">
               Built to be reusable and scalable, Overture’s components are well
               documented, actively supported and welcome{" "}
               <a target="_blank" href="https://github.com/overture-stack">external feedback and contributions</a>. If you need

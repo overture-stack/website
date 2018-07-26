@@ -66,11 +66,10 @@ const ProductHero = ({
 }) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py1">
-      <ProgressBar type={progressType} />
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
           {/* Title, Badge, Subtitle */}
-          <div className="py4">
+          <div className="hero-title-box">
             <span className="flex justify-center">
               <h1 className="title mb1">{title}</h1>
               <Badge color={badge.color} className="ml1 mt3">
@@ -79,6 +78,8 @@ const ProductHero = ({
             </span>
             <h2 className="subtitle py1">{subTitle}</h2>
           </div>
+
+      <ProgressBar type={progressType} />
 
           <HeroCard
             getStartedLink={getStartedLink}
