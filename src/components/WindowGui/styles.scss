@@ -1,0 +1,25 @@
+.window-wrapper {
+  background: #F2F3F5;
+  padding: 4px;
+  border-radius: 4px;
+  // margin-bottom: 16px;
+}
+
+.outer-wrapper {
+  border: 2px solid white;
+  border-radius: 4px;
+}
+
+.Traffic-Lights{
+  margin-left: 12px;
+  padding: 4px 0;
+  display: flex;
+
+  .circle {
+    width: 10px;
+    height: 10px;
+    background-color: #D8D8D8;
+    margin-right: 8px;
+  }
+
+}

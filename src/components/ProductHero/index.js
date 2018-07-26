@@ -6,6 +6,7 @@ import bg from "./bg_blue_curved.svg"; // used in css
 import logoScore from "./images/score.svg";
 import logoSong from "./images/song.svg";
 import logoEgo from "./images/ego.svg";
+import logoOncojs from "./images/oncojs.svg";
 import ProgressBar from "../ProgressBar/index";
 import logoJukebox from "./images/jukebox.svg";
 import Button from "../Button/index";
@@ -14,7 +15,8 @@ const logos = {
   logoScore,
   logoSong,
   logoJukebox,
-  logoEgo
+  logoEgo,
+  logoOncojs,
 };
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (

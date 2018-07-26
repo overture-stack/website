@@ -1,20 +1,29 @@
-import React from 'react'
-import './styles.scss'
-import Icon from '../Icon/index'
+import React from "react";
+import "./styles.scss";
+import Icon from "../Icon/index";
 
-const ProductTarget = ({ header, details }) => (
-  <div className="ProductTarget">
+/**
+ * A target icon with potential header and details text block.
+ * Sometimes (oncojs page) we just have a target + details.
+ * So; not passing a header prop will place details directly next to target icon.
+*/
+const ProductTarget = ({ header, details, className }) => (
+  <div className={`ProductTarget ${className}`}>
     <div className="flex items-center py2">
       {/* Icon */}
       <Icon img="target" size={32} />
 
       {/* header */}
-      <div className="bold pl2">{header}</div>
+      {header ? (
+        <div className="bold pl2">{header}</div>
+      ) : (
+        <div className="ml2 details">{details}</div>
+      )}
     </div>
 
     {/* feature */}
-    <div className="details">{details}</div>
+  {header && <div className="details">{details}</div>}
   </div>
-)
+);
 
-export default ProductTarget
+export default ProductTarget;
