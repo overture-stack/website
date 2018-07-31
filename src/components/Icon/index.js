@@ -16,6 +16,7 @@ import githubYellow from './icons/github_yellow.svg'
 import graphCycle from './icons/graph_cycle.svg'
 import lock from './icons/lock.svg'
 import lockCode from './icons/lock_code.svg'
+import mail from './icons/mail.png'
 import pageWhite from './icons/page_white.svg'
 import palette from './icons/palette.svg'
 import power from './icons/power.svg'
@@ -43,6 +44,7 @@ const icons = {
   graphCycle,
   lock,
   lockCode,
+  mail,
   pageWhite,
   palette,
   power,
