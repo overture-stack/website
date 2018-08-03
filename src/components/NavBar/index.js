@@ -232,18 +232,18 @@ class NavBar extends Component {
 
           <div className="navbar-start">
             <a
-              className="navbar-item nav-link mr3 pointer"
+              className="navbar-item nav-link pointer"
               ref={r => (this.productsRef = r)}
             >
               Products
             </a>
 
-            <Link className="navbar-item nav-link mr3" to="/our-vision">
+            <Link className="navbar-item nav-link" to="/our-vision">
               Our &nbsp; Vision
             </Link>
 
             <Link
-              className="navbar-item nav-link mr3"
+              className="navbar-item nav-link"
               activeClassName="active-item"
               to="/services"
             >
@@ -251,7 +251,7 @@ class NavBar extends Component {
             </Link>
 
             <Link
-              className="navbar-item nav-link mr3"
+              className="navbar-item nav-link"
               activeClassName="active-item"
               to="/contact"
             >
@@ -259,23 +259,16 @@ class NavBar extends Component {
             </Link>
           </div>
           <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="field is-grouped">
-                <p className="control">
-                  <SlackButton className="is-large" />
-                </p>
-                <p className="control">
-                  <Button
-                    type="primary"
-                    size="large"
-                    externalLink="https://github.com/overture-stack"
-                    icon="githubWhite"
-                  >
-                    Get Started
-                  </Button>
-                  
-                </p>
-              </div>
+            <div className="navbar-item nav-link navbar-buttons">
+              <SlackButton className="is-medium pr2" />
+              <Button
+                type="primary"
+                size="medium"
+                externalLink="https://github.com/overture-stack"
+                icon="githubWhite"
+              >
+                Get Started
+              </Button>
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .ProductsPopup {
   position: absolute;
   display: flex;
@@ -5,16 +7,16 @@
   flex-direction: column;
   margin-left: -160px;
 
-// .arrow-up {
-//   width: 0; 
-//   height: 0;
-//   position: relative;
-//   top: -8px;
-//   border-left: 9px solid grey;
-//   border-right: 9px solid transparent;
+  // .arrow-up {
+  //   width: 0; 
+  //   height: 0;
+  //   position: relative;
+  //   top: -8px;
+  //   border-left: 9px solid grey;
+  //   border-right: 9px solid transparent;
   
-//   border-bottom: 9px solid white;
-// }
+  //   border-bottom: 9px solid white;
+  // }
   
   // used via gatsby activeClasses
   
@@ -38,7 +40,7 @@
     border-bottom:1px solid #CAD5E0;
     -moz-transform:rotate(225deg);
     -webkit-transform:rotate(225deg);
-}
+  }
   
   .spacer {
     height: 80px;
@@ -75,10 +77,65 @@
     color: #9E005D;
     background-color: "#F2F3F5";
   }
+  
+  .navbar-brand {
+    align-items: center;
+    padding-right: 16px;
+  }
+  
+  .navbar-burger, .navbar-burger > .is-active {
+    // override gatsby button
+    height: 2.4rem;
+    width: 2.4rem;
+    border-color: #66c2ea !important;
+    background-color: none !important;
+    outline: none !important;
+    
+    &:hover  {
+      background-color: none !important;
+    }
+    
+    & > span {
+      background-color: #66c2ea
+    }
+  }
+  
+  .nav-link {
+    @include breakpoint(desktop-up) {
+      margin-right: 16px;
+    }
+    @include breakpoint (mobile) {
+      border-top: 1px solid #efefef;
+      
+    }
+  }
 
   .navbar-item {
     font-family: Lato, "Arial";
     font-size: 18px;
     letter-spacing: 0;
+  }
+  
+  
+  // mobile menu
+  .navbar-menu {
+    @include breakpoint(mobile) {
+      // font-size: 20px;
+      // line-height: 30px;
+      // display: flex;
+      // flex-direction: column;
+      // height: auto;
+    }
+  }
+  
+  .navbar-buttons {
+    @include breakpoint(mobile) {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      & .slack-button {
+        margin-bottom: 16px;
+      }
+    }
   }
 }
