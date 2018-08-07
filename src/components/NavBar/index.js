@@ -129,15 +129,13 @@ const ProductsPopup = ({ closePopOver }) => (
           Persona
           <Icon className="pl1" img="githubGrey" />
         </a>
-        <a
-          href="https://github.com/overture-stack/riff"
+        <Link
           onClick={() => closePopOver()}
           className="bold pt2"
-          to="/riff"
+          to="/products/riff"
         >
           Riff
-          <Icon className="pl1" img="githubGrey" />
-        </a>
+        </Link>
       </section>
 
       {/* section: MANAGEMENT */}

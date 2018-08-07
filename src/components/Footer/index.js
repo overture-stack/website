@@ -63,9 +63,8 @@ const links = {
       link: "https://github.com/overture-stack/persona",
     },
     Riff: {
-      link: "https://github.com/overture-stack/riff",
-      icon: "githubGrey",
-      newTab: true,
+      link: "/products/riff",
+      newTab: false,
       className: "",
     }
   },
