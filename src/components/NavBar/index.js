@@ -120,15 +120,14 @@ const ProductsPopup = ({ closePopOver }) => (
 
       <section className="menu-section">
         <Badge color="green">Social</Badge>
-        <a
+        <Link
           onClick={() => closePopOver()}
-          href="https://github.com/overture-stack/persona"
           className="bold pt2"
-          to="/persona"
+          to="/products/persona"
         >
           Persona
           <Icon className="pl1" img="githubGrey" />
-        </a>
+        </Link>
         <Link
           onClick={() => closePopOver()}
           className="bold pt2"

@@ -8,7 +8,7 @@ import Icon from "../Icon/index";
  * So; not passing a header prop will place details directly next to target icon.
 */
 const ProductTarget = ({ header, details, className }) => (
-  <div className={`ProductTarget ${className}`}>
+  <div className={`ProductTarget ${className ? className : ""}`}>
     <div className="flex items-center py2">
       {/* Icon */}
       <Icon img="target" size={32} />
@@ -22,7 +22,8 @@ const ProductTarget = ({ header, details, className }) => (
     </div>
 
     {/* feature */}
-  {header && <div className="details">{details}</div>}
+  {header && <div className="details"
+   dangerouslySetInnerHTML={{ __html: details }} ></div>}
   </div>
 );
 

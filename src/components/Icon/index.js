@@ -9,6 +9,7 @@ import cloudSquare from './icons/cloud_square.svg'
 import database from './icons/database.svg'
 import dna from './icons/dna.svg'
 import download from './icons/download.svg'
+import extensible from './icons/extensible.svg'
 import fingerSnap from './icons/finger_snap.svg'
 import githubGrey from './icons/github_grey.svg'
 import githubWhite from './icons/github_white.svg'
@@ -40,6 +41,7 @@ const icons = {
   database,
   dna,
   download,
+  extensible,
   fingerSnap,
   githubGrey,
   githubWhite,

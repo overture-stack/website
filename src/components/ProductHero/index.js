@@ -9,6 +9,7 @@ import logoEgo from "./images/ego.svg";
 import logoOncojs from "./images/oncojs.svg";
 import logoJukebox from "./images/jukebox.svg";
 import logoRiff from "./images/riff.svg";
+import logoPersona from "./images/persona.svg";
 import ProgressBar from "../ProgressBar/index";
 import Button from "../Button/index";
 
@@ -18,6 +19,7 @@ const logos = {
   logoJukebox,
   logoEgo,
   logoOncojs,
+  logoPersona,
   logoRiff,
 };
 

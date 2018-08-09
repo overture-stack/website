@@ -57,10 +57,8 @@ const links = {
   },
   Social: {
     Persona: {
-      icon: "githubGrey",
-      newTab: true,
       className: "",
-      link: "https://github.com/overture-stack/persona",
+      link: "/products/persona",
     },
     Riff: {
       link: "/products/riff",

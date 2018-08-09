@@ -1,0 +1,11 @@
+@import "../../../styles/variables";
+
+.Persona {
+  .bottom-target {
+    justify-content: center;
+    
+    @include breakpoint (mobile) {
+      justify-content: flex-start
+    }
+  }
+}
