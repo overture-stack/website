@@ -14,7 +14,7 @@ class OurVisionPage extends Component {
     return (
       <main className="OurVisionPage">
         {/* HERO */}
-        <section className="hero bg-green vision-hero-box">
+        <section className="hero bg-green vision-hero-box section">
           <div className="container flex justify-center items-center flex-auto">
             <div className="hero-header-text flex flex-column column is-half justify-center my2">
               <H1>Our Vision</H1>

@@ -49,24 +49,7 @@ const ProductsPopup = ({ closePopOver }) => (
           >
             Score
           </Link>
-          {/* INDEXER: unwritten
-        <Link
-          onClick={() => closePopOver()}
-          className="core-left-link bold"
-          to="/products/indexer"
-        >
-          Indexer
-        </Link>
-        */}
         </div>
-
-        {/*
-
-        <a className="bold text-magenta pt2" to="#">
-          Download Core >
-        </a>
-
-          */}
       </section>
 
       <div className="arrow-up" />
@@ -163,46 +146,71 @@ const ProductsPopup = ({ closePopOver }) => (
   </div>
 );
 
+const NavLinkHOC = ({ url, name, toggleMobileMenu }) => {
+  return (
+    <Link
+      className="navbar-item nav-link"
+      activeClassName="active-item"
+      onClick={() => toggleMobileMenu()}
+      to={url}
+    >
+      {name}
+    </Link>
+  );
+};
+
 class NavBar extends Component {
   constructor() {
     super();
-
-    // refs for detecting click locations and subsequently hiding/showing the popover.
     this.popoverRef = null;
     this.productsRef = null;
   }
 
   state = {
-    navOpen: false
+    popOverOpen: false,
+    mobileMenuOpen: true
   };
 
   closePopOver = () => {
-    this.setState({ navOpen: false });
+    this.setState({ popOverOpen: false });
   };
 
-  // Hacky popover. Normally would handle in an on-click but we also need to:
-  // a) handle clicking anywhere else outside popover to clear it.
-  // b) if `products` is clicked when it's open; to close it as a toggle proper.
-  // using a toggleNav() function conflicts with the window listeners that are mounted.
+  toggleMobileMenu = () => {
+    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
+  };
+
+  /** Handle popover on mouseover; not on click.
+   * closes popover when mouse leaves / is outside popOver ref or product ref.
+   */
   componentDidMount() {
     document.addEventListener("mouseover", e => {
       // if clicking outside the popover
-      if (!this.popoverRef.contains(e.target) && this.state.navOpen) {
-        this.setState({ navOpen: false });
+      if (!this.popoverRef.contains(e.target) && this.state.popOverOpen) {
+        this.setState({ popOverOpen: false });
         // clicked in popover while open (but not on a link!)
       } else if (this.popoverRef.contains(e.target)) {
         return;
         // clicked on products nav link when popover open
-      } else if (!this.productsRef.contains(e.target) && this.state.navOpen) {
-        this.setState({ navOpen: false });
+      } else if (
+        !this.productsRef.contains(e.target) &&
+        this.state.popOverOpen
+      ) {
+        this.setState({ popOverOpen: false });
         // clicked on "Products" which should toggle it
-      } else if (this.productsRef.contains(e.target) && !this.state.navOpen) {
-        this.setState({ navOpen: true });
+      } else if (
+        this.productsRef.contains(e.target) &&
+        !this.state.popOverOpen
+      ) {
+        this.setState({ popOverOpen: true });
       }
     });
   }
 
   render() {
+    let mobileMenuOpen = this.state.mobileMenuOpen ? "is-active" : "";
+    let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
+    let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
+
     return (
       <nav
         className="navbar is-fixed-top NavHeader"
@@ -213,16 +221,16 @@ class NavBar extends Component {
             <img src={logo} />
           </Link>
 
-          <button className="button navbar-burger" data-target="navMenu">
+          <button className={burgerClass} onClick={() => this.toggleMobileMenu()}>
             <span />
             <span />
             <span />
           </button>
         </div>
-        <div className="navbar-menu" id="navMenu">
+        <div className={navbarMenuClass} id="navMenu">
           {/* popover */}
           <div ref={r => (this.popoverRef = r)}>
-            {this.state.navOpen && (
+            {this.state.popOverOpen && (
               <ProductsPopup closePopOver={this.closePopOver} />
             )}
           </div>
@@ -235,25 +243,9 @@ class NavBar extends Component {
               Products
             </a>
 
-            <Link className="navbar-item nav-link" to="/our-vision">
-              Our &nbsp; Vision
-            </Link>
-
-            <Link
-              className="navbar-item nav-link"
-              activeClassName="active-item"
-              to="/services"
-            >
-              Services
-            </Link>
-
-            <Link
-              className="navbar-item nav-link"
-              activeClassName="active-item"
-              to="/contact"
-            >
-              Contact
-            </Link>
+        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/our-vision" name="Our Vision" />
+        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/services" name="Services" />
+        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/contact" name="Contact" />
           </div>
           <div className="navbar-end">
             <div className="navbar-item nav-link navbar-buttons">
