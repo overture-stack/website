@@ -30,8 +30,8 @@ const ServicesPage = () => (
     <section className="hero section bg-green services-top-hero">
       <div className="container flex">
         <div className="flex flex-column column is-half justify-center">
-          <H1 className="py2">Services</H1>
-          <H4>
+          <H1>Services</H1>
+          <H4 className="py3">
             Interested by our expertise or software stack and need help getting
             started? Want to collaborate with us on exciting new projects? We
             are here to help!
