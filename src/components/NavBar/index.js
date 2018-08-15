@@ -10,9 +10,11 @@ import Icon from "../Icon/index";
 import SlackButton from "../SlackButton";
 import Button from "../Button";
 
-const ProductsPopup = ({ closePopOver }) => (
+const ProductsPopup = ({ closeMenus }) => {
+  
+  return (
   <div className="ProductsPopup">
-    {/* Use of `closePopOver` prop is to clear popover state
+    {/* Use of `closeMenus` prop is to clear popover state
       * while maintaining smooth gatsby Links */}
 
     {/* Design spec listed the product menu to pop up on mouse enter (not click)
@@ -23,28 +25,26 @@ const ProductsPopup = ({ closePopOver }) => (
     <section className="spacer" />
 
     <div className="menu-items flex">
-      <section className="core">
+      <section className="menu-section core">
         <Badge color="pink">Core</Badge>
-        <div className="flex pt2">
+        <div className="menu-section-links core-links">
           <Link
-            onClick={() => closePopOver()}
-            className="core-left-link bold"
+            onClick={() => closeMenus()}
+            className="menu-section-link"
             to="/products/ego"
           >
             Ego
           </Link>
           <Link
-            onClick={() => closePopOver()}
-            className="core-left-link bold"
+            onClick={() => closeMenus()}
+            className="menu-section-link"
             to="/products/song"
           >
             Song
           </Link>
-        </div>
-        <div className="flex pt2">
           <Link
-            onClick={() => closePopOver()}
-            className="core-left-link bold"
+            onClick={() => closeMenus()}
+            className="menu-section-link"
             to="/products/score"
           >
             Score
@@ -58,93 +58,103 @@ const ProductsPopup = ({ closePopOver }) => (
 
       <section className="menu-section">
         <Badge color="blue">Discovery</Badge>
-        <a
-          onClick={() => closePopOver()}
-          target="_blank"
-          className="bold pt2"
-          href="https://github.com/overture-stack/arranger"
-        >
-          Arranger
-          <Icon className="pl1" img="githubGrey" />
-        </a>
-        <a
-          onClick={() => closePopOver()}
-          href="https://github.com/oncojs"
-          className="bold pt2"
-          to="/oncojs"
-        >
-          OncoJS
-          <Icon className="pl1" img="githubGrey" />
-        </a>
+        <div className="menu-section-links">
+          <a
+            onClick={() => closeMenus()}
+            target="_blank"
+            className="menu-section-link"
+            href="https://github.com/overture-stack/arranger"
+          >
+            Arranger
+            <Icon className="pl1" img="githubGrey" />
+          </a>
+          <a
+            onClick={() => closeMenus()}
+            href="https://github.com/oncojs"
+            className="menu-section-link"
+            to="/oncojs"
+          >
+            OncoJS
+            <Icon className="pl1" img="githubGrey" />
+          </a>
+        </div>
       </section>
 
       {/* section: DISCOVERY */}
 
       <section className="menu-section">
         <Badge color="yellow">Analysis</Badge>
-        <Link
-          onClick={() => closePopOver()}
-          className="bold pt2"
-          to="/products/jukebox"
-        >
-          Jukebox
-        </Link>
-        <a
-          onClick={() => closePopOver()}
-          className="bold pt2"
-          href="https://github.com/jtracker-io"
-        >
-          JTracker
-          <Icon className="pl1" img="githubGrey" />
-        </a>
+
+        <div className="menu-section-links">
+          <Link
+            onClick={() => closeMenus()}
+            className="menu-section-link"
+            to="/products/jukebox"
+          >
+            Jukebox
+          </Link>
+          <a
+            onClick={() => closeMenus()}
+            className="menu-section-link"
+            href="https://github.com/jtracker-io"
+          >
+            JTracker
+            <Icon className="pl1" img="githubGrey" />
+          </a>
+        </div>
       </section>
 
       {/* section: DISCOVERY */}
 
       <section className="menu-section">
         <Badge color="green">Social</Badge>
-        <Link
-          onClick={() => closePopOver()}
-          className="bold pt2"
-          to="/products/persona"
-        >
-          Persona
-          <Icon className="pl1" img="githubGrey" />
-        </Link>
-        <Link
-          onClick={() => closePopOver()}
-          className="bold pt2"
-          to="/products/riff"
-        >
-          Riff
-        </Link>
+        <div className="menu-section-links">
+          <Link
+            onClick={() => closeMenus()}
+            className="menu-section-link"
+            to="/products/persona"
+          >
+            Persona
+            <Icon className="pl1" img="githubGrey" />
+          </Link>
+          <Link
+            onClick={() => closeMenus()}
+            className="menu-section-link"
+            to="/products/riff"
+          >
+            Riff
+          </Link>
+        </div>
       </section>
 
       {/* section: MANAGEMENT */}
 
-      <section className="menu-section">
+      <section className="menu-section" style={{ flexShrink: 0 }}>
         <Badge color="red">Management</Badge>
-        <a
-          onClick={() => closePopOver()}
-          href="https://github.com/CancerCollaboratory/billing"
-          className="bold pt2"
-          to="/billing"
-        >
-          Billing & Usage
-          <Icon className="pl1" img="githubGrey" />
-        </a>
-        <a
-          onClick={() => closePopOver()}
-          className="bold pt2"
-          href="https://github.com/overture-stack/enrolment"
-        >
-          Enrolment
-          <Icon className="pl1" img="githubGrey" />
-        </a>
+        <div className="menu-section-links">
+          <a
+            onClick={() => closeMenus()}
+            href="https://github.com/CancerCollaboratory/billing"
+            className="menu-section-link"
+            to="/billing"
+          >
+            Billing & Usage
+            <Icon className="pl1" img="githubGrey" />
+          </a>
+          <a
+            onClick={() => closeMenus()}
+            className="menu-section-link"
+            href="https://github.com/overture-stack/enrolment"
+          >
+            Enrolment
+            <Icon className="pl1" img="githubGrey" />
+          </a>
+        </div>
       </section>
     </div>
   </div>
-);
+)
+}
 
 const NavLinkHOC = ({ url, name, toggleMobileMenu }) => {
   return (
@@ -168,42 +178,60 @@ class NavBar extends Component {
 
   state = {
     popOverOpen: false,
-    mobileMenuOpen: true
+    mobileMenuOpen: false
   };
 
   closePopOver = () => {
     this.setState({ popOverOpen: false });
   };
+  
+  togglePopOver = () => {
+    this.setState({popOverOpen : !this.state.popOverOpen})
+  }
+
+  closeMobileMenu = () => {
+    this.setState({ mobileMenuOpen: false });
+  };
+  
+  closeAllMenus = () => {
+    this.closePopOver();
+    this.closeMobileMenu();
+  }
 
   toggleMobileMenu = () => {
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
   };
 
-  /** Handle popover on mouseover; not on click.
+  /** Handle popover on mouseover + click.
    * closes popover when mouse leaves / is outside popOver ref or product ref.
+   * only shows on mouseover on desktop
    */
   componentDidMount() {
     document.addEventListener("mouseover", e => {
-      // if clicking outside the popover
-      if (!this.popoverRef.contains(e.target) && this.state.popOverOpen) {
-        this.setState({ popOverOpen: false });
-        // clicked in popover while open (but not on a link!)
-      } else if (this.popoverRef.contains(e.target)) {
-        return;
-        // clicked on products nav link when popover open
-      } else if (
-        !this.productsRef.contains(e.target) &&
-        this.state.popOverOpen
-      ) {
-        this.setState({ popOverOpen: false });
-        // clicked on "Products" which should toggle it
-      } else if (
-        this.productsRef.contains(e.target) &&
-        !this.state.popOverOpen
-      ) {
-        this.setState({ popOverOpen: true });
+      if (window.innerWidth > 1023) {
+        // if clicking outside the popover
+        if (!this.popoverRef.contains(e.target) && this.state.popOverOpen) {
+          this.setState({ popOverOpen: false });
+          // clicked in popover while open (but not on a link!)
+        } else if (this.popoverRef.contains(e.target)) {
+          return;
+          // clicked on products nav link when popover open
+        } else if (
+          !this.productsRef.contains(e.target) &&
+            this.state.popOverOpen
+        ) {
+          this.setState({ popOverOpen: false });
+          // clicked on "Products" which should toggle it
+        } else if (
+          this.productsRef.contains(e.target) &&
+            !this.state.popOverOpen
+        ) {
+          this.setState({ popOverOpen: true });
+        }
+
       }
     });
+    
   }
 
   render() {
@@ -221,31 +249,44 @@ class NavBar extends Component {
             <img src={logo} />
           </Link>
 
-          <button className={burgerClass} onClick={() => this.toggleMobileMenu()}>
+          <button
+            className={burgerClass}
+            onClick={() => this.toggleMobileMenu()}
+          >
             <span />
             <span />
             <span />
           </button>
         </div>
         <div className={navbarMenuClass} id="navMenu">
-          {/* popover */}
-          <div ref={r => (this.popoverRef = r)}>
-            {this.state.popOverOpen && (
-              <ProductsPopup closePopOver={this.closePopOver} />
-            )}
-          </div>
 
-          <div className="navbar-start">
-            <a
-              className="navbar-item nav-link pointer"
-              ref={r => (this.productsRef = r)}
-            >
-              Products
-            </a>
+          <div className="navbar-start items-center">
+            {/* popover */}
+            <div ref={r => (this.productsRef = r)}>
+              <span onClick={() => this.togglePopOver()} className="navbar-item nav-link pointer">Products</span>
 
-        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/our-vision" name="Our Vision" />
-        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/services" name="Services" />
-        <NavLinkHOC toggleMobileMenu={this.toggleMobileMenu} url="/contact" name="Contact" />
+              <div ref={r => (this.popoverRef = r)}>
+                {this.state.popOverOpen && (
+                  <ProductsPopup closeMenus={this.closeAllMenus} />
+                )}
+              </div>
+            </div>
+
+            <NavLinkHOC
+              toggleMobileMenu={this.toggleMobileMenu}
+              url="/our-vision"
+              name="Our Vision"
+            />
+            <NavLinkHOC
+              toggleMobileMenu={this.toggleMobileMenu}
+              url="/services"
+              name="Services"
+            />
+            <NavLinkHOC
+              toggleMobileMenu={this.toggleMobileMenu}
+              url="/contact"
+              name="Contact"
+            />
           </div>
           <div className="navbar-end">
             <div className="navbar-item nav-link navbar-buttons">

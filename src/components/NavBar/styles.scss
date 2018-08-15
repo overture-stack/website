@@ -1,11 +1,25 @@
 @import "../../styles/variables";
 
+/* Navigation styling is broken down into three chunks:
+
+1) .ProductsPopup - DESKTOP -  styling for the products popup
+
+2) .ProductsPopup - MOBILE - instead of using several @include break points across
+   each class for .ProductsPopup, it's defined in one media query as the styles are
+   quite different than the desktop version.
+
+3) .NavHeader - layout/container/general styles for everything else
+
+*/
+
+// 1) Products Popup Desktop Styles
+
 .ProductsPopup {
   position: absolute;
   display: flex;
-  display: flex;
   flex-direction: column;
   margin-left: -160px;
+  min-width: 824px;
 
   .menu-items {
     border-radius: 4px;
@@ -13,12 +27,14 @@
     background: white;
   }
 
+  // arrow pointing at "products". Desktop+ only.
   .menu-items:after {
+    @include breakpoint(desktop-up) {
     content: '';
     display: block;
     position: absolute;
-    top: 75px;
-    left: 203px;
+    top: 35px;
+    left: 212px;
     right:-7px;
     width: 10px;
     height: 10px;
@@ -27,11 +43,17 @@
     border-bottom:1px solid #CAD5E0;
     -moz-transform:rotate(225deg);
     -webkit-transform:rotate(225deg);
+      
+    }
   }
   
   .spacer {
-    height: 80px;
+    height: 40px;
     background-color: rgba(0, 0, 0, 0);
+    @include breakpoint(desktop-below) {
+      height: 0;
+      
+    }
   }
 
   .core {
@@ -52,12 +74,77 @@
   .menu-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 32px;
+    justify-content: center;
+    padding: 32px 32px;
   }
+  
+  .menu-section-links {
+    display: flex; 
+    flex-direction: column;
+  }
+  
+  .menu-section-link {
+    padding-top: 1rem;
+    font-weight: bold;
+    display: flex;
+    font-size: 1rem;
+  }
+
+    .core-links {
+      max-height: 100px;
+      flex-wrap: wrap;
+    }
   
 }
 
+
+
+// 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
+
+@include breakpoint(desktop-below) {
+  .ProductsPopup {
+    position: relative;
+    margin-left: 0;
+    min-width: auto;
+    
+    .Badge {
+      min-width: 130px;
+      text-align: center;
+    }
+    
+    .menu-items {
+      padding: 24px 0;
+      flex-direction: column;
+      background: #f2f3f5;
+    }
+
+    .menu-section {
+      flex-direction: row;
+      padding: 4px 16px;
+      justify-content: flex-start;
+    }
+
+    .menu-section-links {
+      padding: 0 24px;
+      flex-direction: column;
+    }
+    
+    .core-links {
+      max-height: none;
+      flex-wrap: wrap;
+    }
+    
+    .menu-section-link {
+      padding-top: 0;
+      padding: 0 0 24px 0;
+    }
+
+  }
+}
+
+
+
+// 3) General Styles / Container for the whole nav.
 
 .NavHeader {
   .active-item {
@@ -102,7 +189,6 @@
     font-size: 18px;
     letter-spacing: 0;
   }
-  
   
   // mobile menu
   
