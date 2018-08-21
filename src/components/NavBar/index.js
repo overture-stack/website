@@ -115,7 +115,6 @@ const ProductsPopup = ({ closeMenus }) => {
             to="/products/persona"
           >
             Persona
-            <Icon className="pl1" img="githubGrey" />
           </Link>
           <Link
             onClick={() => closeMenus()}
