@@ -18,7 +18,8 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  margin-left: -160px;
+  margin-left: -280px;
+  margin-top: 36px;
   min-width: 824px;
 
   .menu-items {
@@ -177,6 +178,8 @@
   .nav-link {
     @include breakpoint(desktop-up) {
       margin-right: 16px;
+      display: flex;
+      align-self: stretch;
     }
     @include breakpoint (mobile) {
       border-top: 1px solid #efefef;

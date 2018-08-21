@@ -261,8 +261,11 @@ class NavBar extends Component {
 
           <div className="navbar-start items-center">
             {/* popover */}
-            <div ref={r => (this.productsRef = r)}>
-              <span onClick={() => this.togglePopOver()} className="navbar-item nav-link pointer">Products</span>
+            <div style={{display: "flex", alignSelf: "stretch"}} >
+              <span 
+                onClick={() => this.togglePopOver()} 
+                ref={r => (this.productsRef = r)}
+                className="navbar-item nav-link pointer">Products</span>
 
               <div ref={r => (this.popoverRef = r)}>
                 {this.state.popOverOpen && (
