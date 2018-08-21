@@ -180,7 +180,7 @@
   .products-link-box {
     display: flex;
     align-self: stretch;
-    
+    margin-right: 16px;
   }
   
   // similar to .nav-link but slightly different.
@@ -191,6 +191,11 @@
     &:hover {
       background-color: #f1f3f5;
     }
+  }
+  
+  .products-link-open {
+    background: #f1f3f5;
+    color: #9D005D;
   }
   
   .nav-link {

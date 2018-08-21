@@ -166,7 +166,7 @@ class NavBar extends Component {
   }
 
   state = {
-    popOverOpen: false,
+    popOverOpen: true,
     mobileMenuOpen: false
   };
 
@@ -201,6 +201,7 @@ class NavBar extends Component {
   render() {
     let mobileMenuOpen = this.state.mobileMenuOpen ? "is-active" : "";
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
+    let productsLinkClass = this.state.popOverOpen ? "products-link products-link-open navbar-item" : "products-link navbar-item";
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
 
     return (
@@ -209,7 +210,7 @@ class NavBar extends Component {
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item mr4">
+          <Link to="/" className="navbar-item mr4 self-stretch">
             <img src={logo} />
           </Link>
 
@@ -230,12 +231,8 @@ class NavBar extends Component {
               <span 
                 onClick={() => this.togglePopOver()} 
                 ref={r => (this.productsRef = r)}
-                className="products-link navbar-item">Products</span>
-
-
-
+                className={productsLinkClass}>Products</span>
               <div ref={r => (this.popoverRef = r)}>
-
                 <section className="spacer" />
                 {this.state.popOverOpen && (
                   <ProductsPopup closeMenus={this.closeAllMenus} />
