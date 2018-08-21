@@ -109,6 +109,7 @@
     position: relative;
     margin-left: 0;
     min-width: auto;
+    border: 0;
     
     .Badge {
       min-width: 130px;
@@ -117,6 +118,7 @@
     
     .menu-items {
       padding: 24px 0;
+      border: 0;
       flex-direction: column;
       background: #f2f3f5;
     }
@@ -181,6 +183,10 @@
     display: flex;
     align-self: stretch;
     margin-right: 16px;
+    @include breakpoint(desktop-below) {
+      flex-direction: column;
+      margin-right: 0;
+    }
   }
   
   // similar to .nav-link but slightly different.
