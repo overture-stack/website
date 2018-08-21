@@ -14,16 +14,6 @@ const ProductsPopup = ({ closeMenus }) => {
   
   return (
   <div className="ProductsPopup">
-    {/* Use of `closeMenus` prop is to clear popover state
-      * while maintaining smooth gatsby Links */}
-
-    {/* Design spec listed the product menu to pop up on mouse enter (not click)
-      * Using a Spacer between top nav and floating popup=:
-      * just using a padding top leaves a gap that on mouse exit will close the popover
-      * So this basically gives invisible space that the mouse can enter and NOT close the window.*/}
-
-    <section className="spacer" />
-
     <div className="menu-items flex">
       <section className="menu-section core">
         <Badge color="pink">Core</Badge>
@@ -171,7 +161,7 @@ const NavLinkHOC = ({ url, name, toggleMobileMenu }) => {
 class NavBar extends Component {
   constructor() {
     super();
-    this.popoverRef = null;
+    this.popoverRef = null; //
     this.productsRef = null;
   }
 
@@ -180,26 +170,13 @@ class NavBar extends Component {
     mobileMenuOpen: false
   };
 
-  closePopOver = () => {
-    this.setState({ popOverOpen: false });
-  };
-  
-  togglePopOver = () => {
-    this.setState({popOverOpen : !this.state.popOverOpen})
-  }
-
-  closeMobileMenu = () => {
-    this.setState({ mobileMenuOpen: false });
-  };
-  
-  closeAllMenus = () => {
-    this.closePopOver();
-    this.closeMobileMenu();
-  }
-
-  toggleMobileMenu = () => {
-    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
-  };
+  // menu open/close methods.
+  openPopOver      = () => {this.setState({ popOverOpen: true})}
+  closePopOver     = () => {this.setState({ popOverOpen: false });};
+  closeMobileMenu  = () => {this.setState({ mobileMenuOpen: false });};
+  closeAllMenus    = () => {this.closePopOver(); this.closeMobileMenu()}
+  togglePopOver    = () => {this.setState({ popOverOpen : !this.state.popOverOpen})}
+  toggleMobileMenu = () => {this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen })};
 
   /** Handle popover on mouseover + click.
    * closes popover when mouse leaves / is outside popOver ref or product ref.
@@ -207,30 +184,18 @@ class NavBar extends Component {
    */
   componentDidMount() {
     document.addEventListener("mouseover", e => {
-      if (window.innerWidth > 1023) {
-        // if clicking outside the popover
-        if (!this.popoverRef.contains(e.target) && this.state.popOverOpen) {
-          this.setState({ popOverOpen: false });
-          // clicked in popover while open (but not on a link!)
-        } else if (this.popoverRef.contains(e.target)) {
-          return;
-          // clicked on products nav link when popover open
-        } else if (
-          !this.productsRef.contains(e.target) &&
-            this.state.popOverOpen
-        ) {
-          this.setState({ popOverOpen: false });
-          // clicked on "Products" which should toggle it
-        } else if (
-          this.productsRef.contains(e.target) &&
-            !this.state.popOverOpen
-        ) {
-          this.setState({ popOverOpen: true });
-        }
+      // some short hands to make the if-blocks below more readable.
+      let popOverOpen = this.state.popOverOpen
+      let mouseOnProduct = this.popoverRef.contains(e.target)
 
+      if (window.innerWidth > 1023) {
+        if (!mouseOnProduct && popOverOpen) {  // mouse outside "Products"; close it.
+          this.closePopOver()
+        } else if (this.productsRef.contains(e.target) && !popOverOpen) {
+          this.openPopOver()
+        }
       }
     });
-    
   }
 
   render() {
@@ -261,13 +226,17 @@ class NavBar extends Component {
 
           <div className="navbar-start items-center">
             {/* popover */}
-            <div style={{display: "flex", alignSelf: "stretch"}} >
+            <div className="products-link-box">
               <span 
                 onClick={() => this.togglePopOver()} 
                 ref={r => (this.productsRef = r)}
-                className="navbar-item nav-link pointer">Products</span>
+                className="products-link navbar-item">Products</span>
+
+
 
               <div ref={r => (this.popoverRef = r)}>
+
+                <section className="spacer" />
                 {this.state.popOverOpen && (
                   <ProductsPopup closeMenus={this.closeAllMenus} />
                 )}

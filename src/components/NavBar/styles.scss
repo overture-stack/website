@@ -19,7 +19,9 @@
   display: flex;
   flex-direction: column;
   margin-left: -280px;
-  margin-top: 36px;
+  border-top: 74px;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
   min-width: 824px;
 
   .menu-items {
@@ -34,7 +36,7 @@
     content: '';
     display: block;
     position: absolute;
-    top: 35px;
+    top: -5px;
     left: 212px;
     right:-7px;
     width: 10px;
@@ -172,6 +174,22 @@
     
     & > span {
       background-color: #66c2ea
+    }
+  }
+  
+  .products-link-box {
+    display: flex;
+    align-self: stretch;
+    
+  }
+  
+  // similar to .nav-link but slightly different.
+  .products-link {
+    display: flex;
+    align-self: stretch;
+    
+    &:hover {
+      background-color: #f1f3f5;
     }
   }
   
