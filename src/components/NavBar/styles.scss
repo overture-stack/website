@@ -162,6 +162,10 @@
     padding-right: 16px;
   }
   
+  .navbar-menu {
+    padding-top: 0px;
+  }
+  
   .navbar-burger, .navbar-burger > .is-active {
     // override gatsby button
     height: 2.4rem;
@@ -210,7 +214,7 @@
       display: flex;
       align-self: stretch;
     }
-    @include breakpoint (mobile) {
+    @include breakpoint (desktop-below) {
       border-top: 1px solid #efefef;
       
     }

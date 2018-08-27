@@ -210,7 +210,9 @@ class NavBar extends Component {
         aria-label="main navigation"
       >
         <div className="navbar-brand">
-          <Link to="/" className="navbar-item mr4 self-stretch">
+          <Link to="/" 
+                onClick={() => this.closeMenus()}
+                className="navbar-item mr4 self-stretch">
             <img src={logo} />
           </Link>
 
