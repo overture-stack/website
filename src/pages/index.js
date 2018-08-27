@@ -4,7 +4,7 @@ import heroImg from "./home/hero_img.svg";
 import "./home/styles.scss";
 import { H1, H2, H4 } from "../components/Typography/index";
 import Badge from "../components/Badge/index";
-import Helmet from 'react-helmet'
+import Helmet from "react-helmet";
 import Link from "gatsby-link";
 
 const BundleCard = ({ header, icon, children }) => (
@@ -24,8 +24,14 @@ const HomePage = () => (
 
     <Helmet>
       <title>Overture - Software for big data genomic science</title>
-      <meta name="description" content="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."/>
-      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, genomic data, big data, data portals, Ontario Institute for Cancer Research, OICR"/>
+      <meta
+        name="description"
+        content="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
+      />
+      <meta
+        name="keywords"
+        content="Overture, data science software, bioinformatics software, open-source software, cancer research, genomic data, big data, data portals, Ontario Institute for Cancer Research, OICR"
+      />
     </Helmet>
 
     <section className="hero bg-green science-hero">
@@ -33,7 +39,7 @@ const HomePage = () => (
         <div className="container flex">
           <div className="hero-header-text flex flex-column column is-half justify-center">
             <H1>Worry less, Science More</H1>
-            <H4 className="py3" style={{maxWidth: "585px"}}>
+            <H4 className="py3" style={{ maxWidth: "585px" }}>
               Overture is a collection of open-source, extendable solutions for
               big-data genomic science that you can use to support your
               research.
@@ -51,11 +57,11 @@ const HomePage = () => (
 
     <section className="container">
       <div className="bioinformatics-bundle column ">
-        <H2 className="flex-auto pr2">
-          Bioinformatics Core Bundle
-        </H2>
-        <div className="pt2 center" style={{maxWidth: "700px"}}>
-          Data is the essence of our field, Overture’s bioinformatics bundle focuses on tracking, transferring and securing genomic data across multiple cloud providers.
+        <H2 className="flex-auto pr2">Bioinformatics Core Bundle</H2>
+        <div className="pt2" style={{ maxWidth: "700px" }}>
+          Data is the essence of our field, Overture’s bioinformatics bundle
+          focuses on tracking, transferring and securing genomic data across
+          multiple cloud providers.
         </div>
 
         {/* Hiding for now
@@ -116,21 +122,29 @@ const HomePage = () => (
 
       {/* BADGES */}
       <div className="flex column justify-center">
-        <div className="explore-solutions">
-          <div style={{fontSize: "28px"}} className="flex-auto pr3 center"> Also explore our solutions for:</div>
-          <div className="py1">
-            <Badge className="mr2" color="blue">
-              Discovery
-            </Badge>
-            <Badge className="mr2" color="yellow">
-              Analysis
-            </Badge>
-            <Badge className="mr2" color="green">
-              Social
-            </Badge>
-            <Badge className="mr2" color="red">
-              Management
-            </Badge>
+        <div className="explore-solutions-box">
+          <div className="explore-solutions-header">
+            {" "}
+            Also explore our solutions for:
+          </div>
+          <div className="badges">
+            <div className="badge-container">
+              <Badge className="mr2" color="blue">
+                Discovery
+              </Badge>
+              <Badge className="mr2" color="yellow">
+                Analysis
+              </Badge>
+            </div>
+
+            <div className="badge-container">
+              <Badge className="mr2" color="green">
+                Social
+              </Badge>
+              <Badge className="mr2" color="red">
+                Management
+              </Badge>
+            </div>
           </div>
         </div>
       </div>
@@ -154,21 +168,27 @@ const HomePage = () => (
             </span>
             <span className="bold">
               {" "}
-              large scale infrastructures, big data ETL and portals supporting genomic research.
-
-              {" "}
+              large scale infrastructures, big data ETL and portals supporting
+              genomic research.{" "}
             </span>
             <p className="pt2">
               Built to be reusable and scalable, Overture’s components are well
               documented, actively supported and welcome{" "}
-              <a target="_blank" href="https://github.com/overture-stack">external feedback and contributions</a>. If you need
-              assistance, we also offer{" "}
-              <Link to="/services">consulting, support and collaborative services.</Link>
+              <a target="_blank" href="https://github.com/overture-stack">
+                external feedback and contributions
+              </a>. If you need assistance, we also offer{" "}
+              <Link to="/services">
+                consulting, support and collaborative services.
+              </Link>
             </p>
 
             <div className="mt3">
-              <a className="button is-primary is-medium" href="http://softeng.oicr.on.ca/team/" target="_blank">
-                  Meet the team
+              <a
+                className="button is-primary is-medium"
+                href="http://softeng.oicr.on.ca/team/"
+                target="_blank"
+              >
+                Meet the team
               </a>
 
               {/* Hiding for now:
