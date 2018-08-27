@@ -148,7 +148,7 @@ const PersonaPage = () => (
                 <a href="https://github.com/overture-stack/persona/blob/master/.env.schema"> .env.schema.</a>
               </li>
               <li className="bullet">
-                Install required dependencies node, mongodb, and npm
+                Install required dependencies node, mongodb, and npm.
               </li>
             </ul>
           </div>
