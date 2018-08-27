@@ -15,7 +15,7 @@ const ProductTarget = ({ header, details, className }) => (
 
       {/* header */}
       {header ? (
-        <div className="bold pl2">{header}</div>
+        <div className="target-header">{header}</div>
       ) : (
         <div className="ml2 details">{details}</div>
       )}
