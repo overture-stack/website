@@ -9,18 +9,23 @@ import cloudSquare from './icons/cloud_square.svg'
 import database from './icons/database.svg'
 import dna from './icons/dna.svg'
 import download from './icons/download.svg'
+import extensible from './icons/extensible.svg'
 import fingerSnap from './icons/finger_snap.svg'
 import githubGrey from './icons/github_grey.svg'
 import githubWhite from './icons/github_white.svg'
 import githubYellow from './icons/github_yellow.svg'
 import graphCycle from './icons/graph_cycle.svg'
+import history from './icons/history.svg'
 import lock from './icons/lock.svg'
 import lockCode from './icons/lock_code.svg'
+import mail from './icons/mail.png'
+import magnify from './icons/magnify.svg'
 import pageWhite from './icons/page_white.svg'
 import palette from './icons/palette.svg'
 import power from './icons/power.svg'
 import rocketWhite from './icons/rocket_white.svg'
 import security from './icons/security.svg'
+import share from './icons/share.svg'
 import shield from './icons/shield.svg'
 import spiral from './icons/spiral.svg'
 import target from './icons/target.svg'
@@ -36,18 +41,23 @@ const icons = {
   database,
   dna,
   download,
+  extensible,
   fingerSnap,
   githubGrey,
   githubWhite,
   githubYellow,
   graphCycle,
+  history,
   lock,
   lockCode,
+  mail,
+  magnify,
   pageWhite,
   palette,
   power,
   rocketWhite,
   security,
+  share,
   shield,
   spiral,
   target,

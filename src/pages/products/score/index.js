@@ -15,6 +15,7 @@ import { H2, H4 } from "../../../components/Typography/index";
 import ProductTarget from "../../../components/ProductTarget";
 import React from "react";
 import "./style.scss";
+import Button from "../../../components/Button/index";
 
 const ScorePage = () => (
   <main className="Score">
@@ -32,6 +33,7 @@ const ScorePage = () => (
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
       getStartedLink="https://github.com/overture-stack/score"
       logo="logoScore"
+      progressType="ga"
       badge={{ color: "pink", text: "Core" }}
     />
 
@@ -161,15 +163,14 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-
-        <a
-          target="_blank"
-          href="https://github.com/overture-stack/score"
-          className="button is-primary is-medium mt2"
-        >
-          <Icon size={24} img="githubWhite" />
-          <div className="ml1 text-white">Get Started</div>
-        </a>
+        <Button
+          type="primary"
+          size="medium"
+          externalLink="https://github.com/overture-stack/score"
+          icon="githubWhite"
+          >
+          Get Started
+        </Button>
       </Callout>
     </BottomCallout>
   </main>

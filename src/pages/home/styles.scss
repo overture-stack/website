@@ -1,11 +1,20 @@
+@import "../../styles/variables";
+
 .HomePage {
   font-size: 18px;
   line-height: 32px;
 
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
   .science-hero {
     height: 600px;
+    padding: 3rem 1.5rem;
     @media(max-width: 900px) {
       height: auto;
+      padding: 1.5rem 1.5rem 0;
     }
   }
   
@@ -17,6 +26,65 @@
     }
   }
   
+  .bioinformatics-bundle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 128px 0 64px 0;
+    @include breakpoint(wide-down) {
+      padding-top: 64px;
+    }
+    @include breakpoint(mobile) {
+      padding: 64px 32px;
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+  
+  .explore-solutions-box {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(desktop-below) {
+      flex-direction: column;
+    }
+    
+    @include breakpoint(mobile) {
+      display: flex;
+    }
+  }
+  
+  .badges {
+    display: flex;
+    flex-direction: row;
+    @include breakpoint(mobile) {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      padding-top: 16px;
+      align-items: center;
+    }
+  }
+
+  .badge-container {
+  }
+  
+  .explore-solutions-header {
+    font-size: 28px; 
+    display: flex;
+    flex: auto;
+    padding-right: 32px;
+    text-align: center;
+    @include breakpoint (mobile) {
+      text-align: left;
+      font-size: 22px;
+      width: 100%;
+    }
+    
+  }
+
+  
   .hero-subheader {
     font-family: Lato;
     font-size: 24px;
@@ -27,12 +95,17 @@
   
   
   .bottom-hero {
-    margin-top: 64px;
-    padding: 64px 0 128px 0;
+    margin-top: 32px;
+    padding: 8px 0 128px 0;
     background-image: url("./footer_img.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-position-x: 400px;
+
+    @include breakpoint(desktop-below) {
+      padding: 0px 0 128px 0;
+      background-position-x: 200px;
+    }
   }
 
   .bottom-header {
@@ -41,6 +114,13 @@
     color: #003055;
     letter-spacing: 0;
     line-height: 68px;
+    padding-right: 48px;
+
+    @include breakpoint(mobile) {
+      font-size: 26px;
+      line-height: 36px;
+    }
+
   }
 }
 

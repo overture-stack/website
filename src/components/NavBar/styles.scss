@@ -1,35 +1,43 @@
+@import "../../styles/variables";
+
+/* Navigation styling is broken down into three chunks:
+
+1) .ProductsPopup - DESKTOP -  styling for the products popup
+
+2) .ProductsPopup - MOBILE - instead of using several @include break points across
+   each class for .ProductsPopup, it's defined in one media query as the styles are
+   quite different than the desktop version.
+
+3) .NavHeader - layout/container/general styles for everything else
+
+*/
+
+// 1) Products Popup Desktop Styles
+
 .ProductsPopup {
   position: absolute;
   display: flex;
-  display: flex;
   flex-direction: column;
-  margin-left: -160px;
+  margin-left: -280px;
+  border-top: 74px;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  min-width: 824px;
 
-// .arrow-up {
-//   width: 0; 
-//   height: 0;
-//   position: relative;
-//   top: -8px;
-//   border-left: 9px solid grey;
-//   border-right: 9px solid transparent;
-  
-//   border-bottom: 9px solid white;
-// }
-  
-  // used via gatsby activeClasses
-  
   .menu-items {
     border-radius: 4px;
     border: 1px solid #dfdfdf;
     background: white;
   }
 
+  // arrow pointing at "products". Desktop+ only.
   .menu-items:after {
+    @include breakpoint(desktop-up) {
     content: '';
     display: block;
     position: absolute;
-    top: 75px;
-    left: 203px;
+    top: -5px;
+    left: 212px;
     right:-7px;
     width: 10px;
     height: 10px;
@@ -38,11 +46,17 @@
     border-bottom:1px solid #CAD5E0;
     -moz-transform:rotate(225deg);
     -webkit-transform:rotate(225deg);
-}
+      
+    }
+  }
   
   .spacer {
-    height: 80px;
+    height: 40px;
     background-color: rgba(0, 0, 0, 0);
+    @include breakpoint(desktop-below) {
+      height: 0;
+      
+    }
   }
 
   .core {
@@ -63,25 +77,165 @@
   .menu-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 32px;
+    justify-content: center;
+    padding: 32px 32px;
   }
+  
+  .menu-section-links {
+    display: flex; 
+    flex-direction: column;
+  }
+  
+  .menu-section-link {
+    padding-top: 1rem;
+    font-weight: bold;
+    display: flex;
+    font-size: 1rem;
+  }
+
+    .core-links {
+      max-height: 100px;
+      flex-wrap: wrap;
+    }
   
 }
 
 
+
+// 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
+
+@include breakpoint(desktop-below) {
+  .ProductsPopup {
+    position: relative;
+    margin-left: 0;
+    min-width: auto;
+    border: 0;
+    
+    .Badge {
+      min-width: 130px;
+      text-align: center;
+    }
+    
+    .menu-items {
+      padding: 24px 0;
+      border: 0;
+      flex-direction: column;
+      background: #f2f3f5;
+    }
+
+    .menu-section {
+      flex-direction: row;
+      padding: 4px 16px;
+      justify-content: flex-start;
+    }
+
+    .menu-section-links {
+      padding: 0 24px;
+      flex-direction: column;
+    }
+    
+    .core-links {
+      max-height: none;
+      flex-wrap: wrap;
+    }
+    
+    .menu-section-link {
+      padding-top: 0;
+      padding: 0 0 24px 0;
+    }
+
+  }
+}
+
+
+
+// 3) General Styles / Container for the whole nav.
+
 .NavHeader {
-  height: 70px;
-
-
   .active-item {
     color: #9E005D;
     background-color: "#F2F3F5";
+  }
+  
+  .navbar-brand {
+    align-items: center;
+    padding-right: 16px;
+  }
+  
+  .navbar-menu {
+    padding-top: 0px;
+  }
+  
+  .navbar-burger, .navbar-burger > .is-active {
+    // override gatsby button
+    height: 2.4rem;
+    width: 2.4rem;
+    border-color: #66c2ea !important;
+    background-color: none !important;
+    outline: none !important;
+    
+    &:hover  {
+      background-color: none !important;
+    }
+    
+    & > span {
+      background-color: #66c2ea
+    }
+  }
+  
+  .products-link-box {
+    display: flex;
+    align-self: stretch;
+    margin-right: 16px;
+    @include breakpoint(desktop-below) {
+      flex-direction: column;
+      margin-right: 0;
+    }
+  }
+  
+  // similar to .nav-link but slightly different.
+  .products-link {
+    display: flex;
+    align-self: stretch;
+    
+    &:hover {
+      background-color: #f1f3f5;
+    }
+  }
+  
+  .products-link-open {
+    background: #f1f3f5;
+    color: #9D005D;
+  }
+  
+  .nav-link {
+    @include breakpoint(desktop-up) {
+      margin-right: 16px;
+      display: flex;
+      align-self: stretch;
+    }
+    @include breakpoint (desktop-below) {
+      border-top: 1px solid #efefef;
+      
+    }
   }
 
   .navbar-item {
     font-family: Lato, "Arial";
     font-size: 18px;
     letter-spacing: 0;
+  }
+  
+  // mobile menu
+  
+  .navbar-buttons {
+    @include breakpoint(mobile) {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      & .slack-button {
+        margin-bottom: 16px;
+      }
+    }
   }
 }

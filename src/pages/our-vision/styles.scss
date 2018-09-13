@@ -1,6 +1,17 @@
+@import "../../styles/variables";
+
 .OurVisionPage {
+  p {
+    font-size: 18px;
+  }
+
   .vision-hero-box {
     height: 500px;
+    
+    @include breakpoint(mobile) {
+      height: auto;
+      padding: 16px;
+    }
   }
 
   .vision-hero-img {

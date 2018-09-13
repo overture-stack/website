@@ -1,0 +1,33 @@
+.Progress-Bar {
+  position: absolute;
+  left: 48px;
+  top: 96px;
+  height: 280px;
+  width: 128px;
+}
+
+@mixin progress-bar-template($img-name) {
+  background-image: url("./svgs/#{$img-name}-vert.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  @media(max-width: 1024px) {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background-image: url("./svgs/#{$img-name}-horiz.svg");
+    height: 80px;
+    width: 80%;
+    margin: 0 auto;
+    top: -40px;
+    left: 0;
+    right: 0;
+  }
+}
+
+.Progress-Bar-rc {@include progress-bar-template("RC");}
+.Progress-Bar-ga {@include progress-bar-template("GA");}
+.Progress-Bar-beta {@include progress-bar-template("BETA");}
+.Progress-Bar-ud {@include progress-bar-template("UD");}
+
+

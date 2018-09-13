@@ -6,13 +6,21 @@ import bg from "./bg_blue_curved.svg"; // used in css
 import logoScore from "./images/score.svg";
 import logoSong from "./images/song.svg";
 import logoEgo from "./images/ego.svg";
+import logoOncojs from "./images/oncojs.svg";
 import logoJukebox from "./images/jukebox.svg";
+import logoRiff from "./images/riff.svg";
+import logoPersona from "./images/persona.svg";
+import ProgressBar from "../ProgressBar/index";
+import Button from "../Button/index";
 
 const logos = {
   logoScore,
   logoSong,
   logoJukebox,
-  logoEgo
+  logoEgo,
+  logoOncojs,
+  logoPersona,
+  logoRiff,
 };
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
@@ -23,14 +31,14 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
         <div className="card-content is-two-thirds flex flex-column justify-center">
           <div className="card-text">{cardText}</div>
           <div className="left-align">
-            <a
-              className="button is-primary is-medium"
-              target="_blank"
-              href={getStartedLink}
+            <Button
+              type="primary"
+              size="medium"
+              externalLink={getStartedLink}
+              icon="githubWhite"
             >
-              <Icon className="mr2" img="githubWhite" />
               Get Started
-            </a>
+            </Button>
 
             {/* Hiding for now
 
@@ -51,18 +59,32 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
   </div>
 );
 
-const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge}) => (
+const ProductHero = ({
+  title,
+  subTitle,
+  cardText,
+  logo,
+  getStartedLink,
+  badge,
+  progressType
+}) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py1">
       <div className="hero-body has-text-centered">
         <div className="has-text-centered">
-          <span className="flex justify-center">
-            <h1 className="title mb1">{title}</h1>
-            <Badge color={badge.color} className="ml1 mt3">
-              {badge.text}
-            </Badge>
-          </span>
-          <h2 className="subtitle py1">{subTitle}</h2>
+          {/* Title, Badge, Subtitle */}
+          <div className="hero-title-box">
+            <span className="flex justify-center">
+              <h1 className="title mb1">{title}</h1>
+              <Badge color={badge.color} className="ml1 mt3">
+                {badge.text}
+              </Badge>
+            </span>
+            <h2 className="subtitle py1">{subTitle}</h2>
+          </div>
+
+      <ProgressBar type={progressType} />
+
           <HeroCard
             getStartedLink={getStartedLink}
             cardText={cardText}

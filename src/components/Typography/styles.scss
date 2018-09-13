@@ -1,3 +1,18 @@
+@import "../../styles/variables";
+
+.t-h1 { // for hero headers
+  font-family: Lato, "Arial";
+  font-weight: 700;
+  font-size: 50px;
+  color: #003055;
+  letter-spacing: 0;
+  line-height: 70px;
+  
+  @include breakpoint(mobile) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
 
 .t-h2 {
   font-family: Lato, "Arial";
@@ -5,6 +20,12 @@
   color: #004773;
   letter-spacing: 0;
   line-height: 37px;
+
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 40px;
+  }
+
 }
 
 
@@ -15,14 +36,8 @@
   letter-spacing: 0;
   line-height: 40px;
 
-}
-
-// for hero headers
-.t-h1 {
-  font-family: Lato, "Arial";
-  font-weight: 700;
-  font-size: 50px;
-  color: #003055;
-  letter-spacing: 0;
-  line-height: 70px;
+  @include breakpoint(mobile) {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }

@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .ServicesPage {
 
   p, li {
@@ -17,6 +19,12 @@
     background-position-y: 16px;
     display: flex;
     justify-content: center;
+    
+    @include breakpoint(mobile) {
+      height: auto;
+      padding: 16px;
+    }
+
     @media(min-width: 1300px) {
       background-size: 50%
     }

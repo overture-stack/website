@@ -20,6 +20,7 @@ import "./style.scss";
 import azure from "./imgs/azure.svg";
 import pgsql from "./imgs/pgsql.png";
 import aws from "./imgs/aws.svg";
+import Button from "../../../components/Button/index";
 
 const JukeboxPage = () => (
   <main className="Jukebox">
@@ -51,6 +52,7 @@ const JukeboxPage = () => (
       }
       getStartedLink="https://github.com/overture-stack/jupyter"
       logo="logoJukebox"
+      progressType="rc"
       badge={{ color: "yellow", text: "Analysis" }}
     />
 
@@ -212,27 +214,33 @@ const JukeboxPage = () => (
         icon="githubYellow"
         description="Explore and manipulate data without having to set up the environment yourself."
       >
-        <a
-          target="_blank"
-          href="http://github.com/overture-stack/jupyter"
-          className="button is-primary is-medium mt2"
-        >
-          <Icon size={24} img="githubWhite" />
-          <div className="ml1 text-white">Get started</div>
-        </a>
+
+        <Button
+          type="primary"
+          size="medium"
+          className="mt2"
+          externalLink="https://github.com/overture-stack/jupyter"
+          icon="githubWhite"
+          >
+          Get Started
+          </Button>
+        
       </Callout>
 
       <Callout
         icon="pageWhite"
         description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
       >
-        <a
-          target="_blank"
-          href="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
-          className="button is-primary is-medium mt2"
-        >
-          <div className="ml1 text-white">Related blog post</div>
-        </a>
+
+        <Button
+          type="primary"
+          size="medium"
+          className="mt2"
+          externalLink="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
+          >
+          Related Blog Post
+          </Button>
+        
       </Callout>
     </BottomCallout>
   </main>

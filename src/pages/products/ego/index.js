@@ -14,6 +14,7 @@ import { H2, H4 } from "../../../components/Typography/index";
 import screenshot from "./images/screenshot.png";
 import bg from "./images/bg_grey_curved.svg";
 import "./style.scss";
+import Button from "../../../components/Button/index";
 
 const EgoPage = () => (
   <main className="Ego">
@@ -29,10 +30,11 @@ const EgoPage = () => (
     <ProductHero
       title="Ego"
       subTitle="A stateless authorization and user management service."
-      cardText="Ego provides single sign-on through Facebook, Google and Github, a well as providing an intuitive GUI for painless user management."
+      cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
       getStartedLink="https://github.com/overture-stack/ego"
       badge={{color: "pink", text: "Core"}}
       logo="logoEgo"
+      progressType="rc"
     />
 
     {/* Features  */}
@@ -199,14 +201,14 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
         >
-        <a
-          target="_blank"
-          href="https://github.com/overture-stack/ego"
-          className="button is-primary is-medium mt2"
-        >
-          <Icon size={24} img="githubWhite" />
-          <div className="ml1 text-white">Get Started</div>
-        </a>
+        <Button
+          type="primary"
+          size="medium"
+          externalLink="https://github.com/overture-stack/ego"
+          icon="githubWhite"
+          >
+          Get Started
+        </Button>
       </Callout>
     </BottomCallout>
   </main>

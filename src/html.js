@@ -48,7 +48,6 @@ export default class HTML extends Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <script src={__PATH_PREFIX__ + '/js/toggle.js'} />
           
           {/* JIRA EMBED SCRIPT TODO: Move this to JUST the contact page, via componentDidMount. 
           <script src={__PATH_PREFIX__ + '/js/jira_embed.js'} />
