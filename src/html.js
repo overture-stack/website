@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react'
 import favicon from './img/favicon.ico'
+// import { withPrefix } from 'gatsby'
 
 let inlinedStyles = ''
 if (process.env.NODE_ENV === 'production') {
@@ -40,6 +41,9 @@ export default class HTML extends Component {
           <link rel="shortcut icon" href={favicon} />
           <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"/>
+          {/*  NOTE: normally wouldn't use static folder but npm / sass imports for basscss are not working. */}
+          <link href="/css/basscss.css" rel="stylesheet"></link>
+
           {css}
         </head>
         <body>
