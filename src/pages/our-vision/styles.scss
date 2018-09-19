@@ -1,8 +1,10 @@
 @import "../../styles/variables";
 
 .OurVisionPage {
+
   p {
     font-size: 18px;
+    line-height: 30px;
   }
 
   .vision-hero-box {
@@ -16,12 +18,5 @@
 
   .vision-hero-img {
     transform: scale(0.9) translateY(40px);
-    // padding: 16px 0;
-    // background-position: bottom;
-    // background-image: url("./hero_img.svg");
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    
   }
-  
 }
