@@ -61,10 +61,10 @@ const EgoPage = () => (
     {/* Target Features + Screenshot */}
     <section className="bg-curve-grey pb4">
       <div className="container">
-        <div className="columns column pt4">
+        <div className="columns column target-feature-container">
           {/* targets */}
 
-          <div className="column pt2 is-3-desktop pt2">
+          <div className="column pt2 is-4-desktop pt2">
             <div className="py2">
               <ProductTarget
                 header="It’s stateless"
@@ -88,7 +88,7 @@ const EgoPage = () => (
           </div>
 
           {/* screenshot */}
-          <div className="column is-8  is-offset-1 flex items-center">
+          <div className="column is-8-desktop  is-offset-1 flex items-center">
             <img src={screenshot} />
           </div>
         </div>
