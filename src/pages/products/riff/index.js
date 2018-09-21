@@ -97,12 +97,12 @@ const RiffPage = () => (
     <GettingStarted>
       {/* Getting Started: Step 1 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
             <H4>Install Postgres.</H4>
-            <div className="py3">To get started, you'll first need to install a database.</div>
+            <div className="step-text">To get started, you'll first need to install a database.</div>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -114,7 +114,7 @@ const RiffPage = () => (
 
       {/* Getting Started: step 2 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
@@ -128,12 +128,12 @@ const RiffPage = () => (
         </div>
       </div>
       
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
             <H4>Set up Riff.</H4>
-            <div className="py3">The database schema will be preconfigured as part of the set up!</div>
+            <div className="step-text">The database schema will be preconfigured as part of the set up!</div>
           </div>
           <div className="mt3 yellow-bar" />
         </div>

@@ -8,11 +8,9 @@ import ProductTarget from "../../../components/ProductTarget";
 import ProductHero from "../../../components/ProductHero";
 import GettingStarted from "../../../components/GettingStarted/index";
 import {BottomCallout, Callout} from "../../../components/BottomCallout/index";
-import Icon from "../../../components/Icon/index";
 import Terminal from "../../../components/Terminal/index";
 import { H2, H4 } from "../../../components/Typography/index";
 import screenshot from "./images/screenshot.png";
-import bg from "./images/bg_grey_curved.svg";
 import "./style.scss";
 import Button from "../../../components/Button/index";
 
@@ -100,12 +98,12 @@ const EgoPage = () => (
     <GettingStarted pinnedLink="http://ego.readthedocs.io/en/latest/">
       {/* Getting Started: Step 1 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
             <H4>To get started, you’ll first need to set up a database.</H4>
-            <ul className="py3">
+            <ul className="step-text">
               <li className="bullet">Install Postgres. </li>
               <li className="bullet">
                 Create a database: ego with user postgres and empty password
@@ -128,13 +126,13 @@ const EgoPage = () => (
 
       {/* Getting Started: step 2 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
             <H4>Define the tables in your database.</H4>
 
-            <ul className="py3">
+            <ul className="step-text">
               <li className="bullet">
                 Copy the{" "}
                 <a
@@ -163,13 +161,13 @@ const EgoPage = () => (
 
       {/* Getting Started: step 3 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
             <H4>Run one of the three supported Ego profiles.</H4>
 
-            <ul className="py3">
+            <ul className="step-text">
               <li className="bullet">
                 <span className="bold">Default: </span>The most simple profile
                 which  allows you to test API endpoints with a valid JWT.

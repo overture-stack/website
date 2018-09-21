@@ -116,7 +116,7 @@ const PersonaPage = () => (
     <GettingStarted>
       {/* Getting Started: Step 1 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
@@ -128,7 +128,7 @@ const PersonaPage = () => (
         <div className="column is-8 is-offset-1 self-center">
           <Terminal
             prompts={[
-              "$ git clone https://github.com/overture-stack/persona.git"
+              "git clone https://github.com/overture-stack/persona.git"
             ]}
           />
         </div>
@@ -136,13 +136,13 @@ const PersonaPage = () => (
 
       {/* Getting Started: step 2 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
             <H4>Set up your environment.</H4>
 
-            <ul className="py3">
+            <ul className="step-text">
               <li className="bullet">
                 Add the required environment variables, documented in
                 <a href="https://github.com/overture-stack/persona/blob/master/.env.schema"> .env.schema.</a>
