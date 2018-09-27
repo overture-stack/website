@@ -38,7 +38,7 @@ const HomePage = () => (
       <div className="">
         <div className="container flex">
           <div className="hero-header-text flex flex-column column is-half justify-center">
-            <H1>Worry less, Science More</H1>
+            <H1>Worry less, science more</H1>
             <H4 className="py3" style={{ maxWidth: "585px" }}>
               Overture is a collection of open-source, extendable solutions for
               big-data genomic science that you can use to support your
