@@ -33,29 +33,27 @@
   // arrow pointing at "products". Desktop+ only.
   .menu-items:after {
     @include breakpoint(desktop-up) {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: 212px;
-    right:-7px;
-    width: 10px;
-    height: 10px;
-    background: #FFFFFF;
-    border-right:1px solid #CAD5E0;
-    border-bottom:1px solid #CAD5E0;
-    -moz-transform:rotate(225deg);
-    -webkit-transform:rotate(225deg);
-      
+      content: "";
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 212px;
+      right: -7px;
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border-right: 1px solid #cad5e0;
+      border-bottom: 1px solid #cad5e0;
+      -moz-transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
     }
   }
-  
+
   .spacer {
     height: 40px;
     background-color: rgba(0, 0, 0, 0);
     @include breakpoint(desktop-below) {
       height: 0;
-      
     }
   }
 
@@ -63,32 +61,32 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: #F2F3F5;
+    background-color: #f2f3f5;
     width: 200px;
     padding: 32px;
     margin-top: 1px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }
-  
+
   .core-left-link {
     width: 70px;
   }
-  
+
   // custom styles to override / build on top of bulma's nav link
-  
+
   .menu-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 32px 32px;
   }
-  
+
   .menu-section-links {
-    display: flex; 
+    display: flex;
     flex-direction: column;
   }
-  
+
   .menu-section-link {
     padding-top: 1rem;
     font-weight: bold;
@@ -96,14 +94,11 @@
     font-size: 1rem;
   }
 
-    .core-links {
-      max-height: 100px;
-      flex-wrap: wrap;
-    }
-  
+  .core-links {
+    max-height: 100px;
+    flex-wrap: wrap;
+  }
 }
-
-
 
 // 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
 
@@ -113,12 +108,12 @@
     margin-left: 0;
     min-width: auto;
     border: 0;
-    
+
     .Badge {
       min-width: 130px;
       text-align: center;
     }
-    
+
     .menu-items {
       padding: 24px 0;
       border: 0;
@@ -136,12 +131,12 @@
       padding: 0 24px;
       flex-direction: column;
     }
-    
+
     .core-links {
       max-height: none;
       flex-wrap: wrap;
     }
-    
+
     .menu-section-link {
       padding-top: 0;
       padding: 0 0 24px 0;
@@ -150,42 +145,41 @@
   }
 }
 
-
-
 // 3) General Styles / Container for the whole nav.
 
 .NavHeader {
   .active-item {
-    color: #9E005D;
+    color: #9e005d;
     background-color: "#F2F3F5";
   }
-  
+
   .navbar-brand {
     align-items: center;
     padding-right: 16px;
   }
-  
+
   .navbar-menu {
     padding-top: 0px;
   }
-  
-  .navbar-burger, .navbar-burger > .is-active {
+
+  .navbar-burger,
+  .navbar-burger > .is-active {
     // override gatsby button
     height: 2.4rem;
     width: 2.4rem;
     border-color: #66c2ea !important;
     background-color: none !important;
     outline: none !important;
-    
-    &:hover  {
+
+    &:hover {
       background-color: none !important;
     }
-    
+
     & > span {
-      background-color: #66c2ea
+      background-color: #66c2ea;
     }
   }
-  
+
   .products-link-box {
     display: flex;
     align-self: stretch;
@@ -195,31 +189,32 @@
       margin-right: 0;
     }
   }
-  
+
   // similar to .nav-link but slightly different.
   .products-link {
     display: flex;
     align-self: stretch;
-    
+    justify-content: space-between;
+
     &:hover {
       background-color: #f1f3f5;
     }
   }
-  
+
   .products-link-open {
     background: #f1f3f5;
-    color: #9D005D;
+    color: #9d005d;
+    justify-content: space-between;
   }
-  
+
   .nav-link {
     @include breakpoint(desktop-up) {
       margin-right: 16px;
       display: flex;
       align-self: stretch;
     }
-    @include breakpoint (desktop-below) {
+    @include breakpoint(desktop-below) {
       border-top: 1px solid #efefef;
-      
     }
   }
 
@@ -228,9 +223,17 @@
     font-size: 18px;
     letter-spacing: 0;
   }
-  
+
+  .products-arrow {
+    display: none;
+    @include breakpoint(mobile) {
+      display: flex;
+      padding: 8px;
+    }
+  }
+
   // mobile menu
-  
+
   .navbar-buttons {
     @include breakpoint(mobile) {
       display: flex;
