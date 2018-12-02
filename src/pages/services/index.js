@@ -103,7 +103,6 @@ const ServicesPage = () => (
             <Button
               type="primary"
               size="medium"
-              className="mt1"
               internalLink="/contact"
             >
               Request consulting
@@ -137,7 +136,6 @@ const ServicesPage = () => (
             <Button
               type="primary"
               size="medium"
-              className="mt1"
               internalLink="/contact"
             >
               Request technical support

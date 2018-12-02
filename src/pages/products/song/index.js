@@ -130,8 +130,7 @@ const SongPage = () => (
 
     <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
       {/* Getting Started: Step 1 */}
-
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
@@ -150,8 +149,7 @@ const SongPage = () => (
       </div>
 
       {/* Getting Started: step 2 */}
-
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
@@ -174,7 +172,7 @@ const SongPage = () => (
 
       {/* Getting Started: step 3 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
@@ -193,7 +191,7 @@ const SongPage = () => (
       <section className="py4">
         <H2 className="center pb3">Compatible storage partners</H2>
 
-        <div className="flex column items-center  justify-around pb4">
+        <div className="column storage-partners">
           <img src={aws} style={{ width: "120px" }} />
           <img src={azure} style={{ width: "175px" }} />
           <img src={pgsql} style={{ width: "120px" }} />

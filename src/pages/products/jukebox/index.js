@@ -1,12 +1,12 @@
 import React from "react";
-import Helmet from 'react-helmet'
+import Helmet from "react-helmet";
 import {
   ProductFeature,
   ProductFeatureRow
 } from "../../../components/ProductFeature";
 import ProductTarget from "../../../components/ProductTarget";
 import ProductHero from "../../../components/ProductHero";
-import {Terminal, UrlBar} from "../../../components/Terminal/index";
+import { Terminal, UrlBar } from "../../../components/Terminal/index";
 import GettingStarted from "../../../components/GettingStarted/index";
 import {
   BottomCallout,
@@ -24,12 +24,14 @@ import Button from "../../../components/Button/index";
 
 const JukeboxPage = () => (
   <main className="Jukebox">
-
     {/* Metadata */}
     <Helmet>
       <title>Overture Products - Jukebox </title>
-      <meta name="description" content=""/>
-      <meta name="keywords" content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"/>
+      <meta name="description" content="" />
+      <meta
+        name="keywords"
+        content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"
+      />
     </Helmet>
 
     {/* Hero */}
@@ -41,10 +43,12 @@ const JukeboxPage = () => (
         <div>
           Jukebox automates set-up and deployment of
           <a target="_blank" href="http://jupyter.org/index.html">
-              {" "} JupyterHub
+            {" "}
+            JupyterHub
           </a>. Your users can access personal
           <a target="_blank" href="http://jupyter.org/install.html">
-              {" "} Jupyter notebooks {" "}
+            {" "}
+            Jupyter notebooks{" "}
           </a>
           in one click to do science right from the web browser in a live,
           collaborative environment.
@@ -145,16 +149,17 @@ const JukeboxPage = () => (
     <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
       {/* Getting Started: Step 1 */}
 
-      <div className="columns py3">
-        <div className="column is-3">
+      <div className="columns Step">
+        <div className="column is-3-desktop">
           <H2 className="pb1">1</H2>
           <div>
             <H4> To set up locally, clone the Jupyter repository. </H4>
-            <div className="py3">
-              Edit default permissions and configurations if needed.
+            <div className="step-text">
+              {" "}
+              Edit default permissions and configurations if needed.{" "}
             </div>
           </div>
-          <div className="mt3 yellow-bar" />
+          <div className="mt1 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
@@ -168,8 +173,8 @@ const JukeboxPage = () => (
 
       {/* Getting Started: step 2 */}
 
-      <div className="columns py3">
-        <div className="column is-3">
+      <div className="columns Step">
+        <div className="column is-3-desktop">
           <H2 className="pb1">2</H2>
           <div>
             <H4>Use Ansible to deploy Jukebox.</H4>
@@ -178,34 +183,29 @@ const JukeboxPage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <Terminal
-            prompts={["ansible-playbook setup-jukebox.yml"]}
-          />
+          <Terminal prompts={["ansible-playbook setup-jukebox.yml"]} />
         </div>
       </div>
 
-
       {/* Getting Started: step 3 */}
 
-      <div className="columns py3">
-        <div className="column is-3">
+      <div className="columns Step">
+        <div className="column is-3-desktop">
           <H2 className="pb1">3</H2>
           <div>
-              <H4>Learn, explore, experiment.</H4>
-            <div className="py3">
-                Experiment with scientific packages such as NumPy, SciPy, Pandas and Seaborn and languages including Python, Scala and R.
+            <H4>Learn, explore, experiment.</H4>
+            <div className="step-text">
+              Experiment with scientific packages such as NumPy, SciPy, Pandas
+              and Seaborn and languages including Python, Scala and R.
             </div>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <UrlBar
-            prompts={["Visit http://localhost:<your port number>"]}
-          />
+          <UrlBar prompts={["Visit http://localhost:<your port number>"]} />
         </div>
       </div>
-
     </GettingStarted>
 
     {/* Footer */}
@@ -214,33 +214,29 @@ const JukeboxPage = () => (
         icon="githubYellow"
         description="Explore and manipulate data without having to set up the environment yourself."
       >
-
         <Button
           type="primary"
           size="medium"
           className="mt2"
           externalLink="https://github.com/overture-stack/jupyter"
           icon="githubWhite"
-          >
+        >
           Get Started
-          </Button>
-        
+        </Button>
       </Callout>
 
       <Callout
         icon="pageWhite"
         description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
       >
-
         <Button
           type="primary"
           size="medium"
           className="mt2"
           externalLink="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
-          >
+        >
           Related Blog Post
-          </Button>
-        
+        </Button>
       </Callout>
     </BottomCallout>
   </main>

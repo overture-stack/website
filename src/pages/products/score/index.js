@@ -115,7 +115,7 @@ const ScorePage = () => (
     <GettingStarted>
       {/* Getting Started: Step 1 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
@@ -135,7 +135,7 @@ const ScorePage = () => (
 
       {/* Getting Started: step 2 */}
 
-      <div className="columns py3">
+      <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>

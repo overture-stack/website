@@ -1,14 +1,19 @@
-.BottomCallout { 
-  
+@import "../../styles/variables";
+
+.BottomCallout {
   .Callout {
     max-width: 415px;
     font-family: Lato;
     font-size: 22px;
-    color: #FFFFFF;
+    color: #ffffff;
     letter-spacing: 0;
     line-height: 36px;
     padding: 32px 0;
-    
-  }
 
+    @include breakpoint(mobile) {
+      max-width: none;
+      text-align: center;
+      margin: 0 24px;
+    }
+  }
 }
