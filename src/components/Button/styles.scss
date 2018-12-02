@@ -1,0 +1,16 @@
+// The custom-button class wraps the entire button component.
+// The nested classes are custom css to extend what bulma gives us / allows escape hatches
+
+.custom-button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  background: none;
+
+  // This class is added like so:
+  // <button type="secondary"
+  .secondary {
+    color: #9E005D !important;
+  }
+}

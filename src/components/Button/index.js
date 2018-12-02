@@ -1,19 +1,11 @@
-/**
- * A button that basically wraps the Bulma styles via props: size, type, etc.
- */
 import React from "react";
 import Icon from "../Icon/index";
+import Link from "gatsby-link";
 import "./styles.scss";
 
-/**
- * wrapper types and sizes from bulma classes and applying through props, although this
- * also allows for custom styling escape hatches if needed vis ./styles.scss
- */
 const btnTypes = {
-  // Bulma classes:
-  primary: "is-primary",
-  default: ""
-  // custom classes:
+  primary: "is-primary", // uses bulma
+  secondary: "is-white secondary" // bulma + custom css
 };
 
 const btnSizes = {
@@ -22,7 +14,6 @@ const btnSizes = {
   medium: "is-medium",
   small: "is-small",
   default: ""
-  // put custom classes here:
 };
 
 // Icon sizes vary based on passed in button size prop.
@@ -34,12 +25,14 @@ const iconSizes = {
 };
 
 /**
- * Button component basically providing an api to bulma's button stylings.
- * Passing in props like `type` or `size` map to bulma's classes above
- * but can also provide an escape hatch to style the button with our custom scss.
- * Passing an icon prop will add an <Icon> component, who's size is determined by size prop.
- * Can have internal / external links. TODO: make internal links gatsby links.
- * Props for dayyyyyyys woop woop!
+ * Component: Button
+ * Wraps several of Bulma's classes for easier styling, but can be swapped out
+ * with custom styles (see above objects.)
+ *
+ * Example usage:
+ * <Button size="large" type="primary"/>
+ * ^ will maps the props to the objects above to determing the style of the button.
+ *
  */
 export default ({
   icon,
@@ -51,23 +44,43 @@ export default ({
   externalLink,
   internalLink
 }) => {
-  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
-
-  return (
-    <a
-      className={classes}
-      target={internalLink ? "_self" : "_blank"}
-      href={externalLink || internalLink}
-    >
-      {icon && (
+  let customClassName = className ? className : "";
+  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
+  let IconComp = () => {
+    if (icon) {
+      return (
         <Icon
           className="mr2"
           style={iconStyle}
           size={iconSizes[size]}
           img={icon}
         />
-      )}
-      {children}
-    </a>
-  );
+      );
+    }
+  };
+
+  // If we have an external link, make the button wrap with an <a>
+  if (externalLink) {
+    return (
+      <button className="custom-button">
+        <a
+          className={classes}
+          target={internalLink ? "_self" : "_blank"}
+          href={externalLink}
+        >
+          {IconComp()}
+          {children}
+        </a>
+      </button>
+    );
+  } else if (internalLink) {
+    return (
+      <button className="custom-button">
+        <Link className={classes} to={internalLink}>
+          {IconComp()}
+          {children}
+        </Link>
+      </button>
+    );
+  }
 };

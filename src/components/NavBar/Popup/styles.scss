@@ -1,0 +1,134 @@
+@import "../../../styles/variables";
+
+.ProductsPopup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-left: -280px;
+  border-top: 20px;
+  margin-top: 60px;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  min-width: 824px;
+
+  .menu-items {
+    border-radius: 4px;
+    border: 1px solid #dfdfdf;
+    background: white;
+  }
+
+  // arrow pointing at "products". Desktop+ only.
+  .menu-items:after {
+    @include breakpoint(desktop-up) {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: 212px;
+      right: -7px;
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border-right: 1px solid #cad5e0;
+      border-bottom: 1px solid #cad5e0;
+      -moz-transform: rotate(225deg);
+      -webkit-transform: rotate(225deg);
+    }
+  }
+
+  .spacer {
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    @include breakpoint(desktop-below) {
+      height: 0;
+    }
+  }
+
+  .core {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #f2f3f5;
+    width: 200px;
+    padding: 32px;
+    margin-top: 1px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  .core-left-link {
+    width: 70px;
+  }
+
+  // custom styles to override / build on top of bulma's nav link
+
+  .menu-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 32px 32px;
+  }
+
+  .menu-section-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-section-link {
+    padding-top: 1rem;
+    font-weight: bold;
+    display: flex;
+    font-size: 1rem;
+  }
+
+  .core-links {
+    max-height: 100px;
+    flex-wrap: wrap;
+  }
+}
+
+// 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
+
+@include breakpoint(desktop-below) {
+  .ProductsPopup {
+    position: relative;
+    margin-left: 0;
+    margin-top: 0;
+    min-width: auto;
+    border: 0;
+
+    .Badge {
+      min-width: 130px;
+      text-align: center;
+    }
+
+    .menu-items {
+      padding: 24px 0;
+      border: 0;
+      flex-direction: column;
+      background: #f2f3f5;
+    }
+
+    .menu-section {
+      flex-direction: row;
+      padding: 4px 16px;
+      justify-content: flex-start;
+    }
+
+    .menu-section-links {
+      padding: 0 24px;
+      flex-direction: column;
+    }
+
+    .core-links {
+      max-height: none;
+      flex-wrap: wrap;
+    }
+
+    .menu-section-link {
+      padding-top: 0;
+      padding: 0 0 24px 0;
+    }
+
+  }
+}

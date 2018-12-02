@@ -4,7 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import NavBar from '../components/NavBar'
+import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './styles.sass'
 import config from '../../meta/config'
@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children }) => (
       <title>{config.siteTitle}</title>
       <meta name="description" content={config.siteDescription} />
     </Helmet>
-    <NavBar />
+    <Navbar />
     <div>{children()}</div>
     <Footer />
   </div>

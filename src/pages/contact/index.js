@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import heroImg from "./hero_img.svg";
 import Helmet from "react-helmet";
 import { H1, H2, H4 } from "../../components/Typography/index";
-import SlackButton from "../../components/SlackButton";
 
 import "./styles.scss";
 
@@ -76,17 +75,26 @@ class ContactPage extends Component {
                   hear from you!
                 </div>
 
-                <Button
-                  type="primary"
-                  className="my2 mr2"
-                  size="medium"
-                  icon="mail"
-                  internalLink="mailto:contact@overture.bio"
-                >
-                  Contact Us
-                </Button>
+                <div className="flex">
+                  <Button
+                    type="primary"
+                    className="my2 mr2"
+                    size="medium"
+                    icon="mail"
+                    internalLink="mailto:contact@overture.bio"
+                  >
+                    Contact Us
+                  </Button>
 
-                <SlackButton className="is-medium my2" />
+                  <Button
+                    type="secondary"
+                    size="medium"
+                    icon="slack"
+                    externalLink="http://slack.overture.bio/"
+                  >
+                    Join us on Slack
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
