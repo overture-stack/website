@@ -4,7 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/NavBar'
 import Footer from '../components/Footer'
 import './styles.sass'
 import config from '../../meta/config'
