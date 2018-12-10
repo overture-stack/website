@@ -1,202 +1,209 @@
-import GettingStarted from "../../../components/GettingStarted/index";
+import React from "react";
 import Helmet from "react-helmet";
 import {
+  H2,
+  H4,
+  Layout,
+  Button,
   ProductFeature,
-  ProductFeatureRow
-} from "../../../components/ProductFeature";
-import ProductHero from "../../../components/ProductHero";
-import {
+  ProductFeatureRow,
+  ProductTarget,
+  ProductHero,
+  GettingStarted,
   BottomCallout,
-  Callout
-} from "../../../components/BottomCallout/index";
-import Icon from "../../../components/Icon/index";
-import Terminal from "../../../components/Terminal/index";
-import { H2, H4 } from "../../../components/Typography/index";
-import ProductTarget from "../../../components/ProductTarget";
-import React from "react";
-import "./style.scss";
-import Button from "../../../components/Button/index";
+  Callout,
+  Terminal
+} from "../../../components";
 
 const PersonaPage = () => (
-  <main className="Persona">
-    {/* Metadata */}
-    <Helmet>
-      <title>Overture Products - Persona </title>
-      <meta name="description" content="" />
-      <meta name="keywords" content="" />
-    </Helmet>
+  <Layout>
+    <main className="Persona">
+      {/* Metadata */}
+      <Helmet>
+        <title>Overture Products - Persona </title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+      </Helmet>
 
-    {/* Hero */}
-    <ProductHero
-      title="Persona"
-      subTitle="An effortless solution for storing profile information."
-      cardText="Persona provides an easy-to-use solution for storing profile information. In tandem with Ego, users’ personas can be validated and expanded upon with custom fields."
-      getStartedLink="https://github.com/overture-stack/persona"
-      logo="logoPersona"
-      progressType="rc"
-      badge={{ color: "green", text: "Social" }}
-    />
-
-    {/* Features  */}
-
-    <ProductFeatureRow>
-      <ProductFeature
-        header="Extensible"
-        icon="extensible"
-        iconSize={48}
-        details="Add, expand and validate user information."
+      {/* Hero */}
+      <ProductHero
+        title="Persona"
+        subTitle="An effortless solution for storing profile information."
+        cardText="Persona provides an easy-to-use solution for storing profile information. In tandem with Ego, users’ personas can be validated and expanded upon with custom fields."
+        getStartedLink="https://github.com/overture-stack/persona"
+        logo="logoPersona"
+        progressType="rc"
+        badge={{ color: "green", text: "Social" }}
       />
 
-      <ProductFeature
-        header="Proactive"
-        icon="fingerSnap"
-        iconSize={40}
-        details="Let us do the set up for you. Focus on the details that matter."
-      />
+      {/* Features  */}
 
-      <ProductFeature
-        header="Efficient"
-        icon="checkmark"
-        iconSize={60}
-        details="An efficient way to organize user profiles in one place for easy reference. "
-      />
-    </ProductFeatureRow>
+      <ProductFeatureRow>
+        <ProductFeature
+          header="Extensible"
+          icon="extensible"
+          iconSize={48}
+          details="Add, expand and validate user information."
+        />
 
-    {/* Target Features Things */}
+        <ProductFeature
+          header="Proactive"
+          icon="fingerSnap"
+          iconSize={40}
+          details="Let us do the set up for you. Focus on the details that matter."
+        />
 
-    {/* Target Section */}
-    <div className="bg-grey">
-      <section className="" style={{ borderBottom: "2px solid white" }}>
-        <div className="container">
-          {/* top row */}
-          <article className="columns mb0">
-            <div
-              className="column is-half"
-              style={{ borderRight: "2px solid white" }}
-            >
-              <div className="target-box">
-                <ProductTarget
-                  header="Adaptable user information"
-                  details="MondoDB backend enables user profiles with different roles to have different fields."
-                />
+        <ProductFeature
+          header="Efficient"
+          icon="checkmark"
+          iconSize={60}
+          details="An efficient way to organize user profiles in one place for easy reference. "
+        />
+      </ProductFeatureRow>
+
+      {/* Target Features Things */}
+
+      {/* Target Section */}
+      <div className="bg-grey">
+        <section className="" style={{ borderBottom: "2px solid white" }}>
+          <div className="container">
+            {/* top row */}
+            <article className="columns mb0">
+              <div
+                className="column is-half"
+                style={{ borderRight: "2px solid white" }}
+              >
+                <div className="target-box">
+                  <ProductTarget
+                    header="Adaptable user information"
+                    details="MondoDB backend enables user profiles with different roles to have different fields."
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="column is-half ">
-              <div className="target-box">
-                <ProductTarget
-                  header="Scalable"
-                  details="As your user base grows, Persona grows to accommodate the profile information."
-                />
+              <div className="column is-half ">
+                <div className="target-box">
+                  <ProductTarget
+                    header="Scalable"
+                    details="As your user base grows, Persona grows to accommodate the profile information."
+                  />
+                </div>
               </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="" style={{ borderBottom: "2px solid white" }}>
-        <div className="container">
-          {/* top row */}
-          <article className="columns">
-            <div className="column flex bottom-target">
-              <div className="target-box">
-                <ProductTarget
-                  header="Pairs with Ego"
-                  details="Built to interact seamlessly with the user authorization product, <a href='/products/ego'>Ego.</a>"
-                />
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    {/* Getting Started */}
-
-    <GettingStarted>
-      {/* Getting Started: Step 1 */}
-
-      <div className="columns Step">
-        <div className="column is-3">
-          <H2 className="pb1">1</H2>
-          <div>
-            <H4>Download Persona.</H4>
+            </article>
           </div>
-          <div className="mt3 yellow-bar" />
-        </div>
+        </section>
 
-        <div className="column is-8 is-offset-1 self-center">
-          <Terminal
-            prompts={[
-              "git clone https://github.com/overture-stack/persona.git"
-            ]}
-          />
-        </div>
+        <section className="" style={{ borderBottom: "2px solid white" }}>
+          <div className="container">
+            {/* top row */}
+            <article className="columns">
+              <div className="column flex bottom-target">
+                <div className="target-box">
+                  <ProductTarget
+                    header="Pairs with Ego"
+                    details="Built to interact seamlessly with the user authorization product, <a href='/products/ego'>Ego.</a>"
+                  />
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
 
-      {/* Getting Started: step 2 */}
+      {/* Getting Started */}
 
-      <div className="columns Step">
-        <div className="column is-3">
-          <H2 className="pb1">2</H2>
-          <div>
-            <H4>Set up your environment.</H4>
+      <GettingStarted>
+        {/* Getting Started: Step 1 */}
 
-            <ul className="step-text">
-              <li className="bullet">
-                Add the required environment variables, documented in
-                <a href="https://github.com/overture-stack/persona/blob/master/.env.schema"> .env.schema.</a>
-              </li>
-              <li className="bullet">
-                Install required dependencies node, mongodb, and npm.
-              </li>
-            </ul>
+        <div className="columns Step">
+          <div className="column is-3">
+            <H2 className="pb1">1</H2>
+            <div>
+              <H4>Download Persona.</H4>
+            </div>
+            <div className="mt3 yellow-bar" />
           </div>
-          <div className="mt3 yellow-bar" />
+
+          <div className="column is-8 is-offset-1 self-center">
+            <Terminal
+              prompts={[
+                "git clone https://github.com/overture-stack/persona.git"
+              ]}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className="columns py3">
-        <div className="column is-3">
-          <H2 className="pb1">3</H2>
-          <div>
-            <H4>Start your server.</H4>
+        {/* Getting Started: step 2 */}
 
-            <div className="py3">
-              <div>
-                Persona is now running and you can access it at
-                <a href="http://localhost:3232/graphql"> http://localhost:3232/graphql</a>.
+        <div className="columns Step">
+          <div className="column is-3">
+            <H2 className="pb1">2</H2>
+            <div>
+              <H4>Set up your environment.</H4>
+
+              <ul className="step-text">
+                <li className="bullet">
+                  Add the required environment variables, documented in
+                  <a href="https://github.com/overture-stack/persona/blob/master/.env.schema">
+                    {" "}
+                    .env.schema.
+                  </a>
+                </li>
+                <li className="bullet">
+                  Install required dependencies node, mongodb, and npm.
+                </li>
+              </ul>
+            </div>
+            <div className="mt3 yellow-bar" />
+          </div>
+        </div>
+
+        <div className="columns py3">
+          <div className="column is-3">
+            <H2 className="pb1">3</H2>
+            <div>
+              <H4>Start your server.</H4>
+
+              <div className="py3">
+                <div>
+                  Persona is now running and you can access it at
+                  <a href="http://localhost:3232/graphql">
+                    {" "}
+                    http://localhost:3232/graphql
+                  </a>
+                  .
+                </div>
               </div>
             </div>
+            <div className="mt3 yellow-bar" />
           </div>
-          <div className="mt3 yellow-bar" />
+
+          <div className="column is-8 is-offset-1 self-center">
+            <Terminal prompts={["npm start"]} />
+          </div>
         </div>
+      </GettingStarted>
 
-        <div className="column is-8 is-offset-1 self-center">
-          <Terminal prompts={["npm start"]} />
-        </div>
-      </div>
-    </GettingStarted>
+      {/*Footer */}
 
-    {/*Footer */}
-
-    <BottomCallout className="justify-center">
-      <Callout
-        icon="githubYellow"
-        className="center"
-        description="Persona provides an easy-to-use solution for storing profile information"
-      >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/overture-stack/persona"
-          icon="githubWhite"
+      <BottomCallout className="justify-center">
+        <Callout
+          icon="githubYellow"
+          className="center"
+          description="Persona provides an easy-to-use solution for storing profile information"
         >
-          Get Started
-        </Button>
-      </Callout>
-    </BottomCallout>
-  </main>
+          <Button
+            type="primary"
+            size="medium"
+            externalLink="https://github.com/overture-stack/persona"
+            icon="githubWhite"
+          >
+            Get Started
+          </Button>
+        </Callout>
+      </BottomCallout>
+    </main>
+  </Layout>
 );
 
 export default PersonaPage;

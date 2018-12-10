@@ -1,0 +1,39 @@
+// Custom utility classes for when basscss doesn't do the trick.
+
+// Backgrounds
+.bg-grey {
+  background: #eff0f3;
+}
+
+.bg-blue {
+  background: #04518c;
+}
+
+.bg-green {
+  background: #00ddbe;
+}
+
+// Typography
+
+.text-white {
+  color: white;
+}
+
+.text-green {
+  color: #3dd3b1;
+}
+
+.text-magenta {
+  color: #9e005d;
+}
+
+.link-magenta {
+  font-family: Lato;
+  font-weight: 700;
+  color: #9e005d;
+  letter-spacing: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
