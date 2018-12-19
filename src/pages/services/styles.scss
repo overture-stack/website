@@ -11,12 +11,12 @@
   }
 
   .services-top-hero {
-    background-image: url("./hero_img.svg");
+    background-image: url("./assets/hero_img.svg");
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
     height: 600px;
-    background-position-y: 16px;
+    background-position-y: 0px;
     display: flex;
     justify-content: center;
     
@@ -39,7 +39,7 @@
   }
   
   .consulting-hero {
-    background-image: url("./consulting.svg");
+    background-image: url("./assets/consulting.svg");
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
@@ -60,7 +60,7 @@
   .bottom-hero {
     margin-top: 64px;
     padding: 64px 0 128px 0;
-    background-image: url("./footer_img.svg");
+    background-image: url("./assets/footer_img.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-position-x: 400px;

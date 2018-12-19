@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { H1, H2, H4 } from "../../components/Typography/index";
+import React from "react";
+import { H1, H4 } from "../../components";
 import "./styles.scss";
 
 const Heading = ({children}) => (

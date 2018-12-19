@@ -1,0 +1,16 @@
+@import "./util";
+@import "./defaults";
+@import "./common";
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+
+// BULMA VARIABLE OVERRIDES! --------------------
+
+$primary-invert: white;
+$navbar-item-hover-color: #9e005d;
+$navbar-item-color: #004773;
+$navbar-item-hover-background-color: #f2f3f5;
+$link: #00a2d9;
+$family-serif: "Lato", "Arial";
+$family-primary: $family-serif;
+
+@import "../../node_modules/bulma/bulma.sass";

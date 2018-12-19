@@ -4,7 +4,7 @@
  */
 import React, { Component } from "react";
 import Link from "gatsby-link";
-import logo from "./overture_logo.svg";
+import logo from "./assets/overture_logo.svg";
 import "./styles.scss";
 import Icon from "../Icon/index";
 import Button from "../Button";
@@ -59,8 +59,8 @@ class NavBar extends Component {
   handleMouseOver = () => {
     document.addEventListener("mouseover", e => {
       let popOverOpen = this.state.popOverOpen;
-      let mouseInPopover = this.popoverRef.contains(e.target);
-      let mouseInProductsTab = this.productsRef.contains(e.target);
+      let mouseInPopover = this.popoverRef && this.popoverRef.contains(e.target);
+      let mouseInProductsTab = this.productsRef && this.productsRef.contains(e.target);
 
       if (window.innerWidth > 1023) {
         if (!mouseInPopover && popOverOpen) {
@@ -94,7 +94,7 @@ class NavBar extends Component {
           <Link
             to="/"
             onClick={() => this.closeMenus()}
-            className="navbar-item mr4 self-stretch"
+            className="navbar-item navbar-brand-link"
           >
             <img src={logo} />
           </Link>
@@ -152,6 +152,7 @@ class NavBar extends Component {
           <div className="navbar-end">
             <div className="navbar-item nav-link navbar-buttons">
               <Button
+                className="slack-button mr1"
                 type="secondary"
                 size="medium"
                 icon="slack"

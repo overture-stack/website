@@ -1,19 +1,18 @@
-Build off:
-[Gatsby Starter Business](https://gatsby-starter-business.netlify.com)
+> Source code for the overture.bio website.
 
-## Develop:
+## Development:
+
+The site is based off of the [Gatsby Starter
+Business](https://gatsby-starter-business.netlify.com). 
+
+Clone the repo and run the following to get started with local development.
 
 ```
 npm install
 npm start
+
 ```
 
-## Features
 
-* Complete Business Website Suite - Home Page, About Page, Pricing Page, Contact Page and Blog
-* Netlify CMS for Content Management
-* SEO Friendly (Sitemap, Schemas, Meta Tags, GTM etc)
-* Bulma and Sass Support for styling
-* Progressive Web App & Offline Support
-* Tags and RSS Feed for Blog
-* Disqus and Share Support
+**Note:** Folders such as `src/components/` and `src/pages` have READMES to give
+a brief overview of how code/styles/etc are set up.

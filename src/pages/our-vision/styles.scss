@@ -8,7 +8,7 @@
   }
 
   .vision-hero-box {
-    height: 500px;
+    height: 600px;
     
     @include breakpoint(mobile) {
       height: auto;
@@ -17,6 +17,8 @@
   }
 
   .vision-hero-img {
-    transform: scale(0.9) translateY(40px);
+    @media(min-width: 1024px) {
+      transform: scale(0.9) translateY(90px);
+    }
   }
 }

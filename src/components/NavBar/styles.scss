@@ -1,16 +1,20 @@
 @import "../../styles/variables";
 
-// General Styles / Container for the whole nav.
-
 .NavHeader {
   .active-item {
     color: #9e005d;
     background-color: "#F2F3F5";
   }
 
+  // Overture Logo container and Link
   .navbar-brand {
     align-items: center;
     padding-right: 16px;
+  }
+
+  .navbar-brand-link {
+    margin-right: 4rem;
+    align-self: stretch;
   }
 
   .navbar-menu {
@@ -18,7 +22,8 @@
   }
 
   // override some bulma burger button settings
-  .navbar-burger, .navbar-burger > .is-active {
+  .navbar-burger,
+  .navbar-burger > .is-active {
     height: 2.4rem;
     width: 2.4rem;
     border-color: #66c2ea !important;
@@ -41,6 +46,7 @@
     @include breakpoint(desktop-below) {
       flex-direction: column;
       margin-right: 0;
+      justify-content: center;
     }
   }
 
@@ -87,15 +93,36 @@
   }
 
   // mobile menu
-
   .navbar-buttons {
-    @include breakpoint(mobile) {
-      display: flex;
-      flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    @media (max-width: 400px) {
       flex-direction: column;
-      & .slack-button {
-        margin-bottom: 16px;
+      justify-content: flex-start;
+
+      .slack-button {
+        margin: 0.5rem 0;
       }
     }
   }
+
+
+  //
+  // Media Queries:
+  //
+
+  // hackily shrink nav buttons on right before tablet to fit it all on screen.
+  @media (max-width: 1160px) and (min-width: 1024px) {
+    .navbar-brand-link {
+      margin-right: 0;
+    }
+    .custom-button {
+      .button.is-medium {
+        font-size: 1rem;
+      }
+    }
+  }
+
 }

@@ -12,20 +12,20 @@
   .science-hero {
     height: 600px;
     padding: 3rem 1.5rem;
-    @media(max-width: 900px) {
+    @media (max-width: 900px) {
       height: auto;
       padding: 1.5rem 1.5rem 0;
     }
   }
-  
+
   .hero-header-text {
     margin-top: -128px;
 
-    @media(max-width: 1200px) {
+    @media (max-width: 1200px) {
       margin-top: 0px;
     }
   }
-  
+
   .bioinformatics-bundle {
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
       align-items: flex-start;
     }
   }
-  
+
   .explore-solutions-box {
     display: flex;
     align-items: center;
@@ -49,12 +49,12 @@
     @include breakpoint(desktop-below) {
       flex-direction: column;
     }
-    
+
     @include breakpoint(mobile) {
       display: flex;
     }
   }
-  
+
   .badges {
     display: flex;
     flex-direction: row;
@@ -67,24 +67,19 @@
     }
   }
 
-  .badge-container {
-  }
-  
   .explore-solutions-header {
-    font-size: 28px; 
+    font-size: 28px;
     display: flex;
     flex: auto;
     padding-right: 32px;
     text-align: center;
-    @include breakpoint (mobile) {
+    @include breakpoint(mobile) {
       text-align: left;
       font-size: 22px;
       width: 100%;
     }
-    
   }
 
-  
   .hero-subheader {
     font-family: Lato;
     font-size: 24px;
@@ -92,12 +87,11 @@
     letter-spacing: 0;
     line-height: 40px;
   }
-  
-  
+
   .bottom-hero {
     margin-top: 32px;
     padding: 8px 0 128px 0;
-    background-image: url("./footer_img.svg");
+    background-image: url("./assets/footer_img.svg");
     background-repeat: no-repeat;
     background-position: bottom;
     background-position-x: 400px;
@@ -120,21 +114,19 @@
       font-size: 26px;
       line-height: 36px;
     }
-
   }
 }
 
-
 .BundleCard {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 
   .card-header {
-    background: linear-gradient(-90deg, #47D9BF  2%,  #00A1D9  100%);
+    background: linear-gradient(-90deg, #47d9bf 2%, #00a1d9 100%);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    color: #FFFFFF;
+    color: #ffffff;
     display: flex;
     font-family: Lato;
     font-weight: 700;
@@ -144,7 +136,7 @@
     letter-spacing: 0;
     padding: 8px 24px;
   }
-  
+
   .card-body {
     font-family: Lato;
     font-size: 18px;
