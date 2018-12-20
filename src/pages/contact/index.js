@@ -80,6 +80,7 @@ class ContactPage extends Component {
                       size="medium"
                       icon="mail"
                       externalLink="mailto:contact@overture.bio"
+                      target="_self"
                     >
                       Contact Us
                     </Button>
