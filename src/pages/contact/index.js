@@ -79,7 +79,7 @@ class ContactPage extends Component {
                       className="my2 mr2"
                       size="medium"
                       icon="mail"
-                      internalLink="mailto:contact@overture.bio"
+                      externalLink="mailto:contact@overture.bio"
                     >
                       Contact Us
                     </Button>
