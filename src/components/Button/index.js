@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../Icon/index";
-import Link from "gatsby-link";
+import { Link } from "gatsby"
 import "./styles.scss";
 
 const btnTypes = {
@@ -42,7 +42,8 @@ export default ({
   type = "default",
   size = "default",
   externalLink,
-  internalLink
+  internalLink,
+  target = "_blank"
 }) => {
   let customClassName = className ? className : "";
   let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
@@ -65,7 +66,7 @@ export default ({
       <button className="custom-button">
         <a
           className={classes}
-          target={internalLink ? "_self" : "_blank"}
+          target={target}
           href={externalLink}
         >
           {IconComp()}
