@@ -55,6 +55,7 @@
     display: flex;
     align-self: stretch;
     justify-content: space-between;
+    cursor: pointer;
 
     &:hover {
       background-color: #f1f3f5;
@@ -113,16 +114,18 @@
   // Media Queries:
   //
 
-  // hackily shrink nav buttons on right before tablet to fit it all on screen.
+  // Tighten up the spacing on the navbar.
   @media (max-width: 1160px) and (min-width: 1024px) {
     .navbar-brand-link {
       margin-right: 0;
     }
-    .custom-button {
-      .button.is-medium {
-        font-size: 1rem;
-      }
-    }
+
+    // Shrink the bulma custom button font size if more space is needed.
+    // .custom-button {
+    //   .button.is-medium {
+    //     font-size: 1rem;
+    //   }
+    // }
   }
 
 }

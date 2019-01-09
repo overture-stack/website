@@ -1,72 +1,27 @@
 @import "../../../styles/variables";
 
 .ProductsPopup {
-  position: absolute;
+  position: fixed;
   display: flex;
-  flex-direction: column;
-  margin-left: -280px;
-  border-top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
   margin-top: 60px;
-  border-color: rgba(0, 0, 0, 0);
-  border-style: solid;
-  min-width: 824px;
 
   .menu-items {
-    border-radius: 4px;
     border: 1px solid #dfdfdf;
-    background: white;
-  }
-
-  // arrow pointing at "products". Desktop+ only.
-  .menu-items:after {
-    @include breakpoint(desktop-up) {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -5px;
-      left: 212px;
-      right: -7px;
-      width: 10px;
-      height: 10px;
-      background: #ffffff;
-      border-right: 1px solid #cad5e0;
-      border-bottom: 1px solid #cad5e0;
-      -moz-transform: rotate(225deg);
-      -webkit-transform: rotate(225deg);
-    }
-  }
-
-  .spacer {
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0);
-    @include breakpoint(desktop-below) {
-      height: 0;
-    }
-  }
-
-  .core {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    background-color: #f2f3f5;
-    width: 200px;
-    padding: 32px;
-    margin-top: 1px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
-
-  .core-left-link {
-    width: 70px;
+    width: 100%;
+    background: #f2f3f5;
   }
 
   // custom styles to override / build on top of bulma's nav link
-
   .menu-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 32px 32px;
+    justify-content: flex-start;
+    padding: 24px;
+    flex: 1;
   }
 
   .menu-section-links {
@@ -79,11 +34,25 @@
     font-weight: bold;
     display: flex;
     font-size: 1rem;
+    color: #04518c;
   }
 
-  .core-links {
-    max-height: 100px;
-    flex-wrap: wrap;
+  // explore our products heading and text; desktop only
+  .explore-text {
+    min-width: 340px;
+
+    .heading-text {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .body-text {
+    }
+
+    @include breakpoint(desktop-below) {
+      display: none;
+    }
   }
 }
 
@@ -129,6 +98,5 @@
       padding-top: 0;
       padding: 0 0 24px 0;
     }
-
   }
 }
