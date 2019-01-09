@@ -38,11 +38,17 @@ class NavBar extends Component {
   };
 
   render() {
+
+    // Some classNAme bindings for toggling menus and such.
     let mobileMenuOpen = this.state.mobileMenuOpen ? "is-active" : "";
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
     let productsLinkClass = this.state.productMenuOpen
         ? "products-link products-link-open navbar-item"
         : "products-link navbar-item";
+
+    let productsMenuClass = this.state.productMenuOpen ? "open" : "closed"
+
+    // mobile menu class
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
     let productsArrow = this.state.productMenuOpen ? "arrowDown" : "arrowRight";
 
@@ -86,12 +92,7 @@ class NavBar extends Component {
                 />
               </div>
 
-              <div ref={r => (this.popoverRef = r)}>
-                <section className="spacer" />
-                {this.state.productMenuOpen && (
-                  <ProductsPopup closeMenus={this.closeMenus} />
-                )}
-              </div>
+              <ProductsPopup className={productsMenuClass} closeMenus={this.closeMenus} />
             </div>
 
             <NavLink

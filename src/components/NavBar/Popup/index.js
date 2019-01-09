@@ -7,10 +7,10 @@ import Badge from "../../Badge/index";
 import Icon from "../../Icon/index";
 import './styles.scss'
 
-const ProductsPopup = ({ closeMenus }) => {
+const ProductsPopup = ({ closeMenus, className }) => {
   return (
-    <div className="ProductsPopup">
-      <div className="menu-items flex">
+    <div className={`ProductsPopup ${className}`}>
+      <div className={`menu-items ${className}`}>
 
         {/* section: Text overview - Desktop only */}
         <section className="menu-section explore-text">
