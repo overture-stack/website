@@ -146,7 +146,7 @@ const EgoPage = () => (
                   Copy the{" "}
                   <a
                     target="_blank"
-                    href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/psql-schema.sql"
+                    href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql"
                   >
                     psql-schema.sql
                   </a>{" "}
@@ -179,7 +179,7 @@ const EgoPage = () => (
               <ul className="step-text">
                 <li className="bullet">
                   <span className="bold">Default: </span>The most simple profile
-                  which  allows you to test API endpoints with a valid JWT.
+                  which  allows you to test API endpoints with a valid JWT.
                 </li>
 
                 <li className="bullet">
