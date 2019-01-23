@@ -121,11 +121,11 @@
     }
 
     // Shrink the bulma custom button font size if more space is needed.
-    // .custom-button {
-    //   .button.is-medium {
-    //     font-size: 1rem;
-    //   }
-    // }
+    .custom-button {
+      .button.is-medium {
+        font-size: 1rem;
+      }
+    }
   }
 
 }
