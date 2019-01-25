@@ -14,76 +14,43 @@ import NavLink from "./NavLink";
 class NavBar extends Component {
   constructor() {
     super();
-    this.popoverRef = null;
+    this.popoverRef = null
     this.productsRef = null;
   }
 
   state = {
-    popOverOpen: false,
+    productMenuOpen: false,
     mobileMenuOpen: false
   };
 
   /* Several Open/Close menu methods for desktop and mobile: */
 
-  openPopOver = () => {
-    this.setState({ popOverOpen: true });
-  };
-
-  closePopOver = () => {
-    this.setState({ popOverOpen: false });
-  };
-
-  closeMobileMenu = () => {
-    this.setState({ mobileMenuOpen: false });
-  };
-
   closeMenus = () => {
-    this.closePopOver();
-    this.closeMobileMenu();
+    this.setState({ productMenuOpen: false, mobileMenuOpen: false });
   };
 
-  togglePopOver = () => {
-    this.setState({ popOverOpen: !this.state.popOverOpen });
+  toggleProductMenu = () => {
+    this.setState({ productMenuOpen: !this.state.productMenuOpen });
   };
 
   toggleMobileMenu = () => {
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
   };
 
-  /** Handle popover on mouseover + click.
-   * NOTE: Attaches mouseover to entire document in order to
-   * detect when the mouse is _outside_ the popOver / Product reference (to close it)
-   *
-   * NOTE: only shows on mouseover on desktop
-   */
-  handleMouseOver = () => {
-    document.addEventListener("mouseover", e => {
-      let popOverOpen = this.state.popOverOpen;
-      let mouseInPopover = this.popoverRef && this.popoverRef.contains(e.target);
-      let mouseInProductsTab = this.productsRef && this.productsRef.contains(e.target);
-
-      if (window.innerWidth > 1023) {
-        if (!mouseInPopover && popOverOpen) {
-          this.closePopOver();
-        } else if (mouseInProductsTab && !popOverOpen) {
-          this.openPopOver();
-        }
-      }
-    });
-  };
-
-  componentDidMount() {
-    this.handleMouseOver();
-  }
-
   render() {
+
+    // Some classNAme bindings for toggling menus and such.
     let mobileMenuOpen = this.state.mobileMenuOpen ? "is-active" : "";
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
-    let productsLinkClass = this.state.popOverOpen
-      ? "products-link products-link-open navbar-item"
-      : "products-link navbar-item";
+    let productsLinkClass = this.state.productMenuOpen
+        ? "products-link products-link-open navbar-item"
+        : "products-link navbar-item";
+
+    let productsMenuClass = this.state.productMenuOpen ? "open" : "closed"
+
+    // mobile menu class
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
-    let productsArrow = this.state.popOverOpen ? "arrowDown" : "arrowRight";
+    let productsArrow = this.state.productMenuOpen ? "arrowDown" : "arrowRight";
 
     return (
       <nav
@@ -113,7 +80,7 @@ class NavBar extends Component {
             {/* popover */}
             <div className="products-link-box">
               <div
-                onClick={() => this.togglePopOver()}
+                onClick={() => this.toggleProductMenu()}
                 ref={r => (this.productsRef = r)}
                 className={productsLinkClass}
               >
@@ -125,12 +92,7 @@ class NavBar extends Component {
                 />
               </div>
 
-              <div ref={r => (this.popoverRef = r)}>
-                <section className="spacer" />
-                {this.state.popOverOpen && (
-                  <ProductsPopup closeMenus={this.closeMenus} />
-                )}
-              </div>
+              <ProductsPopup className={productsMenuClass} closeMenus={this.closeMenus} />
             </div>
 
             <NavLink

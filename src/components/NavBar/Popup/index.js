@@ -7,13 +7,22 @@ import Badge from "../../Badge/index";
 import Icon from "../../Icon/index";
 import './styles.scss'
 
-const ProductsPopup = ({ closeMenus }) => {
+const ProductsPopup = ({ closeMenus, className }) => {
   return (
-    <div className="ProductsPopup">
-      <div className="menu-items flex">
-        <section className="menu-section core">
+    <div className={`ProductsPopup ${className}`}>
+      <div className={`menu-items ${className}`}>
+
+        {/* section: Text overview - Desktop only */}
+        <section className="menu-section explore-text">
+          <div className="heading-text">Explore our products</div>
+          <div className="body-text">Overture is a collection of open-source products for big-data genomic science that you can use to support your research.</div>
+
+        </section>
+
+        {/* section: DISCOVERY */}
+        <section className="menu-section">
           <Badge color="pink">Core</Badge>
-          <div className="menu-section-links core-links">
+          <div className="menu-section-links">
             <Link
               onClick={() => closeMenus()}
               className="menu-section-link"
@@ -37,8 +46,6 @@ const ProductsPopup = ({ closeMenus }) => {
             </Link>
           </div>
         </section>
-
-        <div className="arrow-up" />
 
         {/* section: DISCOVERY */}
 
