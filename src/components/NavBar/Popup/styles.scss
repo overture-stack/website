@@ -9,7 +9,7 @@
   width: 100%;
   top: 60px;
   height: auto;
-  transition: opacity ease 0.3s;
+  transition: opacity ease 0.2s 0.1s;
 
   // Shrinking the slack button changes nav size; update popover top.
   @media (max-width: 1160px) and (min-width: 1024px) {
@@ -21,10 +21,12 @@
   }
 
   &.open {
+    visibility: visible;
     opacity: 1;
   }
 
   &.closed {
+    visibility: hidden;
     opacity: 0;
     @include breakpoint(desktop-below) {
       opacity: 1;
