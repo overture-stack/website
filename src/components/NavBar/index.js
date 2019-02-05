@@ -97,6 +97,12 @@ class NavBar extends Component {
 
             <NavLink
               closeMenus={this.closeMenus}
+              url="/case-studies"
+              name="Case Studies"
+            />
+
+            <NavLink
+              closeMenus={this.closeMenus}
               url="/our-vision"
               name="Our Vision"
             />

@@ -1,0 +1,25 @@
+.CaseStudiesPage {
+  .case-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+    background-color: #F2F3F5;
+  }
+
+  .case-heading {
+    margin-bottom: 32px;
+  }
+
+  .case-hero-content {
+    max-width: 900px;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .case-subheading {
+
+  }
+
+}
