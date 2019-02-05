@@ -11,10 +11,17 @@ $desktop:  1216px;
   @else if $class == tablet-up {
     @media (min-width: 768px) { @content; }
   }
-
  
   @else if $class == desktop-up {
     @media (min-width: 1024px) { @content; }
+  }
+
+  @else if $class == navmenu-below {
+    @media (max-width: 1159px) { @content; }
+  }
+
+  @else if $class == navmenu-up {
+    @media (min-width: 1160px) { @content; }
   }
 
   @else if $class == desktop-below {

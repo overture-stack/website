@@ -12,21 +12,23 @@
   transition: opacity ease 0.3s;
 
   // Shrinking the slack button changes nav size; update popover top.
-  @media (max-width: 1160px) and (min-width: 1024px) {
+  @media (max-width: 1260px) and (min-width: 1160px) {
     top: 50px;
   }
 
-  @include breakpoint(desktop-below) {
+  @include breakpoint(navmenu-below) {
     top: 0;
   }
 
   &.open {
+    visibility: visible;
     opacity: 1;
   }
 
   &.closed {
+    visibility: hidden;
     opacity: 0;
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       opacity: 1;
       display: none;
     }
@@ -72,7 +74,7 @@
     }
 
 
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       display: none;
     }
   }
@@ -80,8 +82,7 @@
 
 // 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
 
-@include breakpoint(desktop-below) {
-  // @media(max-width: 1087px) {}
+@include breakpoint(navmenu-below) {
   .ProductsPopup {
     position: relative;
     margin-left: 0;
