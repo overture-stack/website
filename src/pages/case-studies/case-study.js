@@ -54,7 +54,7 @@ const CaseStudy = p => {
             </div>
 
             <div className="details-right">
-              <img src={p.details[0].screenshot} />
+              <img className="details-right-screenshot" src={p.details[0].screenshot} />
             </div>
           </div>
         </div>
