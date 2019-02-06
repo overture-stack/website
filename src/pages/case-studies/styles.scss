@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 265px;
-    background-color: #F2F3F5;
+    background-color: #f2f3f5;
   }
 
   .case-heading {
@@ -17,9 +17,77 @@
     text-align: center;
     padding: 24px;
   }
+}
 
-  .case-subheading {
+// Styles for the case-study.js component
 
+.Case-Study {
+  margin-top: 64px;
+
+  .top-segment {
+    margin-bottom: 64px;
   }
 
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .client-list-item {
+    list-style-type: disc;
+    margin-left: 24px;
+  }
+
+  .client-logo {
+    padding: 8px;
+    margin-bottom: 16px;
+    max-width: 240px;
+  }
+  .bg-curve {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 96px;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+  }
+
+  .details-left {
+    flex: 1;
+  }
+
+  .details-left-item {
+    display: flex;
+    padding: 16px 0;
+    align-items: baseline;
+
+    &:hover {
+      .details-left-title,
+      .details-left-description {
+        color: white;
+      }
+    }
+  }
+
+  .details-left-title {
+    min-width: 120px;
+    font-family: Lato-Bold;
+    font-size: 20px;
+    color: #C4C4C4;
+    letter-spacing: 0;
+  }
+
+  .details-left-description {
+    color: #C4C4C4;
+    font-family: Lato-Bold;
+    font-size: 18px;
+    letter-spacing: 0;
+    // line-height: 30px;
+  }
+
+  .details-right {
+    flex: 1.5;
+    padding-left: 32px;
+  }
 }
