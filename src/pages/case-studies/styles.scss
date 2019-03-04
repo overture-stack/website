@@ -1,3 +1,6 @@
+$bg-color: #f2f3f5;
+
+// Styles for the parent component : index.js
 .CaseStudiesPage {
   .case-hero {
     display: flex;
@@ -5,7 +8,7 @@
     justify-content: center;
     align-items: center;
     height: 265px;
-    background-color: #f2f3f5;
+    background-color: $bg-color;
   }
 
   .case-heading {
@@ -19,8 +22,7 @@
   }
 }
 
-// Styles for the case-study.js component
-
+// Component: case-study.js styles
 .Case-Study {
   margin-top: 64px;
 
@@ -74,12 +76,12 @@
     min-width: 120px;
     font-family: Lato-Bold;
     font-size: 20px;
-    color: #C4C4C4;
+    color: #c4c4c4;
     letter-spacing: 0;
   }
 
   .details-left-description {
-    color: #C4C4C4;
+    color: #c4c4c4;
     font-family: Lato-Bold;
     font-size: 18px;
     letter-spacing: 0;
@@ -93,6 +95,30 @@
   .details-right-screenshot {
     border: 4px solid white;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  }
+}
 
+// Component: ./navigation.js styles
+.CaseStudies-Navigation {
+  width: 100%;
+  background: $bg-color;
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nav-item-border {
+    border-left: 2px solid white;
+    &:last-child {
+      border-right: 2px solid white;
+    }
+  }
+
+  .nav-item {
+    width: 200px;
+    height: 72px;
+    padding: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

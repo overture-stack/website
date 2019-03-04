@@ -1,17 +1,21 @@
+/**
+ * This component represents the `Case Studies` page.
+ * The page is made up of 
+  * a) several case studies and;
+  * b) a navigation component for scrolling / jumping between different case studies.
+  * NOTE: The structure of a case studies is laregly the same, so we render
+  * the UI based on a data structure in ./data.js 
+  * This component is a Class component because 
+    * a) each case study has a "slider" for displaying screenshots
+    * b) for indicating the currently selected logo in the navigation.
+ */
+
 import React, { Component } from "react";
-import {
-  H1,
-  H2,
-  H4,
-  Button,
-  Layout,
-  Icon,
-  BottomCallout,
-  Callout
-} from "../../components";
-import "./styles.scss";
+import { H1, H4, Layout } from "../../components";
 import CaseStudy from "./case-study";
 import caseData from "./data";
+import Navigation from "./navigation";
+import "./styles.scss";
 
 class CaseStudiesPage extends Component {
   render() {
@@ -31,13 +35,14 @@ class CaseStudiesPage extends Component {
           </section>
 
           {/* Case Study Interactive NavBar */}
+          <Navigation />
 
           {/* Case Study Component */}
           {caseData.map(d => {
             return (
               <CaseStudy
                 title={d.title}
-                description={{ __html: d.description}}
+                description={{ __html: d.description }}
                 clientListItem={d.listItems}
                 clientLink={d.checkItOutLink}
                 logo={d.logo}

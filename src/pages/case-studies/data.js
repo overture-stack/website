@@ -10,10 +10,10 @@ import LogoKidsFirst from "./assets/logo-Kids-First-Data-Resource-Center.svg";
 
 // Screenshots ---
 import screenCGC from "./assets/screenshot-cancer-collaboratory-temp.png";
-import screenHCMI from "./assets/screen-HCMI-arranger.png"
-import screenICGC from "./assets/screen-ICGC-oncogrid.png"
-import screenGDC from './assets/screen-GDC.png';
-import screenKidsFirst from "./assets/screen-kidsfirst.png"
+import screenHCMI from "./assets/screen-HCMI-arranger.png";
+import screenICGC from "./assets/screen-ICGC-oncogrid.png";
+import screenGDC from "./assets/screen-GDC.png";
+import screenKidsFirst from "./assets/screen-kidsfirst.png";
 
 export default [
   {
@@ -159,7 +159,8 @@ export default [
   },
   {
     title: "Human Cancer Models Initiative",
-    description: "The Human Cancer Models Initiative Searchable Catalog ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem.",
+    description:
+      "The Human Cancer Models Initiative Searchable Catalog ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem.",
     logo: LogoHCMIS,
     listItems: [
       "Integration with cloud workflow resource Cavatica",
