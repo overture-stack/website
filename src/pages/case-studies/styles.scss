@@ -107,10 +107,18 @@ $bg-color: #f2f3f5;
   justify-content: center;
   align-items: center;
 
+  // position: fixed;
+  // z-index: 1;
+  // top: 60px;
+
+
   .nav-item-border {
     border-left: 2px solid white;
     &:last-child {
       border-right: 2px solid white;
+    }
+    &.active {
+      background: white;
     }
   }
 
