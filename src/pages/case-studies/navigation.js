@@ -3,9 +3,11 @@ import React from "react";
 // Logos
 import caseData from "./data";
 
-const Navigation = ({currentCase}) => {
+const Navigation = ({currentCase, isFixed}) => {
+  let fixedClass = isFixed ? "nav-fixed" : "" 
+
   return (
-    <div className="CaseStudies-Navigation">
+    <div className={`CaseStudies-Navigation ${fixedClass}`}>
       {caseData.map((d, i) => (
         <NavigationItem currentCase={currentCase} key={i} data={d} />
       ))}

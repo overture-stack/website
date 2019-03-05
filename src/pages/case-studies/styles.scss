@@ -106,10 +106,15 @@ $bg-color: #f2f3f5;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.8s ease;
+  top: 60px;
 
-  // position: fixed;
-  // z-index: 1;
-  // top: 60px;
+
+  &.nav-fixed {
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+  }
 
 
   .nav-item-border {

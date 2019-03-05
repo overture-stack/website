@@ -19,21 +19,28 @@ import "./styles.scss";
 import { Waypoint } from "react-waypoint";
 
 class CaseStudiesPage extends Component {
-
   state = {
-    currentCase: null
-  }
+    currentCase: null,
+    navFixed: false
+  };
 
   _handleWaypointEnter(caseStudy, e) {
-    console.log("entered area", caseStudy);
-    this.setState({currentCase: caseStudy.title})
+    this.setState({ currentCase: caseStudy.title });
   }
 
   _handleWaypointLeave(caseStudy, e) {
-    console.log("left area", caseStudy);
     // this.setState({currentCase: caseStudy.title})
   }
 
+  componentDidMount() {
+    window.addEventListener("scroll", e => {
+      if (window.pageYOffset > 253) {
+        this.setState({ navFixed: true });
+      } else {
+        this.setState({ navFixed: false });
+      }
+    });
+  }
 
   render() {
     return (
@@ -52,14 +59,18 @@ class CaseStudiesPage extends Component {
           </section>
 
           {/* Case Study Interactive NavBar */}
-          <Navigation currentCase={this.state.currentCase} />
+          <Navigation
+            isFixed={this.state.navFixed}
+            currentCase={this.state.currentCase}
+          />
 
           {/* Case Study Component */}
           {caseData.map(d => {
             return (
               <Waypoint
-                onEnter={(e) => this._handleWaypointEnter(d, e)}
-                onLeave={(e) => this._handleWaypointLeave(d, e)}
+                onEnter={e => this._handleWaypointEnter(d, e)}
+                onLeave={e => this._handleWaypointLeave(d, e)}
+                threshold={-2.0}
               >
                 <div>
                   <CaseStudy
