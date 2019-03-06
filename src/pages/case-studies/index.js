@@ -58,7 +58,7 @@ class CaseStudiesPage extends Component {
   scrollTo = slugName => {
     let node = this[slugName];
     let rect = node.current.getBoundingClientRect();
-    let top = rect.top + window.scrollY - 160;
+    let top = rect.top + window.scrollY - 190;
     window.scrollTo({ top, behavior: "smooth" });
   };
 
