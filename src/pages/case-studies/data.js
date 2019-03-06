@@ -18,6 +18,7 @@ import screenKidsFirst from "./assets/screen-kidsfirst.png";
 export default [
   {
     title: "Kids First Data Resource Center",
+    slug: "kidsFirst",
     description:
       "The Kids First Data Resource Center brings together clinical and genetic data from pediatric cancer and structural birth defect cohorts into a centralized, cloud-based discovery portal. We created a collaborative, community focused portal that brings together researchers, health professionals, and patients to accelerate discoveries that improve the lives of pediatric patients and their families.",
     logo: LogoKidsFirst,
@@ -59,6 +60,7 @@ export default [
 
   {
     title: "ICGC Data Portal",
+    slug: "icgcDataPortal",
     description:
       "The ICGC Data Portal ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
     logo: LogoICGC,
@@ -93,6 +95,7 @@ export default [
 
   {
     title: "NCI GDC Data Portal",
+    slug: "nciGdc",
     description:
       "The NCI GDC Data Portal ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
     logo: LogoGDC,
@@ -126,6 +129,7 @@ export default [
   },
   {
     title: "Cancer Genome Collaboratory",
+    slug: "cgc",
     description:
       "The Cancer Genome Collaboratory ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
     logo: LogoCGC,
@@ -159,6 +163,7 @@ export default [
   },
   {
     title: "Human Cancer Models Initiative",
+    slug: "humanCancerModels",
     description:
       "The Human Cancer Models Initiative Searchable Catalog ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem.",
     logo: LogoHCMIS,

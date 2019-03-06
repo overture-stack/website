@@ -9,6 +9,12 @@ $bg-color: #f2f3f5;
     align-items: center;
     height: 265px;
     background-color: $bg-color;
+    
+    &.nav-fixed {
+      height: 340px;
+      // top: 300px;
+      // position: fixed;
+    }
   }
 
   .case-heading {
@@ -109,13 +115,11 @@ $bg-color: #f2f3f5;
   transition: all 0.8s ease;
   top: 60px;
 
-
   &.nav-fixed {
     position: fixed;
     z-index: 1;
     top: 60px;
   }
-
 
   .nav-item-border {
     border-left: 2px solid white;

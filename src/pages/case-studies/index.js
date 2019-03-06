@@ -15,13 +15,26 @@ import { H1, H4, Layout } from "../../components";
 import CaseStudy from "./case-study";
 import caseData from "./data";
 import Navigation from "./navigation";
-import "./styles.scss";
 import { Waypoint } from "react-waypoint";
+import "./styles.scss";
 
 class CaseStudiesPage extends Component {
+  constructor(props) {
+    super(props);
+    // Refs
+    this.kidsFirst = React.createRef();
+    this.icgcDataPortal = React.createRef();
+    this.nciGdc = React.createRef();
+    this.cgc = React.createRef();
+    this.kidsFirst = React.createRef();
+    this.humanCancerModels = React.createRef();
+  }
+
+  // State
   state = {
     currentCase: null,
-    navFixed: false
+    navFixed: false,
+    caseStudyScrollPoints: []
   };
 
   _handleWaypointEnter(caseStudy, e) {
@@ -33,8 +46,8 @@ class CaseStudiesPage extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", e => {
-      if (window.pageYOffset > 253) {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 254) {
         this.setState({ navFixed: true });
       } else {
         this.setState({ navFixed: false });
@@ -42,12 +55,21 @@ class CaseStudiesPage extends Component {
     });
   }
 
+  scrollTo = slugName => {
+    let node = this[slugName];
+    let rect = node.current.getBoundingClientRect();
+    let top = rect.top + window.scrollY - 160;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   render() {
+    let fixedClass = this.state.navFixed ? "nav-fixed" : "";
+
     return (
       <Layout>
         <main className="CaseStudiesPage">
           {/* HERO */}
-          <section className="case-hero">
+          <section className={`case-hero ${fixedClass}`}>
             <div className="case-hero-content">
               <H1 className="case-heading">Case Studies</H1>
               <H4>
@@ -62,17 +84,19 @@ class CaseStudiesPage extends Component {
           <Navigation
             isFixed={this.state.navFixed}
             currentCase={this.state.currentCase}
+            scrollTo={x => this.scrollTo(x)}
           />
 
           {/* Case Study Component */}
           {caseData.map(d => {
             return (
               <Waypoint
+                key={d.slug}
                 onEnter={e => this._handleWaypointEnter(d, e)}
                 onLeave={e => this._handleWaypointLeave(d, e)}
                 threshold={-2.0}
               >
-                <div>
+                <div ref={this[d.slug]}>
                   <CaseStudy
                     title={d.title}
                     description={{ __html: d.description }}
