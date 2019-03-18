@@ -21,7 +21,7 @@ import "./styles.scss";
 class CaseStudiesPage extends Component {
   constructor(props) {
     super(props);
-    // Refs
+    // Refs for scroll to navigation
     this.kidsFirst = React.createRef();
     this.icgcDataPortal = React.createRef();
     this.nciGdc = React.createRef();
@@ -34,7 +34,15 @@ class CaseStudiesPage extends Component {
   state = {
     currentCase: null,
     navFixed: false,
-    caseStudyScrollPoints: []
+    caseStudyScrollPoints: [],
+    // Use slugs as keys for easy changing.
+    currentScreenshots: {
+      "kidsFirst": 0,
+      "icgcDataPortal": 0,
+      "nciGdc": 0,
+      "cgc": 0,
+      "humanCancerModels": 0
+    }
   };
 
   _handleWaypointEnter(caseStudy, e) {
@@ -43,6 +51,12 @@ class CaseStudiesPage extends Component {
 
   _handleWaypointLeave(caseStudy, e) {
     // this.setState({currentCase: caseStudy.title})
+  }
+
+  _handleDetailChange = ({section, screenNumber}) => {
+    let currentScreenshots = {...this.state.currentScreenshots};
+    currentScreenshots[section] = screenNumber
+    this.setState({currentScreenshots})
   }
 
   componentDidMount() {
@@ -98,12 +112,9 @@ class CaseStudiesPage extends Component {
               >
                 <div ref={this[d.slug]}>
                   <CaseStudy
-                    title={d.title}
-                    description={{ __html: d.description }}
-                    clientListItem={d.listItems}
-                    clientLink={d.clientLink}
-                    logo={d.logo}
-                    details={d.details}
+                    caseData={d}
+                    currentScreenshot={this.state.currentScreenshots[d.slug]}
+                    handleDetailChange={this._handleDetailChange}
                   />
                 </div>
               </Waypoint>

@@ -5,29 +5,32 @@ import bg from "./assets/bg_curve_gradient.svg";
 /**
  * A case study is made up of a:
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
- * TODO These components will need to be stateful to indicate which screenshot/detail is currently highlighted.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = p => {
+const CaseStudy = ({caseData, handleDetailChange, currentScreenshot}) => {
+  const _handleDetailChange = (idx) => {
+    handleDetailChange({section: caseData.slug, screenNumber: idx})
+  }
+
   return (
     <section className="Case-Study">
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
       <div className="container top-segment">
         <div className="columns">
           <div className="column is-6">
-            <H4 className="case-title">{p.title}</H4>
+            <H4 className="case-title">{caseData.title}</H4>
             <div className="my2 yellow-bar" />
             <div
               className="case-description"
-              dangerouslySetInnerHTML={p.description}
+              dangerouslySetInnerHTML={{__html: caseData.description}}
             />
           </div>
 
           {/*  Client Logo */}
           <div className="column is-offset-1 is-5">
-            <img className="client-logo" src={p.logo} />
+            <img className="client-logo" src={caseData.logo} />
             <ul>
-              {p.clientListItem.map((i, idx) => {
+              {caseData.listItems.map((i, idx) => {
                 return (
                   <li className="client-list-item" key={idx}>
                     {i}
@@ -35,7 +38,7 @@ const CaseStudy = p => {
                 );
               })}
             </ul>
-            <Button className="my2" type="primary" externalLink={p.clientLink}>
+            <Button className="my2" type="primary" externalLink={caseData.clientLink}>
               Check it out!
             </Button>
           </div>
@@ -47,8 +50,8 @@ const CaseStudy = p => {
         <div className="container">
           <div className="details">
             <div className="details-left">
-              {p.details.map(detail => (
-                <div className="details-left-item" key={detail.title}>
+              {caseData.details.map((detail, idx) => (
+                <div className="details-left-item" onClick={() => _handleDetailChange(idx)} key={detail.title}>
                   <div className="details-left-title">{detail.title}</div>
                   <div className="details-left-description">
                     {detail.description}
@@ -60,7 +63,7 @@ const CaseStudy = p => {
             <div className="details-right">
               <img
                 className="details-right-screenshot"
-                src={p.details[0].screenshot}
+                src={caseData.details[currentScreenshot].screenshot}
               />
             </div>
           </div>

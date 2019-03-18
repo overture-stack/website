@@ -12,8 +12,12 @@ import LogoKidsFirst from "./assets/logo-Kids-First-Data-Resource-Center.svg";
 import screenCGC from "./assets/screenshot-cancer-collaboratory-temp.png";
 import screenHCMI from "./assets/screen-HCMI-arranger.png";
 import screenICGC from "./assets/screen-ICGC-oncogrid.png";
-import screenGDC from "./assets/screen-GDC.png";
 import screenKidsFirst from "./assets/screen-kidsfirst.png";
+
+// GDC Screenshots
+import GDC_1 from './assets/gdc/screen_GDC_1.png'
+import GDC_2 from './assets/gdc/screen_GDC_2.png'
+import GDC_3 from './assets/gdc/screen_GDC_3.png'
 
 export default [
   {
@@ -110,20 +114,20 @@ export default [
         title: "OncoJS",
         description:
           "Sapien is used to correlate donors to primary sites of the human body.",
-        screenshot: screenGDC
+        screenshot: GDC_1
       },
 
       {
         title: "Score",
         description:
           "File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth.",
-        screenshot: screenGDC
+        screenshot: GDC_2
       },
 
       {
         title: "Jukebox",
         description: "Automated set-up and deployment of JupyterHub.",
-        screenshot: screenGDC
+        screenshot: GDC_3
       }
     ]
   },
