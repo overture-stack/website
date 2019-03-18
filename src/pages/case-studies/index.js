@@ -101,7 +101,7 @@ class CaseStudiesPage extends Component {
                     title={d.title}
                     description={{ __html: d.description }}
                     clientListItem={d.listItems}
-                    clientLink={d.checkItOutLink}
+                    clientLink={d.clientLink}
                     logo={d.logo}
                     details={d.details}
                   />

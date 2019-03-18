@@ -27,7 +27,7 @@ export default [
       "Customizable User profiles",
       "Innovative data searching and visualizations "
     ],
-    checkItOutLink: "portal.kidsfirstdrc.org",
+    clientLink: "portal.kidsfirstdrc.org",
     details: [
       {
         title: "Arranger",
@@ -69,7 +69,7 @@ export default [
       "Customizable User profiles",
       "Innovative data searching and visualizations"
     ],
-    checkItOutLink: "dcc.icgc.org",
+    clientLink: "https://dcc.icgc.org",
     details: [
       {
         title: "OncoJS",
@@ -104,7 +104,7 @@ export default [
       "Customizable User profiles",
       "Innovative data searching and visualizations"
     ],
-    checkItOutLink: "portal.gdc.cancer.gov",
+    clientLink: "https://portal.gdc.cancer.gov",
     details: [
       {
         title: "OncoJS",
@@ -138,7 +138,7 @@ export default [
       "Customizable User profiles",
       "Innovative data searching and visualizations"
     ],
-    checkItOutLink: "cancercollaboratory.org",
+    clientLink: "https://cancercollaboratory.org",
     details: [
       {
         title: "Billing & Usage",
@@ -172,7 +172,7 @@ export default [
       "Customizable User profiles",
       "Innovative data searching and visualizations"
     ],
-    checkItOutLink: "https://hcmi-searchable-catalog.nci.nih.gov",
+    clientLink: "https://hcmi-searchable-catalog.nci.nih.gov",
     details: [
       {
         title: "Arranger",

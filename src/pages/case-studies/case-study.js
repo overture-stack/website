@@ -27,11 +27,13 @@ const CaseStudy = p => {
           <div className="column is-offset-1 is-5">
             <img className="client-logo" src={p.logo} />
             <ul>
-              {p.clientListItem.map((i, idx) => (
-                <li className="client-list-item" key={idx}>
-                  {i}
-                </li>
-              ))}
+              {p.clientListItem.map((i, idx) => {
+                return (
+                  <li className="client-list-item" key={idx}>
+                    {i}
+                  </li>
+                );
+              })}
             </ul>
             <Button className="my2" type="primary" externalLink={p.clientLink}>
               Check it out!
@@ -46,15 +48,20 @@ const CaseStudy = p => {
           <div className="details">
             <div className="details-left">
               {p.details.map(detail => (
-                  <div className="details-left-item" key={detail.title}>
-                    <div className="details-left-title">{detail.title}</div>
-                    <div className="details-left-description">{detail.description}</div>
+                <div className="details-left-item" key={detail.title}>
+                  <div className="details-left-title">{detail.title}</div>
+                  <div className="details-left-description">
+                    {detail.description}
                   </div>
-                ))}
+                </div>
+              ))}
             </div>
 
             <div className="details-right">
-              <img className="details-right-screenshot" src={p.details[0].screenshot} />
+              <img
+                className="details-right-screenshot"
+                src={p.details[0].screenshot}
+              />
             </div>
           </div>
         </div>
