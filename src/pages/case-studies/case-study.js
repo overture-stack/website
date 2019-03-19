@@ -7,10 +7,10 @@ import bg from "./assets/bg_curve_gradient.svg";
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({caseData, handleDetailChange, currentScreenshot}) => {
-  const _handleDetailChange = (idx) => {
-    handleDetailChange({section: caseData.slug, screenNumber: idx})
-  }
+const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
+  const _handleDetailChange = idx => {
+    handleDetailChange({ section: caseData.slug, screenNumber: idx });
+  };
 
   return (
     <section className="Case-Study">
@@ -22,7 +22,7 @@ const CaseStudy = ({caseData, handleDetailChange, currentScreenshot}) => {
             <div className="my2 yellow-bar" />
             <div
               className="case-description"
-              dangerouslySetInnerHTML={{__html: caseData.description}}
+              dangerouslySetInnerHTML={{ __html: caseData.description }}
             />
           </div>
 
@@ -38,7 +38,11 @@ const CaseStudy = ({caseData, handleDetailChange, currentScreenshot}) => {
                 );
               })}
             </ul>
-            <Button className="my2" type="primary" externalLink={caseData.clientLink}>
+            <Button
+              className="my2"
+              type="primary"
+              externalLink={caseData.clientLink}
+            >
               Check it out!
             </Button>
           </div>
@@ -50,14 +54,21 @@ const CaseStudy = ({caseData, handleDetailChange, currentScreenshot}) => {
         <div className="container">
           <div className="details">
             <div className="details-left">
-              {caseData.details.map((detail, idx) => (
-                <div className="details-left-item" onClick={() => _handleDetailChange(idx)} key={detail.title}>
-                  <div className="details-left-title">{detail.title}</div>
-                  <div className="details-left-description">
-                    {detail.description}
+              {caseData.details.map((detail, idx) => {
+                let activeClass = currentScreenshot == idx ? "active" : ""
+                return (
+                  <div
+                    className={`details-left-item ${activeClass}`}
+                    onClick={() => _handleDetailChange(idx)}
+                    key={detail.title}
+                  >
+                    <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
+                    <div className="details-left-description">
+                      {detail.description}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="details-right">
