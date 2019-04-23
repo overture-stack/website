@@ -95,11 +95,13 @@ class NavBar extends Component {
               <ProductsPopup className={productsMenuClass} closeMenus={this.closeMenus} />
             </div>
 
+            {/* TODO: temporarily hidden `case studies`  link.
             <NavLink
               closeMenus={this.closeMenus}
               url="/case-studies"
               name="Case Studies"
             />
+             */}
 
             <NavLink
               closeMenus={this.closeMenus}

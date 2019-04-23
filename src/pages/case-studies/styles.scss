@@ -1,6 +1,7 @@
 $bg-color: #f2f3f5;
+$cs-break: 1000px;
 
-// Styles for the parent component : index.js
+// -- Styles for the parent component : index.js -------------------------------
 .CaseStudiesPage {
   .case-hero {
     display: flex;
@@ -26,12 +27,16 @@ $bg-color: #f2f3f5;
   }
 }
 
-// Component: case-study.js styles
+// -- Component: case-study.js styles ------------------------------------------
 .Case-Study {
   margin-top: 64px;
+  @media(max-width: $cs-break) {
+    margin-top: 16px;
+  }
 
   .top-segment {
     margin-bottom: 64px;
+    padding: 32px;
   }
 
   .title {
@@ -52,15 +57,28 @@ $bg-color: #f2f3f5;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 96px;
+    @media(max-width: $cs-break) {
+      padding: 32px;
+    }
   }
 
+  /* Contains all details of the case study - broken into left and right sections.*/
+  /* This is the section where you can click through different screenshots of the study.*/
   .details {
     display: flex;
     align-items: center;
+    @media(max-width: $cs-break) {
+      flex-direction: column;
+    }
+
   }
 
   .details-left {
     flex: 1;
+
+    @media(max-width: $cs-break) {
+      order: 2;
+    }
   }
 
   .details-left-item {
@@ -109,6 +127,13 @@ $bg-color: #f2f3f5;
   .details-right {
     flex: 1.5;
     padding-left: 32px;
+
+    @media(max-width: $cs-break) {
+      padding: 0;
+      margin-top: -128px;
+      margin: -96px 0 32px;
+      flex-direction: column;
+    }
   }
   .details-right-screenshot {
     border: 4px solid white;
@@ -124,23 +149,24 @@ $bg-color: #f2f3f5;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.8s ease;
+  transition: all 0.2s ease;
   top: 60px;
 
   &.nav-fixed {
     position: fixed;
     z-index: 1;
     top: 60px;
+    @media(max-width: 1260px) {
+      top: 50px;
+    }
   }
 
   .nav-item-border {
-    border-left: 2px solid white;
-    &:last-child {
-      border-right: 2px solid white;
-    }
-    &.active {
-      background: white;
-    }
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    &:first-child {border-left: none;}
+    &:last-child {border-right: none;}
+    &.active {background: white;}
   }
 
   .nav-item {
