@@ -1,200 +1,183 @@
 // Data structure to represent the case studies.
 // We iterate over the cases, and render their content.
 
-// Logos ---
-import LogoCGC from "./assets/logo-Cancer-Genome-Collaboratory.svg";
-import LogoICGC from "./assets/logo-ICGC.svg";
-import LogoGDC from "./assets/logo-NHI-GDC-DataPortal.svg";
-import LogoHCMIS from "./assets/logo-human-cancer-models-initiative-stacked.svg";
-import LogoKidsFirst from "./assets/logo-Kids-First-Data-Resource-Center.svg";
+// GDC Assets
+import gdc_sapien from './assets/gdc/sapien.png'
+import gdc_oncogrid from './assets/gdc/oncogrid.png'
+import gdc_survival from './assets/gdc/survival.png'
+import gdc_logo from './assets/gdc/logo.svg'
 
-// Screenshots ---
-import screenCGC from "./assets/screenshot-cancer-collaboratory-temp.png";
-import screenHCMI from "./assets/screen-HCMI-arranger.png";
-import screenICGC from "./assets/screen-ICGC-oncogrid.png";
-import screenKidsFirst from "./assets/screen-kidsfirst.png";
+// Kids First Assets
+import kf_arranger from './assets/kidsfirst/arranger.png'
+import kf_ego from './assets/kidsfirst/ego.png'
+import kf_persona from './assets/kidsfirst/persona.png'
+import kf_riff from './assets/kidsfirst/riff.png'
+import kf_logo from "./assets/kidsfirst/logo.svg" 
 
-// GDC Screenshots
-import GDC_1 from './assets/gdc/screen_GDC_1.png'
-import GDC_2 from './assets/gdc/screen_GDC_2.png'
-import GDC_3 from './assets/gdc/screen_GDC_3.png'
+// ICGC Assets -- TODO Pending Screenshots
+import icgc_onco from './assets/icgc/onco.png';
+import icgc_logo from "./assets/icgc/logo.svg";
+
+// CGC Assets -- TODO Pending Screenshots
+import cgc_logo from "./assets/cgc/logo.svg";
+import screenCGC from "./assets/cgc/screenshot-cancer-collaboratory-temp.png";
+
+// HCMIS -- TODO Pending Screenshots
+import hcmis_logo from './assets/hcmis/logo.svg';
+import hcmis_arranger from './assets/hcmis/arranger.png';
 
 export default [
   {
     title: "Kids First Data Resource Center",
     slug: "kidsFirst",
-    description:
-      "The Kids First Data Resource Center brings together clinical and genetic data from pediatric cancer and structural birth defect cohorts into a centralized, cloud-based discovery portal. We created a collaborative, community focused portal that brings together researchers, health professionals, and patients to accelerate discoveries that improve the lives of pediatric patients and their families.",
-    logo: LogoKidsFirst,
+    description: "The Kids First Data Resource Center brings together clinical and genetic data from pediatric cancer and structural birth defect cohorts into a centralized, cloud-based discovery portal. We created a collaborative, community focused portal that brings together researchers, health professionals, and patients to accelerate discoveries that improve the lives of pediatric patients and their families.",
+    logo: kf_logo,
     listItems: [
-      "Integration with cloud workflow resource Cavatica",
-      "Customizable User profiles",
-      "Innovative data searching and visualizations "
+      "Integration with the cloud workflow resource, Cavatica",
+      "Customizable user profiles",
+      "Innovative data searching and visualization",
+      "Interactive cohort builder allowing query combinations",
     ],
     clientLink: "portal.kidsfirstdrc.org",
     details: [
       {
         title: "Arranger",
         description: "Customizable data access made easy.",
-        screenshot: screenKidsFirst
+        screenshot: kf_arranger
       },
-
       {
         title: "Ego",
-        description:
-          "Authorization to deliver secure data access to protect data privacy.",
-        screenshot: screenKidsFirst
+        description: "Authentication and authorization to deliver secure data access.",
+        screenshot: kf_ego
       },
-
       {
         title: "Persona",
-        description:
-          "Facilitate collaboration and group science by creating a user profile.",
-        screenshot: screenKidsFirst
+        description: "Facilitate collaboration and group science by creating a user profile.",
+        screenshot: kf_persona
       },
-
       {
         title: "Riff",
-        description:
-          "Social sharing to spread awareness and build the community.",
-        screenshot: screenKidsFirst
+        description: "Social sharing to spread awareness and build the community.",
+        screenshot: kf_riff
       }
     ]
   },
-
   {
     title: "ICGC Data Portal",
     slug: "icgcDataPortal",
-    description:
-      "The ICGC Data Portal ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
-    logo: LogoICGC,
+    description: "The International Cancer Genome Consortium (ICGC) is a global initiative to build a comprehensive catalog of mutational abnormalities in the major tumor types. The portal currently contains data from 86 worldwide cancer projects, collectively representing about molecular data from over 22,000 donors with more than 80 million somatic mutations accessible to researchers.",
+    logo: icgc_logo,
     listItems: [
-      "Integration with cloud workflow resource Cavatica",
-      "Customizable User profiles",
-      "Innovative data searching and visualizations"
+      "Interoperability with distributed data repositories including AWS S3 and Cancer Genome Collaboratory",
+      "Beautiful and informative genomic visualizations",
+      "In-browser analysis on cancer genomic data",
     ],
     clientLink: "https://dcc.icgc.org",
     details: [
       {
-        title: "OncoJS",
-        description:
-          "Oncogrid is used to identify trends in mutation co-occurrence by plotting mutations and donors together.",
-        screenshot: screenICGC
+        title: "Score",
+        description: "Fast file transfer with file bundling, resumable multi-part downloads, and BAM/CRAM slicing",
+        screenshot:icgc_onco 
       },
 
       {
-        title: "Score",
-        description:
-          "File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth.",
-        screenshot: screenICGC
+        title: "Song",
+        description: "Distributed file management through secure metadata storage.",
+        screenshot:icgc_onco 
       },
 
+      {
+        title: "Ego",
+        description: "Authentication and authorization to deliver secure data access.", 
+        screenshot: icgc_onco 
+      },
+      {
+        title: "OncoJS",
+        description: "OncoGrid visualizes genomic data to identify trends and patterns.", 
+        screenshot: icgc_onco 
+      },
       {
         title: "Jukebox",
-        description: "Automated set-up and deployment of JupyterHub.",
-        screenshot: screenICGC
+        description: "Automated deployment of JupyterHub to analyze ICGC data on Jupyter Notebooks.", 
+        screenshot: icgc_onco 
       }
     ]
   },
-
   {
     title: "NCI GDC Data Portal",
     slug: "nciGdc",
-    description:
-      "The NCI GDC Data Portal ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
-    logo: LogoGDC,
+    logo: gdc_logo,
+    description: "The National Cancer Institute’s GDC Data Portal has harmonized genomic data from over 33,000 cancer patients from programs such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET) and Foundation Medicine. ",
     listItems: [
-      "Integration with cloud workflow resource Cavatica",
-      "Customizable User profiles",
-      "Innovative data searching and visualizations"
+      "Explore genomic and clinical data from cancer patients",
+      "Create virtual cohort by search across all patients for specific clinical attributes and genomic mutations",
     ],
     clientLink: "https://portal.gdc.cancer.gov",
     details: [
       {
-        title: "OncoJS",
-        description:
-          "Sapien is used to correlate donors to primary sites of the human body.",
-        screenshot: GDC_1
+        title: "Billing & Usage",
+        description: "Track and manage compute usage on an Openstack tenant to streamline customer billing operations.",
+        screenshot: gdc_sapien
       },
-
       {
-        title: "Score",
-        description:
-          "File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth.",
-        screenshot: GDC_2
+        title: "Enrollment",
+        description: "Automatically manage user enrolment to a project, as well as supporting user self-registration.",
+        screenshot: gdc_oncogrid
       },
-
-      {
-        title: "Jukebox",
-        description: "Automated set-up and deployment of JupyterHub.",
-        screenshot: GDC_3
-      }
     ]
   },
   {
     title: "Cancer Genome Collaboratory",
     slug: "cgc",
-    description:
-      "The Cancer Genome Collaboratory ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem a, euismod.",
-    logo: LogoCGC,
+    description: "The Cancer Genome Collaboratory is an academic compute cloud resource that allows researchers to run complex analysis operations across large ICGC cancer genome data sets as well as their own data. One petabyte of ICGC data is co-located with elastic compute enabling researchers to bring analysis tools to the data for faster discovery.",
+    logo: cgc_logo,
     listItems: [
-      "Integration with cloud workflow resource Cavatica",
-      "Customizable User profiles",
-      "Innovative data searching and visualizations"
+      "Self-service cloud computing made affordable",
+      "Convenient usage tracking for Openstack ",
+      "Speed research up by bringing analysis to the data",
     ],
     clientLink: "https://cancercollaboratory.org",
     details: [
       {
         title: "Billing & Usage",
-        description:
-          "Sapien is used to correlate donors to primary sites of the human body.",
+        description: "Track and manage compute usage on an Openstack tenant to streamline customer billing operations.",
         screenshot: screenCGC
       },
 
       {
-        title: "Score",
-        description:
-          "File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth.",
+        title: "Enrollment",
+        description: "Automatically manage user enrolment to a project, as well as supporting user self-registration.",
         screenshot: screenCGC
       },
-
-      {
-        title: "Jukebox",
-        description: "Automated set-up and deployment of JupyterHub.",
-        screenshot: screenCGC
-      }
     ]
   },
   {
     title: "Human Cancer Models Initiative",
     slug: "humanCancerModels",
-    description:
-      "The Human Cancer Models Initiative Searchable Catalog ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit urna ante. Pellentesque rutrum rhoncus purus, et mollis erat eleifend in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed porta lobortis tortor sit amet efficitur. Curabitur neque velit, elementum ut lorem a, euismod. Curabitur neque velit, elementum ut lorem.",
-    logo: LogoHCMIS,
+    description: "The Human Cancer Models Initiative Searchable Catalog is an interactive catalog of purchasable next-generation, tumor-derived organoids and cell lines. The catalog is supported by a custom content management system for entry and validation of clinical and genomic data. Investigate individual model pages for licensing requirements, molecular features, culturing requirements and purchasing details. ",
+    logo: hcmis_logo,
     listItems: [
-      "Integration with cloud workflow resource Cavatica",
-      "Customizable User profiles",
-      "Innovative data searching and visualizations"
+      "Customized “shopping” experience for researchers to browse innovative cancer models",
+      "Models annotated with genomic and clinical data",
     ],
     clientLink: "https://hcmi-searchable-catalog.nci.nih.gov",
     details: [
       {
         title: "Arranger",
         description: "Customizable data access made easy.",
-        screenshot: screenHCMI
+        screenshot: hcmis_arranger
       },
 
       {
-        title: "Score",
-        description:
-          "File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth.",
-        screenshot: screenHCMI
+        title: "Riff",
+        description: "Social sharing to spread awareness and build the community.",
+        screenshot: hcmis_arranger
       },
 
       {
-        title: "Jukebox",
-        description: "Automated set-up and deployment of JupyterHub.",
-        screenshot: screenHCMI
+        title: "CMS",
+        description: "Entry and validation of clinical and genomic data.",
+        screenshot: hcmis_arranger
       }
     ]
   }
