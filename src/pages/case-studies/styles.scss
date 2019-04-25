@@ -29,19 +29,31 @@ $cs-break: 1000px;
 
 // -- Component: case-study.js styles ------------------------------------------
 .Case-Study {
-  margin-top: 64px;
+  margin-top: 48px;
   @media(max-width: $cs-break) {
     margin-top: 16px;
   }
 
   .top-segment {
-    margin-bottom: 64px;
+    margin-bottom: 32px;
     padding: 32px;
   }
 
-  .title {
-    margin-bottom: 24px;
+  .yellow-bar {
+    width: 105px;
+    margin: 32px 0 16px;
+    height: 4px;
+    background-color: #f2d03a;
   }
+
+  .case-heading {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
 
   .client-list-item {
     list-style-type: disc;

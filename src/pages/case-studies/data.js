@@ -29,6 +29,7 @@ const cgc_link = "https://cancercollaboratory.org";
 // HCMIS -- TODO Pending Screenshots
 import hcmis_logo from './assets/hcmis/logo.svg';
 import hcmis_arranger from './assets/hcmis/arranger.png';
+const hcmis_link = "https://hcmi-searchable-catalog.nci.nih.gov/"
 
 export default [
   {

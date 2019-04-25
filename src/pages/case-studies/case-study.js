@@ -16,10 +16,12 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
     <section className="Case-Study">
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
       <div className="container top-segment">
+        <div className="case-heading">
+          <H4>{caseData.title}</H4>
+          <div className="yellow-bar" />
+        </div>
         <div className="columns">
           <div className="column is-6">
-            <H4 className="case-title">{caseData.title}</H4>
-            <div className="my2 yellow-bar" />
             <div
               className="case-description"
               dangerouslySetInnerHTML={{ __html: caseData.description }}
@@ -55,14 +57,16 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
           <div className="details">
             <div className="details-left">
               {caseData.details.map((detail, idx) => {
-                let activeClass = currentScreenshot == idx ? "active" : ""
+                let activeClass = currentScreenshot == idx ? "active" : "";
                 return (
                   <div
                     className={`details-left-item ${activeClass}`}
                     onClick={() => _handleDetailChange(idx)}
                     key={detail.title}
                   >
-                    <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
+                    <div className={`details-left-title ${activeClass}`}>
+                      {detail.title}
+                    </div>
                     <div className="details-left-description">
                       {detail.description}
                     </div>
