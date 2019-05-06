@@ -1,6 +1,10 @@
+// Media queries
 $mobile: 768px;
 $tablet: 1024px;
 $desktop:  1216px;
+
+// for pages like About Us, Contact; the green headers with images.
+$header-height: 470px;
 
 
 @mixin breakpoint($class) {

@@ -29,7 +29,7 @@
   }
 
   .contact-hero {
-    height: 600px;
+    height: $header-height;
     @include breakpoint(mobile) {
       display: flex;
       justify-content: center;
@@ -40,7 +40,7 @@
   .contact-hero-img {
     display: flex;
     justify-content: center;
-    transform: scale(1.0) translateY(90px);
+    transform: scale(0.7) translateY(90px);
     @media(min-width: 768px) and (max-width: 1024px) {
       transform: scale(0.6);
     }
