@@ -22,15 +22,14 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
         </div>
         <div className="columns">
           <div className="column is-6">
+            <img className="client-logo" src={caseData.logo} />
             <div
               className="case-description"
               dangerouslySetInnerHTML={{ __html: caseData.description }}
             />
           </div>
 
-          {/*  Client Logo */}
           <div className="column is-offset-1 is-5">
-            <img className="client-logo" src={caseData.logo} />
             <ul>
               {caseData.listItems.map((i, idx) => {
                 return (
@@ -52,7 +51,6 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
       </div>
 
       {/* Lower Container: Screenshots */}
-      <div className="bg-curve" style={{ backgroundImage: `url(${bg})` }}>
         <div className="container">
           <div className="details">
             <div className="details-left">
@@ -62,7 +60,7 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
                   <div
                     className={`details-left-item ${activeClass}`}
                     onClick={() => _handleDetailChange(idx)}
-                    key={detail.title}
+                    key={detail.title + idx}
                   >
                     <div className={`details-left-title ${activeClass}`}>
                       {detail.title}
@@ -83,7 +81,6 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 };

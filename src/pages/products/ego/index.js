@@ -66,7 +66,7 @@ const EgoPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features + Screenshot */}
-      <section className="bg-curve-grey pb4">
+      <section className="pb4">
         <div className="container">
           <div className="columns column target-feature-container">
             {/* targets */}
