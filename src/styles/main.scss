@@ -23,9 +23,3 @@ $family-primary: $family-serif;
     padding: 0 16px !important;
   }
 }
-
-
-// patch bulma navbar height
-html.has-navbar-fixed-top {
-  padding-top: 62px;
-}

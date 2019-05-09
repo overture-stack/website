@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.Products {
+  .product-title {
+    max-width: 430px;
+    margin-right: 24px;
+    @media (max-width: $tablet) {
+      max-width: none;
+    }
+  }
+
+  .hero-img {
+    flex: 1;
+    @media (min-width: $tablet) {
+      transform: scale(1.2) translateY(42px) translateX(24px);
+    }
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  .quadrant {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quadrant-title {
+    font-family: Lato-Bold;
+    font-size: 40px;
+    color: #d087b4;
+    letter-spacing: 0;
+  }
+}
