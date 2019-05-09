@@ -26,9 +26,11 @@ import cgc_logo from "./assets/cgc/logo.svg";
 import screenCGC from "./assets/cgc/screenshot-cancer-collaboratory-temp.png";
 const cgc_link = "https://cancercollaboratory.org";
 
-// HCMIS -- TODO Pending Screenshots
+// HCMIS 
 import hcmis_logo from './assets/hcmis/logo.svg';
 import hcmis_arranger from './assets/hcmis/arranger.png';
+import hcmis_cms from './assets/hcmis/cms.png';
+import hcmis_riff from './assets/hcmis/riff.png';
 const hcmis_link = "https://hcmi-searchable-catalog.nci.nih.gov/"
 
 export default [
@@ -181,13 +183,13 @@ export default [
       {
         title: "Riff",
         description: "Social sharing to spread awareness and build the community.",
-        screenshot: hcmis_arranger
+        screenshot: hcmis_riff
       },
 
       {
         title: "CMS",
         description: "Entry and validation of clinical and genomic data.",
-        screenshot: hcmis_arranger
+        screenshot: hcmis_cms
       }
     ]
   }

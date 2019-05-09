@@ -1,6 +1,5 @@
 import { H4, Button } from "../../components";
 import React from "react";
-import bg from "./assets/bg_curve_gradient.svg";
 
 /**
  * A case study is made up of a:
