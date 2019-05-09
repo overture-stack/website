@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import heroImg from "./assets/hero_img.svg";
 import Helmet from "react-helmet";
-import { H1, H2, Button, Layout } from "../../components/";
+import { H1, H2, Hero, Button, Layout } from "../../components/";
 import "./styles.scss";
 
 class ContactPage extends Component {
@@ -22,19 +22,7 @@ class ContactPage extends Component {
             />
           </Helmet>
 
-          {/* HERO */}
-          <section className="hero bg-green contact-hero">
-            <div className="container flex contact-hero-content">
-              <div className="hero-header-text">
-                <H1>Contact Us</H1>
-              </div>
-
-              <div className="column contact-hero-img is-hidden-mobile">
-                <img src={heroImg} />
-              </div>
-            </div>
-          </section>
-
+          <Hero title="Contact Us" fgImage="img_contact" fgImageClass="contact-hero-img"/>
           <div
             className="is-hidden-mobile"
             style={{ width: "1px", height: "72px" }}

@@ -40,14 +40,17 @@
   .contact-hero-img {
     display: flex;
     justify-content: center;
-    transform: scale(0.7) translateY(90px);
-    @media(min-width: 768px) and (max-width: 1024px) {
-      transform: scale(0.6);
+    transform: scale(1) translateY(110px);
+    // @media(min-width: 768px) and (max-width: 1024px) {
+    //   transform: scale(0.6);
+    // }
+    @include breakpoint(desktop-below) {
+      display: none;
     }
 
-    @media(min-width: 1025px) and (max-width: 1216px) {
-      transform: translateY(130px);
-    }
+    // @media(min-width: 1025px) and (max-width: 1216px) {
+    //   transform: translateY(130px);
+    // }
   }
   
 }

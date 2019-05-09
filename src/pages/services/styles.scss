@@ -1,43 +1,15 @@
 @import "../../styles/variables";
 
 .ServicesPage {
-
-  p, li {
+  p,
+  li {
     font-family: Lato;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
-    color: #003055
+    color: #003055;
   }
 
-  .services-top-hero {
-    background-image: url("./assets/hero_img.svg");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    height: 470px;
-    background-position-y: 0px;
-    display: flex;
-    justify-content: center;
-    
-    @include breakpoint(mobile) {
-      height: auto;
-      padding: 16px;
-    }
-
-    @media(min-width: 1300px) {
-      background-size: 40%
-    }
-
-    @media(max-width: 768px) {
-      background-image: none;
-    }
-
-    @media(max-width: 1000px) {
-      background-size: 50%;
-    }
-  }
-  
   .consulting-hero {
     background-image: url("./assets/consulting.svg");
     background-repeat: no-repeat;
@@ -46,9 +18,8 @@
     background-position-x: 20%;
     height: 600px;
     padding: 48px 0;
-
   }
-  
+
   .hero-subheader {
     font-family: Lato;
     font-size: 24px;
@@ -56,7 +27,7 @@
     letter-spacing: 0;
     line-height: 40px;
   }
-  
+
   .bottom-hero {
     margin-top: 64px;
     padding: 64px 0 128px 0;
@@ -74,5 +45,3 @@
     line-height: 68px;
   }
 }
-
-

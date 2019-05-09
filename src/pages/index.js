@@ -1,7 +1,6 @@
 import React from "react";
-import heroImg from "./home/assets/hero_img.svg";
 import "./home/styles.scss";
-import { Badge, H1, H2, H4, Icon, Layout } from "../components";
+import { Badge, H1, H2, H4, Hero, Icon, Layout } from "../components";
 import Helmet from "react-helmet";
 import Link from "gatsby-link";
 
@@ -33,24 +32,13 @@ const HomePage = () => (
         />
       </Helmet>
 
-      <section className="hero bg-green science-hero">
-        <div className="">
-          <div className="container flex">
-            <div className="hero-header-text flex flex-column column is-half justify-center">
-              <H1>Worry less, science more</H1>
-              <H4 className="py3" style={{ maxWidth: "585px" }}>
-                Overture is a collection of open-source, extendable solutions
-                for big-data genomic science that you can use to support your
-                research.
-              </H4>
-            </div>
-
-            <div className="column is-half is-hidden-mobile">
-              <img src={heroImg} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Worry less, science more"
+        fgImage="img_home"
+        subtitle="Overture is a collection of open-source, extendable solutions
+      for big-data genomic science that you can use to support your
+      research."
+      />
 
       {/* Bundle Section */}
 
@@ -152,8 +140,8 @@ const HomePage = () => (
       {/* Bottom Hero */}
 
       <section className="hero bottom-hero bg-grey">
-        <div className="hero-body container">
-          <div className="columns">
+        <div className="container">
+          <div className="columns py3">
             <div className="column is-half">
               <H1 className="bottom-header">
                 We created Overture to share our data science components with

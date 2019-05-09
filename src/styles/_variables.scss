@@ -29,7 +29,7 @@ $header-height: 470px;
   }
 
   @else if $class == desktop-below {
-    @media (max-width: 1023px) { @content; }
+    @media (max-width: 1024px) { @content; }
   }
  
   @else if $class == wide-up {

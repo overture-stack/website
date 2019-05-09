@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+
+.Hero {
+  height: 470px;
+  background: #00ddbe;
+  display: flex;
+  justify-content: center;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    justify-content: center;
+    min-height: 150px;
+    height: auto;
+    padding: 32px 0px;
+  }
+
+  .titles {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .image {
+    flex: 1;
+    @media (min-width: $tablet) {
+      transform: scale(0.7) translateY(90px);
+    }
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &.bg-image {
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    height: 470px;
+    background-position-y: 0px;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint(mobile) {
+      height: auto;
+      // padding: 16px;
+    }
+
+    @media (min-width: 1300px) {
+      background-size: 40%;
+    }
+
+    @media (max-width: 1024px) {
+      background-image: none !important;
+    }
+
+    @media (max-width: 1000px) {
+      background-size: 50%;
+    }
+  }
+}

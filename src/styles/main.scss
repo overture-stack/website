@@ -18,8 +18,8 @@ $family-primary: $family-serif;
 
 // patch bulma's `.container` class; nicer padding across the site.
 .container {
-  padding: 0 32px;
+  padding: 0 32px !important;
   @media(max-width: 768px) {
-    padding: 0 8px;
+    padding: 0 16px !important;
   }
 }

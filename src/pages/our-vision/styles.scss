@@ -1,24 +1,8 @@
 @import "../../styles/variables";
 
 .OurVisionPage {
-
   p {
     font-size: 18px;
     line-height: 30px;
-  }
-
-  .vision-hero-box {
-    height: $header-height;
-    
-    @include breakpoint(mobile) {
-      height: auto;
-      padding: 16px;
-    }
-  }
-
-  .vision-hero-img {
-    @media(min-width: 1024px) {
-      transform: scale(0.8) translateY(90px);
-    }
   }
 }

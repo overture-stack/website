@@ -10,11 +10,16 @@
   }
 
   .science-hero {
-    height: 600px;
+    height: $header-height;
     padding: 3rem 1.5rem;
     @media (max-width: 900px) {
       height: auto;
       padding: 1.5rem 1.5rem 0;
+    }
+  }
+  .home-hero-img {
+    @media (min-width: 1024px) {
+      transform: scale(0.7) translateY(0px);
     }
   }
 
@@ -31,12 +36,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 128px 0 64px 0;
+    padding-top: 128px;
+    padding-bottom: 96px;
     @include breakpoint(wide-down) {
-      padding-top: 64px;
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
     @include breakpoint(mobile) {
-      padding: 64px 32px;
+      // padding: 64px 32px;
       text-align: left;
       align-items: flex-start;
     }

@@ -15,3 +15,4 @@ export { default as NavBar } from "./NavBar";
 export { default as ProductHero } from "./ProductHero";
 export { default as Layout } from "./Layout";
 export { H1, H2, H4 } from "./Typography";
+export { default as Hero } from "./Hero";
