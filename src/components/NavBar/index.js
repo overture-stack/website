@@ -12,45 +12,20 @@ import ProductsPopup from "./Popup";
 import NavLink from "./NavLink";
 
 class NavBar extends Component {
-  constructor() {
-    super();
-    this.popoverRef = null
-    this.productsRef = null;
-  }
-
-  state = {
-    productMenuOpen: false,
-    mobileMenuOpen: false
-  };
-
-  /* Several Open/Close menu methods for desktop and mobile: */
-
-  closeMenus = () => {
-    this.setState({ productMenuOpen: false, mobileMenuOpen: false });
-  };
-
-  toggleProductMenu = () => {
-    this.setState({ productMenuOpen: !this.state.productMenuOpen });
-  };
-
-  toggleMobileMenu = () => {
-    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
-  };
-
   render() {
-
-    // Some classNAme bindings for toggling menus and such.
-    let mobileMenuOpen = this.state.mobileMenuOpen ? "is-active" : "";
+    // Some className bindings for toggling menus and such.
+    let productMenuOpen = this.props.productMenuOpen;
+    let mobileMenuOpen = this.props.mobileMenuOpen ? "is-active" : "";
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
-    let productsLinkClass = this.state.productMenuOpen
-        ? "products-link products-link-open navbar-item"
-        : "products-link navbar-item";
+    let productsLinkClass = productMenuOpen
+      ? "products-link products-link-open navbar-item"
+      : "products-link navbar-item";
 
-    let productsMenuClass = this.state.productMenuOpen ? "open" : "closed"
+    let productsMenuClass = productMenuOpen ? "open" : "closed";
 
     // mobile menu class
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
-    let productsArrow = this.state.productMenuOpen ? "arrowDown" : "arrowRight";
+    let productsArrow = productMenuOpen ? "arrowDown" : "arrowRight";
 
     return (
       <nav
@@ -60,7 +35,7 @@ class NavBar extends Component {
         <div className="navbar-brand">
           <Link
             to="/"
-            onClick={() => this.closeMenus()}
+            onClick={() => this.props.closeMenus()}
             className="navbar-item navbar-brand-link"
           >
             <img src={logo} />
@@ -68,7 +43,7 @@ class NavBar extends Component {
 
           <button
             className={burgerClass}
-            onClick={() => this.toggleMobileMenu()}
+            onClick={() => this.props.toggleMobileMenu()}
           >
             <span />
             <span />
@@ -80,8 +55,7 @@ class NavBar extends Component {
             {/* popover */}
             <div className="products-link-box">
               <div
-                onClick={() => this.toggleProductMenu()}
-                ref={r => (this.productsRef = r)}
+                onClick={() => this.props.toggleMenu()}
                 className={productsLinkClass}
               >
                 Products
@@ -92,27 +66,33 @@ class NavBar extends Component {
                 />
               </div>
 
-              <ProductsPopup className={productsMenuClass} closeMenus={this.closeMenus} />
+              {/* Products Popover Menu + Ref for hiding. */}
+              <div ref={r => (this.productMenuRef = r)}>
+                <ProductsPopup
+                  className={productsMenuClass}
+                  closeMenus={this.props.closeMenus}
+                />
+              </div>
             </div>
 
             <NavLink
-              closeMenus={this.closeMenus}
+              closeMenus={this.props.closeMenus}
               url="/case-studies"
               name="Case Studies"
             />
 
             <NavLink
-              closeMenus={this.closeMenus}
+              closeMenus={this.props.closeMenus}
               url="/our-vision"
               name="Our Vision"
             />
             <NavLink
-              closeMenus={this.closeMenus}
+              closeMenus={this.props.closeMenus}
               url="/services"
               name="Services"
             />
             <NavLink
-              closeMenus={this.closeMenus}
+              closeMenus={this.props.closeMenus}
               url="/contact"
               name="Contact"
             />
