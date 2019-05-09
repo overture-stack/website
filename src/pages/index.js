@@ -35,10 +35,13 @@ const HomePage = () => (
       <Hero
         title="Worry less, science more"
         fgImage="img_home"
-        subtitle="Overture is a collection of open-source, extendable solutions
-      for big-data genomic science that you can use to support your
-      research."
-      />
+        subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
+      >
+        <span className="display flex align-center">
+          <Link className="py2 pr1 link-magenta" to="case-studies">Check out our products in action</Link>
+          <Icon size={12} img="arrowRightMagenta"></Icon>
+        </span>
+      </Hero>
 
       {/* Bundle Section */}
 
@@ -64,8 +67,8 @@ const HomePage = () => (
                 Authorization service for identity providers such as Google and
                 Facebook.
               </div>
-              <div to="/products/ego" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta"/>
               </div>
             </BundleCard>
           </Link>
@@ -76,8 +79,8 @@ const HomePage = () => (
                 Facilitates the transfer and storage of data seamlessly for
                 cloud-based projects.
               </div>
-              <div to="/products/score" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta"/>
               </div>
             </BundleCard>
           </Link>
@@ -88,8 +91,8 @@ const HomePage = () => (
                 Tracks genomic data scattered across multiple cloud storage
                 systems.
               </div>
-              <div to="/products/song" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta"/>
               </div>
             </BundleCard>
           </Link>

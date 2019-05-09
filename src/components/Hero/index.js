@@ -18,6 +18,7 @@ const imgs = { img_our_vision, img_services, img_contact, img_home };
 const Hero = ({
   title,
   subtitle,
+  children,
   fgImage,
   fgImageClass,
   bgImage,
@@ -40,7 +41,9 @@ const Hero = ({
         <section className="titles column is-half-desktop">
           <H1>{title}</H1>
           {subtitle && <H4 className="pt3">{subtitle}</H4>}
+          {children}
         </section>
+
 
         {/* If we need a html img: Hero Image */}
         {fgImage ? (

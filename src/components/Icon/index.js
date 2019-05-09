@@ -2,6 +2,7 @@
 import React from 'react'
 import './styles.scss'
 import arrowRight from './icons/arrow_right.svg'
+import arrowRightMagenta from './icons/arrow_right_magenta.svg'
 import arrowDown from './icons/arrow_down.svg'
 import barGraph from './icons/bar_graph.svg'
 import cardStack from './icons/card_stack.svg'
@@ -36,6 +37,7 @@ import slack from './icons/icon-slack.svg'
 
 const icons = {
   arrowRight,
+  arrowRightMagenta,
   arrowDown,
   barGraph,
   cardStack,
