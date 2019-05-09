@@ -11,6 +11,9 @@
   height: auto;
   transition: opacity ease 0.2s 0.1s;
 
+  max-width: 1440px;
+  margin: 0 auto;
+
   // Shrinking the slack button changes nav size; update popover top.
   @media (max-width: 1260px) and (min-width: 1160px) {
     top: 50px;
@@ -38,7 +41,15 @@
     border: 1px solid #dfdfdf;
     display: flex;
     width: 100%;
-    background: #f2f3f5;
+    background: white;
+  }
+
+  .core-text {
+    color: #00a1d9;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 0;
   }
 
   // custom styles to override / build on top of bulma's nav link
@@ -46,7 +57,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 24px;
+    padding: 16px 24px;
     flex: 1;
   }
 
@@ -65,14 +76,14 @@
 
   // explore our products heading and text; desktop only
   .explore-text {
-    min-width: 340px;
+    min-width: 344px;
+    background: #f2f3f5;
 
     .heading-text {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
     }
-
 
     @include breakpoint(navmenu-below) {
       display: none;

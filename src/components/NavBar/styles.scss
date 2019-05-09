@@ -1,6 +1,10 @@
 @import "../../styles/variables";
 
 .NavHeader {
+
+  max-width: 1440px;
+  margin: 0 auto;
+
   .active-item {
     color: #9e005d;
     background-color: "#F2F3F5";

@@ -32,6 +32,7 @@ import security from './icons/security.svg'
 import share from './icons/share.svg'
 import shield from './icons/shield.svg'
 import spiral from './icons/spiral.svg'
+import star from './icons/star.svg'
 import target from './icons/target.svg'
 import user from './icons/user.svg'
 import slack from './icons/icon-slack.svg'
@@ -68,6 +69,7 @@ const icons = {
   share,
   shield,
   spiral,
+  star,
   target,
   user,
   slack
