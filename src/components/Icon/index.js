@@ -18,6 +18,7 @@ import githubGrey from './icons/github_grey.svg'
 import githubWhite from './icons/github_white.svg'
 import githubYellow from './icons/github_yellow.svg'
 import graphCycle from './icons/graph_cycle.svg'
+import gridGlass from './icons/grid_magnifying_glass.svg';
 import history from './icons/history.svg'
 import lock from './icons/lock.svg'
 import lockCode from './icons/lock_code.svg'
@@ -53,6 +54,7 @@ const icons = {
   githubWhite,
   githubYellow,
   graphCycle,
+  gridGlass,
   history,
   lock,
   lockCode,

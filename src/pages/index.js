@@ -38,8 +38,10 @@ const HomePage = () => (
         subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
       >
         <span className="display flex align-center">
-          <Link className="py2 pr1 link-magenta" to="case-studies">Check out our products in action</Link>
-          <Icon size={12} img="arrowRightMagenta"></Icon>
+          <Link className="py2 pr1 link-magenta" to="case-studies">
+            Check out our products in action
+          </Link>
+          <Icon size={12} img="arrowRightMagenta" />
         </span>
       </Hero>
 
@@ -47,17 +49,23 @@ const HomePage = () => (
 
       <section className="container">
         <div className="bioinformatics-bundle column ">
-          <H2 className="flex-auto pr2">Bioinformatics Core Bundle</H2>
-          <div className="pt2" style={{ maxWidth: "700px" }}>
-            Data is the essence of our field, Overture’s bioinformatics bundle
-            focuses on tracking, transferring and securing genomic data across
-            multiple cloud providers.
+          <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
+          <div className="pt2" style={{ maxWidth: "900px" }}>
+            Data is the essence of our field. Implement Overture’s core products
+            to
+            <span>
+              <Badge className="mx1" color="pink">
+                Generate & Upload{" "}
+              </Badge>
+            </span>
+            and <br />
+            <span>
+              <Badge className="mx1" color="blue">
+                Access & Download
+              </Badge>
+            </span>
+            genomic data across multiple cloud providers:
           </div>
-
-          {/* Hiding for now
-
-        <button className="button is-primary is-medium">Download Core</button>
-          * */}
         </div>
 
         <div className="columns column">
@@ -68,7 +76,7 @@ const HomePage = () => (
                 Facebook.
               </div>
               <div className="link-magenta">
-                Learn More <Icon size={12} img="arrowRightMagenta"/>
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
@@ -80,7 +88,7 @@ const HomePage = () => (
                 cloud-based projects.
               </div>
               <div className="link-magenta">
-                Learn More <Icon size={12} img="arrowRightMagenta"/>
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
@@ -92,22 +100,24 @@ const HomePage = () => (
                 systems.
               </div>
               <div className="link-magenta">
-                Learn More <Icon size={12} img="arrowRightMagenta"/>
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
 
-          {/*
-        <div className="column ">
-          <BundleCard icon="cardStack" header="Indexer">
-            <div className="py2">
-              Sources and combines data from multiple remote repositories into a single reference index.
-            </div>
-            <a href="#" className="link-magenta">Learn More &gt;</a>
-          </BundleCard>
-
-        </div>
-        */}
+          {/* Arranger Card: Uncomment when arranger gets done 
+          <div className="column ">
+            <BundleCard icon="gridGlass" header="Arranger">
+              <div className="py2">
+                Provide your administrators with the power to organize an
+                intuitive search interface.
+              </div>
+              <a href="#" className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta" />
+              </a>
+            </BundleCard>
+          </div>
+      */}
         </div>
 
         {/* BADGES */}
@@ -115,24 +125,21 @@ const HomePage = () => (
           <div className="explore-solutions-box">
             <div className="explore-solutions-header">
               {" "}
-              Also explore our solutions for:
+              Also explore our products for:
             </div>
             <div className="badges">
               <div>
-                <Badge className="mr2" color="blue">
-                  Discovery
+                <Badge className="mr2" color="red">
+                  Analyze & Discover
                 </Badge>
-                <Badge className="mr2" color="yellow">
-                  Analysis
+                <Badge className="mr2" color="light-green">
+                  Collaborate & Share
                 </Badge>
               </div>
 
               <div>
-                <Badge className="mr2" color="green">
-                  Social
-                </Badge>
-                <Badge className="mr2" color="red">
-                  Management
+                <Badge className="mr2" color="yellow">
+                  Track & Manage
                 </Badge>
               </div>
             </div>
