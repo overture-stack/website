@@ -1,14 +1,14 @@
 import React from "react";
 
 // Logos
-import caseData from "./data";
+// import caseData from "./data";
 
-const Navigation = ({currentCase, isFixed, scrollTo}) => {
+const Navigation = ({caseData, currentCase, isFixed, scrollTo}) => {
   let fixedClass = isFixed ? "nav-fixed" : "" 
 
   return (
     <div className={`CaseStudies-Navigation ${fixedClass}`}>
-      {caseData.map((d, i) => (
+      {caseData && caseData.map((d, i) => (
         <NavigationItem scrollTo={scrollTo} currentCase={currentCase} key={i} data={d} />
       ))}
     </div>

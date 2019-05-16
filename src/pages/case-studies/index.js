@@ -12,8 +12,8 @@
 
 import React, { Component } from "react";
 import { H1, H4, Layout } from "../../components";
-import CaseStudy from "./case-study";
-import caseData from "./data";
+import CaseStudy from "../../components/CaseStudy";
+import caseData from "../../data/case_studies";
 import Navigation from "./navigation";
 import { Waypoint } from "react-waypoint";
 import "./styles.scss";
@@ -37,11 +37,11 @@ class CaseStudiesPage extends Component {
     caseStudyScrollPoints: [],
     // Use slugs as keys for easy changing.
     currentScreenshots: {
-      "kidsFirst": 0,
-      "icgcDataPortal": 0,
-      "nciGdc": 0,
-      "cgc": 0,
-      "humanCancerModels": 0
+      kidsFirst: 0,
+      icgcDataPortal: 0,
+      nciGdc: 0,
+      cgc: 0,
+      humanCancerModels: 0
     }
   };
 
@@ -53,11 +53,11 @@ class CaseStudiesPage extends Component {
     // this.setState({currentCase: caseStudy.title})
   }
 
-  _handleDetailChange = ({section, screenNumber}) => {
-    let currentScreenshots = {...this.state.currentScreenshots};
-    currentScreenshots[section] = screenNumber
-    this.setState({currentScreenshots})
-  }
+  _handleDetailChange = ({ section, screenNumber }) => {
+    let currentScreenshots = { ...this.state.currentScreenshots };
+    currentScreenshots[section] = screenNumber;
+    this.setState({ currentScreenshots });
+  };
 
   componentDidMount() {
     window.addEventListener("scroll", () => {
@@ -96,13 +96,14 @@ class CaseStudiesPage extends Component {
 
           {/* Case Study Interactive NavBar */}
           <Navigation
+            caseData={caseData}
             isFixed={this.state.navFixed}
             currentCase={this.state.currentCase}
             scrollTo={x => this.scrollTo(x)}
           />
 
           {/* Case Study Component */}
-          {caseData.map(d => {
+          {caseData && caseData.map(d => {
             return (
               <Waypoint
                 key={d.slug}

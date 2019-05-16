@@ -1,4 +1,4 @@
-import { H4, Button } from "../../components";
+import { H4, Button } from "..";
 import React from "react";
 
 /**
@@ -10,6 +10,7 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
   const _handleDetailChange = idx => {
     handleDetailChange({ section: caseData.slug, screenNumber: idx });
   };
+
 
   return (
     <section className="Case-Study">
