@@ -37,7 +37,7 @@
     align-items: center;
     text-align: center;
     padding-top: 128px;
-    padding-bottom: 96px;
+    padding-bottom: 48px;
     @include breakpoint(wide-down) {
       padding-top: 48px;
       padding-bottom: 48px;
@@ -52,6 +52,8 @@
   .explore-solutions-box {
     display: flex;
     align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
 
     @include breakpoint(desktop-below) {
       flex-direction: column;
