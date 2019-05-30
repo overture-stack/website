@@ -1,6 +1,7 @@
 @import "./util";
 @import "./defaults";
 @import "./common";
+@import "./variables";
 @import "../../node_modules/bulma/sass/utilities/initial-variables";
 
 // BULMA VARIABLE OVERRIDES! --------------------
@@ -26,4 +27,8 @@ $family-primary: $family-serif;
 
 .has-navbar-fixed-top {
   padding-top: 3.75rem !important;
+
+  @media (max-width: 1260px) {
+    padding-top: 3.25rem !important;
+  }
 }

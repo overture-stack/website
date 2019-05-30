@@ -23,7 +23,7 @@
   .image {
     flex: 1;
     @media (min-width: $tablet) {
-      transform: scale(0.7) translateY(90px);
+      transform: scale(0.9) translateY(0px);
     }
     @media (max-width: $tablet) {
       display: none;
