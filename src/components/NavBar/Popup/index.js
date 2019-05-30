@@ -78,7 +78,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section">
           <span className="core-text">&nbsp;</span>
-          <Badge color="yellow">Analyze & Discover</Badge>
+          <Badge color="red">Analyze & Discover</Badge>
 
           <div className="menu-section-links">
             <Link
@@ -105,7 +105,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section">
           <span className="core-text">&nbsp;</span>
-          <Badge color="green">Collaborate & Share</Badge>
+          <Badge color="light-green">Collaborate & Share</Badge>
           <div className="menu-section-links">
             <Link
               onClick={() => closeMenus()}
@@ -128,7 +128,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section" style={{ flexShrink: 0 }}>
           <span className="core-text">&nbsp;</span>
-          <Badge color="red">Track & Manage</Badge>
+          <Badge color="yellow">Track & Manage</Badge>
           <div className="menu-section-links">
             <a
               onClick={() => closeMenus()}

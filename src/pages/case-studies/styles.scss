@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 $bg-color: #f2f3f5;
 $cs-break: 1000px;
 
@@ -9,8 +11,7 @@ $cs-break: 1000px;
     justify-content: center;
     align-items: center;
     height: 265px;
-    background-color: $bg-color;
-    
+    background-color: $teal;
     &.nav-fixed {
       height: 340px;
     }

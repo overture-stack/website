@@ -13,20 +13,22 @@ import kf_arranger from './assets/kidsfirst/arranger.png'
 import kf_ego from './assets/kidsfirst/ego.png'
 import kf_persona from './assets/kidsfirst/persona.png'
 import kf_riff from './assets/kidsfirst/riff.png'
-import kf_logo from "./assets/kidsfirst/logo.svg" 
+import kf_logo from "./assets/kidsfirst/logo.svg"
 const kf_link = "https://portal.kidsfirstdrc.org"
 
-// ICGC Assets -- TODO Pending Screenshots
+// ICGC Assets -- TODO Pending 2 Screenshots (Song / Score)
 import icgc_onco from './assets/icgc/onco.png';
+import icgc_jukebox from './assets/icgc/jukebox.png';
+import icgc_ego from './assets/icgc/ego.png';
 import icgc_logo from "./assets/icgc/logo.svg";
 const icgc_link = "https://dcc.icgc.org";
 
-// CGC Assets -- TODO Pending Screenshots
 import cgc_logo from "./assets/cgc/logo.svg";
-import screenCGC from "./assets/cgc/screenshot-cancer-collaboratory-temp.png";
+import cgc_billing from "./assets/cgc/billing.png";
+import cgc_enrolment from "./assets/cgc/enrolment.png";
 const cgc_link = "https://cancercollaboratory.org";
 
-// HCMIS 
+// HCMIS
 import hcmis_logo from './assets/hcmis/logo.svg';
 import hcmis_arranger from './assets/hcmis/arranger.png';
 import hcmis_cms from './assets/hcmis/cms.png';
@@ -84,29 +86,29 @@ export default [
       {
         title: "Score",
         description: "Fast file transfer with file bundling, resumable multi-part downloads, and BAM/CRAM slicing",
-        screenshot:icgc_onco 
+        screenshot:icgc_onco
       },
 
       {
         title: "Song",
         description: "Distributed file management through secure metadata storage.",
-        screenshot:icgc_onco 
+        screenshot:icgc_onco
       },
 
       {
         title: "Ego",
         description: "Authentication and authorization to deliver secure data access.", 
-        screenshot: icgc_onco 
+        screenshot: icgc_ego
       },
       {
         title: "OncoJS",
         description: "OncoGrid visualizes genomic data to identify trends and patterns.", 
-        screenshot: icgc_onco 
+        screenshot: icgc_onco
       },
       {
         title: "Jukebox",
         description: "Automated deployment of JupyterHub to analyze ICGC data on Jupyter Notebooks.", 
-        screenshot: icgc_onco 
+        screenshot: icgc_jukebox
       }
     ]
   },
@@ -153,18 +155,18 @@ export default [
       {
         title: "Billing & Usage",
         description: "Track and manage compute usage on an Openstack tenant to streamline customer billing operations.",
-        screenshot: screenCGC
+        screenshot: cgc_billing
       },
 
       {
-        title: "Enrollment",
+        title: "Enrolment",
         description: "Automatically manage user enrolment to a project, as well as supporting user self-registration.",
-        screenshot: screenCGC
+        screenshot: cgc_enrolment
       },
     ]
   },
 
-  // HCMI has not yet given permission to be put up as a case study.
+  // NOTE HCMI has not yet given permission to be put up as a case study.
 
   // {
   //   title: "Human Cancer Models Initiative",
