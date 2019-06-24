@@ -103,24 +103,27 @@ class CaseStudiesPage extends Component {
           />
 
           {/* Case Study Component */}
-          {caseData && caseData.map(d => {
-            return (
-              <Waypoint
-                key={d.slug}
-                onEnter={e => this._handleWaypointEnter(d, e)}
-                onLeave={e => this._handleWaypointLeave(d, e)}
-                threshold={-2.0}
-              >
-                <div ref={this[d.slug]}>
-                  <CaseStudy
-                    caseData={d}
-                    currentScreenshot={this.state.currentScreenshots[d.slug]}
-                    handleDetailChange={this._handleDetailChange}
-                  />
-                </div>
-              </Waypoint>
-            );
-          })}
+          {caseData &&
+            caseData.map((d, i) => {
+              let bgColor = i % 2 === 0 ? "none" : "#F2F3F5";
+
+              return (
+                <Waypoint
+                  key={d.slug}
+                  onEnter={e => this._handleWaypointEnter(d, e)}
+                  onLeave={e => this._handleWaypointLeave(d, e)}
+                  threshold={-2.0}
+                >
+                  <div ref={this[d.slug]} style={{ backgroundColor: bgColor }}>
+                    <CaseStudy
+                      caseData={d}
+                      currentScreenshot={this.state.currentScreenshots[d.slug]}
+                      handleDetailChange={this._handleDetailChange}
+                    />
+                  </div>
+                </Waypoint>
+              );
+            })}
         </main>
       </Layout>
     );

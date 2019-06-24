@@ -14,17 +14,20 @@ const ProductsPopup = ({ closeMenus, className }) => {
         <section className="menu-section explore-text">
           <div className="heading-text">Explore our products</div>
           <div className="body-text">
-            Overture is a collection of open-source products for big-data genomic science.
+            Overture is a collection of open-source products for big-data
+            genomic science.
           </div>
         </section>
 
         {/* section: DISCOVERY */}
         <section className="menu-section">
-          <span className="core-text">
-            {" "}
-            <Icon className="pr1" img="star" /> CORE{" "}
-          </span>
-          <Badge color="pink">Generate & Upload</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">
+              {" "}
+              <Icon className="pr1" img="star" /> CORE{" "}
+            </span>
+            <Badge color="pink">Generate & Upload</Badge>
+          </div>
           <div className="menu-section-links">
             <Link
               onClick={() => closeMenus()}
@@ -46,11 +49,13 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
 
         <section className="menu-section">
-          <span className="core-text">
-            {" "}
-            <Icon className="pr1" img="star" /> CORE{" "}
-          </span>
-          <Badge color="blue">Access & Download</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">
+              {" "}
+              <Icon className="pr1" img="star" /> CORE{" "}
+            </span>
+            <Badge color="blue">Access & Download</Badge>
+          </div>
           <div className="menu-section-links">
             <a
               onClick={() => closeMenus()}
@@ -76,8 +81,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
 
         <section className="menu-section">
-          <span className="core-text">&nbsp;</span>
-          <Badge color="red">Analyze & Discover</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="red">Analyze & Discover</Badge>
+          </div>
 
           <div className="menu-section-links">
             <Link
@@ -103,8 +110,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
 
         <section className="menu-section">
-          <span className="core-text">&nbsp;</span>
-          <Badge color="light-green">Collaborate & Share</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="light-green">Collaborate & Share</Badge>
+          </div>
           <div className="menu-section-links">
             <Link
               onClick={() => closeMenus()}
@@ -126,8 +135,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: MANAGEMENT */}
 
         <section className="menu-section" style={{ flexShrink: 0 }}>
-          <span className="core-text">&nbsp;</span>
-          <Badge color="yellow">Track & Manage</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="yellow">Track & Manage</Badge>
+          </div>
           <div className="menu-section-links">
             <a
               onClick={() => closeMenus()}

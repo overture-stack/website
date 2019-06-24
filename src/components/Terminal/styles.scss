@@ -1,14 +1,12 @@
 .Terminal {
-  background: #F2F3F5;
+  background: #f2f3f5;
   padding: 16px 2px 2px;
   border-radius: 4px;
   margin-bottom: 16px;
 }
 
-
-
 .Terminal-inner {
-  background-color: #282A35;
+  background-color: #282a35;
   border-radius: 6px;
   padding: 24px;
   margin: 8px;
@@ -17,22 +15,21 @@
 }
 
 .Terminal-text {
-  color: #82EE86;
+  color: #82ee86;
 }
 
-
 .Browser {
-  background: #F2F3F5;
+  background: #f2f3f5;
   display: flex;
   align-items: center;
   padding: 12px 6px;
   border-radius: 4px;
   // margin-bottom: 16px;
-  
+
   .url-bar {
     flex: 1 1 auto;
   }
-  
+
   .url-text {
     background: white;
     border-radius: 8px;
@@ -40,7 +37,7 @@
   }
 }
 
-.Traffic-Lights{
+.Traffic-Lights {
   margin-left: 12px;
   padding-bottom: 4px;
   display: flex;
@@ -48,7 +45,7 @@
   .circle {
     width: 10px;
     height: 10px;
-    background-color: #D8D8D8;
+    background-color: #d8d8d8;
     margin-right: 8px;
   }
 }

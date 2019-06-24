@@ -5,8 +5,8 @@
 import React from 'react'
 import './styles.scss'
 
-const TrafficLights = () => (
-  <div className="Traffic-Lights">
+export const TrafficLights = ({style}) => (
+  <div className="Traffic-Lights" style={style}>
     <div className="circle"></div>
     <div className="circle"></div>
     <div className="circle"></div>

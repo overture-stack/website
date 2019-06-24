@@ -5,6 +5,8 @@ $cs-break: 1000px;
 
 // -- Styles for the parent component : index.js -------------------------------
 .CaseStudiesPage {
+  font-size: 18px;
+
   .case-hero {
     display: flex;
     flex-direction: column;
@@ -30,10 +32,10 @@ $cs-break: 1000px;
 
 // -- Component: case-study.js styles ------------------------------------------
 .Case-Study {
-  margin: 48px 0;
-  @media(max-width: $cs-break) {
-    margin-top: 16px;
-    margin-bottom: 0;
+  padding: 64px 0;
+  @media (max-width: $cs-break) {
+    padding-top: 16px;
+    padding-bottom: 0;
   }
 
   .top-segment {
@@ -56,7 +58,6 @@ $cs-break: 1000px;
     justify-content: center;
   }
 
-
   .client-list-item {
     list-style-type: disc;
     margin-left: 24px;
@@ -68,13 +69,12 @@ $cs-break: 1000px;
     margin-bottom: 16px;
     max-width: 240px;
 
-    @media(max-width: $cs-break) {
+    @media (max-width: $cs-break) {
       float: none;
       display: flex;
       justify-content: center;
       margin: 0 auto;
       padding-bottom: 48px;
-
     }
   }
 
@@ -82,23 +82,22 @@ $cs-break: 1000px;
   /* This is the section where you can click through different screenshots of the study.*/
   .details {
     display: flex;
-    @media(max-width: $cs-break) {
+    @media (max-width: $cs-break) {
       flex-direction: column;
-      padding: 24px;
+      padding: 32px 0;
     }
-
   }
 
   .details-left {
     flex: 1;
-    background-image: linear-gradient(to right, #00A1D9, #47D9BF);
+    background-image: linear-gradient(to right, #00a1d9, #47d9bf);
     border-radius: 8px;
     padding: 32px 48px;
     padding-right: 72px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    @media(max-width: $cs-break) {
+    @media (max-width: $cs-break) {
       order: 2;
     }
   }
@@ -109,14 +108,14 @@ $cs-break: 1000px;
     align-items: baseline;
     cursor: pointer;
 
-    &:hover  {
+    &:hover {
       .details-left-title,
       .details-left-description {
         color: white;
       }
     }
 
-    &.active  {
+    &.active {
       .details-left-title,
       .details-left-description {
         color: white;
@@ -128,18 +127,18 @@ $cs-break: 1000px;
     min-width: 120px;
     font-family: Lato-Bold;
     font-size: 18px;
-    color: #B9E3F6;
+    color: #b9e3f6;
     letter-spacing: 0;
     padding-left: 12px;
 
     &.active {
-      border-left: 3px solid #F2D03A;
+      border-left: 3px solid #f2d03a;
       padding-left: 9px;
     }
   }
 
   .details-left-description {
-    color: #B9E3F6;
+    color: #b9e3f6;
     font-family: Lato-Bold;
     font-size: 16px;
     letter-spacing: 0;
@@ -150,21 +149,24 @@ $cs-break: 1000px;
     display: flex;
     align-items: flex-start;
 
-    @media(max-width: $cs-break) {
+    @media (max-width: $cs-break) {
       padding: 0;
       margin-top: -128px;
       margin: -96px 0 32px;
       flex-direction: column;
     }
   }
-  .details-right-screenshot {
-    margin-left: -32px;
-    margin-top: 32px;
+
+  .details-right-browser-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
     border: 2px solid white;
     border-radius: 2px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
-
-    @media(max-width: $cs-break) {
+    margin-left: -32px;
+    margin-top: 32px;
+    @media (max-width: $cs-break) {
       margin-left: 0px;
     }
   }
@@ -183,9 +185,10 @@ $cs-break: 1000px;
 
   &.nav-fixed {
     position: fixed;
+    border-bottom: 1px solid #dbdbdb;
     z-index: 1;
     top: 60px;
-    @media(max-width: 1260px) {
+    @media (max-width: 1260px) {
       top: 50px;
     }
   }
@@ -193,9 +196,15 @@ $cs-break: 1000px;
   .nav-item-border {
     border-left: 1px solid white;
     border-right: 1px solid white;
-    &:first-child {border-left: none;}
-    &:last-child {border-right: none;}
-    &.active {background: white;}
+    &:first-child {
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+    &.active {
+      background: white;
+    }
   }
 
   .nav-item {

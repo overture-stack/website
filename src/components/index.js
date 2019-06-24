@@ -2,7 +2,7 @@
 
 export { default as Badge } from "./Badge";
 export { default as Icon } from "./Icon";
-export { Terminal, UrlBar } from "./Terminal";
+export { Terminal, UrlBar, TrafficLights } from "./Terminal";
 export { default as Button } from "./Button";
 export { default as Footer } from "./Footer";
 export { default as WindowGui } from "./WindowGui";

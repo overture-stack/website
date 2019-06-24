@@ -32,91 +32,93 @@ class NavBar extends Component {
         className="NavHeader navbar is-fixed-top"
         aria-label="main navigation"
       >
-        <div className="navbar-brand">
-          <Link
-            to="/"
-            onClick={() => this.props.closeMenus()}
-            className="navbar-item navbar-brand-link"
-          >
-            <img src={logo} />
-          </Link>
+        <div className="nav-container">
+          <div className="navbar-brand">
+            <Link
+              to="/"
+              onClick={() => this.props.closeMenus()}
+              className="navbar-item navbar-brand-link"
+            >
+              <img src={logo} />
+            </Link>
 
-          <button
-            className={burgerClass}
-            onClick={() => this.props.toggleMobileMenu()}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-        <div className={navbarMenuClass} id="navMenu">
-          <div className="navbar-start items-center">
-            {/* popover */}
-            <div className="products-link-box">
-              <div
-                onClick={() => this.props.toggleMenu()}
-                className={productsLinkClass}
-              >
-                Products
-                <Icon
-                  className="products-arrow pl1"
-                  style={{ width: "32px" }}
-                  img={productsArrow}
-                />
-              </div>
-
-              {/* Products Popover Menu + Ref for hiding. */}
-              <div ref={r => (this.productMenuRef = r)}>
-                <ProductsPopup
-                  className={productsMenuClass}
-                  closeMenus={this.props.closeMenus}
-                />
-              </div>
-            </div>
-
-            <NavLink
-              closeMenus={this.props.closeMenus}
-              url="/case-studies"
-              name="Case Studies"
-            />
-
-            <NavLink
-              closeMenus={this.props.closeMenus}
-              url="/our-vision"
-              name="Our Vision"
-            />
-            <NavLink
-              closeMenus={this.props.closeMenus}
-              url="/services"
-              name="Services"
-            />
-            <NavLink
-              closeMenus={this.props.closeMenus}
-              url="/contact"
-              name="Contact"
-            />
+            <button
+              className={burgerClass}
+              onClick={() => this.props.toggleMobileMenu()}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
-          <div className="navbar-end">
-            <div className="navbar-item nav-link navbar-buttons">
-              <Button
-                className="slack-button mr1"
-                type="secondary"
-                size="medium"
-                icon="slack"
-                externalLink="http://slack.overture.bio/"
-              >
-                Join us on Slack
-              </Button>
+          <div className={navbarMenuClass} id="navMenu">
+            <div className="navbar-start items-center">
+              {/* popover */}
+              <div className="products-link-box">
+                <div
+                  onClick={() => this.props.toggleMenu()}
+                  className={productsLinkClass}
+                >
+                  Products
+                  <Icon
+                    className="products-arrow pl1"
+                    style={{ width: "32px" }}
+                    img={productsArrow}
+                  />
+                </div>
 
-              <Button
-                type="primary"
-                size="medium"
-                externalLink="https://github.com/overture-stack"
-                icon="githubWhite"
-              >
-                Get Started
-              </Button>
+                {/* Products Popover Menu + Ref for hiding. */}
+                <div ref={r => (this.productMenuRef = r)}>
+                  <ProductsPopup
+                    className={productsMenuClass}
+                    closeMenus={this.props.closeMenus}
+                  />
+                </div>
+              </div>
+
+              <NavLink
+                closeMenus={this.props.closeMenus}
+                url="/case-studies"
+                name="Case Studies"
+              />
+
+              <NavLink
+                closeMenus={this.props.closeMenus}
+                url="/our-vision"
+                name="Our Vision"
+              />
+              <NavLink
+                closeMenus={this.props.closeMenus}
+                url="/services"
+                name="Services"
+              />
+              <NavLink
+                closeMenus={this.props.closeMenus}
+                url="/contact"
+                name="Contact"
+              />
+            </div>
+            <div className="navbar-end">
+              <div className="navbar-item nav-link navbar-buttons">
+                <Button
+                  className="slack-button mr1"
+                  type="secondary"
+                  size="medium"
+                  icon="slack"
+                  externalLink="http://slack.overture.bio/"
+                >
+                  Join us on Slack
+                </Button>
+
+                <Button
+                  type="primary"
+                  size="medium"
+                  externalLink="https://github.com/overture-stack"
+                  icon="githubWhite"
+                >
+                  Get Started
+                </Button>
+              </div>
             </div>
           </div>
         </div>

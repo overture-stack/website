@@ -61,6 +61,11 @@
     flex: 1;
   }
 
+  .menu-section-heading {
+    display: flex;
+    flex-direction: column;
+  }
+
   .menu-section-links {
     display: flex;
     flex-direction: column;
@@ -114,13 +119,24 @@
     }
 
     .menu-section {
-      flex-direction: row;
+      // flex-direction: row;
       padding: 4px 16px;
-      justify-content: flex-start;
+      justify-content: center;
+    }
+
+    .core-text {
+      order: 2;
+      padding-left: 16px;
+    }
+
+    // displays section heading and "core" text.
+    .menu-section-heading {
+      display: flex;
+      flex-direction: row;
     }
 
     .menu-section-links {
-      padding: 0 24px;
+      padding: 24px;
       flex-direction: column;
     }
 

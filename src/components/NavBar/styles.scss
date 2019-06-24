@@ -1,9 +1,18 @@
 @import "../../styles/variables";
 
 .NavHeader {
+  background: white;
 
-  max-width: 1440px;
-  margin: 0 auto;
+  .nav-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+
+    @media (max-width: 1260px) {
+      display: block;
+    }
+  }
 
   .active-item {
     color: #9e005d;
@@ -113,7 +122,6 @@
     }
   }
 
-
   //
   // Media Queries:
   //
@@ -131,5 +139,4 @@
       }
     }
   }
-
 }

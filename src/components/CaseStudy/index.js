@@ -1,4 +1,4 @@
-import { H4, Button } from "..";
+import { H4, Button, TrafficLights } from "..";
 import React from "react";
 
 /**
@@ -10,7 +10,6 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
   const _handleDetailChange = idx => {
     handleDetailChange({ section: caseData.slug, screenNumber: idx });
   };
-
 
   return (
     <section className="Case-Study">
@@ -42,6 +41,7 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
             <Button
               className="my2"
               type="primary"
+              size="medium"
               externalLink={caseData.clientLink}
             >
               Check it out!
@@ -51,36 +51,36 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
       </div>
 
       {/* Lower Container: Screenshots */}
-        <div className="container">
-          <div className="details">
-            <div className="details-left">
-              {caseData.details.map((detail, idx) => {
-                let activeClass = currentScreenshot == idx ? "active" : "";
-                return (
-                  <div
-                    className={`details-left-item ${activeClass}`}
-                    onClick={() => _handleDetailChange(idx)}
-                    key={detail.title + idx}
-                  >
-                    <div className={`details-left-title ${activeClass}`}>
-                      {detail.title}
-                    </div>
-                    <div className="details-left-description">
-                      {detail.description}
-                    </div>
+      <div className="container">
+        <div className="details">
+          <div className="details-left">
+            {caseData.details.map((detail, idx) => {
+              let activeClass = currentScreenshot == idx ? "active" : "";
+              return (
+                <div
+                  className={`details-left-item ${activeClass}`}
+                  onClick={() => _handleDetailChange(idx)}
+                  key={detail.title + idx}
+                >
+                  <div className={`details-left-title ${activeClass}`}>
+                    {detail.title}
                   </div>
-                );
-              })}
-            </div>
+                  <div className="details-left-description">
+                    {detail.description}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-            <div className="details-right">
-              <img
-                className="details-right-screenshot"
-                src={caseData.details[currentScreenshot].screenshot}
-              />
+          <div className="details-right">
+            <div className="Browser details-right-browser-wrapper">
+              <TrafficLights style={{ marginLeft: 0, paddingBottom: "16px" }} />
+              <img src={caseData.details[currentScreenshot].screenshot} />
             </div>
           </div>
         </div>
+      </div>
     </section>
   );
 };
