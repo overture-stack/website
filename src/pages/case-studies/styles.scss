@@ -6,6 +6,7 @@ $cs-break: 1000px;
 // -- Styles for the parent component : index.js -------------------------------
 .CaseStudiesPage {
   font-size: 18px;
+  line-height: 30px;
 
   .case-hero {
     display: flex;
@@ -61,6 +62,7 @@ $cs-break: 1000px;
   .client-list-item {
     list-style-type: disc;
     margin-left: 24px;
+    line-height: 38px;
   }
 
   .client-logo {
@@ -209,6 +211,7 @@ $cs-break: 1000px;
 
   .nav-item {
     width: 200px;
+    cursor: pointer;
     height: 72px;
     padding: 16px;
     background-repeat: no-repeat;
