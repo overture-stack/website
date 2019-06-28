@@ -18,6 +18,8 @@ const kf_link = "https://portal.kidsfirstdrc.org"
 
 // ICGC Assets -- TODO Pending 2 Screenshots (Song / Score)
 import icgc_onco from './assets/icgc/onco.png';
+import icgc_song from './assets/icgc/song.png';
+import icgc_score from './assets/icgc/score.png';
 import icgc_jukebox from './assets/icgc/jukebox.png';
 import icgc_ego from './assets/icgc/ego.png';
 import icgc_logo from "./assets/icgc/logo.svg";
@@ -84,26 +86,26 @@ export default [
     clientLink: icgc_link,
     details: [
       {
+        title: "OncoJS",
+        description: "OncoGrid visualizes genomic data to identify trends and patterns.", 
+        screenshot: icgc_onco
+      },
+      {
         title: "Score",
         description: "Fast file transfer with file bundling, resumable multi-part downloads, and BAM/CRAM slicing",
-        screenshot:icgc_onco
+        screenshot:icgc_score
       },
 
       {
         title: "Song",
         description: "Distributed file management through secure metadata storage.",
-        screenshot:icgc_onco
+        screenshot:icgc_song
       },
 
       {
         title: "Ego",
         description: "Authentication and authorization to deliver secure data access.", 
         screenshot: icgc_ego
-      },
-      {
-        title: "OncoJS",
-        description: "OncoGrid visualizes genomic data to identify trends and patterns.", 
-        screenshot: icgc_onco
       },
       {
         title: "Jukebox",
