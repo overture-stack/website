@@ -6,6 +6,7 @@ export { Terminal, UrlBar, TrafficLights } from "./Terminal";
 export { default as Button } from "./Button";
 export { default as Footer } from "./Footer";
 export { default as WindowGui } from "./WindowGui";
+export { default as ImageCrossfade } from "./ImageCrossfade";
 export { BottomCallout, Callout } from "./BottomCallout";
 export { default as GettingStarted } from "./GettingStarted";
 export { default as ProductTarget } from "./ProductTarget";

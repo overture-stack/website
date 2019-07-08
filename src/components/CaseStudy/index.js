@@ -1,4 +1,4 @@
-import { H4, Button, TrafficLights } from "..";
+import { H4, Button, TrafficLights, ImageCrossfade } from "..";
 import React from "react";
 
 /**
@@ -76,7 +76,8 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
           <div className="details-right">
             <div className="Browser details-right-browser-wrapper">
               <TrafficLights style={{ marginLeft: 0, paddingBottom: "16px" }} />
-              <img src={caseData.details[currentScreenshot].screenshot} />
+              {/* <img src={caseData.details[currentScreenshot].screenshot} /> */}
+              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot}/>
             </div>
           </div>
         </div>
