@@ -1,6 +1,19 @@
 @import "../../styles/variables";
 
 .NavHeader {
+  background: white;
+
+  .nav-container {
+    // max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+
+    @media (max-width: 1260px) {
+      display: block;
+    }
+  }
+
   .active-item {
     color: #9e005d;
     background-color: "#F2F3F5";
@@ -43,7 +56,7 @@
     display: flex;
     align-self: stretch;
     margin-right: 16px;
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       flex-direction: column;
       margin-right: 0;
       justify-content: center;
@@ -69,12 +82,12 @@
   }
 
   .nav-link {
-    @include breakpoint(desktop-up) {
+    @include breakpoint(navmenu-up) {
       margin-right: 16px;
       display: flex;
       align-self: stretch;
     }
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       border-top: 1px solid #efefef;
     }
   }
@@ -87,7 +100,7 @@
 
   .products-arrow {
     display: none;
-    @include breakpoint(mobile) {
+    @include breakpoint(navmenu-below) {
       display: flex;
       padding: 8px;
     }
@@ -109,13 +122,12 @@
     }
   }
 
-
   //
   // Media Queries:
   //
 
   // Tighten up the spacing on the navbar.
-  @media (max-width: 1160px) and (min-width: 1024px) {
+  @media (max-width: 1260px) and (min-width: 1024px) {
     .navbar-brand-link {
       margin-right: 0;
     }
@@ -127,5 +139,4 @@
       }
     }
   }
-
 }

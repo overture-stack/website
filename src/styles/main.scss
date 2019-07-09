@@ -1,6 +1,7 @@
 @import "./util";
 @import "./defaults";
 @import "./common";
+@import "./variables";
 @import "../../node_modules/bulma/sass/utilities/initial-variables";
 
 // BULMA VARIABLE OVERRIDES! --------------------
@@ -9,9 +10,26 @@ $primary-invert: white;
 $navbar-item-hover-color: #9e005d;
 $navbar-item-color: #004773;
 $navbar-item-hover-background-color: #f2f3f5;
-$navbar-breakpoint: 1024px;
+$navbar-breakpoint: 1160px;
 $link: #00a2d9;
 $family-serif: "Lato", "Arial";
 $family-primary: $family-serif;
 
 @import "../../node_modules/bulma/bulma.sass";
+
+// patch bulma's `.container` class; nicer padding across the site.
+.container {
+  // padding: 0 32px !important;
+  padding: 0 32px;
+  @media(max-width: 768px) {
+    padding: 0 16px !important;
+  }
+}
+
+.has-navbar-fixed-top {
+  padding-top: 3.75rem !important;
+
+  @media (max-width: 1260px) {
+    padding-top: 3.25rem !important;
+  }
+}

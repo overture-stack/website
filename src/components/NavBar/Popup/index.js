@@ -1,35 +1,34 @@
 /**
  * Component: Display the Product Sub-Menu on mouse over / tap.
-*/
+ */
 import React from "react";
 import Link from "gatsby-link";
-import Badge from "../../Badge/index";
-import Icon from "../../Icon/index";
-import './styles.scss'
+import { Icon, Badge } from "../../index.js";
+import "./styles.scss";
 
 const ProductsPopup = ({ closeMenus, className }) => {
   return (
     <div className={`ProductsPopup ${className}`}>
       <div className={`menu-items ${className}`}>
-
         {/* section: Text overview - Desktop only */}
         <section className="menu-section explore-text">
           <div className="heading-text">Explore our products</div>
-          <div className="body-text">Overture is a collection of open-source products for big-data genomic science that you can use to support your research.</div>
-
+          <div className="body-text">
+            Overture is a collection of open-source products for big-data
+            genomic science.
+          </div>
         </section>
 
         {/* section: DISCOVERY */}
         <section className="menu-section">
-          <Badge color="pink">Core</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">
+              {" "}
+              <Icon className="pr1" img="star" /> CORE{" "}
+            </span>
+            <Badge color="pink">Generate & Upload</Badge>
+          </div>
           <div className="menu-section-links">
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/ego"
-            >
-              Ego
-            </Link>
             <Link
               onClick={() => closeMenus()}
               className="menu-section-link"
@@ -50,7 +49,13 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
 
         <section className="menu-section">
-          <Badge color="blue">Discovery</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">
+              {" "}
+              <Icon className="pr1" img="star" /> CORE{" "}
+            </span>
+            <Badge color="blue">Access & Download</Badge>
+          </div>
           <div className="menu-section-links">
             <a
               onClick={() => closeMenus()}
@@ -61,6 +66,35 @@ const ProductsPopup = ({ closeMenus, className }) => {
               Arranger
               <Icon className="pl1" img="githubGrey" />
             </a>
+
+            <Link
+              onClick={() => closeMenus()}
+              className="menu-section-link"
+              to="/products/ego"
+            >
+              {" "}
+              Ego{" "}
+            </Link>
+          </div>
+        </section>
+
+        {/* section: DISCOVERY */}
+
+        <section className="menu-section">
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="red">Analyze & Discover</Badge>
+          </div>
+
+          <div className="menu-section-links">
+            <Link
+              onClick={() => closeMenus()}
+              className="menu-section-link"
+              to="/products/jukebox"
+            >
+              Jukebox
+            </Link>
+
             <a
               onClick={() => closeMenus()}
               href="https://github.com/oncojs"
@@ -76,31 +110,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
 
         <section className="menu-section">
-          <Badge color="yellow">Analysis</Badge>
-
-          <div className="menu-section-links">
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/jukebox"
-            >
-              Jukebox
-            </Link>
-            <a
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              href="https://github.com/jtracker-io"
-            >
-              JTracker
-              <Icon className="pl1" img="githubGrey" />
-            </a>
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="light-green">Collaborate & Share</Badge>
           </div>
-        </section>
-
-        {/* section: DISCOVERY */}
-
-        <section className="menu-section">
-          <Badge color="green">Social</Badge>
           <div className="menu-section-links">
             <Link
               onClick={() => closeMenus()}
@@ -122,7 +135,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: MANAGEMENT */}
 
         <section className="menu-section" style={{ flexShrink: 0 }}>
-          <Badge color="red">Management</Badge>
+          <div className="menu-section-heading">
+            <span className="core-text">&nbsp;</span>
+            <Badge color="yellow">Track & Manage</Badge>
+          </div>
           <div className="menu-section-links">
             <a
               onClick={() => closeMenus()}
@@ -148,4 +164,4 @@ const ProductsPopup = ({ closeMenus, className }) => {
   );
 };
 
-export default ProductsPopup
+export default ProductsPopup;

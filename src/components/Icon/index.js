@@ -2,6 +2,7 @@
 import React from 'react'
 import './styles.scss'
 import arrowRight from './icons/arrow_right.svg'
+import arrowRightMagenta from './icons/arrow_right_magenta.svg'
 import arrowDown from './icons/arrow_down.svg'
 import barGraph from './icons/bar_graph.svg'
 import cardStack from './icons/card_stack.svg'
@@ -17,6 +18,7 @@ import githubGrey from './icons/github_grey.svg'
 import githubWhite from './icons/github_white.svg'
 import githubYellow from './icons/github_yellow.svg'
 import graphCycle from './icons/graph_cycle.svg'
+import gridGlass from './icons/grid_magnifying_glass.svg';
 import history from './icons/history.svg'
 import lock from './icons/lock.svg'
 import lockCode from './icons/lock_code.svg'
@@ -30,12 +32,14 @@ import security from './icons/security.svg'
 import share from './icons/share.svg'
 import shield from './icons/shield.svg'
 import spiral from './icons/spiral.svg'
+import star from './icons/star.svg'
 import target from './icons/target.svg'
 import user from './icons/user.svg'
 import slack from './icons/icon-slack.svg'
 
 const icons = {
   arrowRight,
+  arrowRightMagenta,
   arrowDown,
   barGraph,
   cardStack,
@@ -51,6 +55,7 @@ const icons = {
   githubWhite,
   githubYellow,
   graphCycle,
+  gridGlass,
   history,
   lock,
   lockCode,
@@ -64,6 +69,7 @@ const icons = {
   share,
   shield,
   spiral,
+  star,
   target,
   user,
   slack
