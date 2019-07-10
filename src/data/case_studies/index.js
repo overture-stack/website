@@ -76,7 +76,7 @@ export default [
   {
     title: "ICGC Data Portal",
     slug: "icgcDataPortal",
-    description: `The <a target='_blank' href='${icgc_link}'>International Cancer Genome Consortium (ICGC) </a> is a global initiative to build a comprehensive catalog of mutational abnormalities in the major tumor types. The portal currently contains data from 86 worldwide cancer projects, collectively representing about molecular data from over 22,000 donors with more than 80 million somatic mutations accessible to researchers.`,
+    description: `The <a target='_blank' href='${icgc_link}'>International Cancer Genome Consortium (ICGC) </a> is a global initiative to build a comprehensive catalog of mutations in the major tumor types. The portal currently contains data from 86 worldwide cancer projects, collectively representing about molecular data from over 22,000 donors with more than 80 million somatic mutations accessible to researchers.`,
     logo: icgc_logo,
     listItems: [
       "Interoperability with distributed data repositories including AWS S3 and Cancer Genome Collaboratory",
@@ -145,12 +145,12 @@ export default [
   {
     title: "Cancer Genome Collaboratory",
     slug: "cgc",
-    description: `The <a target='_blank' href='${cgc_link}'>Cancer Genome Collaboratory</a> is an academic compute cloud resource that allows researchers to run complex analysis operations across large ICGC cancer genome data sets as well as their own data. One petabyte of ICGC data is co-located with elastic compute enabling researchers to bring analysis tools to the data for faster discovery.`,
+    description: `The <a target='_blank' href='${cgc_link}'>Cancer Genome Collaboratory</a> is an academic compute cloud resource that allows researchers to run complex analysis operations across large ICGC cancer genome datasets as well as their own data. One petabyte of ICGC data is co-located with elastic compute enabling researchers to bring analysis tools to the data for faster discovery.`,
     logo: cgc_logo,
     listItems: [
       "Self-service cloud computing made affordable",
       "Convenient usage tracking for Openstack ",
-      "Speed research up by bringing analysis to the data",
+      "Accelerate research up by bringing analysis to the data",
     ],
     clientLink: cgc_link,
     details: [
