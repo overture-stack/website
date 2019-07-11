@@ -1,7 +1,6 @@
 import React from "react";
-import heroImg from "./home/assets/hero_img.svg";
 import "./home/styles.scss";
-import { Badge, H1, H2, H4, Icon, Layout } from "../components";
+import { Badge, H1, H2, H4, Hero, Icon, Layout } from "../components";
 import Helmet from "react-helmet";
 import Link from "gatsby-link";
 
@@ -33,40 +32,40 @@ const HomePage = () => (
         />
       </Helmet>
 
-      <section className="hero bg-green science-hero">
-        <div className="">
-          <div className="container flex">
-            <div className="hero-header-text flex flex-column column is-half justify-center">
-              <H1>Worry less, science more</H1>
-              <H4 className="py3" style={{ maxWidth: "585px" }}>
-                Overture is a collection of open-source, extendable solutions
-                for big-data genomic science that you can use to support your
-                research.
-              </H4>
-            </div>
-
-            <div className="column is-half is-hidden-mobile">
-              <img src={heroImg} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Worry less, science more"
+        fgImage="img_home"
+        subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
+      >
+        <span className="display flex align-center">
+          <Link className="py2 pr1 link-magenta" to="case-studies">
+            Check out our products in action
+          </Link>
+          <Icon size={12} img="arrowRightMagenta" />
+        </span>
+      </Hero>
 
       {/* Bundle Section */}
 
       <section className="container">
         <div className="bioinformatics-bundle column ">
-          <H2 className="flex-auto pr2">Bioinformatics Core Bundle</H2>
-          <div className="pt2" style={{ maxWidth: "700px" }}>
-            Data is the essence of our field, Overture’s bioinformatics bundle
-            focuses on tracking, transferring and securing genomic data across
-            multiple cloud providers.
+          <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
+          <div className="pt2" style={{ maxWidth: "900px" }}>
+            Data is the essence of our field. Implement Overture’s core products
+            to
+            <span>
+              <Badge className="mx1" color="pink">
+                Generate & Upload{" "}
+              </Badge>
+            </span>
+            and <br />
+            <span>
+              <Badge className="mx1" color="blue">
+                Access & Download
+              </Badge>
+            </span>
+            genomic data across multiple cloud providers:
           </div>
-
-          {/* Hiding for now
-
-        <button className="button is-primary is-medium">Download Core</button>
-          * */}
         </div>
 
         <div className="columns column">
@@ -76,8 +75,8 @@ const HomePage = () => (
                 Authorization service for identity providers such as Google and
                 Facebook.
               </div>
-              <div to="/products/ego" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
@@ -88,8 +87,8 @@ const HomePage = () => (
                 Facilitates the transfer and storage of data seamlessly for
                 cloud-based projects.
               </div>
-              <div to="/products/score" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
@@ -100,23 +99,25 @@ const HomePage = () => (
                 Tracks genomic data scattered across multiple cloud storage
                 systems.
               </div>
-              <div to="/products/song" className="link-magenta">
-                Learn More &gt;
+              <div className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta" />
               </div>
             </BundleCard>
           </Link>
 
-          {/*
-        <div className="column ">
-          <BundleCard icon="cardStack" header="Indexer">
-            <div className="py2">
-              Sources and combines data from multiple remote repositories into a single reference index.
-            </div>
-            <a href="#" className="link-magenta">Learn More &gt;</a>
-          </BundleCard>
-
-        </div>
-        */}
+          {/* Arranger Card: Uncomment when arranger gets done
+          <div className="column ">
+            <BundleCard icon="gridGlass" header="Arranger">
+              <div className="py2">
+                Provide your administrators with the power to organize an
+                intuitive search interface.
+              </div>
+              <a href="#" className="link-magenta">
+                Learn More <Icon size={12} img="arrowRightMagenta" />
+              </a>
+            </BundleCard>
+          </div>
+      */}
         </div>
 
         {/* BADGES */}
@@ -124,24 +125,21 @@ const HomePage = () => (
           <div className="explore-solutions-box">
             <div className="explore-solutions-header">
               {" "}
-              Also explore our solutions for:
+              Also explore our products for:
             </div>
             <div className="badges">
               <div>
-                <Badge className="mr2" color="blue">
-                  Discovery
+                <Badge className="mr2" color="red">
+                  Analyze & Discover
                 </Badge>
-                <Badge className="mr2" color="yellow">
-                  Analysis
+                <Badge className="mr2" color="light-green">
+                  Collaborate & Share
                 </Badge>
               </div>
 
               <div>
-                <Badge className="mr2" color="green">
-                  Social
-                </Badge>
-                <Badge className="mr2" color="red">
-                  Management
+                <Badge className="mr2" color="yellow">
+                  Track & Manage
                 </Badge>
               </div>
             </div>
@@ -152,8 +150,8 @@ const HomePage = () => (
       {/* Bottom Hero */}
 
       <section className="hero bottom-hero bg-grey">
-        <div className="hero-body container">
-          <div className="columns">
+        <div className="container">
+          <div className="columns py3">
             <div className="column is-half">
               <H1 className="bottom-header">
                 We created Overture to share our data science components with
