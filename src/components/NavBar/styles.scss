@@ -4,13 +4,12 @@
   background: white;
 
   .nav-container {
-    // max-width: 1440px;
     margin: 0 auto;
-    display: flex;
     width: 100%;
+    display: block;
 
-    @media (max-width: 1260px) {
-      display: block;
+    @media (min-width: 1159px) {
+      display: flex;
     }
   }
 

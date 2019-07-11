@@ -45,7 +45,7 @@ const SongPage = () => (
         subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
         cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
         getStartedLink="https://github.com/overture-stack/song"
-        badge={{ color: "pink", text: "Core" }}
+        badge={{ color: "pink", text: "Generate & Upload" }}
         progressType="ga"
         logo="logoSong"
       />

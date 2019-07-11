@@ -33,7 +33,7 @@ const RiffPage = () => (
         getStartedLink="https://github.com/overture-stack/riff"
         logo="logoRiff"
         progressType="rc"
-        badge={{ color: "green", text: "Social" }}
+        badge={{ color: "light-green", text: "COLLABORATE & SHARE" }}
       />
 
       {/* Features  */}

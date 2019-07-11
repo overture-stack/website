@@ -41,7 +41,7 @@ const OncoPage = () => (
         subTitle="Bring data to life with stunning visualizations and real-time analysis."
         cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
         getStartedLink="https://github.com/oncojs/"
-        badge={{ color: "blue", text: "Disovery" }}
+        badge={{ color: "red", text: "Analyze & Discover" }}
         logo="logoOncojs"
         progressType="ga"
       />

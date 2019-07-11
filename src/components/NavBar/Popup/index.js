@@ -99,7 +99,8 @@ const ProductsPopup = ({ closeMenus, className }) => {
               onClick={() => closeMenus()}
               href="https://github.com/oncojs"
               className="menu-section-link"
-              to="/oncojs"
+              href="https://github.com/oncojs/"
+              target="_blank"
             >
               OncoJS
               <Icon className="pl1" img="githubGrey" />
@@ -144,7 +145,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
               onClick={() => closeMenus()}
               href="https://github.com/CancerCollaboratory/billing"
               className="menu-section-link"
-              to="/billing"
+              target="_blank"
             >
               Billing & Usage
               <Icon className="pl1" img="githubGrey" />
@@ -153,6 +154,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
               onClick={() => closeMenus()}
               className="menu-section-link"
               href="https://github.com/overture-stack/enrolment"
+              target="_blank"
             >
               Enrolment
               <Icon className="pl1" img="githubGrey" />

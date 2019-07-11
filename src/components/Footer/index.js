@@ -8,13 +8,7 @@ import logo from "./logo.svg";
 import Icon from "../Icon/index";
 
 const links = {
-  Core: {
-    Ego: {
-      link: "/products/ego",
-      icon: null,
-      newTab: false,
-      className: "",
-    },
+  "Generate & Upload": {
     Score: {
       link: "/products/score",
       icon: null,
@@ -28,13 +22,27 @@ const links = {
       className: "",
     },
   },
-  Discovery: {
+  "Access & Download": {
     Arranger: {
       icon: "githubGrey",
       newTab: true,
       className: "",
       link: "https://github.com/overture-stack/arranger",
     },
+    Ego: {
+      link: "/products/ego",
+      icon: null,
+      newTab: false,
+      className: "",
+    },
+  },
+  "Analyze & Discover": {
+    Jukebox: {
+      link: "/products/jukebox",
+      newTab: false,
+      className: "",
+    },
+
     OncoJS: {
       link: "https://github.com/oncojs",
       icon: "githubGrey",
@@ -42,20 +50,7 @@ const links = {
       className: "",
     }
   },
-  Analysis: {
-    Jukebox: {
-      link: "/products/jukebox",
-      newTab: false,
-      className: "",
-    },
-    JTracker: {
-      link: "https://github.com/jtracker-io",
-      icon: "githubGrey",
-      newTab: true,
-      className: "",
-    }
-  },
-  Social: {
+  "Collaborate & Share": {
     Persona: {
       className: "",
       link: "/products/persona",
@@ -66,7 +61,7 @@ const links = {
       className: "",
     }
   },
-  Management: {
+  "Track & Manage": {
     "Billing & Usage": {
       link: "https://github.com/CancerCollaboratory/billing",
       icon: "githubGrey",

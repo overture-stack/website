@@ -39,7 +39,7 @@ const ScorePage = () => (
         getStartedLink="https://github.com/overture-stack/score"
         logo="logoScore"
         progressType="ga"
-        badge={{ color: "pink", text: "Core" }}
+        badge={{ color: "pink", text: "Generate & Upload" }}
       />
 
       {/* Features  */}

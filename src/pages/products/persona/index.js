@@ -33,7 +33,7 @@ const PersonaPage = () => (
         getStartedLink="https://github.com/overture-stack/persona"
         logo="logoPersona"
         progressType="rc"
-        badge={{ color: "green", text: "Social" }}
+        badge={{ color: "light-green", text: "COLLABORATE & SHARE" }}
       />
 
       {/* Features  */}

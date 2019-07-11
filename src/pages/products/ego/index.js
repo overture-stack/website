@@ -39,7 +39,7 @@ const EgoPage = () => (
         subTitle="A stateless authorization and user management service."
         cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
         getStartedLink="https://github.com/overture-stack/ego"
-        badge={{ color: "pink", text: "Core" }}
+        badge={{ color: "blue", text: "Access & Download" }}
         logo="logoEgo"
         progressType="rc"
       />
