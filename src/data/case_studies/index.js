@@ -104,12 +104,12 @@ export default [
 
       {
         title: "Ego",
-        description: "Authentication and authorization to deliver secure data access.", 
+        description: "Authentication and authorization to deliver secure data access.",
         screenshot: icgc_ego
       },
       {
         title: "Jukebox",
-        description: "Automated deployment of JupyterHub to analyze ICGC data on Jupyter Notebooks.", 
+        description: "Automated deployment of JupyterHub to analyze ICGC data on Jupyter Notebooks.",
         screenshot: icgc_jukebox
       }
     ]
