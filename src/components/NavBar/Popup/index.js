@@ -95,16 +95,13 @@ const ProductsPopup = ({ closeMenus, className }) => {
               Jukebox
             </Link>
 
-            <a
+            <Link
               onClick={() => closeMenus()}
-              href="https://github.com/oncojs"
               className="menu-section-link"
-              href="https://github.com/oncojs/"
-              target="_blank"
+              to="/products/oncojs/"
             >
               OncoJS
-              <Icon className="pl1" img="githubGrey" />
-            </a>
+            </Link>
           </div>
         </section>
 

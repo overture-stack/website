@@ -44,9 +44,7 @@ const links = {
     },
 
     OncoJS: {
-      link: "https://github.com/oncojs",
-      icon: "githubGrey",
-      newTab: true,
+      link: "/products/oncojs",
       className: "",
     }
   },

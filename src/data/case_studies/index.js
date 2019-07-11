@@ -149,8 +149,8 @@ export default [
     logo: cgc_logo,
     listItems: [
       "Self-service cloud computing made affordable",
-      "Convenient usage tracking for Openstack ",
-      "Accelerate research up by bringing analysis to the data",
+      "Convenient usage tracking for Openstack",
+      "Accelerate research by bringing analysis to the data"
     ],
     clientLink: cgc_link,
     details: [
