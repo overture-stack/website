@@ -15,7 +15,7 @@ export default class HTML extends Component {
 
           <link rel="shortcut icon" href={favicon} />
           <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet"/>
           {/*  NOTE: normally wouldn't use static folder but npm / sass imports for basscss are not working. */}
           <link href="/css/basscss.css" rel="stylesheet"></link>
         </head>

@@ -55,7 +55,7 @@ const JukeboxPage = () => (
         getStartedLink="https://github.com/overture-stack/jupyter"
         logo="logoJukebox"
         progressType="rc"
-        badge={{ color: "yellow", text: "Analysis" }}
+        badge={{ color: "red", text: "Analyze & Discover" }}
       />
 
       {/* Features  */}

@@ -9,24 +9,27 @@
   width: 100%;
   top: 60px;
   height: auto;
-  transition: opacity ease 0.3s;
+  transition: opacity ease 0.2s 0.1s;
+  margin: 0 auto;
 
   // Shrinking the slack button changes nav size; update popover top.
-  @media (max-width: 1160px) and (min-width: 1024px) {
+  @media (max-width: 1260px) and (min-width: 1160px) {
     top: 50px;
   }
 
-  @include breakpoint(desktop-below) {
+  @include breakpoint(navmenu-below) {
     top: 0;
   }
 
   &.open {
+    visibility: visible;
     opacity: 1;
   }
 
   &.closed {
+    visibility: hidden;
     opacity: 0;
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       opacity: 1;
       display: none;
     }
@@ -36,7 +39,15 @@
     border: 1px solid #dfdfdf;
     display: flex;
     width: 100%;
-    background: #f2f3f5;
+    background: white;
+  }
+
+  .core-text {
+    color: #00a1d9;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 0;
   }
 
   // custom styles to override / build on top of bulma's nav link
@@ -44,8 +55,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 24px;
+    padding: 16px 24px;
     flex: 1;
+  }
+
+  .menu-section-heading {
+    display: flex;
+    flex-direction: column;
   }
 
   .menu-section-links {
@@ -63,7 +79,8 @@
 
   // explore our products heading and text; desktop only
   .explore-text {
-    min-width: 340px;
+    min-width: 344px;
+    background: #f2f3f5;
 
     .heading-text {
       font-size: 18px;
@@ -71,8 +88,7 @@
       margin-bottom: 8px;
     }
 
-
-    @include breakpoint(desktop-below) {
+    @include breakpoint(navmenu-below) {
       display: none;
     }
   }
@@ -80,8 +96,7 @@
 
 // 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
 
-@include breakpoint(desktop-below) {
-  // @media(max-width: 1087px) {}
+@include breakpoint(navmenu-below) {
   .ProductsPopup {
     position: relative;
     margin-left: 0;
@@ -102,13 +117,24 @@
     }
 
     .menu-section {
-      flex-direction: row;
+      // flex-direction: row;
       padding: 4px 16px;
-      justify-content: flex-start;
+      justify-content: center;
+    }
+
+    .core-text {
+      order: 2;
+      padding-left: 16px;
+    }
+
+    // displays section heading and "core" text.
+    .menu-section-heading {
+      display: flex;
+      flex-direction: row;
     }
 
     .menu-section-links {
-      padding: 0 24px;
+      padding: 24px;
       flex-direction: column;
     }
 

@@ -1,6 +1,10 @@
+// Media queries
 $mobile: 768px;
 $tablet: 1024px;
 $desktop:  1216px;
+
+// for pages like About Us, Contact; the green headers with images.
+$header-height: 470px;
 
 
 @mixin breakpoint($class) {
@@ -11,14 +15,21 @@ $desktop:  1216px;
   @else if $class == tablet-up {
     @media (min-width: 768px) { @content; }
   }
-
  
   @else if $class == desktop-up {
     @media (min-width: 1024px) { @content; }
   }
 
+  @else if $class == navmenu-below {
+    @media (max-width: 1159px) { @content; }
+  }
+
+  @else if $class == navmenu-up {
+    @media (min-width: 1160px) { @content; }
+  }
+
   @else if $class == desktop-below {
-    @media (max-width: 1023px) { @content; }
+    @media (max-width: 1024px) { @content; }
   }
  
   @else if $class == wide-up {
@@ -33,3 +44,7 @@ $desktop:  1216px;
     @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }
 }
+
+// Colors -----
+
+$teal: #00ddbe;
