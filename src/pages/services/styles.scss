@@ -19,7 +19,7 @@
     background-position-y: 0px;
     display: flex;
     justify-content: center;
-    
+
     @include breakpoint(mobile) {
       height: auto;
       padding: 16px;
@@ -37,18 +37,18 @@
       background-size: 50%;
     }
   }
-  
+
   .consulting-hero {
     background-image: url("./assets/consulting.svg");
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
     background-position-x: 20%;
+    // background-position-y: -120px;
     height: 600px;
-    padding: 48px 0;
 
   }
-  
+
   .hero-subheader {
     font-family: Lato;
     font-size: 24px;
