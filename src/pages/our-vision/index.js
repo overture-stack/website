@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import heroImg from "./assets/hero_img.svg";
 import {
   H1,
