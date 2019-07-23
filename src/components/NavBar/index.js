@@ -85,7 +85,7 @@ class NavBar extends Component {
               <NavLink
                 closeMenus={this.props.closeMenus}
                 url="/our-vision"
-                name="Our Vision"
+                name="About Us"
               />
               <NavLink
                 closeMenus={this.props.closeMenus}

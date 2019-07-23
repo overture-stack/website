@@ -74,7 +74,7 @@ const links = {
     }
   },
   About: {
-    "Our Vision": {
+    "About Us": {
       link: "/our-vision",
       icon: null,
       newTab: false,

@@ -5,6 +5,9 @@ import {
   H2,
   H4,
   Button,
+  Hero,
+  Button,
+  MarketingSection,
   Layout,
   Icon,
   BottomCallout,
@@ -12,27 +15,28 @@ import {
 } from "../../components";
 import "./styles.scss";
 
-class OurVisionPage extends Component {
+class AboutUsPage extends Component {
   render() {
     return (
       <Layout>
-        <main className="OurVisionPage">
+        <main className="AboutUsPage">
           {/* HERO */}
-          <section className="hero bg-green vision-hero-box section">
-            <div className="container flex justify-center items-center flex-auto">
-              <div className="hero-header-text flex flex-column column is-half justify-center">
-                <H1>Our Vision</H1>
-                <H4 className="py3" style={{ maxWidth: "585px" }}>
-                  Our vision is to help research, healthcare, and patient
-                  communities collaborate and advance genomic research by
-                  providing cutting-edge open source software solutions.
-                </H4>
-              </div>
-              <div className="column is-half is-hidden-mobile vision-hero-img">
-                <img src={heroImg} />
-              </div>
+          <Hero
+            title="About Us"
+            subtitle="Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions."
+            fgImage="img_our_vision"
+          >
+            <div className="flex py2">
+              <a className="hero-link" target="_blank" href="https://softeng.oicr.on.ca/team/">
+                Meet the team
+                <Icon size={16} img="arrowRightMagenta" />
+              </a>
+              <a className="hero-link pl3" target="_blank" href="https://softeng.oicr.on.ca/">
+                Team blog
+                <Icon size={16} img="arrowRightMagenta" />
+              </a>
             </div>
-          </section>
+          </Hero>
 
           {/* Genome informatics */}
           <section className="hero py3">
@@ -161,4 +165,4 @@ class OurVisionPage extends Component {
   }
 }
 
-export default OurVisionPage;
+export default AboutUsPage;

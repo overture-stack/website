@@ -1,24 +1,21 @@
 @import "../../styles/variables";
 
-.OurVisionPage {
-
+.AboutUsPage {
   p {
     font-size: 18px;
     line-height: 30px;
   }
 
-  .vision-hero-box {
-    height: 600px;
-    
-    @include breakpoint(mobile) {
-      height: auto;
-      padding: 16px;
-    }
-  }
+  .hero-link {
+    font-family: Lato-Bold;
+    font-size: 18px;
+    color: #9E005D;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0;
 
-  .vision-hero-img {
-    @media(min-width: 1024px) {
-      transform: scale(0.9) translateY(90px);
+    img {
+      margin: 2px 0 0 6px;
     }
   }
 }
