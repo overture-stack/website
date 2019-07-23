@@ -26,6 +26,7 @@ class OurVisionPage extends Component {
                   ROSI LOOK HERE FOR PR TESTING CHNAGES
                   MOAR CHANGES
                   changes againg
+                  more
                 </H4>
               </div>
               <div className="column is-half is-hidden-mobile vision-hero-img">
