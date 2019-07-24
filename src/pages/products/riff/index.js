@@ -75,8 +75,6 @@ const RiffPage = () => (
         />
       </ProductFeatureRow>
 
-      {/* Target Features Things */}
-
       {/* Target Section */}
       <GridFeature data={featureGridData}/>
 
