@@ -1,18 +1,27 @@
+@import "../../styles/variables";
+
 .GridFeature {
-		.foo {
-				border-top: 2px solid white;
-		}
 
-		.white-border-left {
-				border-left: 2px solid white;
+	.white-border-bottom {
+		border-bottom: 2px solid white;
+		@media(max-width: $tablet) {
+			border-bottom: none;
 		}
+	}
 
-		.horizontal-rule {
-				// position: absolute;
-				top: 50%;
-				height: 2px;
-				width: 300%;
-				left: -150%;
-				background: white;
+	.feature-item {
+		padding: 64px 24px;
+		@media(max-width: $tablet) {
+			padding: 32px 24px;
 		}
+	}
+
+	.white-border-left {
+		border-left: 2px solid white;
+		padding-left: 48px;
+		@media(max-width: $tablet) {
+			border-left: none;
+			padding-left: 24px;
+		}
+	}
 }

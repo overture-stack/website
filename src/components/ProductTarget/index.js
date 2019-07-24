@@ -7,11 +7,11 @@ import Icon from "../Icon/index";
  * Sometimes (oncojs page) we just have a target + details.
  * So; not passing a header prop will place details directly next to target icon.
 */
-const ProductTarget = ({ header, details, className }) => (
+const ProductTarget = ({ header, details, className, icon="target" }) => (
   <div className={`ProductTarget ${className ? className : ""}`}>
     <div className="flex items-center py2">
       {/* Icon */}
-      <Icon img="target" size={32} />
+      <Icon img={icon} size={32} />
 
       {/* header */}
       {header ? (

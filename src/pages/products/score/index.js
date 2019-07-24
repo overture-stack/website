@@ -6,6 +6,7 @@ import {
   ProductFeature,
   ProductFeatureRow,
   ProductTarget,
+  GridFeature,
   ProductHero,
   Layout,
   GettingStarted,
@@ -14,6 +15,31 @@ import {
   Callout,
   Terminal
 } from "../../../components";
+
+
+const featureGridData = [
+  [
+    {
+      header: "Data Integrity",
+      details: "Leave corrupted files behind as downloaded files are always verified against their MD5sum.",
+      icon: "target"
+    },
+
+    {
+      header: "Tracks and validate",
+      details: "The transfer protocols allow setup with any public or private cloud service.",
+      icon: "target"
+    },
+  ],
+
+  [
+    {
+      header: "Pick up where you left off",
+      details: "Score allows you to resume file transfer when a process stops mid-transfer.",
+      icon: "target"
+    },
+  ]
+]
 
 const ScorePage = () => (
   <Layout>
@@ -66,57 +92,10 @@ const ScorePage = () => (
         />
       </ProductFeatureRow>
 
-      {/* Target Features Things */}
-
-      {/* Target Section */}
-      <div className="bg-grey">
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns mb0">
-              <div
-                className="column is-half"
-                style={{ borderRight: "2px solid white" }}
-              >
-                <div className="target-box">
-                  <ProductTarget
-                    header="Data Integrity"
-                    details="Leave corrupted files behind as downloaded files are always verified against their MD5sum."
-                  />
-                </div>
-              </div>
-
-              <div className="column is-half ">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Tracks and validate"
-                    details="The transfer protocols allow setup with any public or private cloud service."
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns">
-              <div className="column flex justify-center">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Pick up where you left off"
-                    details="Score allows you to resume file transfer when a process stops mid-transfer."
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
+      {/* List of Features on Grey Background*/}
+      <GridFeature data={featureGridData}/>
 
       {/* Getting Started */}
-
       <GettingStarted>
         {/* Getting Started: Step 1 */}
 

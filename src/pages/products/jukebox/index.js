@@ -9,6 +9,7 @@ import {
   ProductFeatureRow,
   ProductTarget,
   ProductHero,
+  GridFeature,
   GettingStarted,
   BottomCallout,
   Callout,
@@ -17,6 +18,36 @@ import {
 } from "../../../components";
 
 import "./style.scss";
+
+const featureGridData = [
+  [
+    {
+      header: "Learn",
+      details: "This environment allows you to learn as you go without having to do any of the setup yourself.",
+      icon: "target"
+    },
+
+    {
+      header: "Experiment",
+      details: "Forget the expense. Now you can run experiments on datasets cost effectively and worry free.",
+      icon: "target"
+    },
+  ],
+
+  [
+    {
+      header: "Collaborative",
+      details: "Jupyter Hub allows multiple people within your group to use and access the notebooks.",
+      icon: "target"
+    },
+
+    {
+      header: "Cloud-based",
+      details: "Cloud deployment for data co-location, take your analysis to the data.",
+      icon: "target"
+    },
+  ],
+]
 
 const JukeboxPage = () => (
   <Layout>
@@ -82,68 +113,10 @@ const JukeboxPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features Things */}
-      <div className="bg-grey">
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns">
-              <div
-                className="column is-half py0"
-                style={{ borderRight: "2px solid white" }}
-              >
-                <div className="target-box">
-                  <ProductTarget
-                    header="Learn"
-                    details="This environment allows you to learn as you go without having to do any of the setup yourself."
-                  />
-                </div>
-              </div>
+      <GridFeature data={featureGridData}/>
 
-              <div className="column is-half py0">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Experiment"
-                    details="Forget the expense. Now you can run experiments on datasets cost effectively and worry free."
-                    icon="security"
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns">
-              <div
-                className="column is-half py0"
-                style={{ borderRight: "2px solid white" }}
-              >
-                <div className="target-box">
-                  <ProductTarget
-                    header="Collaborative"
-                    details="Jupyter Hub allows multiple people within your group to use and access the notebooks."
-                    icon="security"
-                  />
-                </div>
-              </div>
-
-              <div className="column is-half py0">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Cloud-based"
-                    details="Cloud deployment for data co-location, take your analysis to the data."
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
 
       {/* Getting Started /  Terminals */}
-
       <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
         {/* Getting Started: Step 1 */}
 

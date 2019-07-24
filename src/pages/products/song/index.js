@@ -25,19 +25,18 @@ import pgsql from "./assets/pgsql.png";
 import aws from "./assets/aws.svg";
 
 
-
 const featureGridData = [
 	[
 		{
 			header: "It's fast",
 			details: "Allows asynchronous uploads, so that invalid uploads don't stops valid ones from going through. Processes submissision with billlions of entities in hours.",
-			icon: "security"
+			icon: "target"
 		},
 
 		{
 			header: "Turn-key solution",
 			details: "Uses industry standard technologies, like JSON, YAML, and REST, so you don't have to learn anything new or difficult to use Song.",
-			icon: "security"
+			icon: "target"
 		},
 	],
 
@@ -45,13 +44,13 @@ const featureGridData = [
 		{
 			header: "Tracks and validate",
 			details: "Automatically validates your metadata submissions against a JSON schema to ensure that all your metadata is correct before it gets published.",
-			icon: "security"
+			icon: "target"
 		},
 
 		{
 			header: "Connected metadata",
 			details: "Supports ACLs out of the box, so you control who and how your metadata gets published. Easy to keep track of which researcher updated which data set, and when.",
-			icon: "security"
+			icon: "target"
 		},
 	]
 ]
@@ -206,7 +205,7 @@ const SongPage = () => (
 
 				<Callout
 					icon="pageWhite"
-					description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific security."
+					description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
 				>
 					<a
 						target="_blank"

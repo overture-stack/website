@@ -1,14 +1,14 @@
 .ProductTarget {
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  
+  padding: 32px; // TODO: remove this
+
   .target-header {
     font-weight: bold;
     font-size: 18px;
     padding-left: 16px;
   }
-  
+
   .details {
     max-width: 492px;
     font-size: 18px;
