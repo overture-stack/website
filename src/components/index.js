@@ -9,6 +9,7 @@ export { default as WindowGui } from "./WindowGui";
 export { default as ImageCrossfade } from "./ImageCrossfade";
 export { BottomCallout, Callout } from "./BottomCallout";
 export { default as GettingStarted } from "./GettingStarted";
+export { default as GridFeature } from "./GridFeature";
 export { default as ProductTarget } from "./ProductTarget";
 export { default as ProgressBar } from "./ProgressBar";
 export { ProductFeature, ProductFeatureRow } from "./ProductFeature";

@@ -1,0 +1,18 @@
+.GridFeature {
+		.foo {
+				border-top: 2px solid white;
+		}
+
+		.white-border-left {
+				border-left: 2px solid white;
+		}
+
+		.horizontal-rule {
+				// position: absolute;
+				top: 50%;
+				height: 2px;
+				width: 300%;
+				left: -150%;
+				background: white;
+		}
+}
