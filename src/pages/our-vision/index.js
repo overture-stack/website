@@ -6,7 +6,6 @@ import {
   H4,
   Button,
   Hero,
-  Button,
   MarketingSection,
   Layout,
   Icon,
