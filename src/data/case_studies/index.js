@@ -118,7 +118,7 @@ export default [
     title: "NCI GDC Data Portal",
     slug: "nciGdc",
     logo: gdc_logo,
-    description: `The <a href='${gdc_link}' target='_blank'>National Cancer Institute’s GDC Data Portal</a> has harmonized genomic data from over 33,000 cancer patients from programs such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET) and Foundation Medicine.`,
+    description: `The <a href='${gdc_link}' target='_blank'>National Cancer Institute’s Genomic Data Commons Data Portal</a> has harmonized genomic data from over 33,000 cancer patients from programs such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET) and Foundation Medicine.`,
     listItems: [
       "Explore genomic and clinical data from cancer patients",
       "Create virtual cohort by search across all patients for specific clinical attributes and genomic mutations",
