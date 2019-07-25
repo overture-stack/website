@@ -9,10 +9,18 @@
 
   .vision-hero-box {
     height: 600px;
-    
+
     @include breakpoint(mobile) {
       height: auto;
       padding: 16px;
+    }
+  }
+
+  .our-vision-section {
+    padding: 96px 0;
+
+    @media(max-width: $tablet) {
+      padding: 48px 0;
     }
   }
 
