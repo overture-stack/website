@@ -118,7 +118,7 @@ export default [
     title: "NCI GDC Data Portal",
     slug: "nciGdc",
     logo: gdc_logo,
-    description: `The <a href='${gdc_link}' target='_blank'>National Cancer Institute’s GDC Data Portal</a> has harmonized genomic data from over 33,000 cancer patients from programs such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET) and Foundation Medicine.`,
+    description: `The <a href='${gdc_link}' target='_blank'>National Cancer Institute’s Genomic Data Commons Data Portal</a> has harmonized genomic data from over 33,000 cancer patients from programs such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET) and Foundation Medicine.`,
     listItems: [
       "Explore genomic and clinical data from cancer patients",
       "Create virtual cohort by search across all patients for specific clinical attributes and genomic mutations",
@@ -168,36 +168,34 @@ export default [
     ]
   },
 
-  // NOTE HCMI has not yet given permission to be put up as a case study.
+  {
+    title: "Human Cancer Models Initiative",
+    slug: "humanCancerModels",
+    description: `The <a href='${hcmis_link}' target='_blank'>Human Cancer Models Initiative Searchable Catalog</a> is an interactive catalog of purchasable next-generation, tumor-derived organoids and cell lines. The catalog is supported by a custom content management system for entry and validation of clinical and genomic data. Investigate individual model pages for licensing requirements, molecular features, culturing requirements and purchasing details. `,
+    logo: hcmis_logo,
+    listItems: [
+      "Customized “shopping” experience for researchers to browse innovative cancer models",
+      "Models annotated with genomic and clinical data",
+    ],
+    clientLink: hcmis_link,
+    details: [
+      {
+        title: "Arranger",
+        description: "Customizable data access made easy.",
+        screenshot: hcmis_arranger
+      },
 
-  // {
-  //   title: "Human Cancer Models Initiative",
-  //   slug: "humanCancerModels",
-  //   description: `The <a href='${hcmis_link}' target='_blank'>Human Cancer Models Initiative Searchable Catalog</a> is an interactive catalog of purchasable next-generation, tumor-derived organoids and cell lines. The catalog is supported by a custom content management system for entry and validation of clinical and genomic data. Investigate individual model pages for licensing requirements, molecular features, culturing requirements and purchasing details. `,
-  //   logo: hcmis_logo,
-  //   listItems: [
-  //     "Customized “shopping” experience for researchers to browse innovative cancer models",
-  //     "Models annotated with genomic and clinical data",
-  //   ],
-  //   clientLink: hcmis_link,
-  //   details: [
-  //     {
-  //       title: "Arranger",
-  //       description: "Customizable data access made easy.",
-  //       screenshot: hcmis_arranger
-  //     },
+      {
+        title: "Riff",
+        description: "Social sharing to spread awareness and build the community.",
+        screenshot: hcmis_riff
+      },
 
-  //     {
-  //       title: "Riff",
-  //       description: "Social sharing to spread awareness and build the community.",
-  //       screenshot: hcmis_riff
-  //     },
-
-  //     {
-  //       title: "CMS",
-  //       description: "Entry and validation of clinical and genomic data.",
-  //       screenshot: hcmis_cms
-  //     }
-  //   ]
-  // }
+      {
+        title: "CMS",
+        description: "Entry and validation of clinical and genomic data.",
+        screenshot: hcmis_cms
+      }
+    ]
+  }
 ];
