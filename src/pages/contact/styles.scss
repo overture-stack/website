@@ -38,9 +38,7 @@
   }
 
   .contact-hero-img {
-    display: flex;
-    justify-content: center;
-    transform: scale(1.0) translateY(90px);
+    transform: scale(1.0) translateY(120px);
     @media(min-width: 768px) and (max-width: 1024px) {
       transform: scale(0.6);
     }
@@ -49,5 +47,5 @@
       transform: translateY(130px);
     }
   }
-  
+
 }

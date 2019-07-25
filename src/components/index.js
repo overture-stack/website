@@ -7,6 +7,7 @@ export { default as Button } from "./Button";
 export { default as Footer } from "./Footer";
 export { default as WindowGui } from "./WindowGui";
 export { default as ImageCrossfade } from "./ImageCrossfade";
+export { default as MarketingSection } from "./MarketingSection";
 export { BottomCallout, Callout } from "./BottomCallout";
 export { default as GettingStarted } from "./GettingStarted";
 export { default as GridFeature } from "./GridFeature";
