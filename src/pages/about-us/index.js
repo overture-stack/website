@@ -32,7 +32,7 @@ const featureGridData = [
 	[
 		{
 			header: "An open world.",
-			details: "We are strong believers in open-source software, open science, and open communication. Don’t hesitate to follow our team activities on <a href='https://waffle.io/overture-stack/roadmap'> GitHub </a> by taking a look at upcoming or in-progress tickets, or even be the first to test out a feature detailed in a Pull Request.",
+			details: "We are strong believers in open-source software, open science, and open communication. Don’t hesitate to follow our team activities on <a href='https://github.com/overture-stack/roadmap/issues'> GitHub </a> by taking a look at upcoming or in-progress tickets, or even be the first to test out a feature detailed in a Pull Request.",
 			icon: "lockCode"
 		},
 		{

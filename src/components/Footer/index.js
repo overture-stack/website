@@ -74,6 +74,12 @@ const links = {
     }
   },
   About: {
+    "Case Studies": {
+      link: "/case-studies",
+      icon: null,
+      newTab: false,
+      className: "",
+    },
     "About Us": {
       link: "/about-us",
       icon: null,
