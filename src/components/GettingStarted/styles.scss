@@ -6,6 +6,7 @@
   padding: 32px 0;
   font-size: 18px;
   line-height: 32px;
+  margin-bottom: 64px !important; // override wrapping sub .container
 
   // A single step of instructions (step, description, terminal)
   .Step {

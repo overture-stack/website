@@ -3,21 +3,20 @@ import './styles.scss'
 import Icon from "../Icon/index";
 
 export const BottomCallout = ({children, className }) => (
-  <section 
-    className={`${className ? className : "" } BottomCallout bg-blue section text-white py4`}>
+  <section
+    className={`${className ? className : "" } BottomCallout`}>
     <div className="container">
-    <div className="columns justify-around ">
+    <div className="callout-container">
       {children}
     </div>
     </div>
   </section>
-  
 )
 
 export const Callout = ({icon, description, children, className}) => (
   <div className={`${className ? className : "" } Callout `}>
     <Icon size={32} img={icon} />
-    <div className="py3 text-white">
+    <div className="text-white py2">
       {description}
     </div>
     {children}
