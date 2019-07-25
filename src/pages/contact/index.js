@@ -46,7 +46,7 @@ class ContactPage extends Component {
               {/* Header */}
               <div className="column is-offset-1 mb4">
                 <H2>Get in Touch!</H2>
-                <div className="mt3 yellow-bar" />
+                <div className="yellow-bar" />
               </div>
 
               <div className="columns">

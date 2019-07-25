@@ -7,7 +7,6 @@ import {
   Layout,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
   GridFeature,
   GettingStarted,
@@ -150,7 +149,7 @@ const JukeboxPage = () => (
             <div>
               <H4>Use Ansible to deploy Jukebox.</H4>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -170,7 +169,7 @@ const JukeboxPage = () => (
                 and Seaborn and languages including Python, Scala and R.
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

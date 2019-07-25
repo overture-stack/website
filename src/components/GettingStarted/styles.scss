@@ -10,6 +10,9 @@
   // A single step of instructions (step, description, terminal)
   .Step {
     padding: 2rem 0;
+    @media(max-width: $tablet) {
+      padding: 1rem 0;
+    }
 
     .step-text {
       padding: 1rem 0;

@@ -7,7 +7,6 @@ import {
 	Layout,
 	ProductFeature,
 	ProductFeatureRow,
-	ProductTarget,
 	ProductHero,
 	GettingStarted,
 	GridFeature,
@@ -119,7 +118,7 @@ const SongPage = () => (
 								Download the Song client - Sing, our command line interface.
 							</H4>
 						</div>
-						<div className="mt3 yellow-bar" />
+						<div className="yellow-bar" />
 					</div>
 
 					<div className="column is-8 is-offset-1 self-center">
@@ -138,7 +137,7 @@ const SongPage = () => (
 								Build and run the source using maven with simple instructions.
 							</H4>
 						</div>
-						<div className="mt3 yellow-bar" />
+						<div className="yellow-bar" />
 					</div>
 
 					<div className="column is-8 is-offset-1 self-center">
@@ -159,7 +158,7 @@ const SongPage = () => (
 						<div>
 							<H4>Get started running Song with just two Docker commands.</H4>
 						</div>
-						<div className="mt3 yellow-bar" />
+						<div className="yellow-bar" />
 					</div>
 
 					<div className="column is-8 is-offset-1 self-center">

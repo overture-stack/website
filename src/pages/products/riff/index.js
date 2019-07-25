@@ -6,7 +6,6 @@ import {
   Layout,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
   GridFeature,
   GettingStarted,
@@ -92,7 +91,7 @@ const RiffPage = () => (
                 To get started, you'll first need to install a database.
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -108,7 +107,7 @@ const RiffPage = () => (
             <div>
               <H4>Clone the git repo.</H4>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -127,7 +126,7 @@ const RiffPage = () => (
                 The database schema will be preconfigured as part of the set up!
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

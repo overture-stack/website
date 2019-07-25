@@ -7,7 +7,6 @@ import {
   Button,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
   GridFeature,
   GettingStarted,
@@ -99,7 +98,7 @@ const PersonaPage = () => (
             <div>
               <H4>Download Persona.</H4>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -132,7 +131,7 @@ const PersonaPage = () => (
                 </li>
               </ul>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
         </div>
 
@@ -153,7 +152,7 @@ const PersonaPage = () => (
                 </div>
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

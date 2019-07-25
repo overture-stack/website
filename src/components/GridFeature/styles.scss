@@ -10,18 +10,22 @@
 	}
 
 	.feature-item {
-		padding: 64px 24px;
+		padding: 56px 24px 64px 0px;
 		@media(max-width: $tablet) {
-			padding: 32px 24px;
+			padding: 32px 0px;
 		}
 	}
 
-	.white-border-left {
+	.right-item {
 		border-left: 2px solid white;
 		padding-left: 48px;
 		@media(max-width: $tablet) {
 			border-left: none;
-			padding-left: 24px;
+			padding-left: 0px;
+		}
+
+		@media(min-width: $tablet) and (max-width: 1100px) {
+			padding-left: 32px;
 		}
 	}
 }

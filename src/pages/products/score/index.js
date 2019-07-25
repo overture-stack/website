@@ -5,7 +5,6 @@ import {
   H4,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   GridFeature,
   ProductHero,
   Layout,
@@ -109,7 +108,7 @@ const ScorePage = () => (
                 cloud-based service you choose to store your data on.
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -130,7 +129,7 @@ const ScorePage = () => (
                 uploads and downloads your files.
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

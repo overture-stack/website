@@ -1,21 +1,41 @@
 import React from "react";
 import "./styles.scss";
-import ProductTarget from "../ProductTarget/index.js";
+import ProductFeature from "../ProductFeature";
 
 /**
- * A bit of hackery to make easier creation of grid features
- * Mostly just adds some conditional classes to enable containerized divs
+ * "GridFeature" creates blocks of text with headers, icons and text;
+ * Often used to describe features on a product, used quite a bit across the site.
+ * You can see examples on AboutUs, Song, Score, Jukebox, etc
+ *
+ * Mostly, this adds some conditional classes to enable containerized divs
  * while still maintaining a full width grey background + white divider lines.
+ * Essentially, helps make markups for these kinds of UI structures:
+ *
+ *      +---------+---------+            +---------+---------+
+ *      |         |         |            |         |         |
+ *      |    F1   |    F2   |            |    F1   |    F2   |
+ *      |         |         |            |         |         |
+ *      +---------+---------+    -OR-    +---------+---------+
+ *      |         |         |            |                   |
+ *      |    F3   |    F4   |            |        F3         |
+ *      |         |         |            |                   |
+ *      +-------------------+            +-------------------+
  *
  */
 
-const FeatureItem = ({ feature, className }) => {
+
+/**
+ * A single feature; creates a Product Feature wrapped to fit in a grid.
+ */
+const FeatureItem = ({ feature, className, iconSize=100 }) => {
   return (
     <div className={`column feature-item ${className}`}>
-        <ProductTarget
+        <ProductFeature
           header={feature.header}
           details={feature.details}
           icon={feature.icon}
+          iconSize={iconSize}
+          size="small"
           className="p0"
         />
     </div>
@@ -23,24 +43,29 @@ const FeatureItem = ({ feature, className }) => {
 };
 
 /**
- * Returns a string based on how many "product feature" boxes there are.
- *
+ * Returns a css class (string) based on how many "product feature" boxes there are.
+ * Necessary to style based on the position of the boxes;
+ * ex: the 2nd box (on the right) in a row must have a white border
+ * ex: There are three features describing a product, therefore, the last one must be full width.
  */
 function buildStyle(arr, idx) {
-  // let onlyOne = arr.length % 2 !== 0 ? true : false;
   let isEvenFeature = idx % 2 == 0 ? false : true;
 
 
   if (arr.length === 1) {
     return "is-8-desktop is-offset-4-desktop is-6-tablet is-offset-4-tablet is-12-mobile";
   } else if (isEvenFeature) {
-    return "is-half white-border-left";
+    return "is-half right-item";
   } else {
     return "is-half";
   }
 }
 
-const GridFeature = ({ data }) => {
+/**
+ * Loops through a 2D array of feature items;
+ * makes a row of grids for each items in the array;
+ */
+const GridFeature = ({ data, iconSize=32 }) => {
   return (
     <div className="bg-grey GridFeature">
       {data.map(arr => {
@@ -51,6 +76,7 @@ const GridFeature = ({ data }) => {
                 {arr.map((feat, idx) => (
                   <FeatureItem
                     feature={feat}
+                    iconSize={iconSize}
                     className={buildStyle(arr, idx)}
                   />
                 ))}
