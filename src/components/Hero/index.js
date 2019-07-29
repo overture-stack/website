@@ -22,6 +22,10 @@ const imgs = {
   img_products
 };
 
+/**
+ * fgImage / fgImageClass  -> for providing a hero image using an <img> tag
+ * bgImage / bgImageStyles -> for background css images and respective inline styles.
+ */
 const Hero = ({
   title,
   titleClass,

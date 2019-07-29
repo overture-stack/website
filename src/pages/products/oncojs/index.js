@@ -5,7 +5,7 @@ import {
   Button,
   Layout,
   ProductHero,
-  ProductTarget,
+  ProductFeature,
   WindowGui,
   BottomCallout,
   Callout
@@ -61,21 +61,27 @@ const OncoPage = () => (
               </p>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Lollipop height is based on cohort frequency."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Zoom in/out of protein domains."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Pass in a d3 object (v3 or v4) to generate your plot."
                 />
@@ -122,21 +128,27 @@ const OncoPage = () => (
               </p>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Customize your grid by plotting clinical data tracks along the same axis."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Interactively explore mutation trends with heat-map view and scrolling."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Get started easily with examples in API documents."
                 />
@@ -170,21 +182,27 @@ const OncoPage = () => (
               </p>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="View summary data and observe survival patterns over time."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Compare different patterns and trends using expansive datasets."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Easily download summaries and graphs for 360 degree analysis."
                 />
@@ -228,14 +246,18 @@ const OncoPage = () => (
               <p>Correlate data to an interactive map of the human body.</p>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Provide an opportunity for your users to learn and explore data visually."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Deliver an interactive experience for users to consume key information and data."
                 />
@@ -270,21 +292,27 @@ const OncoPage = () => (
               </p>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="See the biology: visualize reactome data in a quick and easy way."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details="Explore your data: understand pathways and predict their implications."
                 />
               </div>
 
               <div className="">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   className="p0"
                   details=" View and synthesize data in the context of different pathways."
                 />

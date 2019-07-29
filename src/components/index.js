@@ -10,7 +10,7 @@ export { default as ImageCrossfade } from "./ImageCrossfade";
 export { default as MarketingSection } from "./MarketingSection";
 export { BottomCallout, Callout } from "./BottomCallout";
 export { default as GettingStarted } from "./GettingStarted";
-export { default as ProductTarget } from "./ProductTarget";
+export { default as GridFeature } from "./GridFeature";
 export { default as ProgressBar } from "./ProgressBar";
 export { ProductFeature, ProductFeatureRow } from "./ProductFeature";
 export { default as NavBar } from "./NavBar";

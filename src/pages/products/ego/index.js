@@ -7,7 +7,6 @@ import {
   Layout,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
   GettingStarted,
   BottomCallout,
@@ -68,26 +67,32 @@ const EgoPage = () => (
       {/* Target Features + Screenshot */}
       <section className="bg-curve-grey pb4">
         <div className="container">
-          <div className="columns column target-feature-container">
+          <div className="columns target-feature-container">
             {/* targets */}
 
-            <div className="column pt2 is-4-desktop pt2">
+            <div className="column pt2 is-4-desktop">
               <div className="py2">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   header="It’s stateless"
                   details="Ego uses JSON Web Tokens (JWT) for authorization."
                 />
               </div>
 
               <div className="py2">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   header="It's secure"
                   details="Built with modern frameworks such as Spring Security, you can rest assured that users will be authorized securely."
                 />
               </div>
 
               <div className="py2">
-                <ProductTarget
+                <ProductFeature
+                  size="small"
+                  icon="target"
                   header="Scale up"
                   details="There are no limits to the number of applications you can use Ego alongside."
                 />
@@ -119,7 +124,7 @@ const EgoPage = () => (
                 </li>
               </ul>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -158,7 +163,7 @@ const EgoPage = () => (
                 </li>
               </ul>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -194,7 +199,7 @@ const EgoPage = () => (
                 </li>
               </ul>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

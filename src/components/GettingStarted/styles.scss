@@ -6,10 +6,14 @@
   padding: 32px 0;
   font-size: 18px;
   line-height: 32px;
+  margin-bottom: 64px !important; // override wrapping sub .container
 
   // A single step of instructions (step, description, terminal)
   .Step {
     padding: 2rem 0;
+    @media(max-width: $tablet) {
+      padding: 1rem 0;
+    }
 
     .step-text {
       padding: 1rem 0;

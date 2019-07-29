@@ -74,8 +74,14 @@ const links = {
     }
   },
   About: {
-    "Our Vision": {
-      link: "/our-vision",
+    "Case Studies": {
+      link: "/case-studies",
+      icon: null,
+      newTab: false,
+      className: "",
+    },
+    "About Us": {
+      link: "/about-us",
       icon: null,
       newTab: false,
       className: "",

@@ -7,13 +7,35 @@ import {
   Button,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
+  GridFeature,
   GettingStarted,
   BottomCallout,
   Callout,
   Terminal
 } from "../../../components";
+
+const featureGridData = [
+  [
+    {
+      header: "Adaptable user information",
+      details: "MondoDB backend enables user profiles with different roles to have different fields.",
+      icon: "target"
+    },
+    {
+      header: "Scalable",
+      details: "As your user base grows, Persona grows to accommodate the profile information.",
+      icon: "target"
+    },
+  ],
+  [
+    {
+      header: "Pairs with Ego",
+      details: "Built to interact seamlessly with the user authorization product, <a href='/products/ego'/>Ego.</a>",
+      icon: "target"
+    },
+  ],
+]
 
 const PersonaPage = () => (
   <Layout>
@@ -62,53 +84,8 @@ const PersonaPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features Things */}
+      <GridFeature data={featureGridData}/>
 
-      {/* Target Section */}
-      <div className="bg-grey">
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns mb0">
-              <div
-                className="column is-half"
-                style={{ borderRight: "2px solid white" }}
-              >
-                <div className="target-box">
-                  <ProductTarget
-                    header="Adaptable user information"
-                    details="MondoDB backend enables user profiles with different roles to have different fields."
-                  />
-                </div>
-              </div>
-
-              <div className="column is-half ">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Scalable"
-                    details="As your user base grows, Persona grows to accommodate the profile information."
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns">
-              <div className="column flex bottom-target">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Pairs with Ego"
-                    details="Built to interact seamlessly with the user authorization product, <a href='/products/ego'>Ego.</a>"
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
 
       {/* Getting Started */}
 
@@ -121,7 +98,7 @@ const PersonaPage = () => (
             <div>
               <H4>Download Persona.</H4>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -154,7 +131,7 @@ const PersonaPage = () => (
                 </li>
               </ul>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
         </div>
 
@@ -175,7 +152,7 @@ const PersonaPage = () => (
                 </div>
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">

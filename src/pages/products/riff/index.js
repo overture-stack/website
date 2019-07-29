@@ -6,14 +6,30 @@ import {
   Layout,
   ProductFeature,
   ProductFeatureRow,
-  ProductTarget,
   ProductHero,
+  GridFeature,
   GettingStarted,
   BottomCallout,
   Button,
   Callout,
   Terminal
 } from "../../../components";
+
+
+const featureGridData = [
+  [
+    {
+      header: "Short URLs",
+      details: "Each Riff can be mapped to by a Short URL which is generated on saving or sharing.",
+      icon: "target"
+    },
+    {
+      header: "Social",
+      details: "Allow users to share urls via link, Facebook, Twitter, or LinkedIn.",
+      icon: "target"
+    },
+  ],
+]
 
 const RiffPage = () => (
   <Layout>
@@ -58,38 +74,8 @@ const RiffPage = () => (
         />
       </ProductFeatureRow>
 
-      {/* Target Features Things */}
-
       {/* Target Section */}
-      <div className="bg-grey">
-        <section className="" style={{ borderBottom: "2px solid white" }}>
-          <div className="container">
-            {/* top row */}
-            <article className="columns mb0">
-              <div
-                className="column is-half"
-                style={{ borderRight: "2px solid white" }}
-              >
-                <div className="target-box">
-                  <ProductTarget
-                    header="Short URLs"
-                    details="Each Riff can be mapped to by a Short URL which is generated on saving or sharing."
-                  />
-                </div>
-              </div>
-
-              <div className="column is-half ">
-                <div className="target-box">
-                  <ProductTarget
-                    header="Social"
-                    details="Allow users to share urls via link, Facebook, Twitter, or LinkedIn."
-                  />
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-      </div>
+      <GridFeature data={featureGridData}/>
 
       {/* Getting Started */}
 
@@ -105,7 +91,7 @@ const RiffPage = () => (
                 To get started, you'll first need to install a database.
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -121,7 +107,7 @@ const RiffPage = () => (
             <div>
               <H4>Clone the git repo.</H4>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
@@ -140,7 +126,7 @@ const RiffPage = () => (
                 The database schema will be preconfigured as part of the set up!
               </div>
             </div>
-            <div className="mt3 yellow-bar" />
+            <div className="yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
