@@ -9,6 +9,7 @@ import cardStack from './icons/card_stack.svg'
 import checkmark from './icons/checkmark.svg'
 import cloud from './icons/cloud.svg'
 import cloudSquare from './icons/cloud_square.svg'
+import customizable from './icons/customizable.svg'
 import database from './icons/database.svg'
 import dna from './icons/dna.svg'
 import download from './icons/download.svg'
@@ -30,6 +31,7 @@ import power from './icons/power.svg'
 import rocketWhite from './icons/rocket_white.svg'
 import security from './icons/security.svg'
 import share from './icons/share.svg'
+import search from './icons/search.svg'
 import shield from './icons/shield.svg'
 import spiral from './icons/spiral.svg'
 import star from './icons/star.svg'
@@ -44,6 +46,7 @@ const icons = {
   barGraph,
   cardStack,
   checkmark,
+  customizable,
   cloud,
   cloudSquare,
   database,
@@ -65,6 +68,7 @@ const icons = {
   palette,
   power,
   rocketWhite,
+  search,
   security,
   share,
   shield,

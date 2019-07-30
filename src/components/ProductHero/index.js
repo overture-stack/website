@@ -8,6 +8,7 @@ import logoSong from "./images/song.svg";
 import logoEgo from "./images/ego.svg";
 import logoOncojs from "./images/oncojs.svg";
 import logoJukebox from "./images/jukebox.svg";
+import logoArranger from "./images/arranger.svg";
 import logoRiff from "./images/riff.svg";
 import logoPersona from "./images/persona.svg";
 import ProgressBar from "../ProgressBar/index";
@@ -21,6 +22,7 @@ const logos = {
   logoOncojs,
   logoPersona,
   logoRiff,
+  logoArranger,
 };
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
