@@ -126,18 +126,18 @@ export default [
     clientLink: gdc_link,
     details: [
       {
-        title: "OncoJS",
-        description: "Sapien correlates donors to primary sites of the human body.",
+        title: "Sapient",
+        description: "Correlates donors to primary sites of the human body",
         screenshot: gdc_sapien
       },
       {
-        title: "OncoJS",
+        title: "OncoGrid",
         description: "OncoGrid visualizes genomic data to identify trends and patterns.",
         screenshot: gdc_oncogrid
       },
       {
-        title: "OncoJS",
-        description: "Survivalplot visualizes datasets to determine probable health outcomes.",
+        title: "Survivalplot",
+        description: "Visualizes datasets to determine probable health outcomes.",
         screenshot: gdc_survival
       },
     ]
