@@ -2,6 +2,7 @@
 import React from 'react'
 import './styles.scss'
 import arrowRight from './icons/arrow_right.svg'
+import arrowsRight from './icons/arrows_right.svg'
 import arrowRightMagenta from './icons/arrow_right_magenta.svg'
 import arrowDown from './icons/arrow_down.svg'
 import barGraph from './icons/bar_graph.svg'
@@ -21,6 +22,7 @@ import githubYellow from './icons/github_yellow.svg'
 import graphCycle from './icons/graph_cycle.svg'
 import gridGlass from './icons/grid_magnifying_glass.svg';
 import history from './icons/history.svg'
+import kafka from './icons/kafka.svg'
 import lock from './icons/lock.svg'
 import lockCode from './icons/lock_code.svg'
 import mail from './icons/mail.png'
@@ -37,10 +39,12 @@ import spiral from './icons/spiral.svg'
 import star from './icons/star.svg'
 import target from './icons/target.svg'
 import user from './icons/user.svg'
+import vennDiagram from './icons/venn_diagram.svg'
 import slack from './icons/icon-slack.svg'
 
 const icons = {
   arrowRight,
+  arrowsRight,
   arrowRightMagenta,
   arrowDown,
   barGraph,
@@ -60,6 +64,7 @@ const icons = {
   graphCycle,
   gridGlass,
   history,
+  kafka,
   lock,
   lockCode,
   mail,
@@ -76,7 +81,8 @@ const icons = {
   star,
   target,
   user,
-  slack
+  slack,
+  vennDiagram
 }
 
 const Icon = ({ img, size, className, style }) => (
