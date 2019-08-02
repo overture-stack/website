@@ -78,9 +78,9 @@ const ProductHero = ({
         <div className="has-text-centered">
           {/* Title, Badge, Subtitle */}
           <div className="hero-title-box">
-            <span className="flex justify-center">
+            <span className="hero-title-and-tag ">
               <h1 className="title mb1">{title}</h1>
-              <Badge color={badge.color} className="ml1 mt3">
+              <Badge color={badge.color}>
                 {badge.text}
               </Badge>
             </span>

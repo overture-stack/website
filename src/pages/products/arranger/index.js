@@ -110,7 +110,7 @@ const ArrangerPage = () => (
 
       {/* Getting Started Terminals / steps */}
 
-      <GettingStarted pinnedLink="http://ego.readthedocs.io/en/latest/">
+      <GettingStarted pinnedLink="https://arranger.readthedocs.io/en/latest/">
         {/* Getting Started: Step 1 */}
 
         <div className="columns Step">
@@ -132,7 +132,7 @@ const ArrangerPage = () => (
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">2</H2>
-            <div> <H4>Run Docker</H4> </div>
+            <div> <H4>Run Docker.</H4> </div>
             <div className="mt3 yellow-bar" />
           </div>
 
@@ -145,12 +145,12 @@ const ArrangerPage = () => (
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">3</H2>
-            <div> <H4>Go to localhost to see arranger server</H4> </div>
+            <div> <H4>Go to localhost to see arranger server.</H4> </div>
             <div className="mt3 yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <UrlBar prompts={["http://localhost:8080"]} />
+            <UrlBar prompts={["<a target='_blank' href='https://localhost:8080'>http://localhost:8080</a>"]} />
           </div>
         </div>
 
@@ -164,7 +164,7 @@ const ArrangerPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <UrlBar prompts={["Visit https://arranger.readthedocs.io/en/latest/src/gettingstarted.html"]} />
+            <UrlBar prompts={["Visit <a target='_blank' href='https://arranger.readthedocs.io/en/latest/src/gettingstarted.html'>https://arranger.readthedocs.io/en/latest/src/gettingstarted.html</a> "]} />
           </div>
         </div>
       </GettingStarted>

@@ -105,8 +105,7 @@ const HomePage = () => (
             </BundleCard>
           </Link>
 
-          {/* Arranger Card: Uncomment when arranger gets done
-          <div className="column ">
+          <Link className="column" to="/products/arranger">
             <BundleCard icon="gridGlass" header="Arranger">
               <div className="py2">
                 Provide your administrators with the power to organize an
@@ -116,8 +115,7 @@ const HomePage = () => (
                 Learn More <Icon size={12} img="arrowRightMagenta" />
               </a>
             </BundleCard>
-          </div>
-      */}
+          </Link>
         </div>
 
         {/* BADGES */}

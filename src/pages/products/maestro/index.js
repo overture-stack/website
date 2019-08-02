@@ -26,7 +26,7 @@ const featureGridData = [
   },
    {
      header: "Exclusion rule",
-     details: "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>SONG</a>.",
+     details: "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>Song</a>.",
      icon: "target"
    }],
 
@@ -36,7 +36,7 @@ const featureGridData = [
    },
    {
      header: "Multiple Repository Management",
-     details: "Connect multiple <a href='/products/song'>SONG</a> servers to the same maestro to query data distributed across different repositories.",
+     details: "Connect multiple <a href='/products/song'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
      icon: "target"
    }],
 ]
@@ -76,7 +76,7 @@ const MaestroPage = () => (
           header="Customizable Record Indexing"
           icon="arrowsRight"
           iconSize={96}
-          details="Index a single analysis, a study or a full SONG repository with one request.
+          details="Index a single analysis, a study or a full <a href='/products/song'>Song</a> repository with one request.
 "
         />
         <ProductFeature
@@ -90,7 +90,7 @@ const MaestroPage = () => (
           header="Seamless Integration"
           icon="vennDiagram"
           iconSize={64}
-          details="Built to interact natively with Song and Arranger."
+          details="Built to interact natively with <a href='/products/song'>Song</a> and <a href='/products/arranger'>Arranger</a> "
         />
       </ProductFeatureRow>
 
@@ -99,7 +99,7 @@ const MaestroPage = () => (
 
 
       {/* Getting Started /  Terminals */}
-      <GettingStarted pinnedLink="https://github.com/overture-stack/maestro">
+      <GettingStarted pinnedLink="https://maestro-overture.readthedocs.io/en/latest/">
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">1</H2>
@@ -138,13 +138,6 @@ const MaestroPage = () => (
 
           <div className="column is-8 is-offset-1 self-center">
             <Terminal prompts={["cd run/docker-compose", "docker-compose up"]} />
-          </div>
-        </div>
-
-        <div className="columns Step">
-          <div className="column is-3">
-            <div><H4>For full details on the setup and configuration process visit the <a href='https://maestro-overture.readthedocs.io/en/latest/' target="_blank">documentation site.</a></H4> </div>
-            <div className="mt3 yellow-bar" />
           </div>
         </div>
       </GettingStarted>
