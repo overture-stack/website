@@ -47,7 +47,7 @@ const ArrangerPage = () => (
       {/* Features  */}
       <ProductFeatureRow>
         <ProductFeature
-          header="User managed."
+          header="User managed"
           icon="user"
           details="Sit back and relax as your administrators determine facets and search terms."
         />
@@ -95,7 +95,7 @@ const ArrangerPage = () => (
                   size="small"
                   icon="target"
                   header="Content Administration"
-                  details="Customize the content of your data portal data display, filters, and tables."
+                  details="Customize the content of your data portal display such as filters and tables."
                 />
               </div>
             </div>
@@ -132,7 +132,7 @@ const ArrangerPage = () => (
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">2</H2>
-            <div> <H4>Run Docker.</H4> </div>
+            <div> <H4>Run docker compose.</H4> </div>
             <div className="mt3 yellow-bar" />
           </div>
 
@@ -178,7 +178,7 @@ const ArrangerPage = () => (
           <Button
             type="primary"
             size="medium"
-            externalLink="https://github.com/overture-stack/ego"
+            externalLink="https://github.com/overture-stack/arranger"
             icon="githubWhite"
           >
             Get Started

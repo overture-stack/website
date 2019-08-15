@@ -61,7 +61,7 @@ const MaestroPage = () => (
         subTitle="Organizing your distributed data into one index."
         cardText={
           <div>
-            Maestro helps you manage geographically distributed data stored in <a href='/products/song'>Song</a> and <a href='/products/score'>Score</a>, with a single, configurable index.
+            Maestro helps you manage geographically distributed data stored in <a href='/products/song'>Song</a> and <a href='/products/score'>Score</a> with a single, configurable index.
           </div>
         }
         getStartedLink="https://github.com/overture-stack/maestro"
@@ -73,7 +73,7 @@ const MaestroPage = () => (
       {/* Features  */}
       <ProductFeatureRow>
         <ProductFeature
-          header="Customizable Record Indexing"
+          header="Customizable record indexing"
           icon="arrowsRight"
           iconSize={96}
           details="Index a single analysis, a study or a full <a href='/products/song'>Song</a> repository with one request.
@@ -87,10 +87,10 @@ const MaestroPage = () => (
         />
 
         <ProductFeature
-          header="Seamless Integration"
+          header="Seamless integration"
           icon="vennDiagram"
           iconSize={64}
-          details="Built to interact natively with <a href='/products/song'>Song</a> and <a href='/products/arranger'>Arranger</a> "
+          details="Built to interact natively with <a href='/products/song'>Song</a> and <a href='/products/arranger'>Arranger</a>. "
         />
       </ProductFeatureRow>
 
