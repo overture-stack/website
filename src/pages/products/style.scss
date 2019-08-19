@@ -1,0 +1,59 @@
+.ProductsPage {
+
+  .spacer {
+    height: 180px;
+  }
+
+  .img_hero_products {
+    transform: scale(1.15) translateY(30px);
+  }
+
+  .hero-text {
+    max-width: 500px;
+    margin-right: 48px;
+  }
+
+  // sub component for `ProductBox`
+
+  .product-box {
+    .heading {
+      font-family: Helvetica, "Lato", "Arial" ;
+      font-size: 40px;
+      color: #D087B4;
+      letter-spacing: 0;
+      text-transform: capitalize;
+    }
+
+    .details {
+      font-family: Helvetica;
+      font-size: 18px;
+      color: #003055;
+      letter-spacing: 0;
+      line-height: 30px;
+    }
+
+    .icon-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      margin-right: 8px;
+    }
+
+    .links {
+      display: flex;
+    }
+
+
+    .link {
+      font-family: Helvetica;
+      font-size: 26px;
+      color: #003055;
+      letter-spacing: 0;
+      line-height: 70px;
+
+    }
+
+  }
+}

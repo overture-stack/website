@@ -23,21 +23,20 @@ import ProductFeature from "../ProductFeature";
  *
  */
 
-
 /**
  * A single feature; creates a Product Feature wrapped to fit in a grid.
  */
-const FeatureItem = ({ feature, className, iconSize=100 }) => {
+const FeatureItem = ({ feature, className, iconSize = 100 }) => {
   return (
     <div className={`column feature-item ${className}`}>
-        <ProductFeature
-          header={feature.header}
-          details={feature.details}
-          icon={feature.icon}
-          iconSize={iconSize}
-          size="small"
-          className="p0"
-        />
+      <ProductFeature
+        header={feature.header}
+        details={feature.details}
+        icon={feature.icon}
+        iconSize={iconSize}
+        size="small"
+        className="p0"
+      />
     </div>
   );
 };
@@ -51,9 +50,8 @@ const FeatureItem = ({ feature, className, iconSize=100 }) => {
 function buildStyle(arr, idx) {
   let isEvenFeature = idx % 2 == 0 ? false : true;
 
-
   if (arr.length === 1) {
-    return "is-8-desktop is-offset-4-desktop is-6-tablet is-offset-4-tablet is-12-mobile";
+    return "is-7-desktop is-offset-3-desktop is-8-tablet is-offset-2-tablet is-12-mobile";
   } else if (isEvenFeature) {
     return "is-half right-item";
   } else {
@@ -64,22 +62,31 @@ function buildStyle(arr, idx) {
 /**
  * Loops through a 2D array of feature items;
  * makes a row of grids for each items in the array;
+ * can also take a child component for custom content
  */
-const GridFeature = ({ data, iconSize=32 }) => {
+const GridFeature = ({ data, iconSize = 32 }) => {
   return (
     <div className="bg-grey GridFeature">
       {data.map(arr => {
         return (
-          <section className="white-border-bottom" >
+          <section className="white-border-bottom">
             <div className="container">
               <article className="columns m0">
-                {arr.map((feat, idx) => (
-                  <FeatureItem
-                    feature={feat}
-                    iconSize={iconSize}
-                    className={buildStyle(arr, idx)}
-                  />
-                ))}
+                {arr.map((feat, idx) => {
+                  {/* If child component is passed in, loop over and create it. */ }
+                  if (feat.ChildComponent) {
+                    return <feat.ChildComponent {...feat} />;
+                  {/* otherwise, just iterate and create boxes as needed. */ }
+                  } else {
+                    return (
+                      <FeatureItem
+                        feature={feat}
+                        iconSize={iconSize}
+                        className={buildStyle(arr, idx)}
+                      />
+                    );
+                  }
+                })}
               </article>
             </div>
           </section>

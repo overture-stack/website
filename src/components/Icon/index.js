@@ -27,6 +27,8 @@ import magnify from './icons/magnify.svg'
 import pageWhite from './icons/page_white.svg'
 import palette from './icons/palette.svg'
 import power from './icons/power.svg'
+import productScore from './icons/productScore.svg'
+import productSong from './icons/productSong.svg'
 import rocketWhite from './icons/rocket_white.svg'
 import security from './icons/security.svg'
 import share from './icons/share.svg'
@@ -63,6 +65,8 @@ const icons = {
   magnify,
   pageWhite,
   palette,
+  productScore,
+  productSong,
   power,
   rocketWhite,
   security,
