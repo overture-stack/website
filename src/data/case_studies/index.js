@@ -126,7 +126,7 @@ export default [
     clientLink: gdc_link,
     details: [
       {
-        title: "Sapient",
+        title: "Sapien",
         description: "Correlates donors to primary sites of the human body",
         screenshot: gdc_sapien
       },
