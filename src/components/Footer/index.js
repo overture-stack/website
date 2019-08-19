@@ -5,7 +5,7 @@ import React from "react";
 import { Link } from "gatsby-link";
 import "./styles.scss";
 import logo from "./logo.svg";
-import Icon from "../Icon/index";
+import {Icon} from "../";
 
 const links = {
   "Generate & Upload": {

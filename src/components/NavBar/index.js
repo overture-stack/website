@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import Link from "gatsby-link";
 import logo from "./assets/overture_logo.svg";
 import "./styles.scss";
-import Icon from "../Icon/index";
+import {Icon} from "../";
 import Button from "../Button";
 import ProductsPopup from "./Popup";
 import NavLink from "./NavLink";

@@ -10,6 +10,7 @@ import {
   MarketingSection,
   Layout,
   Icon,
+  IconCommon,
   BottomCallout,
   Callout
 } from "../../components";
@@ -19,19 +20,21 @@ import "./style.scss";
 const ProductBox = ({ header, details, links, isCore = false, }) => {
   return (
     <div className="product-box">
+      {isCore && (<IconCommon.Core/>)}
       <div className="heading">
         {header}
       </div>
       <div className="details">{details}</div>
-      <div className="links"/>
-      {links.map(l => {
-        return (
-          <span className="icon-link">
-            <Icon className="icon" size={32} img={l.icon} ></Icon>
-          <a className="link" href={l.link}>{l.text}</a>
-          </span>
-        )
-      })}
+      <div className="links">
+        {links.map(l => {
+          return (
+            <span className="icon-link">
+              <Icon className="icon" size={32} img={l.icon} ></Icon>
+              <a className="link" href={l.link}>{l.text}</a>
+            </span>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -40,6 +43,7 @@ const featureGridData = [
   [
     {
       header: "Generate & Upload",
+      isCore: true,
       details: "Products that allow your data submitters to generate genomic and clinical metadata and securely upload the corresponding files: ",
       links: [{ icon: "productScore", text: "Score", link: "/" }, { icon: "productSong", text: "Song", link: "/" }],
       ChildComponent: ProductBox,

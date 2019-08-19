@@ -3,7 +3,7 @@
  */
 import React from "react";
 import Link from "gatsby-link";
-import { Icon, Badge } from "../../index.js";
+import { Icon, IconCommon, Badge } from "../../index.js";
 import "./styles.scss";
 
 const ProductsPopup = ({ closeMenus, className }) => {
@@ -22,10 +22,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
         {/* section: DISCOVERY */}
         <section className="menu-section">
           <div className="menu-section-heading">
-            <span className="core-text">
-              {" "}
-              <Icon className="pr1" img="star" /> CORE{" "}
-            </span>
+            <IconCommon.Core />
             <Badge color="pink">Generate & Upload</Badge>
           </div>
           <div className="menu-section-links">
@@ -50,10 +47,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section">
           <div className="menu-section-heading">
-            <span className="core-text">
-              {" "}
-              <Icon className="pr1" img="star" /> CORE{" "}
-            </span>
+            <IconCommon.Core />
             <Badge color="blue">Access & Download</Badge>
           </div>
           <div className="menu-section-links">
@@ -82,7 +76,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section">
           <div className="menu-section-heading">
-            <span className="core-text">&nbsp;</span>
+            <span className="core-placeholder">&nbsp;</span>
             <Badge color="red">Analyze & Discover</Badge>
           </div>
 
@@ -109,7 +103,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section">
           <div className="menu-section-heading">
-            <span className="core-text">&nbsp;</span>
+            <span className="core-placeholder">&nbsp;</span>
             <Badge color="light-green">Collaborate & Share</Badge>
           </div>
           <div className="menu-section-links">
@@ -134,7 +128,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
 
         <section className="menu-section" style={{ flexShrink: 0 }}>
           <div className="menu-section-heading">
-            <span className="core-text">&nbsp;</span>
+            <span className="core-placeholder">&nbsp;</span>
             <Badge color="yellow">Track & Manage</Badge>
           </div>
           <div className="menu-section-links">

@@ -79,12 +79,29 @@ const icons = {
   slack
 }
 
-const Icon = ({ img, size, className, style }) => (
+export const Icon = ({ img, size, className, style }) => (
   <img
-    className={`${className ? className : "" } Icon`}
+    className={`${className ? className : ""} Icon`}
     src={icons[img]}
     style={{ width: size, height: 'auto', ...style }}
   />
 )
 
-export default Icon
+
+// Common Icon sets / groups
+
+function Core() {
+  return (
+    <span className="Icons">
+      <div className="core">
+        <Icon className="pr1" img="star" /> CORE{" "}
+      </div>
+    </span>
+
+  )
+}
+
+export const IconCommon = {
+  Core,
+}
+

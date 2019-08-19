@@ -42,11 +42,9 @@
     background: white;
   }
 
-  .core-text {
-    color: #00a1d9;
+  // for leveling heading menu headers that don't have "core" badge
+  .core-placeholder {
     font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 700;
     padding: 4px 0;
   }
 

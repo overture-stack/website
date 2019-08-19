@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-import Icon from "../Icon/index";
+import {Icon} from "../";
 
 // consistent container for product feature row
 export const ProductFeatureRow = ({ children }) => (
