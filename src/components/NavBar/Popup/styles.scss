@@ -67,6 +67,7 @@
   .menu-section-links {
     display: flex;
     flex-direction: column;
+
   }
 
   .menu-section-link {
@@ -134,7 +135,7 @@
     }
 
     .menu-section-links {
-      padding: 24px;
+      padding: 24px 0 0 0;
       flex-direction: column;
     }
 
@@ -145,7 +146,7 @@
 
     .menu-section-link {
       padding-top: 0;
-      padding: 0 0 24px 0;
+      padding: 0 0 12px 0;
     }
   }
 }

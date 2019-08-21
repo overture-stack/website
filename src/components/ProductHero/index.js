@@ -8,6 +8,8 @@ import logoSong from "./images/song.svg";
 import logoEgo from "./images/ego.svg";
 import logoOncojs from "./images/oncojs.svg";
 import logoJukebox from "./images/jukebox.svg";
+import logoMaestro from "./images/maestro.svg";
+import logoArranger from "./images/arranger.svg";
 import logoRiff from "./images/riff.svg";
 import logoPersona from "./images/persona.svg";
 import ProgressBar from "../ProgressBar/index";
@@ -18,9 +20,11 @@ const logos = {
   logoSong,
   logoJukebox,
   logoEgo,
+  logoMaestro,
   logoOncojs,
   logoPersona,
   logoRiff,
+  logoArranger,
 };
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
@@ -74,9 +78,9 @@ const ProductHero = ({
         <div className="has-text-centered">
           {/* Title, Badge, Subtitle */}
           <div className="hero-title-box">
-            <span className="flex justify-center">
+            <span className="hero-title-and-tag ">
               <h1 className="title mb1">{title}</h1>
-              <Badge color={badge.color} className="ml1 mt3">
+              <Badge color={badge.color}>
                 {badge.text}
               </Badge>
             </span>
