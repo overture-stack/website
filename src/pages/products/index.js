@@ -21,14 +21,13 @@ const ProductBox = ({
   header,
   headerColor,
   containerClass = "is-6",
-  bgColor = "#fff",
   details,
   links,
   isCore = false,
   iconSize = 32
 }) => {
   return (
-    <div className={`product-box column ${containerClass}`} style={{backgroundColor: bgColor}}>
+    <div className={`product-box column ${containerClass}`}>
       {isCore && <IconCommon.Core />}
       <div className="heading" style={{ color: headerColor }}>
         {header}
@@ -36,18 +35,36 @@ const ProductBox = ({
       <div className="details">{details}</div>
       <div className="links">
         {links.map(l => {
-          return (
-            <span className="icon-link">
-              <Link className="link" to={`/products/${l.link}`}>
-                <Icon
-                  className="icon"
-                  size={l.iconSize ? l.iconSize : iconSize}
-                  img={l.icon}
-                ></Icon>
-                {l.text}
-              </Link>
-            </span>
-          );
+          // If external links, render with <a> tag.
+          if (typeof (l.extlink) !== 'undefined') {
+            return (
+              <span className="icon-link">
+                <a target="_blank" className="link" href={l.extlink}>
+                  <Icon
+                    className="icon"
+                    size={l.iconSize ? l.iconSize : iconSize}
+                    img={l.icon}
+                  ></Icon>
+                  {l.text}
+								</a>
+              </span>
+            );
+          } else {
+            return (
+              <span className="icon-link">
+
+
+                <Link className="link" to={`/products/${l.link}`}>
+                  <Icon
+                    className="icon"
+                    size={l.iconSize ? l.iconSize : iconSize}
+                    img={l.icon}
+                  ></Icon>
+                  {l.text}
+                </Link>
+              </span>
+            );
+          }
         })}
       </div>
     </div>
@@ -58,6 +75,7 @@ const featureGridData = [
   [
     {
       header: "Generate & Upload",
+      containerClass: "generate-upload",
       headerColor: "#D087B4",
       bgColor: "#F2F3F5",
       isCore: true,
@@ -73,6 +91,7 @@ const featureGridData = [
     {
       header: "Access & Download",
       headerColor: "#6AC3E8",
+      containerClass: "access-download",
       bgColor: "#F2F3F5",
       isCore: true,
       details:
@@ -94,6 +113,7 @@ const featureGridData = [
     {
       header: "Analyze & Discover",
       headerColor: "#C86370",
+      containerClass: "analyze-discover",
       details:
         "Products that allow your users to access interactive visualizations and code-based analysis environments: ",
       links: [
@@ -106,6 +126,7 @@ const featureGridData = [
     {
       header: "Collaborate & Share",
       headerColor: "#47D9BF",
+      containerClass: "collaborate-share",
       details:
         "Products that allow your users to set up a profile and share urls in order to  raise awareness across the scientific community: ",
       links: [
@@ -120,12 +141,12 @@ const featureGridData = [
     {
       header: "Track & Manage",
       headerColor: "#ECC000",
-      containerClass: "is-6 is-offset-3",
+      containerClass: "track-manage is-6 is-offset-3",
       details:
         "Products that help you track and manage projects, users, billing and resource usage for an OpenStack cloud environment: ",
       links: [
-        { icon: "productBilling", text: "Billing & Usage", link: "" }, // TODO: need real links here.
-        { icon: "productEnrolment", text: "Enrolment", link: "" }      // TODO: needs a real link here.
+        { icon: "productBilling", text: "Billing & Usage", extlink: "https://github.com/CancerCollaboratory/billing" },
+        { icon: "productEnrolment", text: "Enrolment", extlink: "https://github.com/overture-stack/enrolment" }
       ],
       ChildComponent: ProductBox
     }
@@ -140,7 +161,7 @@ class ProductsPage extends Component {
           {/* HERO */}
           <Hero
             title="Products"
-            titleClass="hero-text"
+            titleClass="hero-text is-4-desktop"
             subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
             fgImage="img_products"
             fgImageClass="img_hero_products"
@@ -149,11 +170,15 @@ class ProductsPage extends Component {
           <div className="spacer" />
 
           {/* Grid sections */}
-          <GridFeature
-            iconSize={48}
-            data={featureGridData}
-            childComponent={ProductBox}
-          />
+          <div className="grid-feature-wrap">
+            <GridFeature
+              iconSize={48}
+              data={featureGridData}
+              childComponent={ProductBox}
+              borderColor="grey"
+              sectionBG={["#F2F3F5", "white", "white"]}
+            />
+          </div>
 
           <BottomCallout>
             <Callout
@@ -168,7 +193,7 @@ class ProductsPage extends Component {
                 icon="githubWhite"
               >
                 Get Started
-              </Button>
+							</Button>
             </Callout>
           </BottomCallout>
         </main>

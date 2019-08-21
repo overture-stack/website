@@ -2,11 +2,25 @@
 
 .GridFeature {
 
-	.white-border-bottom {
-		border-bottom: 2px solid white;
+	.bottom-border {
+		border-bottom: 2px solid;
+
+		&.white {
+			border-color: white;
+		}
+
+		&.grey {
+			border-color: #D4D4D4;
+
+		}
+
 		@media(max-width: $tablet) {
 			border-bottom: none;
 		}
+
+	}
+
+	.white-border-bottom {
 	}
 
 	.feature-item {
