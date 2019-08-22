@@ -23,7 +23,7 @@ class ContactPage extends Component {
           </Helmet>
 
           {/* HERO */}
-          <Hero title="Contact Us" fgImage="img_contact" fgImageClass="contact-hero-img"/>
+          <Hero title="Contact Us" ImgComponent={() => (<img className="contact-hero-img" src={heroImg}/>)} fgImage="img_contact" fgImageClass="contact-hero-img"/>
 
           <div
             className="is-hidden-mobile"

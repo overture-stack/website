@@ -54,6 +54,7 @@ class AboutUsPage extends Component {
             subtitle="Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions."
             fgImage="img_our_vision"
             fgImageClass="about-img"
+            ImgComponent={() => (<img src={heroImg} className="about-img"/>)}
           >
             <div className="flex py2">
               <a className="hero-link" target="_blank" href="https://softeng.oicr.on.ca/team/">

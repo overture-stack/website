@@ -1,6 +1,7 @@
 import React from "react";
 import "./home/styles.scss";
 import { Badge, H1, H2, H4, Hero, Icon, Layout } from "../components";
+import heroImg from './assets/heroImg.svg'
 import Helmet from "react-helmet";
 import Link from "gatsby-link";
 
@@ -34,8 +35,8 @@ const HomePage = () => (
 
       <Hero
         title="Worry less, science more"
-        fgImage="img_home"
         subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
+        ImgComponent={() => (<img className="home-img" src={heroImg}/>)}
       >
         <span className="display flex align-center">
           <Link className="py2 pr1 link-magenta" to="case-studies">

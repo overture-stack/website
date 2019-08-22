@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import heroImg from "../about-us/assets/hero_img.svg";
+// import heroImg from "../about-us/assets/hero_img.svg";
+import heroImg from "./assets/products_hero_no_clouds.svg";
 import { Link } from "gatsby";
 import {
   H1,
@@ -46,7 +47,7 @@ const ProductBox = ({
                     img={l.icon}
                   ></Icon>
                   {l.text}
-								</a>
+                </a>
               </span>
             );
           } else {
@@ -151,6 +152,15 @@ const featureGridData = [
   ]
 ];
 
+const HeroImg = () => {
+  return (
+    <div className="img_hero_products">
+      <img src={heroImg} />
+    </div>
+
+  )
+}
+
 class ProductsPage extends Component {
   render() {
     return (
@@ -161,8 +171,9 @@ class ProductsPage extends Component {
             title="Products"
             titleClass="hero-text is-4-desktop"
             subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
-            fgImage="img_products"
-            fgImageClass="img_hero_products"
+            /* fgImage="img_products" */
+            /* fgImageClass="img_hero_products" */
+            ImgComponent={HeroImg}
           ></Hero>
 
           <div className="spacer" />

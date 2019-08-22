@@ -6,35 +6,19 @@
 import React from "react";
 import "./styles.scss";
 import { H1, H4 } from "../../components";
-
-// images
-import img_our_vision from "./assets/img_our_vision.svg";
 import img_services from "./assets/img_services.svg";
-import img_contact from "./assets/img_contact.svg";
-import img_home from "./assets/img_home.svg";
-import img_products from "./assets/img_products.svg";
 
-const imgs = {
-  img_our_vision,
-  img_services,
-  img_contact,
-  img_home,
-  img_products
-};
+// some images
+const imgs = { img_services, };
 
-/**
- * fgImage / fgImageClass  -> for providing a hero image using an <img> tag
- * bgImage / bgImageStyles -> for background css images and respective inline styles.
- */
 const Hero = ({
   title,
   titleClass,
   subtitle,
   children,
-  fgImage,
-  fgImageClass,
   bgImage,
   bgImageStyles = {},
+  ImgComponent,
   className
 }) => {
   // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
@@ -57,14 +41,15 @@ const Hero = ({
           {children}
         </section>
 
-        {/* If we need a html img: Hero Image */}
-        {fgImage ? (
-          <section className={`image ${fgImageClass}`}>
-            <img src={imgs[fgImage]} />
-          </section>
-        ) : (
-          <div className="image" />
-        )}
+        {/* Only show this if we pass a component image in. */}
+        <section className="image">
+          {ImgComponent && (<ImgComponent />)}
+        </section>
+
+
+        {/* otherwise, we are probably using the background image: */}
+        {!ImgComponent && (<div className="image" />)}
+
       </div>
     </div>
   );
