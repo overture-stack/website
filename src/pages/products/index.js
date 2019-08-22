@@ -20,7 +20,7 @@ import "./style.scss";
 const ProductBox = ({
   header,
   headerColor,
-  containerClass = "is-6",
+  containerClass = "is-6 box-section",
   details,
   links,
   isCore = false,
@@ -38,7 +38,7 @@ const ProductBox = ({
           // If external links, render with <a> tag.
           if (typeof (l.extlink) !== 'undefined') {
             return (
-              <span className="icon-link">
+              <span key={l.extlink} className="icon-link">
                 <a target="_blank" className="link" href={l.extlink}>
                   <Icon
                     className="icon"
@@ -51,9 +51,7 @@ const ProductBox = ({
             );
           } else {
             return (
-              <span className="icon-link">
-
-
+              <span key={l.link} className="icon-link">
                 <Link className="link" to={`/products/${l.link}`}>
                   <Icon
                     className="icon"

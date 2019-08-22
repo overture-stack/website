@@ -70,17 +70,18 @@ const GridFeature = ({ data, iconSize = 32, borderColor="white", sectionBG=[] })
     <div className="bg-grey GridFeature">
       {data.map((arr, idx) => {
         return (
-          <section className={`bottom-border ${borderColor}`} style={{backgroundColor: sectionBG[idx]}}>
+          <section key={idx} className={`bottom-border ${borderColor}`} style={{backgroundColor: sectionBG[idx]}}>
           <div className="container">
               <article className="columns m0">
                 {arr.map((feat, idx) => {
                   {/* If child component is passed in, loop over and create it. */ }
                   if (feat.ChildComponent) {
-                    return <feat.ChildComponent {...feat} />;
+                    return <feat.ChildComponent key={idx} {...feat} />;
                   {/* otherwise, just iterate and create boxes as needed. */ }
                   } else {
                     return (
                       <FeatureItem
+                        key={idx}
                         feature={feat}
                         iconSize={iconSize}
                         className={buildStyle(arr, idx)}

@@ -1,4 +1,5 @@
-$prod-mobile-break: 600px;
+// $tablet: 600px;
+@import "../../styles/variables";
 
 .ProductsPage {
 
@@ -14,12 +15,25 @@ $prod-mobile-break: 600px;
     }
   }
 
+
+
+  // remove container padding on this page on mobile so the boxes had full width borders.
+  @media(max-width: $tablet ) {
+    .GridFeature > .bottom-border > .container {
+      padding: 0;
+    }
+
+  }
+
   .img_hero_products {
     transform: scale(1.05) translateY(10px);
   }
 
   .hero-text {
     margin-right: 48px;
+    @media(max-width: $tablet) {
+      margin-right: 0;
+    }
   }
 
   .grid-feature-wrap {
@@ -30,7 +44,13 @@ $prod-mobile-break: 600px;
   // sub component for `ProductBox`
 
   .product-box {
-      padding: 32px;
+    padding: 32px;
+
+    @media(max-width: $tablet) {
+      padding: 44px;
+        border-right: none;
+        border-bottom: 2px solid #D4D4D4;
+    }
 
     .heading {
       font-family: Helvetica, "Lato", "Arial" ;
@@ -39,7 +59,7 @@ $prod-mobile-break: 600px;
       letter-spacing: 0;
       text-transform: capitalize;
 
-      @media(max-width: $prod-mobile-break) {
+      @media(max-width: $tablet) {
         font-size: 28px;
       }
     }
@@ -52,7 +72,7 @@ $prod-mobile-break: 600px;
       line-height: 30px;
       padding: 32px 0;
 
-      @media(max-width: $prod-mobile-break) {
+      @media(max-width: $tablet) {
         padding: 16px 0;
       }
     }
@@ -69,7 +89,7 @@ $prod-mobile-break: 600px;
     .links {
       display: flex;
       margin-right: 24px;
-      @media(max-width: $prod-mobile-break) {
+      @media(max-width: $tablet) {
         flex-direction: column;
       }
     }
@@ -86,6 +106,7 @@ $prod-mobile-break: 600px;
 
     }
 
+
     // per box styling
     &.collaborate-share {
     }
@@ -94,15 +115,15 @@ $prod-mobile-break: 600px;
     }
 
     &.analyze-discover {
-			border-right: 2px solid #D4D4D4;
-      @media(max-width: $prod-mobile-break) {
+      border-right: 2px solid #D4D4D4;
+      @media(max-width: $tablet) {
         border-right: none;
       }
     }
 
     &.generate-upload {
-			border-right: 2px solid #D4D4D4;
-      @media(max-width: $prod-mobile-break) {
+      border-right: 2px solid #D4D4D4;
+      @media(max-width: $tablet) {
         border-right: none;
         border-bottom: 2px solid #D4D4D4;
       }
