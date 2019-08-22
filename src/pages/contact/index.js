@@ -34,12 +34,12 @@ class ContactPage extends Component {
           <section className="section">
             <div className="container">
               {/* Header */}
-              <div className="column is-offset-1 mb4">
-                <H2>Get in Touch!</H2>
-                <div className="yellow-bar" />
+              <div className="column is-offset-1 mb3">
+                <H2>Get in touch!</H2>
+                <div className="yellow-bar mt3" />
               </div>
 
-              <div className="columns">
+              <div className="columns contact-details">
                 {/* Copy: Bullets: laern more  */}
                 <div className="column is-half is-offset-1">
                   <div>

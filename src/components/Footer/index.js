@@ -23,17 +23,23 @@ const links = {
     },
   },
   "Access & Download": {
-    Arranger: {
-      icon: "githubGrey",
-      newTab: true,
-      className: "",
-      link: "https://github.com/overture-stack/arranger",
-    },
     Ego: {
       link: "/products/ego",
       icon: null,
       newTab: false,
       className: "",
+    },
+    Maestro: {
+      icon: null,
+      newTab: false,
+      className: "",
+      link: "/products/maestro",
+    },
+    Arranger: {
+      icon: null,
+      newTab: false,
+      className: "",
+      link: "/products/arranger",
     },
   },
   "Analyze & Discover": {

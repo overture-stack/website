@@ -19,7 +19,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
           </div>
         </section>
 
-        {/* section: DISCOVERY */}
+        {/* section: Generate & Upload */}
         <section className="menu-section">
           <div className="menu-section-heading">
             <IconCommon.Core />
@@ -43,7 +43,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
           </div>
         </section>
 
-        {/* section: DISCOVERY */}
+        {/* section: ACCESS & DOWNLOAD */}
 
         <section className="menu-section">
           <div className="menu-section-heading">
@@ -51,15 +51,6 @@ const ProductsPopup = ({ closeMenus, className }) => {
             <Badge color="blue">Access & Download</Badge>
           </div>
           <div className="menu-section-links">
-            <a
-              onClick={() => closeMenus()}
-              target="_blank"
-              className="menu-section-link"
-              href="https://github.com/overture-stack/arranger"
-            >
-              Arranger
-              <Icon className="pl1" img="githubGrey" />
-            </a>
 
             <Link
               onClick={() => closeMenus()}
@@ -69,6 +60,24 @@ const ProductsPopup = ({ closeMenus, className }) => {
               {" "}
               Ego{" "}
             </Link>
+
+            <Link
+              onClick={() => closeMenus()}
+              className="menu-section-link"
+              to="/products/maestro"
+            >
+              Maestro
+            </Link>
+
+            <Link
+              onClick={() => closeMenus()}
+              className="menu-section-link"
+              to="/products/arranger"
+            >
+              Arranger
+            </Link>
+
+
           </div>
         </section>
 

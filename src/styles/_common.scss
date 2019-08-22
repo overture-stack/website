@@ -7,6 +7,12 @@
   background-color: #f2d03a;
 }
 
-.target-box {
-  // padding: 12px 0 24px;
+.bullet {
+  font-family: Lato-Regular, "Arial";
+  color: #003055;
+  letter-spacing: 0;
+  // line-height: 30px;
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 4px;
 }

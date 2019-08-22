@@ -34,8 +34,7 @@ export const UrlBar = ({ prompts }) => (
     <TrafficLights/>
     <div className="url-bar mx2">
       {prompts.map(p => (
-        <div key={p} className="url-text">
-          {p}
+        <div key={p} className="url-text" dangerouslySetInnerHTML={{ __html: p }}>
         </div>
       ))}
     </div>

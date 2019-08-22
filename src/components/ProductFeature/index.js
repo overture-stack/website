@@ -58,7 +58,10 @@ export const ProductFeature = ({
         <div className="header">{header}</div>
 
         {/* feature */}
-        <div className="details">{details}</div>
+          <div
+            className="details"
+            dangerouslySetInnerHTML={{ __html: details }}
+          />
       </div>
     );
   }

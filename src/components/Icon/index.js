@@ -50,11 +50,13 @@ import slack             from './icons/icon-slack.svg'
 
 const icons = {
   arrowRight,
+  arrowsRight,
   arrowRightMagenta,
   arrowDown,
   barGraph,
   cardStack,
   checkmark,
+  customizable,
   cloud,
   cloudSquare,
   database,
@@ -68,6 +70,7 @@ const icons = {
   graphCycle,
   gridGlass,
   history,
+  kafka,
   lock,
   lockCode,
   mail,
@@ -88,6 +91,7 @@ const icons = {
   productEnrolment,
   power,
   rocketWhite,
+  search,
   security,
   share,
   shield,
@@ -95,7 +99,8 @@ const icons = {
   star,
   target,
   user,
-  slack
+  slack,
+  vennDiagram
 }
 
 export const Icon = ({ img, size, className, style }) => (
