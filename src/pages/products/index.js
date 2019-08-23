@@ -159,7 +159,7 @@ class HeroImg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cloud1: { x: 100, y: 100, dir: "right" },
+      cloud1: { x: 20, y: 40, dir: "right" },
       cloud2: { x: 650, y: 200, dir: "left" }
     };
 
@@ -221,7 +221,7 @@ class HeroImg extends React.Component {
   render() {
     return (
       <div>
-        <canvas ref="canvas" width="700" height="500" style={{ zIndex: 0, position: "absolute" }}>
+        <canvas ref="canvas" width="1000" height="500" style={{ zIndex: 0, position: "absolute" }}>
         </canvas>
         <div className="img_hero_products">
           {/* hidden clouds for canvas animations */}
