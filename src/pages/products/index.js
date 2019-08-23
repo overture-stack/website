@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import heroImg from "../about-us/assets/hero_img.svg";
 import heroImg from "./assets/products_hero_no_clouds.svg";
+import cloud_1 from './assets/cloud_1.svg';
+import cloud_2 from './assets/cloud_2.svg';
 import { Link } from "gatsby";
 import {
   H1,
@@ -17,6 +19,7 @@ import {
   Callout
 } from "../../components";
 import "./style.scss";
+
 
 const ProductBox = ({
   header,
@@ -152,13 +155,85 @@ const featureGridData = [
   ]
 ];
 
-const HeroImg = () => {
-  return (
-    <div className="img_hero_products">
-      <img src={heroImg} />
-    </div>
+class HeroImg extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cloud1: { x: 100, y: 100, dir: "right" },
+      cloud2: { x: 650, y: 200, dir: "left" }
+    };
 
-  )
+    this.updateAnimationState = this.updateAnimationState.bind(this);
+    this.canvas = null;
+  }
+
+  componentDidMount() {
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
+  }
+
+  componentDidUpdate() {
+    const canvas = this.refs.canvas;
+    const ctx = canvas.getContext("2d");
+    const cloud_1 = this.refs.cloud_1;
+    const cloud_2 = this.refs.cloud_2;
+    const c1 = this.state.cloud1;
+    const c2 = this.state.cloud2;
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // animated clouds.
+    ctx.clearRect(0, 0, width, height);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(cloud_1, c1.x, c1.y)
+    ctx.drawImage(cloud_2, c2.x, c2.y)
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.rAF);
+  }
+
+  updateAnimationState() {
+    const { cloud1, cloud2 } = this.state;
+    this.setState({ cloud1: this.animateCloud(cloud1), cloud2: this.animateCloud(cloud2) })
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
+  }
+
+  animateCloud(c) {
+    let canvas = this.refs.canvas;
+    let width = canvas.width;
+    let height = canvas.height;
+    let c1 = this.state.cloud1;
+    let speed = 0.2;
+
+    if (c.x == width && c.dir == "right") { // less than 500
+      return { x: c.x - speed, y: c.y, dir: "left" }
+    } else if (c.x == 0 && c.dir == "left") {
+      return { x: c.x + speed, y: c.y, dir: "right" }
+    } else if (c.dir == "right") {
+      return { x: c.x + speed, y: c.y, dir: "right" }
+    } else {
+      return { x: c.x - speed, y: c.y, dir: "left" }
+    }
+
+  }
+
+
+  render() {
+    return (
+      <div>
+        <canvas ref="canvas" width="700" height="500" style={{ zIndex: 0, position: "absolute" }}>
+        </canvas>
+        <div className="img_hero_products">
+          {/* hidden clouds for canvas animations */}
+          <img ref="cloud_1" src={cloud_1} style={{ display: "none" }} />
+          <img ref="cloud_2" src={cloud_2} style={{ display: "none" }} />
+          {/* the hero image: */}
+          <img style={{ zIndex: 3 }} src={heroImg} />
+        </div>
+      </div>
+    )
+
+  }
 }
 
 class ProductsPage extends Component {
@@ -171,8 +246,6 @@ class ProductsPage extends Component {
             title="Products"
             titleClass="hero-text is-4-desktop"
             subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
-            /* fgImage="img_products" */
-            /* fgImageClass="img_hero_products" */
             ImgComponent={HeroImg}
           ></Hero>
 
