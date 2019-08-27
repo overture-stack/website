@@ -16,6 +16,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
           <div className="body-text">
             Overture is a collection of open-source products for big-data
             genomic science.
+            <div className="pt2 link-magenta">
+              <Link to="/products">All products <Icon size={12} img="arrowRightMagenta" /> </Link>
+            </div>
+
           </div>
         </section>
 
