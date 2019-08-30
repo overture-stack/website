@@ -55,15 +55,19 @@ const HomePage = () => (
             Data is the essence of our field. Implement Overture’s core products
             to
             <span>
-              <Badge className="mx1" color="pink">
-                Generate & Upload{" "}
-              </Badge>
+              <Link to="products#generate-upload">
+                <Badge className="mx1" color="pink">
+                  Generate & Upload{" "}
+                </Badge>
+              </Link>
             </span>
             and <br />
             <span>
-              <Badge className="mx1" color="blue">
-                Access & Download
-              </Badge>
+              <Link to="products#access-download">
+                <Badge className="mx1" color="blue">
+                  Access & Download
+                </Badge>
+              </Link>
             </span>
             genomic data across multiple cloud providers:
           </div>
@@ -128,18 +132,25 @@ const HomePage = () => (
             </div>
             <div className="badges">
               <div>
-                <Badge className="mr2" color="red">
-                  Analyze & Discover
-                </Badge>
+                <Link to="products#analyze-discover">
+                  <Badge className="mr2" color="red">
+                    Analyze & Discover
+                  </Badge>
+                </Link>
+
+                <Link to="products#collaborate-share">
                 <Badge className="mr2" color="light-green">
                   Collaborate & Share
                 </Badge>
+                </Link>
               </div>
 
               <div>
+                <Link to="products#track-manage">
                 <Badge className="mr2" color="yellow">
                   Track & Manage
                 </Badge>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import heroImg from "../about-us/assets/hero_img.svg";
 import heroImg from "./assets/products_hero_no_clouds.svg";
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -28,11 +27,12 @@ const ProductBox = ({
   containerClass = "is-6 box-section",
   details,
   links,
+  id,
   isCore = false,
   iconSize = 32
 }) => {
   return (
-    <div className={`product-box column ${containerClass}`}>
+    <div id={id} className={`product-box column ${containerClass}`}>
       {isCore && <IconCommon.Core />}
       <div className="heading" style={{ color: headerColor }}>
         {header}
@@ -78,6 +78,7 @@ const featureGridData = [
   [
     {
       header: "Generate & Upload",
+      id: "generate-upload",
       containerClass: "generate-upload",
       headerColor: "#D087B4",
       bgColor: "#F2F3F5",
@@ -94,6 +95,7 @@ const featureGridData = [
     {
       header: "Access & Download",
       headerColor: "#6AC3E8",
+      id: "access-download",
       containerClass: "access-download",
       bgColor: "#F2F3F5",
       isCore: true,
@@ -116,6 +118,7 @@ const featureGridData = [
     {
       header: "Analyze & Discover",
       headerColor: "#C86370",
+      id: "analyze-discover",
       containerClass: "analyze-discover",
       details:
         "Products that allow your users to access interactive visualizations and code-based analysis environments: ",
@@ -129,6 +132,7 @@ const featureGridData = [
     {
       header: "Collaborate & Share",
       headerColor: "#47D9BF",
+      id: "collaborate-share",
       containerClass: "collaborate-share",
       details:
         "Products that allow your users to set up a profile and share urls in order to  raise awareness across the scientific community: ",
@@ -144,6 +148,7 @@ const featureGridData = [
     {
       header: "Track & Manage",
       headerColor: "#ECC000",
+      id: "track-manage",
       containerClass: "track-manage is-6 is-offset-3",
       details:
         "Products that help you track and manage projects, users, billing and resource usage for an OpenStack cloud environment: ",
