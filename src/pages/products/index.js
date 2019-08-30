@@ -21,6 +21,7 @@ import {
 import "./style.scss";
 
 
+// Component for rendering a single "box" representing a feature (ie "Generate & Upload")
 const ProductBox = ({
   header,
   headerColor,
