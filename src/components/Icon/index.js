@@ -124,7 +124,7 @@ function Core() {
   return (
     <span className="Icons">
       <div className="core">
-        <Icon className="pr1" img="star" /> CORE{" "}
+        <Icon className="" img="star" /> CORE{" "}
       </div>
     </span>
 
