@@ -6,6 +6,8 @@ import arrowDown         from './icons/arrow_down.svg'
 import arrowRight        from './icons/arrow_right.svg'
 import arrowRightMagenta from './icons/arrow_right_magenta.svg'
 import arrowsRight       from './icons/arrows_right.svg'
+import arrowRightRound   from './icons/arrow_right_round.svg'
+import arrowLeftRound    from './icons/arrow_left_round.svg'
 import barGraph          from './icons/bar_graph.svg'
 import cardStack         from './icons/card_stack.svg'
 import checkmark         from './icons/checkmark.svg'
@@ -57,6 +59,8 @@ import vennDiagram       from './icons/venn_diagram.svg'
 const icons = {
   arrowRight,
   arrowsRight,
+  arrowRightRound,
+  arrowLeftRound,
   arrowRightMagenta,
   arrowDown,
   barGraph,

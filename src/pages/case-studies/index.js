@@ -59,6 +59,26 @@ class CaseStudiesPage extends Component {
     this.setState({ currentScreenshots });
   };
 
+  /**
+   * Used to increment/decrement the screenshot using ui arrows.
+   */
+  _handlePageScreenshot = ({section, max, dir}) => {
+    let currentScreenshots = { ...this.state.currentScreenshots };
+    if (dir == "inc") {
+      let inc = currentScreenshots[section] + 1
+      currentScreenshots[section] = inc
+      if (inc <= max - 1) {
+        this.setState({currentScreenshots});
+      }
+    } else if (dir == "dec") {
+      let dec = currentScreenshots[section] - 1
+      currentScreenshots[section] = dec;
+      if (dec >= 0) {
+        this.setState({currentScreenshots});
+      }
+    }
+  }
+
   componentDidMount() {
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > 254) {
@@ -119,6 +139,7 @@ class CaseStudiesPage extends Component {
                       caseData={d}
                       currentScreenshot={this.state.currentScreenshots[d.slug]}
                       handleDetailChange={this._handleDetailChange}
+                      handlePageScreenshot={this._handlePageScreenshot}
                     />
                   </div>
                 </Waypoint>

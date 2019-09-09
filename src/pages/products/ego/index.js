@@ -40,7 +40,7 @@ const EgoPage = () => (
         getStartedLink="https://github.com/overture-stack/ego"
         badge={{ color: "blue", text: "Access & Download" }}
         logo="logoEgo"
-        progressType="rc"
+        progressType="ga"
       />
 
       {/* Features  */}

@@ -1,4 +1,4 @@
-import { H4, Button, TrafficLights, ImageCrossfade } from "..";
+import { H4, Button, Icon, TrafficLights, ImageCrossfade } from "..";
 import React from "react";
 
 /**
@@ -6,10 +6,11 @@ import React from "react";
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
+const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
   const _handleDetailChange = idx => {
     handleDetailChange({ section: caseData.slug, screenNumber: idx });
   };
+
 
   return (
     <section className="Case-Study">
@@ -74,9 +75,17 @@ const CaseStudy = ({ caseData, handleDetailChange, currentScreenshot }) => {
           </div>
 
           <div className="details-right">
+
+            <div onClick={() => handlePageScreenshot({section: caseData.slug, max: caseData.details.length, dir: "inc"})} className="screenshot-arrow-right">
+              <Icon img="arrowRightRound"/>
+            </div>
+
+            <div onClick={() => handlePageScreenshot({section: caseData.slug, max: caseData.details.length, dir: "dec"})} className="screenshot-arrow-left">
+              <Icon img="arrowLeftRound"/>
+            </div>
+
             <div className="Browser details-right-browser-wrapper">
               <TrafficLights style={{ marginLeft: 0, paddingBottom: "16px" }} />
-              {/* <img src={caseData.details[currentScreenshot].screenshot} /> */}
               <ImageCrossfade src={caseData.details[currentScreenshot].screenshot}/>
             </div>
           </div>
