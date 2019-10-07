@@ -17,6 +17,10 @@ class TemplateWrapper extends Component {
     this.setState({ productMenuOpen: !this.state.productMenuOpen });
   };
 
+  openMenu = () => {
+    this.setState({productMenuOpen: true})
+  }
+
   toggleMobileMenu = () => {
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
   };
@@ -35,6 +39,7 @@ class TemplateWrapper extends Component {
         </Helmet>
         <Navbar
           closeMenus={this.closeMenus}
+          openMenu={this.openMenu}
           productMenuOpen={this.state.productMenuOpen}
           mobileMenuOpen={this.state.mobileMenuOpen}
           toggleMenu={this.toggleMenu}

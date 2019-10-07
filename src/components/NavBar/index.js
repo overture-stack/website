@@ -12,6 +12,42 @@ import ProductsPopup from "./Popup";
 import NavLink from "./NavLink";
 
 class NavBar extends Component {
+
+  constructor() {
+    super();
+
+    // refs for detecting click locations and subsequently hiding/showing the popover.
+    this.popoverRef = null;
+    this.productsRef = null;
+  }
+
+  componentDidMount() {
+    let productMenuOpen = this.props.productMenuOpen;
+    document.addEventListener("mouseover", this.onMouseMove);
+  }
+
+  componentWillUnmount() {
+    document.addEventListener("mouseover", this.onMouseMove)
+  }
+
+  onMouseMove = (e) => {
+    let productMenuOpen = this.props.productMenuOpen
+
+    // Gate to make sure the popover ref has loaded
+    if (this.popoverRef == null) return
+
+    // Then, if mouse is NOT in the popover and it's open: close it!
+    if (!this.popoverRef.contains(e.target) && productMenuOpen) {
+      this.props.closeMenus()
+
+    // If the mouse is on the "Products" button and the menu isn't open: open it!
+    } else if (this.productsRef.contains(e.target) && !productMenuOpen) {
+      this.props.openMenu()
+    }
+  }
+
+
+
   render() {
     // Some className bindings for toggling menus and such.
     let productMenuOpen = this.props.productMenuOpen;
@@ -21,7 +57,7 @@ class NavBar extends Component {
       ? "products-link products-link-open navbar-item"
       : "products-link navbar-item";
 
-    let productsMenuClass = productMenuOpen ? "open" : "closed";
+    let productsMenuClass = "open" // productMenuOpen ? "open" : "closed";
 
     // mobile menu class
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
@@ -55,9 +91,11 @@ class NavBar extends Component {
             <div className="navbar-start items-center">
               {/* popover */}
               <div className="products-link-box">
-                <div
-                  onClick={() => this.props.toggleMenu()}
+                <Link
+                  onClick={() => this.props.closeMenus()}
+                  to="/products"
                   className={productsLinkClass}
+                  ref={r => (this.productsRef = r)}
                 >
                   Products
                   <Icon
@@ -65,14 +103,16 @@ class NavBar extends Component {
                     style={{ width: "32px" }}
                     img={productsArrow}
                   />
-                </div>
+                </Link>
 
                 {/* Products Popover Menu + Ref for hiding. */}
-                <div ref={r => (this.productMenuRef = r)}>
+                <div ref={r => (this.popoverRef = r)}>
+                  {productMenuOpen && (
                   <ProductsPopup
                     className={productsMenuClass}
                     closeMenus={this.props.closeMenus}
                   />
+                  )}
                 </div>
               </div>
 

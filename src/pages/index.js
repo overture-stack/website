@@ -116,9 +116,9 @@ const HomePage = () => (
                 Provide your administrators with the power to organize an
                 intuitive search interface.
               </div>
-              <a href="#" className="link-magenta">
+              <div href="#" className="link-magenta">
                 Learn More <Icon size={12} img="arrowRightMagenta" />
-              </a>
+              </div>
             </BundleCard>
           </Link>
         </div>
