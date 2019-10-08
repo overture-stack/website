@@ -161,6 +161,11 @@ const featureGridData = [
   ]
 ];
 
+
+/**
+ * This is a separate class-component for the sake of
+ * separating the animation logic for the illustration.
+ */
 class HeroImg extends React.Component {
   constructor(props) {
     super(props);
