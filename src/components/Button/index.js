@@ -1,28 +1,28 @@
-import React from "react";
-import {Icon} from "../";
-import { Link } from "gatsby"
-import "./styles.scss";
+import React from 'react'
+import { Icon } from '../'
+import { Link } from 'gatsby'
+import './styles.scss'
 
 const btnTypes = {
-  primary: "is-primary", // uses bulma
-  secondary: "is-white secondary" // bulma + custom css
-};
+  primary: 'is-primary', // uses bulma
+  secondary: 'is-white secondary', // bulma + custom css
+}
 
 const btnSizes = {
   // Bulma classes
-  large: "is-large",
-  medium: "is-medium",
-  small: "is-small",
-  default: ""
-};
+  large: 'is-large',
+  medium: 'is-medium',
+  small: 'is-small',
+  default: '',
+}
 
 // Icon sizes vary based on passed in button size prop.
 const iconSizes = {
   large: 32,
   medium: 24,
   small: 16,
-  default: 16
-};
+  default: 16,
+}
 
 /**
  * Component: Button
@@ -39,14 +39,14 @@ export default ({
   className,
   iconStyle,
   children,
-  type = "default",
-  size = "default",
+  type = 'default',
+  size = 'default',
   externalLink,
   internalLink,
-  target = "_blank"
+  target = '_blank',
 }) => {
-  let customClassName = className ? className : "";
-  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
+  let customClassName = className ? className : ''
+  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`
   let IconComp = () => {
     if (icon) {
       return (
@@ -56,24 +56,20 @@ export default ({
           size={iconSizes[size]}
           img={icon}
         />
-      );
+      )
     }
-  };
+  }
 
   // If we have an external link, make the button wrap with an <a>
   if (externalLink) {
     return (
       <button className="custom-button">
-        <a
-          className={classes}
-          target={target}
-          href={externalLink}
-        >
+        <a className={classes} target={target} href={externalLink}>
           {IconComp()}
           {children}
         </a>
       </button>
-    );
+    )
   } else if (internalLink) {
     return (
       <button className="custom-button">
@@ -82,6 +78,6 @@ export default ({
           {children}
         </Link>
       </button>
-    );
+    )
   }
-};
+}

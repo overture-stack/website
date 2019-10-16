@@ -10,24 +10,24 @@
  * b) for indicating the currently selected logo in the navigation.
  */
 
-import React, { Component } from "react";
-import { H1, H4, Layout } from "../../components";
-import CaseStudy from "../../components/CaseStudy";
-import caseData from "../../data/case_studies";
-import Navigation from "./navigation";
-import { Waypoint } from "react-waypoint";
-import "./styles.scss";
+import React, { Component } from 'react'
+import { H1, H4, Layout } from '../../components'
+import CaseStudy from '../../components/CaseStudy'
+import caseData from '../../data/case_studies'
+import Navigation from './navigation'
+import { Waypoint } from 'react-waypoint'
+import './styles.scss'
 
 class CaseStudiesPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     // Refs for scroll to navigation
-    this.kidsFirst = React.createRef();
-    this.icgcDataPortal = React.createRef();
-    this.nciGdc = React.createRef();
-    this.cgc = React.createRef();
-    this.kidsFirst = React.createRef();
-    this.humanCancerModels = React.createRef();
+    this.kidsFirst = React.createRef()
+    this.icgcDataPortal = React.createRef()
+    this.nciGdc = React.createRef()
+    this.cgc = React.createRef()
+    this.kidsFirst = React.createRef()
+    this.humanCancerModels = React.createRef()
   }
 
   // State
@@ -41,12 +41,12 @@ class CaseStudiesPage extends Component {
       icgcDataPortal: 0,
       nciGdc: 0,
       cgc: 0,
-      humanCancerModels: 0
-    }
-  };
+      humanCancerModels: 0,
+    },
+  }
 
   _handleWaypointEnter(caseStudy, e) {
-    this.setState({ currentCase: caseStudy.title });
+    this.setState({ currentCase: caseStudy.title })
   }
 
   _handleWaypointLeave(caseStudy, e) {
@@ -54,50 +54,56 @@ class CaseStudiesPage extends Component {
   }
 
   _handleDetailChange = ({ section, screenNumber }) => {
-    let currentScreenshots = { ...this.state.currentScreenshots };
-    currentScreenshots[section] = screenNumber;
-    this.setState({ currentScreenshots });
-  };
+    let currentScreenshots = { ...this.state.currentScreenshots }
+    currentScreenshots[section] = screenNumber
+    this.setState({ currentScreenshots })
+  }
 
   /**
    * Used to increment/decrement the screenshot using ui arrows.
    */
-  _handlePageScreenshot = ({section, max, dir}) => {
-    let currentScreenshots = { ...this.state.currentScreenshots };
-    if (dir == "inc") {
+  _handlePageScreenshot = ({ section, max, dir }) => {
+    let currentScreenshots = { ...this.state.currentScreenshots }
+    if (dir == 'inc') {
       let inc = currentScreenshots[section] + 1
       currentScreenshots[section] = inc
       if (inc <= max - 1) {
-        this.setState({currentScreenshots});
+        this.setState({ currentScreenshots })
       }
-    } else if (dir == "dec") {
+    } else if (dir == 'dec') {
       let dec = currentScreenshots[section] - 1
-      currentScreenshots[section] = dec;
+      currentScreenshots[section] = dec
       if (dec >= 0) {
-        this.setState({currentScreenshots});
+        this.setState({ currentScreenshots })
       }
     }
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 254) {
-        this.setState({ navFixed: true });
-      } else {
-        this.setState({ navFixed: false });
-      }
-    });
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if (window.pageYOffset > 254) {
+      this.setState({ navFixed: true })
+    } else {
+      this.setState({ navFixed: false })
+    }
   }
 
   scrollTo = slugName => {
-    let node = this[slugName];
-    let rect = node.current.getBoundingClientRect();
-    let top = rect.top + window.scrollY - 190;
-    window.scrollTo({ top, behavior: "smooth" });
-  };
+    let node = this[slugName]
+    let rect = node.current.getBoundingClientRect()
+    let top = rect.top + window.scrollY - 190
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
 
   render() {
-    let fixedClass = this.state.navFixed ? "nav-fixed" : "";
+    let fixedClass = this.state.navFixed ? 'nav-fixed' : ''
 
     return (
       <Layout>
@@ -125,7 +131,7 @@ class CaseStudiesPage extends Component {
           {/* Case Study Component */}
           {caseData &&
             caseData.map((d, i) => {
-              let bgColor = i % 2 === 0 ? "none" : "#F2F3F5";
+              let bgColor = i % 2 === 0 ? 'none' : '#F2F3F5'
 
               return (
                 <Waypoint
@@ -143,12 +149,12 @@ class CaseStudiesPage extends Component {
                     />
                   </div>
                 </Waypoint>
-              );
+              )
             })}
         </main>
       </Layout>
-    );
+    )
   }
 }
 
-export default CaseStudiesPage;
+export default CaseStudiesPage

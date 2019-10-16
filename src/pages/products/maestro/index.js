@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -13,32 +13,41 @@ import {
   BottomCallout,
   Callout,
   Terminal,
-  UrlBar
-} from "../../../components";
+  UrlBar,
+} from '../../../components'
 
-import "./style.scss";
+import './style.scss'
 
 const featureGridData = [
-  [{
-    header: "Slack integration",
-    details: "Keep on top of your indexing service by receiving convenient notifications in Slack.",
-    icon: "target"
-  },
-   {
-     header: "Exclusion rule",
-     details: "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>Song</a>.",
-     icon: "target"
-   }],
+  [
+    {
+      header: 'Slack integration',
+      details:
+        'Keep on top of your indexing service by receiving convenient notifications in Slack.',
+      icon: 'target',
+    },
+    {
+      header: 'Exclusion rule',
+      details:
+        "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>Song</a>.",
+      icon: 'target',
+    },
+  ],
 
-  [{header: "Event Based Indexing",
-    details: "Instant data release with configurable event based indexing with Apache Kafka messaging queue. ",
-    icon: "target"
-   },
-   {
-     header: "Multiple Repository Management",
-     details: "Connect multiple <a href='/products/song'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
-     icon: "target"
-   }],
+  [
+    {
+      header: 'Event Based Indexing',
+      details:
+        'Instant data release with configurable event based indexing with Apache Kafka messaging queue. ',
+      icon: 'target',
+    },
+    {
+      header: 'Multiple Repository Management',
+      details:
+        "Connect multiple <a href='/products/song'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
+      icon: 'target',
+    },
+  ],
 ]
 
 const MaestroPage = () => (
@@ -61,13 +70,16 @@ const MaestroPage = () => (
         subTitle="Organizing your distributed data into one index."
         cardText={
           <div>
-            Maestro helps you manage geographically distributed data stored in <a href='/products/song'>Song</a> and <a href='/products/score'>Score</a> with a single, configurable index.
+            Maestro helps you manage geographically distributed data stored in{' '}
+            <a href="/products/song">Song</a> and{' '}
+            <a href="/products/score">Score</a> with a single, configurable
+            index.
           </div>
         }
         getStartedLink="https://github.com/overture-stack/maestro"
         logo="logoMaestro"
         progressType="ud"
-        badge={{ color: "blue", text: "Access & Download" }}
+        badge={{ color: 'blue', text: 'Access & Download' }}
       />
 
       {/* Features  */}
@@ -95,8 +107,7 @@ const MaestroPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features Things */}
-      <GridFeature data={featureGridData}/>
-
+      <GridFeature data={featureGridData} />
 
       {/* Getting Started /  Terminals */}
       <GettingStarted pinnedLink="https://maestro-overture.readthedocs.io/en/latest/">
@@ -110,7 +121,7 @@ const MaestroPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["git@github.com:overture-stack/maestro.git"]} />
+            <Terminal prompts={['git@github.com:overture-stack/maestro.git']} />
           </div>
         </div>
 
@@ -119,25 +130,30 @@ const MaestroPage = () => (
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">2</H2>
-            <div><H4>Build and run the source code with maven.</H4> </div>
+            <div>
+              <H4>Build and run the source code with maven.</H4>{' '}
+            </div>
             <div className="mt3 yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["./mvnw spring-boot:run"]} />
+            <Terminal prompts={['./mvnw spring-boot:run']} />
           </div>
         </div>
-
 
         <div className="columns Step">
           <div className="column is-3">
             <H2 className="pb1">3</H2>
-            <div><H4>Or run using docker compose.</H4> </div>
+            <div>
+              <H4>Or run using docker compose.</H4>{' '}
+            </div>
             <div className="mt3 yellow-bar" />
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["cd run/docker-compose", "docker-compose up"]} />
+            <Terminal
+              prompts={['cd run/docker-compose', 'docker-compose up']}
+            />
           </div>
         </div>
       </GettingStarted>
@@ -160,6 +176,6 @@ const MaestroPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default MaestroPage;
+export default MaestroPage

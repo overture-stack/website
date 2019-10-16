@@ -1,9 +1,9 @@
-import React from "react";
-import "./home/styles.scss";
-import { Badge, H1, H2, H4, Hero, Icon, Layout } from "../components";
+import React from 'react'
+import './home/styles.scss'
+import { Badge, H1, H2, H4, Hero, Icon, Layout } from '../components'
 import heroImg from './assets/heroImg.svg'
-import Helmet from "react-helmet";
-import Link from "gatsby-link";
+import Helmet from 'react-helmet'
+import Link from 'gatsby-link'
 
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
@@ -14,7 +14,7 @@ const BundleCard = ({ header, icon, children }) => (
 
     <section className="card-body">{children}</section>
   </div>
-);
+)
 
 const HomePage = () => (
   <Layout>
@@ -36,7 +36,7 @@ const HomePage = () => (
       <Hero
         title="Worry less, science more"
         subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
-        ImgComponent={() => (<img className="home-img" src={heroImg}/>)}
+        ImgComponent={() => <img className="home-img" src={heroImg} />}
       >
         <span className="display flex align-center">
           <Link className="py2 pr1 link-magenta" to="case-studies">
@@ -51,13 +51,13 @@ const HomePage = () => (
       <section className="container">
         <div className="bioinformatics-bundle column ">
           <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
-          <div className="pt2" style={{ maxWidth: "900px" }}>
+          <div className="pt2" style={{ maxWidth: '900px' }}>
             Data is the essence of our field. Implement Overture’s core products
             to
             <span>
               <Link to="products#generate-upload">
                 <Badge className="mx1" color="pink">
-                  Generate & Upload{" "}
+                  Generate & Upload{' '}
                 </Badge>
               </Link>
             </span>
@@ -127,7 +127,7 @@ const HomePage = () => (
         <div className="flex column justify-center">
           <div className="explore-solutions-box">
             <div className="explore-solutions-header">
-              {" "}
+              {' '}
               Also explore our products for:
             </div>
             <div className="badges">
@@ -139,17 +139,17 @@ const HomePage = () => (
                 </Link>
 
                 <Link to="products#collaborate-share">
-                <Badge className="mr2" color="light-green">
-                  Collaborate & Share
-                </Badge>
+                  <Badge className="mr2" color="light-green">
+                    Collaborate & Share
+                  </Badge>
                 </Link>
               </div>
 
               <div>
                 <Link to="products#track-manage">
-                <Badge className="mr2" color="yellow">
-                  Track & Manage
-                </Badge>
+                  <Badge className="mr2" color="yellow">
+                    Track & Manage
+                  </Badge>
                 </Link>
               </div>
             </div>
@@ -174,17 +174,17 @@ const HomePage = () => (
                 Our team has extensive experience building
               </span>
               <span className="bold">
-                {" "}
+                {' '}
                 large scale infrastructures, big data ETL and portals supporting
-                genomic research.{" "}
+                genomic research.{' '}
               </span>
               <p className="pt2">
                 Built to be reusable and scalable, Overture’s components are
-                well documented, actively supported and welcome{" "}
+                well documented, actively supported and welcome{' '}
                 <a target="_blank" href="https://github.com/overture-stack">
                   external feedback and contributions
                 </a>
-                . If you need assistance, we also offer{" "}
+                . If you need assistance, we also offer{' '}
                 <Link to="/services">
                   consulting, support and collaborative services.
                 </Link>
@@ -209,6 +209,6 @@ const HomePage = () => (
       </section>
     </main>
   </Layout>
-);
+)
 
-export default HomePage;
+export default HomePage

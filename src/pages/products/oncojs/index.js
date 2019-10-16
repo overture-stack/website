@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   Button,
@@ -8,22 +8,22 @@ import {
   ProductFeature,
   WindowGui,
   BottomCallout,
-  Callout
-} from "../../../components";
+  Callout,
+} from '../../../components'
 
 // Screenshots
-import lolliplotScreen from "./assets/lolliplot_screen.png";
-import oncogridScreen from "./assets/oncogrid_screen.jpg";
-import sapienScreen from "./assets/sapien_screen.jpg";
-import survivalplotScreen from "./assets/survivalplot_screen.jpg";
-import pathwayviewerScreen from "./assets/pathwayviewer_screen.jpg";
+import lolliplotScreen from './assets/lolliplot_screen.png'
+import oncogridScreen from './assets/oncogrid_screen.jpg'
+import sapienScreen from './assets/sapien_screen.jpg'
+import survivalplotScreen from './assets/survivalplot_screen.jpg'
+import pathwayviewerScreen from './assets/pathwayviewer_screen.jpg'
 
 const TargetHeader = ({ children }) => (
   <div>
     <H2>{children}</H2>
     <div className="my3 yellow-bar" />
   </div>
-);
+)
 
 const OncoPage = () => (
   <Layout>
@@ -41,7 +41,7 @@ const OncoPage = () => (
         subTitle="Bring data to life with stunning visualizations and real-time analysis."
         cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
         getStartedLink="https://github.com/oncojs/"
-        badge={{ color: "red", text: "Analyze & Discover" }}
+        badge={{ color: 'red', text: 'Analyze & Discover' }}
         logo="logoOncojs"
         progressType="ga"
       />
@@ -56,8 +56,8 @@ const OncoPage = () => (
               <TargetHeader>Lollipop</TargetHeader>
 
               <p className="pb2">
-                {" "}
-                Visualize the location of mutations on a protein structure.{" "}
+                {' '}
+                Visualize the location of mutations on a protein structure.{' '}
               </p>
 
               <div className="">
@@ -93,7 +93,7 @@ const OncoPage = () => (
                   target="_blank"
                   href="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
                 >
-                  Live example >{" "}
+                  Live example >{' '}
                 </a>
               </div>
             </div>
@@ -160,7 +160,7 @@ const OncoPage = () => (
                   target="_blank"
                   href="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
                 >
-                  Live example >{" "}
+                  Live example >{' '}
                 </a>
               </div>
             </div>
@@ -178,7 +178,7 @@ const OncoPage = () => (
 
               <p className="pb2">
                 Visualize and compare datasets to determine probable health
-                outcomes and their frequency in patient groups.{" "}
+                outcomes and their frequency in patient groups.{' '}
               </p>
 
               <div className="">
@@ -214,7 +214,7 @@ const OncoPage = () => (
                   target="_blank"
                   href="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
                 >
-                  Live example >{" "}
+                  Live example >{' '}
                 </a>
               </div>
             </div>
@@ -269,7 +269,7 @@ const OncoPage = () => (
                   target="_blank"
                   href="https://portal.gdc.cancer.gov/"
                 >
-                  Live example >{" "}
+                  Live example >{' '}
                 </a>
               </div>
             </div>
@@ -286,7 +286,7 @@ const OncoPage = () => (
               <TargetHeader>Pathwayviewer</TargetHeader>
 
               <p className="pb2">
-                {" "}
+                {' '}
                 A straightforward component for visualization of reactome
                 pathways.
               </p>
@@ -324,7 +324,7 @@ const OncoPage = () => (
                   target="_blank"
                   href="https://portal.gdc.cancer.gov/"
                 >
-                  Live example >{" "}
+                  Live example >{' '}
                 </a>
               </div>
             </div>
@@ -359,6 +359,6 @@ const OncoPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default OncoPage;
+export default OncoPage

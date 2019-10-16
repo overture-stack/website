@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -12,21 +12,22 @@ import {
   BottomCallout,
   Button,
   Callout,
-  Terminal
-} from "../../../components";
-
+  Terminal,
+} from '../../../components'
 
 const featureGridData = [
   [
     {
-      header: "Short URLs",
-      details: "Each Riff can be mapped to by a Short URL which is generated on saving or sharing.",
-      icon: "target"
+      header: 'Short URLs',
+      details:
+        'Each Riff can be mapped to by a Short URL which is generated on saving or sharing.',
+      icon: 'target',
     },
     {
-      header: "Social",
-      details: "Allow users to share urls via link, Facebook, Twitter, or LinkedIn.",
-      icon: "target"
+      header: 'Social',
+      details:
+        'Allow users to share urls via link, Facebook, Twitter, or LinkedIn.',
+      icon: 'target',
     },
   ],
 ]
@@ -49,7 +50,7 @@ const RiffPage = () => (
         getStartedLink="https://github.com/overture-stack/riff"
         logo="logoRiff"
         progressType="rc"
-        badge={{ color: "light-green", text: "COLLABORATE & SHARE" }}
+        badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
       />
 
       {/* Features  */}
@@ -75,7 +76,7 @@ const RiffPage = () => (
       </ProductFeatureRow>
 
       {/* Target Section */}
-      <GridFeature data={featureGridData}/>
+      <GridFeature data={featureGridData} />
 
       {/* Getting Started */}
 
@@ -95,7 +96,7 @@ const RiffPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["sudo -u postgres psql"]} />
+            <Terminal prompts={['sudo -u postgres psql']} />
           </div>
         </div>
 
@@ -112,7 +113,7 @@ const RiffPage = () => (
 
           <div className="column is-8 is-offset-1 self-center">
             <Terminal
-              prompts={["git clone git@github.com:overture-stack/riff.git"]}
+              prompts={['git clone git@github.com:overture-stack/riff.git']}
             />
           </div>
         </div>
@@ -130,7 +131,7 @@ const RiffPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["mvn spring-boot:run"]} />
+            <Terminal prompts={['mvn spring-boot:run']} />
           </div>
         </div>
       </GettingStarted>
@@ -155,6 +156,6 @@ const RiffPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default RiffPage;
+export default RiffPage

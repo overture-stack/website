@@ -1,19 +1,19 @@
-import Icon from "../Icon/index";
-import React from "react";
-import "./styles.scss";
-import Badge from "../Badge/index";
-import bg from "./bg_blue_curved.svg"; // used in css
-import logoScore from "./images/score.svg";
-import logoSong from "./images/song.svg";
-import logoEgo from "./images/ego.svg";
-import logoOncojs from "./images/oncojs.svg";
-import logoJukebox from "./images/jukebox.svg";
-import logoMaestro from "./images/maestro.svg";
-import logoArranger from "./images/arranger.svg";
-import logoRiff from "./images/riff.svg";
-import logoPersona from "./images/persona.svg";
-import ProgressBar from "../ProgressBar/index";
-import Button from "../Button/index";
+import Icon from '../Icon/index'
+import React from 'react'
+import './styles.scss'
+import Badge from '../Badge/index'
+import bg from './bg_blue_curved.svg' // used in css
+import logoScore from './images/score.svg'
+import logoSong from './images/song.svg'
+import logoEgo from './images/ego.svg'
+import logoOncojs from './images/oncojs.svg'
+import logoJukebox from './images/jukebox.svg'
+import logoMaestro from './images/maestro.svg'
+import logoArranger from './images/arranger.svg'
+import logoRiff from './images/riff.svg'
+import logoPersona from './images/persona.svg'
+import ProgressBar from '../ProgressBar/index'
+import Button from '../Button/index'
 
 const logos = {
   logoScore,
@@ -25,7 +25,7 @@ const logos = {
   logoPersona,
   logoRiff,
   logoArranger,
-};
+}
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
   <div className="container mt3 mb2">
@@ -61,7 +61,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
       </div>
     </div>
   </div>
-);
+)
 
 const ProductHero = ({
   title,
@@ -70,7 +70,7 @@ const ProductHero = ({
   logo,
   getStartedLink,
   badge,
-  progressType
+  progressType,
 }) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py1">
@@ -80,14 +80,12 @@ const ProductHero = ({
           <div className="hero-title-box">
             <span className="hero-title-and-tag ">
               <h1 className="title mb1">{title}</h1>
-              <Badge color={badge.color}>
-                {badge.text}
-              </Badge>
+              <Badge color={badge.color}>{badge.text}</Badge>
             </span>
             <h2 className="subtitle py1">{subTitle}</h2>
           </div>
 
-      <ProgressBar type={progressType} />
+          <ProgressBar type={progressType} />
 
           <HeroCard
             getStartedLink={getStartedLink}
@@ -98,6 +96,6 @@ const ProductHero = ({
       </div>
     </section>
   </div>
-);
+)
 
-export default ProductHero;
+export default ProductHero

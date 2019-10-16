@@ -1,16 +1,13 @@
-import React from "react";
-import "./styles.scss";
-import {Icon} from "../";
+import React from 'react'
+import './styles.scss'
+import { Icon } from '../'
 
 // consistent container for product feature row
 export const ProductFeatureRow = ({ children }) => (
   <div className="container mb4">
-    <div className="ProductFeatureRow flex justify-between my2">
-      {children}
-    </div>
+    <div className="ProductFeatureRow flex justify-between my2">{children}</div>
   </div>
-);
-
+)
 
 /**
  * Component for displaying a header, an icon, and a paragraph of text.
@@ -24,30 +21,33 @@ export const ProductFeature = ({
   icon,
   iconSize,
   size,
-  className
+  className,
 }) => {
-  if (size == "small") {
+  if (size == 'small') {
     let _iconSize = iconSize || 32
     return (
-      <div className={`ProductFeature small ${className ? className : ""}`}>
+      <div className={`ProductFeature small ${className ? className : ''}`}>
         <div className="flex items-center py2">
           {/* Icon */}
           <Icon img={icon} size={_iconSize} />
 
           {/* header */}
-          {header
-            ? <div className="header">{header}</div>
-            : <div className="ml2 details">{details}</div>}
+          {header ? (
+            <div className="header">{header}</div>
+          ) : (
+            <div className="ml2 details">{details}</div>
+          )}
         </div>
 
         {/* feature */}
-        {header &&
+        {header && (
           <div
             className="details"
             dangerouslySetInnerHTML={{ __html: details }}
-          />}
+          />
+        )}
       </div>
-    );
+    )
   } else {
     return (
       <div className="ProductFeature default">
@@ -58,13 +58,13 @@ export const ProductFeature = ({
         <div className="header">{header}</div>
 
         {/* feature */}
-          <div
-            className="details"
-            dangerouslySetInnerHTML={{ __html: details }}
-          />
+        <div
+          className="details"
+          dangerouslySetInnerHTML={{ __html: details }}
+        />
       </div>
-    );
+    )
   }
-};
+}
 
-export default ProductFeature;
+export default ProductFeature

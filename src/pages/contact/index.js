@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import heroImg from "./assets/hero_img.svg";
-import Helmet from "react-helmet";
-import { H1, H2, Button, Layout, Hero } from "../../components/";
-import "./styles.scss";
+import React, { Component } from 'react'
+import heroImg from './assets/hero_img.svg'
+import Helmet from 'react-helmet'
+import { H1, H2, Button, Layout, Hero } from '../../components/'
+import './styles.scss'
 
 class ContactPage extends Component {
   render() {
@@ -23,11 +23,18 @@ class ContactPage extends Component {
           </Helmet>
 
           {/* HERO */}
-          <Hero title="Contact Us" ImgComponent={() => (<img className="contact-hero-img" src={heroImg}/>)} fgImage="img_contact" fgImageClass="contact-hero-img"/>
+          <Hero
+            title="Contact Us"
+            ImgComponent={() => (
+              <img className="contact-hero-img" src={heroImg} />
+            )}
+            fgImage="img_contact"
+            fgImageClass="contact-hero-img"
+          />
 
           <div
             className="is-hidden-mobile"
-            style={{ width: "1px", height: "72px" }}
+            style={{ width: '1px', height: '72px' }}
           />
 
           {/* Details / info */}
@@ -90,8 +97,8 @@ class ContactPage extends Component {
           </section>
         </main>
       </Layout>
-    );
+    )
   }
 }
 
-export default ContactPage;
+export default ContactPage

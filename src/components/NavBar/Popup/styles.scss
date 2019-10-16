@@ -1,15 +1,14 @@
 @import "../../../styles/variables";
 
 .ProductsPopup {
-  position: fixed;
+  position: absolute;
   display: flex;
   left: 0;
   right: 0;
   z-index: 1;
   width: 100%;
-  top: 60px;
   height: auto;
-  transition: opacity ease 0.2s 0.1s;
+  transition: top ease 0.5s 0.5s;
   margin: 0 auto;
 
   // Shrinking the slack button changes nav size; update popover top.
@@ -22,15 +21,21 @@
   }
 
   &.open {
-    visibility: visible;
-    opacity: 1;
+  top: 60px;
+    @media (max-width: 1260px) and (min-width: 1160px) {
+      top: 50px;
+    }
+
+    @include breakpoint(navmenu-below) {
+      top: 0;
+      display: block;
+    }
   }
 
   &.closed {
-    visibility: hidden;
-    opacity: 0;
+    top: -240px;
     @include breakpoint(navmenu-below) {
-      opacity: 1;
+      top: 0;
       display: none;
     }
   }
@@ -153,3 +158,12 @@
     }
   }
 }
+
+
+
+  .desktop-products-popup {
+    @media(max-width: $desktop) {
+      display: none;
+
+    }
+  }

@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -11,10 +11,10 @@ import {
   GettingStarted,
   BottomCallout,
   Callout,
-  Terminal
-} from "../../../components";
-import screenshot from "./assets/screenshot.png";
-import "./style.scss";
+  Terminal,
+} from '../../../components'
+import screenshot from './assets/screenshot.png'
+import './style.scss'
 
 const EgoPage = () => (
   <Layout>
@@ -38,7 +38,7 @@ const EgoPage = () => (
         subTitle="A stateless authorization and user management service."
         cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
         getStartedLink="https://github.com/overture-stack/ego"
-        badge={{ color: "blue", text: "Access & Download" }}
+        badge={{ color: 'blue', text: 'Access & Download' }}
         logo="logoEgo"
         progressType="ga"
       />
@@ -130,9 +130,9 @@ const EgoPage = () => (
           <div className="column is-8 is-offset-1 self-center">
             <Terminal
               prompts={[
-                "sudo -u postgres psql",
-                "create database ego;",
-                "q  exit out of psql"
+                'sudo -u postgres psql',
+                'create database ego;',
+                'q  exit out of psql',
               ]}
             />
           </div>
@@ -148,17 +148,17 @@ const EgoPage = () => (
 
               <ul className="step-text">
                 <li className="bullet">
-                  Copy the{" "}
+                  Copy the{' '}
                   <a
                     target="_blank"
                     href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql"
                   >
                     psql-schema.sql
-                  </a>{" "}
+                  </a>{' '}
                   file locally. {/* TJS NEEDS LINK */}
                 </li>
                 <li className="bullet">
-                  Execute the SQL script to setup the tables.{" "}
+                  Execute the SQL script to setup the tables.{' '}
                   {/* TJS NEEDS LINK */}
                 </li>
               </ul>
@@ -168,7 +168,7 @@ const EgoPage = () => (
 
           <div className="column is-8 is-offset-1 self-center">
             <Terminal
-              prompts={["psql -U postgres -d ego -a -f psql-schema.sql"]}
+              prompts={['psql -U postgres -d ego -a -f psql-schema.sql']}
             />
           </div>
         </div>
@@ -203,7 +203,7 @@ const EgoPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["mvn clean package", "mvn spring-boot:run"]} />
+            <Terminal prompts={['mvn clean package', 'mvn spring-boot:run']} />
           </div>
         </div>
       </GettingStarted>
@@ -226,6 +226,6 @@ const EgoPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default EgoPage;
+export default EgoPage

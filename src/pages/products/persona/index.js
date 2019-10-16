@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -12,27 +12,30 @@ import {
   GettingStarted,
   BottomCallout,
   Callout,
-  Terminal
-} from "../../../components";
+  Terminal,
+} from '../../../components'
 
 const featureGridData = [
   [
     {
-      header: "Adaptable user information",
-      details: "MondoDB backend enables user profiles with different roles to have different fields.",
-      icon: "target"
+      header: 'Adaptable user information',
+      details:
+        'MondoDB backend enables user profiles with different roles to have different fields.',
+      icon: 'target',
     },
     {
-      header: "Scalable",
-      details: "As your user base grows, Persona grows to accommodate the profile information.",
-      icon: "target"
+      header: 'Scalable',
+      details:
+        'As your user base grows, Persona grows to accommodate the profile information.',
+      icon: 'target',
     },
   ],
   [
     {
-      header: "Pairs with Ego",
-      details: "Built to interact seamlessly with the user authorization product, <a href='/products/ego'/>Ego.</a>",
-      icon: "target"
+      header: 'Pairs with Ego',
+      details:
+        "Built to interact seamlessly with the user authorization product, <a href='/products/ego'/>Ego.</a>",
+      icon: 'target',
     },
   ],
 ]
@@ -55,7 +58,7 @@ const PersonaPage = () => (
         getStartedLink="https://github.com/overture-stack/persona"
         logo="logoPersona"
         progressType="rc"
-        badge={{ color: "light-green", text: "COLLABORATE & SHARE" }}
+        badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
       />
 
       {/* Features  */}
@@ -84,8 +87,7 @@ const PersonaPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features Things */}
-      <GridFeature data={featureGridData}/>
-
+      <GridFeature data={featureGridData} />
 
       {/* Getting Started */}
 
@@ -104,7 +106,7 @@ const PersonaPage = () => (
           <div className="column is-8 is-offset-1 self-center">
             <Terminal
               prompts={[
-                "git clone https://github.com/overture-stack/persona.git"
+                'git clone https://github.com/overture-stack/persona.git',
               ]}
             />
           </div>
@@ -122,7 +124,7 @@ const PersonaPage = () => (
                 <li className="bullet">
                   Add the required environment variables, documented in
                   <a href="https://github.com/overture-stack/persona/blob/master/.env.schema">
-                    {" "}
+                    {' '}
                     .env.schema.
                   </a>
                 </li>
@@ -145,7 +147,7 @@ const PersonaPage = () => (
                 <div>
                   Persona is now running and you can access it at
                   <a href="http://localhost:3232/graphql">
-                    {" "}
+                    {' '}
                     http://localhost:3232/graphql
                   </a>
                   .
@@ -156,7 +158,7 @@ const PersonaPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["npm start"]} />
+            <Terminal prompts={['npm start']} />
           </div>
         </div>
       </GettingStarted>
@@ -181,6 +183,6 @@ const PersonaPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default PersonaPage;
+export default PersonaPage

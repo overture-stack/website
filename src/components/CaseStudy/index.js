@@ -1,16 +1,20 @@
-import { H4, Button, Icon, TrafficLights, ImageCrossfade } from "..";
-import React from "react";
+import { H4, Button, Icon, TrafficLights, ImageCrossfade } from '..'
+import React from 'react'
 
 /**
  * A case study is made up of a:
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
+const CaseStudy = ({
+  caseData,
+  handleDetailChange,
+  handlePageScreenshot,
+  currentScreenshot,
+}) => {
   const _handleDetailChange = idx => {
-    handleDetailChange({ section: caseData.slug, screenNumber: idx });
-  };
-
+    handleDetailChange({ section: caseData.slug, screenNumber: idx })
+  }
 
   return (
     <section className="Case-Study">
@@ -36,7 +40,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
                   <li className="client-list-item" key={idx}>
                     {i}
                   </li>
-                );
+                )
               })}
             </ul>
             <Button
@@ -56,7 +60,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
         <div className="details">
           <div className="details-left">
             {caseData.details.map((detail, idx) => {
-              let activeClass = currentScreenshot == idx ? "active" : "";
+              let activeClass = currentScreenshot == idx ? 'active' : ''
               return (
                 <div
                   className={`details-left-item ${activeClass}`}
@@ -70,29 +74,48 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
                     {detail.description}
                   </div>
                 </div>
-              );
+              )
             })}
           </div>
 
           <div className="details-right">
-
-            <div onClick={() => handlePageScreenshot({section: caseData.slug, max: caseData.details.length, dir: "inc"})} className="screenshot-arrow-right">
-              <Icon img="arrowRightRound"/>
+            <div
+              onClick={() =>
+                handlePageScreenshot({
+                  section: caseData.slug,
+                  max: caseData.details.length,
+                  dir: 'inc',
+                })
+              }
+              className="screenshot-arrow-right"
+            >
+              <Icon img="arrowRightRound" />
             </div>
 
-            <div onClick={() => handlePageScreenshot({section: caseData.slug, max: caseData.details.length, dir: "dec"})} className="screenshot-arrow-left">
-              <Icon img="arrowLeftRound"/>
+            <div
+              onClick={() =>
+                handlePageScreenshot({
+                  section: caseData.slug,
+                  max: caseData.details.length,
+                  dir: 'dec',
+                })
+              }
+              className="screenshot-arrow-left"
+            >
+              <Icon img="arrowLeftRound" />
             </div>
 
             <div className="Browser details-right-browser-wrapper">
-              <TrafficLights style={{ marginLeft: 0, paddingBottom: "16px" }} />
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot}/>
+              <TrafficLights style={{ marginLeft: 0, paddingBottom: '16px' }} />
+              <ImageCrossfade
+                src={caseData.details[currentScreenshot].screenshot}
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CaseStudy;
+export default CaseStudy

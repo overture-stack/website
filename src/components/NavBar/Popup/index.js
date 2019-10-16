@@ -1,10 +1,10 @@
 /**
  * Component: Display the Product Sub-Menu on mouse over / tap.
  */
-import React from "react";
-import Link from "gatsby-link";
-import { Icon, IconCommon, Badge } from "../../index.js";
-import "./styles.scss";
+import React from 'react'
+import Link from 'gatsby-link'
+import { Icon, IconCommon, Badge } from '../../index.js'
+import './styles.scss'
 
 const ProductsPopup = ({ closeMenus, className }) => {
   return (
@@ -17,9 +17,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
             Overture is a collection of open-source products for big-data
             genomic science.
             <div className="pt2 link-magenta">
-              <Link to="/products">All products <Icon size={12} img="arrowRightMagenta" /> </Link>
+              <Link to="/products">
+                All products <Icon size={12} img="arrowRightMagenta" />{' '}
+              </Link>
             </div>
-
           </div>
         </section>
 
@@ -30,18 +31,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
             <Badge color="pink">Generate & Upload</Badge>
           </div>
           <div className="menu-section-links">
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/song"
-            >
+            <Link className="menu-section-link" to="/products/song">
               Song
             </Link>
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/score"
-            >
+            <Link className="menu-section-link" to="/products/score">
               Score
             </Link>
           </div>
@@ -55,33 +48,18 @@ const ProductsPopup = ({ closeMenus, className }) => {
             <Badge color="blue">Access & Download</Badge>
           </div>
           <div className="menu-section-links">
-
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/ego"
-            >
-              {" "}
-              Ego{" "}
+            <Link className="menu-section-link" to="/products/ego">
+              {' '}
+              Ego{' '}
             </Link>
 
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/maestro"
-            >
+            <Link className="menu-section-link" to="/products/maestro">
               Maestro
             </Link>
 
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/arranger"
-            >
+            <Link className="menu-section-link" to="/products/arranger">
               Arranger
             </Link>
-
-
           </div>
         </section>
 
@@ -94,19 +72,11 @@ const ProductsPopup = ({ closeMenus, className }) => {
           </div>
 
           <div className="menu-section-links">
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/jukebox"
-            >
+            <Link className="menu-section-link" to="/products/jukebox">
               Jukebox
             </Link>
 
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/oncojs/"
-            >
+            <Link className="menu-section-link" to="/products/oncojs/">
               OncoJS
             </Link>
           </div>
@@ -120,18 +90,10 @@ const ProductsPopup = ({ closeMenus, className }) => {
             <Badge color="light-green">Collaborate & Share</Badge>
           </div>
           <div className="menu-section-links">
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/persona"
-            >
+            <Link className="menu-section-link" to="/products/persona">
               Persona
             </Link>
-            <Link
-              onClick={() => closeMenus()}
-              className="menu-section-link"
-              to="/products/riff"
-            >
+            <Link className="menu-section-link" to="/products/riff">
               Riff
             </Link>
           </div>
@@ -146,7 +108,6 @@ const ProductsPopup = ({ closeMenus, className }) => {
           </div>
           <div className="menu-section-links">
             <a
-              onClick={() => closeMenus()}
               href="https://github.com/CancerCollaboratory/billing"
               className="menu-section-link"
               target="_blank"
@@ -155,7 +116,6 @@ const ProductsPopup = ({ closeMenus, className }) => {
               <Icon className="pl1" img="githubGrey" />
             </a>
             <a
-              onClick={() => closeMenus()}
               className="menu-section-link"
               href="https://github.com/overture-stack/enrolment"
               target="_blank"
@@ -167,7 +127,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
         </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductsPopup;
+export default ProductsPopup

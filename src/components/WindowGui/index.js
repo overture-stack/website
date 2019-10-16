@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react'
+import './styles.scss'
 
 /**
  * Image frame that makes an image look like it's in a window gui.
@@ -8,13 +8,13 @@ import "./styles.scss";
  */
 export default ({ children }) => (
   <div className="outer-wrapper">
-  <section className="window-wrapper">
-    <div className="Traffic-Lights">
-      <div className="circle" />
-      <div className="circle" />
-      <div className="circle" />
-    </div>
-    <div className="window-wrapper">{children}</div>
-  </section>
+    <section className="window-wrapper">
+      <div className="Traffic-Lights">
+        <div className="circle" />
+        <div className="circle" />
+        <div className="circle" />
+      </div>
+      <div className="window-wrapper">{children}</div>
+    </section>
   </div>
-);
+)
