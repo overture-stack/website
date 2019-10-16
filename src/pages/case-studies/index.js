@@ -86,7 +86,6 @@ class CaseStudiesPage extends Component {
       if (dec == -1 ) {
         currentScreenshots[section] = max - 1
         this.setState({currentScreenshots})
-        debugger
       }
     }
   }
