@@ -70,11 +70,23 @@ class CaseStudiesPage extends Component {
       if (inc <= max - 1) {
         this.setState({ currentScreenshots })
       }
+
+      if (inc == max ) {
+        currentScreenshots[section] = 0
+        this.setState({currentScreenshots})
+      }
+
     } else if (dir == 'dec') {
       let dec = currentScreenshots[section] - 1
       currentScreenshots[section] = dec
       if (dec >= 0) {
         this.setState({ currentScreenshots })
+      }
+
+      if (dec == -1 ) {
+        currentScreenshots[section] = max - 1
+        this.setState({currentScreenshots})
+        debugger
       }
     }
   }
