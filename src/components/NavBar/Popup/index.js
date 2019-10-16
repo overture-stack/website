@@ -14,14 +14,16 @@ const ProductsPopup = ({ closeMenus, className }) => {
         <section className="menu-section explore-text">
           <div className="heading-text">Explore our products</div>
           <div className="body-text">
-            Overture is a collection of open-source products for big-data
-            genomic science.
-            <div className="pt2 link-magenta">
+            <div>
+              Overture is a collection of open-source products for big-data genomic science.
+            </div>
+          </div>
+
+            <div className="all-products-link">
               <Link to="/products">
                 All products <Icon size={12} img="arrowRightMagenta" />{' '}
               </Link>
             </div>
-          </div>
         </section>
 
         {/* section: Generate & Upload */}

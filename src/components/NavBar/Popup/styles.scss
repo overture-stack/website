@@ -1,14 +1,14 @@
 @import "../../../styles/variables";
 
 .ProductsPopup {
-  position: absolute;
+  position: fixed;
   display: flex;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 4;
   width: 100%;
   height: auto;
-  transition: top ease 0.5s 0.5s;
+  transition: top ease 0.5s 0.0s;
   margin: 0 auto;
 
   // Shrinking the slack button changes nav size; update popover top.
@@ -83,18 +83,38 @@
 
   // explore our products heading and text; desktop only
   .explore-text {
-    min-width: 344px;
+    min-width: 345px;
     background: #f2f3f5;
 
     .heading-text {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
+
+      @include breakpoint(navmenu-below) {display: none;}
     }
 
-    @include breakpoint(navmenu-below) {
-      display: none;
+    .body-text {
+      @include breakpoint(navmenu-below) {display: none;}
     }
+
+    .all-products-link {
+      padding-top: 12px;
+      a {color: #9e005d !important;}
+      font-weight: 700;
+
+      @include breakpoint(navmenu-below) {
+        padding: 0 0 12px 0;
+        color: #04518c !important;
+        img { display: none }
+        a {color: #04518c !important;}
+      }
+
+    }
+
+    // @include breakpoint(navmenu-below) {
+    //   display: none;
+    // }
   }
 }
 
@@ -114,7 +134,7 @@
     }
 
     .menu-items {
-      padding: 24px 0;
+      padding: 0px 0 24px 0;
       border: 0;
       flex-direction: column;
       background: #f2f3f5;
@@ -122,8 +142,9 @@
 
     .menu-section {
       // flex-direction: row;
-      padding: 4px 16px;
+      padding: 20px 12px;
       justify-content: center;
+      border-bottom: 1px solid #cfcfcf;
     }
 
     .core-text {
@@ -144,7 +165,7 @@
 
     .menu-section-links {
       padding: 24px 0 0 0;
-      flex-direction: column;
+      flex-direction: row;
     }
 
     .core-links {
@@ -155,6 +176,7 @@
     .menu-section-link {
       padding-top: 0;
       padding: 0 0 12px 0;
+      flex: 1;
     }
   }
 }

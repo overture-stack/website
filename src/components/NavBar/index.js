@@ -19,11 +19,11 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseover', this.onMouseMove)
+    // document.addEventListener('mouseover', this.onMouseMove)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseover', this.onMouseMove)
+    // document.removeEventListener('mouseover', this.onMouseMove)
   }
 
   onMouseMove = e => {
@@ -88,14 +88,14 @@ class NavBar extends Component {
             <div className="navbar-start items-center">
               <div className="products-link-box">
                 <div style={{flex: "1", display: "flex"}}>
-                  <Link
-                    to="/products"
+                  <div
                     className={productsLinkClass}
                     style={{display: "flex", flex: 1}}
                     ref={r => (this.productsRef = r)}
+                    onClick={() => this.props.openMenu()}
                   >
                     Products
-                  </Link>
+                  </div>
 
                   <div style={{display: "flex"}} onClick={() => this.props.toggleMenu()}>
                     <Icon
