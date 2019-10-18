@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Navbar from '../components/NavBar'
 import Footer from '../components/Footer'
-import config from '../../meta/config';
-import "../styles/main.scss";
+import config from '../../meta/config'
+import '../styles/main.scss'
 
 const TemplateWrapper = ({ children }) => (
   <div>

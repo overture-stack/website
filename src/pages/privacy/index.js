@@ -1,13 +1,13 @@
-import React from "react";
-import { H1, H2, H4, Layout } from "../../components";
-import "./styles.scss";
+import React from 'react'
+import { H1, H2, H4, Layout } from '../../components'
+import './styles.scss'
 
 const Heading = ({ children }) => (
   <div className="pt2">
     <H4 className="">{children}</H4>
     <div className="my2 yellow-bar" />
   </div>
-);
+)
 
 const PrivacyPage = () => (
   <Layout>
@@ -118,8 +118,8 @@ const PrivacyPage = () => (
           <Heading>Additional Information</Heading>
           <p>
             If you would like to learn more about OICR’s commitment to
-            protecting privacy, please see our{" "}
-            <a href=""> organizational Privacy Policy</a>. You may also view our{" "}
+            protecting privacy, please see our{' '}
+            <a href=""> organizational Privacy Policy</a>. You may also view our{' '}
             <a href="#">Information Practices Frequently Asked Questions</a>.
           </p>
           <p>
@@ -141,6 +141,6 @@ const PrivacyPage = () => (
       </article>
     </main>
   </Layout>
-);
+)
 
-export default PrivacyPage;
+export default PrivacyPage

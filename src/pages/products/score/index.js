@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -12,32 +12,34 @@ import {
   BottomCallout,
   Button,
   Callout,
-  Terminal
-} from "../../../components";
-
+  Terminal,
+} from '../../../components'
 
 const featureGridData = [
   [
     {
-      header: "Data Integrity",
-      details: "Leave corrupted files behind as downloaded files are always verified against their MD5sum.",
-      icon: "target"
+      header: 'Data Integrity',
+      details:
+        'Leave corrupted files behind as downloaded files are always verified against their MD5sum.',
+      icon: 'target',
     },
 
     {
-      header: "Tracks and validate",
-      details: "The transfer protocols allow setup with any public or private cloud service.",
-      icon: "target"
+      header: 'Tracks and validate',
+      details:
+        'The transfer protocols allow setup with any public or private cloud service.',
+      icon: 'target',
     },
   ],
 
   [
     {
-      header: "Pick up where you left off",
-      details: "Score allows you to resume file transfer when a process stops mid-transfer.",
-      icon: "target"
+      header: 'Pick up where you left off',
+      details:
+        'Score allows you to resume file transfer when a process stops mid-transfer.',
+      icon: 'target',
     },
-  ]
+  ],
 ]
 
 const ScorePage = () => (
@@ -64,7 +66,7 @@ const ScorePage = () => (
         getStartedLink="https://github.com/overture-stack/score"
         logo="logoScore"
         progressType="ga"
-        badge={{ color: "pink", text: "Generate & Upload" }}
+        badge={{ color: 'pink', text: 'Generate & Upload' }}
       />
 
       {/* Features  */}
@@ -92,7 +94,7 @@ const ScorePage = () => (
       </ProductFeatureRow>
 
       {/* List of Features on Grey Background*/}
-      <GridFeature data={featureGridData}/>
+      <GridFeature data={featureGridData} />
 
       {/* Getting Started */}
       <GettingStarted>
@@ -112,7 +114,7 @@ const ScorePage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["mvn -am -pl score-server"]} />
+            <Terminal prompts={['mvn -am -pl score-server']} />
           </div>
         </div>
 
@@ -133,7 +135,7 @@ const ScorePage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["mvn -am -pl score-client"]} />
+            <Terminal prompts={['mvn -am -pl score-client']} />
           </div>
         </div>
       </GettingStarted>
@@ -158,6 +160,6 @@ const ScorePage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default ScorePage;
+export default ScorePage

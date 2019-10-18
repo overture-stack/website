@@ -1,9 +1,17 @@
-import React from "react";
-import Helmet from "react-helmet";
-import academicImg from "./assets/academic.svg";
-import techImg from "./assets/tech_support.svg";
-import { H1, H2, H4, Hero, Layout, Button, MarketingSection } from "../../components";
-import "./styles.scss";
+import React from 'react'
+import Helmet from 'react-helmet'
+import academicImg from './assets/academic.svg'
+import techImg from './assets/tech_support.svg'
+import {
+  H1,
+  H2,
+  H4,
+  Hero,
+  Layout,
+  Button,
+  MarketingSection,
+} from '../../components'
+import './styles.scss'
 
 const ServicesPage = () => (
   <Layout>
@@ -34,15 +42,19 @@ const ServicesPage = () => (
           <H2>Academic Collaborations.</H2>
           <div className="my3 yellow-bar" />
           <p className="">
-            We welcome collaborations in the academic domain. We have
-            extensive experience and can team up with you as a co-applicant
-            for your grant proposals. Our team’s extensive knowledge can
-            help deliver high-profile projects by deploying or modifying our
-            software stacks and building custom solutions for joint
-            projects.
+            We welcome collaborations in the academic domain. We have extensive
+            experience and can team up with you as a co-applicant for your grant
+            proposals. Our team’s extensive knowledge can help deliver
+            high-profile projects by deploying or modifying our software stacks
+            and building custom solutions for joint projects.
           </p>
 
-          <Button type="primary" size="medium" className="mt3" internalLink="/contact" >
+          <Button
+            type="primary"
+            size="medium"
+            className="mt3"
+            internalLink="/contact"
+          >
             Request a collaboration
           </Button>
         </div>
@@ -57,16 +69,17 @@ const ServicesPage = () => (
 
       <MarketingSection className="consulting">
         {/* Img  placeholder */}
-        <div className="column consulting-hero is-5 is-hidden-mobile"/>
+        <div className="column consulting-hero is-5 is-hidden-mobile" />
 
         {/* Copy  */}
         <div className="column is-offset-1">
           <H2>Consulting.</H2>
           <div className="my3 yellow-bar" />
-          <p> We will work autonomously or alongside your team to fully
-            understand your business needs and integrate Overture into your
-            projects. We will help accelerate your success at any stage of
-            your project!
+          <p>
+            {' '}
+            We will work autonomously or alongside your team to fully understand
+            your business needs and integrate Overture into your projects. We
+            will help accelerate your success at any stage of your project!
           </p>
           <ul className="py3">
             <li className="bullet">Project architecture, best practices</li>
@@ -88,9 +101,9 @@ const ServicesPage = () => (
           <H2>Technical support.</H2>
           <div className="my3 yellow-bar" />
           <p>
-            Our team of professionals speak business but dream in code. We
-            love building open-source solutions and are passionate about
-            helping you worry less, science more.
+            Our team of professionals speak business but dream in code. We love
+            building open-source solutions and are passionate about helping you
+            worry less, science more.
           </p>
           <ul className="py3">
             <li className="bullet">Technical audits</li>
@@ -112,6 +125,6 @@ const ServicesPage = () => (
       {/* Bottom Hero */}
     </main>
   </Layout>
-);
+)
 
-export default ServicesPage;
+export default ServicesPage

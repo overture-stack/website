@@ -2,30 +2,63 @@
  * NavBar component:
  * subcomponents: ProductsPopup and NavLink
  */
-import React, { Component } from "react";
-import Link from "gatsby-link";
-import logo from "./assets/overture_logo.svg";
-import "./styles.scss";
-import Icon from "../Icon/index";
-import Button from "../Button";
-import ProductsPopup from "./Popup";
-import NavLink from "./NavLink";
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
+import logo from './assets/overture_logo.svg'
+import './styles.scss'
+import { Icon } from '../'
+import Button from '../Button'
+import ProductsPopup from './Popup'
+import NavLink from './NavLink'
 
 class NavBar extends Component {
+  constructor() {
+    super()
+    // ref for detecting click locations and subsequently hiding/showing the popover.
+    this.productsRef = null
+  }
+
+  componentDidMount() {
+    // document.addEventListener('mouseover', this.onMouseMove)
+  }
+
+  componentWillUnmount() {
+    // document.removeEventListener('mouseover', this.onMouseMove)
+  }
+
+  onMouseMove = e => {
+    let productMenuOpen = this.props.productMenuOpen
+    let popOverRef = this.props.popOverRef
+    // Disregard if on mobile / using mobile menu.
+    if (window.innerWidth < 1168) return
+
+    // Gate to make sure the popover ref has loaded
+    if (popOverRef == null || this.productsRef == null) return
+
+    // Then, if mouse is NOT in the popover and it's open: close it!
+    if (!popOverRef.contains(e.target) && productMenuOpen) {
+      this.props.closeMenus()
+
+      // If the mouse is on the "Products" button and the menu isn't open: open it!
+    } else if (this.productsRef.contains(e.target) && !productMenuOpen) {
+      this.props.openMenu()
+    }
+  }
+
   render() {
     // Some className bindings for toggling menus and such.
-    let productMenuOpen = this.props.productMenuOpen;
-    let mobileMenuOpen = this.props.mobileMenuOpen ? "is-active" : "";
-    let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
+    let productMenuOpen = this.props.productMenuOpen
+    let mobileMenuOpen = this.props.mobileMenuOpen ? 'is-active' : ''
+    let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`
     let productsLinkClass = productMenuOpen
-      ? "products-link products-link-open navbar-item"
-      : "products-link navbar-item";
+      ? 'products-link products-link-open navbar-item'
+      : 'products-link navbar-item'
 
-    let productsMenuClass = productMenuOpen ? "open" : "closed";
+    let productsMenuClass = productMenuOpen ? 'open' : 'closed'
 
     // mobile menu class
-    let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
-    let productsArrow = productMenuOpen ? "arrowDown" : "arrowRight";
+    let burgerClass = `button navbar-burger ${mobileMenuOpen}`
+    let productsArrow = productMenuOpen ? 'arrowDown' : 'arrowRight'
 
     return (
       <nav
@@ -53,26 +86,35 @@ class NavBar extends Component {
           </div>
           <div className={navbarMenuClass} id="navMenu">
             <div className="navbar-start items-center">
-              {/* popover */}
               <div className="products-link-box">
-                <div
-                  onClick={() => this.props.toggleMenu()}
-                  className={productsLinkClass}
-                >
-                  Products
-                  <Icon
-                    className="products-arrow pl1"
-                    style={{ width: "32px" }}
-                    img={productsArrow}
-                  />
+                <div style={{flex: "1", display: "flex"}}>
+                  <div
+                    className={productsLinkClass}
+                    style={{display: "flex", flex: 1}}
+                    ref={r => (this.productsRef = r)}
+                    onClick={() => this.props.toggleMenu()}
+                  >
+                    Products
+                  </div>
+
+                  <div style={{display: "flex"}} onClick={() => this.props.toggleMenu()}>
+                    <Icon
+                      className="products-arrow pl1"
+                      style={{ width: '32px' }}
+                      img={productsArrow}
+                    />
+                  </div>
                 </div>
 
-                {/* Products Popover Menu + Ref for hiding. */}
-                <div ref={r => (this.productMenuRef = r)}>
-                  <ProductsPopup
-                    className={productsMenuClass}
-                    closeMenus={this.props.closeMenus}
-                  />
+                {/* MOBILE: Products Menu + Ref for hiding. */}
+                {/* Put back in if we want full dropdown on mobile */}
+                <div ref={r => (this.popoverRef = r)}>
+                  {mobileMenuOpen && (
+                    <ProductsPopup
+                      className={productsMenuClass}
+                      closeMenus={this.props.closeMenus}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -123,8 +165,8 @@ class NavBar extends Component {
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
 
-export default NavBar;
+export default NavBar

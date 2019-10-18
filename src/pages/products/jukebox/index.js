@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React from 'react'
+import Helmet from 'react-helmet'
 import {
   H2,
   H4,
@@ -13,37 +13,41 @@ import {
   BottomCallout,
   Callout,
   Terminal,
-  UrlBar
-} from "../../../components";
+  UrlBar,
+} from '../../../components'
 
-import "./style.scss";
+import './style.scss'
 
 const featureGridData = [
   [
     {
-      header: "Learn",
-      details: "This environment allows you to learn as you go without having to do any of the setup yourself.",
-      icon: "target"
+      header: 'Learn',
+      details:
+        'This environment allows you to learn as you go without having to do any of the setup yourself.',
+      icon: 'target',
     },
 
     {
-      header: "Experiment",
-      details: "Forget the expense. Now you can run experiments on datasets cost effectively and worry free.",
-      icon: "target"
+      header: 'Experiment',
+      details:
+        'Forget the expense. Now you can run experiments on datasets cost effectively and worry free.',
+      icon: 'target',
     },
   ],
 
   [
     {
-      header: "Collaborative",
-      details: "Jupyter Hub allows multiple people within your group to use and access the notebooks.",
-      icon: "target"
+      header: 'Collaborative',
+      details:
+        'Jupyter Hub allows multiple people within your group to use and access the notebooks.',
+      icon: 'target',
     },
 
     {
-      header: "Cloud-based",
-      details: "Cloud deployment for data co-location, take your analysis to the data.",
-      icon: "target"
+      header: 'Cloud-based',
+      details:
+        'Cloud deployment for data co-location, take your analysis to the data.',
+      icon: 'target',
     },
   ],
 ]
@@ -70,13 +74,13 @@ const JukeboxPage = () => (
           <div>
             Jukebox automates set-up and deployment of
             <a target="_blank" href="http://jupyter.org/index.html">
-              {" "}
+              {' '}
               JupyterHub
             </a>
             . Your users can access personal
             <a target="_blank" href="http://jupyter.org/install.html">
-              {" "}
-              Jupyter notebooks{" "}
+              {' '}
+              Jupyter notebooks{' '}
             </a>
             in one click to do science right from the web browser in a live,
             collaborative environment.
@@ -85,7 +89,7 @@ const JukeboxPage = () => (
         getStartedLink="https://github.com/overture-stack/jupyter"
         logo="logoJukebox"
         progressType="rc"
-        badge={{ color: "red", text: "Analyze & Discover" }}
+        badge={{ color: 'red', text: 'Analyze & Discover' }}
       />
 
       {/* Features  */}
@@ -112,8 +116,7 @@ const JukeboxPage = () => (
       </ProductFeatureRow>
 
       {/* Target Features Things */}
-      <GridFeature data={featureGridData}/>
-
+      <GridFeature data={featureGridData} />
 
       {/* Getting Started /  Terminals */}
       <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
@@ -125,8 +128,8 @@ const JukeboxPage = () => (
             <div>
               <H4> To set up locally, clone the Jupyter repository. </H4>
               <div className="step-text">
-                {" "}
-                Edit default permissions and configurations if needed.{" "}
+                {' '}
+                Edit default permissions and configurations if needed.{' '}
               </div>
             </div>
             <div className="mt1 yellow-bar" />
@@ -135,7 +138,7 @@ const JukeboxPage = () => (
           <div className="column is-8 is-offset-1 self-center">
             <Terminal
               prompts={[
-                "git clone https://github.com/overture-stack/Jupyter.git"
+                'git clone https://github.com/overture-stack/Jupyter.git',
               ]}
             />
           </div>
@@ -153,7 +156,7 @@ const JukeboxPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={["ansible-playbook setup-jukebox.yml"]} />
+            <Terminal prompts={['ansible-playbook setup-jukebox.yml']} />
           </div>
         </div>
 
@@ -173,7 +176,7 @@ const JukeboxPage = () => (
           </div>
 
           <div className="column is-8 is-offset-1 self-center">
-            <UrlBar prompts={["Visit http://localhost:<your port number>"]} />
+            <UrlBar prompts={['Visit http://localhost:<your port number>']} />
           </div>
         </div>
       </GettingStarted>
@@ -211,6 +214,6 @@ const JukeboxPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-);
+)
 
-export default JukeboxPage;
+export default JukeboxPage
