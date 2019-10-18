@@ -25,7 +25,6 @@ class TemplateWrapper extends Component {
   }
 
   openMenu = () => {
-    console.log('OPEN MENU CALLEd')
     this.setState({ productMenuOpen: true })
   }
 

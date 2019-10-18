@@ -92,7 +92,7 @@ class NavBar extends Component {
                     className={productsLinkClass}
                     style={{display: "flex", flex: 1}}
                     ref={r => (this.productsRef = r)}
-                    onClick={() => this.props.openMenu()}
+                    onClick={() => this.props.toggleMenu()}
                   >
                     Products
                   </div>
