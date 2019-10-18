@@ -110,7 +110,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
           </div>
           <div className="menu-section-links">
             <a
-              href="https://github.com/CancerCollaboratory/billing"
+              href="https://github.com/overture-stack/billing"
               className="menu-section-link"
               target="_blank"
             >

@@ -134,7 +134,7 @@ const featureGridData = [
       id: 'collaborate-share',
       containerClass: 'collaborate-share',
       details:
-        'Products that allow your users to set up a profile and share urls in order to  raise awareness across the scientific community: ',
+        'Products that allow your users to set up a profile and share urls in order to raise awareness across the scientific community: ',
       links: [
         { icon: 'productPersona', text: 'Persona', link: 'persona' },
         { icon: 'productRiff', text: 'Riff', link: 'riff' },
@@ -155,7 +155,7 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: 'https://github.com/CancerCollaboratory/billing',
+          extlink: 'https://github.com/overture-stack/billing',
         },
         {
           icon: 'productEnrolment',

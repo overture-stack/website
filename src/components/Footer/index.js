@@ -67,7 +67,7 @@ const links = {
   },
   'Track & Manage': {
     'Billing & Usage': {
-      link: 'https://github.com/CancerCollaboratory/billing',
+      link: 'https://github.com/overture-stack/billing',
       icon: 'githubGrey',
       newTab: true,
       className: '',
