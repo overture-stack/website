@@ -66,7 +66,7 @@ class ContactPage extends Component {
                 {/* Contact / slack button. */}
                 <div className="column">
                   <div>
-                    There are many reasons to get in touch  with us and we want
+                    There are many reasons to get in touch with us and we want
                     to hear from you!
                   </div>
 

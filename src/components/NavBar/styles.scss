@@ -8,7 +8,8 @@
     width: 100%;
     display: block;
 
-    @media (min-width: 1159px) {
+
+    @include breakpoint(navmenu-up) {
       display: flex;
     }
   }
@@ -99,10 +100,15 @@
   }
 
   .products-arrow {
+    background: white;
     display: none;
     @include breakpoint(navmenu-below) {
       display: flex;
       padding: 8px;
+    }
+
+    &.open {
+      background: #f2f3f5;
     }
   }
 
