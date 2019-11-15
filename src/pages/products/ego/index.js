@@ -184,7 +184,7 @@ const EgoPage = () => (
               <ul className="step-text">
                 <li className="bullet">
                   <span className="bold">Default: </span>The most simple profile
-                  which  allows you to test API endpoints with a valid JWT.
+                  which allows you to test API endpoints with a valid JWT.
                 </li>
 
                 <li className="bullet">
