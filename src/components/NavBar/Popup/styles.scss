@@ -109,12 +109,7 @@
         img { display: none }
         a {color: #04518c !important;}
       }
-
     }
-
-    // @include breakpoint(navmenu-below) {
-    //   display: none;
-    // }
   }
 }
 
@@ -176,16 +171,14 @@
     .menu-section-link {
       padding-top: 0;
       padding: 0 0 12px 0;
-      flex: 1;
+      // flex: 1;
+
+      &:not(:first-child) {
+        margin-left: 48px;
+      }
     }
   }
 }
 
 
 
-  .desktop-products-popup {
-    @media(max-width: $desktop) {
-      display: none;
-
-    }
-  }

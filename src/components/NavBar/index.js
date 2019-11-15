@@ -26,6 +26,11 @@ class NavBar extends Component {
     // document.removeEventListener('mouseover', this.onMouseMove)
   }
 
+
+  /**
+   * Not currently in use.
+   * Used for opening "Product" popup on mouse over rather than click.
+   */
   onMouseMove = e => {
     let productMenuOpen = this.props.productMenuOpen
     let popOverRef = this.props.popOverRef
@@ -53,6 +58,8 @@ class NavBar extends Component {
     let productsLinkClass = productMenuOpen
       ? 'products-link products-link-open navbar-item'
       : 'products-link navbar-item'
+    let productsArrowClass = productMenuOpen
+      ? 'products-arrow open' : 'products-arrow closed'
 
     let productsMenuClass = productMenuOpen ? 'open' : 'closed'
 
@@ -99,7 +106,7 @@ class NavBar extends Component {
 
                   <div style={{display: "flex"}} onClick={() => this.props.toggleMenu()}>
                     <Icon
-                      className="products-arrow pl1"
+                      className={`${productsArrowClass} pl1`}
                       style={{ width: '32px' }}
                       img={productsArrow}
                     />
@@ -107,9 +114,8 @@ class NavBar extends Component {
                 </div>
 
                 {/* MOBILE: Products Menu + Ref for hiding. */}
-                {/* Put back in if we want full dropdown on mobile */}
                 <div ref={r => (this.popoverRef = r)}>
-                  {mobileMenuOpen && (
+                  {(mobileMenuOpen && innerWidth < 1216) && (
                     <ProductsPopup
                       className={productsMenuClass}
                       closeMenus={this.props.closeMenus}
