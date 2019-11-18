@@ -102,6 +102,7 @@
   .products-arrow {
     background: white;
     display: none;
+    align-self: center;
     @include breakpoint(navmenu-below) {
       display: flex;
       padding: 8px;
