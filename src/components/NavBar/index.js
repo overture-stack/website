@@ -104,10 +104,10 @@ class NavBar extends Component {
                     Products
                   </div>
 
-                  <div style={{display: "flex"}} onClick={() => this.props.toggleMenu()}>
+                  <div className={"flex"} onClick={() => this.props.toggleMenu()}>
                     <Icon
                       className={`${productsArrowClass} pl1`}
-                      style={{ width: '32px' }}
+                      style={{ width: "32px", height: "100%"  }}
                       img={productsArrow}
                     />
                   </div>
