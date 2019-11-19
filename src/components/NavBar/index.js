@@ -107,7 +107,7 @@ class NavBar extends Component {
                   <div className={"flex"} onClick={() => this.props.toggleMenu()}>
                     <Icon
                       className={`${productsArrowClass} pl1`}
-                      style={{ width: '32px', height: "100%"  }}
+                      style={{ width: "32px", height: "100%"  }}
                       img={productsArrow}
                     />
                   </div>
