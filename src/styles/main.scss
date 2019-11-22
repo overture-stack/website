@@ -33,7 +33,7 @@ $family-primary: $family-serif;
 // Override react modal --------------------
 .ReactModal__Overlay {
   z-index: 99;
-background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .__modal_close_btn {

@@ -22,11 +22,11 @@ const BundleCard = ({ header, icon, children }) => (
 
 const VideoModal = ({isOpen, closeModal}) => {
   const customStyles = {
-    backgroundColor: "red",
     content : {
       padding: 0,
       border: "none",
-      left: "10%", right: "10%", bottom: "10%", top: "10%"
+      left: "10%", right: "10%", bottom: "10%", top: "10%",
+      backgroundColor: "rgb(20, 20, 20)",
     }
   };
 
