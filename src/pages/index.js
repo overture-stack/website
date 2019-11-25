@@ -27,6 +27,7 @@ const VideoModal = ({isOpen, closeModal}) => {
       border: "none",
       left: "10%", right: "10%", bottom: "10%", top: "10%",
       backgroundColor: "rgb(20, 20, 20)",
+      overflowY: "hidden"
     }
   };
 
