@@ -53,6 +53,9 @@ class NavBar extends Component {
   render() {
     // Some className bindings for toggling menus and such.
     let productMenuOpen = this.props.productMenuOpen
+
+
+    // Conditional Classes
     let mobileMenuOpen = this.props.mobileMenuOpen ? 'is-active' : ''
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`
     let productsLinkClass = productMenuOpen
@@ -60,12 +63,11 @@ class NavBar extends Component {
       : 'products-link navbar-item'
     let productsArrowClass = productMenuOpen
       ? 'products-arrow open' : 'products-arrow closed'
-
     let productsMenuClass = productMenuOpen ? 'open' : 'closed'
-
-    // mobile menu class
-    let burgerClass = `button navbar-burger ${mobileMenuOpen}`
     let productsArrow = productMenuOpen ? 'arrowDown' : 'arrowRight'
+
+    let burgerClass = `button navbar-burger ${mobileMenuOpen}`
+
 
     return (
       <nav
