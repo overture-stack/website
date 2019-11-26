@@ -29,3 +29,23 @@ $family-primary: $family-serif;
     padding-top: 3.25rem !important;
   }
 }
+
+// Override react modal --------------------
+.ReactModal__Overlay {
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.__modal_close_btn {
+  position: fixed;
+  right: 12px;
+  top: 0px;
+  padding: 12px 24px;
+  font-size: 64px;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+  outline: none;
+}

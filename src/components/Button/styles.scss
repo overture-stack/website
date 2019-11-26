@@ -13,4 +13,12 @@
   .secondary {
     color: #9E005D !important;
   }
+
+  .blue {
+    background: #00A1D9;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.15);
+    color: white;
+    border: none;
+    &:hover {color: white;}
+  }
 }

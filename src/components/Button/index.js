@@ -6,6 +6,7 @@ import './styles.scss'
 const btnTypes = {
   primary: 'is-primary', // uses bulma
   secondary: 'is-white secondary', // bulma + custom css
+  blue: "blue"
 }
 
 const btnSizes = {
@@ -43,6 +44,7 @@ export default ({
   size = 'default',
   externalLink,
   internalLink,
+  onClick,
   target = '_blank',
 }) => {
   let customClassName = className ? className : ''
@@ -79,5 +81,15 @@ export default ({
         </Link>
       </button>
     )
+  } else {
+    return (
+      <button onClick={() => onClick()} className="custom-button">
+        <div className={classes}>
+        {IconComp()}
+        {children}
+        </div>
+      </button>
+    )
+
   }
 }
