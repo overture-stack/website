@@ -32,6 +32,7 @@ import magnify from './icons/magnify.svg'
 import mail from './icons/mail.png'
 import pageWhite from './icons/page_white.svg'
 import palette from './icons/palette.svg'
+import play from './icons/play.svg'
 import power from './icons/power.svg'
 import productArranger from './icons/productArranger.svg'
 import productBilling from './icons/productBilling.svg'
@@ -87,6 +88,7 @@ const icons = {
   magnify,
   pageWhite,
   palette,
+  play,
   productSong,
   productScore,
   productPersona,

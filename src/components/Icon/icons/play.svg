@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="31px" viewBox="0 0 31 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 31 0 31 30.9998695 0 30.9998695"></polygon>
+    </defs>
+    <g id="final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage-video-player" transform="translate(-115.000000, -395.000000)">
+            <g id="Banner" transform="translate(103.000000, 112.000000)">
+                <g id="btn" transform="translate(0.000000, 273.000000)">
+                    <g id="Group-6" transform="translate(12.000000, 10.000000)">
+                        <path d="M20.5817556,15.1846213 L13.4251291,10.1618882 C12.8055077,9.73789123 12,10.1945033 12,10.9772669 L12,21.0227331 C12,21.8054967 12.8364888,22.2621088 13.4251291,21.8381118 L20.5817556,16.8153787 C21.1394148,16.4239969 21.1394148,15.5760031 20.5817556,15.1846213" id="Fill-1" fill="#FFFFFF"></path>
+                        <g id="Group-5">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-4"></g>
+                            <path d="M15.5,28.5851326 C8.28842105,28.5851326 2.41473684,22.7114484 2.41473684,15.4998695 C2.41473684,8.28829053 8.28842105,2.41460632 15.5,2.41460632 C22.7115789,2.41460632 28.5852632,8.28829053 28.5852632,15.4998695 C28.5852632,22.7114484 22.7115789,28.5851326 15.5,28.5851326 M15.5,-0.000130526316 C6.95052632,-0.000130526316 0,6.95039579 0,15.4998695 C0,24.0496695 6.95052632,30.9998695 15.5,30.9998695 C24.0494737,30.9998695 31,24.0496695 31,15.4998695 C31,6.95039579 24.0494737,-0.000130526316 15.5,-0.000130526316" id="Fill-3" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

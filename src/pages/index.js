@@ -95,6 +95,7 @@ class HomePage extends React.Component {
                 size="medium"
                 onClick={() => this.openModal()}
               >
+                <Icon img="play" size={26} className="mr1"/>
                 The Overture story
               </Button>
 
