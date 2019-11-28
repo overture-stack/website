@@ -29,6 +29,13 @@ class TemplateWrapper extends Component {
   }
 
   toggleMobileMenu = () => {
+    // if closing, close the product menu too.
+    if (this.state.mobileMenuOpen === false) {
+      this.setState({
+        mobileMenuOpen: !this.state.mobileMenuOpen,
+        productMenuOpen: false,
+      })
+    }
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen })
   }
 
@@ -80,10 +87,12 @@ class TemplateWrapper extends Component {
           className="desktop-products-popup"
           ref={r => (this.popOverRef = r)}
         >
+          {(!this.state.mobileMenuOpen && innerWidth > 1216) && (
           <ProductsPopup
             className={productsMenuClass}
             closeMenus={this.props.closeMenus}
           />
+          )}
         </div>
 
         <div onClick={() => this.setState({ productMenuOpen: false })}>
