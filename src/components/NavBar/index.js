@@ -35,7 +35,7 @@ class NavBar extends Component {
     let productMenuOpen = this.props.productMenuOpen
     let popOverRef = this.props.popOverRef
     // Disregard if on mobile / using mobile menu.
-    if (window.innerWidth < 1168) return
+    if (typeof window !== 'undefined' && window.innerWidth < 1168) return
 
     // Gate to make sure the popover ref has loaded
     if (popOverRef == null || this.productsRef == null) return
@@ -68,6 +68,7 @@ class NavBar extends Component {
 
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`
 
+    let windowExists = typeof(window) === "undefined"
 
     return (
       <nav
@@ -117,7 +118,9 @@ class NavBar extends Component {
 
                 {/* MOBILE: Products Menu + Ref for hiding. */}
                 <div ref={r => (this.popoverRef = r)}>
-                  {(mobileMenuOpen && window.innerWidth < 1216) && (
+
+                  {(typeof window !== 'undefined' && mobileMenuOpen && window.innerWidth < 1216) && (
+                  /* {(windowExists && mobileMenuOpen && window.innerWidth < 1216) && ( */
                     <ProductsPopup
                       className={productsMenuClass}
                       closeMenus={this.props.closeMenus}

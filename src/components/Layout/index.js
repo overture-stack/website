@@ -66,6 +66,7 @@ class TemplateWrapper extends Component {
     let productMenuOpen = this.state.productMenuOpen
     let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : ''
     let productsMenuClass = productMenuOpen ? 'open' : 'closed'
+    let windowExists = typeof(window) === "undefined"
 
     return (
       <div>
@@ -87,7 +88,8 @@ class TemplateWrapper extends Component {
           className="desktop-products-popup"
           ref={r => (this.popOverRef = r)}
         >
-          {(!this.state.mobileMenuOpen && window.innerWidth > 1216) && (
+          {(typeof window !== 'undefined' && !this.state.mobileMenuOpen && window.innerWidth > 1216) && (
+          /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
           <ProductsPopup
             className={productsMenuClass}
             closeMenus={this.props.closeMenus}
