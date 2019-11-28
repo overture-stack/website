@@ -87,7 +87,7 @@ class TemplateWrapper extends Component {
           className="desktop-products-popup"
           ref={r => (this.popOverRef = r)}
         >
-          {(!this.state.mobileMenuOpen && innerWidth > 1216) && (
+          {(!this.state.mobileMenuOpen && window.innerWidth > 1216) && (
           <ProductsPopup
             className={productsMenuClass}
             closeMenus={this.props.closeMenus}

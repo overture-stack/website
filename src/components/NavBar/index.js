@@ -117,7 +117,7 @@ class NavBar extends Component {
 
                 {/* MOBILE: Products Menu + Ref for hiding. */}
                 <div ref={r => (this.popoverRef = r)}>
-                  {(mobileMenuOpen && innerWidth < 1216) && (
+                  {(mobileMenuOpen && window.innerWidth < 1216) && (
                     <ProductsPopup
                       className={productsMenuClass}
                       closeMenus={this.props.closeMenus}
