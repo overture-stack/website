@@ -9,6 +9,16 @@
     line-height: 30px;
   }
 
+  .hero-buttons {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+    }
+
+  }
+
   .science-hero {
     height: 600px;
     padding: 3rem 1.5rem;

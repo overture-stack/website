@@ -29,6 +29,13 @@ class TemplateWrapper extends Component {
   }
 
   toggleMobileMenu = () => {
+    // if closing, close the product menu too.
+    if (this.state.mobileMenuOpen === false) {
+      this.setState({
+        mobileMenuOpen: !this.state.mobileMenuOpen,
+        productMenuOpen: false,
+      })
+    }
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen })
   }
 
@@ -59,6 +66,7 @@ class TemplateWrapper extends Component {
     let productMenuOpen = this.state.productMenuOpen
     let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : ''
     let productsMenuClass = productMenuOpen ? 'open' : 'closed'
+    let windowExists = typeof(window) === "undefined"
 
     return (
       <div>
@@ -80,10 +88,13 @@ class TemplateWrapper extends Component {
           className="desktop-products-popup"
           ref={r => (this.popOverRef = r)}
         >
+          {(typeof window !== 'undefined' && !this.state.mobileMenuOpen && window.innerWidth > 1216) && (
+          /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
           <ProductsPopup
             className={productsMenuClass}
             closeMenus={this.props.closeMenus}
           />
+          )}
         </div>
 
         <div onClick={() => this.setState({ productMenuOpen: false })}>
