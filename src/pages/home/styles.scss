@@ -12,6 +12,7 @@
   .hero-buttons {
     display: flex;
     align-items: center;
+    align-self: flex-start;
     @include breakpoint(mobile) {
       flex-direction: column;
     }
