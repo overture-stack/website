@@ -161,7 +161,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center bg-grey p2">
-        <span className="px2 copyright">© 2018 Overture.</span>
+        <span className="px2 copyright">© {new Date().getFullYear()} Overture.</span>
         <a className="px1" href="/privacy">
           Privacy
         </a>
