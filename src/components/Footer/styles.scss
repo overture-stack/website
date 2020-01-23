@@ -2,7 +2,7 @@
 
 .Footer {
   border-top: 1px solid #D4D4D4;
-  
+
   .footer-box {
   padding: 48px 0;
     display: flex;
@@ -11,7 +11,7 @@
       padding: 20px;
     }
   }
-  
+
   .copyright {
     font-weight: 100;
   }
@@ -21,14 +21,14 @@
     margin-right: 64px;
     order: 1;
     align-self: center;
-    
+
     @include breakpoint(mobile) {
       margin: 32px;
       padding-right: 0px;
       order: 2;
     }
   }
-  
+
   .footer-links {
     order: 2;
 
@@ -36,12 +36,12 @@
       order: 1;
     }
   }
-  
+
   .link-group-header {
     color: #47D9BF;
     font-weight: 700;
   }
-  
+
   .link {
     font-family: Lato;
     font-weight: 300;
@@ -50,5 +50,10 @@
     letter-spacing: 0;
     line-height: 30px;
   }
-  
+
+  .netlify-badge a {
+    bottom: -5px;
+    position: absolute;
+    right: 80px;
+  }
 }
