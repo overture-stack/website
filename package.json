@@ -31,7 +31,7 @@
     "react-waypoint": "^9.0.2",
     "webpack": "^4.36.1"
   },
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "main": "n/a",
   "scripts": {
     "start": "npm run develop",
