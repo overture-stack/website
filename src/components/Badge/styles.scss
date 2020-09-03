@@ -1,37 +1,39 @@
+@import '../../styles/colors';
+
 .Badge {
   padding: 0 14px;
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   border: none;
-  color: white;
+  color: $white;
   align-self: flex-start;
   display: inline;
   padding: 4px 8px;
   border-radius: 4px;
 
   &.pink {
-    background-color: #c66fa5;
+    background-color: $pink-bg;
   }
 
   &.blue {
-    background-color: #6ac3e8;
+    background-color: $blue-bg;
   }
 
   &.yellow {
-    background-color: #ecc000;
+    background-color: $yellow-bg;
     border: none;
   }
 
   &.green {
-    background-color: #5db9ae;
+    background-color: $green-bg-dark;
   }
 
   &.light-green {
-    background-color: #00ddbe;
+    background-color: $green-bg;
   }
 
   &.red {
-    background-color: #c86370;
+    background-color: $red-bg;
   }
 }

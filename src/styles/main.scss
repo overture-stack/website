@@ -1,21 +1,22 @@
-@import "./util";
-@import "./defaults";
-@import "./common";
-@import "./variables";
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import './util';
+@import './defaults';
+@import './common';
+@import './variables';
+@import './colors';
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
 
 // BULMA VARIABLE OVERRIDES! --------------------
 
-$primary-invert: white;
-$navbar-item-hover-color: #9e005d;
+$primary-invert: $white;
+$navbar-item-hover-color: $magenta;
 $navbar-item-color: #004773;
-$navbar-item-hover-background-color: #f2f3f5;
+$navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
-$link: #00a2d9;
-$family-serif: "Lato", "Arial";
+$link: $blue;
+$family-serif: 'Lato', 'Arial';
 $family-primary: $family-serif;
 
-@import "../../node_modules/bulma/bulma.sass";
+@import '../../node_modules/bulma/bulma.sass';
 
 // patch bulma's `.container` class; nicer padding across the site.
 .container {
@@ -44,7 +45,7 @@ $family-primary: $family-serif;
   font-size: 64px;
   background: none;
   border: none;
-  color: white;
+  color: $white;
   z-index: 2;
   cursor: pointer;
   outline: none;

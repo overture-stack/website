@@ -1,4 +1,5 @@
-@import "../../../styles/variables";
+@import '../../../styles/variables';
+@import '../../../styles/colors';
 
 .ProductsPopup {
   position: fixed;
@@ -8,7 +9,7 @@
   z-index: 4;
   width: 100%;
   height: auto;
-  transition: top ease 0.5s 0.0s;
+  transition: top ease 0.5s 0s;
   margin: 0 auto;
 
   // Shrinking the slack button changes nav size; update popover top.
@@ -21,7 +22,7 @@
   }
 
   &.open {
-  top: 60px;
+    top: 60px;
     @media (max-width: 1260px) and (min-width: 1160px) {
       top: 50px;
     }
@@ -41,10 +42,10 @@
   }
 
   .menu-items {
-    border: 1px solid #dfdfdf;
+    border: 1px solid $grey-3;
     display: flex;
     width: 100%;
-    background: white;
+    background: $white;
   }
 
   // for leveling heading menu headers that don't have "core" badge
@@ -70,7 +71,6 @@
   .menu-section-links {
     display: flex;
     flex-direction: column;
-
   }
 
   .menu-section-link {
@@ -78,36 +78,46 @@
     font-weight: bold;
     display: flex;
     font-size: 1rem;
-    color: #04518c;
+    color: $blue-dark;
   }
 
   // explore our products heading and text; desktop only
   .explore-text {
     min-width: 345px;
-    background: #f2f3f5;
+    background: $grey;
 
     .heading-text {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
 
-      @include breakpoint(navmenu-below) {display: none;}
+      @include breakpoint(navmenu-below) {
+        display: none;
+      }
     }
 
     .body-text {
-      @include breakpoint(navmenu-below) {display: none;}
+      @include breakpoint(navmenu-below) {
+        display: none;
+      }
     }
 
     .all-products-link {
       padding-top: 12px;
-      a {color: #9e005d !important;}
+      a {
+        color: $magenta !important;
+      }
       font-weight: 700;
 
       @include breakpoint(navmenu-below) {
         padding: 0 0 12px 0;
-        color: #04518c !important;
-        img { display: none }
-        a {color: #04518c !important;}
+        color: $blue-dark !important;
+        img {
+          display: none;
+        }
+        a {
+          color: $blue-dark !important;
+        }
       }
     }
   }
@@ -132,7 +142,7 @@
       padding: 0px 0 24px 0;
       border: 0;
       flex-direction: column;
-      background: #f2f3f5;
+      background: $grey;
     }
 
     .menu-section {
@@ -152,10 +162,10 @@
       display: flex;
       flex-direction: row;
 
-			.Icons {
-				order: 1;
-				margin-left: 12px;
-			}
+      .Icons {
+        order: 1;
+        margin-left: 12px;
+      }
     }
 
     .menu-section-links {
@@ -179,6 +189,3 @@
     }
   }
 }
-
-
-

@@ -1,17 +1,18 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
+@import '../../styles/colors';
 
 .MarketingSection {
   padding: 80px 0;
 
-  @media(max-width: $tablet) {
+  @media (max-width: $tablet) {
     padding: 32px 0;
   }
 
   &.consulting {
     padding: 0;
-    background-color: #eff0f3;
+    background-color: $grey-5;
 
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       padding: 32px 0;
     }
   }

@@ -1,13 +1,13 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
+@import '../../styles/colors';
 
 .NavHeader {
-  background: white;
+  background: $white;
 
   .nav-container {
     margin: 0 auto;
     width: 100%;
     display: block;
-
 
     @include breakpoint(navmenu-up) {
       display: flex;
@@ -15,8 +15,8 @@
   }
 
   .active-item {
-    color: #9e005d;
-    background-color: "#F2F3F5";
+    color: $magenta;
+    background-color: '$grey';
   }
 
   // Overture Logo container and Link
@@ -39,7 +39,7 @@
   .navbar-burger > .is-active {
     height: 2.4rem;
     width: 2.4rem;
-    border-color: #66c2ea !important;
+    border-color: $blue-light !important;
     background-color: none !important;
     outline: none !important;
 
@@ -48,7 +48,7 @@
     }
 
     & > span {
-      background-color: #66c2ea;
+      background-color: $blue-light;
     }
   }
 
@@ -72,12 +72,12 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #f1f3f5;
+      background-color: $grey-1;
     }
   }
 
   .products-link-open {
-    background: #f1f3f5;
+    background: $grey-1;
     color: #9d005d;
     justify-content: space-between;
   }
@@ -89,18 +89,18 @@
       align-self: stretch;
     }
     @include breakpoint(navmenu-below) {
-      border-top: 1px solid #efefef;
+      border-top: 1px solid $grey-2;
     }
   }
 
   .navbar-item {
-    font-family: Lato, "Arial";
+    font-family: Lato, 'Arial';
     font-size: 18px;
     letter-spacing: 0;
   }
 
   .products-arrow {
-    background: white;
+    background: $white;
     display: none;
     align-self: center;
     @include breakpoint(navmenu-below) {
@@ -109,7 +109,7 @@
     }
 
     &.open {
-      background: #f2f3f5;
+      background: $grey;
     }
   }
 
