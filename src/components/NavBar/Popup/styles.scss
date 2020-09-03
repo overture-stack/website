@@ -2,15 +2,17 @@
 @import '../../../styles/colors';
 
 .ProductsPopup {
-  position: fixed;
+  border-bottom: 3px solid $grey-border;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   display: flex;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  width: 100%;
   height: auto;
-  transition: top ease 0.5s 0s;
+  left: 0;
   margin: 0 auto;
+  position: fixed;
+  right: 0;
+  transition: top ease 0.5s 0s;
+  width: 100%;
+  z-index: 4;
 
   // Shrinking the slack button changes nav size; update popover top.
   @media (max-width: 1260px) and (min-width: 1160px) {
