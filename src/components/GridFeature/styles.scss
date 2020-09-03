@@ -5,7 +5,7 @@
   .bottom-border {
     border-bottom: 2px solid;
 
-    &.$white {
+    &.white {
       border-color: $white;
     }
 
@@ -16,9 +16,6 @@
     @media (max-width: $tablet) {
       border-bottom: none;
     }
-  }
-
-  .$white-border-bottom {
   }
 
   .feature-item {

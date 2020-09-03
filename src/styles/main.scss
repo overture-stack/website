@@ -9,7 +9,7 @@
 
 $primary-invert: $white;
 $navbar-item-hover-color: $magenta;
-$navbar-item-color: #004773;
+$navbar-item-color: $blue-nav;
 $navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
 $link: $blue;
@@ -17,6 +17,18 @@ $family-serif: 'Lato', 'Arial';
 $family-primary: $family-serif;
 
 @import '../../node_modules/bulma/bulma.sass';
+
+// override bulma's hover CSS for the top navbar
+a.navbar-item:hover {
+  color: $blue-nav;
+}
+
+a.navbar-item.active-item {
+  background: $grey;
+  &:hover {
+    color: $magenta;
+  }
+}
 
 // patch bulma's `.container` class; nicer padding across the site.
 .container {
