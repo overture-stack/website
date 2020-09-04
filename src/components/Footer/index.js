@@ -1,11 +1,11 @@
 /**
  * Declarative footer. Loops over links object and spit out routes.
  */
-import React from 'react'
-import { Link } from 'gatsby-link'
-import './styles.scss'
-import logo from './logo.svg'
-import { Icon } from '../'
+import React from 'react';
+import './styles.scss';
+import logo from './logo.svg';
+import { Icon } from '../';
+import { SHOW_DOCS } from '../../constants';
 
 const links = {
   'Generate & Upload': {
@@ -48,7 +48,6 @@ const links = {
       newTab: false,
       className: '',
     },
-
     OncoJS: {
       link: '/products/oncojs',
       className: '',
@@ -80,28 +79,38 @@ const links = {
     },
   },
   About: {
-    'Case Studies': {
-      link: '/case-studies',
-      icon: null,
-      newTab: false,
-      className: '',
-    },
+    ...(SHOW_DOCS
+      ? {
+          Documentation: {
+            link: '/documentation',
+            icon: null,
+            newTab: false,
+            className: '',
+          },
+        }
+      : {}),
     'About Us': {
       link: '/about-us',
       icon: null,
       newTab: false,
       className: '',
     },
-    Services: {
-      link: '/services',
+    'Case Studies': {
+      link: '/case-studies',
       icon: null,
       newTab: false,
       className: '',
     },
-    Blog: {
+    'Team Blog': {
       link: 'http://softeng.oicr.on.ca/',
       icon: null,
       newTab: true,
+      className: '',
+    },
+    Services: {
+      link: '/services',
+      icon: null,
+      newTab: false,
       className: '',
     },
     Contact: {
@@ -111,24 +120,21 @@ const links = {
       className: '',
     },
   },
-}
+};
 
 const FooterLinks = () => {
   return (
     <div className="columns is-mobile footer-links flex-auto flex-wrap">
       {Object.keys(links).map((v, i) => {
         return (
-          <section
-            className="column is-2-desktop is-4-tablet is-half-mobile flex-wrap"
-            key={v}
-          >
+          <section className="footer-column" key={v}>
             <div className="link-group-header">{v}</div>
             <ul className="list-reset">
               {Object.keys(links[v]).map((y, i) => {
-                let footerLink = links[v][y]['link']
-                let linkIcon = links[v][y]['icon']
+                let footerLink = links[v][y]['link'];
+                let linkIcon = links[v][y]['icon'];
                 let linkTarget =
-                  links[v][y]['newTab'] === true ? '_blank' : '_self'
+                  links[v][y]['newTab'] === true ? '_blank' : '_self';
                 return (
                   <li key={y}>
                     <a className="link" target={linkTarget} href={footerLink}>
@@ -136,15 +142,15 @@ const FooterLinks = () => {
                       {linkIcon && <Icon img={linkIcon} />}
                     </a>{' '}
                   </li>
-                )
+                );
               })}
             </ul>
           </section>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 const Footer = () => {
   return (
@@ -152,16 +158,15 @@ const Footer = () => {
       <div className="container">
         <div className="footer-box">
           <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
-            <img
-              src={logo}
-              style={{ maxHeight: '100px', paddingRight: '32px' }}
-            />
+            <img src={logo} />
           </a>
           <FooterLinks />
         </div>
       </div>
       <div className="flex justify-center bg-grey p2">
-        <span className="px2 copyright">© {new Date().getFullYear()} Overture.</span>
+        <span className="px2 copyright">
+          © {new Date().getFullYear()} Overture.
+        </span>
         <a className="px1" href="/privacy">
           Privacy
         </a>
@@ -172,11 +177,11 @@ const Footer = () => {
       </div>
       <div className="container netlify-badge">
         <a target="_blank" href="https://www.netlify.com">
-          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
+          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" />
         </a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -18,10 +18,11 @@
   }
 
   .oicr-logo {
-    width: 140px;
-    margin-right: 64px;
+    width: 128px;
     order: 1;
     align-self: center;
+    display: block;
+    margin-right: 32px;
 
     @include breakpoint(mobile) {
       margin: 32px;
@@ -56,5 +57,45 @@
     bottom: -5px;
     position: absolute;
     right: 80px;
+  }
+
+  // based on bulma columns.
+  // - last item uses 2 columns except on mobile.
+  // desktop: 7 columns
+  // tablet: 2 rows of 3, last column is wide
+  // mobile: 3 rows of 2 columns
+
+  .footer-column {
+    width: 15%;
+    // heading text wraps if the width is precisely 1/7
+    padding: 0.75rem;
+    &:last-child {
+      width: 25%;
+      li {
+        width: 50%;
+        float: left;
+        @media (max-width: 1260px) {
+          width: 40%;
+          &:nth-child(odd) {
+            width: 60%;
+          }
+        }
+      }
+    }
+    @include breakpoint(desktop-below) {
+      width: 33%;
+      &:last-child {
+        width: 33%;
+      }
+    }
+    @include breakpoint(mobile) {
+      width: 50%;
+      &:last-child {
+        width: 50%;
+        li {
+          width: 100%;
+        }
+      }
+    }
   }
 }
