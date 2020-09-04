@@ -157,9 +157,9 @@ class NavBar extends Component {
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
-                  className="slack-button mr1"
+                  className="slack-button"
                   type="secondary"
-                  size="medium"
+                  size="navSlack"
                   icon="slack"
                   externalLink="http://slack.overture.bio/"
                 >
@@ -168,11 +168,11 @@ class NavBar extends Component {
 
                 <Button
                   type="secondary"
-                  size="medium"
+                  size="navGithub"
                   externalLink="https://github.com/overture-stack"
                   icon="githubMagenta"
                 >
-                  Get Started
+                  Overture Github
                 </Button>
               </div>
             </div>
