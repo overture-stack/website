@@ -27,7 +27,7 @@ class TemplateWrapper extends Component {
 
     // if animation when switching between megamenu types is preferred,
     // add a callback to this setState
-    // i.e. close megamenu first, then in the callback, if type, megaMenuOpen: true
+    // i.e. set state to !megaMenuOpen, then in the callback, if type, megaMenuOpen: true
     const { megaMenuOpen, megaMenuType } = this.state;
 
     const typeIsActive = type && type === megaMenuType;
