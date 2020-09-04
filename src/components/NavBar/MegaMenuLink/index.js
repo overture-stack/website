@@ -1,6 +1,5 @@
 import React from 'react';
 import { Icon } from '../../';
-import ProductsPopup from '../Popup';
 
 const MegaMenuLink = ({ children, isActive, name, toggleMegaMenu, type }) => (
   <div className="megamenu-link-box">
@@ -23,7 +22,6 @@ const MegaMenuLink = ({ children, isActive, name, toggleMegaMenu, type }) => (
         />
       </div>
     </div>
-
     {isActive && children}
   </div>
 );

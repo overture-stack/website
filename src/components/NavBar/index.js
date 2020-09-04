@@ -13,12 +13,21 @@ import MegaMenuLink from './MegaMenuLink';
 
 class NavBar extends Component {
   render() {
-    const { megaMenuType } = this.props;
+    const {
+      closeMenus,
+      megaMenuType,
+      mobileMenuOpen,
+      toggleMegaMenu,
+      toggleMobileMenu,
+    } = this.props;
 
-    let mobileMenuOpen = this.props.mobileMenuOpen ? 'is-active' : '';
-    let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
-
-    let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
+    let mobileMenuClass = mobileMenuOpen ? 'is-active' : '';
+    let navbarMenuClass = `navbar-menu ${mobileMenuClass}`;
+    let burgerClass = `button navbar-burger ${mobileMenuClass}`;
+    const mobileMegaCheck =
+      typeof window !== 'undefined' &&
+      mobileMenuOpen &&
+      window.innerWidth < 1216;
 
     return (
       <nav
@@ -29,16 +38,13 @@ class NavBar extends Component {
           <div className="navbar-brand">
             <Link
               to="/"
-              onClick={() => this.props.closeMenus()}
+              onClick={() => closeMenus()}
               className="navbar-item navbar-brand-link"
             >
               <img src={logo} />
             </Link>
 
-            <button
-              className={burgerClass}
-              onClick={() => this.props.toggleMobileMenu()}
-            >
+            <button className={burgerClass} onClick={() => toggleMobileMenu()}>
               <span />
               <span />
               <span />
@@ -49,60 +55,46 @@ class NavBar extends Component {
               <MegaMenuLink
                 isActive={megaMenuType === 'products'}
                 name="Products"
-                toggleMegaMenu={this.props.toggleMegaMenu}
+                toggleMegaMenu={toggleMegaMenu}
                 type="products"
               >
                 <div ref={(r) => (this.popoverRef = r)}>
-                  {typeof window !== 'undefined' &&
-                    mobileMenuOpen &&
-                    window.innerWidth < 1216 && (
-                      <ProductsPopup
-                        className="open"
-                        closeMenus={this.props.closeMenus}
-                      />
-                    )}
+                  {mobileMegaCheck && (
+                    <ProductsPopup className="open" closeMenus={closeMenus} />
+                  )}
                 </div>
               </MegaMenuLink>
 
               <MegaMenuLink
                 isActive={megaMenuType === 'docs'}
                 name="Documentation"
-                toggleMegaMenu={this.props.toggleMegaMenu}
+                toggleMegaMenu={toggleMegaMenu}
                 type="docs"
               >
                 <div ref={(r) => (this.popoverRef = r)}>
-                  {typeof window !== 'undefined' &&
-                    mobileMenuOpen &&
-                    window.innerWidth < 1216 && (
-                      <ProductsPopup
-                        className="open"
-                        closeMenus={this.props.closeMenus}
-                      />
-                    )}
+                  {mobileMegaCheck && (
+                    <ProductsPopup className="open" closeMenus={closeMenus} />
+                  )}
                 </div>
               </MegaMenuLink>
 
               <NavLink
-                closeMenus={this.props.closeMenus}
+                closeMenus={closeMenus}
                 url="/case-studies"
                 name="Case Studies"
               />
 
               <NavLink
-                closeMenus={this.props.closeMenus}
+                closeMenus={closeMenus}
                 url="/about-us"
                 name="About Us"
               />
               <NavLink
-                closeMenus={this.props.closeMenus}
+                closeMenus={closeMenus}
                 url="/services"
                 name="Services"
               />
-              <NavLink
-                closeMenus={this.props.closeMenus}
-                url="/contact"
-                name="Contact"
-              />
+              <NavLink closeMenus={closeMenus} url="/contact" name="Contact" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">

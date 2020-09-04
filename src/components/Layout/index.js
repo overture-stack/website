@@ -22,8 +22,15 @@ class TemplateWrapper extends Component {
   };
 
   toggleMegaMenu = (type = null) => {
+    // there's only one megamenu. the contents are toggled based on type.
+    // always set type to null when closing the megamenu.
+
+    // if animation when switching between megamenu types is preferred,
+    // add a callback to this setState
+    // i.e. close megamenu first, then in the callback, if type, megaMenuOpen: true
+    const { megaMenuOpen, megaMenuType } = this.state;
     this.setState({
-      megaMenuOpen: !!type ? true : !this.state.megaMenuOpen,
+      megaMenuOpen: !!type ? true : !megaMenuOpen,
       megaMenuType: type,
     });
   };
@@ -33,15 +40,16 @@ class TemplateWrapper extends Component {
   };
 
   toggleMobileMenu = () => {
+    const { mobileMenuOpen } = this.state;
     // if closing, close the mega menu too.
-    if (this.state.mobileMenuOpen === false) {
+    if (!mobileMenuOpen) {
       this.setState({
         megaMenuOpen: false,
         megaMenuType: null,
-        mobileMenuOpen: !this.state.mobileMenuOpen,
+        mobileMenuOpen: !mobileMenuOpen,
       });
     }
-    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
+    this.setState({ mobileMenuOpen: !mobileMenuOpen });
   };
 
   closeMenus = () => {
@@ -72,7 +80,13 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    let megaMenuOpen = this.state.megaMenuOpen;
+    const {
+      megaMenuOpen,
+      popOverRef,
+      megaMenuType,
+      mobileMenuOpen,
+    } = this.state;
+    const { children } = this.props;
     let megaMenuClass = megaMenuOpen ? 'open' : 'closed';
 
     return (
@@ -83,13 +97,13 @@ class TemplateWrapper extends Component {
         </Helmet>
         <Navbar
           closeMenus={this.closeMenus}
+          megaMenuOpen={megaMenuOpen}
+          megaMenuType={megaMenuType}
+          mobileMenuOpen={mobileMenuOpen}
           openMenu={this.openMenu}
-          megaMenuOpen={this.state.megaMenuOpen}
-          mobileMenuOpen={this.state.mobileMenuOpen}
+          popOverRef={popOverRef}
           toggleMegaMenu={this.toggleMegaMenu}
           toggleMobileMenu={this.toggleMobileMenu}
-          popOverRef={this.state.popOverRef}
-          megaMenuType={this.state.megaMenuType}
         />
 
         <div
@@ -97,11 +111,11 @@ class TemplateWrapper extends Component {
           ref={(r) => (this.popOverRef = r)}
         >
           {typeof window !== 'undefined' &&
-            !this.state.mobileMenuOpen &&
+            !mobileMenuOpen &&
             window.innerWidth > 1216 && (
               <ProductsPopup
                 className={megaMenuClass}
-                closeMenus={this.props.closeMenus}
+                closeMenus={this.closeMenus}
               />
             )}
         </div>
@@ -111,7 +125,7 @@ class TemplateWrapper extends Component {
             this.setState({ megaMenuOpen: false, megaMenuType: null })
           }
         >
-          {this.props.children}
+          {children}
         </div>
         <Footer />
       </div>
