@@ -29,9 +29,12 @@ class TemplateWrapper extends Component {
     // add a callback to this setState
     // i.e. close megamenu first, then in the callback, if type, megaMenuOpen: true
     const { megaMenuOpen, megaMenuType } = this.state;
+
+    const typeIsActive = type && type === megaMenuType;
+
     this.setState({
-      megaMenuOpen: !!type ? true : !megaMenuOpen,
-      megaMenuType: type,
+      megaMenuOpen: typeIsActive ? !megaMenuOpen : !!type,
+      megaMenuType: typeIsActive ? null : type,
     });
   };
 
