@@ -10,6 +10,7 @@ import Button from '../Button';
 import MegaMenu from './MegaMenu';
 import NavLink from './NavLink';
 import MegaMenuLink from './MegaMenuLink';
+import { SHOW_DOCS } from '../../constants';
 
 class NavBar extends Component {
   render() {
@@ -65,18 +66,20 @@ class NavBar extends Component {
                 </div>
               </MegaMenuLink>
 
-              <MegaMenuLink
-                isActive={megaMenuType === 'docs'}
-                name="Documentation"
-                toggleMegaMenu={toggleMegaMenu}
-                type="docs"
-              >
-                <div ref={(r) => (this.popoverRef = r)}>
-                  {mobileMegaCheck && (
-                    <MegaMenu className="open" megaMenuType="docs" />
-                  )}
-                </div>
-              </MegaMenuLink>
+              {SHOW_DOCS && (
+                <MegaMenuLink
+                  isActive={megaMenuType === 'docs'}
+                  name="Documentation"
+                  toggleMegaMenu={toggleMegaMenu}
+                  type="docs"
+                >
+                  <div ref={(r) => (this.popoverRef = r)}>
+                    {mobileMegaCheck && (
+                      <MegaMenu className="open" megaMenuType="docs" />
+                    )}
+                  </div>
+                </MegaMenuLink>
+              )}
 
               <NavLink
                 closeMenus={closeMenus}
