@@ -6,23 +6,126 @@ import Link from 'gatsby-link';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
+const data = {
+  products: {
+    explore: {
+      title: 'Explore our products',
+      text:
+        'Overture is a collection of open-source products for big-data genomic science.',
+      link: {
+        to: '/products',
+        text: 'All products',
+      },
+    },
+  },
+  docs: {
+    explore: {
+      title: 'Explore our documentation',
+      text:
+        'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
+      link: {
+        to: '/documentation',
+        text: 'Documentation Overview',
+      },
+    },
+    columns: [
+      {
+        title: 'DMS Bundle',
+        color: 'blue-dark',
+        links: [
+          {
+            to: '/documentation',
+            text: 'Introduction',
+          },
+          {
+            to: '/documentation',
+            text: 'How to Install',
+          },
+          {
+            to: '/documentation',
+            text: 'For Administrators',
+          },
+        ],
+      },
+      {
+        title: 'Generate & Upload',
+        color: 'pink',
+        links: [
+          {
+            to: '/documentation',
+            text: 'Score',
+          },
+          {
+            to: '/documentation',
+            text: 'Song',
+          },
+        ],
+      },
+      {
+        title: 'Access & Download',
+        color: 'blue-light',
+        links: [
+          {
+            to: '/documentation',
+            text: 'Ego',
+          },
+          {
+            to: '/documentation',
+            text: 'Maestro',
+          },
+          {
+            to: '/documentation',
+            text: 'Arranger',
+          },
+        ],
+      },
+      {
+        title: 'Analyze & Discover',
+        color: 'red',
+        links: [
+          {
+            to: '/documentation',
+            text: 'Jukebox',
+          },
+          {
+            to: '/documentation',
+            text: 'OncoJs',
+          },
+        ],
+      },
+      {
+        title: 'Collaborate & Share',
+        color: 'green',
+        links: [
+          {
+            to: '/documentation',
+            text: 'Persona',
+          },
+          {
+            to: '/documentation',
+            text: 'Riff',
+          },
+        ],
+      },
+    ],
+  },
+};
+
 const MegaMenu = ({ className, megaMenuType }) => {
+  const { explore } = data[megaMenuType];
   return (
     <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>
         {/* section: Text overview - Desktop only */}
         <section className="menu-section explore-text">
-          <div className="heading-text">Explore our products</div>
+          <div className="heading-text">{explore.title}</div>
           <div className="body-text">
-            <div>
-              Overture is a collection of open-source products for big-data
-              genomic science.
-            </div>
+            <div>{explore.text}</div>
           </div>
 
           <div className="chevron-link">
-            <Link to="/products">
-              All products <Icon size={12} img="arrowRightMagenta" />{' '}
+            <Link to={explore.link.to}>
+              {explore.link.text} <Icon size={12} img="arrowRightMagenta" />{' '}
             </Link>
           </div>
         </section>
