@@ -1,13 +1,13 @@
 /**
  * NavBar component:
- * subcomponents: ProductsPopup and NavLink
+ * subcomponents: MegaMenu and NavLink
  */
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 import Button from '../Button';
-import ProductsPopup from './Popup';
+import MegaMenu from './MegaMenu';
 import NavLink from './NavLink';
 import MegaMenuLink from './MegaMenuLink';
 
@@ -60,7 +60,7 @@ class NavBar extends Component {
               >
                 <div ref={(r) => (this.popoverRef = r)}>
                   {mobileMegaCheck && (
-                    <ProductsPopup className="open" closeMenus={closeMenus} />
+                    <MegaMenu className="open" megaMenuType="products" />
                   )}
                 </div>
               </MegaMenuLink>
@@ -73,7 +73,7 @@ class NavBar extends Component {
               >
                 <div ref={(r) => (this.popoverRef = r)}>
                   {mobileMegaCheck && (
-                    <ProductsPopup className="open" closeMenus={closeMenus} />
+                    <MegaMenu className="open" megaMenuType="docs" />
                   )}
                 </div>
               </MegaMenuLink>

@@ -6,7 +6,7 @@ import Link from 'gatsby-link';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
-const MegaMenu = ({ closeMenus, className }) => {
+const MegaMenu = ({ className, megaMenuType }) => {
   return (
     <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>

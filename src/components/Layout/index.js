@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Navbar from '../../components/NavBar';
-import ProductsPopup from '../../components/NavBar/Popup';
+import MegaMenu from '../../components/NavBar/MegaMenu';
 import Footer from '../../components/Footer';
 import config from '../../../meta/config';
 import '../../styles/main.scss';
@@ -116,9 +116,10 @@ class TemplateWrapper extends Component {
           {typeof window !== 'undefined' &&
             !mobileMenuOpen &&
             window.innerWidth > 1216 && (
-              <ProductsPopup
+              <MegaMenu
                 className={megaMenuClass}
                 closeMenus={this.closeMenus}
+                megaMenuType={megaMenuType}
               />
             )}
         </div>
