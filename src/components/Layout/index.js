@@ -109,20 +109,22 @@ class TemplateWrapper extends Component {
           toggleMobileMenu={this.toggleMobileMenu}
         />
 
-        <div
-          className="desktop-products-popup"
-          ref={(r) => (this.popOverRef = r)}
-        >
-          {typeof window !== 'undefined' &&
-            !mobileMenuOpen &&
-            window.innerWidth > 1216 && (
-              <MegaMenu
-                className={megaMenuClass}
-                closeMenus={this.closeMenus}
-                megaMenuType={megaMenuType}
-              />
-            )}
-        </div>
+        {megaMenuType && (
+          <div
+            className="desktop-products-popup"
+            ref={(r) => (this.popOverRef = r)}
+          >
+            {typeof window !== 'undefined' &&
+              !mobileMenuOpen &&
+              window.innerWidth > 1216 && (
+                <MegaMenu
+                  className={megaMenuClass}
+                  closeMenus={this.closeMenus}
+                  megaMenuType={megaMenuType}
+                />
+              )}
+          </div>
+        )}
 
         <div
           onClick={() =>
