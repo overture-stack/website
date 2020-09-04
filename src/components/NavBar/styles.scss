@@ -95,7 +95,7 @@
 
   .navbar-item {
     font-family: Lato, 'Arial';
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 0;
   }
 
@@ -119,6 +119,11 @@
     flex-grow: 1;
     justify-content: space-between;
 
+    .slack-button {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
     @media (max-width: 400px) {
       flex-direction: column;
       justify-content: flex-start;
@@ -126,6 +131,13 @@
       .slack-button {
         margin: 0.5rem 0;
       }
+    }
+  }
+
+  .custom-button {
+    .button.is-medium {
+      font-size: 1rem;
+      font-weight: 500;
     }
   }
 
@@ -137,13 +149,6 @@
   @media (max-width: 1260px) and (min-width: 1024px) {
     .navbar-brand-link {
       margin-right: 0;
-    }
-
-    // Shrink the bulma custom button font size if more space is needed.
-    .custom-button {
-      .button.is-medium {
-        font-size: 1rem;
-      }
     }
   }
 }

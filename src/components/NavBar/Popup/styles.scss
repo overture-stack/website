@@ -76,10 +76,11 @@
   }
 
   .menu-section-link {
-    padding-top: 1rem;
-    font-weight: bold;
+    color: $blue-dark;
     display: flex;
     font-size: 1rem;
+    font-weight: bold;
+    padding-top: 1rem;
     &:hover {
       color: $magenta;
     }
