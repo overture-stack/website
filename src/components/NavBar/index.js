@@ -31,7 +31,7 @@ class NavBar extends Component {
    * Used for opening "Product" popup on mouse over rather than click.
    */
   onMouseMove = (e) => {
-    let megamenuOpen = this.props.megamenuOpen;
+    let megaMenuOpen = this.props.megaMenuOpen;
     let popOverRef = this.props.popOverRef;
     // Disregard if on mobile / using mobile menu.
     if (typeof window !== 'undefined' && window.innerWidth < 1168) return;
@@ -40,30 +40,30 @@ class NavBar extends Component {
     if (popOverRef == null || this.productsRef == null) return;
 
     // Then, if mouse is NOT in the popover and it's open: close it!
-    if (!popOverRef.contains(e.target) && megamenuOpen) {
+    if (!popOverRef.contains(e.target) && megaMenuOpen) {
       this.props.closeMenus();
 
       // If the mouse is on the "Products" button and the menu isn't open: open it!
-    } else if (this.productsRef.contains(e.target) && !megamenuOpen) {
+    } else if (this.productsRef.contains(e.target) && !megaMenuOpen) {
       this.props.openMenu();
     }
   };
 
   render() {
     // Some className bindings for toggling menus and such.
-    let megamenuOpen = this.props.megamenuOpen;
+    let megaMenuOpen = this.props.megaMenuOpen;
 
     // Conditional Classes
     let mobileMenuOpen = this.props.mobileMenuOpen ? 'is-active' : '';
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
-    let megamenuLinkClass = megamenuOpen
+    let megaMenuLinkClass = megaMenuOpen
       ? 'megamenu-link megamenu-link-open navbar-item'
       : 'megamenu-link navbar-item';
-    let megamenuArrowClass = megamenuOpen
+    let megaMenuArrowClass = megaMenuOpen
       ? 'megamenu-arrow open'
       : 'megamenu-arrow closed';
-    let megamenuClass = megamenuOpen ? 'open' : 'closed';
-    let megamenuArrow = megamenuOpen ? 'arrowDown' : 'arrowRight';
+    let megaMenuClass = megaMenuOpen ? 'open' : 'closed';
+    let megaMenuArrow = megaMenuOpen ? 'arrowDown' : 'arrowRight';
 
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
 
@@ -98,7 +98,7 @@ class NavBar extends Component {
               <div className="megamenu-link-box">
                 <div style={{ flex: '1', display: 'flex' }}>
                   <div
-                    className={megamenuLinkClass}
+                    className={megaMenuLinkClass}
                     style={{ display: 'flex', flex: 1 }}
                     ref={(r) => (this.productsRef = r)}
                     onClick={() => this.props.toggleMenu()}
@@ -111,9 +111,9 @@ class NavBar extends Component {
                     onClick={() => this.props.toggleMenu()}
                   >
                     <Icon
-                      className={`${megamenuArrowClass} pl1`}
+                      className={`${megaMenuArrowClass} pl1`}
                       style={{ width: '32px', height: '100%' }}
-                      img={megamenuArrow}
+                      img={megaMenuArrow}
                     />
                   </div>
                 </div>
@@ -125,7 +125,7 @@ class NavBar extends Component {
                     window.innerWidth < 1216 && (
                       /* {(windowExists && mobileMenuOpen && window.innerWidth < 1216) && ( */
                       <ProductsPopup
-                        className={megamenuClass}
+                        className={megaMenuClass}
                         closeMenus={this.props.closeMenus}
                       />
                     )}
@@ -135,7 +135,7 @@ class NavBar extends Component {
               <div className="megamenu-link-box">
                 <div style={{ flex: '1', display: 'flex' }}>
                   <div
-                    className={megamenuLinkClass}
+                    className={megaMenuLinkClass}
                     style={{ display: 'flex', flex: 1 }}
                     ref={(r) => (this.productsRef = r)}
                     onClick={() => this.props.toggleMenu()}
@@ -148,9 +148,9 @@ class NavBar extends Component {
                     onClick={() => this.props.toggleMenu()}
                   >
                     <Icon
-                      className={`${megamenuArrowClass} pl1`}
+                      className={`${megaMenuArrowClass} pl1`}
                       style={{ width: '32px', height: '100%' }}
-                      img={megamenuArrow}
+                      img={megaMenuArrow}
                     />
                   </div>
                 </div>
@@ -162,7 +162,7 @@ class NavBar extends Component {
                     window.innerWidth < 1216 && (
                       /* {(windowExists && mobileMenuOpen && window.innerWidth < 1216) && ( */
                       <ProductsPopup
-                        className={megamenuClass}
+                        className={megaMenuClass}
                         closeMenus={this.props.closeMenus}
                       />
                     )}

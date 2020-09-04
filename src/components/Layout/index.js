@@ -15,32 +15,32 @@ class TemplateWrapper extends Component {
   }
 
   state = {
-    megamenuOpen: false,
+    megaMenuOpen: false,
     mobileMenuOpen: false,
     popOverRef: null,
   };
 
   toggleMenu = () => {
-    this.setState({ megamenuOpen: !this.state.megamenuOpen });
+    this.setState({ megaMenuOpen: !this.state.megaMenuOpen });
   };
 
   openMenu = () => {
-    this.setState({ megamenuOpen: true });
+    this.setState({ megaMenuOpen: true });
   };
 
   toggleMobileMenu = () => {
-    // if closing, close the product menu too.
+    // if closing, close the mega menu too.
     if (this.state.mobileMenuOpen === false) {
       this.setState({
         mobileMenuOpen: !this.state.mobileMenuOpen,
-        megamenuOpen: false,
+        megaMenuOpen: false,
       });
     }
     this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
   };
 
   closeMenus = () => {
-    this.setState({ megamenuOpen: false, mobileMenuOpen: false });
+    this.setState({ megaMenuOpen: false, mobileMenuOpen: false });
   };
 
   componentDidMount() {
@@ -63,9 +63,9 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    let megamenuOpen = this.state.megamenuOpen;
+    let megaMenuOpen = this.state.megaMenuOpen;
     let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : '';
-    let megamenuClass = megamenuOpen ? 'open' : 'closed';
+    let megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     let windowExists = typeof window === 'undefined';
 
     return (
@@ -77,7 +77,7 @@ class TemplateWrapper extends Component {
         <Navbar
           closeMenus={this.closeMenus}
           openMenu={this.openMenu}
-          megamenuOpen={this.state.megamenuOpen}
+          megaMenuOpen={this.state.megaMenuOpen}
           mobileMenuOpen={this.state.mobileMenuOpen}
           toggleMenu={this.toggleMenu}
           toggleMobileMenu={this.toggleMobileMenu}
@@ -93,13 +93,13 @@ class TemplateWrapper extends Component {
             window.innerWidth > 1216 && (
               /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
               <ProductsPopup
-                className={megamenuClass}
+                className={megaMenuClass}
                 closeMenus={this.props.closeMenus}
               />
             )}
         </div>
 
-        <div onClick={() => this.setState({ megamenuOpen: false })}>
+        <div onClick={() => this.setState({ megaMenuOpen: false })}>
           {this.props.children}
         </div>
         <Footer />
