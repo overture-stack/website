@@ -31,7 +31,7 @@ class NavBar extends Component {
    * Used for opening "Product" popup on mouse over rather than click.
    */
   onMouseMove = (e) => {
-    let productMenuOpen = this.props.productMenuOpen;
+    let megamenuOpen = this.props.megamenuOpen;
     let popOverRef = this.props.popOverRef;
     // Disregard if on mobile / using mobile menu.
     if (typeof window !== 'undefined' && window.innerWidth < 1168) return;
@@ -40,30 +40,30 @@ class NavBar extends Component {
     if (popOverRef == null || this.productsRef == null) return;
 
     // Then, if mouse is NOT in the popover and it's open: close it!
-    if (!popOverRef.contains(e.target) && productMenuOpen) {
+    if (!popOverRef.contains(e.target) && megamenuOpen) {
       this.props.closeMenus();
 
       // If the mouse is on the "Products" button and the menu isn't open: open it!
-    } else if (this.productsRef.contains(e.target) && !productMenuOpen) {
+    } else if (this.productsRef.contains(e.target) && !megamenuOpen) {
       this.props.openMenu();
     }
   };
 
   render() {
     // Some className bindings for toggling menus and such.
-    let productMenuOpen = this.props.productMenuOpen;
+    let megamenuOpen = this.props.megamenuOpen;
 
     // Conditional Classes
     let mobileMenuOpen = this.props.mobileMenuOpen ? 'is-active' : '';
     let navbarMenuClass = `navbar-menu ${mobileMenuOpen}`;
-    let productsLinkClass = productMenuOpen
-      ? 'products-link products-link-open navbar-item'
-      : 'products-link navbar-item';
-    let productsArrowClass = productMenuOpen
-      ? 'products-arrow open'
-      : 'products-arrow closed';
-    let productsMenuClass = productMenuOpen ? 'open' : 'closed';
-    let productsArrow = productMenuOpen ? 'arrowDown' : 'arrowRight';
+    let megamenuLinkClass = megamenuOpen
+      ? 'megamenu-link megamenu-link-open navbar-item'
+      : 'megamenu-link navbar-item';
+    let megamenuArrowClass = megamenuOpen
+      ? 'megamenu-arrow open'
+      : 'megamenu-arrow closed';
+    let megamenuClass = megamenuOpen ? 'open' : 'closed';
+    let megamenuArrow = megamenuOpen ? 'arrowDown' : 'arrowRight';
 
     let burgerClass = `button navbar-burger ${mobileMenuOpen}`;
 
@@ -95,10 +95,10 @@ class NavBar extends Component {
           </div>
           <div className={navbarMenuClass} id="navMenu">
             <div className="navbar-start items-center">
-              <div className="products-link-box">
+              <div className="megamenu-link-box">
                 <div style={{ flex: '1', display: 'flex' }}>
                   <div
-                    className={productsLinkClass}
+                    className={megamenuLinkClass}
                     style={{ display: 'flex', flex: 1 }}
                     ref={(r) => (this.productsRef = r)}
                     onClick={() => this.props.toggleMenu()}
@@ -111,9 +111,9 @@ class NavBar extends Component {
                     onClick={() => this.props.toggleMenu()}
                   >
                     <Icon
-                      className={`${productsArrowClass} pl1`}
+                      className={`${megamenuArrowClass} pl1`}
                       style={{ width: '32px', height: '100%' }}
-                      img={productsArrow}
+                      img={megamenuArrow}
                     />
                   </div>
                 </div>
@@ -125,7 +125,44 @@ class NavBar extends Component {
                     window.innerWidth < 1216 && (
                       /* {(windowExists && mobileMenuOpen && window.innerWidth < 1216) && ( */
                       <ProductsPopup
-                        className={productsMenuClass}
+                        className={megamenuClass}
+                        closeMenus={this.props.closeMenus}
+                      />
+                    )}
+                </div>
+              </div>
+
+              <div className="megamenu-link-box">
+                <div style={{ flex: '1', display: 'flex' }}>
+                  <div
+                    className={megamenuLinkClass}
+                    style={{ display: 'flex', flex: 1 }}
+                    ref={(r) => (this.productsRef = r)}
+                    onClick={() => this.props.toggleMenu()}
+                  >
+                    Documentation
+                  </div>
+
+                  <div
+                    className={'flex'}
+                    onClick={() => this.props.toggleMenu()}
+                  >
+                    <Icon
+                      className={`${megamenuArrowClass} pl1`}
+                      style={{ width: '32px', height: '100%' }}
+                      img={megamenuArrow}
+                    />
+                  </div>
+                </div>
+
+                {/* MOBILE: Products Menu + Ref for hiding. */}
+                <div ref={(r) => (this.popoverRef = r)}>
+                  {typeof window !== 'undefined' &&
+                    mobileMenuOpen &&
+                    window.innerWidth < 1216 && (
+                      /* {(windowExists && mobileMenuOpen && window.innerWidth < 1216) && ( */
+                      <ProductsPopup
+                        className={megamenuClass}
                         closeMenus={this.props.closeMenus}
                       />
                     )}

@@ -6,9 +6,9 @@ import Link from 'gatsby-link';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
-const ProductsPopup = ({ closeMenus, className }) => {
+const MegaMenu = ({ closeMenus, className }) => {
   return (
-    <div className={`ProductsPopup ${className}`}>
+    <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>
         {/* section: Text overview - Desktop only */}
         <section className="menu-section explore-text">
@@ -133,4 +133,4 @@ const ProductsPopup = ({ closeMenus, className }) => {
   );
 };
 
-export default ProductsPopup;
+export default MegaMenu;
