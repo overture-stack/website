@@ -80,7 +80,9 @@
     font-weight: bold;
     display: flex;
     font-size: 1rem;
-    color: $blue-dark;
+    &:hover {
+      color: $magenta;
+    }
   }
 
   // explore our products heading and text; desktop only
