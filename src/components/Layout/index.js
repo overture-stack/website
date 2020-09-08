@@ -106,7 +106,7 @@ class TemplateWrapper extends Component {
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' &&
       !mobileMenuOpen &&
-      window.innerWidth > 1216;
+      window.innerWidth > 1160;
 
     return (
       <div>

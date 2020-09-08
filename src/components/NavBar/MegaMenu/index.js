@@ -1,5 +1,5 @@
 /**
- * Component: Display the Product Sub-Menu on mouse over / tap.
+ * Component: Display the Megamenu on mouse over / tap.
  */
 import React from 'react';
 import Link from 'gatsby-link';
@@ -166,6 +166,7 @@ const data = {
 
 const MegaMenu = ({ className, megaMenuType }) => {
   if (!megaMenuType) {
+    // leave an empty element to help with CSS animations
     return <div className={`MegaMenu ${className}`} />;
   }
   const { explore, sections } = data[megaMenuType];
@@ -187,7 +188,7 @@ const MegaMenu = ({ className, megaMenuType }) => {
         </section>
 
         {sections.map((section) => (
-          <section className="menu-section">
+          <section className="menu-section" key={section.title}>
             <div className="menu-section-heading">
               {megaMenuType === 'products' &&
                 (section.hasCoreIcon ? (
@@ -199,7 +200,7 @@ const MegaMenu = ({ className, megaMenuType }) => {
             </div>
             <ul className="menu-section-links">
               {section.links.map((link) => (
-                <li>
+                <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (
                     <Link className="menu-section-link" to={link.to}>
                       {link.text}
