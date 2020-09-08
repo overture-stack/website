@@ -75,18 +75,33 @@
     flex-direction: column;
   }
 
+  @include breakpoint(navmenu-up) {
+    .menu-section-links {
+      color: $blue-black;
+      list-style: disc;
+      padding: 0.5rem 0 0 1.5rem;
+    }
+  }
+
   .menu-section-link {
-    color: $blue-dark;
+    color: $blue-black;
     display: flex;
     font-size: 1rem;
-    font-weight: bold;
-    padding-top: 1rem;
+    padding: 0.25rem 0;
     &:hover {
       color: $magenta;
     }
   }
 
-  // explore our products heading and text; desktop only
+  @include breakpoint(navmenu-up) {
+    .Badge {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  // explore heading and text; desktop only
   .explore-text {
     min-width: 345px;
     background: $grey;
@@ -128,7 +143,7 @@
   }
 }
 
-// 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
+// 2) MegaMenu Mobile Styles - resets all the desktop styles and then customizes.
 
 @include breakpoint(navmenu-below) {
   .MegaMenu {
@@ -176,6 +191,10 @@
     .menu-section-links {
       padding: 24px 0 0 0;
       flex-direction: row;
+      li:not(:first-child) {
+        display: inline-block;
+        margin-left: 24px;
+      }
     }
 
     .core-links {
@@ -187,10 +206,6 @@
       padding-top: 0;
       padding: 0 0 12px 0;
       // flex: 1;
-
-      &:not(:first-child) {
-        margin-left: 48px;
-      }
     }
   }
 }

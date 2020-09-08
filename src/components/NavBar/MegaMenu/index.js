@@ -84,7 +84,7 @@ const data = {
     sections: [
       {
         title: 'DMS Bundle',
-        color: 'blue',
+        color: 'dark-blue',
         links: [
           {
             to: '/documentation',
@@ -197,26 +197,28 @@ const MegaMenu = ({ className, megaMenuType }) => {
                 ))}
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <div className="menu-section-links">
-              {section.links.map((link) =>
-                link.to.charAt(0) === '/' ? (
-                  <Link className="menu-section-link" to={link.to}>
-                    {link.text}
-                  </Link>
-                ) : (
-                  <a
-                    className="menu-section-link"
-                    href={link.to}
-                    target="_blank"
-                  >
-                    {link.text}
-                    {link.hasGithubIcon && (
-                      <Icon className="pl1" img="githubGrey" />
-                    )}
-                  </a>
-                )
-              )}
-            </div>
+            <ul className="menu-section-links">
+              {section.links.map((link) => (
+                <li>
+                  {link.to.charAt(0) === '/' ? (
+                    <Link className="menu-section-link" to={link.to}>
+                      {link.text}
+                    </Link>
+                  ) : (
+                    <a
+                      className="menu-section-link"
+                      href={link.to}
+                      target="_blank"
+                    >
+                      {link.text}
+                      {link.hasGithubIcon && (
+                        <Icon className="pl1" img="githubGrey" />
+                      )}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
           </section>
         ))}
       </div>

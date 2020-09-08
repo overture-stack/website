@@ -9,7 +9,7 @@
 
 $primary-invert: $white;
 $navbar-item-hover-color: $magenta;
-$navbar-item-color: $blue-nav;
+$navbar-item-color: $blue-black;
 $navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
 $link: $blue;
@@ -20,7 +20,7 @@ $family-primary: $family-serif;
 
 // override bulma's hover CSS for the top navbar
 a.navbar-item:hover {
-  color: $blue-nav;
+  color: $blue-black;
 }
 
 a.navbar-item.active-item {
