@@ -181,7 +181,7 @@ const MegaMenu = ({ className, megaMenuType }) => {
 
           <div className="chevron-link">
             <Link to={explore.link.to}>
-              {explore.link.text} <Icon size={12} img="arrowRightMagenta" />{' '}
+              {explore.link.text} <Icon size={12} img="arrowRightMagenta" />
             </Link>
           </div>
         </section>
@@ -196,26 +196,26 @@ const MegaMenu = ({ className, megaMenuType }) => {
                   <span className="core-placeholder">&nbsp;</span>
                 ))}
               <Badge color={section.color}>{section.title}</Badge>
-              <div className="menu-section-links">
-                {section.links.map((link) =>
-                  link.to.charAt(0) === '/' ? (
-                    <Link className="menu-section-link" to={link.to}>
-                      {link.text}
-                    </Link>
-                  ) : (
-                    <a
-                      className="menu-section-link"
-                      href={link.to}
-                      target="_blank"
-                    >
-                      {link.text}
-                      {link.hasGithubIcon && (
-                        <Icon className="pl1" img="githubGrey" />
-                      )}
-                    </a>
-                  )
-                )}
-              </div>
+            </div>
+            <div className="menu-section-links">
+              {section.links.map((link) =>
+                link.to.charAt(0) === '/' ? (
+                  <Link className="menu-section-link" to={link.to}>
+                    {link.text}
+                  </Link>
+                ) : (
+                  <a
+                    className="menu-section-link"
+                    href={link.to}
+                    target="_blank"
+                  >
+                    {link.text}
+                    {link.hasGithubIcon && (
+                      <Icon className="pl1" img="githubGrey" />
+                    )}
+                  </a>
+                )
+              )}
             </div>
           </section>
         ))}
