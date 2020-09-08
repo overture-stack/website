@@ -78,7 +78,7 @@ const links = {
       className: '',
     },
   },
-  About: {
+  Other: {
     ...(SHOW_DOCS
       ? {
           Documentation: {
