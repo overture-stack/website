@@ -38,10 +38,6 @@ class TemplateWrapper extends Component {
     });
   };
 
-  openMenu = () => {
-    this.setState({ megaMenuOpen: true });
-  };
-
   toggleMobileMenu = () => {
     const { mobileMenuOpen } = this.state;
     // if closing, close the mega menu too.
@@ -103,7 +99,6 @@ class TemplateWrapper extends Component {
           megaMenuOpen={megaMenuOpen}
           megaMenuType={megaMenuType}
           mobileMenuOpen={mobileMenuOpen}
-          openMenu={this.openMenu}
           popOverRef={popOverRef}
           toggleMegaMenu={this.toggleMegaMenu}
           toggleMobileMenu={this.toggleMobileMenu}
