@@ -1,6 +1,5 @@
 // This component handles site wide layouts.  (new to Gatsby 2.0)
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Navbar from '../../components/NavBar';
 import MegaMenu from '../../components/NavBar/MegaMenu';
@@ -21,42 +20,59 @@ class TemplateWrapper extends Component {
     popOverRef: null,
   };
 
+  closeMegaMenu = () => {
+    // close megamenu FIRST
+    // then change type to null in a callback
+    // for smoother animation
+    this.setState({ megaMenuOpen: false }, () => {
+      setTimeout(() => {
+        // delay for 0.5s CSS animation
+        this.setState({ megaMenuType: null });
+      }, 500);
+    });
+  };
+
+  openMegaMenu = (megaMenuType) => {
+    // set type FIRST
+    // then open the menu in a callback
+    // for smoother animation
+    this.setState({ megaMenuType }, () => {
+      // no animation delay needed
+      this.setState({ megaMenuOpen: true });
+    });
+  };
+
   toggleMegaMenu = (type = null) => {
-    // there's only one megamenu. the contents are toggled based on type.
-    // always set type to null when closing the megamenu.
+    const { megaMenuType } = this.state;
 
-    // if animation when switching between megamenu types is preferred,
-    // add a callback to this setState
-    // i.e. set state to !megaMenuOpen, then in the callback, if type, megaMenuOpen: true
-    const { megaMenuOpen, megaMenuType } = this.state;
-
+    // close the megamenu if user clicks button for
+    // the currently open megamenu
     const typeIsActive = type && type === megaMenuType;
+    if (!type || typeIsActive) {
+      this.closeMegaMenu();
+    } else {
+      this.openMegaMenu(type);
+    }
+  };
 
+  closeMenus = () => {
+    this.closeMegaMenu();
     this.setState({
-      megaMenuOpen: typeIsActive ? !megaMenuOpen : !!type,
-      megaMenuType: typeIsActive ? null : type,
+      mobileMenuOpen: false,
     });
   };
 
   toggleMobileMenu = () => {
     const { mobileMenuOpen } = this.state;
-    // if closing, close the mega menu too.
-    if (!mobileMenuOpen) {
+
+    // close megamenu if closing mobile menu
+    if (mobileMenuOpen) {
+      this.closeMenus();
+    } else {
       this.setState({
-        megaMenuOpen: false,
-        megaMenuType: null,
-        mobileMenuOpen: !mobileMenuOpen,
+        mobileMenuOpen: true,
       });
     }
-    this.setState({ mobileMenuOpen: !mobileMenuOpen });
-  };
-
-  closeMenus = () => {
-    this.setState({
-      megaMenuOpen: false,
-      megaMenuType: null,
-      mobileMenuOpen: false,
-    });
   };
 
   componentDidMount() {
@@ -111,23 +127,13 @@ class TemplateWrapper extends Component {
         />
 
         {/* desktop megamenu */}
-        <div ref={(r) => (this.popOverRef = r)}>
+        <div className="desktop-megamenu" ref={(r) => (this.popOverRef = r)}>
           {desktopMegaMenuCheck && (
-            <MegaMenu
-              className={megaMenuClass}
-              closeMenus={this.closeMenus}
-              megaMenuType={megaMenuType}
-            />
+            <MegaMenu className={megaMenuClass} megaMenuType={megaMenuType} />
           )}
         </div>
 
-        <div
-          onClick={() =>
-            this.setState({ megaMenuOpen: false, megaMenuType: null })
-          }
-        >
-          {children}
-        </div>
+        <div onClick={() => this.closeMegaMenu()}>{children}</div>
         <Footer />
       </div>
     );

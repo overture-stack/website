@@ -166,11 +166,7 @@ const data = {
 
 const MegaMenu = ({ className, megaMenuType }) => {
   if (!megaMenuType) {
-    return (
-      <div className={`MegaMenu ${className}`}>
-        <div className={`menu-items ${className}`}>&nbsp;</div>
-      </div>
-    );
+    return <div className={`MegaMenu ${className}`} />;
   }
   const { explore, sections } = data[megaMenuType];
   return (
