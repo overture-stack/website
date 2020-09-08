@@ -86,7 +86,11 @@ class TemplateWrapper extends Component {
       mobileMenuOpen,
     } = this.state;
     const { children } = this.props;
-    let megaMenuClass = megaMenuOpen ? 'open' : 'closed';
+    const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
+    const desktopMegaMenuCheck =
+      typeof window !== 'undefined' &&
+      !mobileMenuOpen &&
+      window.innerWidth > 1216;
 
     return (
       <div>
@@ -94,6 +98,8 @@ class TemplateWrapper extends Component {
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
+
+        {/* top navbar & mobile menu */}
         <Navbar
           closeMenus={this.closeMenus}
           megaMenuOpen={megaMenuOpen}
@@ -104,22 +110,16 @@ class TemplateWrapper extends Component {
           toggleMobileMenu={this.toggleMobileMenu}
         />
 
-        {megaMenuType && (
-          <div
-            className="desktop-products-popup"
-            ref={(r) => (this.popOverRef = r)}
-          >
-            {typeof window !== 'undefined' &&
-              !mobileMenuOpen &&
-              window.innerWidth > 1216 && (
-                <MegaMenu
-                  className={megaMenuClass}
-                  closeMenus={this.closeMenus}
-                  megaMenuType={megaMenuType}
-                />
-              )}
-          </div>
-        )}
+        {/* desktop megamenu */}
+        <div ref={(r) => (this.popOverRef = r)}>
+          {desktopMegaMenuCheck && (
+            <MegaMenu
+              className={megaMenuClass}
+              closeMenus={this.closeMenus}
+              megaMenuType={megaMenuType}
+            />
+          )}
+        </div>
 
         <div
           onClick={() =>
