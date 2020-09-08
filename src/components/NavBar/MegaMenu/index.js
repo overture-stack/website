@@ -17,6 +17,59 @@ const data = {
         text: 'All products',
       },
     },
+    sections: [
+      {
+        title: 'Generate & Upload',
+        color: 'pink',
+        hasCoreIcon: true,
+        links: [
+          { to: '/products/song', text: 'Song' },
+          { to: '/products/score', text: 'Score' },
+        ],
+      },
+      {
+        title: 'Access & Download',
+        color: 'blue',
+        hasCoreIcon: true,
+        links: [
+          { to: '/products/ego', text: 'Ego' },
+          { to: '/products/maestro', text: 'Maestro' },
+          { to: '/products/arranger', text: 'Arranger' },
+        ],
+      },
+      {
+        title: 'Analyze & Discover',
+        color: 'red',
+        links: [
+          { to: '/products/jukebox', text: 'Jukebox' },
+          { to: '/products/oncojs', text: 'OncoJS' },
+        ],
+      },
+      {
+        title: 'Collaborate & Share',
+        color: 'light-green',
+        links: [
+          { to: '/products/persona', text: 'Persona' },
+          { to: '/products/riff', text: 'Riff' },
+        ],
+      },
+      {
+        title: 'Track & Manage',
+        color: 'yellow',
+        links: [
+          {
+            to: 'https://github.com/overture-stack/billing',
+            text: 'Billing & Usage',
+            hasGithubIcon: true,
+          },
+          {
+            to: 'https://github.com/overture-stack/enrolment',
+            text: 'Enrolment',
+            hasGithubIcon: true,
+          },
+        ],
+      },
+    ],
   },
   docs: {
     explore: {
@@ -28,10 +81,10 @@ const data = {
         text: 'Documentation Overview',
       },
     },
-    columns: [
+    sections: [
       {
         title: 'DMS Bundle',
-        color: 'blue-dark',
+        color: 'blue',
         links: [
           {
             to: '/documentation',
@@ -63,7 +116,7 @@ const data = {
       },
       {
         title: 'Access & Download',
-        color: 'blue-light',
+        color: 'blue',
         links: [
           {
             to: '/documentation',
@@ -95,7 +148,7 @@ const data = {
       },
       {
         title: 'Collaborate & Share',
-        color: 'green',
+        color: 'light-green',
         links: [
           {
             to: '/documentation',
@@ -112,7 +165,7 @@ const data = {
 };
 
 const MegaMenu = ({ className, megaMenuType }) => {
-  const { explore } = data[megaMenuType];
+  const { explore, sections } = data[megaMenuType];
   return (
     <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>
@@ -130,107 +183,39 @@ const MegaMenu = ({ className, megaMenuType }) => {
           </div>
         </section>
 
-        {/* section: Generate & Upload */}
-        <section className="menu-section">
-          <div className="menu-section-heading">
-            <IconCommon.Core />
-            <Badge color="pink">Generate & Upload</Badge>
-          </div>
-          <div className="menu-section-links">
-            <Link className="menu-section-link" to="/products/song">
-              Song
-            </Link>
-            <Link className="menu-section-link" to="/products/score">
-              Score
-            </Link>
-          </div>
-        </section>
-
-        {/* section: ACCESS & DOWNLOAD */}
-
-        <section className="menu-section">
-          <div className="menu-section-heading">
-            <IconCommon.Core />
-            <Badge color="blue">Access & Download</Badge>
-          </div>
-          <div className="menu-section-links">
-            <Link className="menu-section-link" to="/products/ego">
-              {' '}
-              Ego{' '}
-            </Link>
-
-            <Link className="menu-section-link" to="/products/maestro">
-              Maestro
-            </Link>
-
-            <Link className="menu-section-link" to="/products/arranger">
-              Arranger
-            </Link>
-          </div>
-        </section>
-
-        {/* section: DISCOVERY */}
-
-        <section className="menu-section">
-          <div className="menu-section-heading">
-            <span className="core-placeholder">&nbsp;</span>
-            <Badge color="red">Analyze & Discover</Badge>
-          </div>
-
-          <div className="menu-section-links">
-            <Link className="menu-section-link" to="/products/jukebox">
-              Jukebox
-            </Link>
-
-            <Link className="menu-section-link" to="/products/oncojs/">
-              OncoJS
-            </Link>
-          </div>
-        </section>
-
-        {/* section: DISCOVERY */}
-
-        <section className="menu-section">
-          <div className="menu-section-heading">
-            <span className="core-placeholder">&nbsp;</span>
-            <Badge color="light-green">Collaborate & Share</Badge>
-          </div>
-          <div className="menu-section-links">
-            <Link className="menu-section-link" to="/products/persona">
-              Persona
-            </Link>
-            <Link className="menu-section-link" to="/products/riff">
-              Riff
-            </Link>
-          </div>
-        </section>
-
-        {/* section: MANAGEMENT */}
-
-        <section className="menu-section" style={{ flexShrink: 0 }}>
-          <div className="menu-section-heading">
-            <span className="core-placeholder">&nbsp;</span>
-            <Badge color="yellow">Track & Manage</Badge>
-          </div>
-          <div className="menu-section-links">
-            <a
-              href="https://github.com/overture-stack/billing"
-              className="menu-section-link"
-              target="_blank"
-            >
-              Billing & Usage
-              <Icon className="pl1" img="githubGrey" />
-            </a>
-            <a
-              className="menu-section-link"
-              href="https://github.com/overture-stack/enrolment"
-              target="_blank"
-            >
-              Enrolment
-              <Icon className="pl1" img="githubGrey" />
-            </a>
-          </div>
-        </section>
+        {sections.map((section) => (
+          <section className="menu-section">
+            <div className="menu-section-heading">
+              {megaMenuType === 'products' &&
+                (section.hasCoreIcon ? (
+                  <IconCommon.Core />
+                ) : (
+                  <span className="core-placeholder">&nbsp;</span>
+                ))}
+              <Badge color={section.color}>{section.title}</Badge>
+              <div className="menu-section-links">
+                {section.links.map((link) =>
+                  link.to.charAt(0) === '/' ? (
+                    <Link className="menu-section-link" to={link.to}>
+                      {link.text}
+                    </Link>
+                  ) : (
+                    <a
+                      className="menu-section-link"
+                      href={link.to}
+                      target="_blank"
+                    >
+                      {link.text}
+                      {link.hasGithubIcon && (
+                        <Icon className="pl1" img="githubGrey" />
+                      )}
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );
