@@ -158,7 +158,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-box">
           <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
-            <img src={logo} />
+            <img src={logo} alt="OICR" />
           </a>
           <FooterLinks />
         </div>
@@ -177,7 +177,10 @@ const Footer = () => {
       </div>
       <div className="container netlify-badge">
         <a target="_blank" href="https://www.netlify.com">
-          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" />
+          <img
+            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
+            alt="Deploys by Netlify"
+          />
         </a>
       </div>
     </footer>

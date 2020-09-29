@@ -42,7 +42,7 @@ class NavBar extends Component {
               onClick={() => closeMenus()}
               className="navbar-item navbar-brand-link"
             >
-              <img src={logo} />
+              <img src={logo} alt="Overture.bio homepage" />
             </Link>
 
             <button className={burgerClass} onClick={() => toggleMobileMenu()}>
