@@ -8,8 +8,6 @@ import Footer from '../../components/Footer';
 import config from '../../../meta/config';
 import '../../styles/main.scss';
 
-const GATSBY_SHOW_DOCS = process.env.GATSBY_SHOW_DOCS;
-
 console.log(
   'SHOW_DOCS expecting true on QA, false on prod',
   process.env.GATSBY_SHOW_DOCS,

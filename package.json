@@ -34,8 +34,8 @@
   "license": "AGPL-3.0-or-later",
   "main": "n/a",
   "scripts": {
-    "build-qa": "netlify build --context branch-deploy",
     "build-prod": "netlify build --context production",
+    "build-qa": "netlify build --context branch-deploy",
     "build": "gatsby build --prefix-paths",
     "deploy": "npm run build-qa && netlify deploy -o",
     "dev": "gatsby develop",
