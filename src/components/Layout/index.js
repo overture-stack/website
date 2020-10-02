@@ -1,32 +1,43 @@
 // This component handles site wide layouts.  (new to Gatsby 2.0)
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import Navbar from '../../components/NavBar'
-import ProductsPopup from '../../components/NavBar/Popup'
-import Footer from '../../components/Footer'
-import config from '../../../meta/config'
-import '../../styles/main.scss'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Navbar from '../../components/NavBar';
+import ProductsPopup from '../../components/NavBar/Popup';
+import Footer from '../../components/Footer';
+import config from '../../../meta/config';
+import '../../styles/main.scss';
+
+const GATSBY_SHOW_DOCS = process.env.GATSBY_SHOW_DOCS;
+
+console.log(
+  'SHOW_DOCS expecting true on QA, false on prod',
+  process.env.GATSBY_SHOW_DOCS,
+  'NODE_ENV expecting production',
+  process.env.NODE_ENV,
+  'GATSBY_TEST expecting undefined',
+  process.env.GATSBY_TEST
+);
 
 class TemplateWrapper extends Component {
   constructor() {
-    super()
-    this.popOverRef
+    super();
+    this.popOverRef;
   }
 
   state = {
     productMenuOpen: false,
     mobileMenuOpen: false,
     popOverRef: null,
-  }
+  };
 
   toggleMenu = () => {
-    this.setState({ productMenuOpen: !this.state.productMenuOpen })
-  }
+    this.setState({ productMenuOpen: !this.state.productMenuOpen });
+  };
 
   openMenu = () => {
-    this.setState({ productMenuOpen: true })
-  }
+    this.setState({ productMenuOpen: true });
+  };
 
   toggleMobileMenu = () => {
     // if closing, close the product menu too.
@@ -34,17 +45,17 @@ class TemplateWrapper extends Component {
       this.setState({
         mobileMenuOpen: !this.state.mobileMenuOpen,
         productMenuOpen: false,
-      })
+      });
     }
-    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen })
-  }
+    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
+  };
 
   closeMenus = () => {
-    this.setState({ productMenuOpen: false, mobileMenuOpen: false })
-  }
+    this.setState({ productMenuOpen: false, mobileMenuOpen: false });
+  };
 
   componentDidMount() {
-    this.setState({ popOverRef: this.popOverRef })
+    this.setState({ popOverRef: this.popOverRef });
   }
 
   /**
@@ -63,10 +74,10 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    let productMenuOpen = this.state.productMenuOpen
-    let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : ''
-    let productsMenuClass = productMenuOpen ? 'open' : 'closed'
-    let windowExists = typeof(window) === "undefined"
+    let productMenuOpen = this.state.productMenuOpen;
+    let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : '';
+    let productsMenuClass = productMenuOpen ? 'open' : 'closed';
+    let windowExists = typeof window === 'undefined';
 
     return (
       <div>
@@ -84,26 +95,18 @@ class TemplateWrapper extends Component {
           popOverRef={this.state.popOverRef}
         />
 
-        <div
-          className="desktop-products-popup"
-          ref={r => (this.popOverRef = r)}
-        >
-          {(typeof window !== 'undefined' && !this.state.mobileMenuOpen && window.innerWidth > 1216) && (
-          /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
-          <ProductsPopup
-            className={productsMenuClass}
-            closeMenus={this.props.closeMenus}
-          />
+        <div className="desktop-products-popup" ref={r => (this.popOverRef = r)}>
+          {typeof window !== 'undefined' && !this.state.mobileMenuOpen && window.innerWidth > 1216 && (
+            /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
+            <ProductsPopup className={productsMenuClass} closeMenus={this.props.closeMenus} />
           )}
         </div>
 
-        <div onClick={() => this.setState({ productMenuOpen: false })}>
-          {this.props.children}
-        </div>
+        <div onClick={() => this.setState({ productMenuOpen: false })}>{this.props.children}</div>
         <Footer />
       </div>
-    )
+    );
   }
 }
 
-export default TemplateWrapper
+export default TemplateWrapper;
