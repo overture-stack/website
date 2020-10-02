@@ -40,11 +40,11 @@ Gatsby development and production builds are different, so consider running QA a
   - Secrets and settings file: `.env.development`
 - QA: For checking that your branch builds before sending a Netlify link to QA.
   - Command: `npm run qa`
-  - Secrets file: `.env.production`
+  - Secrets file: `.env.production` (overridden by `netlify.toml`)
   - Settings file: `netlify.toml`, `branch-deploy` context
 - Production: For checking that the site builds properly in production.
   - Command: `npm run prod`
-  - Secrets file: `.env.production`
+  - Secrets file: `.env.production` (overridden by `netlify.toml`)
   - Settings file: `netlify.toml`, `production` & `deploy-preview` contexts
 
 ### Netlify contexts
