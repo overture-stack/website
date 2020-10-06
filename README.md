@@ -16,53 +16,53 @@ Based on [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
 
 ## Local development
 
-- Run a development server: `npm run dev`
-- Run QA build locally: `npm run qa`
-- Run production locally: `npm run prod`
-
-Gatsby development and production builds are different, so consider running QA and/or prod occasionally to check for issues.
+`npm run dev`
 
 ## Deployment
 
-- QA:
-  - Check your build: `npm run qa`
-  - Deploy to a Netlify draft URL: `npm run deploy`
-- Production:
-  - Check your build: Netlify will create `deploy-preview` deployments for PRs on master.
-  - Deploy to https://overture.bio: Merge a PR into the master branch.
+Check your QA builds locally! (See **Environments**)
+
+- Deploy to a Netlify draft URL for QA: `npm run deploy`
+- Deploy to https://overture.bio: Merge a PR into the master branch.
 
 ## Environments
 
+Gatsby has two environments: development (runs a dev server with hot reloading) and production (creates a static build in the `/public` folder).
+
+Gatsby development and production builds are significantly different, so consider running `npm run qa` occasionally to check for issues, and before deploying to QA.
+
 ### Local environments
 
-- Development: For working on this project.
+- **Development**
+  - Feature flags ON
   - Command: `npm run dev`
   - Secrets and settings file: `.env.development`
-- QA: For checking that your branch builds before sending a Netlify link to QA.
+- **QA** (check your build before creating a Netlify link for QA)
+  - Feature flags ON
   - Command: `npm run qa`
-  - Secrets file: `.env.production` (overridden by `netlify.toml`)
+  - Secrets file: `.env.production` (overridden by `netlify.toml`) (ignored by git)
   - Settings file: `netlify.toml`, `branch-deploy` context
-- Production: For checking that the site builds properly in production.
+- **Production** (check your build before deploying to https://overture.bio)
+  - Feature flags OFF
   - Command: `npm run prod`
-  - Secrets file: `.env.production` (overridden by `netlify.toml`)
+  - Secrets file: `.env.production` (overridden by `netlify.toml`) (ignored by git)
   - Settings file: `netlify.toml`, `production` & `deploy-preview` contexts
 
 ### Netlify contexts
 
-These contexts only apply when deploying to Netlify. The non-secret settings are stored in `netlify.toml`.
+These environments only apply when deploying to Netlify. The non-secret settings are stored in `netlify.toml`.
 
 - `production`: The live site at https://overture.bio, deployed automatically.
-- `deploy-preview`: Netlify deploys that are automatically generated when there is a PR created/updated on the `master` branch.
+- `deploy-preview`: Netlify deploys that are automatically generated when there is a PR created/updated on the master branch.
 - `branch-deploy`: Other branches and PRs, deployed manually.
 
 ## Feature flags & environment variables
 
-- Feature flags must be environment variables.
+- Feature flags in Gatsby must be environment variables.
 - Environment variables accessed in client-side code must be prefixed with `GATSBY_`.
-- Private environment variables should be added in Netlify's UI and not the `netlify.toml` file.
 - Example: Show something in development and hide it in production:
-  - `FLAG="true"` in `.env.development` and Netlify `branch-deploy` context.
-  - `FLAG="false"` in Netlify `production` and `deploy-preview` contexts.
+  - `FLAG="true"` in `.env.development` and Netlify `branch-deploy` context in `netlify.toml`.
+  - `FLAG="false"` in Netlify `production` and `deploy-preview` contexts in `netlify.toml`.
 
 ### Links
 
