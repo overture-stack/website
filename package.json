@@ -37,6 +37,7 @@
     "build-prod": "netlify build --context production",
     "build-qa": "netlify build --context branch-deploy",
     "build": "gatsby build --prefix-paths",
+    "deploy-draft-prod": "npm run build-prod && netlify deploy -o",
     "deploy": "npm run build-qa && netlify deploy -o",
     "dev": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",

@@ -1,6 +1,5 @@
 // This component handles site wide layouts.  (new to Gatsby 2.0)
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Navbar from '../../components/NavBar';
 import ProductsPopup from '../../components/NavBar/Popup';
@@ -9,12 +8,12 @@ import config from '../../../meta/config';
 import '../../styles/main.scss';
 
 console.log(
-  'SHOW_DOCS expecting true on QA, false on prod',
+  "SHOW_DOCS (feature flag) expecting 'true' on QA, 'false' on prod\n",
   process.env.GATSBY_SHOW_DOCS,
-  'NODE_ENV expecting production',
+  "\nNODE_ENV (Gatsby environment) expecting 'production'\n",
   process.env.NODE_ENV,
-  'GATSBY_TEST expecting undefined',
-  process.env.GATSBY_TEST
+  "\nGATSBY_LOCAL_TEST (checking .env file for local secrets) expecting 'local' when built locally, 'undefined' when built by netlify\n",
+  process.env.GATSBY_LOCAL_TEST
 );
 
 class TemplateWrapper extends Component {
