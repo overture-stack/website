@@ -1,9 +1,12 @@
-/**
- * Created  on 31/3/18
- */
-const config = require('./meta/config')
+// uncomment to use process.env.* in node.
+// needs to be at the top of the file.
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// })
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const config = require('./meta/config');
+
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
   siteMetadata: {
@@ -97,4 +100,4 @@ module.exports = {
     },
     'gatsby-plugin-netlify',
   ],
-}
+};
