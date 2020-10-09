@@ -29,7 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-87708930-2',
+        trackingId: config.googleAnalyticsTrackingId,
         // Puts tracking script in the head instead of the body
         head: false,
         anonymize: true, // optional
@@ -38,7 +38,31 @@ module.exports = {
         exclude: [],
       },
     },
-
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
+        ],
+        extensions: ['.mdx', '.md'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'markdown',
+        path: `${__dirname}/src/markdown`,
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
