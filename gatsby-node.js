@@ -89,7 +89,7 @@ export function onCreateWebpackConfig({ actions }) {
     resolve: {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
-        config: path.resolve(__dirname, 'meta/config'),
+        meta: path.resolve(__dirname, 'meta'),
         data: path.resolve(__dirname, 'data'),
         styles: path.resolve(__dirname, 'src/styles'),
         templates: path.resolve(__dirname, 'src/templates'),

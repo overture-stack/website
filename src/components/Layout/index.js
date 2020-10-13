@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Footer, NavBar, ProductsPopup } from 'components';
-import config from 'config';
+import config from 'meta/config';
 import 'styles/main.scss';
 
 class TemplateWrapper extends Component {

@@ -1,6 +1,3 @@
-/**
- * Created  on 31/3/18
- */
 module.exports = {
   backgroundColor: '#ffffff', // Used for setting manifest background color.
   googleAnalyticsTrackingId: 'UA-87708930-2',
