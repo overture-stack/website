@@ -1,23 +1,10 @@
-import React, { Component } from 'react'
-import heroImg from './assets/products_hero_no_clouds.svg'
-import cloud_1 from './assets/cloud_1.svg'
-import cloud_2 from './assets/cloud_2.svg'
-import { Link } from 'gatsby'
-import {
-  H1,
-  H2,
-  H4,
-  Button,
-  Hero,
-  GridFeature,
-  MarketingSection,
-  Layout,
-  Icon,
-  IconCommon,
-  BottomCallout,
-  Callout,
-} from '../../components'
-import './style.scss'
+import React, { Component } from 'react';
+import { Link } from 'gatsby';
+import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
+import heroImg from './assets/products_hero_no_clouds.svg';
+import cloud_1 from './assets/cloud_1.svg';
+import cloud_2 from './assets/cloud_2.svg';
+import './style.scss';
 
 // Component for rendering a single "box" representing a feature (ie "Generate & Upload")
 const ProductBox = ({
@@ -52,7 +39,7 @@ const ProductBox = ({
                   {l.text}
                 </a>
               </span>
-            )
+            );
           } else {
             return (
               <span key={l.link} className="icon-link">
@@ -65,13 +52,13 @@ const ProductBox = ({
                   {l.text}
                 </Link>
               </span>
-            )
+            );
           }
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const featureGridData = [
   [
@@ -166,7 +153,7 @@ const featureGridData = [
       ChildComponent: ProductBox,
     },
   ],
-]
+];
 
 /**
  * This is a separate class-component for the sake of
@@ -174,66 +161,66 @@ const featureGridData = [
  */
 class HeroImg extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       cloud1: { x: 20, y: 40, dir: 'right' },
       cloud2: { x: 650, y: 200, dir: 'left' },
-    }
+    };
 
-    this.updateAnimationState = this.updateAnimationState.bind(this)
-    this.canvas = null
+    this.updateAnimationState = this.updateAnimationState.bind(this);
+    this.canvas = null;
   }
 
   componentDidMount() {
-    this.rAF = requestAnimationFrame(this.updateAnimationState)
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
   }
 
   componentDidUpdate() {
-    const canvas = this.refs.canvas
-    const ctx = canvas.getContext('2d')
-    const cloud_1 = this.refs.cloud_1
-    const cloud_2 = this.refs.cloud_2
-    const c1 = this.state.cloud1
-    const c2 = this.state.cloud2
-    const width = canvas.width
-    const height = canvas.height
+    const canvas = this.refs.canvas;
+    const ctx = canvas.getContext('2d');
+    const cloud_1 = this.refs.cloud_1;
+    const cloud_2 = this.refs.cloud_2;
+    const c1 = this.state.cloud1;
+    const c2 = this.state.cloud2;
+    const width = canvas.width;
+    const height = canvas.height;
 
     // animated clouds.
-    ctx.clearRect(0, 0, width, height)
-    ctx.imageSmoothingEnabled = false
-    ctx.drawImage(cloud_1, c1.x, c1.y)
-    ctx.drawImage(cloud_2, c2.x, c2.y)
+    ctx.clearRect(0, 0, width, height);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(cloud_1, c1.x, c1.y);
+    ctx.drawImage(cloud_2, c2.x, c2.y);
   }
 
   componentWillUnmount() {
-    cancelAnimationFrame(this.rAF)
+    cancelAnimationFrame(this.rAF);
   }
 
   updateAnimationState() {
-    const { cloud1, cloud2 } = this.state
+    const { cloud1, cloud2 } = this.state;
     this.setState({
       cloud1: this.animateCloud(cloud1),
       cloud2: this.animateCloud(cloud2),
-    })
-    this.rAF = requestAnimationFrame(this.updateAnimationState)
+    });
+    this.rAF = requestAnimationFrame(this.updateAnimationState);
   }
 
   animateCloud(c) {
-    let canvas = this.refs.canvas
-    let width = canvas.width
-    let height = canvas.height
-    let c1 = this.state.cloud1
-    let speed = 0.2
+    let canvas = this.refs.canvas;
+    let width = canvas.width;
+    let height = canvas.height;
+    let c1 = this.state.cloud1;
+    let speed = 0.2;
 
     if (c.x == width && c.dir == 'right') {
       // less than 500
-      return { x: c.x - speed, y: c.y, dir: 'left' }
+      return { x: c.x - speed, y: c.y, dir: 'left' };
     } else if (c.x == 0 && c.dir == 'left') {
-      return { x: c.x + speed, y: c.y, dir: 'right' }
+      return { x: c.x + speed, y: c.y, dir: 'right' };
     } else if (c.dir == 'right') {
-      return { x: c.x + speed, y: c.y, dir: 'right' }
+      return { x: c.x + speed, y: c.y, dir: 'right' };
     } else {
-      return { x: c.x - speed, y: c.y, dir: 'left' }
+      return { x: c.x - speed, y: c.y, dir: 'left' };
     }
   }
 
@@ -254,56 +241,54 @@ class HeroImg extends React.Component {
           <img style={{ zIndex: 3 }} src={heroImg} />
         </div>
       </div>
-    )
+    );
   }
 }
 
 class ProductsPage extends Component {
   render() {
     return (
-      <Layout>
-        <main className="ProductsPage">
-          {/* HERO */}
-          <Hero
-            title="Products"
-            titleClass="hero-text is-4-desktop"
-            subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
-            ImgComponent={HeroImg}
-          ></Hero>
+      <main className="ProductsPage">
+        {/* HERO */}
+        <Hero
+          title="Products"
+          titleClass="hero-text is-4-desktop"
+          subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
+          ImgComponent={HeroImg}
+        ></Hero>
 
-          <div className="spacer" />
+        <div className="spacer" />
 
-          {/* Grid sections */}
-          <div className="grid-feature-wrap">
-            <GridFeature
-              iconSize={48}
-              data={featureGridData}
-              childComponent={ProductBox}
-              borderColor="grey"
-              sectionBG={['#F2F3F5', 'white', 'white']}
-            />
-          </div>
+        {/* Grid sections */}
+        <div className="grid-feature-wrap">
+          <GridFeature
+            iconSize={48}
+            data={featureGridData}
+            childComponent={ProductBox}
+            borderColor="grey"
+            sectionBG={['#F2F3F5', 'white', 'white']}
+          />
+        </div>
 
-          <BottomCallout>
-            <Callout
-              icon="githubYellow"
-              description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
-              className="center"
+        <BottomCallout>
+          <Callout
+            icon="githubYellow"
+            description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
+            className="center"
+          >
+            <Button
+              type="primary"
+              size="medium"
+              externalLink="https://github.com/overture-stack"
+              icon="githubWhite"
             >
-              <Button
-                type="primary"
-                size="medium"
-                externalLink="https://github.com/overture-stack"
-                icon="githubWhite"
-              >
-                Get Started
-              </Button>
-            </Callout>
-          </BottomCallout>
-        </main>
-      </Layout>
-    )
+              Get Started
+            </Button>
+          </Callout>
+        </BottomCallout>
+      </main>
+    );
   }
 }
 
-export default ProductsPage
+export default ProductsPage;

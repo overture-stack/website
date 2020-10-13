@@ -1,10 +1,10 @@
 /**
  * Component: Display the Product Sub-Menu on mouse over / tap.
  */
-import React from 'react'
-import Link from 'gatsby-link'
-import { Icon, IconCommon, Badge } from '../../index.js'
-import './styles.scss'
+import React from 'react';
+import Link from 'gatsby-link';
+import { Icon, IconCommon, Badge } from 'components';
+import './styles.scss';
 
 const ProductsPopup = ({ closeMenus, className }) => {
   return (
@@ -19,11 +19,11 @@ const ProductsPopup = ({ closeMenus, className }) => {
             </div>
           </div>
 
-            <div className="all-products-link">
-              <Link to="/products">
-                All products <Icon size={12} img="arrowRightMagenta" />{' '}
-              </Link>
-            </div>
+          <div className="all-products-link">
+            <Link to="/products">
+              All products <Icon size={12} img="arrowRightMagenta" />{' '}
+            </Link>
+          </div>
         </section>
 
         {/* section: Generate & Upload */}
@@ -129,7 +129,7 @@ const ProductsPopup = ({ closeMenus, className }) => {
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductsPopup
+export default ProductsPopup;

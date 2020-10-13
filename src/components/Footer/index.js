@@ -1,11 +1,10 @@
 /**
  * Declarative footer. Loops over links object and spit out routes.
  */
-import React from 'react'
-import { Link } from 'gatsby-link'
-import './styles.scss'
-import logo from './logo.svg'
-import { Icon } from '../'
+import React from 'react';
+import { Icon } from 'components';
+import './styles.scss';
+import logo from './logo.svg';
 
 const links = {
   'Generate & Upload': {
@@ -111,24 +110,20 @@ const links = {
       className: '',
     },
   },
-}
+};
 
 const FooterLinks = () => {
   return (
     <div className="columns is-mobile footer-links flex-auto flex-wrap">
       {Object.keys(links).map((v, i) => {
         return (
-          <section
-            className="column is-2-desktop is-4-tablet is-half-mobile flex-wrap"
-            key={v}
-          >
+          <section className="column is-2-desktop is-4-tablet is-half-mobile flex-wrap" key={v}>
             <div className="link-group-header">{v}</div>
             <ul className="list-reset">
               {Object.keys(links[v]).map((y, i) => {
-                let footerLink = links[v][y]['link']
-                let linkIcon = links[v][y]['icon']
-                let linkTarget =
-                  links[v][y]['newTab'] === true ? '_blank' : '_self'
+                let footerLink = links[v][y]['link'];
+                let linkIcon = links[v][y]['icon'];
+                let linkTarget = links[v][y]['newTab'] === true ? '_blank' : '_self';
                 return (
                   <li key={y}>
                     <a className="link" target={linkTarget} href={footerLink}>
@@ -136,15 +131,15 @@ const FooterLinks = () => {
                       {linkIcon && <Icon img={linkIcon} />}
                     </a>{' '}
                   </li>
-                )
+                );
               })}
             </ul>
           </section>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 const Footer = () => {
   return (
@@ -152,10 +147,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-box">
           <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
-            <img
-              src={logo}
-              style={{ maxHeight: '100px', paddingRight: '32px' }}
-            />
+            <img src={logo} style={{ maxHeight: '100px', paddingRight: '32px' }} />
           </a>
           <FooterLinks />
         </div>
@@ -172,11 +164,11 @@ const Footer = () => {
       </div>
       <div className="container netlify-badge">
         <a target="_blank" href="https://www.netlify.com">
-          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"/>
+          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" />
         </a>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

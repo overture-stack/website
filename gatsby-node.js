@@ -4,88 +4,95 @@ require('dotenv').config({
 });
 
 const path = require('path');
-
 const startCase = require('lodash.startcase');
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMdx {
-              edges {
-                node {
-                  fields {
-                    id
-                  }
-                  tableOfContents
-                  fields {
-                    slug
-                  }
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
-        if (result.errors) {
-          reject(result.errors);
-        }
-
-        if (process.env.GATSBY_SHOW_DOCS === 'true') {
-          result.data.allMdx.edges.forEach(({ node }) => {
-            // NOTE: currently only /documentation uses markdown
-            if (node.fields.slug.includes('/documentation/')) {
-              createPage({
-                path: node.fields.slug || '/',
-                component: path.resolve('./src/layouts/DocumentationLayout.js'),
-                context: {
-                  id: node.fields.id,
-                },
-              });
-            }
-          });
-        }
-      })
-    );
-  });
-};
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === `Mdx`) {
-    const parent = getNode(node.parent);
-
-    // make index.md the root page of its directory
-    // TODO: stub index if it's not provided?
+export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
+  // nodes in gatsby are the main data interface. everything is a node.
+  // gatsby creates nodes (data) THEN creates pages.
+  if (node.internal.type === 'Mdx') {
+    // markdown nodes/pages
+    const mdxPage = getNode(node.parent);
 
     const slug =
-      parent.name === 'index'
-        ? parent.relativeDirectory
-        : parent.relativePath.replace(parent.ext, '');
+      // make index.md the root page of its directory.
+      // without this step you'll get /SECTION_NAME/index/ pages
+      mdxPage.name === 'index'
+        ? mdxPage.relativeDirectory
+        : mdxPage.relativePath.replace(mdxPage.ext, '');
 
     createNodeField({
+      // relative path of the page
+      // we want trailing slashes
       name: `slug`,
       node,
       value: `/${slug}/`,
     });
 
     createNodeField({
+      // need this to make graphQL queries at the page level
       name: 'id',
       node,
       value: node.id,
     });
 
-    // use page filename as title if title field isn't provided
-
     createNodeField({
+      // frontmatter title field
       name: 'title',
       node,
-      value: node.frontmatter.title || startCase(parent.name),
+      // use filename as title if there's no title
+      value: node.frontmatter.title || startCase(mdxPage.name),
     });
   }
-};
+}
+
+export async function createPages(params) {
+  // use promise.all to build different page types concurrently.
+  // required when using external APIs for content.
+  await Promise.all([...(SHOW_DOCS ? [createMarkdownPages(params)] : [])]);
+}
+
+async function createMarkdownPages({ graphql, actions: { createPage } }) {
+  const { data } = await graphql(`
+    query {
+      allMdx {
+        edges {
+          node {
+            fields {
+              id
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  data.allMdx.edges.forEach(({ node }) => {
+    if (node.fields.slug.match(/^\/documentation/)) {
+      // NOTE: currently only /documentation uses markdown.
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve('src/templates/documentation.js'),
+        context: {
+          id: node.fields.id, // use to query page content in template
+        },
+      });
+    }
+  });
+}
+
+export function onCreateWebpackConfig({ actions }) {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, 'src/components'),
+        config: path.resolve(__dirname, 'meta/config'),
+        data: path.resolve(__dirname, 'data'),
+        styles: path.resolve(__dirname, 'src/styles'),
+        templates: path.resolve(__dirname, 'src/templates'),
+      },
+    },
+  });
+}

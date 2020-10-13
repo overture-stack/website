@@ -68,6 +68,9 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
+        // /src/pages is a "gatsby thing".
+        // these pages are created based on folder structure.
+        // e.g. pages/index.js is the homepage.
         name: 'pages',
       },
     },

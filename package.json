@@ -38,22 +38,24 @@
   "license": "AGPL-3.0-or-later",
   "main": "n/a",
   "scripts": {
+    "//": "ES6 modules are not currently supported in Gatsby so we have to use the esm library.",
     "build-prod": "netlify build --context production",
     "build-qa": "netlify build --context branch-deploy",
-    "build": "gatsby build --prefix-paths",
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build --prefix-paths",
     "deploy-draft-prod": "npm run build-prod && netlify deploy -o",
     "deploy": "npm run build-qa && netlify deploy -o",
-    "dev": "gatsby develop",
+    "dev": "cross-env NODE_OPTIONS=\"-r esm\" gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "lint": "eslint --ext js,jsx --ignore-path .gitignore .",
     "prod": "npm run build-prod && npm run serve",
     "qa": "npm run build-qa && npm run serve",
-    "serve": "NODE_ENV=production gatsby serve",
-    "start": "npm run develop",
+    "serve": "cross-env NODE_OPTIONS=\"-r esm\" NODE_ENV=production gatsby serve",
+    "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "cross-env": "^7.0.2",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
@@ -63,6 +65,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^4.0.0",
+    "esm": "^3.2.25",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2"
   }
