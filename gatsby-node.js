@@ -18,12 +18,13 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
     const slug =
       // make index.md the root page of its directory.
       // without this step you'll get /SECTION_NAME/index/ pages
+      // and we just want /SECTION_NAME/
       mdxPage.name === 'index'
         ? mdxPage.relativeDirectory
         : mdxPage.relativePath.replace(mdxPage.ext, '');
 
     createNodeField({
-      // relative path of the page
+      // overture.bio/SLUG_HERE/
       // we want trailing slashes
       name: `slug`,
       node,
