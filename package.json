@@ -45,7 +45,7 @@
     "prod": "npm run build-prod && npm run serve",
     "qa": "npm run build-qa && npm run serve",
     "serve": "NODE_ENV=production gatsby serve",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
