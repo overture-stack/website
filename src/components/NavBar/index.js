@@ -10,7 +10,8 @@ import Button from '../Button';
 import MegaMenu from './MegaMenu';
 import NavLink from './NavLink';
 import MegaMenuLink from './MegaMenuLink';
-import { SHOW_DOCS } from '../../constants';
+
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 class NavBar extends Component {
   render() {
@@ -26,22 +27,13 @@ class NavBar extends Component {
     let navbarMenuClass = `navbar-menu ${mobileMenuClass}`;
     let burgerClass = `button navbar-burger ${mobileMenuClass}`;
     const mobileMegaCheck =
-      typeof window !== 'undefined' &&
-      mobileMenuOpen &&
-      window.innerWidth < 1216;
+      typeof window !== 'undefined' && mobileMenuOpen && window.innerWidth < 1216;
 
     return (
-      <nav
-        className="NavHeader navbar is-fixed-top"
-        aria-label="main navigation"
-      >
+      <nav className="NavHeader navbar is-fixed-top" aria-label="main navigation">
         <div className="nav-container">
           <div className="navbar-brand">
-            <Link
-              to="/"
-              onClick={() => closeMenus()}
-              className="navbar-item navbar-brand-link"
-            >
+            <Link to="/" onClick={() => closeMenus()} className="navbar-item navbar-brand-link">
               <img src={logo} alt="Overture.bio homepage" />
             </Link>
 
@@ -59,10 +51,8 @@ class NavBar extends Component {
                 toggleMegaMenu={toggleMegaMenu}
                 type="products"
               >
-                <div ref={(r) => (this.popoverRef = r)}>
-                  {mobileMegaCheck && (
-                    <MegaMenu className="open" megaMenuType="products" />
-                  )}
+                <div ref={r => (this.popoverRef = r)}>
+                  {mobileMegaCheck && <MegaMenu className="open" megaMenuType="products" />}
                 </div>
               </MegaMenuLink>
 
@@ -73,30 +63,16 @@ class NavBar extends Component {
                   toggleMegaMenu={toggleMegaMenu}
                   type="docs"
                 >
-                  <div ref={(r) => (this.popoverRef = r)}>
-                    {mobileMegaCheck && (
-                      <MegaMenu className="open" megaMenuType="docs" />
-                    )}
+                  <div ref={r => (this.popoverRef = r)}>
+                    {mobileMegaCheck && <MegaMenu className="open" megaMenuType="docs" />}
                   </div>
                 </MegaMenuLink>
               )}
 
-              <NavLink
-                closeMenus={closeMenus}
-                url="/case-studies"
-                name="Case Studies"
-              />
+              <NavLink closeMenus={closeMenus} url="/case-studies" name="Case Studies" />
 
-              <NavLink
-                closeMenus={closeMenus}
-                url="/about-us"
-                name="About Us"
-              />
-              <NavLink
-                closeMenus={closeMenus}
-                url="/services"
-                name="Services"
-              />
+              <NavLink closeMenus={closeMenus} url="/about-us" name="About Us" />
+              <NavLink closeMenus={closeMenus} url="/services" name="Services" />
               <NavLink closeMenus={closeMenus} url="/contact" name="Contact" />
             </div>
             <div className="navbar-end">

@@ -5,7 +5,8 @@ import React from 'react';
 import './styles.scss';
 import logo from './logo.svg';
 import { Icon } from '../';
-import { SHOW_DOCS } from '../../constants';
+
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 const links = {
   'Generate & Upload': {
@@ -133,13 +134,12 @@ const FooterLinks = () => {
               {Object.keys(links[v]).map((y, i) => {
                 let footerLink = links[v][y]['link'];
                 let linkIcon = links[v][y]['icon'];
-                let linkTarget =
-                  links[v][y]['newTab'] === true ? '_blank' : '_self';
+                let linkTarget = links[v][y]['newTab'] === true ? '_blank' : '_self';
                 return (
                   <li key={y}>
                     <a className="link" target={linkTarget} href={footerLink}>
-                      <span className="pr1">{y}</span>
-                      {linkIcon && <Icon img={linkIcon} />}
+                      <span>{y}</span>
+                      {linkIcon && <Icon img={linkIcon} style={{ marginLeft: 4 }} />}
                     </a>{' '}
                   </li>
                 );
@@ -164,9 +164,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center bg-grey p2">
-        <span className="px2 copyright">
-          © {new Date().getFullYear()} Overture.
-        </span>
+        <span className="px2 copyright">© {new Date().getFullYear()} Overture.</span>
         <a className="px1" href="/privacy">
           Privacy
         </a>
