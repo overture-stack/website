@@ -1,0 +1,48 @@
+# top level items (Song, Score, etc):
+# title: Page Name
+# dir: page-name
+
+# pages:
+# - title: Page Name
+#   file: page-name.md
+
+# section title with no page:
+# - title: Section Title
+#   items: ...
+
+# section title, section has a landing page
+# - title: Section Title
+#   file: section-title.md
+#   items: ...
+
+- title: Song
+  dir: song
+  items:
+    - title: Introduction
+      file: introduction.md
+    - title: Get Started
+      items:
+        - title: How to Install Song
+          file: install-song.md
+        - title: Docker for Song
+          items:
+            - title: Subsection 1
+              file: subsection-1.md
+            - title: Subsection 2
+              file: subsection-2.md
+- title: Boop
+  dir: boop
+  file: boop.md
+  items:
+    - title: Introduction
+      file: introduction.md
+    - title: Get Started
+      items:
+        - title: How to Install Song
+          file: install-song.md
+        - title: Docker for Song
+          items:
+            - title: Subsection 1
+              file: subsection-1.md
+            - title: Subsection 2
+              file: subsection-2.md
