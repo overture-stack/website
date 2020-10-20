@@ -28,7 +28,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       // we want trailing slashes
       name: `slug`,
       node,
-      value: `/${slug}/`,
+      value: `/${slug}`,
     });
 
     createNodeField({
@@ -90,7 +90,7 @@ export function onCreateWebpackConfig({ actions }) {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
         meta: path.resolve(__dirname, 'meta'),
-        data: path.resolve(__dirname, 'data'),
+        data: path.resolve(__dirname, 'src/data'),
         styles: path.resolve(__dirname, 'src/styles'),
         templates: path.resolve(__dirname, 'src/templates'),
       },

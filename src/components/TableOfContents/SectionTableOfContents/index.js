@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import './styles.scss';
 
 export default function SectionTableOfContents({ items }) {
   return (
-    <ol>
+    <ul>
       {items.map(item => (
-        <li key={item.url}>
-          <a href={item.url}>{item.title}</a>
+        <li key={item.title}>
+          {item.url ? (
+            <Link to={`/documentation/${item.url}`}>{item.title}</Link>
+          ) : (
+            <span>{item.title}</span>
+          )}
           {item.items && <SectionTableOfContents items={item.items} />}
         </li>
       ))}
-    </ol>
+    </ul>
   );
 }

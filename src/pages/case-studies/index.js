@@ -13,7 +13,7 @@
 import React, { Component } from 'react';
 import { Waypoint } from 'react-waypoint';
 import { CaseStudy, H1, H4 } from 'components';
-import caseData from '../../data/case_studies';
+import caseData from 'data/case_studies';
 import Navigation from './navigation';
 import './styles.scss';
 

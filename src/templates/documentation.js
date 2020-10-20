@@ -1,37 +1,89 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { find, findIndex } from 'lodash';
+import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
+import flatten from 'flat';
+import { find } from 'lodash';
 import { SectionTableOfContents, PageTableOfContents } from 'components';
-import documentationPages from 'meta/documentationPages';
+import documentationPages from 'meta/documentation-pages.yml';
+import { findPrevPage, findNextPage } from './utils/documentation';
 
 export default function DocumentationPage({ data: { mdx } }) {
-  const pageTableOfContents = mdx.tableOfContents.items || null;
+  const {
+    body,
+    fields: { slug, title },
+    tableOfContents,
+  } = mdx;
 
-  // prev/next buttons
-  // assume 2 level navigation
-  // borrowed from previous gatsby project
-  const slugArr = '/documentation/song/get-started/docker-for-song/subsection'
-    // mdx.fields.slug
-    .split('/')
-    .filter(item => item)
-    .slice(1);
+  // get section info
+  const sectionSlug = slug.split('/').filter(x => x)[1];
+  const sectionObj = find(documentationPages, { dir: sectionSlug });
+  const sectionPages = flatten(sectionObj.items);
+  const sectionTitle = sectionObj.title;
 
-  const firstLevel = find(documentationPages, { url: slugArr[0] }).items;
-  const secondLevel = find(firstLevel, { url: slugArr[1] }).items;
-  const thirdLevel = find(secondLevel, { url: slugArr[2] }).items;
-  const thisIndex = findIndex(thirdLevel, { url: slugArr[3] });
-  const prevItem = thisIndex < 1 ? null : thirdLevel[thisIndex - 1];
-  const nextItem = thisIndex === slugArr.length - 1 ? null : thirdLevel[thisIndex + 1];
+  // get page info
+  const pageTableOfContents = tableOfContents.items || null;
+  const pageSlug = slug.split('/documentation/')[1];
+  const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
+  const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
+  const isLandingPage = pageSlug === sectionSlug && title === sectionTitle;
+  const isLastPage = pageIndex === Object.keys(sectionPages).length - 1;
 
-  console.log({ slugArr, thisIndex, prevItem, nextItem });
+  const prevPage = findPrevPage({
+    isLandingPage,
+    isFirstPage,
+    pageIndex,
+    sectionPages,
+    sectionSlug,
+    sectionTitle,
+  });
+
+  const nextPage = findNextPage({
+    isLandingPage,
+    isLastPage,
+    pageIndex,
+    sectionPages,
+  });
 
   return (
-    <main className="documentation-page">
-      <h1>{mdx.fields.title}</h1>
-      <SectionTableOfContents items={documentationPages} />
-      {pageTableOfContents && <PageTableOfContents items={pageTableOfContents} />}
-      <MDXRenderer>{mdx.body}</MDXRenderer>
+    <main className="documentation-page" style={{ width: '90%', margin: 'auto' }}>
+      <div style={{ display: 'flex', alignItems: 'stretch' }}>
+        <div style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
+          <Link to="/documentation">
+            <h2 className="t-h2">&larr; Docs</h2>
+          </Link>
+          <ol>
+            <li>
+              <Link to={`/documentation/${sectionSlug}`}>{sectionTitle}</Link>
+            </li>
+            <SectionTableOfContents items={sectionObj.items} />
+          </ol>
+        </div>
+        <div style={{ flex: '1', padding: '10px 20px' }}>
+          <h1 className="t-h1">{title}</h1>
+          <MDXRenderer>{body}</MDXRenderer>
+        </div>
+        <div style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
+          <h2 className="t-h2">Headings</h2>
+          {pageTableOfContents && <PageTableOfContents items={pageTableOfContents} />}
+        </div>
+      </div>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '50px 0' }}>
+        <div>
+          {prevPage && (
+            <span className="t-h4">
+              &laquo; <Link to={prevPage.url}>{prevPage.title}</Link>
+            </span>
+          )}
+        </div>
+        <div>
+          {nextPage && (
+            <span className="t-h4">
+              <Link to={nextPage.url}>{nextPage.title}</Link> &raquo;
+            </span>
+          )}
+        </div>
+      </div>
     </main>
   );
 }
