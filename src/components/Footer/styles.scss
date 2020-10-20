@@ -46,11 +46,14 @@
 
   .link {
     font-family: Lato;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
-    color: $blue-darker;
+    color: $blue-black;
     letter-spacing: 0;
     line-height: 30px;
+    &:hover {
+      color: $magenta;
+    }
   }
 
   .netlify-badge a {
