@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.AboutUsPage {
+  p {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .hero-link {
+    font-family: "Lato", "Arial";
+		font-weight: bold;
+    font-size: 18px;
+    color: #9E005D;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0;
+
+    img {
+      margin: 2px 0 0 6px;
+    }
+  }
+  .about-img {
+    transform: scale(0.8) translateY(-10px);
+
+  }
+}

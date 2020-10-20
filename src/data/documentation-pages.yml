@@ -4,7 +4,7 @@
 
 # pages:
 # - title: Page Name
-#   file: page-name.md
+#   url: page-name
 
 # section title with no page:
 # - title: Section Title
@@ -12,37 +12,32 @@
 
 # section title, section has a landing page
 # - title: Section Title
-#   file: section-title.md
+#   url: section-title
 #   items: ...
 
 - title: Song
   dir: song
+  url: song
   items:
     - title: Introduction
-      file: introduction.md
+      url: song/introduction
     - title: Get Started
       items:
         - title: How to Install Song
-          file: install-song.md
+          url: song/install-song
         - title: Docker for Song
           items:
             - title: Subsection 1
-              file: subsection-1.md
+              url: song/subsection-1
             - title: Subsection 2
-              file: subsection-2.md
-- title: Boop
-  dir: boop
-  file: boop.md
+              url: song/subsection-2
+- title: Score
+  dir: score
+  url: score
   items:
     - title: Introduction
-      file: introduction.md
+      url: score/introduction
     - title: Get Started
       items:
-        - title: How to Install Song
-          file: install-song.md
-        - title: Docker for Song
-          items:
-            - title: Subsection 1
-              file: subsection-1.md
-            - title: Subsection 2
-              file: subsection-2.md
+        - title: How to Install Score
+          url: score/install-score
