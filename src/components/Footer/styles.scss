@@ -71,10 +71,11 @@
   .footer-column {
     width: 15%;
     // heading text wraps if the width is precisely 1/7
+    // so leave it as 15% instead
     padding: 0.75rem;
     &:last-child {
       width: 25%;
-      li {
+      ul {
         width: 50%;
         float: left;
         @media (max-width: 1260px) {
@@ -95,7 +96,7 @@
       width: 50%;
       &:last-child {
         width: 50%;
-        li {
+        ul {
           width: 100%;
         }
       }
