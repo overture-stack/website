@@ -6,9 +6,7 @@ import './styles.scss';
 import logo from './logo.svg';
 import { Icon } from '../';
 
-// const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-
-const SHOW_DOCS = false;
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 const columns = {
   'Generate & Upload': [
@@ -142,30 +140,28 @@ const columns = {
 const FooterColumns = () => {
   return (
     <div className="columns is-mobile footer-links flex-auto flex-wrap">
-      {Object.keys(columns).map(columnName => {
-        return (
-          <section className="footer-column" key={columnName}>
-            <div className="link-group-header">{columnName}</div>
-            {columns[columnName].map(linksObj => (
-              <ul className="list-reset">
-                {Object.keys(linksObj).map(linkKey => {
-                  const { icon, link, newTab = false } = linksObj[linkKey];
-                  const target = newTab ? '_blank' : '_self';
+      {Object.keys(columns).map(columnKey => (
+        <section className="footer-column" key={columnKey}>
+          <div className="link-group-header">{columnKey}</div>
+          {columns[columnKey].map(linksObj => (
+            <ul className="list-reset">
+              {Object.keys(linksObj).map(linkKey => {
+                const { icon, link, newTab = false } = linksObj[linkKey];
+                const target = newTab ? '_blank' : '_self';
 
-                  return (
-                    <li key={linkKey}>
-                      <a className="link" target={target} href={link}>
-                        <span>{linkKey}</span>
-                        {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            ))}
-          </section>
-        );
-      })}
+                return (
+                  <li key={linkKey}>
+                    <a className="link" target={target} href={link}>
+                      <span>{linkKey}</span>
+                      {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          ))}
+        </section>
+      ))}
     </div>
   );
 };
