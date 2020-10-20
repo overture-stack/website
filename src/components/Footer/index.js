@@ -6,159 +6,166 @@ import './styles.scss';
 import logo from './logo.svg';
 import { Icon } from '../';
 
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+// const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+
+const SHOW_DOCS = false;
 
 const columns = {
-  'Generate & Upload': {
-    Score: {
-      link: '/products/score',
-      icon: null,
-      newTab: false,
-      className: '',
+  'Generate & Upload': [
+    {
+      Score: {
+        link: '/products/score',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
+      Song: {
+        link: '/products/song',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
     },
-    Song: {
-      link: '/products/song',
-      icon: null,
-      newTab: false,
-      className: '',
+  ],
+  'Access & Download': [
+    {
+      Ego: {
+        link: '/products/ego',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
+      Maestro: {
+        icon: null,
+        newTab: false,
+        className: '',
+        link: '/products/maestro',
+      },
+      Arranger: {
+        icon: null,
+        newTab: false,
+        className: '',
+        link: '/products/arranger',
+      },
     },
-  },
-  'Access & Download': {
-    Ego: {
-      link: '/products/ego',
-      icon: null,
-      newTab: false,
-      className: '',
+  ],
+  'Analyze & Discover': [
+    {
+      Jukebox: {
+        link: '/products/jukebox',
+        newTab: false,
+        className: '',
+      },
+      OncoJS: {
+        link: '/products/oncojs',
+        className: '',
+      },
     },
-    Maestro: {
-      icon: null,
-      newTab: false,
-      className: '',
-      link: '/products/maestro',
+  ],
+  'Collaborate & Share': [
+    {
+      Persona: {
+        className: '',
+        link: '/products/persona',
+      },
+      Riff: {
+        link: '/products/riff',
+        newTab: false,
+        className: '',
+      },
     },
-    Arranger: {
-      icon: null,
-      newTab: false,
-      className: '',
-      link: '/products/arranger',
+  ],
+  'Track & Manage': [
+    {
+      'Billing & Usage': {
+        link: 'https://github.com/overture-stack/billing',
+        icon: 'githubGrey',
+        newTab: true,
+        className: '',
+      },
+      Enrolment: {
+        link: 'https://github.com/overture-stack/enrolment',
+        icon: 'githubGrey',
+        newTab: true,
+        className: '',
+      },
     },
-  },
-  'Analyze & Discover': {
-    Jukebox: {
-      link: '/products/jukebox',
-      newTab: false,
-      className: '',
+  ],
+  Other: [
+    {
+      ...(SHOW_DOCS
+        ? {
+            Documentation: {
+              link: '/documentation',
+              icon: null,
+              newTab: false,
+              className: '',
+            },
+          }
+        : {}),
+      'Case Studies': {
+        link: '/case-studies',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
+      'About Us': {
+        link: '/about-us',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
     },
-    OncoJS: {
-      link: '/products/oncojs',
-      className: '',
+    {
+      Services: {
+        link: '/services',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
+      Contact: {
+        link: '/contact',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
+      'Team Blog': {
+        link: 'http://softeng.oicr.on.ca/',
+        icon: null,
+        newTab: true,
+        className: '',
+      },
     },
-  },
-  'Collaborate & Share': {
-    Persona: {
-      className: '',
-      link: '/products/persona',
-    },
-    Riff: {
-      link: '/products/riff',
-      newTab: false,
-      className: '',
-    },
-  },
-  'Track & Manage': {
-    'Billing & Usage': {
-      link: 'https://github.com/overture-stack/billing',
-      icon: 'githubGrey',
-      newTab: true,
-      className: '',
-    },
-    Enrolment: {
-      link: 'https://github.com/overture-stack/enrolment',
-      icon: 'githubGrey',
-      newTab: true,
-      className: '',
-    },
-  },
-  Other: {
-    ...(SHOW_DOCS
-      ? {
-          Documentation: {
-            column: 0,
-            link: '/documentation',
-            icon: null,
-            newTab: false,
-            className: '',
-          },
-        }
-      : {}),
-    'Case Studies': {
-      column: 0,
-      link: '/case-studies',
-      icon: null,
-      newTab: false,
-      className: '',
-    },
-    'About Us': {
-      column: 0,
-      link: '/about-us',
-      icon: null,
-      newTab: false,
-      className: '',
-    },
-    Services: {
-      column: 1,
-      link: '/services',
-      icon: null,
-      newTab: false,
-      className: '',
-    },
-    Contact: {
-      column: 1,
-      link: '/contact',
-      icon: null,
-      newTab: false,
-      className: '',
-    },
-    'Team Blog': {
-      column: 1,
-      link: 'http://softeng.oicr.on.ca/',
-      icon: null,
-      newTab: true,
-      className: '',
-    },
-  },
-};
-
-const FooterLinks = columnName => {
-  const links = Object.keys(columns[columnName]);
-  return (
-    <ul className="list-reset">
-      {links.map(linksItem => {
-        const { icon, link, newTab = false } = columns[columnName][linksItem];
-        const target = newTab ? '_blank' : '_self';
-
-        return (
-          <li key={linksItem}>
-            <a className="link" target={target} href={link}>
-              <span>{linksItem}</span>
-              {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
-  );
+  ],
 };
 
 const FooterColumns = () => {
   return (
     <div className="columns is-mobile footer-links flex-auto flex-wrap">
-      {Object.keys(columns).map(columnName => (
-        <section className="footer-column" key={columnName}>
-          <div className="link-group-header">{columnName}</div>
-          <FooterLinks columnName={columnName} />
-        </section>
-      ))}
+      {Object.keys(columns).map(columnName => {
+        return (
+          <section className="footer-column" key={columnName}>
+            <div className="link-group-header">{columnName}</div>
+            {columns[columnName].map(linksObj => (
+              <ul className="list-reset">
+                {Object.keys(linksObj).map(linkKey => {
+                  const { icon, link, newTab = false } = linksObj[linkKey];
+                  const target = newTab ? '_blank' : '_self';
+
+                  return (
+                    <li key={linkKey}>
+                      <a className="link" target={target} href={link}>
+                        <span>{linkKey}</span>
+                        {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            ))}
+          </section>
+        );
+      })}
     </div>
   );
 };

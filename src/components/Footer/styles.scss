@@ -79,9 +79,9 @@
         width: 50%;
         float: left;
         @media (max-width: 1260px) {
-          width: 40%;
-          &:nth-child(odd) {
-            width: 60%;
+          width: 60%;
+          &:last-child {
+            width: 40%;
           }
         }
       }
