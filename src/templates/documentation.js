@@ -4,7 +4,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import { find } from 'lodash';
 import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
-import documentationPages from 'meta/documentation-pages.yml';
+import documentationPages from 'meta/documentation-pages.yaml';
 import { findPrevPage, findNextPage } from './utils/documentation';
 
 export default function DocumentationPage({ data: { mdx } }) {

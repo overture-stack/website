@@ -25,15 +25,17 @@ module.exports = {
     },
   },
   plugins: [
+    // START REMOTE MARKDOWN/DOCUMENTATION PAGES
     {
       resolve: `gatsby-source-git`,
       options: {
+        branch: 'v1.0',
         name: `repo-maestro`,
-        remote: `https://github.com/samrichca/fake-markdown.git`,
-        // local: `${__dirname}/markdown/documentation/maestro`,
         patterns: [`docs/**`],
+        remote: `https://github.com/samrichca/fake-markdown.git`,
       },
     },
+    // END REMOTE MARKDOWN/DOCUMENTATION PAGES
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics

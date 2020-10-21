@@ -9,11 +9,15 @@ export default function DocumentationPage() {
     <main className="DocumentationPage">
       {/* HERO */}
       <div style={{ padding: 100, textAlign: 'center', width: '100%' }}>
-        <h1 class="t-h1" style={{ marginBottom: 50 }}>
+        <h1 className="t-h1" style={{ marginBottom: 50 }}>
           Documentation
         </h1>
 
-        <Link className="hero-link" to="/documentation/song">
+        <Link className="hero-link" to="/documentation/maestro">
+          Maestro
+          <Icon size={16} img="arrowRightMagenta" />
+        </Link>
+        <Link className="hero-link pl3" to="/documentation/song">
           Song
           <Icon size={16} img="arrowRightMagenta" />
         </Link>
