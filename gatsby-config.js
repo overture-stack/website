@@ -8,6 +8,8 @@ const config = require('./meta/config');
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
+console.log(`${__dirname}/markdown/documentation/maestro`);
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -23,6 +25,15 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `repo-maestro`,
+        remote: `https://github.com/samrichca/fake-markdown.git`,
+        // local: `${__dirname}/markdown/documentation/maestro`,
+        patterns: [`docs/**`],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics

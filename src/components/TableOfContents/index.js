@@ -1,2 +1,2 @@
-export { default as PageTableOfContents } from './PageTableOfContents';
+export { default as HeadingsTableOfContents } from './HeadingsTableOfContents';
 export { default as SectionTableOfContents } from './SectionTableOfContents';

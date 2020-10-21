@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import { find } from 'lodash';
-import { SectionTableOfContents, PageTableOfContents } from 'components';
+import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
 import documentationPages from 'meta/documentation-pages.yml';
 import { findPrevPage, findNextPage } from './utils/documentation';
 
@@ -21,7 +21,7 @@ export default function DocumentationPage({ data: { mdx } }) {
   const sectionTitle = sectionObj.title;
 
   // get page info
-  const pageTableOfContents = tableOfContents.items || null;
+  const headingsTableOfContents = tableOfContents.items || null;
   const pageSlug = slug.split('/documentation/')[1];
   const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
   const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
@@ -64,7 +64,7 @@ export default function DocumentationPage({ data: { mdx } }) {
         </div>
         <div style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
           <h2 className="t-h2">Headings</h2>
-          {pageTableOfContents && <PageTableOfContents items={pageTableOfContents} />}
+          {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
         </div>
       </div>
 

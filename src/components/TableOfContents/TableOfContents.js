@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './styles.scss';
 
-export default function TableOfContents({ items }) {
+export default function TableOfContents({ type, items }) {
   return (
     <ol>
       {items.map(item => (
         <li key={item.title}>
           {item.url ? (
-            <Link to={`/documentation/${item.url}`}>{item.title}</Link>
+            <Link to={`${type === 'headings' ? '' : '/documentation/'}${item.url}`}>
+              {item.title}
+            </Link>
           ) : (
             <span>{item.title}</span>
           )}
-          {item.items && <TableOfContents items={item.items} />}
+          {item.items && <TableOfContents items={item.items} type={type} />}
         </li>
       ))}
     </ol>

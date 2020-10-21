@@ -41,3 +41,14 @@
       items:
         - title: How to Install Score
           url: score/install-score
+- title: Maestro
+  dir: maestro
+  url: maestro
+  items:
+    - title: Deployment
+      url: maestro/deployment
+    - title: Get Started
+      url: maestro/get-started
+      items:
+        - title: How to Install Maestro
+          url: maestro/installation

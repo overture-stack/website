@@ -15,7 +15,7 @@ export { default as NavLink } from './NavBar/NavLink';
 export { default as ProductHero } from './ProductHero';
 export { default as ProductsPopup } from './NavBar/Popup';
 export { default as ProgressBar } from './ProgressBar';
-export { PageTableOfContents, SectionTableOfContents } from './TableOfContents';
+export { HeadingsTableOfContents, SectionTableOfContents } from './TableOfContents';
 export { default as WindowGui } from './WindowGui';
 export { H1, H2, H4 } from './Typography';
 export { Icon, IconCommon } from './Icon';
