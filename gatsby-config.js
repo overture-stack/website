@@ -1,14 +1,13 @@
-// uncomment to use process.env.* in node.
 // needs to be at the top of the file.
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config = require('./meta/config');
-
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
-console.log(`${__dirname}/markdown/documentation/maestro`);
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+const FETCH_DOCS = process.env.FETCH_DOCS === 'true' && SHOW_DOCS;
 
 module.exports = {
   siteMetadata: {
@@ -25,17 +24,22 @@ module.exports = {
     },
   },
   plugins: [
-    // START REMOTE MARKDOWN/DOCUMENTATION PAGES
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        branch: 'v1.0',
-        name: `repo-maestro`,
-        patterns: [`docs/**`],
-        remote: `https://github.com/samrichca/fake-markdown.git`,
-      },
-    },
-    // END REMOTE MARKDOWN/DOCUMENTATION PAGES
+    ...(FETCH_DOCS
+      ? // fetching remote documentation is optional.
+        // we don't want this running every time
+        // the cache is cleared in development
+        [
+          {
+            resolve: `gatsby-source-git`,
+            options: {
+              branch: 'v1.1',
+              name: `repo-maestro`,
+              patterns: [`documentation/**`],
+              remote: `https://github.com/samrichca/fake-markdown.git`,
+            },
+          },
+        ]
+      : []),
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
@@ -51,31 +55,35 @@ module.exports = {
         exclude: [],
       },
     },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        gatsbyRemarkPlugins: [
+    ...(SHOW_DOCS
+      ? [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: 'gatsby-plugin-mdx',
             options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true,
+              gatsbyRemarkPlugins: [
+                {
+                  resolve: 'gatsby-remark-images',
+                  options: {
+                    maxWidth: 1035,
+                    sizeByPixelDensity: true,
+                  },
+                },
+                {
+                  resolve: 'gatsby-remark-copy-linked-files',
+                },
+              ],
+              extensions: ['.mdx', '.md'],
             },
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: 'gatsby-source-filesystem',
+            options: {
+              name: 'markdown',
+              path: `${__dirname}/markdown`,
+            },
           },
-        ],
-        extensions: ['.mdx', '.md'],
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'markdown',
-        path: `${__dirname}/markdown`,
-      },
-    },
+        ]
+      : []),
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',

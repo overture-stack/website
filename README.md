@@ -28,23 +28,43 @@ The Documentation section is written in Markdown and uses a mix of local & remot
 
 #### Development
 
-Remote documentation isn't fetched by default in development, because it's stored in the cache, and the cache gets cleared often in dev. You can turn it on by adding `GATSBY_FETCH_DOCS=true` to `.evn.development`.
+Remote documentation isn't fetched by default in development, because it's stored in the cache, and the cache gets cleared often in dev.
+
+To see remote documentation in development: Add `FETCH_DOCS=true` to `.env.development`
 
 #### Folder structure
 
-In the top level of the repo, make a folder called `documentation`, with an `index.md` file that will be used as the landing page.
+To get started, in the top level of your project repo, copy this folder structure:
+
+```
+- documentation
+  - maestro # name of the project
+    - index.md # landing page
+```
+
+Result: [https://overture.bio/documentation/maestro]
+
+Now you can continue to add pages:
+
+```
+- documentation
+  - maestro # name of the project
+    - index.md # landing page
+    - installation.md
+    - getting-started.md
+```
 
 Don't use nested folders, or create a tree of links/table of contents on the landing page. If you want to provide a table of contents for users looking at the repo, you can add information to filenames, or write a YAML file.
 
-**Example of documentation folder with sections for users & administrators:**
+**Example of documentation folder for Maestro, with sections for users & administrators:**
 
 ```
-- /documentation
-  - index.md
-  - users-01-installation.md
-  - users-02-deployment.md
-  - admin-01-installation.md
-  ...
+- documentation
+  - maestro
+    - index.md
+    - users-01-installation.md
+    - users-02-deployment.md
+    - admin-01-installation.md
 ```
 
 #### File structure
@@ -63,11 +83,11 @@ Markdown content goes here
 
 #### Navigation
 
-Make sure to add each repo & page to [meta/documentation-pages.yaml]. See that file's comments for more info.
+Add each repo & page to [meta/documentation-pages.yaml]. See that file's comments for more info.
 
 #### Configuration & Updating
 
-For each repo you want to pull Markdown from, add this to [gatsby-config.js].
+For each repo with remote documentation, add this to [gatsby-config.js].
 
 ```js
 {

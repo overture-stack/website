@@ -11,9 +11,12 @@
 
 [context.production.environment]
   GATSBY_SHOW_DOCS = "false"
+  FETCH_DOCS = "false"
 
 [context.deploy-preview.environment]
   GATSBY_SHOW_DOCS = "false"
+  FETCH_DOCS = "false"
 
 [context.branch-deploy.environment]
   GATSBY_SHOW_DOCS = "true"
+  FETCH_DOCS = "true"
