@@ -17,20 +17,20 @@ a brief overview of how code/styles/etc are set up.
 
 ## Documentation section
 
-The Documentation section is written in Markdown and uses a mix of local & remote files. Various pages and features in this section are controlled in the following places:
+The Documentation section is written in Markdown and uses a mix of local & external files. Various pages and features in this section are controlled in the following places:
 
 - Landing page ([https://overture.bio/documentation]): [src/pages/documentation/index.js]
 - List of pages (for table of contents & previous/next buttons): [meta/documentation-pages.yaml]
-- Local Markdown pages: [markdown/documentation/]
-- Remote Markdown pages: [gatsby-config.js]
+- Local pages: [markdown/documentation/]
+- External pages: [meta/external-documentation.js]
 
-### Remote documentation
+### External documentation
 
 #### Development
 
-Remote documentation isn't fetched by default in development, because it's stored in the cache, and the cache gets cleared often in dev.
+External documentation isn't fetched by default in development, because it's stored in the cache, and the cache gets cleared often in dev.
 
-To see remote documentation in development: Add `FETCH_DOCS=true` to `.env.development`
+To see remote documentation in dev: Add `FETCH_DOCS=true` to `.env.development`
 
 #### Folder structure
 
@@ -81,24 +81,6 @@ title: Title of the Page
 Markdown content goes here
 ```
 
-#### Navigation
+#### Configuration
 
-Add each repo & page to [meta/documentation-pages.yaml]. See that file's comments for more info.
-
-#### Configuration & Updating
-
-For each repo with remote documentation, add this to [gatsby-config.js].
-
-```js
-{
-  resolve: `gatsby-source-git`,
-  options: {
-    branch: LATEST_RELEASE_TAG_NAME, // change this to update the documentation
-    name: NAME_OF_REPO,
-    patterns: [`documentation/**`],
-    remote: REPO_HTTPS_URL,
-  },
-},
-```
-
-See [gatsby-source-git](https://github.com/stevetweeddale/gatsby-source-git) documentation for more info.
+Add each repo to [meta/external-documentation.js] and [meta/documentation-pages.yaml], see examples provided.

@@ -6,8 +6,14 @@ require('dotenv').config({
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
+// documentation section
+const externalDocumentation = require('./meta/external-documentation');
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-const FETCH_DOCS = process.env.FETCH_DOCS === 'true' && SHOW_DOCS;
+const FETCH_DOCS = SHOW_DOCS && process.env.FETCH_DOCS === 'true';
+// fetching external documentation pages is optional in development.
+// they have to be re-fetched when the cache is cleared,
+// which happens every time you make changes to config files like this one.
+// so the solution in dev is to not fetch them, unless needed.
 
 module.exports = {
   siteMetadata: {
@@ -24,22 +30,7 @@ module.exports = {
     },
   },
   plugins: [
-    ...(FETCH_DOCS
-      ? // fetching remote documentation is optional.
-        // we don't want this running every time
-        // the cache is cleared in development
-        [
-          {
-            resolve: `gatsby-source-git`,
-            options: {
-              branch: 'v1.1',
-              name: `repo-maestro`,
-              patterns: [`documentation/**`],
-              remote: `https://github.com/samrichca/fake-markdown.git`,
-            },
-          },
-        ]
-      : []),
+    ...(FETCH_DOCS ? externalDocumentation : []),
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
