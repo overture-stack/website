@@ -1,7 +1,7 @@
 module.exports = {
   makeURLSafeString: function(str) {
     return str
-      .replace(/((?!([a-z0-9 ])).)/gi, '')
+      .replace(/((?!([a-z0-9\- ])).)/gi, '')
       .trim()
       .split(' ')
       .filter(x => x)

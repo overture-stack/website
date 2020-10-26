@@ -21,19 +21,15 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
-    const pageSlug = isIndex ? '' : `/${utils.makeURLSafeString(pageName)}`;
+    const pageSlug = isIndex ? '' : `/${pageName}`;
 
     // documentation section
     const isDocs = sourceInstanceName === 'docs';
-    const docsSectionSlug = utils.makeURLSafeString(relativeDirectory);
+    const docsSectionSlug = relativeDirectory;
 
     const slug = isDocs
       ? `/documentation/${docsSectionSlug}${pageSlug}`
-      : `/${relativePath
-          .split('/')
-          .map(str => utils.makeURLSafeString(str))
-          .join('/')
-          .replace(ext, '')}`;
+      : `/${relativePath.replace(ext, '')}`;
 
     createNodeField({
       name: `slug`,
