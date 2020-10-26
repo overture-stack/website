@@ -4,7 +4,6 @@ require('dotenv').config({
 });
 
 const config = require('./meta/config');
-const remoteDocsConfig = require('./meta/remote-docs-config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 // documentation section

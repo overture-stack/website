@@ -5,8 +5,9 @@ require('dotenv').config({
 
 const path = require('path');
 const startCase = require('lodash.startcase');
+const utils = require('./utils.js');
 
-// documentation section
+// setup documentation section
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
@@ -16,16 +17,22 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
     // markdown nodes/pages
     const mdxPage = getNode(node.parent);
     const { sourceInstanceName, name: pageName, relativeDirectory, relativePath, ext } = mdxPage;
-    // make index the root page of the folder
-    const pageSlug = pageName === 'index' ? '' : `/${pageName}`;
 
-    // documentation
+    // make index the root page of the folder
+    const isIndex = pageName === 'index';
+    const pageSlug = isIndex ? '' : `/${utils.makeURLSafeString(pageName)}`;
+
+    // documentation section
     const isDocs = sourceInstanceName === 'docs';
-    const docsSectionSlug = relativeDirectory;
+    const docsSectionSlug = utils.makeURLSafeString(relativeDirectory);
 
     const slug = isDocs
       ? `/documentation/${docsSectionSlug}${pageSlug}`
-      : `/${relativePath.replace(ext, '')}`;
+      : `/${relativePath
+          .split('/')
+          .map(str => utils.makeURLSafeString(str))
+          .join('/')
+          .replace(ext, '')}`;
 
     createNodeField({
       name: `slug`,
@@ -34,7 +41,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
     });
 
     createNodeField({
-      // need this to make graphQL queries at the page level
+      // need this to make per-page graphQL queries
       name: 'id',
       node,
       value: node.id,
@@ -44,8 +51,11 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       // frontmatter title field
       name: 'title',
       node,
-      // use filename as title if there's no title
-      value: node.frontmatter.title || startCase(pageSlug) || startCase(docsSectionSlug),
+      value:
+        node.frontmatter.title ||
+        startCase(pageSlug) ||
+        (isDocs && isIndex && startCase(docsSectionSlug)) ||
+        '',
     });
   }
 }
@@ -64,19 +74,22 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
           fields {
             id
             slug
+            title
           }
         }
       }
     }
   `);
   data.allMdx.nodes.forEach(node => {
-    if (node.fields.slug.match(/^\/documentation/)) {
-      // NOTE: currently only /documentation uses markdown.
+    const { id, slug, title } = node.fields;
+
+    // documentation section
+    if (slug.match(/^\/documentation/) && !title.match(/^readme$/i)) {
       createPage({
-        path: node.fields.slug,
+        path: slug,
         component: path.resolve('src/templates/documentation.js'),
         context: {
-          id: node.fields.id, // use to query page content in template
+          id: id, // use to query page content in template
         },
       });
     }
