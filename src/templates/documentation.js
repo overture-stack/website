@@ -4,7 +4,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import { find } from 'lodash';
 import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
-import documentationPages from 'meta/documentation-pages.yaml';
+import docsPages from 'meta/docs-pages.yaml';
 import { findPrevPage, findNextPage } from './utils/documentation';
 
 export default function DocumentationPage({ data: { mdx } }) {
@@ -16,7 +16,7 @@ export default function DocumentationPage({ data: { mdx } }) {
 
   // get section info
   const sectionSlug = slug.split('/').filter(x => x)[1];
-  const sectionObj = find(documentationPages, { dir: sectionSlug });
+  const sectionObj = find(docsPages, { dir: sectionSlug });
   const sectionPages = flatten(sectionObj.items);
   const sectionTitle = sectionObj.title;
 

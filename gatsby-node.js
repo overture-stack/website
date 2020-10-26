@@ -6,6 +6,7 @@ require('dotenv').config({
 const path = require('path');
 const startCase = require('lodash.startcase');
 
+// documentation section
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
@@ -14,19 +15,22 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
   if (node.internal.type === 'Mdx') {
     // markdown nodes/pages
     const mdxPage = getNode(node.parent);
+    const { sourceInstanceName, name: pageName, relativeDirectory, relativePath, ext } = mdxPage;
+    // make index the root page of the folder
+    const pageSlug = pageName === 'index' ? '' : `/${pageName}`;
 
-    const slug =
-      // make index.md the root page of its directory.
-      // without this step you'll get /SECTION_NAME/index pages
-      // and we just want /SECTION_NAME
-      mdxPage.name === 'index'
-        ? mdxPage.relativeDirectory
-        : mdxPage.relativePath.replace(mdxPage.ext, '');
+    // documentation
+    const isDocs = sourceInstanceName === 'docs';
+    const docsSectionSlug = relativeDirectory;
+
+    const slug = isDocs
+      ? `/documentation/${docsSectionSlug}${pageSlug}`
+      : `/${relativePath.replace(ext, '')}`;
 
     createNodeField({
       name: `slug`,
       node,
-      value: `/${slug}`,
+      value: slug,
     });
 
     createNodeField({
@@ -41,7 +45,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       name: 'title',
       node,
       // use filename as title if there's no title
-      value: node.frontmatter.title || startCase(mdxPage.name),
+      value: node.frontmatter.title || startCase(pageSlug) || startCase(docsSectionSlug),
     });
   }
 }
@@ -54,21 +58,18 @@ export async function createPages(params) {
 
 async function createMarkdownPages({ graphql, actions: { createPage } }) {
   const { data } = await graphql(`
-    query {
+    {
       allMdx {
-        edges {
-          node {
-            fields {
-              id
-              slug
-            }
+        nodes {
+          fields {
+            id
+            slug
           }
         }
       }
     }
   `);
-
-  data.allMdx.edges.forEach(({ node }) => {
+  data.allMdx.nodes.forEach(node => {
     if (node.fields.slug.match(/^\/documentation/)) {
       // NOTE: currently only /documentation uses markdown.
       createPage({
