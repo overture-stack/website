@@ -5,14 +5,14 @@ import flatten from 'flat';
 import { find } from 'lodash';
 import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
 import docsPages from 'meta/docs-pages.yaml';
-import { findPrevPage, findNextPage } from './utils/documentation';
+import { findPrevPage, findNextPage } from './utils';
 
-export default function DocumentationPage({ data: { mdx } }) {
+export default function DocumentationPage({ data }) {
   const {
     body,
     fields: { slug, title },
     tableOfContents,
-  } = mdx;
+  } = data.mdx;
 
   // get section info
   const sectionSlug = slug.split('/').filter(x => x)[1];

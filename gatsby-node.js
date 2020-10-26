@@ -84,7 +84,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
     if (slug.match(/^\/documentation/)) {
       createPage({
         path: slug,
-        component: path.resolve('src/templates/documentation.js'),
+        component: path.resolve('src/templates/documentation/index.js'),
         context: {
           id, // use to query page content in template
         },
