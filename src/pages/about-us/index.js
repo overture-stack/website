@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Hero, GridFeature, Icon, BottomCallout, Callout } from 'components';
+import { BottomCallout, Button, Callout, GridFeature, Hero, Icon } from 'components';
 import heroImg from './assets/hero_img.svg';
 import './styles.scss';
 

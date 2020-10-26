@@ -75,7 +75,6 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
           fields {
             id
             slug
-            title
           }
         }
       }
@@ -83,10 +82,10 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
   `);
 
   data.allMdx.nodes.forEach(node => {
-    const { id, slug, title } = node.fields;
+    const { id, slug } = node.fields;
 
     // documentation section
-    if (slug.match(/^\/documentation/) && !title.match(/^readme$/i)) {
+    if (slug.match(/^\/documentation/)) {
       createPage({
         path: slug,
         component: path.resolve('src/templates/documentation.js'),

@@ -1,11 +1,11 @@
 # Overture.bio
 
-- Hosted on Netlify. See **Deployment** for info. 
+- Hosted on Netlify. See **Deployment** for info.
 - Based on the [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
 
 ## Additional READMEs
 
-- [Documentation section](markdown/documentation/README.md)
+- [Documentation section](README-documentation.md)
 - [Styles](src/styles/README.md)
 - [Components](src/components/README.md)
 
