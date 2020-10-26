@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
 import heroImg from './assets/products_hero_no_clouds.svg';
@@ -245,50 +245,46 @@ class HeroImg extends React.Component {
   }
 }
 
-class ProductsPage extends Component {
-  render() {
-    return (
-      <main className="ProductsPage">
-        {/* HERO */}
-        <Hero
-          title="Products"
-          titleClass="hero-text is-4-desktop"
-          subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
-          ImgComponent={HeroImg}
-        ></Hero>
+export default function ProductsPage() {
+  return (
+    <main className="ProductsPage">
+      {/* HERO */}
+      <Hero
+        title="Products"
+        titleClass="hero-text is-4-desktop"
+        subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
+        ImgComponent={HeroImg}
+      ></Hero>
 
-        <div className="spacer" />
+      <div className="spacer" />
 
-        {/* Grid sections */}
-        <div className="grid-feature-wrap">
-          <GridFeature
-            iconSize={48}
-            data={featureGridData}
-            childComponent={ProductBox}
-            borderColor="grey"
-            sectionBG={['#F2F3F5', 'white', 'white']}
-          />
-        </div>
+      {/* Grid sections */}
+      <div className="grid-feature-wrap">
+        <GridFeature
+          iconSize={48}
+          data={featureGridData}
+          childComponent={ProductBox}
+          borderColor="grey"
+          sectionBG={['#F2F3F5', 'white', 'white']}
+        />
+      </div>
 
-        <BottomCallout>
-          <Callout
-            icon="githubYellow"
-            description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
-            className="center"
+      <BottomCallout>
+        <Callout
+          icon="githubYellow"
+          description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
+          className="center"
+        >
+          <Button
+            type="primary"
+            size="medium"
+            externalLink="https://github.com/overture-stack"
+            icon="githubWhite"
           >
-            <Button
-              type="primary"
-              size="medium"
-              externalLink="https://github.com/overture-stack"
-              icon="githubWhite"
-            >
-              Get Started
-            </Button>
-          </Callout>
-        </BottomCallout>
-      </main>
-    );
-  }
+            Get Started
+          </Button>
+        </Callout>
+      </BottomCallout>
+    </main>
+  );
 }
-
-export default ProductsPage;

@@ -4,7 +4,7 @@
 
 [build]
   publish = "public"
-  command = "npm build"
+  command = "npm run build"
   
 [build.environment]
   YARN_VERSION = "1.5.1"

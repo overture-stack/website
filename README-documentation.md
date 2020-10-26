@@ -23,9 +23,8 @@ title: Title of the Page
 Markdown content goes here! You can do anything you would normally do in Markdown.
 ```
 
-### Folder structure
+### File organization
 
-Make sure to describe the placement/order of your pages in `meta/docs-pages.yaml`, for navigation purposes.
-
-1. Keep in mind folder/file names will be used to make URLs and create navigation.
-2. Folders need an `index.md` file.
+1. Describe the placement/order of pages in `meta/docs-pages.yaml`, for navigation purposes.
+1. Keep in mind folder/file names will be used to make URLs, so they need to be lowercase, not have spaces, etc.
+1. Folders need an `index.md` file.

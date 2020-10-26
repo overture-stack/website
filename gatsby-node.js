@@ -25,10 +25,9 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 
     // documentation section
     const isDocs = sourceInstanceName === 'docs';
-    const docsSectionSlug = relativeDirectory;
 
     const slug = isDocs
-      ? `/documentation/${docsSectionSlug}${pageSlug}`
+      ? `/documentation/${relativeDirectory}${pageSlug}`
       : `/${relativePath.replace(ext, '')}`;
 
     createNodeField({
@@ -51,7 +50,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       value:
         node.frontmatter.title ||
         startCase(pageSlug) ||
-        (isDocs && isIndex && startCase(docsSectionSlug)) ||
+        (isDocs && isIndex && startCase(relativeDirectory)) ||
         '',
     });
   }
@@ -86,7 +85,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
-          id, // use to query page content in template
+          id, // use for graphQL query in template
         },
       });
     }

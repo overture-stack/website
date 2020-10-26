@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .AboutUsPage {
   p {
@@ -7,20 +7,18 @@
   }
 
   .hero-link {
-    font-family: "Lato", "Arial";
-		font-weight: bold;
+    font-family: 'Lato', 'Arial';
+    font-weight: bold;
     font-size: 18px;
-    color: #9E005D;
+    color: #9e005d;
     display: flex;
     align-items: center;
     letter-spacing: 0;
-
     img {
       margin: 2px 0 0 6px;
     }
   }
   .about-img {
     transform: scale(0.8) translateY(-10px);
-
   }
 }
