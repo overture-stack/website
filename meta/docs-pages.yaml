@@ -1,0 +1,54 @@
+# top level items (Song, Score, etc):
+# title: Page Name
+# dir: page-name
+
+# pages:
+# - title: Page Name
+#   url: page-name
+
+# section title with no page:
+# - title: Section Title
+#   items: ...
+
+# section title, section has a landing page
+# - title: Section Title
+#   url: section-title
+#   items: ...
+
+- title: Song
+  dir: song
+  url: song
+  items:
+    - title: Introduction
+      url: song/introduction
+    - title: Get Started
+      items:
+        - title: How to Install Song
+          url: song/install-song
+        - title: Docker for Song
+          items:
+            - title: Subsection 1
+              url: song/subsection-1
+            - title: Subsection 2
+              url: song/subsection-2
+- title: Score
+  dir: score
+  url: score
+  items:
+    - title: Introduction
+      url: score/introduction
+    - title: Get Started
+      items:
+        - title: How to Install Score
+          url: score/install-score
+- title: Maestro
+  dir: maestro
+  url: maestro
+  items:
+    - title: Deployment
+      url: maestro/deployment
+    - title: Get Started
+      url: maestro/get-started
+      items:
+        - title: How to Install Maestro
+          url: maestro/installation
