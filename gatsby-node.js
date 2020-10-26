@@ -13,10 +13,11 @@ const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
   // nodes in gatsby are the main data interface. everything is a node.
   // gatsby creates nodes (data) THEN creates pages.
+
   if (node.internal.type === 'Mdx') {
     // markdown nodes/pages
     const mdxPage = getNode(node.parent);
-    const { sourceInstanceName, name: pageName, relativeDirectory, relativePath, ext } = mdxPage;
+    const { ext, name: pageName, relativeDirectory, relativePath, sourceInstanceName } = mdxPage;
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
@@ -80,6 +81,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
       }
     }
   `);
+
   data.allMdx.nodes.forEach(node => {
     const { id, slug, title } = node.fields;
 
@@ -89,7 +91,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
         path: slug,
         component: path.resolve('src/templates/documentation.js'),
         context: {
-          id: id, // use to query page content in template
+          id, // use to query page content in template
         },
       });
     }
