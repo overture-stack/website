@@ -1,20 +1,3 @@
-# top level items (Song, Score, etc):
-# title: Page Name
-# dir: page-name
-
-# pages:
-# - title: Page Name
-#   url: page-name
-
-# section title with no page:
-# - title: Section Title
-#   items: ...
-
-# section title, section has a landing page
-# - title: Section Title
-#   url: section-title
-#   items: ...
-
 - title: Song
   url: song
   items:

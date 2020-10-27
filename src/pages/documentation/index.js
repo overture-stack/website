@@ -13,16 +13,8 @@ export default function DocumentationPage() {
           Documentation
         </h1>
 
-        <Link className="hero-link" to="/documentation/maestro">
-          Maestro
-          <Icon size={16} img="arrowRightMagenta" />
-        </Link>
         <Link className="hero-link pl3" to="/documentation/song">
           Song
-          <Icon size={16} img="arrowRightMagenta" />
-        </Link>
-        <Link className="hero-link pl3" to="/documentation/score">
-          Score
           <Icon size={16} img="arrowRightMagenta" />
         </Link>
       </div>

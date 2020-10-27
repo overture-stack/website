@@ -1,9 +1,0 @@
-- title: Score
-  url: score
-  items:
-    - title: Introduction
-      url: score/introduction
-    - title: Get Started
-      items:
-        - title: How to Install Score
-          url: score/install-score

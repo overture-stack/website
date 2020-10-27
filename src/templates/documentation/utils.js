@@ -22,7 +22,10 @@ export const findPrevPage = ({
     const prevPagesValues = Object.values(sectionPages)
       .slice(0, pageIndex)
       .reverse();
-    const prevUrlIndex = findIndex(prevPagesKeys, key => key.includes('url'));
+    const prevUrlIndex = findIndex(
+      prevPagesKeys,
+      key => key.includes('url') && sectionPages[key] !== null
+    );
     const prevUrl = prevPagesValues[prevUrlIndex];
     const prevTitleKey = prevPagesKeys[prevUrlIndex].replace('url', 'title');
     const prevTitle = sectionPages[prevTitleKey];
