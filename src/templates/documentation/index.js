@@ -2,21 +2,19 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { find } from 'lodash';
 import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
-import docsPages from 'meta/docs-pages.yaml';
 import { findPrevPage, findNextPage } from './utils';
 
-export default function DocumentationPage({ data }) {
+export default function DocumentationPage({ data: { allYaml, mdx } }) {
   const {
     body,
     fields: { slug, title },
     tableOfContents,
-  } = data.mdx;
+  } = mdx;
 
   // get section info
   const sectionSlug = slug.split('/').filter(x => x)[1];
-  const sectionObj = find(docsPages, { dir: sectionSlug });
+  const sectionObj = allYaml.nodes[0];
   const sectionPages = flatten(sectionObj.items);
   const sectionTitle = sectionObj.title;
 
@@ -26,7 +24,6 @@ export default function DocumentationPage({ data }) {
   const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
   const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
   const isLandingPage = pageSlug === sectionSlug && title === sectionTitle;
-  const isLastPage = pageIndex === Object.keys(sectionPages).length - 1;
 
   const prevPage = findPrevPage({
     isLandingPage,
@@ -39,7 +36,6 @@ export default function DocumentationPage({ data }) {
 
   const nextPage = findNextPage({
     isLandingPage,
-    isLastPage,
     pageIndex,
     sectionPages,
   });
@@ -89,7 +85,7 @@ export default function DocumentationPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query($id: String!, $section: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id
@@ -101,6 +97,24 @@ export const pageQuery = graphql`
       parent {
         ... on File {
           relativePath
+        }
+      }
+    }
+    allYaml(filter: { url: { eq: $section } }) {
+      nodes {
+        title
+        url
+        items {
+          title
+          url
+          items {
+            title
+            url
+            items {
+              title
+              url
+            }
+          }
         }
       }
     }

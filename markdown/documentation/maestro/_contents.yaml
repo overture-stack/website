@@ -1,0 +1,10 @@
+- title: Maestro
+  url: maestro
+  items:
+    - title: Deployment
+      url: maestro/deployment
+    - title: Get Started
+      url: maestro/get-started
+      items:
+        - title: How to Install Maestro
+          url: maestro/installation

@@ -66,6 +66,12 @@ module.exports = {
               path: `${__dirname}/markdown/documentation`,
             },
           },
+          {
+            resolve: `gatsby-transformer-yaml`,
+            options: {
+              typeName: 'Yaml',
+            },
+          },
         ]
       : []),
     'gatsby-plugin-sass',
@@ -77,14 +83,6 @@ module.exports = {
         // these pages are created based on folder structure.
         // e.g. pages/index.js is the homepage.
         name: 'pages',
-      },
-    },
-    `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data`,
-        typeName: ({ node, object, isArray }) => object.title,
       },
     },
     {

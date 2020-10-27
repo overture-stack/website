@@ -81,11 +81,14 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
 
     // documentation section
     if (slug.match(/^\/documentation/)) {
+      const section = slug.split('/').filter(x => x)[1];
       createPage({
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
-          id, // use for graphQL query in template
+          // use for graphQL query in template
+          id,
+          section,
         },
       });
     }

@@ -34,10 +34,8 @@ export const findPrevPage = ({
   }
 };
 
-export const findNextPage = ({ isLandingPage, isLastPage, pageIndex, sectionPages }) => {
-  if (isLastPage) {
-    return null;
-  } else if (isLandingPage) {
+export const findNextPage = ({ isLandingPage, pageIndex, sectionPages }) => {
+  if (isLandingPage) {
     return {
       title: sectionPages['0.title'],
       url: `/documentation/${sectionPages['0.url']}`,
@@ -45,7 +43,12 @@ export const findNextPage = ({ isLandingPage, isLastPage, pageIndex, sectionPage
   } else {
     const nextPagesKeys = Object.keys(sectionPages).slice(pageIndex + 1);
     const nextPagesValues = Object.values(sectionPages).slice(pageIndex + 1);
-    const nextUrlIndex = findIndex(nextPagesKeys, key => key.includes('url'));
+    const nextUrlIndex = findIndex(
+      nextPagesKeys,
+      key => key.includes('url') && sectionPages[key] !== null
+    );
+    // last page, so return null
+    if (nextUrlIndex === -1) return null;
     const nextUrl = nextPagesValues[nextUrlIndex];
     const nextTitleKey = nextPagesKeys[nextUrlIndex].replace('url', 'title');
     const nextTitle = sectionPages[nextTitleKey];
