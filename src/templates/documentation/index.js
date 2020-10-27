@@ -4,17 +4,22 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
 import { findPrevPage, findNextPage } from './utils';
+import NotFoundPage from '../../pages/404';
 
-export default function DocumentationPage({ data: { allYaml, mdx } }) {
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+
+export default function DocumentationPage({ data }) {
+  if (!SHOW_DOCS) return <NotFoundPage />;
+
   const {
     body,
     fields: { slug, title },
     tableOfContents,
-  } = mdx;
+  } = data.mdx;
 
   // get section info
   const sectionSlug = slug.split('/').filter(x => x)[1];
-  const sectionObj = allYaml.nodes[0];
+  const sectionObj = data.allYaml.nodes[0];
   const sectionPages = flatten(sectionObj.items);
   const sectionTitle = sectionObj.title;
 

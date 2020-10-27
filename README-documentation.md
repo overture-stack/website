@@ -25,7 +25,7 @@ Markdown content goes here! You can do anything you would normally do in Markdow
 
 ### File organization
 
-1. Describe the placement/order of pages in `meta/docs-pages.yaml`, for navigation purposes.
+1. Describe the placement/order of pages in the folder's `_contents.yaml` for navigation purposes.
 1. Keep in mind folder/file names will be used to make URLs, so they need to be lowercase, not have spaces, etc.
 1. Folders need an `index.md` file.
 

@@ -1,13 +1,10 @@
 // needs to be at the top of the file.
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
 
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
-
-// documentation section
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 module.exports = {
   siteMetadata: {
@@ -39,41 +36,37 @@ module.exports = {
         exclude: [],
       },
     },
-    ...(SHOW_DOCS
-      ? [
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-plugin-mdx',
+            resolve: 'gatsby-remark-images',
             options: {
-              gatsbyRemarkPlugins: [
-                {
-                  resolve: 'gatsby-remark-images',
-                  options: {
-                    maxWidth: 1035,
-                    sizeByPixelDensity: true,
-                  },
-                },
-                {
-                  resolve: 'gatsby-remark-copy-linked-files',
-                },
-              ],
-              extensions: ['.mdx', '.md'],
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
             },
           },
           {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-              name: 'docs',
-              path: `${__dirname}/markdown/documentation`,
-            },
+            resolve: 'gatsby-remark-copy-linked-files',
           },
-          {
-            resolve: `gatsby-transformer-yaml`,
-            options: {
-              typeName: 'Yaml',
-            },
-          },
-        ]
-      : []),
+        ],
+        extensions: ['.mdx', '.md'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'docs',
+        path: `${__dirname}/markdown/documentation`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: 'Yaml',
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',

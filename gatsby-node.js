@@ -1,14 +1,10 @@
 // keep at top of file
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
 
 const path = require('path');
 const startCase = require('lodash.startcase');
-const utils = require('./utils.js');
-
-// setup documentation section
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
   // nodes in gatsby are the main data interface. everything is a node.
@@ -59,7 +55,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 export async function createPages(params) {
   // use promise.all to build different page types concurrently.
   // required when using external APIs for content.
-  await Promise.all([...(SHOW_DOCS ? [createMarkdownPages(params)] : [])]);
+  await Promise.all([createMarkdownPages(params)]);
 }
 
 async function createMarkdownPages({ graphql, actions: { createPage } }) {

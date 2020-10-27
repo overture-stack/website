@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Hero, Icon } from 'components';
-import heroImg from './assets/hero_img.svg';
+import { Icon } from 'components';
+import NotFoundPage from '../404';
 import './styles.scss';
 
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+
 export default function DocumentationPage() {
-  return (
+  return SHOW_DOCS ? (
     <main className="DocumentationPage">
       {/* HERO */}
       <div style={{ padding: 100, textAlign: 'center', width: '100%' }}>
@@ -19,5 +21,7 @@ export default function DocumentationPage() {
         </Link>
       </div>
     </main>
+  ) : (
+    <NotFoundPage />
   );
 }
