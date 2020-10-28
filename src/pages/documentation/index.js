@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Badge, Button, Icon, Layout } from '../../components';
+import NotFoundPage from '../404';
 import './styles.scss';
+import consultingSvg from './assets/consulting.svg';
+import techSupportSvg from './assets/techSupport.svg';
+
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS;
 
 const productSections = [
   {
@@ -85,9 +90,23 @@ const productSections = [
 ];
 
 export default function DocumentationPage() {
-  return (
+  return SHOW_DOCS ? (
     <Layout>
       <main className="DocumentationPage">
+        {/* HERO */}
+        <div className="hero">
+          <div className="container">
+            <div className="image image-consulting">
+              <img src={consultingSvg} />
+            </div>
+            <div className="search-container">
+              <h1>How can we help?</h1>
+            </div>
+            <div className="image image-techsupport">
+              <img src={techSupportSvg} />
+            </div>
+          </div>
+        </div>
         {/* DMS & HELP BY TOPIC */}
         <div className="documentation-section">
           <section className="container">
@@ -164,6 +183,10 @@ export default function DocumentationPage() {
           </section>
         </div>
       </main>
+    </Layout>
+  ) : (
+    <Layout>
+      <NotFoundPage />
     </Layout>
   );
 }

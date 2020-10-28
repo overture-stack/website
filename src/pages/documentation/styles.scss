@@ -14,6 +14,34 @@
   }
 }
 
+.hero {
+  background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
+  height: 310px;
+  text-align: center;
+  flex-direction: row;
+  h1 {
+    font-size: 32px;
+    color: $white;
+    font-weight: bold;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .search-container {
+    flex: 1 0 475px;
+  }
+  .image {
+    flex: 0 1 auto;
+    &-consulting {
+      align-self: start;
+    }
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
 .documentation {
   &-section {
     padding: 42px 0;
