@@ -11,16 +11,22 @@ const btnTypes = {
 
 const btnSizes = {
   // Bulma classes
+  default: '',
   large: 'is-large',
   medium: 'is-medium',
+  navGithub: 'is-medium',
+  navSlack: 'is-medium',
   small: 'is-small',
   default: '',
 };
 
 // Icon sizes vary based on passed in button size prop.
 const iconSizes = {
+  default: 16,
   large: 32,
   medium: 24,
+  navGithub: 20,
+  navSlack: 22,
   small: 16,
   default: 16,
 };

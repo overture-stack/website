@@ -1,14 +1,17 @@
+@import '../../styles/colors';
+
 .TermsConditionsPage {
-  p, div, li {
+  p,
+  div,
+  li {
     font-family: Lato;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
-    color: #003055;
+    color: $blue-darker;
   }
-  
+
   p {
     margin: 20px 0;
   }
-  
 }
