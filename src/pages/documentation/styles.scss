@@ -1,0 +1,67 @@
+@import '../../styles/colors';
+
+.product {
+  &-section {
+    padding: 24px 0;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h2,
+    h3,
+    p {
+      color: $blue-black;
+    }
+  }
+  &-column {
+    .Badge {
+      font-size: 12px;
+      margin-bottom: 16px;
+      display: block;
+      text-align: center;
+      line-height: 16px;
+    }
+    a {
+      display: block;
+    }
+  }
+  &-card {
+    border-radius: 5px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
+    background-color: $white;
+    padding: 8px 16px 16px;
+    margin-bottom: 16px;
+    &:hover {
+      background-color: $grey-bg-hover;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+    .chevron-link {
+      color: $magenta !important;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      line-height: 1;
+      img {
+        padding: 2px 0 0 1px;
+      }
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      .Icon {
+        max-height: 32px;
+      }
+      h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 8px;
+      }
+    }
+    p {
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+  }
+}
