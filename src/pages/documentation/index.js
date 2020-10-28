@@ -89,10 +89,10 @@ const productSections = [
   },
 ];
 
-export default function DocumentationPage() {
+export default function DocumentationLandingPage() {
   return SHOW_DOCS ? (
     <Layout>
-      <main className="DocumentationPage">
+      <main className="DocumentationLandingPage">
         {/* HERO */}
         <div className="hero">
           <div className="container">
