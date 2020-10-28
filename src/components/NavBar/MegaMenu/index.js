@@ -180,7 +180,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType }) => {
           </div>
 
           <div className="chevron-link">
-            <Link to={explore.link.to}>
+            <Link to={explore.link.to} onClick={() => closeMenus()}>
               {explore.link.text} <Icon size={12} img="arrowRightMagenta" />
             </Link>
           </div>
