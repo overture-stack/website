@@ -4,10 +4,11 @@
  */
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-import logo from './assets/overture_logo.svg';
 import './styles.scss';
+import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
-import { Button, MegaMenu, NavLink } from 'components';
+import NavLink from './NavLink';
+import { Button } from 'components';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 
