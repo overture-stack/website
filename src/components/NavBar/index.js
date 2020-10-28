@@ -20,6 +20,7 @@ class NavBar extends Component {
       closeMenus,
       megaMenuType,
       mobileMenuOpen,
+      path,
       toggleMegaMenu,
       toggleMobileMenu,
     } = this.props;
@@ -48,6 +49,7 @@ class NavBar extends Component {
             <div className="navbar-start items-center">
               <MegaMenuLink
                 isActive={megaMenuType === 'products'}
+                path={path}
                 name="Products"
                 toggleMegaMenu={toggleMegaMenu}
                 type="products"
@@ -59,13 +61,14 @@ class NavBar extends Component {
 
               {SHOW_DOCS && (
                 <MegaMenuLink
-                  isActive={megaMenuType === 'docs'}
+                  isActive={megaMenuType === 'documentation'}
                   name="Documentation"
+                  path={path}
                   toggleMegaMenu={toggleMegaMenu}
-                  type="docs"
+                  type="documentation"
                 >
                   <div ref={r => (this.popoverRef = r)}>
-                    {mobileMegaCheck && <MegaMenu className="open" megaMenuType="docs" />}
+                    {mobileMegaCheck && <MegaMenu className="open" megaMenuType="documentation" />}
                   </div>
                 </MegaMenuLink>
               )}

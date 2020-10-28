@@ -10,8 +10,7 @@ const data = {
   products: {
     explore: {
       title: 'Explore our products',
-      text:
-        'Overture is a collection of open-source products for big-data genomic science.',
+      text: 'Overture is a collection of open-source products for big-data genomic science.',
       link: {
         to: '/products',
         text: 'All products',
@@ -71,7 +70,7 @@ const data = {
       },
     ],
   },
-  docs: {
+  documentation: {
     explore: {
       title: 'Explore our documentation',
       text:
@@ -164,7 +163,7 @@ const data = {
   },
 };
 
-const MegaMenu = ({ className, megaMenuType }) => {
+const MegaMenu = ({ className, closeMenus, megaMenuType }) => {
   if (!megaMenuType) {
     // leave an empty element to help with CSS animations
     return <div className={`MegaMenu ${className}`} />;
@@ -187,7 +186,7 @@ const MegaMenu = ({ className, megaMenuType }) => {
           </div>
         </section>
 
-        {sections.map((section) => (
+        {sections.map(section => (
           <section className="menu-section" key={section.title}>
             <div className="menu-section-heading">
               {megaMenuType === 'products' &&
@@ -199,22 +198,21 @@ const MegaMenu = ({ className, megaMenuType }) => {
               <Badge color={section.color}>{section.title}</Badge>
             </div>
             <ul className="menu-section-links">
-              {section.links.map((link) => (
+              {section.links.map(link => (
                 <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (
-                    <Link className="menu-section-link" to={link.to}>
+                    <Link
+                      activeClassName="active"
+                      className="menu-section-link"
+                      onClick={() => closeMenus()}
+                      to={link.to}
+                    >
                       {link.text}
                     </Link>
                   ) : (
-                    <a
-                      className="menu-section-link"
-                      href={link.to}
-                      target="_blank"
-                    >
+                    <a className="menu-section-link" href={link.to} target="_blank">
                       {link.text}
-                      {link.hasGithubIcon && (
-                        <Icon className="pl1" img="githubGrey" />
-                      )}
+                      {link.hasGithubIcon && <Icon className="pl1" img="githubGrey" />}
                     </a>
                   )}
                 </li>
