@@ -2,19 +2,10 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Navbar from '../../components/NavBar';
-import ProductsPopup from '../../components/NavBar/Popup';
+import MegaMenu from '../../components/NavBar/MegaMenu';
 import Footer from '../../components/Footer';
 import config from '../../../meta/config';
 import '../../styles/main.scss';
-
-console.log(
-  "SHOW_DOCS (feature flag) expecting 'true' on QA, 'false' on prod\n",
-  process.env.GATSBY_SHOW_DOCS,
-  "\nNODE_ENV (Gatsby environment) expecting 'production'\n",
-  process.env.NODE_ENV,
-  "\nGATSBY_LOCAL_TEST (checking .env file for local secrets) expecting 'local' when built locally, 'undefined' when built by netlify\n",
-  process.env.GATSBY_LOCAL_TEST
-);
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -23,32 +14,65 @@ class TemplateWrapper extends Component {
   }
 
   state = {
-    productMenuOpen: false,
+    megaMenuOpen: false,
+    megaMenuType: null, // products or docs
     mobileMenuOpen: false,
     popOverRef: null,
   };
 
-  toggleMenu = () => {
-    this.setState({ productMenuOpen: !this.state.productMenuOpen });
+  closeMegaMenu = () => {
+    // close megamenu FIRST
+    // then change type to null in a callback
+    // for smoother animation
+    this.setState({ megaMenuOpen: false }, () => {
+      setTimeout(() => {
+        // delay for 0.5s CSS animation
+        this.setState({ megaMenuType: null });
+      }, 500);
+    });
   };
 
-  openMenu = () => {
-    this.setState({ productMenuOpen: true });
+  openMegaMenu = (megaMenuType) => {
+    // set type FIRST
+    // then open the menu in a callback
+    // for smoother animation
+    this.setState({ megaMenuType }, () => {
+      // no animation delay needed
+      this.setState({ megaMenuOpen: true });
+    });
   };
 
-  toggleMobileMenu = () => {
-    // if closing, close the product menu too.
-    if (this.state.mobileMenuOpen === false) {
-      this.setState({
-        mobileMenuOpen: !this.state.mobileMenuOpen,
-        productMenuOpen: false,
-      });
+  toggleMegaMenu = (type = null) => {
+    const { megaMenuType } = this.state;
+
+    // close the megamenu if user clicks button for
+    // the currently open megamenu
+    const typeIsActive = type && type === megaMenuType;
+    if (!type || typeIsActive) {
+      this.closeMegaMenu();
+    } else {
+      this.openMegaMenu(type);
     }
-    this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen });
   };
 
   closeMenus = () => {
-    this.setState({ productMenuOpen: false, mobileMenuOpen: false });
+    this.closeMegaMenu();
+    this.setState({
+      mobileMenuOpen: false,
+    });
+  };
+
+  toggleMobileMenu = () => {
+    const { mobileMenuOpen } = this.state;
+
+    // close megamenu if closing mobile menu
+    if (mobileMenuOpen) {
+      this.closeMenus();
+    } else {
+      this.setState({
+        mobileMenuOpen: true,
+      });
+    }
   };
 
   componentDidMount() {
@@ -71,10 +95,18 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    let productMenuOpen = this.state.productMenuOpen;
-    let mobileMenuOpen = this.state.mobileMenuOpen ? 'is-active' : '';
-    let productsMenuClass = productMenuOpen ? 'open' : 'closed';
-    let windowExists = typeof window === 'undefined';
+    const {
+      megaMenuOpen,
+      popOverRef,
+      megaMenuType,
+      mobileMenuOpen,
+    } = this.state;
+    const { children } = this.props;
+    const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
+    const desktopMegaMenuCheck =
+      typeof window !== 'undefined' &&
+      !mobileMenuOpen &&
+      window.innerWidth > 1160;
 
     return (
       <div>
@@ -82,24 +114,26 @@ class TemplateWrapper extends Component {
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
+
+        {/* top navbar & mobile menu */}
         <Navbar
           closeMenus={this.closeMenus}
-          openMenu={this.openMenu}
-          productMenuOpen={this.state.productMenuOpen}
-          mobileMenuOpen={this.state.mobileMenuOpen}
-          toggleMenu={this.toggleMenu}
+          megaMenuOpen={megaMenuOpen}
+          megaMenuType={megaMenuType}
+          mobileMenuOpen={mobileMenuOpen}
+          popOverRef={popOverRef}
+          toggleMegaMenu={this.toggleMegaMenu}
           toggleMobileMenu={this.toggleMobileMenu}
-          popOverRef={this.state.popOverRef}
         />
 
-        <div className="desktop-products-popup" ref={r => (this.popOverRef = r)}>
-          {typeof window !== 'undefined' && !this.state.mobileMenuOpen && window.innerWidth > 1216 && (
-            /* {(windowExists && !this.state.mobileMenuOpen && window.innerWidth > 1216) && ( */
-            <ProductsPopup className={productsMenuClass} closeMenus={this.props.closeMenus} />
+        {/* desktop megamenu */}
+        <div className="desktop-megamenu" ref={(r) => (this.popOverRef = r)}>
+          {desktopMegaMenuCheck && (
+            <MegaMenu className={megaMenuClass} megaMenuType={megaMenuType} />
           )}
         </div>
 
-        <div onClick={() => this.setState({ productMenuOpen: false })}>{this.props.children}</div>
+        <div onClick={() => this.closeMegaMenu()}>{children}</div>
         <Footer />
       </div>
     );

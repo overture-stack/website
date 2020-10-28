@@ -1,24 +1,22 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
+@import '../../styles/colors';
 
 .BottomCallout {
-
-  background-color: #04518c;
+  background-color: $blue-dark;
   padding: 24px 0;
-  color: white;
+  color: $white;
   display: flex;
 
-
-    .callout-container {
-      display: flex;
-      @media (max-width: $tablet) {
-        flex-direction: column;
-      }
+  .callout-container {
+    display: flex;
+    @media (max-width: $tablet) {
+      flex-direction: column;
     }
-
-  @media(max-width: $tablet) {
-    flex-direction: column;
   }
 
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
 
   .Callout {
     max-width: 500px;
@@ -26,10 +24,9 @@
     padding: 12px;
     font-family: Lato;
     font-size: 22px;
-    color: #ffffff;
+    color: $white;
     letter-spacing: 0;
     line-height: 36px;
-
 
     &:only-child {
       text-align: center;

@@ -1,13 +1,15 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
+@import '../../styles/colors';
 
-.t-h1 { // for hero headers
-  font-family: Lato, "Arial";
+.t-h1 {
+  // for hero headers
+  font-family: Lato, 'Arial';
   font-weight: 700;
   font-size: 50px;
-  color: #003055;
+  color: $blue-darker;
   letter-spacing: 0;
   line-height: 70px;
-  
+
   @include breakpoint(mobile) {
     font-size: 30px;
     line-height: 40px;
@@ -15,7 +17,7 @@
 }
 
 .t-h2 {
-  font-family: Lato, "Arial";
+  font-family: Lato, 'Arial';
   font-size: 30px;
   color: #004773;
   letter-spacing: 0;
@@ -25,14 +27,12 @@
     font-size: 24px;
     line-height: 40px;
   }
-
 }
 
-
 .t-h4 {
-  font-family: Lato, "Arial";
+  font-family: Lato, 'Arial';
   font-size: 24px;
-  color: #003055;
+  color: $blue-darker;
   letter-spacing: 0;
   line-height: 40px;
 

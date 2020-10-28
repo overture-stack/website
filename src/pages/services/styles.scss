@@ -1,17 +1,18 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
+@import '../../styles/colors';
 
 .ServicesPage {
-
-  p, li {
+  p,
+  li {
     font-family: Lato;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
-    color: #003055
+    color: $blue-darker;
   }
 
   .services-top-hero {
-    background-image: url("./assets/hero_img.svg");
+    background-image: url('./assets/hero_img.svg');
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
@@ -25,53 +26,50 @@
       padding: 16px;
     }
 
-    @media(min-width: 1300px) {
-      background-size: 50%
+    @media (min-width: 1300px) {
+      background-size: 50%;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       background-image: none;
     }
 
-    @media(max-width: 1000px) {
+    @media (max-width: 1000px) {
       background-size: 50%;
     }
   }
 
   .consulting-hero {
-    background-image: url("./assets/consulting.svg");
+    background-image: url('./assets/consulting.svg');
     background-repeat: no-repeat;
     background-position: left;
     background-size: contain;
     background-position-x: 20%;
     height: 600px;
-
   }
 
   .hero-subheader {
     font-family: Lato;
     font-size: 24px;
-    color: #003055;
+    color: $blue-darker;
     letter-spacing: 0;
     line-height: 40px;
   }
-  
+
   .bottom-hero {
     margin-top: 64px;
     padding: 64px 0 128px 0;
-    background-image: url("./assets/footer_img.svg");
+    background-image: url('./assets/footer_img.svg');
     background-repeat: no-repeat;
     background-position: bottom;
     background-position-x: 400px;
   }
 
   .bottom-header {
-    font-family: "Lato";
+    font-family: 'Lato';
     font-size: 40px;
-    color: #003055;
+    color: $blue-darker;
     letter-spacing: 0;
     line-height: 68px;
   }
 }
-
-
