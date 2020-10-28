@@ -30,6 +30,9 @@
   }
   .search-container {
     flex: 1 0 475px;
+    @media (max-width: 1024px) {
+      flex-basis: auto;
+    }
   }
   .image {
     flex: 0 1 auto;
