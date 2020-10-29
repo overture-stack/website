@@ -188,6 +188,12 @@
         display: inline-block;
         margin-left: 24px;
       }
+      &.vertical {
+        flex-direction: column;
+        li:not(:first-child) {
+          margin-left: 0;
+        }
+      }
     }
 
     .core-links {

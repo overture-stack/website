@@ -6,12 +6,13 @@ import Link from 'gatsby-link';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
+const verticalMobileMenuSections = ['DMS Bundle'];
+
 const data = {
   products: {
     explore: {
       title: 'Explore our products',
-      text:
-        'Overture is a collection of open-source products for big-data genomic science.',
+      text: 'Overture is a collection of open-source products for big-data genomic science.',
       link: {
         to: '/products',
         text: 'All products',
@@ -187,7 +188,7 @@ const MegaMenu = ({ className, megaMenuType }) => {
           </div>
         </section>
 
-        {sections.map((section) => (
+        {sections.map(section => (
           <section className="menu-section" key={section.title}>
             <div className="menu-section-heading">
               {megaMenuType === 'products' &&
@@ -198,23 +199,21 @@ const MegaMenu = ({ className, megaMenuType }) => {
                 ))}
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <ul className="menu-section-links">
-              {section.links.map((link) => (
+            <ul
+              className={`menu-section-links ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
+              {section.links.map(link => (
                 <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (
-                    <Link className="menu-section-link" to={link.to}>
+                    <Link className={`menu-section-link`} to={link.to}>
                       {link.text}
                     </Link>
                   ) : (
-                    <a
-                      className="menu-section-link"
-                      href={link.to}
-                      target="_blank"
-                    >
+                    <a className="menu-section-link" href={link.to} target="_blank">
                       {link.text}
-                      {link.hasGithubIcon && (
-                        <Icon className="pl1" img="githubGrey" />
-                      )}
+                      {link.hasGithubIcon && <Icon className="pl1" img="githubGrey" />}
                     </a>
                   )}
                 </li>
