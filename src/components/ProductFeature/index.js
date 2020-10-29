@@ -1,13 +1,13 @@
-import React from 'react'
-import './styles.scss'
-import { Icon } from '../'
+import React from 'react';
+import { Icon } from 'components';
+import './styles.scss';
 
 // consistent container for product feature row
 export const ProductFeatureRow = ({ children }) => (
   <div className="container mb4">
     <div className="ProductFeatureRow flex justify-between my2">{children}</div>
   </div>
-)
+);
 
 /**
  * Component for displaying a header, an icon, and a paragraph of text.
@@ -15,16 +15,9 @@ export const ProductFeatureRow = ({ children }) => (
  * A ProductFeature might be large or small
  * Small versions have the icon and the header and icon are on the same line.
  */
-export const ProductFeature = ({
-  header,
-  details,
-  icon,
-  iconSize,
-  size,
-  className,
-}) => {
+export const ProductFeature = ({ header, details, icon, iconSize, size, className }) => {
   if (size == 'small') {
-    let _iconSize = iconSize || 32
+    let _iconSize = iconSize || 32;
     return (
       <div className={`ProductFeature small ${className ? className : ''}`}>
         <div className="flex items-center py2">
@@ -40,14 +33,9 @@ export const ProductFeature = ({
         </div>
 
         {/* feature */}
-        {header && (
-          <div
-            className="details"
-            dangerouslySetInnerHTML={{ __html: details }}
-          />
-        )}
+        {header && <div className="details" dangerouslySetInnerHTML={{ __html: details }} />}
       </div>
-    )
+    );
   } else {
     return (
       <div className="ProductFeature default">
@@ -58,13 +46,8 @@ export const ProductFeature = ({
         <div className="header">{header}</div>
 
         {/* feature */}
-        <div
-          className="details"
-          dangerouslySetInnerHTML={{ __html: details }}
-        />
+        <div className="details" dangerouslySetInnerHTML={{ __html: details }} />
       </div>
-    )
+    );
   }
-}
-
-export default ProductFeature
+};

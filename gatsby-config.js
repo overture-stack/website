@@ -1,11 +1,9 @@
-// uncomment to use process.env.* in node.
 // needs to be at the top of the file.
-// require("dotenv").config({
+// require('dotenv').config({
 //   path: `.env.${process.env.NODE_ENV}`,
-// })
+// });
 
 const config = require('./meta/config');
-
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
@@ -29,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-87708930-2',
+        trackingId: config.googleAnalyticsTrackingId,
         // Puts tracking script in the head instead of the body
         head: false,
         anonymize: true, // optional
@@ -38,12 +36,45 @@ module.exports = {
         exclude: [],
       },
     },
-
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
+        ],
+        extensions: ['.mdx', '.md'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'docs',
+        path: `${__dirname}/markdown/documentation`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: 'Yaml',
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
+        // /src/pages is a "gatsby thing".
+        // these pages are created based on folder structure.
+        // e.g. pages/index.js is the homepage.
         name: 'pages',
       },
     },

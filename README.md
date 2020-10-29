@@ -1,10 +1,13 @@
-# Overture.bio Website
+# Overture.bio
 
-This site is hosted on Netlify. See **Deployment** for info.
+- Hosted on Netlify. See **Deployment** for info.
+- Based on the [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
 
-There are additional READMEs in inner folders.
+## Additional READMEs
 
-Based on [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
+- [Documentation section](README-documentation.md)
+- [Styles](src/styles/README.md)
+- [Components](src/components/README.md)
 
 ## Installation
 
@@ -16,7 +19,7 @@ Based on [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
 
 ## Local development
 
-`npm run dev`
+`npm start`
 
 ## Deployment
 
@@ -27,7 +30,7 @@ Check your QA builds locally! (See **Environments**)
 
 ## Environments
 
-Gatsby has two environments: development (runs a dev server with hot reloading) and production (creates a static build in the `/public` folder).
+Gatsby has two environments: **development** (runs a dev server with hot reloading) and **production** (creates a static build in the `/public` folder).
 
 Gatsby development and production builds are significantly different, so consider running `npm run qa` occasionally to check for issues, and before deploying to QA.
 

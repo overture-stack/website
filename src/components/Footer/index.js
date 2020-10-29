@@ -2,9 +2,9 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
+import { Icon } from 'components';
 import './styles.scss';
 import logo from './logo.svg';
-import { Icon } from '../';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
