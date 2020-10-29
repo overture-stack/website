@@ -11,7 +11,7 @@ const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS;
 const productSections = [
   {
     title: 'Generate & Upload',
-    color: 'pink', // TODO
+    color: 'pink',
     cards: [
       {
         icon: 'productScore',
@@ -29,7 +29,7 @@ const productSections = [
   },
   {
     title: 'Access & Download',
-    color: 'blue', // TODO
+    color: 'blue',
     cards: [
       {
         icon: 'productEgo',
@@ -53,7 +53,7 @@ const productSections = [
   },
   {
     title: 'Analyze & Discover',
-    color: 'red', // TODO
+    color: 'red',
     cards: [
       {
         icon: 'productJukebox',
@@ -71,7 +71,7 @@ const productSections = [
   },
   {
     title: 'Collaborate & Share',
-    color: 'green', // TODO
+    color: 'green',
     cards: [
       {
         icon: 'productPersona',
