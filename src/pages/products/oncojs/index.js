@@ -1,5 +1,5 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 import {
   H2,
   Button,
@@ -9,21 +9,21 @@ import {
   WindowGui,
   BottomCallout,
   Callout,
-} from '../../../components'
+} from '../../../components';
 
 // Screenshots
-import lolliplotScreen from './assets/lolliplot_screen.png'
-import oncogridScreen from './assets/oncogrid_screen.jpg'
-import sapienScreen from './assets/sapien_screen.jpg'
-import survivalplotScreen from './assets/survivalplot_screen.jpg'
-import pathwayviewerScreen from './assets/pathwayviewer_screen.jpg'
+import lolliplotScreen from './assets/lolliplot_screen.png';
+import oncogridScreen from './assets/oncogrid_screen.jpg';
+import sapienScreen from './assets/sapien_screen.jpg';
+import survivalplotScreen from './assets/survivalplot_screen.jpg';
+import pathwayviewerScreen from './assets/pathwayviewer_screen.jpg';
 
 const TargetHeader = ({ children }) => (
   <div>
     <H2>{children}</H2>
     <div className="my3 yellow-bar" />
   </div>
-)
+);
 
 const OncoPage = () => (
   <Layout>
@@ -48,17 +48,67 @@ const OncoPage = () => (
 
       {/* Target Features + Screenshot */}
 
-      {/* LOLLIPOP */}
+      {/* SAPIEN */}
       <section className="pb4">
         <div className="container">
           <div className="columns column items-center pt4">
             <div className="column is-5-desktop pt2">
+              <TargetHeader>Sapien</TargetHeader>
+
+              <p>Correlate data to an interactive map of the human body.</p>
+
+              <div className="">
+                <ProductFeature
+                  size="small"
+                  icon="target"
+                  className="p0"
+                  details="Provide an opportunity for your users to learn and explore data visually."
+                />
+              </div>
+
+              <div className="">
+                <ProductFeature
+                  size="small"
+                  icon="target"
+                  className="p0"
+                  details="Deliver an interactive experience for users to consume key information and data."
+                />
+              </div>
+
+              <div className="mt2">
+                <a
+                  className="bold text-magenta"
+                  target="_blank"
+                  href="https://portal.gdc.cancer.gov/"
+                >
+                  Live example >{' '}
+                </a>
+              </div>
+            </div>
+            {/* screenshot */}
+            <div className="column is-offset-1 flex items-center">
+              <WindowGui>
+                <img src={sapienScreen} />
+              </WindowGui>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LOLLIPOP */}
+      <section className="pb4 bg-grey">
+        <div className="container">
+          <div className="columns column items-center pt4">
+            {/* screenshot */}
+            <div className="column is-6 flex items-center">
+              <WindowGui>
+                <img src={lolliplotScreen} />
+              </WindowGui>
+            </div>
+            <div className="column pt2 is-5-desktop pl3 pt2">
               <TargetHeader>Lollipop</TargetHeader>
 
-              <p className="pb2">
-                {' '}
-                Visualize the location of mutations on a protein structure.{' '}
-              </p>
+              <p className="pb2"> Visualize the location of mutations on a protein structure. </p>
 
               <div className="">
                 <ProductFeature
@@ -97,34 +147,20 @@ const OncoPage = () => (
                 </a>
               </div>
             </div>
-
-            {/* screenshot */}
-            <div className="column  is-offset-1 flex items-center">
-              <WindowGui>
-                <img src={lolliplotScreen} />
-              </WindowGui>
-            </div>
           </div>
         </div>
       </section>
 
       {/* ONCOGRID */}
-      <section className="pb4 bg-grey">
+      <section className="pb4">
         <div className="container">
           <div className="columns column items-center pt4">
-            {/* screenshot */}
-            <div className="column is-6 flex items-center">
-              <WindowGui>
-                <img src={oncogridScreen} />
-              </WindowGui>
-            </div>
-
-            <div className="column pt2 is-5-desktop pl3 pt2">
+            <div className="column pt2 is-5-desktop pt2">
               <TargetHeader>Oncogrid</TargetHeader>
 
               <p className="pb2">
-                Identify trends in mutation co-occurrence by plotting mutations
-                and donors together on an Oncogrid.
+                Identify trends in mutation co-occurrence by plotting mutations and donors together
+                on an Oncogrid.
               </p>
 
               <div className="">
@@ -164,21 +200,33 @@ const OncoPage = () => (
                 </a>
               </div>
             </div>
+            {/* screenshot */}
+            <div className="column is-offset-1 flex items-center">
+              <WindowGui>
+                <img src={oncogridScreen} />
+              </WindowGui>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SURVIVAL PLOT */}
 
-      <section className="pb4">
+      <section className="pb4 bg-grey">
         <div className="container">
           <div className="columns column items-center pt4">
-            <div className="column pt2 is-5-desktop pt2">
+            {/* screenshot */}
+            <div className="column is-6 flex items-center">
+              <WindowGui>
+                <img src={survivalplotScreen} />
+              </WindowGui>
+            </div>
+            <div className="column pt2 is-5-desktop pl3 pt2">
               <TargetHeader>Survivalplot</TargetHeader>
 
               <p className="pb2">
-                Visualize and compare datasets to determine probable health
-                outcomes and their frequency in patient groups.{' '}
+                Visualize and compare datasets to determine probable health outcomes and their
+                frequency in patient groups.{' '}
               </p>
 
               <div className="">
@@ -218,61 +266,6 @@ const OncoPage = () => (
                 </a>
               </div>
             </div>
-
-            {/* screenshot */}
-            <div className="column is-offset-1 flex items-center">
-              <WindowGui>
-                <img src={survivalplotScreen} />
-              </WindowGui>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SAPIEN */}
-      <section className="pb4 bg-grey">
-        <div className="container">
-          <div className="columns column items-center pt4">
-            {/* screenshot */}
-            <div className="column is-6 flex items-center">
-              <WindowGui>
-                <img src={sapienScreen} />
-              </WindowGui>
-            </div>
-
-            <div className="column pt2 is-5-desktop pl3 pt2">
-              <TargetHeader>Sapien</TargetHeader>
-
-              <p>Correlate data to an interactive map of the human body.</p>
-
-              <div className="">
-                <ProductFeature
-                  size="small"
-                  icon="target"
-                  className="p0"
-                  details="Provide an opportunity for your users to learn and explore data visually."
-                />
-              </div>
-
-              <div className="">
-                <ProductFeature
-                  size="small"
-                  icon="target"
-                  className="p0"
-                  details="Deliver an interactive experience for users to consume key information and data."
-                />
-              </div>
-
-              <div className="mt2">
-                <a
-                  className="bold text-magenta"
-                  target="_blank"
-                  href="https://portal.gdc.cancer.gov/"
-                >
-                  Live example >{' '}
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -287,8 +280,7 @@ const OncoPage = () => (
 
               <p className="pb2">
                 {' '}
-                A straightforward component for visualization of reactome
-                pathways.
+                A straightforward component for visualization of reactome pathways.
               </p>
 
               <div className="">
@@ -359,6 +351,6 @@ const OncoPage = () => (
       </BottomCallout>
     </main>
   </Layout>
-)
+);
 
-export default OncoPage
+export default OncoPage;
