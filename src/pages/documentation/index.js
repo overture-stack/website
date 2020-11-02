@@ -64,7 +64,7 @@ const productSections = [
       {
         icon: 'productOnco',
         link: '/documentation/oncojs',
-        text: 'Bring data to life with stunning visualizations and real-time analysis.',
+        text: 'Brings data to life with stunning visualizations and real-time analysis.',
         title: 'OncoJS',
       },
     ],
@@ -172,7 +172,8 @@ export default function DocumentationLandingPage() {
                         </div>
                         <p>{card.text}</p>
                         <div className="chevron-link">
-                          <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
+                          <span>Docs</span>{' '}
+                          <Icon size={12} img="arrowRightMagenta" style={{ height: 12 }} />
                         </div>
                       </div>
                     </Link>
