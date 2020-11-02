@@ -2,14 +2,13 @@ import React from 'react';
 import { Icon } from '../../';
 
 const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) => {
-  const section = path.split('/').filter(x => x && x !== '/')[0];
-  const isCurrentSection = type === section;
+  const megaMenuActive = path.startsWith(`/${type}`);
   return (
     <div className="megamenu-link-box">
       <div style={{ flex: '1', display: 'flex' }}>
         <div
           className={`megamenu-link navbar-item ${isActive ? 'megamenu-link-open' : ''} ${
-            isCurrentSection ? 'megamenu-link-highlight' : ''
+            megaMenuActive ? 'megamenu-link-highlight' : ''
           }`}
           style={{ display: 'flex', flex: 1 }}
           onClick={() => toggleMegaMenu(type)}

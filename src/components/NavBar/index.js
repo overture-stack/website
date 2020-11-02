@@ -55,7 +55,14 @@ class NavBar extends Component {
                 type="products"
               >
                 <div ref={r => (this.popoverRef = r)}>
-                  {mobileMegaCheck && <MegaMenu className="open" megaMenuType="products" />}
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="products"
+                      path={path}
+                    />
+                  )}
                 </div>
               </MegaMenuLink>
 
@@ -68,7 +75,14 @@ class NavBar extends Component {
                   type="documentation"
                 >
                   <div ref={r => (this.popoverRef = r)}>
-                    {mobileMegaCheck && <MegaMenu className="open" megaMenuType="documentation" />}
+                    {mobileMegaCheck && (
+                      <MegaMenu
+                        className="open"
+                        closeMenus={closeMenus}
+                        megaMenuType="documentation"
+                        path={path}
+                      />
+                    )}
                   </div>
                 </MegaMenuLink>
               )}
