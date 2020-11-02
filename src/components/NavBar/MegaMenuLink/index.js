@@ -1,10 +1,14 @@
 import React from 'react';
 import { Icon } from '../../';
+import { useSSRWorkaround } from '../../../hooks';
 
 const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) => {
+  const { key } = useSSRWorkaround();
+
   const megaMenuActive = path.startsWith(`/${type}`);
+
   return (
-    <div className="megamenu-link-box">
+    <div className="megamenu-link-box" key={key}>
       <div style={{ flex: '1', display: 'flex' }}>
         <div
           className={`megamenu-link navbar-item ${isActive ? 'megamenu-link-open' : ''} ${
