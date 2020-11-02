@@ -73,11 +73,11 @@ class NavBar extends Component {
                 </MegaMenuLink>
               )}
 
-              <NavLink closeMenus={closeMenus} url="/case-studies" name="Case Studies" />
+              <NavLink closeMenus={closeMenus} url="/case-studies/" name="Case Studies" />
 
-              <NavLink closeMenus={closeMenus} url="/about-us" name="About Us" />
-              <NavLink closeMenus={closeMenus} url="/services" name="Services" />
-              <NavLink closeMenus={closeMenus} url="/contact" name="Contact" />
+              <NavLink closeMenus={closeMenus} url="/about-us/" name="About Us" />
+              <NavLink closeMenus={closeMenus} url="/services/" name="Services" />
+              <NavLink closeMenus={closeMenus} url="/contact/" name="Contact" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">

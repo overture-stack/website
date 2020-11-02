@@ -12,7 +12,7 @@ const data = {
       title: 'Explore our products',
       text: 'Overture is a collection of open-source products for big-data genomic science.',
       link: {
-        to: '/products',
+        to: '/products/',
         text: 'All products',
       },
     },
@@ -22,8 +22,8 @@ const data = {
         color: 'pink',
         hasCoreIcon: true,
         links: [
-          { to: '/products/song', text: 'Song' },
-          { to: '/products/score', text: 'Score' },
+          { to: '/products/song/', text: 'Song' },
+          { to: '/products/score/', text: 'Score' },
         ],
       },
       {
@@ -31,25 +31,25 @@ const data = {
         color: 'blue',
         hasCoreIcon: true,
         links: [
-          { to: '/products/ego', text: 'Ego' },
-          { to: '/products/maestro', text: 'Maestro' },
-          { to: '/products/arranger', text: 'Arranger' },
+          { to: '/products/ego/', text: 'Ego' },
+          { to: '/products/maestro/', text: 'Maestro' },
+          { to: '/products/arranger/', text: 'Arranger' },
         ],
       },
       {
         title: 'Analyze & Discover',
         color: 'red',
         links: [
-          { to: '/products/jukebox', text: 'Jukebox' },
-          { to: '/products/oncojs', text: 'OncoJS' },
+          { to: '/products/jukebox/', text: 'Jukebox' },
+          { to: '/products/oncojs/', text: 'OncoJS' },
         ],
       },
       {
         title: 'Collaborate & Share',
         color: 'light-green',
         links: [
-          { to: '/products/persona', text: 'Persona' },
-          { to: '/products/riff', text: 'Riff' },
+          { to: '/products/persona/', text: 'Persona' },
+          { to: '/products/riff/', text: 'Riff' },
         ],
       },
       {
@@ -163,7 +163,7 @@ const data = {
   },
 };
 
-const MegaMenu = ({ className, closeMenus, megaMenuType }) => {
+const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
   if (!megaMenuType) {
     // leave an empty element to help with CSS animations
     return <div className={`MegaMenu ${className}`} />;
@@ -202,8 +202,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType }) => {
                 <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (
                     <Link
-                      activeClassName="active"
-                      className="menu-section-link"
+                      className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
                       onClick={() => closeMenus()}
                       to={link.to}
                     >

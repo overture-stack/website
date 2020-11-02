@@ -123,6 +123,7 @@ class TemplateWrapper extends Component {
               closeMenus={this.closeMenus}
               className={megaMenuClass}
               megaMenuType={megaMenuType}
+              path={path}
             />
           )}
         </div>
