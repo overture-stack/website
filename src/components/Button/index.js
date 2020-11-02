@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon } from '../';
 import { Link } from 'gatsby';
+import { Icon } from 'components';
 import './styles.scss';
 
 const btnTypes = {
@@ -17,6 +17,7 @@ const btnSizes = {
   navGithub: 'is-medium',
   navSlack: 'is-medium',
   small: 'is-small',
+  default: '',
 };
 
 // Icon sizes vary based on passed in button size prop.
@@ -27,6 +28,7 @@ const iconSizes = {
   navGithub: 20,
   navSlack: 22,
   small: 16,
+  default: 16,
 };
 
 /**
@@ -51,19 +53,11 @@ export default ({
   onClick,
   target = '_blank',
 }) => {
-  const isNavButton = /^nav/.test(size);
   let customClassName = className ? className : '';
   let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
   let IconComp = () => {
     if (icon) {
-      return (
-        <Icon
-          className={isNavButton ? 'mr1' : 'mr2'}
-          style={iconStyle}
-          size={iconSizes[size]}
-          img={icon}
-        />
-      );
+      return <Icon className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />;
     }
   };
 
