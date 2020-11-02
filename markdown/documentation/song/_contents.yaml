@@ -1,0 +1,15 @@
+- title: Song
+  url: song
+  items:
+    - title: Introduction
+      url: song/introduction
+    - title: Get Started
+      items:
+        - title: How to Install Song
+          url: song/install-song
+        - title: Docker for Song
+          items:
+            - title: Subsection 1
+              url: song/subsection-1
+            - title: Subsection 2
+              url: song/subsection-2
