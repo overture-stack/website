@@ -78,7 +78,7 @@ const MaestroPage = () => (
         }
         getStartedLink="https://github.com/overture-stack/maestro"
         logo="logoMaestro"
-        progressType="ud"
+        progressType="rc"
         badge={{ color: 'blue', text: 'Access & Download' }}
       />
 

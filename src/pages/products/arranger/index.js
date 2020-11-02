@@ -38,7 +38,7 @@ const ArrangerPage = () => (
         getStartedLink="https://github.com/overture-stack/arranger"
         badge={{ color: 'blue', text: 'Access & Download' }}
         logo="logoArranger"
-        progressType="beta"
+        progressType="rc"
       />
 
       {/* Features  */}
