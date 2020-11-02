@@ -172,8 +172,7 @@ export default function DocumentationLandingPage() {
                         </div>
                         <p>{card.text}</p>
                         <div className="chevron-link">
-                          <span>Docs</span>{' '}
-                          <Icon size={12} img="arrowRightMagenta" style={{ height: 12 }} />
+                          <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
                         </div>
                       </div>
                     </Link>

@@ -123,8 +123,9 @@
         font-size: 14px;
         display: flex;
         line-height: 1;
-        img {
+        img[style] {
           padding: 2px 0 0 1px;
+          height: 13px !important;
         }
       }
       &__title {
