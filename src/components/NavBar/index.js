@@ -20,6 +20,7 @@ class NavBar extends Component {
       closeMenus,
       megaMenuType,
       mobileMenuOpen,
+      path,
       toggleMegaMenu,
       toggleMobileMenu,
     } = this.props;
@@ -48,33 +49,49 @@ class NavBar extends Component {
             <div className="navbar-start items-center">
               <MegaMenuLink
                 isActive={megaMenuType === 'products'}
+                path={path}
                 name="Products"
                 toggleMegaMenu={toggleMegaMenu}
                 type="products"
               >
                 <div ref={r => (this.popoverRef = r)}>
-                  {mobileMegaCheck && <MegaMenu className="open" megaMenuType="products" />}
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="products"
+                      path={path}
+                    />
+                  )}
                 </div>
               </MegaMenuLink>
 
               {SHOW_DOCS && (
                 <MegaMenuLink
-                  isActive={megaMenuType === 'docs'}
+                  isActive={megaMenuType === 'documentation'}
                   name="Documentation"
+                  path={path}
                   toggleMegaMenu={toggleMegaMenu}
-                  type="docs"
+                  type="documentation"
                 >
                   <div ref={r => (this.popoverRef = r)}>
-                    {mobileMegaCheck && <MegaMenu className="open" megaMenuType="docs" />}
+                    {mobileMegaCheck && (
+                      <MegaMenu
+                        className="open"
+                        closeMenus={closeMenus}
+                        megaMenuType="documentation"
+                        path={path}
+                      />
+                    )}
                   </div>
                 </MegaMenuLink>
               )}
 
-              <NavLink closeMenus={closeMenus} url="/case-studies" name="Case Studies" />
+              <NavLink closeMenus={closeMenus} url="/case-studies/" name="Case Studies" />
 
-              <NavLink closeMenus={closeMenus} url="/about-us" name="About Us" />
-              <NavLink closeMenus={closeMenus} url="/services" name="Services" />
-              <NavLink closeMenus={closeMenus} url="/contact" name="Contact" />
+              <NavLink closeMenus={closeMenus} url="/about-us/" name="About Us" />
+              <NavLink closeMenus={closeMenus} url="/services/" name="Services" />
+              <NavLink closeMenus={closeMenus} url="/contact/" name="Contact" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">

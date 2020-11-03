@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import {
   H2,
   Button,
+  Layout,
   ProductHero,
   ProductFeature,
   WindowGui,
@@ -46,11 +47,64 @@ const OncoPage = () => (
 
     {/* Target Features + Screenshot */}
 
-    {/* LOLLIPOP */}
+    {/* SAPIEN */}
     <section className="pb4">
       <div className="container">
         <div className="columns column items-center pt4">
           <div className="column is-5-desktop pt2">
+            <TargetHeader>Sapien</TargetHeader>
+
+            <p>Correlate data to an interactive map of the human body.</p>
+
+            <div className="">
+              <ProductFeature
+                size="small"
+                icon="target"
+                className="p0"
+                details="Provide an opportunity for your users to learn and explore data visually."
+              />
+            </div>
+
+            <div className="">
+              <ProductFeature
+                size="small"
+                icon="target"
+                className="p0"
+                details="Deliver an interactive experience for users to consume key information and data."
+              />
+            </div>
+
+            <div className="mt2">
+              <a
+                className="bold text-magenta"
+                target="_blank"
+                href="https://portal.gdc.cancer.gov/"
+              >
+                Live example >{' '}
+              </a>
+            </div>
+          </div>
+          {/* screenshot */}
+          <div className="column is-offset-1 flex items-center">
+            <WindowGui>
+              <img src={sapienScreen} />
+            </WindowGui>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* LOLLIPOP */}
+    <section className="pb4 bg-grey">
+      <div className="container">
+        <div className="columns column items-center pt4">
+          {/* screenshot */}
+          <div className="column is-6 flex items-center">
+            <WindowGui>
+              <img src={lolliplotScreen} />
+            </WindowGui>
+          </div>
+          <div className="column pt2 is-5-desktop pl3 pt2">
             <TargetHeader>Lollipop</TargetHeader>
 
             <p className="pb2"> Visualize the location of mutations on a protein structure. </p>
@@ -92,29 +146,15 @@ const OncoPage = () => (
               </a>
             </div>
           </div>
-
-          {/* screenshot */}
-          <div className="column  is-offset-1 flex items-center">
-            <WindowGui>
-              <img src={lolliplotScreen} />
-            </WindowGui>
-          </div>
         </div>
       </div>
     </section>
 
     {/* ONCOGRID */}
-    <section className="pb4 bg-grey">
+    <section className="pb4">
       <div className="container">
         <div className="columns column items-center pt4">
-          {/* screenshot */}
-          <div className="column is-6 flex items-center">
-            <WindowGui>
-              <img src={oncogridScreen} />
-            </WindowGui>
-          </div>
-
-          <div className="column pt2 is-5-desktop pl3 pt2">
+          <div className="column pt2 is-5-desktop pt2">
             <TargetHeader>Oncogrid</TargetHeader>
 
             <p className="pb2">
@@ -159,16 +199,28 @@ const OncoPage = () => (
               </a>
             </div>
           </div>
+          {/* screenshot */}
+          <div className="column is-offset-1 flex items-center">
+            <WindowGui>
+              <img src={oncogridScreen} />
+            </WindowGui>
+          </div>
         </div>
       </div>
     </section>
 
     {/* SURVIVAL PLOT */}
 
-    <section className="pb4">
+    <section className="pb4 bg-grey">
       <div className="container">
         <div className="columns column items-center pt4">
-          <div className="column pt2 is-5-desktop pt2">
+          {/* screenshot */}
+          <div className="column is-6 flex items-center">
+            <WindowGui>
+              <img src={survivalplotScreen} />
+            </WindowGui>
+          </div>
+          <div className="column pt2 is-5-desktop pl3 pt2">
             <TargetHeader>Survivalplot</TargetHeader>
 
             <p className="pb2">
@@ -208,61 +260,6 @@ const OncoPage = () => (
                 className="bold text-magenta"
                 target="_blank"
                 href="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
-              >
-                Live example >{' '}
-              </a>
-            </div>
-          </div>
-
-          {/* screenshot */}
-          <div className="column is-offset-1 flex items-center">
-            <WindowGui>
-              <img src={survivalplotScreen} />
-            </WindowGui>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* SAPIEN */}
-    <section className="pb4 bg-grey">
-      <div className="container">
-        <div className="columns column items-center pt4">
-          {/* screenshot */}
-          <div className="column is-6 flex items-center">
-            <WindowGui>
-              <img src={sapienScreen} />
-            </WindowGui>
-          </div>
-
-          <div className="column pt2 is-5-desktop pl3 pt2">
-            <TargetHeader>Sapien</TargetHeader>
-
-            <p>Correlate data to an interactive map of the human body.</p>
-
-            <div className="">
-              <ProductFeature
-                size="small"
-                icon="target"
-                className="p0"
-                details="Provide an opportunity for your users to learn and explore data visually."
-              />
-            </div>
-
-            <div className="">
-              <ProductFeature
-                size="small"
-                icon="target"
-                className="p0"
-                details="Deliver an interactive experience for users to consume key information and data."
-              />
-            </div>
-
-            <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/"
               >
                 Live example >{' '}
               </a>
