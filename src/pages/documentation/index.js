@@ -15,7 +15,7 @@ export default function DocumentationPage() {
           Documentation
         </h1>
 
-        <Link className="hero-link pl3" to="/documentation/song">
+        <Link className="hero-link pl3" to="/documentation/song/">
           Song
           <Icon size={16} img="arrowRightMagenta" />
         </Link>

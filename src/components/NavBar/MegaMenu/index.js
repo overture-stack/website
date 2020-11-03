@@ -76,7 +76,7 @@ const data = {
       text:
         'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
       link: {
-        to: '/documentation',
+        to: '/documentation/',
         text: 'Documentation Overview',
       },
     },
@@ -86,15 +86,15 @@ const data = {
         color: 'dark-blue',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/introduction/',
             text: 'Introduction',
           },
           {
-            to: '/documentation',
+            to: '/documentation/dms/how-to-install/',
             text: 'How to Install',
           },
           {
-            to: '/documentation',
+            to: '/documentation/dms/for-administrators/',
             text: 'For Administrators',
           },
         ],
@@ -104,11 +104,11 @@ const data = {
         color: 'pink',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/score/',
             text: 'Score',
           },
           {
-            to: '/documentation',
+            to: '/documentation/song/',
             text: 'Song',
           },
         ],
@@ -118,15 +118,15 @@ const data = {
         color: 'blue',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/ego/',
             text: 'Ego',
           },
           {
-            to: '/documentation',
+            to: '/documentation/maestro/',
             text: 'Maestro',
           },
           {
-            to: '/documentation',
+            to: '/documentation/arranger/',
             text: 'Arranger',
           },
         ],
@@ -136,11 +136,11 @@ const data = {
         color: 'red',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/jukebox/',
             text: 'Jukebox',
           },
           {
-            to: '/documentation',
+            to: '/documentation/oncojs/',
             text: 'OncoJs',
           },
         ],
@@ -150,11 +150,11 @@ const data = {
         color: 'light-green',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/persona/',
             text: 'Persona',
           },
           {
-            to: '/documentation',
+            to: '/documentation/riff/',
             text: 'Riff',
           },
         ],
