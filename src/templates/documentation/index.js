@@ -4,7 +4,7 @@ import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
 import NotFoundPage from 'pages/404';
-import { findPrevPage, findNextPage, productsDict } from './utils';
+import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
@@ -23,6 +23,7 @@ export default function DocumentationPage({ data }) {
   const sectionObj = data.allYaml.nodes[0];
   const sectionPages = flatten(sectionObj.items);
   const sectionTitle = sectionObj.title;
+  const sectionIcon = sectionIcons[sectionSlug];
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
@@ -49,14 +50,12 @@ export default function DocumentationPage({ data }) {
     sectionPages,
   });
 
-  const { name: headerName, icon: headerIcon } = productsDict[sectionSlug];
-
   return (
     <main className="docs-page">
       <div className="docs-header">
         <div className="docs-header__title">
-          <Icon className="icon" size={45} img={headerIcon} />
-          <h1>{headerName} Documentation</h1>
+          <Icon className="icon" size={45} img={sectionIcon} />
+          <h1>{sectionTitle} Documentation</h1>
         </div>
         <div className="docs-header__search">
           <div>Search will go here</div>

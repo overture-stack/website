@@ -47,6 +47,18 @@ import productPersona from './icons/productPersona.svg';
 import productRiff from './icons/productRiff.svg';
 import productScore from './icons/productScore.svg';
 import productSong from './icons/productSong.svg';
+import productArrangerWhite from './icons/productArrangerWhite.svg';
+import productBillingWhite from './icons/productBillingWhite.svg';
+import productEgoWhite from './icons/productEgoWhite.svg';
+import productEnrolmentWhite from './icons/productEnrolmentWhite.svg';
+import productJukeboxWhite from './icons/productJukeboxWhite.svg';
+import productDMSWhite from './icons/productDMSWhite.svg';
+import productMaestroWhite from './icons/productMaestroWhite.svg';
+import productOncoWhite from './icons/productOncoWhite.svg';
+import productPersonaWhite from './icons/productPersonaWhite.svg';
+import productRiffWhite from './icons/productRiffWhite.svg';
+import productScoreWhite from './icons/productScoreWhite.svg';
+import productSongWhite from './icons/productSongWhite.svg';
 import rocketWhite from './icons/rocket_white.svg';
 import search from './icons/search.svg';
 import security from './icons/security.svg';
@@ -105,6 +117,19 @@ const icons = {
   productJukebox,
   productBilling,
   productEnrolment,
+  productSongWhite,
+  productScoreWhite,
+  productPersonaWhite,
+  productArrangerWhite,
+  productMaestroWhite,
+  productDMSWhite,
+  productEgoWhite,
+  productOncoWhite,
+  productRiffWhite,
+  productMaestroWhite,
+  productJukeboxWhite,
+  productBillingWhite,
+  productEnrolmentWhite,
   power,
   rocketWhite,
   search,

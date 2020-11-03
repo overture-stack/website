@@ -1,15 +1,18 @@
 import { findIndex } from 'lodash';
 
-// keys are section URL slugs
-export const productsDict = {
-  maestro: {
-    icon: 'productMaestro',
-    name: 'Maestro',
-  },
-  song: {
-    icon: 'productSong',
-    name: 'Song',
-  },
+export const sectionIcons = {
+  arranger: 'productArrangerWhite',
+  billing: 'productBillingWhite',
+  dms: 'productDMSWhite',
+  ego: 'productEgoWhite',
+  enrolment: 'productEnrolmentWhite',
+  jukebox: 'productJukeboxWhite',
+  maestro: 'productMaestroWhite',
+  oncojs: 'productOncoWhite',
+  persona: 'productPersonaWhite',
+  riff: 'productRiffWhite',
+  score: 'productScoreWhite',
+  song: 'productSongWhite',
 };
 
 export const findPrevPage = ({
