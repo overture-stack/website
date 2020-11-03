@@ -43,3 +43,13 @@
 .pointer {
   cursor: pointer;
 }
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.chevron-link,
+.chevron-link a {
+  color: $magenta;
+  font-weight: bold;
+}

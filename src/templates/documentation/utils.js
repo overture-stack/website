@@ -1,5 +1,17 @@
 import { findIndex } from 'lodash';
 
+// keys are section URL slugs
+export const productsDict = {
+  maestro: {
+    icon: 'productMaestro',
+    name: 'Maestro',
+  },
+  song: {
+    icon: 'productSong',
+    name: 'Song',
+  },
+};
+
 export const findPrevPage = ({
   isFirstPage,
   isLandingPage,

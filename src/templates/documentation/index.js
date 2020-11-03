@@ -2,9 +2,10 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { SectionTableOfContents, HeadingsTableOfContents } from 'components';
-import { findPrevPage, findNextPage } from './utils';
-import NotFoundPage from '../../pages/404';
+import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
+import NotFoundPage from 'pages/404';
+import { findPrevPage, findNextPage, productsDict } from './utils';
+import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
@@ -45,16 +46,30 @@ export default function DocumentationPage({ data }) {
     sectionPages,
   });
 
+  const { name: headerName, icon: headerIcon } = productsDict[sectionSlug];
+
   return (
-    <main className="documentation-page" style={{ width: '90%', margin: 'auto' }}>
+    <main className="docs-page">
+      <div className="docs-header">
+        <div className="docs-header__title">
+          <Icon className="icon" size={45} img={headerIcon} />
+          <h1>{headerName} Documentation</h1>
+        </div>
+        <div className="docs-header__search">
+          <div>Search will go here</div>
+        </div>
+      </div>
       <div style={{ display: 'flex', alignItems: 'stretch' }}>
-        <div style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
-          <Link to="/documentation">
+        <div
+          className="is-block-desktop"
+          style={{ background: 'AliceBlue', padding: 10, width: 250 }}
+        >
+          <Link to="/documentation/">
             <h2 className="t-h2">&larr; Docs</h2>
           </Link>
           <ol>
             <li>
-              <Link to={`/documentation/${sectionSlug}`}>{sectionTitle}</Link>
+              <Link to={`/documentation/${sectionSlug}/`}>{sectionTitle}</Link>
             </li>
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
@@ -62,27 +77,35 @@ export default function DocumentationPage({ data }) {
         <div style={{ flex: '1', padding: '10px 20px' }}>
           <h1 className="t-h1">{title}</h1>
           <MDXRenderer>{body}</MDXRenderer>
+          {/* PREV/NEXT BUTTONS */}
+          <div className="prev-next-links">
+            <div>
+              {prevPage && (
+                <div className="chevron-link">
+                  <Link to={prevPage.url}>
+                    <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
+                    {prevPage.title}
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div>
+              {nextPage && (
+                <div className="chevron-link">
+                  <Link to={nextPage.url}>
+                    {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <div style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
+        <div
+          className="is-block-desktop"
+          style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}
+        >
           <h2 className="t-h2">Headings</h2>
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
-        </div>
-      </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '50px 0' }}>
-        <div>
-          {prevPage && (
-            <span className="t-h4">
-              &laquo; <Link to={prevPage.url}>{prevPage.title}</Link>
-            </span>
-          )}
-        </div>
-        <div>
-          {nextPage && (
-            <span className="t-h4">
-              <Link to={nextPage.url}>{nextPage.title}</Link> &raquo;
-            </span>
-          )}
         </div>
       </div>
     </main>
