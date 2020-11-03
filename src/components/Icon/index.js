@@ -40,6 +40,7 @@ import productBilling from './icons/productBilling.svg';
 import productEgo from './icons/productEgo.svg';
 import productEnrolment from './icons/productEnrolment.svg';
 import productJukebox from './icons/productJukebox.svg';
+import productDMS from './icons/productDMS.svg';
 import productMaestro from './icons/productMaestro.svg';
 import productOnco from './icons/productOnco.svg';
 import productPersona from './icons/productPersona.svg';
@@ -96,6 +97,7 @@ const icons = {
   productPersona,
   productArranger,
   productMaestro,
+  productDMS,
   productEgo,
   productOnco,
   productRiff,
