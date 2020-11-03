@@ -94,7 +94,7 @@ class TemplateWrapper extends Component {
    */
   render() {
     const { megaMenuOpen, popOverRef, megaMenuType, mobileMenuOpen } = this.state;
-    const { children } = this.props;
+    const { children, path } = this.props;
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
@@ -110,6 +110,7 @@ class TemplateWrapper extends Component {
           megaMenuOpen={megaMenuOpen}
           megaMenuType={megaMenuType}
           mobileMenuOpen={mobileMenuOpen}
+          path={path}
           popOverRef={popOverRef}
           toggleMegaMenu={this.toggleMegaMenu}
           toggleMobileMenu={this.toggleMobileMenu}
@@ -118,7 +119,12 @@ class TemplateWrapper extends Component {
         {/* desktop megamenu */}
         <div className="desktop-megamenu" ref={r => (this.popOverRef = r)}>
           {desktopMegaMenuCheck && (
-            <MegaMenu className={megaMenuClass} megaMenuType={megaMenuType} />
+            <MegaMenu
+              closeMenus={this.closeMenus}
+              className={megaMenuClass}
+              megaMenuType={megaMenuType}
+              path={path}
+            />
           )}
         </div>
 
