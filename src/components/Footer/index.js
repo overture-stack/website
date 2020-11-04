@@ -168,7 +168,7 @@ const FooterColumns = () => {
 
 const Footer = () => {
   return (
-    <footer className="Footer">
+    <footer className="Footer site-wrapper__footer">
       <div className="container">
         <div className="footer-box">
           <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
@@ -177,17 +177,17 @@ const Footer = () => {
           <FooterColumns />
         </div>
       </div>
-      <div className="flex justify-center bg-grey p2">
-        <span className="px2 copyright">© {new Date().getFullYear()} Overture.</span>
-        <a className="px1" href="/privacy">
-          Privacy
-        </a>
-        <span className="px1">|</span>
-        <a className="px1" href="/terms-conditions">
-          Terms & Conditions
-        </a>
+      <div className="bg-grey px1 footer-credits">
+        <div className="footer-credits__text">
+          <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
+          <div className="px1">
+            <a href="/privacy">Privacy</a>
+            <span>|</span>
+            <a href="/terms-conditions">Terms & Conditions</a>
+          </div>
+        </div>
       </div>
-      <div className="container netlify-badge">
+      <div className="netlify-badge">
         <a target="_blank" href="https://www.netlify.com">
           <img
             src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
