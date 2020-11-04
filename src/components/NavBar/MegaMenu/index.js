@@ -6,6 +6,8 @@ import Link from 'gatsby-link';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
+const verticalMobileMenuSections = ['DMS Bundle'];
+
 const data = {
   products: {
     explore: {
@@ -197,7 +199,11 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                 ))}
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <ul className="menu-section-links">
+            <ul
+              className={`menu-section-links ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
               {section.links.map(link => (
                 <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (
@@ -205,7 +211,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                       className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
                       onClick={() => closeMenus()}
                       to={link.to}
-                    >
+                      >
                       {link.text}
                     </Link>
                   ) : (
