@@ -79,11 +79,49 @@
     code {
       color: $magenta;
       background: $grey-blue;
-      // font-family: Lato;
+      font-family: Lato;
       font-size: inherit;
       border-radius: 3px;
       padding: 0.15em 0.25em;
-      font-size: 14px;
+    }
+    p,
+    li {
+      color: $blue-darker;
+    }
+    p,
+    li,
+    td,
+    th {
+      a {
+        color: $blue-links;
+        text-decoration: underline;
+        &:hover,
+        &:active {
+          color: inherit;
+        }
+      }
+    }
+    table {
+      border: 1px solid $grey-table-border;
+      margin-bottom: 24px;
+      td,
+      th {
+        font-size: 14px;
+        line-height: 1.5;
+        border: 1px solid $grey-table-border;
+        padding: 4px 8px;
+      }
+      th {
+        color: $blue-black;
+      }
+      td {
+        color: $blue-darkest;
+        border-top-width: 0;
+        border-bottom-width: 0;
+      }
+      tr:nth-child(2n) {
+        background: $grey-table-bg;
+      }
     }
   }
 }

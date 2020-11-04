@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
+import { HeadingsTableOfContents, Icon, SectionTableOfContents, Warning } from 'components';
 import NotFoundPage from 'pages/404';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
@@ -50,6 +50,8 @@ export default function DocumentationPage({ data }) {
     sectionPages,
   });
 
+  const shortcodes = { Warning };
+
   return (
     <main className="docs-page">
       <div className="docs-header">
@@ -76,29 +78,34 @@ export default function DocumentationPage({ data }) {
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
         </div>
-        <div style={{ flex: '1', padding: '10px 20px' }} className="docs-page__body">
-          <h1 className="t-h1">{title}</h1>
-          <MDXRenderer>{body}</MDXRenderer>
-          {/* PREV/NEXT BUTTONS */}
-          <div className="prev-next-links">
-            <div>
-              {prevPage && (
-                <div className="chevron-link">
-                  <Link to={prevPage.url}>
-                    <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
-                    {prevPage.title}
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div>
-              {nextPage && (
-                <div className="chevron-link">
-                  <Link to={nextPage.url}>
-                    {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
-                  </Link>
-                </div>
-              )}
+        <div
+          style={{ flex: '1', padding: '10px 20px', display: 'flex', justifyContent: 'center' }}
+          className="docs-page__body"
+        >
+          <div style={{ maxWidth: '50em' }}>
+            <h1 className="t-h1">{title}</h1>
+            <MDXRenderer shortcodes={shortcodes}>{body}</MDXRenderer>
+            {/* PREV/NEXT BUTTONS */}
+            <div className="prev-next-links">
+              <div>
+                {prevPage && (
+                  <div className="chevron-link">
+                    <Link to={prevPage.url}>
+                      <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
+                      {prevPage.title}
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div>
+                {nextPage && (
+                  <div className="chevron-link">
+                    <Link to={nextPage.url}>
+                      {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

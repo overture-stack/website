@@ -1,0 +1,11 @@
+@import '../../styles/colors';
+
+.warning-box {
+  background: $yellow-light-bg;
+  border-left: 6px solid $yellow-light-border;
+  color: $blue-black;
+  padding: 20px 18px 10px;
+  p {
+    margin-bottom: 10px;
+  }
+}
