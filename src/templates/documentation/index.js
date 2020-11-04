@@ -76,7 +76,7 @@ export default function DocumentationPage({ data }) {
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
         </div>
-        <div style={{ flex: '1', padding: '10px 20px' }}>
+        <div style={{ flex: '1', padding: '10px 20px' }} className="docs-page__body">
           <h1 className="t-h1">{title}</h1>
           <MDXRenderer>{body}</MDXRenderer>
           {/* PREV/NEXT BUTTONS */}

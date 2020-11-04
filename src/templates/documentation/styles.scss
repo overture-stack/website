@@ -75,4 +75,15 @@
       margin: 64px 0;
     }
   }
+  &__body {
+    code {
+      color: $magenta;
+      background: $grey-blue;
+      // font-family: Lato;
+      font-size: inherit;
+      border-radius: 3px;
+      padding: 0.15em 0.25em;
+      font-size: 14px;
+    }
+  }
 }
