@@ -27,17 +27,17 @@
         padding: 10px 0;
       }
       .icon {
-        height: 45px !important;
-        margin-right: 12px;
+        height: 32px !important;
+        margin-right: 4px;
         @media (max-width: 1024px) {
-          height: 32px !important;
-          margin-right: 4px;
+          height: 24px !important;
+          margin-right: 2px;
         }
       }
       h1 {
         color: $white;
         display: inline-block;
-        font-size: 40px;
+        font-size: 32px;
         font-weight: bold;
         line-height: 1;
         padding: 18px 0;
