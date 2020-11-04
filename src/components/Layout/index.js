@@ -1,11 +1,9 @@
 // This component handles site wide layouts.  (new to Gatsby 2.0)
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import Navbar from '../../components/NavBar';
-import MegaMenu from '../../components/NavBar/MegaMenu';
-import Footer from '../../components/Footer';
-import config from '../../../meta/config';
-import '../../styles/main.scss';
+import { Footer, NavBar, MegaMenu } from 'components';
+import config from 'meta/config';
+import 'styles/main.scss';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -32,7 +30,7 @@ class TemplateWrapper extends Component {
     });
   };
 
-  openMegaMenu = (megaMenuType) => {
+  openMegaMenu = megaMenuType => {
     // set type FIRST
     // then open the menu in a callback
     // for smoother animation
@@ -95,18 +93,11 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    const {
-      megaMenuOpen,
-      popOverRef,
-      megaMenuType,
-      mobileMenuOpen,
-    } = this.state;
-    const { children } = this.props;
+    const { megaMenuOpen, popOverRef, megaMenuType, mobileMenuOpen } = this.state;
+    const { children, path } = this.props;
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
-      typeof window !== 'undefined' &&
-      !mobileMenuOpen &&
-      window.innerWidth > 1160;
+      typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
 
     return (
       <div>
@@ -114,22 +105,26 @@ class TemplateWrapper extends Component {
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-
-        {/* top navbar & mobile menu */}
-        <Navbar
+        <NavBar
           closeMenus={this.closeMenus}
           megaMenuOpen={megaMenuOpen}
           megaMenuType={megaMenuType}
           mobileMenuOpen={mobileMenuOpen}
+          path={path}
           popOverRef={popOverRef}
           toggleMegaMenu={this.toggleMegaMenu}
           toggleMobileMenu={this.toggleMobileMenu}
         />
 
         {/* desktop megamenu */}
-        <div className="desktop-megamenu" ref={(r) => (this.popOverRef = r)}>
+        <div className="desktop-megamenu" ref={r => (this.popOverRef = r)}>
           {desktopMegaMenuCheck && (
-            <MegaMenu className={megaMenuClass} megaMenuType={megaMenuType} />
+            <MegaMenu
+              closeMenus={this.closeMenus}
+              className={megaMenuClass}
+              megaMenuType={megaMenuType}
+              path={path}
+            />
           )}
         </div>
 

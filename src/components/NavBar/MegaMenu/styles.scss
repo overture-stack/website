@@ -88,7 +88,8 @@
     display: flex;
     font-size: 1rem;
     padding: 0.25rem 0;
-    &:hover {
+    &:hover,
+    &.active {
       color: $magenta;
     }
   }
@@ -205,6 +206,9 @@
       padding-top: 0;
       padding: 0 0 12px 0;
       // flex: 1;
+      &.active {
+        color: $magenta;
+      }
     }
   }
 }

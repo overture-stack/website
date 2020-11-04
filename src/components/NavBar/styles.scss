@@ -77,7 +77,8 @@
     }
   }
 
-  .megamenu-link-open {
+  .megamenu-link-open,
+  .megamenu-link-highlight {
     background: $grey-1;
     color: #9d005d;
     justify-content: space-between;

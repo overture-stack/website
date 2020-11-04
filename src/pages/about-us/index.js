@@ -1,19 +1,7 @@
-import React, { Component } from 'react'
-import heroImg from './assets/hero_img.svg'
-import {
-  H1,
-  H2,
-  H4,
-  Button,
-  Hero,
-  GridFeature,
-  MarketingSection,
-  Layout,
-  Icon,
-  BottomCallout,
-  Callout,
-} from '../../components'
-import './styles.scss'
+import React from 'react';
+import { BottomCallout, Button, Callout, GridFeature, Hero, Icon } from 'components';
+import heroImg from './assets/hero_img.svg';
+import './styles.scss';
 
 const featureGridData = [
   [
@@ -44,64 +32,50 @@ const featureGridData = [
       icon: 'graphCycle',
     },
   ],
-]
+];
 
-class AboutUsPage extends Component {
-  render() {
-    return (
-      <Layout>
-        <main className="AboutUsPage">
-          {/* HERO */}
-          <Hero
-            title="About Us"
-            subtitle="Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions."
-            fgImage="img_our_vision"
-            fgImageClass="about-img"
-            ImgComponent={() => <img src={heroImg} className="about-img" />}
+export default function AboutUsPage() {
+  return (
+    <main className="AboutUsPage">
+      {/* HERO */}
+      <Hero
+        title="About Us"
+        subtitle="Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions."
+        fgImage="img_our_vision"
+        fgImageClass="about-img"
+        ImgComponent={() => <img src={heroImg} className="about-img" />}
+      >
+        <div className="flex py2">
+          <a className="hero-link" target="_blank" href="https://softeng.oicr.on.ca/team/">
+            Meet the team
+            <Icon size={16} img="arrowRightMagenta" />
+          </a>
+          <a className="hero-link pl3" target="_blank" href="https://softeng.oicr.on.ca/">
+            Team blog
+            <Icon size={16} img="arrowRightMagenta" />
+          </a>
+        </div>
+      </Hero>
+
+      {/* Grid sections */}
+      <GridFeature iconSize={48} data={featureGridData} />
+
+      <BottomCallout>
+        <Callout
+          icon="githubYellow"
+          description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
+          className="center"
+        >
+          <Button
+            type="primary"
+            size="medium"
+            externalLink="https://github.com/overture-stack"
+            icon="githubWhite"
           >
-            <div className="flex py2">
-              <a
-                className="hero-link"
-                target="_blank"
-                href="https://softeng.oicr.on.ca/team/"
-              >
-                Meet the team
-                <Icon size={16} img="arrowRightMagenta" />
-              </a>
-              <a
-                className="hero-link pl3"
-                target="_blank"
-                href="https://softeng.oicr.on.ca/"
-              >
-                Team blog
-                <Icon size={16} img="arrowRightMagenta" />
-              </a>
-            </div>
-          </Hero>
-
-          {/* Grid sections */}
-          <GridFeature iconSize={48} data={featureGridData} />
-
-          <BottomCallout>
-            <Callout
-              icon="githubYellow"
-              description="Join us in building tools to catalog, share and visualize data, and take part in our important mission to democratize science!"
-              className="center"
-            >
-              <Button
-                type="primary"
-                size="medium"
-                externalLink="https://github.com/overture-stack"
-                icon="githubWhite"
-              >
-                Get Started
-              </Button>
-            </Callout>
-          </BottomCallout>
-        </main>
-      </Layout>
-    )
-  }
+            Get Started
+          </Button>
+        </Callout>
+      </BottomCallout>
+    </main>
+  );
 }
-
-export default AboutUsPage

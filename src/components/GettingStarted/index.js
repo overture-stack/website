@@ -2,9 +2,9 @@
  * getting started + documentation header.
  **/
 
-import React from 'react'
-import './styles.scss'
-import { H2 } from '../Typography/index'
+import React from 'react';
+import { H2 } from 'components';
+import './styles.scss';
 
 const GettingStarted = ({ pinnedLink, children }) => (
   <div className="pt1">
@@ -31,6 +31,6 @@ const GettingStarted = ({ pinnedLink, children }) => (
       </div>
     </section>
   </div>
-)
+);
 
-export default GettingStarted
+export default GettingStarted;

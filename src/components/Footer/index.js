@@ -2,9 +2,9 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
+import { Icon } from 'components';
 import './styles.scss';
 import logo from './logo.svg';
-import { Icon } from '../';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
@@ -144,7 +144,7 @@ const FooterColumns = () => {
         <section className="footer-column" key={columnKey}>
           <div className="link-group-header">{columnKey}</div>
           {columns[columnKey].map(linksObj => (
-            <ul className="list-reset">
+            <ul className="list-reset" key={Object.keys(linksObj)[0]}>
               {Object.keys(linksObj).map(linkKey => {
                 const { icon, link, newTab = false } = linksObj[linkKey];
                 const target = newTab ? '_blank' : '_self';
