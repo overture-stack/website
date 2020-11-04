@@ -62,3 +62,16 @@ a.navbar-item.active-item {
   cursor: pointer;
   outline: none;
 }
+
+// fix footer to the bottom of the page
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 52px);
+  @media (min-width: 1024px) {
+    height: calc(100vh - 60px);
+  }
+  &__content {
+    flex: 1;
+  }
+}
