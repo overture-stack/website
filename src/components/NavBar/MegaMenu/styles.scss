@@ -132,13 +132,6 @@
 
       @include breakpoint(navmenu-below) {
         padding: 0 0 12px 0;
-        color: $blue-dark !important;
-        img {
-          display: none;
-        }
-        a {
-          color: $blue-dark !important;
-        }
       }
     }
   }
@@ -195,6 +188,12 @@
       li:not(:first-child) {
         display: inline-block;
         margin-left: 24px;
+      }
+      &.vertical {
+        flex-direction: column;
+        li:not(:first-child) {
+          margin-left: 0;
+        }
       }
     }
 

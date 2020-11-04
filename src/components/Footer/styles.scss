@@ -3,14 +3,14 @@
 
 .Footer {
   border-top: 1px solid $grey-4;
+  position: relative;
   background: $white;
-
   .footer-box {
     padding: 48px 0;
     display: flex;
     @include breakpoint(desktop-below) {
       flex-direction: column;
-      padding: 20px;
+      padding: 20px 0;
     }
   }
 
@@ -57,10 +57,11 @@
     }
   }
 
-  .netlify-badge a {
-    bottom: -5px;
+  .netlify-badge {
     position: absolute;
-    right: 80px;
+    bottom: 6px;
+    right: 16px;
+    line-height: 0;
   }
 
   // based on bulma columns.
@@ -100,6 +101,27 @@
         ul {
           width: 100%;
         }
+      }
+    }
+  }
+  .footer-credits {
+    display: flex;
+    height: 65px;
+    font-size: 14px;
+    @media (min-width: 1024px) {
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span {
+        padding: 0 8px;
+      }
+      @media (min-width: 1024px) {
+        flex-direction: row;
       }
     }
   }
