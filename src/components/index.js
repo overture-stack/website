@@ -15,7 +15,7 @@ export { default as NavLink } from './NavBar/NavLink';
 export { default as MegaMenu } from './NavBar/MegaMenu';
 export { default as ProductHero } from './ProductHero';
 export { default as ProgressBar } from './ProgressBar';
-export { default as Warning } from './WarningBox';
+export { default as WarningBox } from './WarningBox';
 export { HeadingsTableOfContents, SectionTableOfContents } from './TableOfContents';
 export { default as WindowGui } from './WindowGui';
 export { H1, H2, H4 } from './Typography';

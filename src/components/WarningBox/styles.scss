@@ -4,8 +4,9 @@
   background: $yellow-light-bg;
   border-left: 6px solid $yellow-light-border;
   color: $blue-black;
-  padding: 20px 18px 10px;
-  p {
-    margin-bottom: 10px;
+  padding: 20px 18px;
+  margin-bottom: 24px;
+  *:last-child {
+    margin-bottom: 0;
   }
 }

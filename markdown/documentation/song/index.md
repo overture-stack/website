@@ -2,6 +2,9 @@ Veniam aliquip esse consectetur officia ad ullamco pariatur magna aute aliquip i
 
 `testing some online code`
 
+<Warning>TESTING WARNING BOX</Warning>
+<Boop>fake boop shortcode</Boop>
+
 # Test Level 1 Heading
 
 | Id amet ad                          | sint cupidatat.                                                                                                                                                                                                                                                                                                                                   |
@@ -15,9 +18,6 @@ Veniam aliquip esse consectetur officia ad ullamco pariatur magna aute aliquip i
 Id amet ad sint cupidatat. Ex culpa sint laboris nulla do laboris consequat officia. Laboris deserunt ipsum cupidatat deserunt veniam. Eiusmod sunt duis nulla pariatur non exercitation duis anim aute dolor occaecat velit. Voluptate minim culpa dolor nulla amet eu esse minim commodo in amet anim ex proident.
 
 Adipisicing quis incididunt non ad. Dolore minim enim sint nulla aliquip exercitation fugiat tempor adipisicing sit tempor nisi enim. In voluptate est ullamco elit nostrud proident aliqua. Fugiat fugiat ad eiusmod sit exercitation ex esse. Consectetur labore officia duis nisi consectetur exercitation nisi occaecat. Adipisicing laboris cillum mollit duis esse eiusmod.
-
-<Warning>Testing</Warning>
-<Boop>Boop testing</Boop>
 
 ## Test Level 2 Heading
 

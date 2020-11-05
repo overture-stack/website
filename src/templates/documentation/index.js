@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { HeadingsTableOfContents, Icon, SectionTableOfContents, Warning } from 'components';
+import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
 import NotFoundPage from 'pages/404';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
@@ -50,8 +50,6 @@ export default function DocumentationPage({ data }) {
     sectionPages,
   });
 
-  const shortcodes = { Warning };
-
   return (
     <main className="docs-page">
       <div className="docs-header">
@@ -84,7 +82,10 @@ export default function DocumentationPage({ data }) {
         >
           <div style={{ maxWidth: '50em' }}>
             <h1 className="t-h1">{title}</h1>
-            <MDXRenderer shortcodes={shortcodes}>{body}</MDXRenderer>
+
+            {/* MARKDOWN PAGE CONTENT */}
+            <MDXRenderer>{body}</MDXRenderer>
+
             {/* PREV/NEXT BUTTONS */}
             <div className="prev-next-links">
               <div>
