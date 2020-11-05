@@ -128,8 +128,12 @@ class TemplateWrapper extends Component {
           )}
         </div>
 
-        <div onClick={() => this.closeMegaMenu()}>{children}</div>
-        <Footer />
+        <div className="site-wrapper">
+          <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
+            {children}
+          </div>
+          <Footer />
+        </div>
       </div>
     );
   }

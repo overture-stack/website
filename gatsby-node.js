@@ -17,13 +17,13 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
-    const pageSlug = isIndex ? '' : pageName;
+    const pageSlug = isIndex ? '' : `${pageName}/`;
 
     // documentation section
     const isDocs = sourceInstanceName === 'docs';
 
     const slug = isDocs
-      ? `/documentation/${relativeDirectory}/${pageSlug}/`
+      ? `/documentation/${relativeDirectory}/${pageSlug}`
       : `/${relativePath.replace(ext, '')}/`;
 
     createNodeField({
@@ -96,8 +96,10 @@ export function onCreateWebpackConfig({ actions }) {
     resolve: {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
-        meta: path.resolve(__dirname, 'meta'),
         data: path.resolve(__dirname, 'src/data'),
+        hooks: path.resolve(__dirname, 'src/hooks'),
+        meta: path.resolve(__dirname, 'meta'),
+        pages: path.resolve(__dirname, 'src/pages'),
         styles: path.resolve(__dirname, 'src/styles'),
         templates: path.resolve(__dirname, 'src/templates'),
       },

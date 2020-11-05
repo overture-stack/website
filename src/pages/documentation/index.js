@@ -15,13 +15,13 @@ const productSections = [
     cards: [
       {
         icon: 'productScore',
-        link: '/documentation/score',
+        link: '/documentation/score/',
         text: 'Facilitates the transfer and storage of data seamlessly for cloud-based products.',
         title: 'Score',
       },
       {
         icon: 'productSong',
-        link: '/documentation/song',
+        link: '/documentation/song/',
         text: 'Tracks genomic data scattered across multiple cloud storage systems.',
         title: 'Song',
       },
@@ -33,19 +33,19 @@ const productSections = [
     cards: [
       {
         icon: 'productEgo',
-        link: '/documentation/ego',
+        link: '/documentation/ego/',
         text: 'Authorization services for identity providers such as Google and Facebook.',
         title: 'Ego',
       },
       {
         icon: 'productMaestro',
-        link: '/documentation/maestro',
+        link: '/documentation/maestro/',
         text: 'Manages geographically distributed data with a single, configurable index.',
         title: 'Maestro',
       },
       {
         icon: 'productArranger',
-        link: '/documentation/arranger',
+        link: '/documentation/arranger/',
         text: 'Provides the power to organize your data into an intuitive search interface.',
         title: 'Arranger',
       },
@@ -57,13 +57,13 @@ const productSections = [
     cards: [
       {
         icon: 'productJukebox',
-        link: '/documentation/jukebox',
+        link: '/documentation/jukebox/',
         text: 'Automates set-up and deployment of JupyterHub.',
         title: 'Jukebox',
       },
       {
         icon: 'productOnco',
-        link: '/documentation/oncojs',
+        link: '/documentation/oncojs/',
         text: 'Brings data to life with stunning visualizations and real-time analysis.',
         title: 'OncoJS',
       },
@@ -75,13 +75,13 @@ const productSections = [
     cards: [
       {
         icon: 'productPersona',
-        link: '/documentation/persona',
+        link: '/documentation/persona/',
         text: 'Provides an easy-to-use solution for storing profile information.',
         title: 'Persona',
       },
       {
         icon: 'productRiff',
-        link: '/documentation/riff',
+        link: '/documentation/riff/',
         text: 'Allows you to save user queries and states and share them through short URLs.',
         title: 'Riff',
       },

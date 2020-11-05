@@ -1,0 +1,78 @@
+@import '../../styles/colors';
+
+.docs-page {
+  .is-block-desktop {
+    // temp until i do the sidebars
+    display: none;
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+  .docs-header {
+    background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1024px) {
+      flex-direction: column-reverse;
+      padding: 0 10px;
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @media (max-width: 1024px) {
+        justify-content: start;
+        padding: 10px 0;
+      }
+      .icon {
+        height: 32px !important;
+        margin-right: 4px;
+        @media (max-width: 1024px) {
+          height: 24px !important;
+          margin-right: 2px;
+        }
+      }
+      h1 {
+        color: $white;
+        display: inline-block;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 18px 0;
+        @media (max-width: 1024px) {
+          font-size: 24px;
+        }
+      }
+    }
+    &__search {
+      flex: 1 0 400px;
+      @media (max-width: 1024px) {
+        flex-basis: auto;
+        margin-top: 10px;
+        width: 100%;
+      }
+      div {
+        // placeholder for search bar
+        display: block;
+        border: 1px solid $grey-border;
+        background: $white;
+        color: $magenta;
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+  }
+  .prev-next-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 0;
+    .chevron-link {
+      flex: 0 0 50%;
+    }
+    @media (min-width: 1024px) {
+      margin: 64px 0;
+    }
+  }
+}

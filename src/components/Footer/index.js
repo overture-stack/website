@@ -168,7 +168,7 @@ const FooterColumns = () => {
 
 const Footer = () => {
   return (
-    <footer className="Footer">
+    <footer className="Footer site-wrapper__footer">
       <div className="container">
         <div className="footer-box">
           <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
