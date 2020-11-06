@@ -83,59 +83,6 @@
       font-size: 30px;
       line-height: 36px;
     }
-    &-markdown {
-      // markdown stuff
-      code {
-        color: $magenta;
-        background: $grey-blue;
-        font-family: Lato;
-        font-size: inherit;
-        border-radius: 3px;
-        padding: 0.15em 0.25em;
-      }
-      p {
-        margin-bottom: 24px;
-      }
-      p,
-      li {
-        color: $blue-darker;
-      }
-      p,
-      li,
-      td,
-      th {
-        a {
-          color: $blue-links;
-          text-decoration: underline;
-          &:hover,
-          &:active {
-            color: inherit;
-          }
-        }
-      }
-      table {
-        border: 1px solid $grey-table-border;
-        margin-bottom: 24px;
-        td,
-        th {
-          font-size: 14px;
-          line-height: 1.5;
-          border: 1px solid $grey-table-border;
-          padding: 4px 8px;
-        }
-        th {
-          color: $blue-black;
-        }
-        td {
-          color: $blue-darkest;
-          border-top-width: 0;
-          border-bottom-width: 0;
-        }
-        tr:nth-child(2n) {
-          background: $grey-table-bg;
-        }
-      }
-    }
     &-pagination {
       display: flex;
       justify-content: space-between;
@@ -145,6 +92,82 @@
       }
       @media (min-width: 1024px) {
         margin: 64px 0;
+      }
+    }
+  }
+  &__md {
+    // markdown stuff
+    code {
+      color: $magenta;
+      background: $grey-blue;
+      font-family: Lato;
+      font-size: inherit;
+      border-radius: 3px;
+      padding: 0.15em 0.25em;
+    }
+    p {
+      margin-bottom: 24px;
+    }
+    p,
+    li {
+      color: $blue-darker;
+    }
+    p,
+    li,
+    td,
+    th {
+      a {
+        color: $blue-links;
+        text-decoration: underline;
+        &:hover,
+        &:active {
+          color: inherit;
+        }
+      }
+    }
+    table {
+      border: 1px solid $grey-table-border;
+      margin-bottom: 24px;
+      td,
+      th {
+        font-size: 14px;
+        line-height: 1.5;
+        border: 1px solid $grey-table-border;
+        padding: 4px 8px;
+      }
+      th {
+        color: $blue-black;
+      }
+      td {
+        color: $blue-darkest;
+        border-top-width: 0;
+        border-bottom-width: 0;
+      }
+      tr:nth-child(2n) {
+        background: $grey-table-bg;
+      }
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      position: relative;
+      .anchor {
+        margin-left: -1.875rem !important;
+        padding-right: 0.875rem !important;
+        &.before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translateX(-100%);
+        }
+        img {
+          visibility: hidden;
+        }
+      }
+      &:hover .anchor img {
+        visibility: visible;
       }
     }
   }
