@@ -62,6 +62,7 @@ export default function DocumentationPage({ data }) {
         </div>
       </div>
       <div className="docs__columns">
+        {/* SECTION TABLE OF CONTENTS */}
         <div className="docs__column" style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
           <Link to="/documentation/">
             <h2 className="t-h2">&larr; Docs</h2>
@@ -73,8 +74,10 @@ export default function DocumentationPage({ data }) {
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
         </div>
+
+        {/* MAIN CONTENT */}
         <div className="docs__main">
-          <div style={{ maxWidth: '50em' }}>
+          <div className="docs__main-container">
             <h1 className="docs__main-title">{title}</h1>
 
             {/* MARKDOWN PAGE CONTENT */}
@@ -104,6 +107,8 @@ export default function DocumentationPage({ data }) {
             </div>
           </div>
         </div>
+
+        {/* PAGE/HEADINGS TABLE OF CONTENTS */}
         <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
           <h2 className="t-h2">Headings</h2>
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
