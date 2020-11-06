@@ -51,21 +51,18 @@ export default function DocumentationPage({ data }) {
   });
 
   return (
-    <main className="docs-page">
-      <div className="docs-header">
-        <div className="docs-header__title">
+    <main className="docs__page">
+      <div className="docs__header">
+        <div className="docs__header-title">
           <Icon className="icon" size={45} img={sectionIcon} />
           <h1>{sectionTitle} Documentation</h1>
         </div>
-        <div className="docs-header__search">
+        <div className="docs__header-search">
           <div>Search will go here</div>
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'stretch' }}>
-        <div
-          className="is-block-desktop"
-          style={{ background: 'AliceBlue', padding: 10, width: 250 }}
-        >
+      <div className="docs__columns">
+        <div className="docs__column" style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
           <Link to="/documentation/">
             <h2 className="t-h2">&larr; Docs</h2>
           </Link>
@@ -76,18 +73,15 @@ export default function DocumentationPage({ data }) {
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
         </div>
-        <div
-          style={{ flex: '1', padding: '10px 20px', display: 'flex', justifyContent: 'center' }}
-          className="docs-page__body"
-        >
+        <div className="docs__main">
           <div style={{ maxWidth: '50em' }}>
-            <h1 className="t-h1">{title}</h1>
+            <h1 className="docs__main-title">{title}</h1>
 
             {/* MARKDOWN PAGE CONTENT */}
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer className="docs__main-markdown">{body}</MDXRenderer>
 
             {/* PREV/NEXT BUTTONS */}
-            <div className="prev-next-links">
+            <div className="docs__main-pagination">
               <div>
                 {prevPage && (
                   <div className="chevron-link">
@@ -110,10 +104,7 @@ export default function DocumentationPage({ data }) {
             </div>
           </div>
         </div>
-        <div
-          className="is-block-desktop"
-          style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}
-        >
+        <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
           <h2 className="t-h2">Headings</h2>
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
         </div>

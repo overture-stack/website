@@ -1,14 +1,19 @@
 @import '../../styles/colors';
 
-.docs-page {
-  .is-block-desktop {
-    // temp until i do the sidebars
+.docs {
+  &__columns {
+    // column css is temp until sidebars are done
+    display: flex;
+    align-items: stretch;
+  }
+  &__column {
+    // column css is temp until sidebars are done
     display: none;
     @media (min-width: 1024px) {
       display: block;
     }
   }
-  .docs-header {
+  &__header {
     background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
     padding: 0 24px;
     display: flex;
@@ -18,7 +23,7 @@
       flex-direction: column-reverse;
       padding: 0 10px;
     }
-    &__title {
+    &-title {
       display: flex;
       align-items: center;
       width: 100%;
@@ -46,7 +51,7 @@
         }
       }
     }
-    &__search {
+    &-search {
       flex: 1 0 400px;
       @media (max-width: 1024px) {
         flex-basis: auto;
@@ -64,66 +69,78 @@
       }
     }
   }
-  .prev-next-links {
+  &__main {
     display: flex;
-    justify-content: space-between;
-    margin: 32px 0;
-    .chevron-link {
-      flex: 0 0 50%;
+    flex: 1;
+    justify-content: center;
+    padding: 10px 20px;
+    &-title {
+      margin-top: 48px;
+      font-size: 30px;
+      line-height: 36px;
     }
-    @media (min-width: 1024px) {
-      margin: 64px 0;
-    }
-  }
-  &__body {
-    code {
-      color: $magenta;
-      background: $grey-blue;
-      font-family: Lato;
-      font-size: inherit;
-      border-radius: 3px;
-      padding: 0.15em 0.25em;
-    }
-    p {
-      margin-bottom: 24px;
-    }
-    p,
-    li {
-      color: $blue-darker;
-    }
-    p,
-    li,
-    td,
-    th {
-      a {
-        color: $blue-links;
-        text-decoration: underline;
-        &:hover,
-        &:active {
-          color: inherit;
+    &-markdown {
+      // markdown stuff
+      code {
+        color: $magenta;
+        background: $grey-blue;
+        font-family: Lato;
+        font-size: inherit;
+        border-radius: 3px;
+        padding: 0.15em 0.25em;
+      }
+      p {
+        margin-bottom: 24px;
+      }
+      p,
+      li {
+        color: $blue-darker;
+      }
+      p,
+      li,
+      td,
+      th {
+        a {
+          color: $blue-links;
+          text-decoration: underline;
+          &:hover,
+          &:active {
+            color: inherit;
+          }
+        }
+      }
+      table {
+        border: 1px solid $grey-table-border;
+        margin-bottom: 24px;
+        td,
+        th {
+          font-size: 14px;
+          line-height: 1.5;
+          border: 1px solid $grey-table-border;
+          padding: 4px 8px;
+        }
+        th {
+          color: $blue-black;
+        }
+        td {
+          color: $blue-darkest;
+          border-top-width: 0;
+          border-bottom-width: 0;
+        }
+        tr:nth-child(2n) {
+          background: $grey-table-bg;
         }
       }
     }
-    table {
-      border: 1px solid $grey-table-border;
-      margin-bottom: 24px;
-      td,
-      th {
-        font-size: 14px;
-        line-height: 1.5;
-        border: 1px solid $grey-table-border;
-        padding: 4px 8px;
+    &-pagination {
+      display: flex;
+      justify-content: space-between;
+      margin: 32px 0;
+      .chevron-link {
+        flex: 0 0 50%;
       }
-      th {
-        color: $blue-black;
-      }
-      td {
-        color: $blue-darkest;
-        border-top-width: 0;
-        border-bottom-width: 0;
-      }
-      tr:nth-child(2n) {
-        background: $grey-table-bg;
+      @media (min-width: 1024px) {
+        margin: 64px 0;
       }
     }
   }
