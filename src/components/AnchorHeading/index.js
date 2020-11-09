@@ -7,7 +7,7 @@ export default function AnchorHeading({ children, size: H, ...props }) {
   const slug = makeSlug(children);
   return (
     <H {...props}>
-      <Link id={slug} to={`#${slug}`}>
+      <Link id={slug} to={`#${slug}`} className="anchor before">
         <LinkIcon size="16" />
       </Link>
       {children}

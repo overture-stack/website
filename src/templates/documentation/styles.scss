@@ -95,8 +95,8 @@
       }
     }
   }
-  &__md {
-    // markdown stuff
+  &__mdx {
+    // markdown
     code {
       color: $magenta;
       background: $grey-blue;
@@ -105,7 +105,9 @@
       border-radius: 3px;
       padding: 0.15em 0.25em;
     }
-    p {
+    p,
+    div,
+    pre {
       margin-bottom: 24px;
     }
     p,
@@ -154,21 +156,55 @@
     h6 {
       position: relative;
       .anchor {
-        margin-left: -1.875rem !important;
-        padding-right: 0.875rem !important;
+        // margin-left: -10px !important;
+        padding-right: 10px !important;
         &.before {
           position: absolute;
           top: 0;
           left: 0;
           transform: translateX(-100%);
         }
-        img {
+        svg {
           visibility: hidden;
         }
       }
-      &:hover .anchor img {
+      &:hover .anchor svg {
         visibility: visible;
       }
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 40px;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        display: block;
+        height: 3px;
+        width: 106px;
+        border-radius: 1.5px;
+        background-color: $yellow-light-border;
+      }
+    }
+    h3 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+    h4 {
+      font-weight: bold;
+      margin-bottom: 24px;
+      line-height: 24px;
+    }
+    h5,
+    h6 {
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 24px;
     }
   }
 }

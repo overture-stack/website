@@ -81,8 +81,8 @@ export default function DocumentationPage({ data }) {
             <h1 className="docs__main-title">{title}</h1>
 
             {/* MARKDOWN PAGE CONTENT */}
-            <div className="docs__md">
-              <MDXRenderer className="docs__md">{body}</MDXRenderer>
+            <div className="docs__mdx">
+              <MDXRenderer className="docs__mdx">{body}</MDXRenderer>
             </div>
 
             {/* PREV/NEXT BUTTONS */}

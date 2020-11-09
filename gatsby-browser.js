@@ -12,7 +12,7 @@ const headings = {
   h3: props => <AnchorHeading size="h4" {...props} />,
   h4: props => <AnchorHeading size="h5" {...props} />,
   h5: props => <AnchorHeading size="h6" {...props} />,
-  h6: props => <AnchorHeading size="strong" {...props} />,
+  h6: props => <AnchorHeading size="h6" {...props} />,
 };
 
 const shortcodes = { Warning };
