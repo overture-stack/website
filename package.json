@@ -39,8 +39,10 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.11.0",
+    "react-markdown": "^5.0.2",
     "react-modal": "^3.11.2",
     "react-waypoint": "^9.0.3",
+    "remark-gfm": "^1.0.0",
     "webpack": "^4.44.1"
   },
   "license": "AGPL-3.0-or-later",

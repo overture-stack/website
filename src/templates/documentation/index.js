@@ -1,15 +1,17 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { graphql, Link } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
+import gfm from 'remark-gfm';
 import {
   AnchorHeading,
   HeadingsTableOfContents,
   Icon,
-  NoteBox as Note,
+  NoteBox,
   SectionTableOfContents,
-  WarningBox as Warning,
+  WarningBox,
 } from 'components';
 import NotFoundPage from 'pages/404';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
@@ -28,7 +30,21 @@ const headings = {
   h6: props => <AnchorHeading size="h6" {...props} />,
 };
 
-const shortcodes = { Note, Warning };
+const shortcodes = {
+  // gatsby mdx will not process markdown inside shortcodes.
+  // react-markdown won't process URLs on its own,
+  // so we're using the github markdown plugin
+  Note: ({ children, title, ...props }) => (
+    <NoteBox title={title} {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </NoteBox>
+  ),
+  Warning: ({ children, title, ...props }) => (
+    <WarningBox {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </WarningBox>
+  ),
+};
 
 const components = {
   ...headings,

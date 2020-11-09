@@ -1,11 +1,9 @@
 import React from 'react';
-import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import './styles.scss';
 
-export default function WarningBox({ children }) {
+export default function WarningBox({ children, ...props }) {
   return (
-    <div className="warning-box">
-      {/* <MDXRenderer>{children}</MDXRenderer> */}
+    <div className="warning-box" {...props}>
       {children}
     </div>
   );
