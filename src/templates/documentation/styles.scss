@@ -118,7 +118,19 @@
     ol {
       margin-bottom: 24px;
     }
+    li {
+      margin-bottom: 4px;
+    }
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol,
+    li p {
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
     p,
+    div,
     li {
       color: $blue-darker;
     }
@@ -181,7 +193,7 @@
     }
     h2 {
       font-size: 20px;
-      margin-bottom: 40px;
+      margin: 48px 0 40px;
       &:after {
         content: '';
         position: absolute;
@@ -200,6 +212,16 @@
     h6 {
       font-size: 14px;
       text-transform: uppercase;
+    }
+    ul,
+    ol {
+      padding-left: 16px;
+    }
+    ul {
+      list-style-type: initial;
+    }
+    ol {
+      list-style-type: decimal;
     }
   }
 }

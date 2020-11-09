@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'components';
 import { MDXProvider } from '@mdx-js/react';
-import { AnchorHeading, WarningBox as Warning } from 'components';
+import { AnchorHeading, NoteBox as Note, WarningBox as Warning } from 'components';
 
 const headings = {
   // for the documentation section:
@@ -15,7 +15,7 @@ const headings = {
   h6: props => <AnchorHeading size="h6" {...props} />,
 };
 
-const shortcodes = { Warning };
+const shortcodes = { Note, Warning };
 
 export function wrapPageElement({ element, props }) {
   return (

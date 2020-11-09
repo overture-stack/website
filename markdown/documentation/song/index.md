@@ -19,7 +19,6 @@ Based on:
 - [Code and Syntax Highlighting](#code)
 - [Tables](#tables)
 - [Blockquotes](#blockquotes)
-- [Inline HTML](#html)
 - [Horizontal Rule](#hr)
 - [Line Breaks](#lines)
 - [YouTube Videos](#videos)
@@ -115,16 +114,16 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 ```no-highlight
 1. First ordered list item
 2. Another item
-⋅⋅* Unordered sub-list.
+  * Unordered sub-list.
 1. Actual numbers don't matter, just that it's a number
-⋅⋅1. Ordered sub-list
+  1. Ordered sub-list
 4. And another item.
 
-⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+   You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
-⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+   To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+   Note that this line is separate, but within the same paragraph.⋅⋅
+   (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
 * Unordered list can use asterisks
 - Or minuses
@@ -133,12 +132,10 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 1. First ordered list item
 2. Another item
-
-- Unordered sub-list.
-
-1. Actual numbers don't matter, just that it's a number
-1. Ordered sub-list
-1. And another item.
+   - Unordered sub-list.
+3. Actual numbers don't matter, just that it's a number
+   1. Ordered sub-list
+4. And another item.
 
    You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
@@ -342,30 +339,6 @@ Quote break.
 Quote break.
 
 > This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
-<a name="html"></a>
-
-## Inline HTML
-
-You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
-
-```no-highlight
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-```
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
 
 <a name="hr"></a>
 

@@ -13,6 +13,7 @@ export { default as MarketingSection } from './MarketingSection';
 export { default as NavBar } from './NavBar';
 export { default as NavLink } from './NavBar/NavLink';
 export { default as MegaMenu } from './NavBar/MegaMenu';
+export { default as NoteBox } from './NoteBox';
 export { default as ProductHero } from './ProductHero';
 export { default as ProgressBar } from './ProgressBar';
 export { default as WarningBox } from './WarningBox';
