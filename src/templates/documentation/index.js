@@ -1,13 +1,40 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
+import {
+  AnchorHeading,
+  HeadingsTableOfContents,
+  Icon,
+  NoteBox as Note,
+  SectionTableOfContents,
+  WarningBox as Warning,
+} from 'components';
 import NotFoundPage from 'pages/404';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+
+const headings = {
+  // the page title is h1
+  // so demote markdown headings by one level
+  h1: props => <AnchorHeading size="h2" {...props} />,
+  h2: props => <AnchorHeading size="h3" {...props} />,
+  h3: props => <AnchorHeading size="h4" {...props} />,
+  h4: props => <AnchorHeading size="h5" {...props} />,
+  h5: props => <AnchorHeading size="h6" {...props} />,
+  h6: props => <AnchorHeading size="h6" {...props} />,
+};
+
+const shortcodes = { Note, Warning };
+
+const components = {
+  ...headings,
+  ...shortcodes,
+  wrapper: props => <div className="docs__mdx" {...props} />,
+};
 
 export default function DocumentationPage({ data }) {
   if (!SHOW_DOCS) return <NotFoundPage />;
@@ -81,9 +108,9 @@ export default function DocumentationPage({ data }) {
             <h1 className="docs__main-title">{title}</h1>
 
             {/* MARKDOWN PAGE CONTENT */}
-            <div className="docs__mdx">
+            <MDXProvider components={components}>
               <MDXRenderer>{body}</MDXRenderer>
-            </div>
+            </MDXProvider>
 
             {/* PREV/NEXT BUTTONS */}
             <div className="docs__main-pagination">
