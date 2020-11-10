@@ -14,6 +14,7 @@ import checkmark from './icons/checkmark.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
 import customizable from './icons/customizable.svg';
+import copy from './icons/copy.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
 import download from './icons/download.svg';
@@ -85,6 +86,7 @@ const icons = {
   customizable,
   cloud,
   cloudSquare,
+  copy,
   database,
   dna,
   download,
