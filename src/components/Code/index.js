@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import nightOwl from 'prism-react-renderer/themes/nightOwl';
+import { Icon } from 'components/Icon';
 import { copyToClipboard } from 'utils';
 import './styles.scss';
-import { Icon } from 'components/Icon';
 
 export default function Code({ codeString, language, ...props }) {
   const [isCopied, setIsCopied] = useState(false);
-  console.log({ defaultProps, props, language });
   const langStr = language === 'no-highlight' ? '' : language;
   return (
     <Highlight {...defaultProps} {...props} code={codeString} language={language} theme={nightOwl}>

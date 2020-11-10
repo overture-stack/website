@@ -75,7 +75,6 @@
           opacity: 1;
         }
         .prism-code__copy-tooltip {
-          // display: block;
           visibility: visible;
           opacity: 1;
         }
@@ -86,12 +85,11 @@
     color: $white !important;
     font-family: Lato;
     font-size: 12px !important;
-    letter-spacing: 1px;
     left: 0;
-    padding: 12px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
     line-height: 1;
     opacity: 0.8;
-    // font-weight: 300;
+    padding: 12px;
+    text-transform: uppercase;
   }
 }
