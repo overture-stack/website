@@ -2,23 +2,25 @@
 
 .prism-code {
   border-radius: 8px;
-  div {
-    margin-bottom: 0;
-    span.number {
-      // undo bulma styles
-      padding: 0;
-      background: none;
-      font-size: inherit;
-      height: auto;
-      margin: 0;
-      min-width: auto;
-    }
+  span.number {
+    // undo bulma styles
+    padding: 0;
+    background: none;
+    font-size: inherit;
+    height: auto;
+    margin: 0;
+    min-width: auto;
   }
-  &__wrapper.with-copy {
-    padding-top: 48px;
-    position: relative;
-    background: rgb(1, 22, 39);
-    border-radius: 8px;
+  &__wrapper {
+    div {
+      margin-bottom: 0 !important;
+    }
+    &.with-copy {
+      padding-top: 32px;
+      position: relative;
+      background: rgb(1, 22, 39);
+      border-radius: 8px;
+    }
   }
   &__copy-btn,
   &__lang {
