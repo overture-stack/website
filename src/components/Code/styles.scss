@@ -14,27 +14,70 @@
       min-width: auto;
     }
   }
-  &.with-copy {
+  &__wrapper.with-copy {
     padding-top: 48px;
     position: relative;
+    background: rgb(1, 22, 39);
+    border-radius: 8px;
   }
   &__copy-btn,
   &__lang {
     position: absolute;
     top: 0;
   }
-  &__copy-btn {
-    right: 0;
-    background: transparent;
-    border: 0 none;
-    padding: 10px 8px;
-    opacity: 0.6;
-    transition: 0.25s all;
-    &:hover,
-    &:active,
-    &:focus {
-      opacity: 1;
-      cursor: pointer;
+  &__copy {
+    &-tooltip {
+      background: $tooltip-bg;
+      border-radius: 2px;
+      color: $white !important;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 8px;
+      position: absolute;
+      right: -3px;
+      top: -30px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s opacity;
+      &.is-copied {
+        visibility: visible;
+        right: -8px;
+        opacity: 1;
+      }
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: $tooltip-bg transparent transparent transparent;
+      }
+    }
+    &-btn {
+      right: 0;
+      background: transparent;
+      border: 0 none;
+      padding: 10px 8px;
+      img {
+        opacity: 0.6;
+        transition: 0.25s all;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        cursor: pointer;
+        img {
+          opacity: 1;
+        }
+        .prism-code__copy-tooltip {
+          // display: block;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
     }
   }
   &__lang {
@@ -46,7 +89,7 @@
     padding: 12px;
     text-transform: uppercase;
     line-height: 1;
-    opacity: 0.6;
-    font-weight: 300;
+    opacity: 0.8;
+    // font-weight: 300;
   }
 }
