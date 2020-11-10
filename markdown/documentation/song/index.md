@@ -430,20 +430,30 @@ Adipisicing quis incididunt non ad. Dolore minim enim sint nulla aliquip exercit
 Sit proident ea nostrud voluptate nostrud dolor mollit in pariatur magna sunt qui reprehenderit. Sunt commodo sit id laboris. Id nostrud tempor proident commodo cupidatat quis amet.
 
 ```js
-const shortcodes = {
-  // gatsby mdx will not process markdown inside shortcodes.
-  // react-markdown won't process URLs on its own,
-  // so we're using the github markdown plugin
-  Note: ({ children, title, ...props }) => (
-    <NoteBox title={title} {...props}>
-      <ReactMarkdown plugins={[gfm]} children={children} />
-    </NoteBox>
-  ),
-  Warning: ({ children, title, ...props }) => (
-    <WarningBox {...props}>
-      <ReactMarkdown plugins={[gfm]} children={children} />
-    </WarningBox>
-  ),
+export const findNextPage = ({ isLandingPage, pageIndex, sectionPages }) => {
+  if (isLandingPage) {
+    return {
+      title: sectionPages['0.title'],
+      url: `/documentation/${sectionPages['0.url']}/`,
+    };
+  } else {
+    const nextPagesKeys = Object.keys(sectionPages).slice(pageIndex + 1);
+    const nextPagesValues = Object.values(sectionPages).slice(pageIndex + 1);
+    const nextUrlIndex = findIndex(
+      nextPagesKeys,
+      key => key.includes('url') && sectionPages[key] !== null
+    );
+    // last page, so return null
+    if (nextUrlIndex === -1) return null;
+    const nextUrl = nextPagesValues[nextUrlIndex];
+    const nextTitleKey = nextPagesKeys[nextUrlIndex].replace('url', 'title');
+    const nextTitle = sectionPages[nextTitleKey];
+
+    return {
+      title: nextTitle,
+      url: `/documentation/${nextUrl}/`,
+    };
+  }
 };
 ```
 

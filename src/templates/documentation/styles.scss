@@ -100,7 +100,7 @@
     code {
       color: $magenta;
       background: $grey-blue;
-      font-family: monospace;
+      font-family: 'source code pro';
       border-radius: 3px;
       padding: 0.15em 0.25em;
     }
@@ -247,6 +247,20 @@
     .gatsby-resp-image-wrapper {
       box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
       border: solid 1px $image-border;
+    }
+    .prism-code {
+      div {
+        margin-bottom: 0 !important;
+        span.number {
+          // undo bulma styles
+          padding: 0;
+          background: none;
+          font-size: inherit;
+          height: auto;
+          margin: 0;
+          min-width: auto;
+        }
+      }
     }
   }
 }
