@@ -429,6 +429,24 @@ Adipisicing quis incididunt non ad. Dolore minim enim sint nulla aliquip exercit
 
 Sit proident ea nostrud voluptate nostrud dolor mollit in pariatur magna sunt qui reprehenderit. Sunt commodo sit id laboris. Id nostrud tempor proident commodo cupidatat quis amet.
 
+```js
+const shortcodes = {
+  // gatsby mdx will not process markdown inside shortcodes.
+  // react-markdown won't process URLs on its own,
+  // so we're using the github markdown plugin
+  Note: ({ children, title, ...props }) => (
+    <NoteBox title={title} {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </NoteBox>
+  ),
+  Warning: ({ children, title, ...props }) => (
+    <WarningBox {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </WarningBox>
+  ),
+};
+```
+
 ### Test Level 3 Heading
 
 Eu irure voluptate aliqua dolor tempor cillum do elit labore proident elit nulla exercitation. Dolore esse ad eu deserunt tempor deserunt incididunt ea quis incididunt non magna. Proident ullamco ipsum laboris aute veniam. Qui magna proident labore adipisicing cillum. Reprehenderit ad fugiat amet minim est reprehenderit exercitation enim amet nostrud proident magna.

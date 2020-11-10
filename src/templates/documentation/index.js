@@ -5,8 +5,10 @@ import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
 import gfm from 'remark-gfm';
+import { preToCodeBlock } from 'mdx-utils';
 import {
   AnchorHeading,
+  Code,
   HeadingsTableOfContents,
   Icon,
   NoteBox,
@@ -49,6 +51,16 @@ const shortcodes = {
 const components = {
   ...headings,
   ...shortcodes,
+  pre: preProps => {
+    const props = preToCodeBlock(preProps);
+    // if there's a codeString and some props, we passed the test
+    if (props) {
+      return <Code {...props} />;
+    } else {
+      // it's possible to have a pre without a code in it
+      return <pre {...preProps} />;
+    }
+  },
   wrapper: props => <div className="docs__mdx" {...props} />,
 };
 
