@@ -100,10 +100,15 @@
     code {
       color: $magenta;
       background: $grey-blue;
-      font-family: Lato;
-      font-size: inherit;
+      font-family: monospace;
       border-radius: 3px;
       padding: 0.15em 0.25em;
+    }
+    p,
+    li {
+      code {
+        font-size: 0.85em;
+      }
     }
     div,
     h2,
@@ -115,7 +120,8 @@
     pre,
     table,
     ul,
-    ol {
+    ol,
+    .gatsby-resp-image-wrapper {
       margin-bottom: 24px;
     }
     li {
@@ -237,6 +243,10 @@
       em {
         color: $grey-text !important;
       }
+    }
+    .gatsby-resp-image-wrapper {
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+      border: solid 1px $image-border;
     }
   }
 }

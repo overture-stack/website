@@ -15,7 +15,6 @@ Based on:
 - [Links](#links)
 - [Images](#images)
 - [Large Images](#large-images)
-- [Figure/Caption](#figure-caption)
 - [Code and Syntax Highlighting](#code)
 - [Tables](#tables)
 - [Blockquotes](#blockquotes)
@@ -230,9 +229,7 @@ Reference-style:
 
 ## Large Images
 
-<a name="figure-caption"></a>
-
-## Figure/Caption
+![song example image](song-example.png)
 
 <a name="code"></a>
 
