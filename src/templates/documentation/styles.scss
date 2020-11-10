@@ -223,5 +223,20 @@
     ol {
       list-style-type: decimal;
     }
+    blockquote {
+      border-left: 6px solid $grey-table-border;
+      padding: 0 18px;
+      margin-bottom: 24px;
+      *:last-child {
+        margin-bottom: 0;
+      }
+      p,
+      li,
+      div,
+      strong,
+      em {
+        color: $grey-text !important;
+      }
+    }
   }
 }
