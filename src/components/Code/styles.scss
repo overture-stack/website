@@ -2,14 +2,24 @@
 
 .prism-code {
   border-radius: 8px;
-  span.number {
+  span.number,
+  .tag,
+  .title,
+  .list,
+  .table {
     // undo bulma styles
-    padding: 0;
     background: none;
+    color: inherit;
+    display: inline-block;
     font-size: inherit;
+    font-weight: normal;
     height: auto;
-    margin: 0;
+    line-height: 1.5 !important;
+    margin: 0 !important;
     min-width: auto;
+    padding: 0;
+    white-space: pre;
+    display: inline-block !important;
   }
   &__wrapper {
     div {
