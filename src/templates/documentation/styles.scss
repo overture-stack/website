@@ -7,7 +7,7 @@
     align-items: stretch;
   }
   &__section {
-    padding: 0 16px;
+    padding: 20px 16px 0;
     background: $grey;
     &-overview {
       color: $blue-links-darker;
@@ -15,7 +15,7 @@
       font-size: 14px;
       font-weight: bold;
       line-height: 1;
-      margin: 20px 0 48px;
+      margin-bottom: 48px;
       img {
         margin-right: 4px;
       }
