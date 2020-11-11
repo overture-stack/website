@@ -1,10 +1,16 @@
 @import '../../styles/colors';
 
 .docs {
+  &__page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
   &__columns {
     // column css is temp until sidebars are done
     display: flex;
     align-items: stretch;
+    flex: 1;
   }
   &__section {
     padding: 20px 16px 0;
