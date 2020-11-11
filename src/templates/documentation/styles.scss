@@ -15,9 +15,14 @@
       font-size: 14px;
       font-weight: bold;
       line-height: 1;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
       img {
         margin-right: 4px;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $blue-links-darker;
       }
     }
   }
@@ -77,8 +82,11 @@
       }
     }
   }
-  &__toc {
-    &-github {
+  &__toc-section {
+    flex: 0 0 280px;
+    background: $grey;
+    padding: 20px 16px 0;
+    &__github {
       img {
         margin-right: 8px;
       }

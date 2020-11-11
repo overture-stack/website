@@ -15,6 +15,7 @@ import checkmark from './icons/checkmark.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
 import customizable from './icons/customizable.svg';
+import chevronSmall from './icons/chevron-right-sm.svg';
 import copy from './icons/copy.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
@@ -85,10 +86,11 @@ const icons = {
   barGraph,
   cardStack,
   checkmark,
-  customizable,
+  chevronSmall,
   cloud,
   cloudSquare,
   copy,
+  customizable,
   database,
   dna,
   download,
