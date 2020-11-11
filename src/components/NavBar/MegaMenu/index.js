@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Link from 'gatsby-link';
+import { githubLinks } from 'meta/config';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
@@ -59,12 +60,12 @@ const data = {
         color: 'yellow',
         links: [
           {
-            to: 'https://github.com/overture-stack/billing',
+            to: githubLinks.billing,
             text: 'Billing & Usage',
             hasGithubIcon: true,
           },
           {
-            to: 'https://github.com/overture-stack/enrolment',
+            to: githubLinks.enrolment,
             text: 'Enrolment',
             hasGithubIcon: true,
           },
@@ -211,7 +212,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                       className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
                       onClick={() => closeMenus()}
                       to={link.to}
-                      >
+                    >
                       {link.text}
                     </Link>
                   ) : (

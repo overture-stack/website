@@ -10,6 +10,7 @@ import {
   BottomCallout,
   Callout,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 // Screenshots
 import lolliplotScreen from './assets/lolliplot_screen.png';
@@ -39,7 +40,7 @@ const OncoPage = () => (
       title="OncoJS"
       subTitle="Bring data to life with stunning visualizations and real-time analysis."
       cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
-      getStartedLink="https://github.com/oncojs/"
+      getStartedLink={githubLinks.oncojs}
       badge={{ color: 'red', text: 'Analyze & Discover' }}
       logo="logoOncojs"
       progressType="ga"
@@ -338,12 +339,7 @@ const OncoPage = () => (
         description="Bring data to life with stunning visualizations and real-time analysis."
         className="center"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/oncojs/"
-          icon="githubWhite"
-        >
+        <Button type="primary" size="medium" externalLink={githubLinks.oncojs} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

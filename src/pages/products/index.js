@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
+import { githubLinks } from 'meta/config';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -142,12 +143,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: 'https://github.com/overture-stack/billing',
+          extlink: githubLinks.billing,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: 'https://github.com/overture-stack/enrolment',
+          extlink: githubLinks.enrolment,
         },
       ],
       ChildComponent: ProductBox,
@@ -278,7 +279,7 @@ export default function ProductsPage() {
           <Button
             type="primary"
             size="medium"
-            externalLink="https://github.com/overture-stack"
+            externalLink={githubLinks.overture}
             icon="githubWhite"
           >
             Get Started

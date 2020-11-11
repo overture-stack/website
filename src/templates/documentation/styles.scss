@@ -69,6 +69,13 @@
       }
     }
   }
+  &__toc {
+    &-github {
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
   &__main {
     display: flex;
     flex: 1;

@@ -11,4 +11,19 @@ module.exports = {
   siteTitleAlt: 'Overture Bio', // Alternative site title for SEO.
   siteUrl: 'https://overture.bio', // Domain of your website without pathPrefix.
   themeColor: '#00d1b2', // Used for setting manifest and progress theme colors.
+  githubLinks: {
+    arranger: 'https://github.com/overture-stack/arranger',
+    billing: 'https://github.com/overture-stack/billing',
+    enrolment: 'https://github.com/overture-stack/enrolment',
+    dms: 'https://github.com/overture-stack/dms',
+    ego: 'https://github.com/overture-stack/ego',
+    jukebox: 'https://github.com/overture-stack/jupyter',
+    maestro: 'https://github.com/overture-stack/maestro',
+    oncojs: 'https://github.com/oncojs',
+    overture: 'https://github.com/overture-stack',
+    persona: 'https://github.com/overture-stack/persona',
+    riff: 'https://github.com/overture-stack/riff',
+    score: 'https://github.com/overture-stack/score',
+    song: 'https://github.com/overture-stack/song',
+  },
 };

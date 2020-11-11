@@ -13,6 +13,7 @@ import {
   Terminal,
   UrlBar,
 } from 'components';
+import { githubLinks } from 'meta/config';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -33,7 +34,7 @@ const ArrangerPage = () => (
       title="Arranger"
       subTitle="Data can be messy, let Arranger organize it for you. "
       cardText="Provide your administrators with the power to organize an intuitive data search interface, complete with customizable components, tables, and search terms."
-      getStartedLink="https://github.com/overture-stack/arranger"
+      getStartedLink={githubLinks.arranger}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoArranger"
       progressType="rc"
@@ -192,12 +193,7 @@ const ArrangerPage = () => (
         description="Provide your administrators with the power to organize an intuitive data search interface."
         className="center"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/overture-stack/arranger"
-          icon="githubWhite"
-        >
+        <Button type="primary" size="medium" externalLink={githubLinks.arranger} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

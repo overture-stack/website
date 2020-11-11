@@ -8,6 +8,7 @@ import gfm from 'remark-gfm';
 import { preToCodeBlock } from 'mdx-utils';
 import {
   AnchorHeading,
+  Button,
   Code,
   HeadingsTableOfContents,
   Icon,
@@ -16,6 +17,7 @@ import {
   WarningBox,
 } from 'components';
 import NotFoundPage from 'pages/404';
+import { githubLinks } from 'meta/config';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
 
@@ -128,6 +130,14 @@ export default function DocumentationPage({ data }) {
             </li>
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
+          {/* GITHUB BUTTON */}
+          <Button
+            className="docs__toc-github"
+            externalLink={githubLinks[sectionSlug]}
+            type="primary"
+          >
+            <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+          </Button>
         </div>
 
         {/* MAIN CONTENT */}

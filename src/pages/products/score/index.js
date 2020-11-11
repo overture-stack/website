@@ -13,6 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 const featureGridData = [
   [
@@ -59,7 +60,7 @@ const ScorePage = () => (
       title="Score"
       subTitle="Transfer data quickly and easily to and from any cloud-based storage system."
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
-      getStartedLink="https://github.com/overture-stack/score"
+      getStartedLink={githubLinks.score}
       logo="logoScore"
       progressType="ga"
       badge={{ color: 'pink', text: 'Generate & Upload' }}
@@ -144,12 +145,7 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/overture-stack/score"
-          icon="githubWhite"
-        >
+        <Button type="primary" size="medium" externalLink={githubLinks.score} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

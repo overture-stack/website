@@ -13,6 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 import './style.scss';
 
@@ -72,7 +73,7 @@ const MaestroPage = () => (
           configurable index.
         </div>
       }
-      getStartedLink="https://github.com/overture-stack/maestro"
+      getStartedLink={githubLinks.maestro}
       logo="logoMaestro"
       progressType="rc"
       badge={{ color: 'blue', text: 'Access & Download' }}
@@ -158,12 +159,7 @@ const MaestroPage = () => (
         className="center"
         description="Index a single analysis, a study or a full Song with one request."
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/overture-stack/maestro"
-          icon="githubWhite"
-        >
+        <Button type="primary" size="medium" externalLink={githubLinks.maestro} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { Icon } from 'components';
+import { githubLinks } from 'meta/config';
 import './styles.scss';
 import logo from './logo.svg';
 
@@ -76,13 +77,13 @@ const columns = {
   'Track & Manage': [
     {
       'Billing & Usage': {
-        link: 'https://github.com/overture-stack/billing',
+        link: githubLinks.billing,
         icon: 'githubGrey',
         newTab: true,
         className: '',
       },
       Enrolment: {
-        link: 'https://github.com/overture-stack/enrolment',
+        link: githubLinks.enrolment,
         icon: 'githubGrey',
         newTab: true,
         className: '',

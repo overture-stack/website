@@ -9,6 +9,7 @@ import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';
 import { Button } from 'components';
+import { githubLinks } from 'meta/config';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 
@@ -108,7 +109,7 @@ class NavBar extends Component {
                 <Button
                   type="secondary"
                   size="navGithub"
-                  externalLink="https://github.com/overture-stack"
+                  externalLink={githubLinks.overture}
                   icon="githubMagenta"
                 >
                   Overture Github

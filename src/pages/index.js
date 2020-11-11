@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import Modal from 'react-modal';
+import { githubLinks } from 'meta/config';
 import { Badge, Button, H1, H2, Hero, Icon } from 'components';
 import heroImg from './assets/heroImg.svg';
 import './home/styles.scss';
@@ -226,7 +227,7 @@ class HomePage extends React.Component {
                 <p className="pt2">
                   Built to be reusable and scalable, Overture’s components are well documented,
                   actively supported and welcome{' '}
-                  <a target="_blank" href="https://github.com/overture-stack">
+                  <a target="_blank" href={githubLinks.overture}>
                     external feedback and contributions
                   </a>
                   . If you need assistance, we also offer{' '}
