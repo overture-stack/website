@@ -6,11 +6,19 @@
     display: flex;
     align-items: stretch;
   }
-  &__column {
-    // column css is temp until sidebars are done
-    display: none;
-    @media (min-width: 1024px) {
+  &__section {
+    padding: 0 16px;
+    background: $grey;
+    &-overview {
+      color: $blue-links-darker;
       display: block;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      margin: 20px 0 48px;
+      img {
+        margin-right: 4px;
+      }
     }
   }
   &__header {

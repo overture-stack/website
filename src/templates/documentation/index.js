@@ -10,7 +10,6 @@ import {
   AnchorHeading,
   Button,
   Code,
-  HeadingsTableOfContents,
   Icon,
   NoteBox,
   SectionTableOfContents,
@@ -120,9 +119,10 @@ export default function DocumentationPage({ data }) {
       </div>
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
-        <div className="docs__column" style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
-          <Link to="/documentation/">
-            <h2 className="t-h2">&larr; Docs</h2>
+        <div className="docs__section" style={{ width: 250 }}>
+          <Link to="/documentation/" className="docs__section-overview">
+            <Icon size={6} img="arrowLeftBlue" />
+            Documentation Overview
           </Link>
           <ol>
             <li>
@@ -139,7 +139,6 @@ export default function DocumentationPage({ data }) {
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github
           </Button>
         </div>
-
         {/* MAIN CONTENT */}
         <div className="docs__main">
           <div className="docs__main-container">
@@ -174,12 +173,11 @@ export default function DocumentationPage({ data }) {
             </div>
           </div>
         </div>
-
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
-        <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
+        {/* <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
           <h2 className="t-h2">Headings</h2>
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
-        </div>
+        </div> */}
       </div>
     </main>
   );

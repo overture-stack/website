@@ -2,6 +2,7 @@
 import React from 'react';
 import './styles.scss';
 
+import arrowLeftBlue from './icons/arrow-left-blue.svg';
 import arrowDown from './icons/arrow_down.svg';
 import arrowRight from './icons/arrow_right.svg';
 import arrowRightMagenta from './icons/arrow_right_magenta.svg';
@@ -74,6 +75,7 @@ import user from './icons/user.svg';
 import vennDiagram from './icons/venn_diagram.svg';
 
 const icons = {
+  arrowLeftBlue,
   arrowRight,
   arrowsRight,
   arrowRightRound,

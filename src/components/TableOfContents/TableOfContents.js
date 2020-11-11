@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import './styles.scss';
 
 export default function TableOfContents({ type, items }) {
   return (
