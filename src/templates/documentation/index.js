@@ -66,7 +66,7 @@ const components = {
   wrapper: props => <div className="docs__mdx" {...props} />,
 };
 
-export default function DocumentationPage({ data, location, path }) {
+export default function DocumentationPage({ data, path }) {
   if (!SHOW_DOCS) return <NotFoundPage />;
 
   const {
@@ -91,7 +91,6 @@ export default function DocumentationPage({ data, location, path }) {
   const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
   const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
   const isLandingPage = pageSlug === sectionSlug && title === sectionTitle;
-  const hash = location && location.hash; // check for location to prevent build failure
 
   const prevPage = findPrevPage({
     isLandingPage,
@@ -176,9 +175,7 @@ export default function DocumentationPage({ data, location, path }) {
 
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
         <div className="docs__toc-headings">
-          {headingsTableOfContents && (
-            <HeadingsTableOfContents items={headingsTableOfContents} hash={hash} />
-          )}
+          {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
         </div>
       </div>
     </main>
