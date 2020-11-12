@@ -1,9 +1,14 @@
 @import '../../styles/colors';
 
 .toc-headings {
-  margin-bottom: 24px;
-  list-style-type: none;
   border-left: 3px solid $magenta-border;
+  list-style-type: none;
+  margin-bottom: 24px;
+  max-height: calc(100vh - 407px);
+  // nav height 60px, footer height 275px, padding 48px + 24px
+  overflow: auto;
+  position: sticky;
+  top: 108px; // nav height 60px + padding 48px
   // all levels
   &__list {
     list-style-type: none;
