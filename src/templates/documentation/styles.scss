@@ -100,8 +100,7 @@
     justify-content: center;
     padding: 10px 20px;
     &-container {
-      max-width: 50em;
-      padding: 0 48px;
+      flex: 0 1 45em;
     }
     &-title {
       margin: 48px 0 44px;
@@ -148,6 +147,12 @@
     ol,
     .gatsby-resp-image-wrapper {
       margin-bottom: 24px;
+    }
+    pre {
+      // making pre responsive
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: justify;
     }
     li {
       margin-bottom: 4px;
@@ -276,7 +281,7 @@
   }
   &__toc-headings {
     flex: 0 0 300px;
-    padding: 48px 20px 0;
+    padding: 48px 20px 0 0;
     @media (max-width: 1024px) {
       display: none;
     }
