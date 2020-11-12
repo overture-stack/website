@@ -1,67 +1,71 @@
 @import '../../styles/colors';
 
-.toc-headings {
+.toc-headings__wrapper {
   margin-bottom: 24px;
   list-style-type: none;
-  button {
-    border: 0 none;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-  }
+  border-left: 3px solid $magenta-border;
   // all levels
-  li {
-    a,
-    button {
-      background: transparent;
-      border-left: 3px solid transparent;
-      color: $blue-black;
-      display: block;
-      font-size: 16px;
-      font-weight: bold;
-      &:hover,
-      &.active {
-        background: $white;
-      }
-      &.active {
-        border-left-color: $magenta-border;
-        color: $magenta;
-      }
-    }
-    span {
-      position: relative;
-      .Icon {
-        position: absolute;
-        left: -10px;
-        top: 7px;
+  ol {
+    list-style-type: none;
+    li {
+      a {
+        background: transparent;
+        color: $blue-black;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 7px 0 7px;
+        line-height: 18px;
+        &:hover,
+        &:active,
+        &:focus {
+          background: $grey-bg-hover-light;
+        }
+        &.active {
+          color: $magenta;
+          background: $pink-light-bg;
+        }
       }
     }
   }
   // first level
-  > ol > li {
-    border-bottom: 1px solid $grey-table-border;
-    > a,
-    > button {
-      line-height: 18px;
-      padding: 12px 0 12px 24px;
-    }
-    // lower levels
-    ol li {
-      a,
-      button {
-        font-size: 14px;
-        line-height: 16px;
-        padding: 10px 0 10px 32px;
+  > ol {
+    > li {
+      > a {
+        font-weight: bold;
+        padding-left: 16px;
       }
-      span .Icon {
-        top: 6px;
+      // lower levels
+      ol {
+        li a {
+          font-weight: normal;
+          padding-left: 40px;
+          span {
+            position: relative;
+            &:before {
+              content: '•';
+              position: absolute;
+              left: -14px;
+              top: 0;
+            }
+          }
+        }
       }
-    }
-    // third level
-    > ol > li > ol > li {
-      > a,
-      > button {
-        padding-left: 48px;
+      // third level
+      li li {
+        a {
+          padding-left: 56px;
+        }
+        li {
+          a {
+            padding-left: 72px;
+          }
+          li {
+            a {
+              padding-left: 88px;
+            }
+          }
+        }
       }
     }
   }

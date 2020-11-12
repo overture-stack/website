@@ -6,6 +6,8 @@
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
+const remarkSlug = require('remark-slug');
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -39,6 +41,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        remarkPlugins: [remarkSlug],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',

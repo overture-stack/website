@@ -95,8 +95,7 @@
     }
   }
   &__main {
-    // display: flex;
-    display: none;
+    display: flex;
     flex: 1;
     justify-content: center;
     padding: 10px 20px;
@@ -276,8 +275,10 @@
     }
   }
   &__toc-headings {
-    background: $yellow-light-bg;
     flex: 0 0 300px;
     padding: 48px 20px 0;
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 }

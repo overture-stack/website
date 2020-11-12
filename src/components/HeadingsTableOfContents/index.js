@@ -12,7 +12,7 @@ export default function HeadingsTableOfContents({ hash, items }) {
         return (
           <li key={item.url}>
             <a href={item.url} className={linkClassName}>
-              {item.title}
+              <span>{item.title}</span>
             </a>
             {item.items && <HeadingsTableOfContents items={item.items} hash={hash} />}
           </li>

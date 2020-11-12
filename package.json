@@ -45,6 +45,7 @@
     "react-modal": "^3.11.2",
     "react-waypoint": "^9.0.3",
     "remark-gfm": "^1.0.0",
+    "remark-slug": "^6.0.0",
     "webpack": "^4.44.1"
   },
   "license": "AGPL-3.0-or-later",

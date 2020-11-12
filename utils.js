@@ -1,6 +1,3 @@
-var GithubSlugger = require('github-slugger');
-var slugger = new GithubSlugger();
-
 module.exports = {
   copyToClipboard: function(str) {
     const el = document.createElement('textarea');
@@ -12,10 +9,6 @@ module.exports = {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-  },
-  makeSlug: function(input) {
-    // input can be a string or array of strings
-    return typeof input === 'string' ? slugger.slug(input) : slugger.slug(input[0]);
   },
   makeURLSafeString: function(str) {
     return str

@@ -173,10 +173,13 @@ export default function DocumentationPage({ data, location, path }) {
             </div>
           </div>
         </div>
+
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
         <div className="docs__toc-headings">
           {headingsTableOfContents && (
-            <HeadingsTableOfContents items={headingsTableOfContents} hash={hash} />
+            <div className="toc-headings__wrapper">
+              <HeadingsTableOfContents items={headingsTableOfContents} hash={hash} />
+            </div>
           )}
         </div>
       </div>

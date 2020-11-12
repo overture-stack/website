@@ -1,12 +1,10 @@
 import React from 'react';
 import { GoLink as LinkIcon } from 'react-icons/go';
-import { makeSlug } from 'utils';
 
-export default function AnchorHeading({ children, size: H, ...props }) {
-  const slug = makeSlug(children);
+export default function AnchorHeading({ children, id, size: H, ...props }) {
   return (
     <H {...props}>
-      <a id={slug} href={`#${slug}`} className="anchor before">
+      <a id={id} href={`#${id}`} className="anchor before">
         <LinkIcon size="16" />
       </a>
       {children}
