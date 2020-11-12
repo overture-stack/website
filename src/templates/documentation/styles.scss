@@ -12,10 +12,16 @@
     align-items: stretch;
     flex: 1;
   }
-  &__section {
-    padding: 20px 16px 0;
+  &__toc-section {
+    flex: 0 0 280px;
     background: $grey;
-    &-overview {
+    padding: 20px 16px 0;
+    &__github {
+      img {
+        margin-right: 8px;
+      }
+    }
+    &__overview {
       color: $blue-links-darker;
       display: block;
       font-size: 14px;
@@ -88,18 +94,9 @@
       }
     }
   }
-  &__toc-section {
-    flex: 0 0 280px;
-    background: $grey;
-    padding: 20px 16px 0;
-    &__github {
-      img {
-        margin-right: 8px;
-      }
-    }
-  }
   &__main {
-    display: flex;
+    // display: flex;
+    display: none;
     flex: 1;
     justify-content: center;
     padding: 10px 20px;
@@ -277,5 +274,10 @@
       box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
       border: solid 1px $image-border;
     }
+  }
+  &__toc-headings {
+    background: $yellow-light-bg;
+    flex: 0 0 300px;
+    padding: 48px 20px 0;
   }
 }

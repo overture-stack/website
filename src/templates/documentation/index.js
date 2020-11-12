@@ -10,6 +10,7 @@ import {
   AnchorHeading,
   Button,
   Code,
+  HeadingsTableOfContents,
   Icon,
   NoteBox,
   SectionTableOfContents,
@@ -119,23 +120,23 @@ export default function DocumentationPage({ data, path }) {
       </div>
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
-        <div className="docs__toc-section">
-          <Link to="/documentation/" className="docs__section-overview">
+        {/* <div className="docs__toc-section">
+          <Link to="/documentation/" className="docs__toc-section__overview">
             <Icon size={6} img="arrowLeftBlue" />
             Documentation Overview
           </Link>
 
-          <SectionTableOfContents items={sectionObj.items} path={path} />
+          <SectionTableOfContents items={sectionObj.items} path={path} /> */}
 
-          {/* GITHUB BUTTON */}
-          <Button
+        {/* GITHUB BUTTON */}
+        {/* <Button
             className="docs__toc-section__github"
             externalLink={githubLinks[sectionSlug]}
             type="primary"
           >
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github
           </Button>
-        </div>
+        </div> */}
 
         {/* MAIN CONTENT */}
         <div className="docs__main">
@@ -172,10 +173,9 @@ export default function DocumentationPage({ data, path }) {
           </div>
         </div>
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
-        {/* <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
-          <h2 className="t-h2">Headings</h2>
+        <div className="docs__toc-headings">
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
-        </div> */}
+        </div>
       </div>
     </main>
   );

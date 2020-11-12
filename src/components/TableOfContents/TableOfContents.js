@@ -13,12 +13,13 @@ export default function TableOfContents({ items, path, type }) {
         const linkTo = `${type === 'headings' ? '' : '/documentation/'}${item.url}/`;
         const linkActive = path === item.url;
         const linkClassName = linkActive ? 'active' : '';
+        const hasCollapsibleSubmenu = type !== 'headings' && item.items;
         return (
           <li key={item.title}>
             {item.url ? (
               <Link to={linkTo} activeClassName="active" className={linkClassName}>
                 <span>
-                  {item.items && (
+                  {hasCollapsibleSubmenu && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -33,7 +34,7 @@ export default function TableOfContents({ items, path, type }) {
             ) : (
               <button type="button" onClick={() => setIsOpen(!isOpen)}>
                 <span>
-                  {item.items && (
+                  {hasCollapsibleSubmenu && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -46,7 +47,9 @@ export default function TableOfContents({ items, path, type }) {
                 </span>
               </button>
             )}
-            {item.items && isOpen && <TableOfContents items={item.items} type={type} />}
+            {item.items && (isOpen || !hasCollapsibleSubmenu) && (
+              <TableOfContents items={item.items} type={type} />
+            )}
           </li>
         );
       })}
