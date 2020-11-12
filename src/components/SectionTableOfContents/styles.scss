@@ -1,7 +1,8 @@
-@import '../../../styles/colors';
+@import '../../styles/colors';
 
 .toc-section {
   margin-bottom: 24px;
+  list-style-type: none;
   button {
     border: 0 none;
     cursor: pointer;

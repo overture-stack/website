@@ -66,7 +66,7 @@ const components = {
   wrapper: props => <div className="docs__mdx" {...props} />,
 };
 
-export default function DocumentationPage({ data, path }) {
+export default function DocumentationPage({ data, location, path }) {
   if (!SHOW_DOCS) return <NotFoundPage />;
 
   const {
@@ -91,6 +91,7 @@ export default function DocumentationPage({ data, path }) {
   const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
   const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
   const isLandingPage = pageSlug === sectionSlug && title === sectionTitle;
+  const hash = location && location.hash; // check for location to prevent build failure
 
   const prevPage = findPrevPage({
     isLandingPage,
@@ -120,23 +121,23 @@ export default function DocumentationPage({ data, path }) {
       </div>
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
-        {/* <div className="docs__toc-section">
+        <div className="docs__toc-section">
           <Link to="/documentation/" className="docs__toc-section__overview">
             <Icon size={6} img="arrowLeftBlue" />
             Documentation Overview
           </Link>
 
-          <SectionTableOfContents items={sectionObj.items} path={path} /> */}
+          <SectionTableOfContents items={sectionObj.items} path={path} />
 
-        {/* GITHUB BUTTON */}
-        {/* <Button
+          {/* GITHUB BUTTON */}
+          <Button
             className="docs__toc-section__github"
             externalLink={githubLinks[sectionSlug]}
             type="primary"
           >
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github
           </Button>
-        </div> */}
+        </div>
 
         {/* MAIN CONTENT */}
         <div className="docs__main">
@@ -174,7 +175,9 @@ export default function DocumentationPage({ data, path }) {
         </div>
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
         <div className="docs__toc-headings">
-          {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
+          {headingsTableOfContents && (
+            <HeadingsTableOfContents items={headingsTableOfContents} hash={hash} />
+          )}
         </div>
       </div>
     </main>

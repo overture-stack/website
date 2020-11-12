@@ -4,22 +4,21 @@ import { useSSRWorkaround } from 'hooks';
 import './styles.scss';
 import { Icon } from 'components/Icon';
 
-export default function TableOfContents({ items, path, type }) {
+export default function SectionTableOfContents({ items, path }) {
   const { key } = useSSRWorkaround();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <ol className="toc" key={key}>
+    <ol className="toc-section" key={key}>
       {items.map(item => {
-        const linkTo = `${type === 'headings' ? '' : '/documentation/'}${item.url}/`;
-        const linkActive = path === item.url;
+        const linkTo = `/documentation/${item.url}/`;
+        const linkActive = path === linkTo;
         const linkClassName = linkActive ? 'active' : '';
-        const hasCollapsibleSubmenu = type !== 'headings' && item.items;
         return (
           <li key={item.title}>
             {item.url ? (
               <Link to={linkTo} activeClassName="active" className={linkClassName}>
                 <span>
-                  {hasCollapsibleSubmenu && (
+                  {item.items && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -34,7 +33,7 @@ export default function TableOfContents({ items, path, type }) {
             ) : (
               <button type="button" onClick={() => setIsOpen(!isOpen)}>
                 <span>
-                  {hasCollapsibleSubmenu && (
+                  {item.items && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -47,9 +46,7 @@ export default function TableOfContents({ items, path, type }) {
                 </span>
               </button>
             )}
-            {item.items && (isOpen || !hasCollapsibleSubmenu) && (
-              <TableOfContents items={item.items} type={type} />
-            )}
+            {item.items && isOpen && <SectionTableOfContents items={item.items} path={path} />}
           </li>
         );
       })}
