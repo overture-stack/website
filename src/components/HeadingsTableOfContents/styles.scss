@@ -1,11 +1,11 @@
 @import '../../styles/colors';
 
-.toc-headings__wrapper {
+.toc-headings {
   margin-bottom: 24px;
   list-style-type: none;
   border-left: 3px solid $magenta-border;
   // all levels
-  ol {
+  &__list {
     list-style-type: none;
     li {
       a {

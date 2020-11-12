@@ -2,10 +2,9 @@ import React from 'react';
 import { useSSRWorkaround } from 'hooks';
 import './styles.scss';
 
-export default function HeadingsTableOfContents({ hash, items }) {
-  const { key } = useSSRWorkaround();
+function RenderItems({ hash, items }) {
   return (
-    <ol className="toc-headings" key={key}>
+    <ol className="toc-headings__list">
       {items.map(item => {
         const linkActive = hash === item.url;
         const linkClassName = linkActive ? 'active' : '';
@@ -14,10 +13,19 @@ export default function HeadingsTableOfContents({ hash, items }) {
             <a href={item.url} className={linkClassName}>
               <span>{item.title}</span>
             </a>
-            {item.items && <HeadingsTableOfContents items={item.items} hash={hash} />}
+            {item.items && <RenderItems items={item.items} hash={hash} />}
           </li>
         );
       })}
     </ol>
+  );
+}
+
+export default function HeadingsTableOfContents({ hash, items }) {
+  const { key } = useSSRWorkaround();
+  return (
+    <div className="toc-headings" key={key}>
+      <RenderItems hash={hash} items={items} />
+    </div>
   );
 }
