@@ -1,5 +1,6 @@
 import React from 'react';
 import { useActiveId } from 'hooks';
+import { HashLink } from 'components';
 import './styles.scss';
 
 const getIds = items =>
@@ -20,9 +21,9 @@ const RenderItems = ({ activeId, items }) => {
         const linkClassName = linkActive ? 'active' : '';
         return (
           <li key={item.url}>
-            <a href={item.url} className={linkClassName}>
+            <HashLink to={item.url} className={linkClassName}>
               <span>{item.title}</span>
-            </a>
+            </HashLink>
             {item.items && <RenderItems activeId={activeId} items={item.items} />}
           </li>
         );

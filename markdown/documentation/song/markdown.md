@@ -4,18 +4,11 @@ title: Markdown Kitchen Sink
 
 # Table of Contents
 
+Testing in-page anchor links.
+
 - [Shortcodes](#shortcodes)
 - [Headers](#headers)
 - [Emphasis](#emphasis)
-- [Lists](#lists)
-- [Links](#links)
-- [Images](#images)
-- [Code and Syntax Highlighting](#code)
-- [Tables](#tables)
-- [Blockquotes](#blockquotes)
-- [Horizontal Rule](#hr)
-- [Line Breaks](#lines)
-- [Putting It All Together](#all-together)
 
 ---
 
