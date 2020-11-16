@@ -14,7 +14,7 @@ export default function useActiveId(itemIds) {
           }
         });
       },
-      { rootMargin: `0% 0% -80% 0%` }
+      { rootMargin: `0% 0% -90% 0%` }
     );
     itemIds.forEach(id => {
       observer.observe(document.getElementById(id));
