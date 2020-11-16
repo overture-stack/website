@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+// gets the current active element by ID
+// i.e. for the documentation table of contents sidebar
+
 export default function useActiveId(itemIds) {
   const [activeId, setActiveId] = useState(``);
   useEffect(() => {

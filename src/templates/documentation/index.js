@@ -10,6 +10,7 @@ import {
   AnchorHeading,
   Button,
   Code,
+  DynamicLink,
   HeadingsTableOfContents,
   Icon,
   NoteBox,
@@ -53,6 +54,7 @@ const shortcodes = {
 const components = {
   ...headings,
   ...shortcodes,
+  a: props => <DynamicLink {...props} />,
   pre: preProps => {
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
