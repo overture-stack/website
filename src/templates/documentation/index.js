@@ -17,6 +17,7 @@ import {
   SectionTableOfContents,
   WarningBox,
 } from 'components';
+import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
 import { githubLinks } from 'meta/config';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
@@ -68,7 +69,7 @@ const components = {
   wrapper: props => <div className="docs__mdx" {...props} />,
 };
 
-export default function DocumentationPage({ data, path }) {
+export default function DocumentationPage({ data, location, path }) {
   if (!SHOW_DOCS) return <NotFoundPage />;
 
   const {
@@ -108,6 +109,8 @@ export default function DocumentationPage({ data, path }) {
     pageIndex,
     sectionPages,
   });
+
+  useScrollToHash(location);
 
   return (
     <main className="docs__page">
