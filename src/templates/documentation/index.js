@@ -75,13 +75,10 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const pageSlug = slug
-    .split('/documentation/')[1]
-    // remove trailing slash from page slug
-    .slice(0, -1);
+  const pageSlug = slug.split('/').pop();
   const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
   const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
-  const isLandingPage = pageSlug === sectionSlug && title === sectionTitle;
+  const isLandingPage = pageSlug === sectionSlug;
 
   const prevPage = findPrevPage({
     isLandingPage,
