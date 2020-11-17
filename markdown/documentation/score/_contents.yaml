@@ -1,4 +1,5 @@
-- title: Introduction
+- sectionTitle: Score
+  title: Introduction
   url: score
   items:
     - title: Section 1
@@ -9,15 +10,11 @@
         - title: Section Page 2
           url: score/section-1/section-page-2
         - title: Subsection 1
-          # URL + items: link & dropdown
           url: score/section-1/subsection-1
           items:
             - title: Subsection Page 1
               url: score/section-1/subsection-1/subsection-page-1
             - title: Subsection Page 2
               url: score/section-1/subsection-1/subsection-page-2
-            # - title: Subsubsection 1
-            #   url: score/section-1/subsection-1/subsubsection-1
     - title: Top Level Page 1
       url: score/top-level-page-1
-      # top level pages have no items
