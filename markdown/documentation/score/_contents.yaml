@@ -4,6 +4,7 @@ items:
   - title: Introduction
     url: score
   - title: Section 1
+    url: score/section-1
     items:
       - title: Section Page 1
         url: score/section-1/section-page-1

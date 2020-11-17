@@ -98,7 +98,7 @@ export default function DocumentationPage({ data, location, path }) {
             Documentation Overview
           </Link>
 
-          <SectionTableOfContents items={sectionObj.items} path={path} />
+          <SectionTableOfContents items={sectionObj.items} path={path} sectionSlug={sectionSlug} />
 
           {/* GITHUB BUTTON */}
           <Button
