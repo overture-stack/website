@@ -35,7 +35,7 @@ const shortcodes = {
       <ReactMarkdown plugins={[gfm]} children={children} />
     </NoteBox>
   ),
-  Warning: ({ children, title, ...props }) => (
+  Warning: ({ children, ...props }) => (
     <WarningBox {...props}>
       <ReactMarkdown plugins={[gfm]} children={children} />
     </WarningBox>
