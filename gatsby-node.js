@@ -29,7 +29,14 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
     const title =
       node.frontmatter.title ||
       startCase(pageSlug) ||
-      (isDocs && isIndex && startCase(relativeDirectory.split('/').pop())) ||
+      (isDocs &&
+        isIndex &&
+        startCase(
+          relativeDirectory
+            .split('/')
+            .filter(x => x)
+            .pop()
+        )) ||
       '';
 
     createNodeField({

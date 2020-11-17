@@ -16,8 +16,6 @@ export default function LinkHelper({ href = '', location = {}, to = '', ...props
       ? 'external'
       : 'other';
 
-  // console.log(dest, linkType);
-
   return linkType === 'hash' ? (
     // scroll-to-anchor link
     <HashLink {...props} location={location} to={dest} />

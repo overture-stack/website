@@ -15,65 +15,52 @@ export const sectionIcons = {
   song: 'productSongWhite',
 };
 
-export const findPrevPage = ({
-  isFirstPage,
-  isLandingPage,
-  pageIndex,
-  sectionPages,
-  sectionSlug,
-  sectionTitle,
-}) => {
-  if (isLandingPage) {
-    return null;
-  } else if (isFirstPage) {
-    return {
-      title: sectionTitle,
-      url: `/documentation/${sectionSlug}/`,
-    };
-  } else {
-    const prevPagesKeys = Object.keys(sectionPages)
-      .slice(0, pageIndex)
-      .reverse();
-    const prevPagesValues = Object.values(sectionPages)
-      .slice(0, pageIndex)
-      .reverse();
-    const prevUrlIndex = findIndex(
-      prevPagesKeys,
-      key => key.includes('url') && sectionPages[key] !== null
-    );
-    const prevUrl = prevPagesValues[prevUrlIndex];
-    const prevTitleKey = prevPagesKeys[prevUrlIndex].replace('url', 'title');
-    const prevTitle = sectionPages[prevTitleKey];
+export const findPrevNextPages = ({ sectionPages, pageSlug, sectionSlug }) => {
+  const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
+  const isLandingPage = pageSlug === sectionSlug;
 
-    return {
-      title: prevTitle,
-      url: `/documentation/${prevUrl}/`,
-    };
-  }
+  const prevPage = isLandingPage ? null : findPrevPage({ pageIndex, sectionPages });
+  const nextPage = findNextPage({ isLandingPage, pageIndex, sectionPages });
+
+  return { prevPage, nextPage };
 };
 
-export const findNextPage = ({ isLandingPage, pageIndex, sectionPages }) => {
-  if (isLandingPage) {
-    return {
-      title: sectionPages['0.title'],
-      url: `/documentation/${sectionPages['0.url']}/`,
-    };
-  } else {
-    const nextPagesKeys = Object.keys(sectionPages).slice(pageIndex + 1);
-    const nextPagesValues = Object.values(sectionPages).slice(pageIndex + 1);
-    const nextUrlIndex = findIndex(
-      nextPagesKeys,
-      key => key.includes('url') && sectionPages[key] !== null
-    );
-    // last page, so return null
-    if (nextUrlIndex === -1) return null;
-    const nextUrl = nextPagesValues[nextUrlIndex];
-    const nextTitleKey = nextPagesKeys[nextUrlIndex].replace('url', 'title');
-    const nextTitle = sectionPages[nextTitleKey];
+export const findPrevPage = ({ pageIndex, sectionPages }) => {
+  const prevPagesKeys = Object.keys(sectionPages)
+    .slice(0, pageIndex)
+    .reverse();
+  const prevPagesValues = Object.values(sectionPages)
+    .slice(0, pageIndex)
+    .reverse();
+  const prevUrlIndex = findIndex(
+    prevPagesKeys,
+    key => key.includes('url') && sectionPages[key] !== null
+  );
+  const prevUrl = prevPagesValues[prevUrlIndex];
+  const prevTitleKey = prevPagesKeys[prevUrlIndex].replace('url', 'title');
+  const prevTitle = sectionPages[prevTitleKey];
 
-    return {
-      title: nextTitle,
-      url: `/documentation/${nextUrl}/`,
-    };
-  }
+  return {
+    title: prevTitle,
+    url: `/documentation/${prevUrl}/`,
+  };
+};
+
+export const findNextPage = ({ pageIndex, sectionPages }) => {
+  const nextPagesKeys = Object.keys(sectionPages).slice(pageIndex + 1);
+  const nextPagesValues = Object.values(sectionPages).slice(pageIndex + 1);
+  const nextUrlIndex = findIndex(
+    nextPagesKeys,
+    key => key.includes('url') && sectionPages[key] !== null
+  );
+  // last page, so return null
+  if (nextUrlIndex === -1) return null;
+  const nextUrl = nextPagesValues[nextUrlIndex];
+  const nextTitleKey = nextPagesKeys[nextUrlIndex].replace('url', 'title');
+  const nextTitle = sectionPages[nextTitleKey];
+
+  return {
+    title: nextTitle,
+    url: `/documentation/${nextUrl}/`,
+  };
 };

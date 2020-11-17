@@ -20,7 +20,7 @@ import {
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
 import { githubLinks } from 'meta/config';
-import { findPrevPage, findNextPage, sectionIcons } from './utils';
+import { findPrevNextPages, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
@@ -74,25 +74,9 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const pageSlug = slug.split('/').pop();
-  const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
-  const isFirstPage = Object.keys(sectionPages)[pageIndex] === '0.url';
-  const isLandingPage = pageSlug === sectionSlug;
+  const pageSlug = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
-  const prevPage = findPrevPage({
-    isLandingPage,
-    isFirstPage,
-    pageIndex,
-    sectionPages,
-    sectionSlug,
-    sectionTitle,
-  });
-
-  const nextPage = findNextPage({
-    isLandingPage,
-    pageIndex,
-    sectionPages,
-  });
+  const { prevPage, nextPage } = findPrevNextPages({ pageSlug, sectionPages, sectionSlug });
 
   useScrollToHash(location);
 

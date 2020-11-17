@@ -158,7 +158,7 @@ export default function DocumentationPage() {
       <div className="product-section bg-grey-light">
         <section className="container">
           <h2>Product Documentation</h2>
-          <div class="columns">
+          <div className="columns">
             {productSections.map(section => (
               <div className="product-column column" key={section.title}>
                 <Badge color={section.color}>{section.title}</Badge>

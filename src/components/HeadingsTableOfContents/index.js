@@ -14,7 +14,6 @@ const getIds = items =>
   );
 
 const RenderItems = ({ activeId, items, location }) => {
-  console.log(location);
   return (
     <ol className="toc-headings__list">
       {items.map(item => {
@@ -38,7 +37,6 @@ const RenderItems = ({ activeId, items, location }) => {
 export default function HeadingsTableOfContents({ items, location }) {
   const idList = getIds(items);
   const activeId = useActiveId(idList);
-  console.log(location);
   return (
     <div className="toc-headings">
       <RenderItems activeId={activeId} items={items} location={location} />
