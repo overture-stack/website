@@ -42,8 +42,7 @@ const shortcodes = {
   ),
 };
 
-const components = {
-  ...shortcodes,
+const replacedComponents = {
   pre: preProps => {
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
@@ -119,7 +118,8 @@ export default function DocumentationPage({ data, location, path }) {
             {/* MARKDOWN PAGE CONTENT */}
             <MDXProvider
               components={{
-                ...components,
+                ...replacedComponents,
+                ...shortcodes,
                 a: props => <LinkHelper {...props} location={location} />,
                 // the page title is h1
                 // so demote markdown headings by one level
