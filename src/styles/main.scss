@@ -67,15 +67,28 @@ a.navbar-item.active-item {
 .site-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 52px);
-  @media (min-width: 1024px) {
-    height: calc(100vh - 60px);
-  }
+  height: 100%;
   &__content {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     main {
       flex: 1;
     }
   }
+  .footer {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+}
+
+#___gatsby,
+#gatsby-focus-wrapper,
+#gatsby-focus-wrapper > div {
+  // fix safari sticky footer issues
+  height: 100%;
+}
+
+html,
+body {
+  height: 100%;
 }
