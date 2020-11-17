@@ -26,7 +26,14 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       ? `/documentation/${relativeDirectory}/${pageSlug}`
       : `/${relativePath.replace(ext, '')}/`;
 
+    const title =
+      node.frontmatter.title ||
+      startCase(pageSlug) ||
+      (isDocs && isIndex && startCase(relativeDirectory.split('/').pop())) ||
+      '';
+
     createNodeField({
+      // relative URL of the page
       name: `slug`,
       node,
       value: slug,
@@ -43,11 +50,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       // frontmatter title field
       name: 'title',
       node,
-      value:
-        node.frontmatter.title ||
-        startCase(pageSlug) ||
-        (isDocs && isIndex && startCase(relativeDirectory)) ||
-        '',
+      value: title,
     });
   }
 }
