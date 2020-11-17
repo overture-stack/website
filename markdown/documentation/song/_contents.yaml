@@ -1,6 +1,7 @@
-- sectionTitle: Song
-  title: Introduction
-  url: song
-  items:
-    - title: Markdown Kitchen Sink
-      url: song/markdown
+sectionTitle: Song
+sectionSlug: song
+items:
+  - title: Introduction
+    url: song
+  - title: Markdown Kitchen Sink
+    url: song/markdown

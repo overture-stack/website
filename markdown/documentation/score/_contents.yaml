@@ -1,20 +1,21 @@
-- sectionTitle: Score
-  title: Introduction
-  url: score
-  items:
-    - title: Section 1
-      url: score/section-1
-      items:
-        - title: Section Page 1
-          url: score/section-1/section-page-1
-        - title: Section Page 2
-          url: score/section-1/section-page-2
-        - title: Subsection 1
-          url: score/section-1/subsection-1
-          items:
-            - title: Subsection Page 1
-              url: score/section-1/subsection-1/subsection-page-1
-            - title: Subsection Page 2
-              url: score/section-1/subsection-1/subsection-page-2
-    - title: Top Level Page 1
-      url: score/top-level-page-1
+sectionTitle: Score
+sectionSlug: score
+items:
+  - title: Introduction
+    url: score
+  - title: Section 1
+    url: score/section-1
+    items:
+      - title: Section Page 1
+        url: score/section-1/section-page-1
+      - title: Section Page 2
+        url: score/section-1/section-page-2
+      - title: Subsection 1
+        url: score/section-1/subsection-1
+        items:
+          - title: Subsection Page 1
+            url: score/section-1/subsection-1/subsection-page-1
+          - title: Subsection Page 2
+            url: score/section-1/subsection-1/subsection-page-2
+  - title: Top Level Page 1
+    url: score/top-level-page-1

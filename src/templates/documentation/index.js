@@ -67,10 +67,9 @@ export default function DocumentationPage({ data, location, path }) {
   } = data.mdx;
 
   // get section info
-  const sectionSlug = slug.split('/').filter(x => x)[1];
   const sectionObj = data.allYaml.nodes[0];
   const sectionPages = flatten(sectionObj.items);
-  const { sectionTitle } = sectionObj;
+  const { sectionSlug, sectionTitle } = sectionObj;
   const sectionIcon = sectionIcons[sectionSlug];
 
   // get page info
@@ -203,11 +202,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allYaml(filter: { url: { eq: $section } }) {
+    allYaml(filter: { sectionSlug: { eq: $section } }) {
       nodes {
         sectionTitle
-        title
-        url
+        sectionSlug
         items {
           title
           url
