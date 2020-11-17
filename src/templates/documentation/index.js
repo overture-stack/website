@@ -10,7 +10,7 @@ import {
   AnchorHeading,
   Button,
   Code,
-  DynamicLink,
+  LinkHelper,
   HeadingsTableOfContents,
   Icon,
   NoteBox,
@@ -25,21 +25,11 @@ import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
-const headings = {
-  // the page title is h1
-  // so demote markdown headings by one level
-  h1: props => <AnchorHeading size="h2" {...props} />,
-  h2: props => <AnchorHeading size="h3" {...props} />,
-  h3: props => <AnchorHeading size="h4" {...props} />,
-  h4: props => <AnchorHeading size="h5" {...props} />,
-  h5: props => <AnchorHeading size="h6" {...props} />,
-  h6: props => <AnchorHeading size="h6" {...props} />,
-};
-
 const shortcodes = {
-  // gatsby mdx will not process markdown inside shortcodes.
+  // custom react components.
+  // gatsby mdx won't process markdown inside shortcodes &
   // react-markdown won't process URLs on its own,
-  // so we're using the github markdown plugin
+  // so we're using the github markdown (gfm) plugin
   Note: ({ children, title, ...props }) => (
     <NoteBox title={title} {...props}>
       <ReactMarkdown plugins={[gfm]} children={children} />
@@ -53,9 +43,7 @@ const shortcodes = {
 };
 
 const components = {
-  ...headings,
   ...shortcodes,
-  a: props => <DynamicLink {...props} />,
   pre: preProps => {
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
@@ -149,7 +137,20 @@ export default function DocumentationPage({ data, location, path }) {
             <h1 className="docs__main-title">{title}</h1>
 
             {/* MARKDOWN PAGE CONTENT */}
-            <MDXProvider components={components}>
+            <MDXProvider
+              components={{
+                ...components,
+                a: props => <LinkHelper {...props} location={location} />,
+                // the page title is h1
+                // so demote markdown headings by one level
+                h1: props => <AnchorHeading location={location} size="h2" {...props} />,
+                h2: props => <AnchorHeading location={location} size="h3" {...props} />,
+                h3: props => <AnchorHeading location={location} size="h4" {...props} />,
+                h4: props => <AnchorHeading location={location} size="h5" {...props} />,
+                h5: props => <AnchorHeading location={location} size="h6" {...props} />,
+                h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+              }}
+            >
               <MDXRenderer>{body}</MDXRenderer>
             </MDXProvider>
 
@@ -181,7 +182,7 @@ export default function DocumentationPage({ data, location, path }) {
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
         {headingsTableOfContents && (
           <div className="docs__toc-headings">
-            <HeadingsTableOfContents items={headingsTableOfContents} />
+            <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
           </div>
         )}
       </div>

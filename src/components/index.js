@@ -5,7 +5,7 @@ export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as CaseStudy } from './CaseStudy';
 export { default as Code } from './Code';
-export { default as DynamicLink } from './DynamicLink';
+export { default as LinkHelper } from './LinkHelper';
 export { default as Footer } from './Footer';
 export { default as GettingStarted } from './GettingStarted';
 export { default as GridFeature } from './GridFeature';

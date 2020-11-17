@@ -21,9 +21,7 @@
         font-weight: bold;
         padding: 7px 0 7px;
         line-height: 18px;
-        &:hover,
-        &:active,
-        &:focus {
+        &:hover {
           background: $grey-bg-hover-light;
         }
         &.active {

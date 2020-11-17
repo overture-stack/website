@@ -2,12 +2,12 @@ import React from 'react';
 import scrollToElement from 'scroll-to-element';
 import { Layout } from 'components';
 
-export function wrapPageElement({ element, props }) {
+export function wrapPageElement({ element, location, props }) {
   return <Layout {...props}>{element}</Layout>;
 }
 
-const checkHash = location => {
-  const { hash } = location;
+const scrollToHash = prevLocation => {
+  const { hash } = prevLocation;
   if (hash) {
     scrollToElement(hash, {
       offset: -70,
@@ -16,6 +16,11 @@ const checkHash = location => {
   }
 };
 
-export function onPreRouteUpdate({ location, prevLocation }) {
-  checkHash(prevLocation || location);
+export function onPreRouteUpdate({ prevLocation }) {
+  // scroll to hash before updating the route
+  // to get a nice smooth animation with offset positioning,
+  // so that the fixed navbar doesn't cover the content.
+  if (prevLocation) scrollToHash(prevLocation);
+  // add useScrollToHash() hook to page template
+  // in order to scroll on page load.
 }

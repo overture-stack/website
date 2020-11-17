@@ -13,7 +13,8 @@ const getIds = items =>
     []
   );
 
-const RenderItems = ({ activeId, items }) => {
+const RenderItems = ({ activeId, items, location }) => {
+  console.log(location);
   return (
     <ol className="toc-headings__list">
       {items.map(item => {
@@ -21,10 +22,12 @@ const RenderItems = ({ activeId, items }) => {
         const linkClassName = linkActive ? 'active' : '';
         return (
           <li key={item.url}>
-            <HashLink to={item.url} className={linkClassName}>
+            <HashLink className={linkClassName} location={location} to={item.url}>
               <span>{item.title}</span>
             </HashLink>
-            {item.items && <RenderItems activeId={activeId} items={item.items} />}
+            {item.items && (
+              <RenderItems activeId={activeId} items={item.items} location={location} />
+            )}
           </li>
         );
       })}
@@ -32,12 +35,13 @@ const RenderItems = ({ activeId, items }) => {
   );
 };
 
-export default function HeadingsTableOfContents({ items }) {
+export default function HeadingsTableOfContents({ items, location }) {
   const idList = getIds(items);
   const activeId = useActiveId(idList);
+  console.log(location);
   return (
     <div className="toc-headings">
-      <RenderItems activeId={activeId} items={items} />
+      <RenderItems activeId={activeId} items={items} location={location} />
     </div>
   );
 }
