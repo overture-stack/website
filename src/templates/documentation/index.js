@@ -73,7 +73,7 @@ export default function DocumentationPage({ data, location, path }) {
   const sectionIcon = sectionIcons[sectionSlug];
 
   // get page info
-  const headingsTableOfContents = tableOfContents.pages || null;
+  const headingsTableOfContents = tableOfContents.items || null;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   const { nextPage, prevPage } = findNextPrevPages({ pagePath, sectionPages, sectionSlug });
