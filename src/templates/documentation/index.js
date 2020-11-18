@@ -74,9 +74,7 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
-
-  const { nextPage, prevPage } = findNextPrevPages({ pagePath, sectionPages, sectionSlug });
+  const { nextPage, prevPage } = findNextPrevPages({ sectionPages, sectionSlug, slug });
 
   useScrollToHash(location);
 

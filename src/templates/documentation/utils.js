@@ -15,7 +15,8 @@ export const sectionIcons = {
   song: 'productSongWhite',
 };
 
-export const findNextPrevPages = ({ pagePath, sectionPages, sectionSlug }) => {
+export const findNextPrevPages = ({ sectionPages, sectionSlug, slug }) => {
+  const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
   const pageIndex = Object.values(sectionPages).indexOf(pagePath);
   const isLandingPage = pagePath === sectionSlug;
 
