@@ -1,18 +1,18 @@
 sectionTitle: Score
 sectionSlug: score
-items:
+pages:
   - title: Introduction
     url: score
   - title: Section 1
     url: score/section-1
-    items:
+    pages:
       - title: Section Page 1
         url: score/section-1/section-page-1
       - title: Section Page 2
         url: score/section-1/section-page-2
       - title: Subsection 1
         url: score/section-1/subsection-1
-        items:
+        pages:
           - title: Subsection Page 1
             url: score/section-1/subsection-1/subsection-page-1
           - title: Subsection Page 2

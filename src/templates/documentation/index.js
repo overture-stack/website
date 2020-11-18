@@ -68,12 +68,12 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get section info
   const sectionObj = data.allYaml.nodes[0];
-  const sectionPages = flatten(sectionObj.items);
+  const sectionPages = flatten(sectionObj.pages);
   const { sectionSlug, sectionTitle } = sectionObj;
   const sectionIcon = sectionIcons[sectionSlug];
 
   // get page info
-  const headingsTableOfContents = tableOfContents.items || null;
+  const headingsTableOfContents = tableOfContents.pages || null;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   const { nextPage, prevPage } = findNextPrevPages({ pagePath, sectionPages, sectionSlug });
@@ -99,7 +99,7 @@ export default function DocumentationPage({ data, location, path }) {
             Documentation Overview
           </Link>
 
-          <SectionTableOfContents items={sectionObj.items} path={path} sectionSlug={sectionSlug} />
+          <SectionTableOfContents pages={sectionObj.pages} path={path} sectionSlug={sectionSlug} />
 
           {/* GITHUB BUTTON */}
           <Button
@@ -191,13 +191,13 @@ export const pageQuery = graphql`
       nodes {
         sectionTitle
         sectionSlug
-        items {
+        pages {
           title
           url
-          items {
+          pages {
             title
             url
-            items {
+            pages {
               title
               url
             }

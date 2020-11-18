@@ -1,6 +1,6 @@
 sectionTitle: Song
 sectionSlug: song
-items:
+pages:
   - title: Introduction
     url: song
   - title: Markdown Kitchen Sink

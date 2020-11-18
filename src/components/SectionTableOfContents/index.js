@@ -9,25 +9,25 @@ import './styles.scss';
 
 // flatten to find partial match??
 
-export default function SectionTableOfContents({ items, path, isSubmenu = false, sectionSlug }) {
+export default function SectionTableOfContents({ pages, path, isSubmenu = false, sectionSlug }) {
   const { key } = useSSRWorkaround();
   const [isOpen, setIsOpen] = useState(false);
   const sectionPath = `/documentation/${sectionSlug}/`;
   return (
     <ol className="toc-section" key={key}>
-      {items.map(item => {
-        const linkTo = `/documentation/${item.url}/`;
+      {pages.map(page => {
+        const linkTo = `/documentation/${page.url}/`;
         const linkActive = linkTo === path;
-        const menuActive = item.items && linkTo !== sectionPath && path.startsWith(linkTo);
+        const menuActive = page.pages && linkTo !== sectionPath && path.startsWith(linkTo);
         const linkClassName = linkActive ? 'active' : '';
         const menuClassName = menuActive ? 'active' : '';
-        console.log(item.title, menuActive);
+        console.log(page.title, menuActive);
         return (
-          <li key={item.title}>
-            {!isSubmenu && item.items ? (
+          <li key={page.title}>
+            {!isSubmenu && page.pages ? (
               <button className={menuClassName} type="button" onClick={() => setIsOpen(!isOpen)}>
                 <span>
-                  {item.items && (
+                  {page.pages && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -36,13 +36,13 @@ export default function SectionTableOfContents({ items, path, isSubmenu = false,
                       }}
                     />
                   )}
-                  {item.title}
+                  {page.title}
                 </span>
               </button>
             ) : (
               <Link to={linkTo} className={linkClassName}>
                 <span>
-                  {item.items && (
+                  {page.pages && (
                     <Icon
                       img="chevronSmall"
                       size={7}
@@ -51,12 +51,12 @@ export default function SectionTableOfContents({ items, path, isSubmenu = false,
                       }}
                     />
                   )}
-                  {item.title}
+                  {page.title}
                 </span>
               </Link>
             )}
-            {item.items && isOpen && (
-              <SectionTableOfContents isSubmenu={true} items={item.items} path={path} />
+            {page.pages && isOpen && (
+              <SectionTableOfContents isSubmenu={true} pages={page.pages} path={path} />
             )}
           </li>
         );
