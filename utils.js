@@ -1,5 +1,6 @@
 module.exports = {
   copyToClipboard: function(str) {
+    // ref: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');

@@ -15,14 +15,14 @@ export const sectionIcons = {
   song: 'productSongWhite',
 };
 
-export const findPrevNextPages = ({ sectionPages, pageSlug, sectionSlug }) => {
-  const pageIndex = Object.values(sectionPages).indexOf(pageSlug);
-  const isLandingPage = pageSlug === sectionSlug;
+export const findNextPrevPages = ({ pagePath, sectionPages, sectionSlug }) => {
+  const pageIndex = Object.values(sectionPages).indexOf(pagePath);
+  const isLandingPage = pagePath === sectionSlug;
 
   const prevPage = isLandingPage ? null : findPrevPage({ pageIndex, sectionPages });
   const nextPage = findNextPage({ isLandingPage, pageIndex, sectionPages });
 
-  return { prevPage, nextPage };
+  return { nextPage, prevPage };
 };
 
 export const findPrevPage = ({ pageIndex, sectionPages }) => {

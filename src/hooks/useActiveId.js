@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 // gets the current active element by ID
 // i.e. for the documentation table of contents sidebar
 
+// ref: https://nickymeuleman.netlify.app/blog/table-of-contents#get-the-active-headings-id
+
 export default function useActiveId(itemIds) {
-  const [activeId, setActiveId] = useState(``);
+  const [activeId, setActiveId] = useState('');
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {

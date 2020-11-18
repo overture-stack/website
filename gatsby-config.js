@@ -3,10 +3,9 @@
 //   path: `.env.${process.env.NODE_ENV}`,
 // });
 
+const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
-
-const remarkSlug = require('remark-slug');
 
 module.exports = {
   siteMetadata: {
@@ -41,6 +40,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        // required for headings table of contents
+        // adds ID to H# tags
         remarkPlugins: [remarkSlug],
         gatsbyRemarkPlugins: [
           {

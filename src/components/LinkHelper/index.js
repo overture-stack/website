@@ -7,22 +7,13 @@ import { HashLink } from 'components';
 export default function LinkHelper({ href = '', location = {}, to = '', ...props }) {
   const dest = to || href || '';
 
-  const linkType =
-    dest.charAt(0) === '#'
-      ? 'hash'
-      : dest.charAt(0) === '/' || dest.charAt(0) === '.'
-      ? 'internal'
-      : dest
-      ? 'external'
-      : 'other';
-
-  return linkType === 'hash' ? (
+  return dest.charAt(0) === '#' ? (
     // scroll-to-anchor link
     <HashLink {...props} location={location} to={dest} />
-  ) : linkType === 'internal' ? (
+  ) : dest.charAt(0) === '/' || dest.charAt(0) === '.' ? (
     // internal link
     <Link {...props} to={dest} />
-  ) : linkType === 'external' ? (
+  ) : dest ? (
     // external link
     <a {...props} href={dest} target="_blank" />
   ) : (

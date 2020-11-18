@@ -20,7 +20,7 @@ import {
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
 import { githubLinks } from 'meta/config';
-import { findPrevNextPages, sectionIcons } from './utils';
+import { findNextPrevPages, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
@@ -29,7 +29,8 @@ const shortcodes = {
   // custom react components.
   // gatsby mdx won't process markdown inside shortcodes &
   // react-markdown won't process URLs on its own,
-  // so we're using the github markdown (gfm) plugin
+  // so we're using the github markdown (gfm) plugin,
+  // and react-markdown rather than dangerouslySetInnerHTML
   Note: ({ children, title, ...props }) => (
     <NoteBox title={title} {...props}>
       <ReactMarkdown plugins={[gfm]} children={children} />
@@ -73,9 +74,9 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const pageSlug = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
+  const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
-  const { prevPage, nextPage } = findPrevNextPages({ pageSlug, sectionPages, sectionSlug });
+  const { nextPage, prevPage } = findNextPrevPages({ pagePath, sectionPages, sectionSlug });
 
   useScrollToHash(location);
 

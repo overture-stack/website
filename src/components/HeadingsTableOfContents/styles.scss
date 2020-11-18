@@ -5,7 +5,7 @@
   list-style-type: none;
   margin-bottom: 24px;
   max-height: calc(100vh - 132px);
-  // nav height 60px, footer height 275px, padding 48px + 24px
+  // nav height 60px + padding 48px + 24px
   overflow: auto;
   position: sticky;
   top: 108px; // nav height 60px + padding 48px
@@ -38,7 +38,7 @@
         font-weight: bold;
         padding-left: 16px;
       }
-      // lower levels
+      // all lower levels
       ol {
         li a {
           font-weight: normal;
@@ -59,10 +59,12 @@
         a {
           padding-left: 56px;
         }
+        // fourth level
         li {
           a {
             padding-left: 72px;
           }
+          // fifth level
           li {
             a {
               padding-left: 88px;

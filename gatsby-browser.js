@@ -21,6 +21,6 @@ export function onPreRouteUpdate({ prevLocation }) {
   // to get a nice smooth animation with offset positioning,
   // so that the fixed navbar doesn't cover the content.
   if (prevLocation) scrollToHash(prevLocation);
-  // add useScrollToHash() hook to page template
+  // add useScrollToHash() hook in the page template
   // in order to scroll on page load.
 }
