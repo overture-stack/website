@@ -29,17 +29,12 @@ const RenderItems = ({ isMenuActive = false, pages, path }) => (
       const iconStyle = isNextMenuActive ? { transform: 'rotate(90deg)' } : {};
       return (
         <li key={url}>
-          {pages ? (
-            <button className={className} onClick={() => navigate(url)}>
-              <span>
-                <Icon img={iconImg} size={7} style={iconStyle} /> {title}
-              </span>
-            </button>
-          ) : (
-            <Link className={className} to={url}>
-              <span>{title}</span>
-            </Link>
-          )}
+          <Link className={className} to={url}>
+            <span>
+              {pages && <Icon img={iconImg} size={7} style={iconStyle} />}
+              {title}
+            </span>
+          </Link>
           {pages && <RenderItems isMenuActive={isNextMenuActive} pages={pages} path={path} />}
         </li>
       );
