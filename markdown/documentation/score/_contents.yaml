@@ -12,5 +12,10 @@ pages:
         url: score/section-1/section-page-2
       - title: Subsection 1
         url: score/section-1/subsection-1
+        pages:
+          - title: Subsection Page 1
+            url: score/section-1/section-page-1/subsection-page-1
+          - title: Subsection Page 2
+            url: score/section-1/section-page-1/subsection-page-2
   - title: Top Level Page 1
     url: score/top-level-page-1
