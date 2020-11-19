@@ -15,33 +15,39 @@ import './styles.scss';
 
 const makeUrl = url => `/documentation/${url}/`;
 
+const RenderItems = ({ isMenuActive = false, pages, path }) => (
+  <ol className={isMenuActive ? 'menu-active' : ''}>
+    {pages.map(page => {
+      const url = makeUrl(page.url);
+      const { isHeading = false, pages, title } = page;
+      const isLinkActive = path === url;
+      const isNextMenuActive = pages && path !== url && path.includes(url);
+      const className = `${isLinkActive ? 'link-active' : ''} ${
+        isNextMenuActive ? 'menu-active__heading' : ''
+      }`;
+      return (
+        <li key={url}>
+          {pages ? (
+            <button className={className} onClick={() => isHeading || navigate(url)}>
+              <span>{title}</span>
+            </button>
+          ) : (
+            <Link className={className} to={url}>
+              <span>{title}</span>
+            </Link>
+          )}
+          {pages && <RenderItems isMenuActive={isNextMenuActive} pages={pages} path={path} />}
+        </li>
+      );
+    })}
+  </ol>
+);
+
 export default function SectionTableOfContents({ pages, path }) {
   return (
-    <ol className="test-toc">
-      {pages.map(page => {
-        const url = makeUrl(page.url);
-        const { isHeading = false, pages, title } = page;
-        const isLinkActive = path === url;
-        const isMenuActive = pages && path !== url && path.includes(url);
-        const className = `${isLinkActive ? 'link-active' : ''} ${
-          isMenuActive ? 'menu-active' : ''
-        }`;
-        return (
-          <li key={url}>
-            {pages ? (
-              <button className={className} onClick={() => isHeading || navigate(url)}>
-                {title}
-              </button>
-            ) : (
-              <Link className={className} to={url}>
-                {title}
-              </Link>
-            )}
-            {pages && <SectionTableOfContents pages={pages} path={path} />}
-          </li>
-        );
-      })}
-    </ol>
+    <div className="test-toc">
+      <RenderItems pages={pages} path={path} />
+    </div>
   );
 }
 

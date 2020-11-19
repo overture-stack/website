@@ -1,35 +1,44 @@
 @import '../../styles/colors';
 
 .test-toc {
-  padding-left: 15px;
-  li {
-    padding-left: 15px;
-  }
-  .link-active {
-    color: magenta;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 24px;
-  }
-  .menu-active {
-    color: green;
-    font-style: italic;
-    font-family: courier;
-    font-size: 24px;
-  }
-  button {
-    cursor: pointer;
-  }
-}
-
-.toc-section {
   margin-bottom: 24px;
-  list-style-type: none;
+  ol {
+    list-style-type: none;
+    padding-left: 0;
+  }
   button {
+    // reset
+    background: transparent;
     border: 0 none;
     cursor: pointer;
     text-align: left;
     width: 100%;
+    font-size: inherit;
+    padding: 0;
+  }
+  .link-active {
+    color: $magenta;
+  }
+  .menu-active {
+    background: $white;
+    border-left: 3px solid $magenta-border;
+    .menu-active {
+      border: none;
+      &__heading {
+        border: none;
+      }
+    }
+    &__heading {
+      background: $white;
+      border-left: 3px solid $magenta-border;
+      color: $magenta;
+    }
+    a,
+    button {
+      &:hover {
+        background: $grey-bg-hover-2;
+      }
+    }
   }
   // all levels
   li {
@@ -45,8 +54,7 @@
       &.active {
         background: $white;
       }
-      &.active {
-        border-left-color: $magenta-border;
+      &.link-active {
         color: $magenta;
       }
     }
