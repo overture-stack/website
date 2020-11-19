@@ -79,6 +79,25 @@ async function createMarkdownPages({ actions, graphql }) {
           }
         }
       }
+      allYaml {
+        nodes {
+          sectionTitle
+          sectionSlug
+          pages {
+            isHeading
+            title
+            url
+            pages {
+              title
+              url
+              pages {
+                title
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
@@ -130,11 +149,13 @@ export function createSchemaCustomization({ actions }) {
       pages: [YamlPages!]
     }
     type YamlPages implements Node {
+      isHeading: Boolean
       title: String!
       url: String!
       pages: [YamlPagesPages!]
     }
     type YamlPagesPages implements Node {
+      skipPage: Boolean
       title: String!
       url: String!
       pages: [YamlPagesPagesPages!]

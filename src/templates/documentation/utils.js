@@ -35,7 +35,10 @@ export const findPrevPage = ({ pageIndex, sectionPages }) => {
     .reverse();
   const prevUrlIndex = findIndex(
     prevPagesKeys,
-    key => key.includes('url') && sectionPages[key] !== null
+    key =>
+      key.includes('url') &&
+      sectionPages[key] !== null &&
+      !sectionPages[key.replace('url', 'isHeading')]
   );
   const prevUrl = prevPagesValues[prevUrlIndex];
   const prevTitleKey = prevPagesKeys[prevUrlIndex].replace('url', 'title');
@@ -52,7 +55,10 @@ export const findNextPage = ({ pageIndex, sectionPages }) => {
   const nextPagesValues = Object.values(sectionPages).slice(pageIndex + 1);
   const nextUrlIndex = findIndex(
     nextPagesKeys,
-    key => key.includes('url') && sectionPages[key] !== null
+    key =>
+      key.includes('url') &&
+      sectionPages[key] !== null &&
+      !sectionPages[key.replace('url', 'isHeading')]
   );
   // last page, so return null
   if (nextUrlIndex === -1) return null;

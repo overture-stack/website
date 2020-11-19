@@ -21,7 +21,6 @@ export default function SectionTableOfContents({ pages, path, isSubmenu = false,
         const menuActive = page.pages && linkTo !== sectionPath && path.startsWith(linkTo);
         const linkClassName = linkActive ? 'active' : '';
         const menuClassName = menuActive ? 'active' : '';
-        console.log(page.title, menuActive);
         return (
           <li key={page.title}>
             {!isSubmenu && page.pages ? (

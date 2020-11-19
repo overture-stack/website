@@ -190,6 +190,7 @@ export const pageQuery = graphql`
         sectionTitle
         sectionSlug
         pages {
+          isHeading
           title
           url
           pages {
