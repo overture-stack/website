@@ -68,7 +68,7 @@ export async function createPages(params) {
   await Promise.all([createMarkdownPages(params)]);
 }
 
-async function createMarkdownPages({ graphql, actions: { createPage } }) {
+async function createMarkdownPages({ actions, graphql }) {
   const { data } = await graphql(`
     {
       allMdx {
@@ -88,7 +88,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
     // documentation section
     if (slug.match(/^\/documentation/)) {
       const section = slug.split('/').filter(x => x)[1];
-      createPage({
+      actions.createPage({
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
@@ -116,4 +116,33 @@ export function onCreateWebpackConfig({ actions }) {
       },
     },
   });
+}
+
+export function createSchemaCustomization({ actions }) {
+  // DOCUMENTATION PAGE TYPES
+  // - enforce structure in _contents.yaml
+  // - prevent builds from failing if none of the
+  //   docs sections have content nested 4 levels deep
+  const documentationTypeDefs = `
+    type Yaml implements Node {
+      sectionSlug: String!
+      sectionTitle: String!
+      pages: [YamlPages!]
+    }
+    type YamlPages implements Node {
+      title: String!
+      url: String!
+      pages: [YamlPagesPages!]
+    }
+    type YamlPagesPages implements Node {
+      title: String!
+      url: String!
+      pages: [YamlPagesPagesPages!]
+    }
+    type YamlPagesPagesPages implements Node {
+      title: String!
+      url: String!
+    }
+  `;
+  actions.createTypes(documentationTypeDefs);
 }
