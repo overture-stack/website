@@ -21,15 +21,19 @@ const RenderItems = ({ isMenuActive = false, pages, path }) => (
       const url = makeUrl(page.url);
       const { isHeading = false, pages, title } = page;
       const isLinkActive = path === url;
-      const isNextMenuActive = pages && path !== url && path.includes(url);
+      const isNextMenuActive = pages && path.includes(url);
       const className = `${isLinkActive ? 'link-active' : ''} ${
         isNextMenuActive ? 'menu-active__heading' : ''
       }`;
+      const iconImg = isNextMenuActive ? 'chevronMagenta' : 'chevronGrey';
+      const iconStyle = isNextMenuActive ? { transform: 'rotate(90deg)' } : {};
       return (
         <li key={url}>
           {pages ? (
-            <button className={className} onClick={() => isHeading || navigate(url)}>
-              <span>{title}</span>
+            <button className={className} onClick={() => navigate(url)}>
+              <span>
+                <Icon img={iconImg} size={7} style={iconStyle} /> {title}
+              </span>
             </button>
           ) : (
             <Link className={className} to={url}>
@@ -71,7 +75,7 @@ export default function SectionTableOfContents({ pages, path }) {
                 <span>
                   {page.pages && (
                     <Icon
-                      img="chevronSmall"
+                      img="chevronRightGrey"
                       size={7}
                       style={{
                         ...(isOpen ? { transform: 'rotate(90deg)' } : {}),
@@ -86,7 +90,7 @@ export default function SectionTableOfContents({ pages, path }) {
                 <span>
                   {page.pages && (
                     <Icon
-                      img="chevronSmall"
+                      img="chevronRightGrey"
                       size={7}
                       style={{
                         ...(isOpen ? { transform: 'rotate(90deg)' } : {}),

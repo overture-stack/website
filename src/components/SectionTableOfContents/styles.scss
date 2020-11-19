@@ -45,7 +45,6 @@
     a,
     button {
       background: transparent;
-      border-left: 3px solid transparent;
       color: $blue-black;
       display: block;
       font-size: 16px;
@@ -62,7 +61,7 @@
       position: relative;
       .Icon {
         position: absolute;
-        left: -10px;
+        left: -12px;
         top: 7px;
       }
     }
@@ -72,8 +71,13 @@
     border-bottom: 1px solid $grey-table-border;
     > a,
     > button {
+      border-left: 3px solid transparent;
       line-height: 18px;
       padding: 12px 0 12px 24px;
+      &.link-active {
+        background: $white;
+        border-color: $magenta-border;
+      }
     }
     // lower levels
     ol li {
