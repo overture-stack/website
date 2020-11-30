@@ -16,7 +16,8 @@ const scrollToHash = prevLocation => {
   }
 };
 
-export function onPreRouteUpdate({ prevLocation }) {
+export function onPreRouteUpdate(args) {
+  const { prevLocation = '' } = args;
   // scroll to hash before updating the route
   // to get a nice smooth animation with offset positioning,
   // so that the fixed navbar doesn't cover the content.

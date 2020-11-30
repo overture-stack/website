@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { graphql, Link } from 'gatsby';
+import { graphql, Link, navigate } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
@@ -68,13 +68,30 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get section info
   const sectionObj = data.allYaml.nodes[0];
-  const sectionPages = flatten(sectionObj.pages);
+  const pagesFlat = flatten(sectionObj.pages);
   const { sectionSlug, sectionTitle } = sectionObj;
   const sectionIcon = sectionIcons[sectionSlug];
+  const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const { nextPage, prevPage } = findNextPrevPages({ sectionPages, sectionSlug, slug });
+  const { nextPage, prevPage } = findNextPrevPages({ pagesFlat, sectionSlug, pagePath });
+
+  // redirect from landing page.
+  // if this page is marked 'isHeading' in _contents.yaml,
+  // and someone manually navigates to it,
+  // redirect to the first of its child pages.
+
+  const pagePathIndex = Object.values(pagesFlat).indexOf(pagePath);
+  const pagePathKey = pagePathIndex >= 0 && Object.keys(pagesFlat)[pagePathIndex];
+  const pageIsHeading = pagePathKey && pagesFlat[pagePathKey.replace('url', 'isHeading')];
+  const redirectDest =
+    pageIsHeading && `/documentation/${pagesFlat[pagePathKey.replace('url', 'pages.0.url')]}/`;
+
+  useEffect(() => {
+    console.log('hook');
+    redirectDest && navigate(redirectDest);
+  }, []);
 
   useScrollToHash(location);
 
