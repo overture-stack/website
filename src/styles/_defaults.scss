@@ -1,7 +1,9 @@
 // Default styles across site.
 @import '../styles/colors';
+@import '../../styles/variables';
+
 body {
-  font-family: 'Lato', 'Arial';
+  font-family: $font-sans-serif;
 }
 
 nav {

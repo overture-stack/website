@@ -13,7 +13,7 @@ $navbar-item-color: $blue-black;
 $navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
 $link: $blue;
-$family-serif: 'Lato', 'Arial';
+$family-serif: $font-sans-serif;
 $family-primary: $family-serif;
 
 @import '../../node_modules/bulma/bulma.sass';
