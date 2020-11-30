@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
-import { navigate } from '@reach/router';
-import { useSSRWorkaround } from 'hooks';
 import { Icon } from 'components';
 import './styles.scss';
 
@@ -44,65 +42,8 @@ const RenderItems = ({ isMenuActive = false, pages, path }) => (
 
 export default function SectionTableOfContents({ pages, path }) {
   return (
-    <div className="test-toc">
+    <div className="toc-section">
       <RenderItems pages={pages} path={path} />
     </div>
   );
-}
-
-{
-  /* export default function SectionTableOfContents({ pages, path, isSubmenu = false, sectionSlug }) {
-  const { key } = useSSRWorkaround();
-  const [isOpen, setIsOpen] = useState(false);
-  const sectionPath = `/documentation/${sectionSlug}/`;
-  return (
-    <ol className="toc-section" key={key}>
-      {pages.map(page => {
-        const linkTo = `/documentation/${page.url}/`;
-        const linkActive = linkTo === path;
-        const menuActive = page.pages && linkTo !== sectionPath && path.startsWith(linkTo);
-        const linkClassName = linkActive ? 'active' : '';
-        const menuClassName = menuActive ? 'active' : '';
-        return (
-          <li key={page.title}>
-            {!isSubmenu && page.pages ? (
-              <button className={menuClassName} type="button" onClick={() => setIsOpen(!isOpen)}>
-                <span>
-                  {page.pages && (
-                    <Icon
-                      img="chevronRightGrey"
-                      size={7}
-                      style={{
-                        ...(isOpen ? { transform: 'rotate(90deg)' } : {}),
-                      }}
-                    />
-                  )}
-                  {page.title}
-                </span>
-              </button>
-            ) : (
-              <Link to={linkTo} className={linkClassName}>
-                <span>
-                  {page.pages && (
-                    <Icon
-                      img="chevronRightGrey"
-                      size={7}
-                      style={{
-                        ...(isOpen ? { transform: 'rotate(90deg)' } : {}),
-                      }}
-                    />
-                  )}
-                  {page.title}
-                </span>
-              </Link>
-            )}
-            {page.pages && isOpen && (
-              <SectionTableOfContents isSubmenu={true} pages={page.pages} path={path} />
-            )}
-          </li>
-        );
-      })}
-    </ol>
-  );
-} */
 }

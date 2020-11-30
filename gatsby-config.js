@@ -22,7 +22,7 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet', // adds meta tags
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
     {
@@ -52,6 +52,8 @@ module.exports = {
             },
           },
           {
+            // copies over *any* random files you linked to
+            // from a markdown page
             resolve: 'gatsby-remark-copy-linked-files',
           },
         ],
