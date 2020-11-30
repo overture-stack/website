@@ -14,6 +14,7 @@ import checkmark from './icons/checkmark.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
 import customizable from './icons/customizable.svg';
+import copy from './icons/copy.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
 import download from './icons/download.svg';
@@ -31,6 +32,7 @@ import lock from './icons/lock.svg';
 import lockCode from './icons/lock_code.svg';
 import magnify from './icons/magnify.svg';
 import mail from './icons/mail.png';
+import notes from './icons/notes.svg';
 import pageWhite from './icons/page_white.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
@@ -84,6 +86,7 @@ const icons = {
   customizable,
   cloud,
   cloudSquare,
+  copy,
   database,
   dna,
   download,
@@ -101,6 +104,7 @@ const icons = {
   lockCode,
   mail,
   magnify,
+  notes,
   pageWhite,
   palette,
   play,

@@ -1,13 +1,68 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import { graphql, Link } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
-import { HeadingsTableOfContents, Icon, SectionTableOfContents } from 'components';
+import gfm from 'remark-gfm';
+import { preToCodeBlock } from 'mdx-utils';
+import {
+  AnchorHeading,
+  Code,
+  HeadingsTableOfContents,
+  Icon,
+  NoteBox,
+  SectionTableOfContents,
+  WarningBox,
+} from 'components';
 import NotFoundPage from 'pages/404';
 import { findPrevPage, findNextPage, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+
+const headings = {
+  // the page title is h1
+  // so demote markdown headings by one level
+  h1: props => <AnchorHeading size="h2" {...props} />,
+  h2: props => <AnchorHeading size="h3" {...props} />,
+  h3: props => <AnchorHeading size="h4" {...props} />,
+  h4: props => <AnchorHeading size="h5" {...props} />,
+  h5: props => <AnchorHeading size="h6" {...props} />,
+  h6: props => <AnchorHeading size="h6" {...props} />,
+};
+
+const shortcodes = {
+  // gatsby mdx will not process markdown inside shortcodes.
+  // react-markdown won't process URLs on its own,
+  // so we're using the github markdown plugin
+  Note: ({ children, title, ...props }) => (
+    <NoteBox title={title} {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </NoteBox>
+  ),
+  Warning: ({ children, title, ...props }) => (
+    <WarningBox {...props}>
+      <ReactMarkdown plugins={[gfm]} children={children} />
+    </WarningBox>
+  ),
+};
+
+const components = {
+  ...headings,
+  ...shortcodes,
+  pre: preProps => {
+    const props = preToCodeBlock(preProps);
+    // if there's a codeString and some props, we passed the test
+    if (props) {
+      return <Code {...props} />;
+    } else {
+      // it's possible to have a pre without a code in it
+      return <pre {...preProps} />;
+    }
+  },
+  wrapper: props => <div className="docs__mdx" {...props} />,
+};
 
 export default function DocumentationPage({ data }) {
   if (!SHOW_DOCS) return <NotFoundPage />;
@@ -51,21 +106,19 @@ export default function DocumentationPage({ data }) {
   });
 
   return (
-    <main className="docs-page">
-      <div className="docs-header">
-        <div className="docs-header__title">
+    <main className="docs__page">
+      <div className="docs__header">
+        <div className="docs__header-title">
           <Icon className="icon" size={45} img={sectionIcon} />
           <h1>{sectionTitle} Documentation</h1>
         </div>
-        <div className="docs-header__search">
+        <div className="docs__header-search">
           <div>Search will go here</div>
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'stretch' }}>
-        <div
-          className="is-block-desktop"
-          style={{ background: 'AliceBlue', padding: 10, width: 250 }}
-        >
+      <div className="docs__columns">
+        {/* SECTION TABLE OF CONTENTS */}
+        <div className="docs__column" style={{ background: 'AliceBlue', padding: 10, width: 250 }}>
           <Link to="/documentation/">
             <h2 className="t-h2">&larr; Docs</h2>
           </Link>
@@ -76,36 +129,44 @@ export default function DocumentationPage({ data }) {
             <SectionTableOfContents items={sectionObj.items} />
           </ol>
         </div>
-        <div style={{ flex: '1', padding: '10px 20px' }}>
-          <h1 className="t-h1">{title}</h1>
-          <MDXRenderer>{body}</MDXRenderer>
-          {/* PREV/NEXT BUTTONS */}
-          <div className="prev-next-links">
-            <div>
-              {prevPage && (
-                <div className="chevron-link">
-                  <Link to={prevPage.url}>
-                    <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
-                    {prevPage.title}
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div>
-              {nextPage && (
-                <div className="chevron-link">
-                  <Link to={nextPage.url}>
-                    {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
-                  </Link>
-                </div>
-              )}
+
+        {/* MAIN CONTENT */}
+        <div className="docs__main">
+          <div className="docs__main-container">
+            <h1 className="docs__main-title">{title}</h1>
+
+            {/* MARKDOWN PAGE CONTENT */}
+            <MDXProvider components={components}>
+              <MDXRenderer>{body}</MDXRenderer>
+            </MDXProvider>
+
+            {/* PREV/NEXT BUTTONS */}
+            <div className="docs__main-pagination">
+              <div>
+                {prevPage && (
+                  <div className="chevron-link">
+                    <Link to={prevPage.url}>
+                      <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
+                      {prevPage.title}
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div>
+                {nextPage && (
+                  <div className="chevron-link">
+                    <Link to={nextPage.url}>
+                      {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
-        <div
-          className="is-block-desktop"
-          style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}
-        >
+
+        {/* PAGE/HEADINGS TABLE OF CONTENTS */}
+        <div className="docs__column" style={{ background: 'WhiteSmoke', padding: 10, width: 250 }}>
           <h2 className="t-h2">Headings</h2>
           {headingsTableOfContents && <HeadingsTableOfContents items={headingsTableOfContents} />}
         </div>
