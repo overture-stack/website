@@ -1,6 +1,6 @@
 // $tablet: 600px;
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .ProductsPage {
   .spacer {
@@ -62,7 +62,7 @@
     }
 
     .details {
-      font-family: Lato, Arial;
+      font-family: $font-sans-serif;
       font-size: 18px;
       color: $blue-darker;
       letter-spacing: 0;
@@ -93,7 +93,7 @@
     }
 
     .link {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 26px;
       color: $blue-darker;
       letter-spacing: 0;

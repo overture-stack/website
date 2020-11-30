@@ -1,11 +1,11 @@
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .ContactPage {
   p,
   div,
   li {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 24px;
     letter-spacing: 0;
     line-height: 32px;
@@ -41,7 +41,7 @@
   }
 
   .contact-details {
-    font-family: Lato-Regular;
+    font-family: $font-sans-serif;
     font-size: 24px;
     color: $blue-darker;
     letter-spacing: 0;

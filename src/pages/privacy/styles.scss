@@ -1,10 +1,11 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .PrivacyPage {
   p,
   div,
   li {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;

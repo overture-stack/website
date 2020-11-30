@@ -1,5 +1,6 @@
 // Custom utility classes for when basscss doesn't do the trick.
 @import './colors';
+@import './variables';
 
 // Backgrounds
 .bg-grey {
@@ -33,7 +34,7 @@
 }
 
 .link-magenta {
-  font-family: Lato;
+  font-family: $font-sans-serif;
   font-weight: 700;
   color: $magenta;
   letter-spacing: 0;

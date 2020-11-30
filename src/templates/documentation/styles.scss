@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .docs {
   &__page {
@@ -124,7 +125,7 @@
     code {
       color: $magenta;
       background: $grey-blue;
-      font-family: 'source code pro';
+      font-family: $font-monospace;
       border-radius: 3px;
       padding: 0.15em 0.25em;
     }

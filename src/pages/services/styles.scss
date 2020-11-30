@@ -1,10 +1,10 @@
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .ServicesPage {
   p,
   li {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
@@ -49,7 +49,7 @@
   }
 
   .hero-subheader {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 24px;
     color: $blue-darker;
     letter-spacing: 0;
