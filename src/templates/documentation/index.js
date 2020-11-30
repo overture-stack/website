@@ -89,7 +89,6 @@ export default function DocumentationPage({ data, location, path }) {
     pageIsHeading && `/documentation/${pagesFlat[pagePathKey.replace('url', 'pages.0.url')]}/`;
 
   useEffect(() => {
-    console.log('hook');
     redirectDest && navigate(redirectDest);
   }, []);
 
