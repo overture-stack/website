@@ -2,7 +2,8 @@
 
 .toc-section {
   margin-bottom: 24px;
-  // all levels
+  max-height: calc(100vh - 210px);
+  overflow: auto;
   ol {
     list-style-type: none;
     padding-left: 0;

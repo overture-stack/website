@@ -108,10 +108,10 @@ export default function DocumentationPage({ data, location, path }) {
       </div>
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
-        <div className="docs__toc-section">
+        <div className="docs__sidebar">
           {!redirectDest && (
-            <React.Fragment>
-              <Link to="/documentation/" className="docs__toc-section__overview">
+            <div className="docs__sidebar__sticky">
+              <Link to="/documentation/" className="docs__sidebar__overview">
                 <Icon size={6} img="arrowLeftBlue" />
                 Documentation Overview
               </Link>
@@ -124,13 +124,13 @@ export default function DocumentationPage({ data, location, path }) {
 
               {/* GITHUB BUTTON */}
               <Button
-                className="docs__toc-section__github"
+                className="docs__sidebar__github"
                 externalLink={githubLinks[sectionSlug]}
                 type="primary"
               >
                 <Icon img="githubWhite" size={20} /> {sectionTitle} Github
               </Button>
-            </React.Fragment>
+            </div>
           )}
         </div>
 

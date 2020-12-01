@@ -13,11 +13,13 @@
     align-items: stretch;
     flex: 1;
   }
-  &__toc-section {
+  &__sidebar {
     flex: 0 0 280px;
     background: $grey;
-    padding: 20px 16px 0;
+    padding: 20px 16px;
     &__github {
+      position: absolute;
+      bottom: 0;
       img {
         margin-right: 8px;
       }
@@ -37,6 +39,11 @@
       &:focus {
         color: $blue-links-darker;
       }
+    }
+    &__sticky {
+      top: 65px;
+      position: sticky;
+      padding-bottom: 24px;
     }
   }
   &__header {
