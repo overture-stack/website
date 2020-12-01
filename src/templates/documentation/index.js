@@ -77,7 +77,7 @@ export default function DocumentationPage({ data, location, path }) {
   const headingsTableOfContents = tableOfContents.items || null;
   const { nextPage, prevPage } = findNextPrevPages({ pagesFlat, sectionSlug, pagePath });
 
-  // redirect from landing page.
+  // REDIRECTS:
   // if this page is marked 'isHeading' in _contents.yaml,
   // and someone manually navigates to it,
   // redirect to the first of its child pages.
@@ -87,6 +87,7 @@ export default function DocumentationPage({ data, location, path }) {
   const pageIsHeading = pagePathKey && pagesFlat[pagePathKey.replace('url', 'isHeading')];
   const redirectDest =
     pageIsHeading && `/documentation/${pagesFlat[pagePathKey.replace('url', 'pages.0.url')]}/`;
+  // redirectDest will be undefined if there are no child pages
 
   useEffect(() => {
     redirectDest && navigate(redirectDest);
@@ -108,74 +109,88 @@ export default function DocumentationPage({ data, location, path }) {
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
         <div className="docs__toc-section">
-          <Link to="/documentation/" className="docs__toc-section__overview">
-            <Icon size={6} img="arrowLeftBlue" />
-            Documentation Overview
-          </Link>
+          {!redirectDest && (
+            <React.Fragment>
+              <Link to="/documentation/" className="docs__toc-section__overview">
+                <Icon size={6} img="arrowLeftBlue" />
+                Documentation Overview
+              </Link>
 
-          <SectionTableOfContents pages={sectionObj.pages} path={path} sectionSlug={sectionSlug} />
+              <SectionTableOfContents
+                pages={sectionObj.pages}
+                path={path}
+                sectionSlug={sectionSlug}
+              />
 
-          {/* GITHUB BUTTON */}
-          <Button
-            className="docs__toc-section__github"
-            externalLink={githubLinks[sectionSlug]}
-            type="primary"
-          >
-            <Icon img="githubWhite" size={20} /> {sectionTitle} Github
-          </Button>
+              {/* GITHUB BUTTON */}
+              <Button
+                className="docs__toc-section__github"
+                externalLink={githubLinks[sectionSlug]}
+                type="primary"
+              >
+                <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+              </Button>
+            </React.Fragment>
+          )}
         </div>
 
         {/* MAIN CONTENT */}
         <div className="docs__main">
           <div className="docs__main-container">
-            <h1 className="docs__main-title">{title}</h1>
+            <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
+            {!redirectDest && (
+              <React.Fragment>
+                <MDXProvider
+                  components={{
+                    ...replacedComponents,
+                    ...shortcodes,
+                    a: props => <LinkHelper {...props} location={location} />,
+                    // the page title is h1
+                    // so demote markdown headings by one level
+                    h1: props => <AnchorHeading location={location} size="h2" {...props} />,
+                    h2: props => <AnchorHeading location={location} size="h3" {...props} />,
+                    h3: props => <AnchorHeading location={location} size="h4" {...props} />,
+                    h4: props => <AnchorHeading location={location} size="h5" {...props} />,
+                    h5: props => <AnchorHeading location={location} size="h6" {...props} />,
+                    h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  }}
+                >
+                  <MDXRenderer>{body}</MDXRenderer>
+                </MDXProvider>
 
-            {/* MARKDOWN PAGE CONTENT */}
-            <MDXProvider
-              components={{
-                ...replacedComponents,
-                ...shortcodes,
-                a: props => <LinkHelper {...props} location={location} />,
-                // the page title is h1
-                // so demote markdown headings by one level
-                h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                h6: props => <AnchorHeading location={location} size="h6" {...props} />,
-              }}
-            >
-              <MDXRenderer>{body}</MDXRenderer>
-            </MDXProvider>
-
-            {/* PREV/NEXT BUTTONS */}
-            <div className="docs__main-pagination">
-              <div>
-                {prevPage && (
-                  <div className="chevron-link">
-                    <Link to={prevPage.url}>
-                      <Icon size={12} img="arrowRightMagenta" style={{ transform: 'scaleX(-1)' }} />{' '}
-                      {prevPage.title}
-                    </Link>
+                {/* PREV/NEXT BUTTONS */}
+                <div className="docs__main-pagination">
+                  <div>
+                    {prevPage && (
+                      <div className="chevron-link">
+                        <Link to={prevPage.url}>
+                          <Icon
+                            size={12}
+                            img="arrowRightMagenta"
+                            style={{ transform: 'scaleX(-1)' }}
+                          />{' '}
+                          {prevPage.title}
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-              <div>
-                {nextPage && (
-                  <div className="chevron-link">
-                    <Link to={nextPage.url}>
-                      {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
-                    </Link>
+                  <div>
+                    {nextPage && (
+                      <div className="chevron-link">
+                        <Link to={nextPage.url}>
+                          {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                        </Link>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </div>
+                </div>
+              </React.Fragment>
+            )}
           </div>
         </div>
 
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
-        {headingsTableOfContents && (
+        {!redirectDest && headingsTableOfContents && (
           <div className="docs__toc-headings">
             <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
           </div>
