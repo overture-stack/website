@@ -42,8 +42,6 @@ export default function SectionTableOfContents({ pages, path }) {
   return (
     <div className="toc-section">
       <RenderItems pages={pages} path={path} />
-      <RenderItems pages={pages} path={path} />
-      <RenderItems pages={pages} path={path} />
     </div>
   );
 }
