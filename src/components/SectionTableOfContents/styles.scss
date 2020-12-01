@@ -2,35 +2,35 @@
 
 .toc-section {
   margin-bottom: 24px;
+  // all levels
   ol {
     list-style-type: none;
     padding-left: 0;
-  }
-  // all levels
-  li {
-    &.menu-active > a {
-      color: $magenta;
-    }
-    a {
-      background: transparent;
-      color: $blue-black;
-      display: block;
-      font-size: 16px;
-      font-weight: bold;
-      &:hover,
-      &.active {
-        background: $white;
-      }
-      &.link-active {
+    li {
+      &.menu-active > a {
         color: $magenta;
       }
-    }
-    span {
-      position: relative;
-      .Icon {
-        position: absolute;
-        left: -12px;
-        top: 7px;
+      a {
+        background: transparent;
+        color: $blue-black;
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        &:hover,
+        &.active {
+          background: $white;
+        }
+        &.link-active {
+          color: $magenta;
+        }
+      }
+      span {
+        position: relative;
+        .Icon {
+          position: absolute;
+          left: -12px;
+          top: 7px;
+        }
       }
     }
   }
@@ -42,10 +42,8 @@
       background: $white;
       border-left-color: $magenta;
       a {
-        &:hover,
-        &:active,
-        &:focus {
-          background: $grey-bg-hover-2;
+        &:hover {
+          background: $grey-bg-hover;
         }
       }
     }
@@ -60,8 +58,7 @@
     }
     // all lower levels
     ol li {
-      a,
-      button {
+      a {
         font-size: 14px;
         line-height: 16px;
         padding: 10px 0 10px 32px;
@@ -72,8 +69,7 @@
     }
     // third level
     > ol > li > ol > li {
-      > a,
-      > button {
+      > a {
         padding-left: 48px;
       }
     }
