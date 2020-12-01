@@ -102,7 +102,7 @@ export default function DocumentationPage({ data, location, path }) {
       <div class="docs__mobile-sidebar__button">
         <button
           type="button"
-          className="button navbar-burger"
+          className={`button navbar-burger ${isMobileSidebarActive ? 'is-active' : ''}`}
           onClick={() => setMobileSidebarActive(!isMobileSidebarActive)}
         >
           <span></span>
