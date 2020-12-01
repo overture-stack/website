@@ -6,44 +6,12 @@
     list-style-type: none;
     padding-left: 0;
   }
-  button {
-    // reset
-    background: transparent;
-    border: 0 none;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-    font-size: inherit;
-    padding: 0;
-  }
-  .link-active {
-    color: $magenta;
-  }
-  .menu-active {
-    background: $white;
-    border-left: 3px solid $magenta-border;
-    .menu-active {
-      border: none;
-      &__heading {
-        border: none;
-      }
-    }
-    &__heading {
-      background: $white;
-      border-left: 3px solid $magenta-border;
-      color: $magenta;
-    }
-    a,
-    button {
-      &:hover {
-        background: $grey-bg-hover-2;
-      }
-    }
-  }
   // all levels
   li {
-    a,
-    button {
+    &.menu-active > a {
+      color: $magenta;
+    }
+    a {
       background: transparent;
       color: $blue-black;
       display: block;
@@ -69,8 +37,19 @@
   // first level
   > ol > li {
     border-bottom: 1px solid $grey-table-border;
-    > a,
-    > button {
+    border-left: 3px solid transparent;
+    &.menu-active {
+      background: $white;
+      border-left-color: $magenta;
+      a {
+        &:hover,
+        &:active,
+        &:focus {
+          background: $grey-bg-hover-2;
+        }
+      }
+    }
+    > a {
       border-left: 3px solid transparent;
       line-height: 18px;
       padding: 12px 0 12px 24px;
@@ -79,7 +58,7 @@
         border-color: $magenta-border;
       }
     }
-    // lower levels
+    // all lower levels
     ol li {
       a,
       button {
