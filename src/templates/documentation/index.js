@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { graphql, Link, navigate } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
@@ -95,8 +95,21 @@ export default function DocumentationPage({ data, location, path }) {
 
   useScrollToHash(location);
 
+  const [isMobileSidebarActive, setMobileSidebarActive] = useState(false);
+
   return (
     <main className="docs__page">
+      <div class="docs__mobile-sidebar__button">
+        <button
+          type="button"
+          className="button navbar-burger"
+          onClick={() => setMobileSidebarActive(!isMobileSidebarActive)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       <div className="docs__header">
         <div className="docs__header-title">
           <Icon className="icon" size={45} img={sectionIcon} />
@@ -108,7 +121,11 @@ export default function DocumentationPage({ data, location, path }) {
       </div>
       <div className="docs__columns">
         {/* SECTION TABLE OF CONTENTS */}
-        <div className="docs__sidebar">
+        <div
+          className={`docs__sidebar docs__mobile-sidebar  ${
+            isMobileSidebarActive ? 'docs__mobile-sidebar__active' : ''
+          }`}
+        >
           {!redirectDest && (
             <div className="docs__sidebar__sticky">
               <Link to="/documentation/" className="docs__sidebar__overview">
