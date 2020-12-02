@@ -19,7 +19,7 @@
     padding: 20px 16px;
     &__github {
       position: absolute;
-      bottom: 0;
+      bottom: 5px;
       img {
         margin-right: 8px;
       }
@@ -41,13 +41,13 @@
       }
     }
     &__sticky {
-      top: 65px;
-      position: sticky;
       padding-bottom: 24px;
+      position: sticky;
+      top: 75px;
     }
   }
   &__mobile-sidebar {
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1160px) {
       // display: none;
       position: fixed;
       bottom: -100%;
@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 1024px) {
+    @media (max-width: 1160px) {
       flex-direction: column-reverse;
       padding: 0 10px;
     }
@@ -106,14 +106,14 @@
       display: flex;
       align-items: center;
       width: 100%;
-      @media (max-width: 1024px) {
+      @media (max-width: 1160px) {
         justify-content: start;
         padding: 10px 0;
       }
       .icon {
         height: 32px !important;
         margin-right: 4px;
-        @media (max-width: 1024px) {
+        @media (max-width: 1160px) {
           height: 24px !important;
           margin-right: 2px;
         }
@@ -125,14 +125,14 @@
         font-weight: bold;
         line-height: 1;
         padding: 18px 0;
-        @media (max-width: 1024px) {
+        @media (max-width: 1160px) {
           font-size: 24px;
         }
       }
     }
     &-search {
       flex: 1 0 400px;
-      @media (max-width: 1024px) {
+      @media (max-width: 1160px) {
         flex-basis: auto;
         margin-top: 10px;
         width: 100%;
@@ -152,12 +152,15 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 48px 36px 10px;
+    @media screen and (max-width: 1160px) {
+      padding-top: 10px;
+    }
     &-container {
       flex: 0 1 45em;
     }
     &-title {
-      margin: 48px 0 44px;
+      margin: 0 0 44px;
       font-size: 30px;
       line-height: 36px;
     }
@@ -168,8 +171,15 @@
       .chevron-link {
         flex: 0 0 50%;
       }
-      @media (min-width: 1024px) {
+      @media (min-width: 1160px) {
         margin: 64px 0;
+      }
+    }
+    .docs__github-btn {
+      width: 100%;
+      text-align: right;
+      @media screen and (min-width: 1160px) {
+        display: none;
       }
     }
   }
@@ -336,8 +346,14 @@
   &__toc-headings {
     flex: 0 0 300px;
     padding: 48px 20px 0 0;
-    @media (max-width: 1024px) {
+    @media (max-width: 1160px) {
       display: none;
+    }
+  }
+  &__github-btn {
+    margin-bottom: 24px;
+    .Icon {
+      margin-right: 4px;
     }
   }
 }

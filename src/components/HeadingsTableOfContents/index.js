@@ -1,5 +1,5 @@
 import React from 'react';
-import { useActiveId } from 'hooks';
+import { useActiveId, useSSRWorkaround } from 'hooks';
 import { HashLink } from 'components';
 import './styles.scss';
 
@@ -35,8 +35,9 @@ const RenderItems = ({ activeId, hasChildMenu = false, items, location }) => (
 export default function HeadingsTableOfContents({ items, location }) {
   const idList = getIds(items);
   const activeId = useActiveId(idList);
+  const { key } = useSSRWorkaround();
   return (
-    <div className="toc-headings">
+    <div className="toc-headings" key={key}>
       <RenderItems activeId={activeId} hasChildMenu items={items} location={location} />
     </div>
   );
