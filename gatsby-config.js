@@ -1,7 +1,7 @@
 // needs to be at the top of the file.
-// require('dotenv').config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// });
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
@@ -130,5 +130,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries: require('./meta/algolia-queries.js'),
+        chunkSize: 10000, // default 1000
+      },
+    },
   ],
 };
