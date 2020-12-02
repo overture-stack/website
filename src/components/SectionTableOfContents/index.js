@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Icon } from 'components';
+import { useSSRWorkaround } from 'hooks';
 import './styles.scss';
 
 const makeUrl = url => `/documentation/${url}/`;
@@ -39,8 +40,9 @@ const RenderItems = ({ pages, path }) => (
 );
 
 export default function SectionTableOfContents({ pages, path }) {
+  const { key } = useSSRWorkaround();
   return (
-    <div className="toc-section">
+    <div className="toc-section" key={key}>
       <RenderItems pages={pages} path={path} />
     </div>
   );
