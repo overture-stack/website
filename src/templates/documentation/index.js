@@ -207,11 +207,11 @@ export default function DocumentationPage({ data, location, path }) {
         </div>
 
         {/* PAGE/HEADINGS TABLE OF CONTENTS */}
-        {!redirectDest && headingsTableOfContents && (
-          <div className="docs__toc-headings">
+        <div className="docs__toc-headings">
+          {!redirectDest && headingsTableOfContents && (
             <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </main>
   );
