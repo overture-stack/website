@@ -151,13 +151,13 @@
   &__main {
     display: flex;
     flex: 1;
-    justify-content: center;
-    padding: 48px 36px 10px;
+    justify-content: left;
+    padding: 48px 48px 10px;
     @media screen and (max-width: 1160px) {
-      padding-top: 10px;
+      padding-top: 10px 20px;
     }
     &-container {
-      flex: 0 1 45em;
+      flex: 0 1 70em;
     }
     &-title {
       margin: 0 0 44px;
