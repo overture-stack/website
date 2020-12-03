@@ -6,6 +6,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.10.4",
     "@mdx-js/mdx": "^1.6.19",
     "@mdx-js/react": "^1.6.19",
+    "algoliasearch": "^4.8.3",
     "basscss": "^8.1.0",
     "bulma": "^0.7.5",
     "flat": "^5.0.2",
@@ -38,6 +39,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
+    "react-instantsearch-dom": "^6.8.2",
     "react-modal": "^3.11.2",
     "react-waypoint": "^9.0.3",
     "webpack": "^4.44.1"
