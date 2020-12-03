@@ -15,7 +15,7 @@ const docsAlgoliaQuery = `
   }
 `;
 
-function pageToAlgoliaRecord({ node: { id, fields = {}, ...rest } }) {
+function pageToAlgoliaRecord({ id, fields = {}, ...rest }) {
   return {
     objectID: id,
     ...fields,
@@ -26,10 +26,12 @@ function pageToAlgoliaRecord({ node: { id, fields = {}, ...rest } }) {
 const queries = [
   {
     query: docsAlgoliaQuery,
-    transformer: ({ data }) => data.allMdx.nodes.map(node => pageToAlgoliaRecord),
+    transformer: ({ data }) => data.allMdx.nodes.map(pageToAlgoliaRecord),
     indexName,
     settings: { attributesToSnippet: [`excerpt:20`] },
   },
 ];
+
+console.log({ queries });
 
 module.exports = queries;
