@@ -1,20 +1,11 @@
-# don't use leading or trailing slashes in URLs here
-
 sectionTitle: Score
 sectionSlug: score
 pages:
   - title: Introduction
-    # the first, top level page should have the title "Introduction"
-    # and the URL should be the same as the sectionSlug
     url: score
   - title: Section 1
     url: score/section-1
     isHeading: true
-    # isHeading will turn this into a heading.
-    # use this for top-level folders.
-    # you won't be able to navigate to this page at all.
-    # if you type in the URL manually you'll be redirected
-    # to the next page in the order.
     pages:
       - title: Section Page 1
         url: score/section-1/section-page-1

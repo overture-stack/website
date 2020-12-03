@@ -11,17 +11,14 @@ const scrollToHash = prevLocation => {
   if (hash) {
     scrollToElement(hash, {
       offset: -70,
-      duration: 500,
+      duration: 250,
     });
   }
 };
 
 export function onPreRouteUpdate(args) {
   const { prevLocation = '' } = args;
-  // scroll to hash before updating the route
-  // to get a nice smooth animation with offset positioning,
-  // so that the fixed navbar doesn't cover the content.
+  // scroll to ID before updating the route/browser address bar
+  // (pre-empts the browser's own scrolling)
   if (prevLocation) scrollToHash(prevLocation);
-  // add useScrollToHash() hook in the page template
-  // in order to scroll on page load.
 }

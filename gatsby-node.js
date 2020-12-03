@@ -139,9 +139,10 @@ export function onCreateWebpackConfig({ actions }) {
 
 export function createSchemaCustomization({ actions }) {
   // DOCUMENTATION PAGE TYPES
-  // - enforce structure in _contents.yaml
-  // - prevent builds from failing if none of the
-  //   docs sections have content nested 4 levels deep
+  // - describe structure of _contents.yaml
+  // - throw descriptive errors if required fields are missing
+  // - prevent build failures if optional fields are missing,
+  //   i.e. if none of the sections are nested 4 levels deep.
   const documentationTypeDefs = `
     type Yaml implements Node {
       sectionSlug: String!

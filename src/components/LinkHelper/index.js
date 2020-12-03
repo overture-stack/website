@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { HashLink } from 'components';
 
-// gatsby requires different treatment/elements for different link types.
-
 export default function LinkHelper({ href = '', location = {}, to = '', ...props }) {
   const dest = to || href || '';
 

@@ -231,7 +231,7 @@ export const pageQuery = graphql`
         title
       }
       body
-      tableOfContents
+      tableOfContents(maxDepth: 2)
       parent {
         ... on File {
           relativePath

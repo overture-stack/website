@@ -9,7 +9,7 @@ export default function useScrollToHash(location) {
     if (location.hash) {
       scrollToElement(location.hash, {
         offset: -70,
-        duration: 500,
+        duration: 250,
       });
     }
   }, []);
