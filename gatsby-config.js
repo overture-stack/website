@@ -105,13 +105,13 @@ module.exports = {
         showSpinner: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: config.googleTagManagerID,
-        includeInDevelopment: false,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-tagmanager`,
+    //   options: {
+    //     id: config.googleTagManagerID,
+    //     includeInDevelopment: false,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -141,7 +141,7 @@ module.exports = {
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
         queries: require('./meta/algolia-queries.js'),
         chunkSize: 10000, // default 1000
       },

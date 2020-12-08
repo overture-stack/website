@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Badge, Button, Icon } from 'components';
+import { Badge, Button, Icon, Search } from 'components';
 import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
@@ -100,6 +100,7 @@ export default function DocumentationPage() {
           </div>
           <div className="search-container">
             <h1>How can we help?</h1>
+            <Search />
           </div>
           <div className="image image-techsupport">
             <img src={techSupportSvg} />

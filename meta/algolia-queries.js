@@ -23,7 +23,7 @@ function pageToAlgoliaRecord({ id, fields = {}, ...rest }) {
   };
 }
 
-const queries = [
+export const queries = [
   {
     query: docsAlgoliaQuery,
     transformer: ({ data }) => data.allMdx.nodes.map(pageToAlgoliaRecord),
@@ -31,7 +31,3 @@ const queries = [
     settings: { attributesToSnippet: [`excerpt:20`] },
   },
 ];
-
-console.log({ queries });
-
-module.exports = queries;
