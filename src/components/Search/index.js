@@ -23,7 +23,11 @@ export default function Search({ indices }) {
         onSearchStateChange={({ query }) => setQuery(query)}
       >
         <SearchBox className="search__box" onFocus={() => setFocus(true)} hasFocus={hasFocus} />
-        <SearchResult show={query && query.length > 0 && hasFocus} indices={indices} />
+        <SearchResult
+          className="search__results"
+          show={query && query.length > 0 && hasFocus}
+          indices={indices}
+        />
       </InstantSearch>
     </div>
   );

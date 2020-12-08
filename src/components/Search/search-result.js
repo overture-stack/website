@@ -36,8 +36,8 @@ const HitsInIndex = ({ index }) => (
   </Index>
 );
 
-const SearchResult = ({ indices, className }) => (
-  <div className={className}>
+const SearchResult = ({ className = '', indices, show }) => (
+  <div className={`${className} ${show ? 'open' : 'closed'}`}>
     {indices.map(index => (
       <HitsInIndex index={index} key={index.name} />
     ))}

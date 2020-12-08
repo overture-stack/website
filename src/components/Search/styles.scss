@@ -20,7 +20,7 @@
       &:focus {
         border: 1px solid #4bc6f0;
         box-shadow: 0 0 4px 1px rgba(155, 199, 237, 0.8);
-        outline: 0 none;
+        outline: none;
       }
     }
     &-icon {
@@ -41,24 +41,53 @@
       width: 20px;
     }
   }
-  // &__box {
-  //   display: flex;
-  //   flex-direction: row-reverse;
-  //   align-items: center;
-  //   margin-bottom: 0;
-  //   &.open {
-  //     width: 10em;
-  //     background: #fff;
-  //     cursor: text;
-  //     margin-left: -1.6em;
-  //     padding-left: 1.6em;
-  //   }
-  //   &.closed {
-  //     width: 0;
-  //     background: transparent;
-  //     cursor: pointer;
-  //     margin-left: -1em;
-  //     padding-left: 1em;
-  //   }
-  // }
+  &__results {
+    &.closed {
+      display: none;
+    }
+    &.open {
+      display: block;
+    }
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 5px 0;
+    margin-top: 0.5em;
+    max-height: 80vh;
+    max-width: 30em;
+    overflow: scroll;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 80vw;
+    z-index: 2;
+    .HitCount {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .Hits {
+      ul {
+        list-style: none;
+        margin-left: 0;
+      }
+      li.ais-Hits-item {
+        margin-bottom: 1em;
+        a {
+          h4 {
+            margin-bottom: 0.2em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ais-PoweredBy {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 80%;
+  svg {
+    width: 70px;
+  }
 }
