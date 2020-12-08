@@ -1,5 +1,5 @@
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .HomePage {
   font-size: 18px;
@@ -95,7 +95,7 @@
   }
 
   .hero-subheader {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 24px;
     color: $blue-darker;
     letter-spacing: 0;
@@ -117,7 +117,7 @@
   }
 
   .bottom-header {
-    font-family: 'Lato';
+    font-family: $font-sans-serif;
     font-size: 40px;
     color: $blue-darker;
     letter-spacing: 0;
@@ -142,7 +142,7 @@
     border-top-right-radius: 12px;
     color: $white;
     display: flex;
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-weight: 700;
     font-size: 26px;
     justify-content: space-between;
@@ -152,7 +152,7 @@
   }
 
   .card-body {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 18px;
     color: $blue-darker;
     letter-spacing: 0;

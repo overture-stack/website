@@ -4,18 +4,11 @@ title: Markdown Kitchen Sink
 
 # Table of Contents
 
+Testing in-page anchor links.
+
 - [Shortcodes](#shortcodes)
 - [Headers](#headers)
 - [Emphasis](#emphasis)
-- [Lists](#lists)
-- [Links](#links)
-- [Images](#images)
-- [Code and Syntax Highlighting](#code)
-- [Tables](#tables)
-- [Blockquotes](#blockquotes)
-- [Horizontal Rule](#hr)
-- [Line Breaks](#lines)
-- [Putting It All Together](#all-together)
 
 ---
 
@@ -248,17 +241,12 @@ No language indicated, so no syntax highlighting.
 ## Tables
 
 ```markdown
-Colons can be used to align columns.
+| Tables        | Are           | Cool                 |
+| ------------- | ------------- | -------------------- |
+| first row     | second column | third column         |
+| zebra stripes | are neat      | and different colors |
 
-| Tables        | Are           | Cool   |
-| ------------- | ------------- | ------ |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      | centered      | \$12   |
-| zebra stripes | are neat      | \$1    |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the
-raw Markdown line up prettily. You can also use inline Markdown.
+You can also use inline Markdown.
 
 | Markdown | Less      | Pretty     |
 | -------- | --------- | ---------- |
@@ -266,15 +254,12 @@ raw Markdown line up prettily. You can also use inline Markdown.
 | 1        | 2         | 3          |
 ```
 
-Colons can be used to align columns.
+| Tables        | Are           | Cool                 |
+| ------------- | ------------- | -------------------- |
+| first row     | second column | third column         |
+| zebra stripes | are neat      | and different colors |
 
-| Tables        |      Are      |   Cool |
-| ------------- | :-----------: | -----: |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      |   centered    |   \$12 |
-| zebra stripes |   are neat    |    \$1 |
-
-There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
+You can also use inline Markdown.
 
 | Markdown | Less      | Pretty     |
 | -------- | --------- | ---------- |
@@ -312,13 +297,6 @@ Three or more...
 
 Hyphens
 
-***
-
-Asterisks
-
-___
-
-Underscores
 ```
 
 Three or more...
@@ -326,14 +304,6 @@ Three or more...
 ---
 
 Hyphens
-
----
-
-Asterisks
-
----
-
-Underscores
 
 <a name="lines"></a>
 

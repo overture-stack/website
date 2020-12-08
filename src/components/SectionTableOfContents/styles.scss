@@ -1,0 +1,78 @@
+@import '../../styles/colors';
+
+.toc-section {
+  margin-bottom: 24px;
+  max-height: calc(100vh - 150px);
+  overflow: auto;
+  ol {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+      &.menu-active > a {
+        color: $magenta;
+      }
+      a {
+        background: transparent;
+        color: $blue-black;
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        &:hover,
+        &.active {
+          background: $white;
+        }
+        &.link-active {
+          color: $magenta;
+        }
+      }
+      span {
+        position: relative;
+        .Icon {
+          position: absolute;
+          left: -12px;
+          top: 7px;
+        }
+      }
+    }
+  }
+  // first level
+  > ol > li {
+    border-bottom: 1px solid $grey-table-border;
+    border-left: 3px solid transparent;
+    &.menu-active {
+      background: $white;
+      border-left-color: $magenta;
+      a {
+        &:hover {
+          background: $grey-bg-hover;
+        }
+      }
+    }
+    > a {
+      border-left: 3px solid transparent;
+      line-height: 18px;
+      padding: 12px 0 12px 24px;
+      &.link-active {
+        background: $white;
+        border-color: $magenta-border;
+      }
+    }
+    // all lower levels
+    ol li {
+      a {
+        font-size: 14px;
+        line-height: 16px;
+        padding: 10px 0 10px 32px;
+      }
+      span .Icon {
+        top: 6px;
+      }
+    }
+    // third level
+    > ol > li > ol > li {
+      > a {
+        padding-left: 48px;
+      }
+    }
+  }
+}

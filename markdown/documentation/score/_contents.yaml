@@ -1,0 +1,60 @@
+sectionTitle: Score
+sectionSlug: score
+pages:
+  - title: Introduction
+    url: score
+  - title: Section 1
+    url: score/section-1
+    isHeading: true
+    pages:
+      - title: Section Page 1
+        url: score/section-1/section-page-1
+      - title: Section Page 2
+        url: score/section-1/section-page-2
+      - title: Subsection 1
+        url: score/section-1/subsection-1
+        pages:
+          - title: Subsection Page 1
+            url: score/section-1/subsection-1/subsection-page-1
+          - title: Subsection Page 2
+            url: score/section-1/subsection-1/subsection-page-2
+  - title: Page 1
+    url: score/page-1
+  - title: Page 2 (doesn't exist)
+    url: score/page-2
+  - title: Page 3 (doesn't exist)
+    url: score/page-3
+  - title: Page 4 (doesn't exist)
+    url: score/page-4
+  - title: Page 5 (doesn't exist)
+    url: score/page-5
+  - title: Page 6 (doesn't exist)
+    url: score/page-6
+  - title: Page 7 (doesn't exist)
+    url: score/page-7
+  - title: Page 8 (doesn't exist)
+    url: score/page-8
+  - title: Page 9 (doesn't exist)
+    url: score/page-9
+  - title: Page 10 (doesn't exist)
+    url: score/page-10
+  - title: Page 11 (doesn't exist)
+    url: score/page-11
+  - title: Page 12 (doesn't exist)
+    url: score/page-12
+  - title: Page 13 (doesn't exist)
+    url: score/page-13
+  - title: Page 14 (doesn't exist)
+    url: score/page-14
+  - title: Page 15 (doesn't exist)
+    url: score/page-15
+  - title: Page 16 (doesn't exist)
+    url: score/page-16
+  - title: Page 17 (doesn't exist)
+    url: score/page-17
+  - title: Page 18 (doesn't exist)
+    url: score/page-18
+  - title: Page 19 (doesn't exist)
+    url: score/page-19
+  - title: Page 20 (doesn't exist)
+    url: score/page-20

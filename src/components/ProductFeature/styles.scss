@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .ProductFeatureRow {
   display: flex;
@@ -20,7 +21,7 @@
     }
 
     .header {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 30px;
       color: $blue-darker;
       letter-spacing: 0;
@@ -29,7 +30,7 @@
     }
 
     .details {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 18px;
       color: $blue-darker;
       letter-spacing: 0;

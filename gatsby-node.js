@@ -26,7 +26,21 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       ? `/documentation/${relativeDirectory}/${pageSlug}`
       : `/${relativePath.replace(ext, '')}/`;
 
+    const title =
+      node.frontmatter.title ||
+      startCase(pageSlug) ||
+      (isDocs &&
+        isIndex &&
+        startCase(
+          relativeDirectory
+            .split('/')
+            .filter(x => x)
+            .pop()
+        )) ||
+      '';
+
     createNodeField({
+      // relative URL of the page
       name: `slug`,
       node,
       value: slug,
@@ -43,11 +57,7 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
       // frontmatter title field
       name: 'title',
       node,
-      value:
-        node.frontmatter.title ||
-        startCase(pageSlug) ||
-        (isDocs && isIndex && startCase(relativeDirectory)) ||
-        '',
+      value: title,
     });
   }
 }
@@ -58,7 +68,7 @@ export async function createPages(params) {
   await Promise.all([createMarkdownPages(params)]);
 }
 
-async function createMarkdownPages({ graphql, actions: { createPage } }) {
+async function createMarkdownPages({ actions, graphql }) {
   const { data } = await graphql(`
     {
       allMdx {
@@ -66,6 +76,25 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
           fields {
             id
             slug
+          }
+        }
+      }
+      allYaml {
+        nodes {
+          sectionTitle
+          sectionSlug
+          pages {
+            isHeading
+            title
+            url
+            pages {
+              title
+              url
+              pages {
+                title
+                url
+              }
+            }
           }
         }
       }
@@ -78,7 +107,7 @@ async function createMarkdownPages({ graphql, actions: { createPage } }) {
     // documentation section
     if (slug.match(/^\/documentation/)) {
       const section = slug.split('/').filter(x => x)[1];
-      createPage({
+      actions.createPage({
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
@@ -106,4 +135,36 @@ export function onCreateWebpackConfig({ actions }) {
       },
     },
   });
+}
+
+export function createSchemaCustomization({ actions }) {
+  // DOCUMENTATION PAGE TYPES
+  // - describe structure of _contents.yaml
+  // - throw descriptive errors if required fields are missing
+  // - prevent build failures if optional fields are missing,
+  //   i.e. if none of the sections are nested 4 levels deep.
+  const documentationTypeDefs = `
+    type Yaml implements Node {
+      sectionSlug: String!
+      sectionTitle: String!
+      pages: [YamlPages!]
+    }
+    type YamlPages implements Node {
+      isHeading: Boolean
+      title: String!
+      url: String!
+      pages: [YamlPagesPages!]
+    }
+    type YamlPagesPages implements Node {
+      skipPage: Boolean
+      title: String!
+      url: String!
+      pages: [YamlPagesPagesPages!]
+    }
+    type YamlPagesPagesPages implements Node {
+      title: String!
+      url: String!
+    }
+  `;
+  actions.createTypes(documentationTypeDefs);
 }

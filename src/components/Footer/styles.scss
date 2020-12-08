@@ -1,5 +1,5 @@
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .Footer {
   border-top: 1px solid $grey-4;
@@ -46,7 +46,7 @@
   }
 
   .link {
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: $blue-black;

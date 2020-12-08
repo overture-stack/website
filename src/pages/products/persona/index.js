@@ -13,6 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 const featureGridData = [
   [
@@ -52,7 +53,7 @@ const PersonaPage = () => (
       title="Persona"
       subTitle="An effortless solution for storing profile information."
       cardText="Persona provides an easy-to-use solution for storing profile information. In tandem with Ego, users’ personas can be validated and expanded upon with custom fields."
-      getStartedLink="https://github.com/overture-stack/persona"
+      getStartedLink={githubLinks.persona}
       logo="logoPersona"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -158,12 +159,7 @@ const PersonaPage = () => (
         className="center"
         description="Persona provides an easy-to-use solution for storing profile information"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink="https://github.com/overture-stack/persona"
-          icon="githubWhite"
-        >
+        <Button type="primary" size="medium" externalLink={githubLinks.persona} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

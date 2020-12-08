@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .Terminal {
   background: $grey;
@@ -12,7 +13,7 @@
   border-radius: 6px;
   padding: 24px;
   margin: 8px;
-  font-family: 'Source Code Pro';
+  font-family: $font-monospace;
   font-size: 18px;
 }
 

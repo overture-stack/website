@@ -9,4 +9,12 @@
   *:last-child {
     margin-bottom: 0;
   }
+  a {
+    color: $blue-links-yellow-bg !important;
+    &:hover,
+    &:active,
+    &:focus {
+      color: inherit !important;
+    }
+  }
 }

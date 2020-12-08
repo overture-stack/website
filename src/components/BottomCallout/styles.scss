@@ -1,5 +1,5 @@
-@import '../../styles/variables';
 @import '../../styles/colors';
+@import '../../styles/variables';
 
 .BottomCallout {
   background-color: $blue-dark;
@@ -22,7 +22,7 @@
     max-width: 500px;
     margin: 0 auto;
     padding: 12px;
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 22px;
     color: $white;
     letter-spacing: 0;

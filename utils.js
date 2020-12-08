@@ -1,8 +1,6 @@
-var GithubSlugger = require('github-slugger');
-var slugger = new GithubSlugger();
-
 module.exports = {
   copyToClipboard: function(str) {
+    // ref: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');
@@ -12,10 +10,6 @@ module.exports = {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
-  },
-  makeSlug: function(input) {
-    // input can be a string or array of strings
-    return typeof input === 'string' ? slugger.slug(input) : slugger.slug(input[0]);
   },
   makeURLSafeString: function(str) {
     return str

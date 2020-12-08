@@ -1,5 +1,6 @@
 import React from 'react';
 import { BottomCallout, Button, Callout, GridFeature, Hero, Icon } from 'components';
+import { githubLinks } from 'meta/config';
 import heroImg from './assets/hero_img.svg';
 import './styles.scss';
 
@@ -69,7 +70,7 @@ export default function AboutUsPage() {
           <Button
             type="primary"
             size="medium"
-            externalLink="https://github.com/overture-stack"
+            externalLink={githubLinks.overture}
             icon="githubWhite"
           >
             Get Started
