@@ -9,6 +9,19 @@ import {
   PoweredBy,
 } from 'react-instantsearch-dom';
 
+const sectionTitleDict = {
+  arranger: 'Arranger',
+  dms: 'DMS',
+  ego: 'Ego',
+  jukebox: 'Jukebox',
+  maestro: 'Maestro',
+  oncojs: 'OncoJs',
+  persona: 'Persona',
+  riff: 'Riff',
+  score: 'Score',
+  song: 'Song',
+};
+
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits;
   return (
@@ -18,16 +31,27 @@ const HitCount = connectStateResults(({ searchResults }) => {
   );
 });
 
-const PageHit = ({ hit }) => (
-  <div>
-    <Link to={hit.slug}>
-      <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h4>
-    </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-  </div>
-);
+const PageHit = ({ hit }) => {
+  const sectionTitle = hit.slug
+    .split('/documentation/')[1]
+    .split('/')
+    .filter(x => x)[0];
+  return (
+    <div className="search__result">
+      <div className="search__result__section">{sectionTitleDict[sectionTitle]} Docs</div>
+      <Link to={hit.slug}>
+        <div className="search__result__page">
+          <div className="search__result__page-title">
+            <Highlight attribute="title" hit={hit} tagName="mark" />
+          </div>
+          <div className="search__result__page-snippet">
+            <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+};
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>

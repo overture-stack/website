@@ -76,6 +76,7 @@ import star from './icons/star.svg';
 import target from './icons/target.svg';
 import user from './icons/user.svg';
 import vennDiagram from './icons/venn_diagram.svg';
+import xGrey from './icons/x-grey.svg';
 
 const icons = {
   arrowDown,
@@ -154,6 +155,7 @@ const icons = {
   target,
   user,
   vennDiagram,
+  xGrey,
 };
 
 export const Icon = ({ img, size, className, style }) => (

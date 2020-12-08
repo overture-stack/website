@@ -28,11 +28,11 @@
     }
     .search__container {
       align-items: center;
-      align-self: start;
       display: flex;
       flex-direction: column;
       flex: 1 0 475px;
       justify-content: center;
+      padding: 0 20px;
       @media (max-width: 1024px) {
         flex-basis: auto;
       }

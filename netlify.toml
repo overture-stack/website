@@ -18,3 +18,6 @@
 
 [context.branch-deploy.environment]
   GATSBY_SHOW_DOCS = "true"
+  GATSBY_ALGOLIA_INDEX_NAME = "test_overturedocs"
+  GATSBY_ALGOLIA_APP_ID = "6R0DWJUJIU"
+  GATSBY_ALGOLIA_SEARCH_KEY = "bbea2e1901e572afa623f7edaece8861"

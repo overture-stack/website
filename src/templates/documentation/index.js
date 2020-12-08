@@ -14,6 +14,7 @@ import {
   HeadingsTableOfContents,
   Icon,
   NoteBox,
+  Search,
   SectionTableOfContents,
   WarningBox,
 } from 'components';
@@ -24,6 +25,9 @@ import { findNextPrevPages, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+const searchIndices = [
+  { name: process.env.GATSBY_ALGOLIA_INDEX_NAME, title: process.env.GATSBY_ALGOLIA_INDEX_NAME },
+];
 
 const shortcodes = {
   // custom react components.
@@ -116,7 +120,7 @@ export default function DocumentationPage({ data, location, path }) {
           <h1>{sectionTitle} Documentation</h1>
         </div>
         <div className="docs__header-search">
-          <div>Search will go here</div>
+          <Search indices={searchIndices} />
         </div>
       </div>
       <div className="docs__columns">

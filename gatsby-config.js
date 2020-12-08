@@ -6,6 +6,7 @@ require('dotenv').config({
 const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const algoliaQueries = require('./meta/algolia-queries.js');
 
 module.exports = {
   siteMetadata: {
@@ -146,6 +147,5 @@ module.exports = {
         chunkSize: 10000, // default 1000
       },
     },
-    `gatsby-plugin-styled-components`,
   ],
 };

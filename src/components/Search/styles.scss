@@ -9,7 +9,7 @@
     width: 100%;
     max-width: 475px;
     position: relative;
-    &-input {
+    &__input {
       border-radius: 5px;
       border: 1px solid #babcc2;
       color: #003055;
@@ -23,22 +23,21 @@
         outline: none;
       }
     }
-    &-icon {
+    &__icon {
       position: absolute;
       top: 15px;
       left: 16px;
       width: 20px;
     }
-  }
-  &__input {
-    width: 100%;
-    max-width: 475px;
-    position: relative;
-    &-icon {
+    &__reset {
+      background: transparent;
+      border: 0;
+      height: 50px;
+      padding: 4px 0 0;
       position: absolute;
+      right: 0;
       top: 0;
-      left: 0;
-      width: 20px;
+      width: 42px;
     }
   }
   &__results {
@@ -50,20 +49,17 @@
     }
     -webkit-overflow-scrolling: touch;
     background: #fff;
-    border-radius: 2px;
-    box-shadow: 0 0 5px 0;
-    margin-top: 0.5em;
-    max-height: 80vh;
-    max-width: 30em;
-    overflow: scroll;
-    padding: 1em;
+    border-radius: 4px;
+    border: solid 1px #aeafb3;
+    max-height: 70vh;
+    overflow-y: auto;
     position: absolute;
     right: 0;
     top: 100%;
-    width: 80vw;
+    width: 100%;
     z-index: 2;
     .HitCount {
-      display: flex;
+      display: none;
       justify-content: flex-end;
     }
     .Hits {
@@ -71,13 +67,42 @@
         list-style: none;
         margin-left: 0;
       }
-      li.ais-Hits-item {
-        margin-bottom: 1em;
-        a {
-          h4 {
-            margin-bottom: 0.2em;
-          }
-        }
+    }
+  }
+  &__result {
+    text-align: left;
+    mark {
+      background: #faeca6;
+      border-radius: 3px;
+    }
+    &__section,
+    &__page-title,
+    &__page-snippet {
+      padding: 2px 8px;
+    }
+    &__section {
+      background: #e5edf3;
+      color: #151c3d;
+      font-weight: bold;
+    }
+    &__page {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #dfdfe1;
+      color: magenta;
+      font-size: 14px;
+      &-title,
+      &-snippet {
+        padding-bottom: 8px;
+      }
+      &-title {
+        flex: 0 0 130px;
+        border-right: 1px solid #dfdfe1;
+        font-weight: bold;
+      }
+      &-snippet {
+        padding-left: 16px;
+        padding-right: 16px;
       }
     }
   }
@@ -87,7 +112,11 @@
   display: flex;
   justify-content: flex-end;
   font-size: 80%;
+  padding-right: 8px;
+  padding-top: 4px;
+  align-items: center;
   svg {
     width: 70px;
+    margin-left: 4px;
   }
 }

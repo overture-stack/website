@@ -5,7 +5,9 @@ import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
 import './styles.scss';
-const searchIndices = [{ name: 'test_overturedocs', title: 'test_overturedocs' }];
+const searchIndices = [
+  { name: process.env.GATSBY_ALGOLIA_INDEX_NAME, title: process.env.GATSBY_ALGOLIA_INDEX_NAME },
+];
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
