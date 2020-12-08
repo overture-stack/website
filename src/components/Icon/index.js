@@ -66,6 +66,7 @@ import productSong from './icons/productSong.svg';
 import productSongWhite from './icons/productSongWhite.svg';
 import rocketWhite from './icons/rocket_white.svg';
 import search from './icons/search.svg';
+import searchBar from './icons/searchBar.svg';
 import security from './icons/security.svg';
 import share from './icons/share.svg';
 import shield from './icons/shield.svg';
@@ -143,6 +144,7 @@ const icons = {
   productSongWhite,
   rocketWhite,
   search,
+  searchBar,
   security,
   share,
   shield,

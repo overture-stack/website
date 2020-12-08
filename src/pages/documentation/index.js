@@ -5,6 +5,7 @@ import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
 import './styles.scss';
+const searchIndices = [{ name: 'test_overturedocs', title: 'test_overturedocs' }];
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
@@ -98,9 +99,9 @@ export default function DocumentationPage() {
           <div className="image image-consulting">
             <img src={consultingSvg} />
           </div>
-          <div className="search-container">
+          <div className="search__container">
             <h1>How can we help?</h1>
-            <Search />
+            <Search indices={searchIndices} />
           </div>
           <div className="image image-techsupport">
             <img src={techSupportSvg} />

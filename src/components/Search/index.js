@@ -1,18 +1,30 @@
-import React from 'react';
+import { createRef, default as React, useState } from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import { InstantSearch } from 'react-instantsearch-dom';
+import { useClickOutside } from 'hooks';
+import SearchBox from './search-box';
+import SearchResult from './search-result';
+import './styles.scss';
 
-const GATSBY_ALGOLIA_APP_ID = process.env.GATSBY_ALGOLIA_APP_ID;
-const GATSBY_ALGOLIA_SEARCH_KEY = process.env.GATSBY_ALGOLIA_SEARCH_KEY;
-const GATSBY_ALGOLIA_INDEX_NAME = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-
-const searchClient = algoliasearch(GATSBY_ALGOLIA_APP_ID, GATSBY_ALGOLIA_SEARCH_KEY);
-
-export default function Search() {
+export default function Search({ indices }) {
+  const rootRef = createRef();
+  const [query, setQuery] = useState();
+  const [hasFocus, setFocus] = useState(false);
+  const searchClient = algoliasearch(
+    process.env.GATSBY_ALGOLIA_APP_ID,
+    process.env.GATSBY_ALGOLIA_SEARCH_KEY
+  );
+  useClickOutside(rootRef, () => setFocus(false));
   return (
-    <InstantSearch searchClient={searchClient} indexName={GATSBY_ALGOLIA_INDEX_NAME}>
-      <SearchBox />
-      <Hits />
-    </InstantSearch>
+    <div className="search__root" ref={rootRef}>
+      <InstantSearch
+        searchClient={searchClient}
+        indexName={indices[0].name}
+        onSearchStateChange={({ query }) => setQuery(query)}
+      >
+        <SearchBox className="search__box" onFocus={() => setFocus(true)} hasFocus={hasFocus} />
+        <SearchResult show={query && query.length > 0 && hasFocus} indices={indices} />
+      </InstantSearch>
+    </div>
   );
 }
