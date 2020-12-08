@@ -1,9 +1,14 @@
 // Custom utility classes for when basscss doesn't do the trick.
 @import './colors';
+@import './variables';
 
 // Backgrounds
 .bg-grey {
   background: $grey-5;
+}
+
+.bg-grey-light {
+  background: $grey;
 }
 
 .bg-blue {
@@ -29,7 +34,7 @@
 }
 
 .link-magenta {
-  font-family: Lato;
+  font-family: $font-sans-serif;
   font-weight: 700;
   color: $magenta;
   letter-spacing: 0;
@@ -42,4 +47,14 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.chevron-link,
+.chevron-link a {
+  color: $magenta;
+  font-weight: bold;
 }

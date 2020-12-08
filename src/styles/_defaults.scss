@@ -1,7 +1,9 @@
 // Default styles across site.
 @import '../styles/colors';
+@import '../styles/variables';
+
 body {
-  font-family: 'Lato', 'Arial';
+  font-family: $font-sans-serif;
 }
 
 nav {
@@ -15,4 +17,9 @@ div {
 
 strong {
   color: $blue-darker !important;
+}
+
+hr {
+  background-color: $grey-hr !important;
+  height: 1px !important;
 }

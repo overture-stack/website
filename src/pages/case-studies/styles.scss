@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
 @import '../../styles/colors.scss';
+@import '../../styles/variables.scss';
 
 $bg-color: $grey;
 $cs-break: 1000px;
@@ -98,7 +98,7 @@ $cs-break: 1000px;
     padding: 32px 48px;
     padding-right: 72px;
     display: flex;
-    font-family: Lato, Arial;
+    font-family: $font-sans-serif;
     flex-direction: column;
     justify-content: center;
     @media (max-width: $cs-break) {

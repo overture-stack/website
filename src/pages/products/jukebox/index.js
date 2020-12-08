@@ -14,6 +14,7 @@ import {
   Terminal,
   UrlBar,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 import './style.scss';
 
@@ -83,7 +84,7 @@ const JukeboxPage = () => (
           environment.
         </div>
       }
-      getStartedLink="https://github.com/overture-stack/jupyter"
+      getStartedLink={githubLinks.jukebox}
       logo="logoJukebox"
       progressType="rc"
       badge={{ color: 'red', text: 'Analyze & Discover' }}
@@ -116,7 +117,7 @@ const JukeboxPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
+    <GettingStarted pinnedLink={githubLinks.jukebox}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -184,7 +185,7 @@ const JukeboxPage = () => (
           type="primary"
           size="medium"
           className="mt2"
-          externalLink="https://github.com/overture-stack/jupyter"
+          externalLink={githubLinks.jukebox}
           icon="githubWhite"
         >
           Get Started

@@ -14,6 +14,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
+import { githubLinks } from 'meta/config';
 
 import './style.scss';
 
@@ -76,7 +77,7 @@ const SongPage = () => (
       title="Song"
       subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
       cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
-      getStartedLink="https://github.com/overture-stack/song"
+      getStartedLink={githubLinks.song}
       badge={{ color: 'pink', text: 'Generate & Upload' }}
       progressType="ga"
       logo="logoSong"
@@ -183,11 +184,7 @@ const SongPage = () => (
         icon="githubYellow"
         description="A flexible data model for tracking your genomic data across the cloud."
       >
-        <a
-          target="_blank"
-          href="https://github.com/overture-stack/song"
-          className="button is-primary is-medium mt2"
-        >
+        <a target="_blank" href={githubLinks.song} className="button is-primary is-medium mt2">
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </a>

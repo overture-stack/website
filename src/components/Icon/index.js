@@ -3,16 +3,20 @@ import React from 'react';
 import './styles.scss';
 
 import arrowDown from './icons/arrow_down.svg';
+import arrowLeftBlue from './icons/arrow-left-blue.svg';
+import arrowLeftRound from './icons/arrow_left_round.svg';
 import arrowRight from './icons/arrow_right.svg';
 import arrowRightMagenta from './icons/arrow_right_magenta.svg';
-import arrowsRight from './icons/arrows_right.svg';
 import arrowRightRound from './icons/arrow_right_round.svg';
-import arrowLeftRound from './icons/arrow_left_round.svg';
+import arrowsRight from './icons/arrows_right.svg';
 import barGraph from './icons/bar_graph.svg';
 import cardStack from './icons/card_stack.svg';
 import checkmark from './icons/checkmark.svg';
+import chevronGrey from './icons/chevron-grey.svg';
+import chevronMagenta from './icons/chevron-magenta.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
+import copy from './icons/copy.svg';
 import customizable from './icons/customizable.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
@@ -31,21 +35,35 @@ import lock from './icons/lock.svg';
 import lockCode from './icons/lock_code.svg';
 import magnify from './icons/magnify.svg';
 import mail from './icons/mail.png';
+import notes from './icons/notes.svg';
 import pageWhite from './icons/page_white.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
 import power from './icons/power.svg';
 import productArranger from './icons/productArranger.svg';
+import productArrangerWhite from './icons/productArrangerWhite.svg';
 import productBilling from './icons/productBilling.svg';
+import productBillingWhite from './icons/productBillingWhite.svg';
+import productDMS from './icons/productDMS.svg';
+import productDMSWhite from './icons/productDMSWhite.svg';
 import productEgo from './icons/productEgo.svg';
+import productEgoWhite from './icons/productEgoWhite.svg';
 import productEnrolment from './icons/productEnrolment.svg';
+import productEnrolmentWhite from './icons/productEnrolmentWhite.svg';
 import productJukebox from './icons/productJukebox.svg';
+import productJukeboxWhite from './icons/productJukeboxWhite.svg';
 import productMaestro from './icons/productMaestro.svg';
+import productMaestroWhite from './icons/productMaestroWhite.svg';
 import productOnco from './icons/productOnco.svg';
+import productOncoWhite from './icons/productOncoWhite.svg';
 import productPersona from './icons/productPersona.svg';
+import productPersonaWhite from './icons/productPersonaWhite.svg';
 import productRiff from './icons/productRiff.svg';
+import productRiffWhite from './icons/productRiffWhite.svg';
 import productScore from './icons/productScore.svg';
+import productScoreWhite from './icons/productScoreWhite.svg';
 import productSong from './icons/productSong.svg';
+import productSongWhite from './icons/productSongWhite.svg';
 import rocketWhite from './icons/rocket_white.svg';
 import search from './icons/search.svg';
 import security from './icons/security.svg';
@@ -59,61 +77,80 @@ import user from './icons/user.svg';
 import vennDiagram from './icons/venn_diagram.svg';
 
 const icons = {
-  arrowRight,
-  arrowsRight,
-  arrowRightRound,
-  arrowLeftRound,
-  arrowRightMagenta,
   arrowDown,
+  arrowLeftBlue,
+  arrowLeftRound,
+  arrowRight,
+  arrowRightMagenta,
+  arrowRightRound,
+  arrowsRight,
   barGraph,
   cardStack,
   checkmark,
-  customizable,
+  chevronGrey,
+  chevronMagenta,
   cloud,
   cloudSquare,
+  copy,
+  customizable,
   database,
   dna,
   download,
   extensible,
   fingerSnap,
   githubGrey,
+  githubMagenta,
   githubWhite,
   githubYellow,
-  githubMagenta,
   graphCycle,
   gridGlass,
   history,
   kafka,
   lock,
   lockCode,
-  mail,
   magnify,
+  mail,
+  notes,
   pageWhite,
   palette,
   play,
-  productSong,
-  productScore,
-  productPersona,
-  productArranger,
-  productMaestro,
-  productEgo,
-  productOnco,
-  productRiff,
-  productMaestro,
-  productJukebox,
-  productBilling,
-  productEnrolment,
   power,
+  productArranger,
+  productArrangerWhite,
+  productBilling,
+  productBillingWhite,
+  productDMS,
+  productDMSWhite,
+  productEgo,
+  productEgoWhite,
+  productEnrolment,
+  productEnrolmentWhite,
+  productJukebox,
+  productJukeboxWhite,
+  productMaestro,
+  productMaestro,
+  productMaestroWhite,
+  productMaestroWhite,
+  productOnco,
+  productOncoWhite,
+  productPersona,
+  productPersonaWhite,
+  productRiff,
+  productRiffWhite,
+  productScore,
+  productScoreWhite,
+  productSong,
+  productSongWhite,
   rocketWhite,
   search,
   security,
   share,
   shield,
+  slack,
   spiral,
   star,
   target,
   user,
-  slack,
   vennDiagram,
 };
 

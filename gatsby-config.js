@@ -3,6 +3,7 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
@@ -21,7 +22,7 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet', // adds meta tags
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
     {
@@ -39,6 +40,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        // required for headings table of contents
+        // adds ID to H# tags
+        remarkPlugins: [remarkSlug],
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
@@ -48,6 +52,8 @@ module.exports = {
             },
           },
           {
+            // copies over *any* random files you linked to
+            // from a markdown page
             resolve: 'gatsby-remark-copy-linked-files',
           },
         ],

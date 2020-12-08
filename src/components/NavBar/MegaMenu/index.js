@@ -3,8 +3,11 @@
  */
 import React from 'react';
 import Link from 'gatsby-link';
+import { githubLinks } from 'meta/config';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
+
+const verticalMobileMenuSections = ['DMS Bundle'];
 
 const data = {
   products: {
@@ -57,12 +60,12 @@ const data = {
         color: 'yellow',
         links: [
           {
-            to: 'https://github.com/overture-stack/billing',
+            to: githubLinks.billing,
             text: 'Billing & Usage',
             hasGithubIcon: true,
           },
           {
-            to: 'https://github.com/overture-stack/enrolment',
+            to: githubLinks.enrolment,
             text: 'Enrolment',
             hasGithubIcon: true,
           },
@@ -76,7 +79,7 @@ const data = {
       text:
         'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
       link: {
-        to: '/documentation',
+        to: '/documentation/',
         text: 'Documentation Overview',
       },
     },
@@ -86,15 +89,15 @@ const data = {
         color: 'dark-blue',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/introduction/',
             text: 'Introduction',
           },
           {
-            to: '/documentation',
+            to: '/documentation/dms/how-to-install/',
             text: 'How to Install',
           },
           {
-            to: '/documentation',
+            to: '/documentation/dms/for-administrators/',
             text: 'For Administrators',
           },
         ],
@@ -104,11 +107,11 @@ const data = {
         color: 'pink',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/score/',
             text: 'Score',
           },
           {
-            to: '/documentation',
+            to: '/documentation/song/',
             text: 'Song',
           },
         ],
@@ -118,15 +121,15 @@ const data = {
         color: 'blue',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/ego/',
             text: 'Ego',
           },
           {
-            to: '/documentation',
+            to: '/documentation/maestro/',
             text: 'Maestro',
           },
           {
-            to: '/documentation',
+            to: '/documentation/arranger/',
             text: 'Arranger',
           },
         ],
@@ -136,11 +139,11 @@ const data = {
         color: 'red',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/jukebox/',
             text: 'Jukebox',
           },
           {
-            to: '/documentation',
+            to: '/documentation/oncojs/',
             text: 'OncoJs',
           },
         ],
@@ -150,11 +153,11 @@ const data = {
         color: 'light-green',
         links: [
           {
-            to: '/documentation',
+            to: '/documentation/persona/',
             text: 'Persona',
           },
           {
-            to: '/documentation',
+            to: '/documentation/riff/',
             text: 'Riff',
           },
         ],
@@ -197,7 +200,11 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                 ))}
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <ul className="menu-section-links">
+            <ul
+              className={`menu-section-links ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
               {section.links.map(link => (
                 <li key={link.text}>
                   {link.to.charAt(0) === '/' ? (

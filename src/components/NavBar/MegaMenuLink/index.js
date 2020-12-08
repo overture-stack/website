@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon } from '../../';
-import { useSSRWorkaround } from '../../../hooks';
+import { Icon } from 'components';
+import { useSSRWorkaround } from 'hooks';
 
 const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) => {
   const { key } = useSSRWorkaround();
