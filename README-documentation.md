@@ -56,3 +56,9 @@ pages:
     url: score/page-1
     # this is a top-level page with no children
 ```
+
+## Algolia search
+
+- Current implementation is based on [Gatsby docs: Adding Search with Algolia](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)
+- The site is re-indexed on build. To test this locally, run `npm run build && npm run serve`.
+- For Netlify purposes, all the Algolia environment variables are stored in the admin UI.

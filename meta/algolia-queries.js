@@ -6,6 +6,7 @@ const docsAlgoliaQuery = `
       nodes {
         id
         fields {
+          sectionSlug
           slug
           title
         }
@@ -28,7 +29,7 @@ const queries = [
     query: docsAlgoliaQuery,
     transformer: ({ data }) => data.allMdx.nodes.map(pageToAlgoliaRecord),
     indexName,
-    settings: { attributesToSnippet: [`excerpt:20`] },
+    settings: { attributesToSnippet: [`excerpt:10`] },
   },
 ];
 

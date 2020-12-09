@@ -59,6 +59,13 @@ const onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
       node,
       value: title,
     });
+
+    const sectionSlug = relativeDirectory.split('/').filter(x => x)[0];
+    createNodeField({
+      name: 'sectionSlug',
+      node,
+      value: sectionSlug,
+    });
   }
 };
 
@@ -75,6 +82,7 @@ const createMarkdownPages = async ({ actions, graphql }) => {
         nodes {
           fields {
             id
+            sectionSlug
             slug
           }
         }
@@ -102,18 +110,17 @@ const createMarkdownPages = async ({ actions, graphql }) => {
   `);
 
   data.allMdx.nodes.forEach(node => {
-    const { id, slug } = node.fields;
+    const { id, sectionSlug, slug } = node.fields;
 
     // documentation section
     if (slug.match(/^\/documentation/)) {
-      const section = slug.split('/').filter(x => x)[1];
       actions.createPage({
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
           // use for graphQL query in template
           id,
-          section,
+          sectionSlug,
         },
       });
     }

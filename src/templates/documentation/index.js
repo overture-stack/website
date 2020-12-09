@@ -227,10 +227,11 @@ export default function DocumentationPage({ data, location, path }) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $section: String!) {
+  query($id: String!, $sectionSlug: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id
+        sectionSlug
         slug
         title
       }
@@ -242,7 +243,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allYaml(filter: { sectionSlug: { eq: $section } }) {
+    allYaml(filter: { sectionSlug: { eq: $sectionSlug } }) {
       nodes {
         sectionTitle
         sectionSlug
