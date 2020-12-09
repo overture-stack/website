@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import {
+  connectHits,
   connectStateResults,
   Highlight,
   Hits,
@@ -31,14 +32,21 @@ const HitCount = connectStateResults(({ searchResults }) => {
   );
 });
 
+const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className }) => {
+  return (
+    <div className={className}>
+      {hits.map(hit => (
+        <HitComponent key={hit.slug} hit={hit} />
+      ))}
+    </div>
+  );
+});
+
 const PageHit = ({ hit }) => {
-  const sectionTitle = hit.slug
-    .split('/documentation/')[1]
-    .split('/')
-    .filter(x => x)[0];
+  // const isFirstInSection = hits.filter()
   return (
     <div className="search__result">
-      <div className="search__result__section">{sectionTitleDict[sectionTitle]} Docs</div>
+      <div className="search__result__section">{sectionTitleDict[hit.sectionSlug]} Docs</div>
       <Link to={hit.slug}>
         <div className="search__result__page">
           <div className="search__result__page-title">
@@ -56,7 +64,7 @@ const PageHit = ({ hit }) => {
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>
     <HitCount />
-    <Hits className="Hits" hitComponent={PageHit} />
+    <CustomHits className="Hits" hitComponent={PageHit} />
   </Index>
 );
 
