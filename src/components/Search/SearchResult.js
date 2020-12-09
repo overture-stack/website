@@ -4,7 +4,6 @@ import {
   connectHits,
   connectStateResults,
   Highlight,
-  Hits,
   Index,
   Snippet,
   PoweredBy,
@@ -33,33 +32,40 @@ const HitCount = connectStateResults(({ searchResults }) => {
 });
 
 const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className }) => {
+  const hitsBySection = hits.reduce(
+    (acc, curr) => ({
+      ...acc,
+      [curr.sectionSlug]: [...(acc[curr.sectionSlug] || []), curr],
+    }),
+    {}
+  );
+
   return (
     <div className={className}>
-      {hits.map(hit => (
-        <HitComponent key={hit.slug} hit={hit} />
+      {Object.keys(hitsBySection).map(hitSection => (
+        <div className="search__result" key={hitSection}>
+          <div className="search__result__section">{sectionTitleDict[hitSection]} Docs</div>
+          {hitsBySection[hitSection].map(hit => (
+            <HitComponent key={hit.slug} hit={hit} />
+          ))}
+        </div>
       ))}
     </div>
   );
 });
 
-const PageHit = ({ hit }) => {
-  // const isFirstInSection = hits.filter()
-  return (
-    <div className="search__result">
-      <div className="search__result__section">{sectionTitleDict[hit.sectionSlug]} Docs</div>
-      <Link to={hit.slug}>
-        <div className="search__result__page">
-          <div className="search__result__page-title">
-            <Highlight attribute="title" hit={hit} tagName="mark" />
-          </div>
-          <div className="search__result__page-snippet">
-            <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-          </div>
-        </div>
-      </Link>
+const PageHit = ({ hit }) => (
+  <Link to={hit.slug}>
+    <div className="search__result__page">
+      <div className="search__result__page-title">
+        <Highlight attribute="title" hit={hit} tagName="mark" />
+      </div>
+      <div className="search__result__page-snippet">
+        <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+      </div>
     </div>
-  );
-};
+  </Link>
+);
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>

@@ -123,8 +123,8 @@ export default function DocumentationPage() {
               <div className="dms-row">
                 <Icon img="productDMS" size={40} />
                 <div className="dms-row__text">
-                  {'DMS = Score + Song + Ego + Maestro + Arranger'.split(' ').map(word => (
-                    <span>{word}</span>
+                  {'DMS = Score + Song + Ego + Maestro + Arranger'.split(' ').map((word, i) => (
+                    <span key={`${word}${i}`}>{word}</span>
                   ))}
                 </div>
               </div>
