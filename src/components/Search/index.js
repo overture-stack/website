@@ -2,8 +2,8 @@ import { createRef, default as React, useState } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch } from 'react-instantsearch-dom';
 import { useClickOutside } from 'hooks';
-import SearchBox from './search-box';
-import SearchResult from './search-result';
+import SearchBox from './SearchBox';
+import SearchResult from './SearchResult';
 import './styles.scss';
 
 export default function Search({ indices }) {

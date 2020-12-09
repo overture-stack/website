@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .search {
   &__root {
     position: relative;
@@ -11,14 +13,14 @@
     position: relative;
     &__input {
       border-radius: 5px;
-      border: 1px solid #babcc2;
+      border: 1px solid $grey-input-border;
       color: #003055;
       font-size: 16px;
       height: 50px;
       padding: 0 42px;
       width: 100%;
       &:focus {
-        border: 1px solid #4bc6f0;
+        border: 1px solid $blue-outline;
         box-shadow: 0 0 4px 1px rgba(155, 199, 237, 0.8);
         outline: none;
       }
@@ -48,9 +50,9 @@
       display: block;
     }
     -webkit-overflow-scrolling: touch;
-    background: #fff;
+    background: $white;
     border-radius: 4px;
-    border: solid 1px #aeafb3;
+    border: solid 1px $grey-border;
     max-height: 70vh;
     overflow-y: auto;
     position: absolute;
@@ -72,7 +74,7 @@
   &__result {
     text-align: left;
     mark {
-      background: #faeca6;
+      background: #fcf3c7;
       border-radius: 3px;
     }
     &__section,
@@ -81,15 +83,14 @@
       padding: 2px 8px;
     }
     &__section {
-      background: #e5edf3;
+      background: $grey-blue;
       color: #151c3d;
       font-weight: bold;
     }
     &__page {
       display: flex;
       flex-direction: row;
-      border-bottom: 1px solid #dfdfe1;
-      color: magenta;
+      border-bottom: 1px solid $grey-hr;
       font-size: 14px;
       &-title,
       &-snippet {
@@ -97,7 +98,7 @@
       }
       &-title {
         flex: 0 0 130px;
-        border-right: 1px solid #dfdfe1;
+        border-right: 1px solid $grey-hr;
         font-weight: bold;
       }
       &-snippet {
