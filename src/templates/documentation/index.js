@@ -20,14 +20,13 @@ import {
 } from 'components';
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 import { findNextPrevPages, sectionIcons } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-const searchIndices = [
-  { name: process.env.GATSBY_ALGOLIA_INDEX_NAME, title: process.env.GATSBY_ALGOLIA_INDEX_NAME },
-];
+const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
+const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const shortcodes = {
   // custom react components.
@@ -151,7 +150,7 @@ export default function DocumentationPage({ data, location, path }) {
           <div className="docs__main-container">
             {/* GITHUB BUTTON */}
             <div class="docs__github-btn">
-              <Button externalLink={githubLinks[sectionSlug]} type="primary">
+              <Button externalLink={productsDict[sectionSlug].github} type="primary">
                 <Icon img="githubWhite" size={20} /> {sectionTitle} Github
               </Button>
             </div>
@@ -212,7 +211,7 @@ export default function DocumentationPage({ data, location, path }) {
           {/* GITHUB BUTTON */}
           <Button
             className="docs__github-btn"
-            externalLink={githubLinks[sectionSlug]}
+            externalLink={productsDict[sectionSlug]}
             type="primary"
           >
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github

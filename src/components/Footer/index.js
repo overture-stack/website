@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Icon } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 import './styles.scss';
 import logo from './logo.svg';
 
@@ -77,13 +77,13 @@ const columns = {
   'Track & Manage': [
     {
       'Billing & Usage': {
-        link: githubLinks.billing,
+        link: productsDict.billing.github,
         icon: 'githubGrey',
         newTab: true,
         className: '',
       },
       Enrolment: {
-        link: githubLinks.enrolment,
+        link: productsDict.enrolment.github,
         icon: 'githubGrey',
         newTab: true,
         className: '',

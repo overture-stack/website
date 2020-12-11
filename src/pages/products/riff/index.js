@@ -13,7 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 
 const featureGridData = [
   [
@@ -44,7 +44,7 @@ const RiffPage = () => (
       title="Riff"
       subTitle="Quintessential sharing."
       cardText="Riff is a service that allows you to save user queries and state and share them through convenient short URLs."
-      getStartedLink={githubLinks.riff}
+      getStartedLink={productsDict.riff.github}
       logo="logoRiff"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -139,7 +139,7 @@ const RiffPage = () => (
         className="center"
         description="Save user queries and state and share them through convenient short URLs."
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.riff} icon="githubWhite">
+        <Button type="primary" size="medium" externalLink={productsDict.riff} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

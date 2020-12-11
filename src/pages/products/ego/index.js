@@ -12,7 +12,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -36,7 +36,7 @@ const EgoPage = () => (
       title="Ego"
       subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
-      getStartedLink={githubLinks.ego}
+      getStartedLink={productsDict.ego.github}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoEgo"
       progressType="ga"
@@ -205,7 +205,7 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.ego} icon="githubWhite">
+        <Button type="primary" size="medium" externalLink={productsDict.ego} icon="githubWhite">
           Get Started
         </Button>
       </Callout>

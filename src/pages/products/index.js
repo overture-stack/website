@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -143,12 +143,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: githubLinks.billing,
+          extlink: productsDict.billing.github,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: githubLinks.enrolment,
+          extlink: productsDict.enrolment.github,
         },
       ],
       ChildComponent: ProductBox,
@@ -279,7 +279,7 @@ export default function ProductsPage() {
           <Button
             type="primary"
             size="medium"
-            externalLink={githubLinks.overture}
+            externalLink={productsDict.overture.github}
             icon="githubWhite"
           >
             Get Started
