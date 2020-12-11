@@ -65,7 +65,7 @@ export default function DocumentationPage({ data, location, path }) {
 
   const {
     body,
-    fields: { slug, title },
+    fields: { sectionSlug, slug, title },
     tableOfContents,
   } = data.mdx;
 
@@ -73,7 +73,6 @@ export default function DocumentationPage({ data, location, path }) {
   const sectionObj = data.allYaml.nodes[0];
   const pagesFlat = flatten(sectionObj.pages);
   const sectionTitle = productsDict[sectionSlug].title;
-  const { sectionSlug } = sectionObj;
   const sectionIcon = productsDict[sectionSlug].iconWhite;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
@@ -245,7 +244,6 @@ export const pageQuery = graphql`
     }
     allYaml(filter: { sectionSlug: { eq: $sectionSlug } }) {
       nodes {
-        sectionSlug
         pages {
           isHeading
           title
