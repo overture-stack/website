@@ -1,4 +1,4 @@
-modules.exports = {
+module.exports = {
   arranger: {
     github: 'https://github.com/overture-stack/arranger',
     iconWhite: 'productArrangerWhite',

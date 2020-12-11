@@ -33,7 +33,6 @@ Markdown content goes here! You can do anything you would normally do in Markdow
 ### How to write `_contents.yaml`
 
 ```yaml
-sectionTitle: Score
 sectionSlug: score
 pages:
   - title: Introduction

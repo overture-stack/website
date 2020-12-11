@@ -21,7 +21,7 @@ import {
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
 import productsDict from 'meta/products-dict';
-import { findNextPrevPages, sectionIcons } from './utils';
+import { findNextPrevPages } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
@@ -72,8 +72,9 @@ export default function DocumentationPage({ data, location, path }) {
   // get section info
   const sectionObj = data.allYaml.nodes[0];
   const pagesFlat = flatten(sectionObj.pages);
-  const { sectionSlug, sectionTitle } = sectionObj;
-  const sectionIcon = sectionIcons[sectionSlug];
+  const sectionTitle = productsDict[sectionSlug].title;
+  const { sectionSlug } = sectionObj;
+  const sectionIcon = productsDict[sectionSlug].iconWhite;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   // get page info
@@ -244,7 +245,6 @@ export const pageQuery = graphql`
     }
     allYaml(filter: { sectionSlug: { eq: $sectionSlug } }) {
       nodes {
-        sectionTitle
         sectionSlug
         pages {
           isHeading

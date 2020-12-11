@@ -89,7 +89,6 @@ const createMarkdownPages = async ({ actions, graphql }) => {
       }
       allYaml {
         nodes {
-          sectionTitle
           sectionSlug
           pages {
             isHeading
@@ -153,7 +152,6 @@ const createSchemaCustomization = ({ actions }) => {
   const documentationTypeDefs = `
     type Yaml implements Node {
       sectionSlug: String!
-      sectionTitle: String!
       pages: [YamlPages!]
     }
     type YamlPages implements Node {

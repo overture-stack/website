@@ -8,19 +8,7 @@ import {
   Snippet,
   PoweredBy,
 } from 'react-instantsearch-dom';
-
-const sectionTitleDict = {
-  arranger: 'Arranger',
-  dms: 'DMS',
-  ego: 'Ego',
-  jukebox: 'Jukebox',
-  maestro: 'Maestro',
-  oncojs: 'OncoJs',
-  persona: 'Persona',
-  riff: 'Riff',
-  score: 'Score',
-  song: 'Song',
-};
+import productsDict from 'meta/products-dict';
 
 const HitCount = connectStateResults(({ searchResults }) => {
   const hitCount = searchResults && searchResults.nbHits;
@@ -44,7 +32,7 @@ const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className })
     <div className={className}>
       {Object.keys(hitsBySection).map(hitSection => (
         <div className="search__result" key={hitSection}>
-          <div className="search__result__section">{sectionTitleDict[hitSection]} Docs</div>
+          <div className="search__result__section">{productsDict[hitSection].title} Docs</div>
           {hitsBySection[hitSection].map(hit => (
             <HitComponent key={hit.slug} hit={hit} />
           ))}
