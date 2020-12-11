@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import productsDict from 'meta/products-dict';
-import { Icon, Search, SidebarMenu } from 'components';
+import { Icon, Search, SectionTableOfContents, SidebarMenu } from 'components';
 
 const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: searchIndex, title: searchIndex }];
 
-export default function DocsWrapper({ children, docsSectionSlug, docsSectionTitle }) {
+export default function DocsWrapper({ children, data, path }) {
+  // this wrapper is used to persist state,
+  // e.g. the menu toggles in the left sidebar,
+  // across different pages in the docs section.
+
+  const { pages } = data.allYaml.nodes[0];
+  const { sectionSlug } = data.mdx.fields;
+  const { iconWhite, title } = productsDict[sectionSlug];
+
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
   return (
     <main className="docs__page">
       <div className="docs__mobile-sidebar__button">
@@ -23,8 +32,8 @@ export default function DocsWrapper({ children, docsSectionSlug, docsSectionTitl
       </div>
       <div className="docs__header">
         <div className="docs__header-title">
-          <Icon className="icon" size={45} img={productsDict[docsSectionSlug].iconWhite} />
-          <h1>{docsSectionTitle} Documentation</h1>
+          <Icon className="icon" size={45} img={iconWhite} />
+          <h1>{title} Documentation</h1>
         </div>
         <div className="docs__header-search">
           <Search indices={searchIndices} />
@@ -42,6 +51,7 @@ export default function DocsWrapper({ children, docsSectionSlug, docsSectionTitl
               <Icon size={6} img="arrowLeftBlue" />
               Documentation Overview
             </Link>
+            <SectionTableOfContents pages={pages} path={path} sectionSlug={sectionSlug} />
             <SidebarMenu />
           </div>
         </div>

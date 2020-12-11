@@ -104,9 +104,6 @@ class TemplateWrapper extends Component {
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
     const isDocs = !!data.mdx;
     // documentation is the only markdown section
-    const docsSectionSlug = isDocs && data.mdx.fields.sectionSlug;
-    const docsSectionTitle = isDocs && productsDict[docsSectionSlug].title;
-    console.log(data);
 
     return (
       <div>
@@ -140,7 +137,7 @@ class TemplateWrapper extends Component {
         <div className="site-wrapper">
           <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
             {isDocs && SHOW_DOCS ? (
-              <DocsWrapper docsSectionSlug={docsSectionSlug} docsSectionTitle={docsSectionTitle}>
+              <DocsWrapper path={path} data={data}>
                 {children}
               </DocsWrapper>
             ) : (
