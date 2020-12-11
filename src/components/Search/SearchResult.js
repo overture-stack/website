@@ -10,14 +10,15 @@ import {
 } from 'react-instantsearch-dom';
 import productsDict from 'meta/products-dict';
 
-const HitCount = connectStateResults(({ searchResults }) => {
-  const hitCount = searchResults && searchResults.nbHits;
-  return (
-    <div className="HitCount">
-      {hitCount} result{hitCount === 1 ? '' : 's'}
-    </div>
-  );
-});
+// TODO: not sure if we're using this
+// const HitCount = connectStateResults(({ searchResults }) => {
+//   const hitCount = searchResults && searchResults.nbHits;
+//   return (
+//     <div className="HitCount">
+//       {hitCount} result{hitCount === 1 ? '' : 's'}
+//     </div>
+//   );
+// });
 
 const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className }) => {
   const hitsBySection = hits.reduce(
@@ -57,7 +58,7 @@ const PageHit = ({ hit }) => (
 
 const HitsInIndex = ({ index }) => (
   <Index indexName={index.name}>
-    <HitCount />
+    {/* <HitCount /> */}
     <CustomHits className="Hits" hitComponent={PageHit} />
   </Index>
 );

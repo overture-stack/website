@@ -6,7 +6,6 @@ require('dotenv').config({
 const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
-const algoliaQueries = require('./meta/algolia-queries.js');
 
 module.exports = {
   siteMetadata: {
@@ -107,6 +106,7 @@ module.exports = {
       },
     },
     // {
+    // TODO: get a google tag manager ID if we're using it
     //   resolve: `gatsby-plugin-google-tagmanager`,
     //   options: {
     //     id: config.googleTagManagerID,
