@@ -25,6 +25,7 @@ export { default as ProductHero } from './ProductHero';
 export { default as ProgressBar } from './ProgressBar';
 export { default as Search } from './Search';
 export { default as SectionTableOfContents } from './SectionTableOfContents';
+export { default as SidebarMenu } from './SidebarMenu';
 export { Terminal, UrlBar, TrafficLights } from './Terminal';
 export { H1, H2, H4 } from './Typography';
 export { default as WarningBox } from './WarningBox';
