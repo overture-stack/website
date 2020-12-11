@@ -137,14 +137,13 @@
         margin-top: 10px;
         width: 100%;
       }
-      div {
-        // placeholder for search bar
-        display: block;
-        border: 1px solid $grey-border;
-        background: $white;
-        color: $magenta;
-        padding: 5px 10px;
-        width: 100%;
+      .search__box__input,
+      .search__box__reset {
+        height: 36px;
+      }
+      .search__box__icon {
+        top: 8px;
+        left: 11px;
       }
     }
   }

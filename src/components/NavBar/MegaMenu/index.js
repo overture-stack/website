@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import Link from 'gatsby-link';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 import { Icon, IconCommon, Badge } from '../../index.js';
 import './styles.scss';
 
@@ -60,12 +60,12 @@ const data = {
         color: 'yellow',
         links: [
           {
-            to: githubLinks.billing,
+            to: productsDict.billing.github,
             text: 'Billing & Usage',
             hasGithubIcon: true,
           },
           {
-            to: githubLinks.enrolment,
+            to: productsDict.enrolment.github,
             text: 'Enrolment',
             hasGithubIcon: true,
           },

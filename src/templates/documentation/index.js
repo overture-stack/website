@@ -14,16 +14,19 @@ import {
   HeadingsTableOfContents,
   Icon,
   NoteBox,
+  Search,
   SectionTableOfContents,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
-import { githubLinks } from 'meta/config';
-import { findNextPrevPages, sectionIcons } from './utils';
+import productsDict from 'meta/products-dict';
+import { findNextPrevPages } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
+const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const shortcodes = {
   // custom react components.
@@ -62,15 +65,15 @@ export default function DocumentationPage({ data, location, path }) {
 
   const {
     body,
-    fields: { slug, title },
+    fields: { sectionSlug, slug, title },
     tableOfContents,
   } = data.mdx;
 
   // get section info
   const sectionObj = data.allYaml.nodes[0];
   const pagesFlat = flatten(sectionObj.pages);
-  const { sectionSlug, sectionTitle } = sectionObj;
-  const sectionIcon = sectionIcons[sectionSlug];
+  const sectionTitle = productsDict[sectionSlug].title;
+  const sectionIcon = productsDict[sectionSlug].iconWhite;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   // get page info
@@ -116,7 +119,7 @@ export default function DocumentationPage({ data, location, path }) {
           <h1>{sectionTitle} Documentation</h1>
         </div>
         <div className="docs__header-search">
-          <div>Search will go here</div>
+          <Search indices={searchIndices} />
         </div>
       </div>
       <div className="docs__columns">
@@ -147,7 +150,7 @@ export default function DocumentationPage({ data, location, path }) {
           <div className="docs__main-container">
             {/* GITHUB BUTTON */}
             <div class="docs__github-btn">
-              <Button externalLink={githubLinks[sectionSlug]} type="primary">
+              <Button externalLink={productsDict[sectionSlug].github} type="primary">
                 <Icon img="githubWhite" size={20} /> {sectionTitle} Github
               </Button>
             </div>
@@ -208,7 +211,7 @@ export default function DocumentationPage({ data, location, path }) {
           {/* GITHUB BUTTON */}
           <Button
             className="docs__github-btn"
-            externalLink={githubLinks[sectionSlug]}
+            externalLink={productsDict[sectionSlug].github}
             type="primary"
           >
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github
@@ -223,10 +226,11 @@ export default function DocumentationPage({ data, location, path }) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $section: String!) {
+  query($id: String!, $sectionSlug: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id
+        sectionSlug
         slug
         title
       }
@@ -238,10 +242,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    allYaml(filter: { sectionSlug: { eq: $section } }) {
+    allYaml(filter: { sectionSlug: { eq: $sectionSlug } }) {
       nodes {
-        sectionTitle
-        sectionSlug
         pages {
           isHeading
           title

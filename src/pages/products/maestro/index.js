@@ -13,7 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 
 import './style.scss';
 
@@ -73,7 +73,7 @@ const MaestroPage = () => (
           configurable index.
         </div>
       }
-      getStartedLink={githubLinks.maestro}
+      getStartedLink={productsDict.maestro.github}
       logo="logoMaestro"
       progressType="rc"
       badge={{ color: 'blue', text: 'Access & Download' }}
@@ -159,7 +159,12 @@ const MaestroPage = () => (
         className="center"
         description="Index a single analysis, a study or a full Song with one request."
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.maestro} icon="githubWhite">
+        <Button
+          type="primary"
+          size="medium"
+          externalLink={productsDict.maestro.github}
+          icon="githubWhite"
+        >
           Get Started
         </Button>
       </Callout>

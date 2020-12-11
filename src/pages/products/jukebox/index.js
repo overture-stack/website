@@ -14,7 +14,7 @@ import {
   Terminal,
   UrlBar,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'meta/products-dict';
 
 import './style.scss';
 
@@ -84,7 +84,7 @@ const JukeboxPage = () => (
           environment.
         </div>
       }
-      getStartedLink={githubLinks.jukebox}
+      getStartedLink={productsDict.jukebox.github}
       logo="logoJukebox"
       progressType="rc"
       badge={{ color: 'red', text: 'Analyze & Discover' }}
@@ -117,7 +117,7 @@ const JukeboxPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink={githubLinks.jukebox}>
+    <GettingStarted pinnedLink={productsDict.jukebox.github}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -185,7 +185,7 @@ const JukeboxPage = () => (
           type="primary"
           size="medium"
           className="mt2"
-          externalLink={githubLinks.jukebox}
+          externalLink={productsDict.jukebox.github}
           icon="githubWhite"
         >
           Get Started

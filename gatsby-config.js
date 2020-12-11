@@ -1,7 +1,7 @@
 // needs to be at the top of the file.
-// require('dotenv').config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// });
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
@@ -105,13 +105,14 @@ module.exports = {
         showSpinner: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: config.googleTagManagerID,
-        includeInDevelopment: false,
-      },
-    },
+    // {
+    // TODO: get a google tag manager ID if we're using it
+    //   resolve: `gatsby-plugin-google-tagmanager`,
+    //   options: {
+    //     id: config.googleTagManagerID,
+    //     includeInDevelopment: false,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -136,5 +137,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
+        queries: require('./meta/algolia-queries.js'),
+        chunkSize: 10000, // default 1000
+      },
+    },
   ],
 };
