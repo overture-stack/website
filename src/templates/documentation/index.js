@@ -14,8 +14,6 @@ import {
   HeadingsTableOfContents,
   Icon,
   NoteBox,
-  Search,
-  SectionTableOfContents,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
@@ -25,8 +23,6 @@ import { findNextPrevPages } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const shortcodes = {
   // custom react components.
@@ -73,7 +69,6 @@ export default function DocumentationPage({ data, location, path }) {
   const sectionObj = data.allYaml.nodes[0];
   const pagesFlat = flatten(sectionObj.pages);
   const sectionTitle = productsDict[sectionSlug].title;
-  const sectionIcon = productsDict[sectionSlug].iconWhite;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   // get page info
@@ -97,8 +92,6 @@ export default function DocumentationPage({ data, location, path }) {
   }, []);
 
   useScrollToHash(location);
-
-  const [isMobileSidebarActive, setMobileSidebarActive] = useState(false);
 
   return (
     <React.Fragment>

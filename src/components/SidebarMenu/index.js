@@ -93,7 +93,6 @@ const MenuItemContainer = ({ menuItems = [] }) => {
 };
 
 const Menu = () => {
-  // return <div>test</div>;
   return <MenuItemContainer menuItems={loadMenu} />;
 };
 

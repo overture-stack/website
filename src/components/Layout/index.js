@@ -1,15 +1,13 @@
 // This component handles site wide layouts.  (new to Gatsby 2.0)
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
-import { Footer, Icon, NavBar, MegaMenu, Search, SidebarMenu } from 'components';
+import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
 import productsDict from 'meta/products-dict';
 import 'styles/main.scss';
+import DocsWrapper from './DocsWrapper';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-const searchIndices = [{ name: searchIndex, title: searchIndex }];
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -21,7 +19,6 @@ class TemplateWrapper extends Component {
     megaMenuOpen: false,
     megaMenuType: null, // products or docs
     mobileMenuOpen: false,
-    mobileSidebarOpen: true,
     popOverRef: null,
   };
 
@@ -80,13 +77,6 @@ class TemplateWrapper extends Component {
     }
   };
 
-  toggleMobileSidebar = () => {
-    console.log('test');
-    const { mobileSidebarOpen } = this.state;
-    console.log(mobileSidebarOpen);
-    this.setState({ mobileSidebarOpen: !mobileSidebarOpen });
-  };
-
   componentDidMount() {
     this.setState({ popOverRef: this.popOverRef });
   }
@@ -107,22 +97,16 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    const {
-      megaMenuOpen,
-      megaMenuType,
-      mobileMenuOpen,
-      mobileSidebarOpen,
-      popOverRef,
-    } = this.state;
+    const { megaMenuOpen, megaMenuType, mobileMenuOpen, popOverRef } = this.state;
     const { children, data = {}, path } = this.props;
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
-    const isDocs = path.indexOf('/documentation/') === 0;
+    const isDocs = !!data.mdx;
+    // documentation is the only markdown section
     const docsSectionSlug = isDocs && data.mdx.fields.sectionSlug;
     const docsSectionTitle = isDocs && productsDict[docsSectionSlug].title;
-
-    const isMobileSidebarActive = false;
+    console.log(data);
 
     return (
       <div>
@@ -156,56 +140,11 @@ class TemplateWrapper extends Component {
         <div className="site-wrapper">
           <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
             {isDocs && SHOW_DOCS ? (
-              <main className="docs__page">
-                <div className="docs__mobile-sidebar__button">
-                  <button
-                    type="button"
-                    className={`button navbar-burger ${mobileSidebarOpen ? 'is-active' : ''}`}
-                    onClick={this.toggleMobileSidebar}
-                  >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </button>
-                </div>
-                <div className="docs__header">
-                  <div className="docs__header-title">
-                    <Icon
-                      className="icon"
-                      size={45}
-                      img={productsDict[docsSectionSlug].iconWhite}
-                    />
-                    <h1>{docsSectionTitle} Documentation</h1>
-                  </div>
-                  <div className="docs__header-search">
-                    <Search indices={searchIndices} />
-                  </div>
-                </div>
-                <div className="docs__columns">
-                  {/* SECTION TABLE OF CONTENTS */}
-                  <div
-                    className={`docs__sidebar docs__mobile-sidebar  ${
-                      mobileSidebarOpen ? 'docs__mobile-sidebar__active' : ''
-                    }`}
-                  >
-                    <SidebarMenu />
-                    <div className="docs__sidebar__sticky">
-                      <Link to="/documentation/" className="docs__sidebar__overview">
-                        <Icon size={6} img="arrowLeftBlue" />
-                        Documentation Overview
-                      </Link>
-                      {/* <SectionTableOfContents
-                        pages={sectionObj.pages}
-                        path={path}
-                        sectionSlug={sectionSlug}
-                      />*/}
-                    </div>
-                  </div>
-                  {children}
-                </div>
-              </main>
+              <DocsWrapper docsSectionSlug={docsSectionSlug} docsSectionTitle={docsSectionTitle}>
+                {children}
+              </DocsWrapper>
             ) : (
-              children
+              <React.Fragment>{children}</React.Fragment>
             )}
           </div>
           <Footer />
