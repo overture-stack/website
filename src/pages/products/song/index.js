@@ -184,7 +184,11 @@ const SongPage = () => (
         icon="githubYellow"
         description="A flexible data model for tracking your genomic data across the cloud."
       >
-        <a target="_blank" href={productsDict.song} className="button is-primary is-medium mt2">
+        <a
+          target="_blank"
+          href={productsDict.song.github}
+          className="button is-primary is-medium mt2"
+        >
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </a>

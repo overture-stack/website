@@ -117,7 +117,7 @@ const JukeboxPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink={productsDict.jukebox}>
+    <GettingStarted pinnedLink={productsDict.jukebox.github}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -185,7 +185,7 @@ const JukeboxPage = () => (
           type="primary"
           size="medium"
           className="mt2"
-          externalLink={productsDict.jukebox}
+          externalLink={productsDict.jukebox.github}
           icon="githubWhite"
         >
           Get Started

@@ -212,7 +212,7 @@ export default function DocumentationPage({ data, location, path }) {
           {/* GITHUB BUTTON */}
           <Button
             className="docs__github-btn"
-            externalLink={productsDict[sectionSlug]}
+            externalLink={productsDict[sectionSlug].github}
             type="primary"
           >
             <Icon img="githubWhite" size={20} /> {sectionTitle} Github

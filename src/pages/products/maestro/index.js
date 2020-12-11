@@ -159,7 +159,12 @@ const MaestroPage = () => (
         className="center"
         description="Index a single analysis, a study or a full Song with one request."
       >
-        <Button type="primary" size="medium" externalLink={productsDict.maestro} icon="githubWhite">
+        <Button
+          type="primary"
+          size="medium"
+          externalLink={productsDict.maestro.github}
+          icon="githubWhite"
+        >
           Get Started
         </Button>
       </Callout>

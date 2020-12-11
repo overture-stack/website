@@ -159,7 +159,12 @@ const PersonaPage = () => (
         className="center"
         description="Persona provides an easy-to-use solution for storing profile information"
       >
-        <Button type="primary" size="medium" externalLink={productsDict.persona} icon="githubWhite">
+        <Button
+          type="primary"
+          size="medium"
+          externalLink={productsDict.persona.github}
+          icon="githubWhite"
+        >
           Get Started
         </Button>
       </Callout>
