@@ -1,31 +1,49 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { useSSRWorkaround } from 'hooks';
+import { Icon } from 'components';
 
 const makeUrl = url => `/documentation/${url}/`;
 
 const MenuItems = ({ pages = [], path }) => {
   if (!pages.length) return null;
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(null);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <ol>
       {pages.map(page => {
         const { isHeading, pages: subpages, title } = page;
         const url = makeUrl(page.url);
+        const isLinkActive = path === url;
+        const aClassName = isLinkActive ? 'link-active' : '';
+
+        // submenus
+        const isMenuActive = pages && path.includes(url);
+        const liClassName = isMenuActive ? 'menu-active' : '';
+        const iconImg = isMenuActive || isOpen ? 'chevronMagenta' : 'chevronGrey';
+        const iconStyle = isMenuActive || isOpen ? { transform: 'rotate(90deg)' } : {};
+        // if (isMenuActive) setIsOpen(true);
+
         return (
-          <li key={url}>
+          <li key={url} className={liClassName}>
             {isHeading && subpages && <h4>{title}</h4>}
+            {!isHeading && !subpages && <Link to={url}>{title}</Link>}
             {!isHeading && subpages && (
               <React.Fragment>
-                <Link to={url}>{title}</Link>
-                <button onClick={toggle}>***</button>
+                <Link to={url} style={{ display: 'inline-block' }}>
+                  {title} {isLinkActive && 'active'}
+                </Link>
+                <button style={{ display: 'inline-block' }} onClick={toggle}>
+                  <Icon img={iconImg} size={7} style={iconStyle} />
+                </button>
               </React.Fragment>
             )}
-            {!isHeading && !subpages && <Link to={url}>{title}</Link>}
-            {subpages && (isHeading || isOpen) && <MenuItems pages={subpages} path={path} />}
+            {subpages && (isHeading || isOpen || isMenuActive) && (
+              <MenuItems pages={subpages} path={path} />
+            )}
           </li>
         );
       })}
