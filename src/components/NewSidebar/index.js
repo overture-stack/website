@@ -8,9 +8,6 @@ const makeUrl = url => `/documentation/${url}/`;
 const MenuItems = ({ pages = [], path }) => {
   if (!pages.length) return null;
   const [isOpen, setIsOpen] = useState(null);
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <ol>
@@ -22,10 +19,16 @@ const MenuItems = ({ pages = [], path }) => {
 
         // submenus
         const isMenuActive = pages && path.includes(url);
+        const isMenuOpenOnLoad = isOpen === null && isMenuActive;
+        const isMenuOpen = isMenuOpenOnLoad || isOpen;
+
+        const toggle = () => {
+          setIsOpen(!isMenuOpen);
+        };
+
         const liClassName = isMenuActive ? 'menu-active' : '';
-        const iconImg = isMenuActive || isOpen ? 'chevronMagenta' : 'chevronGrey';
-        const iconStyle = isMenuActive || isOpen ? { transform: 'rotate(90deg)' } : {};
-        // if (isMenuActive) setIsOpen(true);
+        const iconImg = isMenuOpen ? 'chevronMagenta' : 'chevronGrey';
+        const iconStyle = isMenuOpen ? { transform: 'rotate(90deg)' } : {};
 
         return (
           <li key={url} className={liClassName}>
@@ -41,9 +44,7 @@ const MenuItems = ({ pages = [], path }) => {
                 </button>
               </React.Fragment>
             )}
-            {subpages && (isHeading || isOpen || isMenuActive) && (
-              <MenuItems pages={subpages} path={path} />
-            )}
+            {subpages && (isHeading || isMenuOpen) && <MenuItems pages={subpages} path={path} />}
           </li>
         );
       })}
