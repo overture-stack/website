@@ -7,9 +7,7 @@ const makeUrl = url => `/documentation/${url}/`;
 const MenuItems = ({ pages = [], path }) => {
   if (!pages.length) return null;
   const [isOpen, setIsOpen] = useState(false);
-  const [timesOpened, setTimesOpened] = useState(0);
   const toggle = () => {
-    if (!isOpen) setTimesOpened(timesOpened + 1);
     setIsOpen(!isOpen);
   };
   return (
@@ -27,9 +25,7 @@ const MenuItems = ({ pages = [], path }) => {
               </React.Fragment>
             )}
             {!isHeading && !subpages && <Link to={url}>{title}</Link>}
-            {subpages && (isHeading || isOpen) && (
-              <MenuItems key={timesOpened} pages={subpages} path={path} />
-            )}
+            {subpages && (isHeading || isOpen) && <MenuItems pages={subpages} path={path} />}
           </li>
         );
       })}
