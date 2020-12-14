@@ -17,5 +17,12 @@ pages:
             url: score/section-1/subsection-1/subsection-page-1
           - title: Subsection Page 2
             url: score/section-1/subsection-1/subsection-page-2
+          - title: Subsubsection 1
+            url: score/section-1/subsection-1/subsubsection-1
+            pages:
+              - title: Subsubsection Page 1
+                url: score/section-1/subsection-1/subsubsection-1/subsubsection-page-1
+              - title: Subsubsection Page 2
+                url: score/section-1/subsection-1/subsubsection-1/subsubsection-page-2
   - title: Page 1
     url: score/page-1

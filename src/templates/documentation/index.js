@@ -202,6 +202,10 @@ export const pageQuery = graphql`
             pages {
               title
               url
+              pages {
+                title
+                url
+              }
             }
           }
         }
