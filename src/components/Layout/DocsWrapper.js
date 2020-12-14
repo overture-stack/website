@@ -15,7 +15,7 @@ export default function DocsWrapper({ children, data, path }) {
   const { sectionSlug } = data.mdx.fields;
   const { iconWhite, title } = productsDict[sectionSlug];
 
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(true);
 
   return (
     <main className="docs__page">
@@ -52,8 +52,8 @@ export default function DocsWrapper({ children, data, path }) {
               Documentation Overview
             </Link>
             <NewSidebar pages={pages} path={path} />
-            <SectionTableOfContents pages={pages} path={path} />
-            <SidebarMenu />
+            {/* <SectionTableOfContents pages={pages} path={path} /> */}
+            {/* <SidebarMenu /> */}
           </div>
         </div>
         {children}

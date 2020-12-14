@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { useSSRWorkaround } from 'hooks';
 
@@ -6,7 +6,12 @@ const makeUrl = url => `/documentation/${url}/`;
 
 const MenuItems = ({ pages = [], path }) => {
   if (!pages.length) return null;
-  console.log({ pages, path });
+  const [isOpen, setIsOpen] = useState(false);
+  const [timesOpened, setTimesOpened] = useState(0);
+  const toggle = () => {
+    if (!isOpen) setTimesOpened(timesOpened + 1);
+    setIsOpen(!isOpen);
+  };
   return (
     <ol>
       {pages.map(page => {
@@ -14,17 +19,17 @@ const MenuItems = ({ pages = [], path }) => {
         const url = makeUrl(page.url);
         return (
           <li key={url}>
-            {title}
-            <br />
-            {isHeading && subpages && <button>{title}</button>}
+            {isHeading && subpages && <h4>{title}</h4>}
             {!isHeading && subpages && (
               <React.Fragment>
                 <Link to={url}>{title}</Link>
-                <button>***</button>
+                <button onClick={toggle}>***</button>
               </React.Fragment>
             )}
             {!isHeading && !subpages && <Link to={url}>{title}</Link>}
-            {subpages && <MenuItems pages={subpages} path={path} />}
+            {subpages && (isHeading || isOpen) && (
+              <MenuItems key={timesOpened} pages={subpages} path={path} />
+            )}
           </li>
         );
       })}
