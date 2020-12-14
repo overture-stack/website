@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import productsDict from 'meta/products-dict';
-import { Icon, Search, SectionTableOfContents, SidebarMenu } from 'components';
+import { Icon, Search, SectionTableOfContents, SidebarMenu, NewSidebar } from 'components';
 
 const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: searchIndex, title: searchIndex }];
@@ -51,7 +51,8 @@ export default function DocsWrapper({ children, data, path }) {
               <Icon size={6} img="arrowLeftBlue" />
               Documentation Overview
             </Link>
-            <SectionTableOfContents pages={pages} path={path} sectionSlug={sectionSlug} />
+            <NewSidebar pages={pages} path={path} />
+            <SectionTableOfContents pages={pages} path={path} />
             <SidebarMenu />
           </div>
         </div>

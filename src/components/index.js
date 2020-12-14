@@ -19,6 +19,7 @@ export { default as MarketingSection } from './MarketingSection';
 export { default as MegaMenu } from './NavBar/MegaMenu';
 export { default as NavBar } from './NavBar';
 export { default as NavLink } from './NavBar/NavLink';
+export { default as NewSidebar } from './NewSidebar';
 export { default as NoteBox } from './NoteBox';
 export { ProductFeature, ProductFeatureRow } from './ProductFeature';
 export { default as ProductHero } from './ProductHero';
