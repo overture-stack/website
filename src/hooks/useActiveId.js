@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 
 // ref: https://nickymeuleman.netlify.app/blog/table-of-contents#get-the-active-headings-id
 
-export default function useActiveId(itemIds) {
+export default function useActiveId(itemIds = []) {
+  if (!itemIds.length) return;
   const [activeId, setActiveId] = useState('');
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,10 +20,14 @@ export default function useActiveId(itemIds) {
       { rootMargin: `0% 0% -90% 0%` }
     );
     itemIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
       observer.observe(document.getElementById(id));
     });
     return () => {
       itemIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
         observer.unobserve(document.getElementById(id));
       });
     };
