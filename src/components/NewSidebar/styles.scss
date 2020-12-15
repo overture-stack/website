@@ -6,6 +6,11 @@
     li {
       line-height: 24px;
       position: relative;
+      a {
+        color: $blue-black;
+        display: block;
+        font-weight: bold;
+      }
     }
   }
   .menu-level-1 > li,
@@ -13,24 +18,15 @@
     border-bottom: 1px solid $grey-hr;
     border-left: 2px solid transparent;
     > a {
-      display: block;
       font-size: 14px;
-      font-weight: bold;
       padding: 6px 16px;
-      color: $blue-black;
       &:hover {
         background-color: $white;
-      }
-      &.menu-toggle-link {
-        margin-right: 36px;
       }
     }
     &.link-active {
       border-left-color: $magenta-border;
       background-color: $white;
-      > a {
-        color: $magenta;
-      }
     }
   }
   .menu-level-1 > li.menu-heading {
@@ -48,11 +44,14 @@
   .menu-level-2 > li.menu-active {
     border-left-color: $magenta-border;
     background-color: $white;
+    a:hover {
+      background-color: $grey-bg-hover;
+    }
   }
   button.menu-toggle-btn {
     background-color: transparent;
-    // border: 0 none;
-    border: 1px solid cyan;
+    border: 0 none;
+    // border: 1px solid cyan;
     cursor: pointer;
     height: 36px;
     padding-top: 4px;
@@ -60,5 +59,25 @@
     right: 0;
     top: 0;
     width: 36px;
+  }
+  .menu-level-3 > li {
+    > a {
+      font-size: 13px;
+      padding: 4px 24px;
+    }
+    button.menu-toggle-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .menu-level-4 > li {
+    > a {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 3px 8px 3px 40px;
+    }
+  }
+  .link-active > a {
+    color: $magenta;
   }
 }
