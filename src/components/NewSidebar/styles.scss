@@ -5,13 +5,14 @@
     list-style-type: none;
     li {
       line-height: 24px;
+      position: relative;
     }
   }
   .menu-level-1 > li,
   .menu-level-2 > li {
     border-bottom: 1px solid $grey-hr;
     border-left: 2px solid transparent;
-    a {
+    > a {
       display: block;
       font-size: 14px;
       font-weight: bold;
@@ -20,16 +21,32 @@
       &:hover {
         background: $white;
       }
+      &.menu-toggle-link {
+        margin-right: 36px;
+      }
     }
     &.link-active {
       border-left-color: $magenta-border;
-      a {
-        background: $white;
+      background: $white;
+      > a {
         color: $magenta;
       }
     }
   }
-  .menu-heading {
+  button.menu-toggle-btn {
+    background: transparent;
+    // border: 0 none;
+    border: 1px solid cyan;
+    cursor: pointer;
+    height: 36px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+  }
+  li.menu-heading {
+    border-bottom-width: 0;
     &:not(:first-child) {
       margin-top: 20px;
     }

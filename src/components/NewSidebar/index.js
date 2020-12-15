@@ -45,11 +45,11 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
             {!isHeading && !subpages && <Link to={url}>{title}</Link>}
             {!isHeading && subpages && (
               <React.Fragment>
-                <Link to={url} style={{ display: 'inline-block' }}>
+                <Link to={url} className="menu-toggle-link">
                   {title}
                 </Link>
-                <button style={{ display: 'inline-block' }} onClick={toggle}>
-                  <Icon img={iconImg} size={7} style={iconStyle} />
+                <button className="menu-toggle-btn" onClick={toggle}>
+                  <Icon img={iconImg} size={10} style={iconStyle} />
                 </button>
               </React.Fragment>
             )}
