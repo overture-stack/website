@@ -37,15 +37,21 @@
     h4 {
       font-size: 13px;
       font-weight: normal;
+      letter-spacing: 0.25px;
       padding: 6px 16px;
       text-transform: uppercase;
     }
   }
-  .menu-level-2 > li.menu-active {
-    border-left-color: $magenta-border;
-    background-color: $white;
-    a:hover {
-      background-color: $grey-bg-hover;
+  .menu-level-2 > li {
+    &.menu-active {
+      border-left-color: $magenta-border;
+      background-color: $white;
+      a:hover {
+        background-color: $grey-bg-hover;
+      }
+    }
+    &.menu-open {
+      border-left-color: $grey-border;
     }
   }
   button.menu-toggle-btn {

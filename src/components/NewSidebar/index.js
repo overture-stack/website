@@ -21,21 +21,21 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
         const { isHeading, pages: subpages, title } = page;
         const url = makeUrl(page.url);
         const isLinkActive = path === url;
-        const aClassName = isLinkActive ? 'link-active' : '';
 
         // submenus
-        const isMenuActive = pages && path.includes(url);
-        const isMenuOpenOnLoad = isOpen === null && isMenuActive;
-        const isMenuOpen = isMenuOpenOnLoad || isOpen;
+        const hasToggle = !!(subpages && !isHeading);
+        const isMenuActive = hasToggle && path.includes(url);
+        const isMenuOpenOnLoad = hasToggle && isOpen === null && isMenuActive;
+        const isMenuOpen = hasToggle && (isMenuOpenOnLoad || isOpen);
 
         const toggle = () => {
           setIsOpen(!isMenuOpen);
           setTimesOpened(timesOpened + 1);
         };
 
-        const liClassName = `${isHeading ? 'menu-heading' : isMenuActive ? 'menu-active' : ''} ${
-          isLinkActive ? 'link-active' : ''
-        }`;
+        const liClassName = `${
+          isHeading ? 'menu-heading' : isMenuActive ? 'menu-active' : isMenuOpen ? 'menu-open' : ''
+        } ${isLinkActive ? 'link-active' : ''}`;
         const iconImg = isLinkActive ? 'chevronMagenta' : 'chevronGrey';
         const iconStyle = isMenuOpen ? { transform: 'rotate(90deg)' } : {};
 
@@ -43,7 +43,7 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
           <li key={url} className={liClassName}>
             {isHeading && subpages && <h4>{title}</h4>}
             {!isHeading && !subpages && <Link to={url}>{title}</Link>}
-            {!isHeading && subpages && (
+            {hasToggle && (
               <React.Fragment>
                 <Link to={url} className="menu-toggle-link">
                   {title}
@@ -53,7 +53,7 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
                 </button>
               </React.Fragment>
             )}
-            {subpages && (isHeading || isMenuOpen) && (
+            {(isHeading || isMenuOpen) && (
               <MenuItems level={nextLevel} pages={subpages} path={path} />
             )}
           </li>
