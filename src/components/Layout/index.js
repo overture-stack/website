@@ -102,8 +102,7 @@ class TemplateWrapper extends Component {
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
-    const isDocs = !!data.mdx;
-    // documentation is the only markdown section
+    const isDocs = path.includes('/documentation/') && data.mdx;
 
     return (
       <div>
