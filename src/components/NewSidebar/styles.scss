@@ -19,7 +19,7 @@
       padding: 6px 16px;
       color: $blue-black;
       &:hover {
-        background: $white;
+        background-color: $white;
       }
       &.menu-toggle-link {
         margin-right: 36px;
@@ -27,25 +27,13 @@
     }
     &.link-active {
       border-left-color: $magenta-border;
-      background: $white;
+      background-color: $white;
       > a {
         color: $magenta;
       }
     }
   }
-  button.menu-toggle-btn {
-    background: transparent;
-    // border: 0 none;
-    border: 1px solid cyan;
-    cursor: pointer;
-    height: 36px;
-    padding-top: 4px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 36px;
-  }
-  li.menu-heading {
+  .menu-level-1 > li.menu-heading {
     border-bottom-width: 0;
     &:not(:first-child) {
       margin-top: 20px;
@@ -56,5 +44,21 @@
       padding: 6px 16px;
       text-transform: uppercase;
     }
+  }
+  .menu-level-2 > li.menu-active {
+    border-left-color: $magenta-border;
+    background-color: $white;
+  }
+  button.menu-toggle-btn {
+    background-color: transparent;
+    // border: 0 none;
+    border: 1px solid cyan;
+    cursor: pointer;
+    height: 36px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
   }
 }
