@@ -68,7 +68,6 @@
   button.menu-toggle-btn {
     background-color: transparent;
     border: 0 none;
-    // border: 1px solid cyan;
     cursor: pointer;
     height: 36px;
     padding-top: 4px;
@@ -76,6 +75,9 @@
     right: 0;
     top: 0;
     width: 36px;
+    &:focus {
+      outline: none;
+    }
   }
   .menu-level-3 > li {
     > a {
