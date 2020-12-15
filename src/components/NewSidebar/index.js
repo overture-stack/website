@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { useSSRWorkaround } from 'hooks';
 import { Icon } from 'components';
+import './styles.scss';
 
 const makeUrl = url => `/documentation/${url}/`;
 
-const MenuItems = ({ pages = [], path }) => {
+const MenuItems = ({ level = 1, pages = [], path }) => {
   if (!pages.length) return null;
   const [isOpen, setIsOpen] = useState(null);
+  const [timesOpened, setTimesOpened] = useState(0);
+  // use timesOpened to reset/collapse submenus
+  // when the user closes a parent menu
+  const olClassName = `menu-level-${level}`;
+  const nextLevel = level + 1;
 
   return (
-    <ol>
+    <ol key={timesOpened} className={olClassName}>
       {pages.map(page => {
         const { isHeading, pages: subpages, title } = page;
         const url = makeUrl(page.url);
@@ -24,10 +30,13 @@ const MenuItems = ({ pages = [], path }) => {
 
         const toggle = () => {
           setIsOpen(!isMenuOpen);
+          setTimesOpened(timesOpened + 1);
         };
 
-        const liClassName = isMenuActive ? 'menu-active' : '';
-        const iconImg = isMenuOpen ? 'chevronMagenta' : 'chevronGrey';
+        const liClassName = `${isHeading ? 'menu-heading' : isMenuActive ? 'menu-active' : ''} ${
+          isLinkActive ? 'link-active' : ''
+        }`;
+        const iconImg = isLinkActive ? 'chevronMagenta' : 'chevronGrey';
         const iconStyle = isMenuOpen ? { transform: 'rotate(90deg)' } : {};
 
         return (
@@ -37,14 +46,16 @@ const MenuItems = ({ pages = [], path }) => {
             {!isHeading && subpages && (
               <React.Fragment>
                 <Link to={url} style={{ display: 'inline-block' }}>
-                  {title} {isLinkActive && 'active'}
+                  {title}
                 </Link>
                 <button style={{ display: 'inline-block' }} onClick={toggle}>
                   <Icon img={iconImg} size={7} style={iconStyle} />
                 </button>
               </React.Fragment>
             )}
-            {subpages && (isHeading || isMenuOpen) && <MenuItems pages={subpages} path={path} />}
+            {subpages && (isHeading || isMenuOpen) && (
+              <MenuItems level={nextLevel} pages={subpages} path={path} />
+            )}
           </li>
         );
       })}

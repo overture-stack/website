@@ -22,13 +22,13 @@ export default function useActiveId(itemIds = []) {
     itemIds.forEach(id => {
       const el = document.getElementById(id);
       if (!el) return;
-      observer.observe(document.getElementById(id));
+      observer.observe(el);
     });
     return () => {
       itemIds.forEach(id => {
         const el = document.getElementById(id);
         if (!el) return;
-        observer.unobserve(document.getElementById(id));
+        observer.unobserve(el);
       });
     };
   }, [itemIds]);

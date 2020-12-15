@@ -1,0 +1,43 @@
+@import '../../styles/colors';
+
+.toc-section {
+  ol {
+    list-style-type: none;
+    li {
+      line-height: 24px;
+    }
+  }
+  .menu-level-1 > li,
+  .menu-level-2 > li {
+    border-bottom: 1px solid $grey-hr;
+    border-left: 2px solid transparent;
+    a {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 6px 16px;
+      color: $blue-black;
+      &:hover {
+        background: $white;
+      }
+    }
+    &.link-active {
+      border-left-color: $magenta-border;
+      a {
+        background: $white;
+        color: $magenta;
+      }
+    }
+  }
+  .menu-heading {
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    h4 {
+      font-size: 13px;
+      font-weight: normal;
+      padding: 6px 16px;
+      text-transform: uppercase;
+    }
+  }
+}
