@@ -1,78 +1,92 @@
 @import '../../styles/colors';
 
-.toc-section-old {
+.toc-section {
   margin-bottom: 24px;
   max-height: calc(100vh - 150px);
   overflow: auto;
   ol {
     list-style-type: none;
-    padding-left: 0;
     li {
-      &.menu-active > a {
-        color: $magenta;
-      }
+      line-height: 24px;
+      position: relative;
       a {
-        background: transparent;
         color: $blue-black;
         display: block;
-        font-size: 16px;
         font-weight: bold;
-        &:hover,
-        &.active {
-          background: $white;
-        }
-        &.link-active {
-          color: $magenta;
-        }
-      }
-      span {
-        position: relative;
-        .Icon {
-          position: absolute;
-          left: -12px;
-          top: 7px;
-        }
       }
     }
   }
-  // first level
-  > ol > li {
-    border-bottom: 1px solid $grey-table-border;
-    border-left: 3px solid transparent;
-    &.menu-active {
-      background: $white;
-      border-left-color: $magenta;
-      a {
-        &:hover {
-          background: $grey-bg-hover;
-        }
-      }
-    }
+  .menu-level-1 > li,
+  .menu-level-2 > li {
+    border-bottom: 1px solid $grey-hr;
+    border-left: 2px solid transparent;
     > a {
-      border-left: 3px solid transparent;
-      line-height: 18px;
-      padding: 12px 0 12px 24px;
-      &.link-active {
-        background: $white;
-        border-color: $magenta-border;
+      font-size: 14px;
+      padding: 6px 16px;
+      &:hover {
+        background-color: $white;
       }
     }
-    // all lower levels
-    ol li {
-      a {
-        font-size: 14px;
-        line-height: 16px;
-        padding: 10px 0 10px 32px;
-      }
-      span .Icon {
-        top: 6px;
+    &.link-active {
+      border-left-color: $magenta-border;
+      background-color: $white;
+    }
+  }
+  .menu-level-1 > li.menu-heading {
+    border-bottom-width: 0;
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+    h4 {
+      font-size: 13px;
+      font-weight: normal;
+      letter-spacing: 0.25px;
+      padding: 6px 16px;
+      text-transform: uppercase;
+    }
+  }
+  .menu-level-2 > li {
+    &.menu-active {
+      border-left-color: $magenta-border;
+      background-color: $white;
+      a:hover {
+        background-color: $grey-bg-hover;
       }
     }
-    // third level
-    > ol > li > ol > li {
-      > a {
-        padding-left: 48px;
-      }
+    &.menu-open {
+      border-left-color: $grey-border;
     }
+  }
+  button.menu-toggle-btn {
+    background-color: transparent;
+    border: 0 none;
+    // border: 1px solid cyan;
+    cursor: pointer;
+    height: 36px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+  }
+  .menu-level-3 > li {
+    > a {
+      font-size: 13px;
+      padding: 4px 24px;
+    }
+    button.menu-toggle-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .menu-level-4 > li {
+    > a {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 3px 8px 3px 40px;
+    }
+  }
+  .link-active > a {
+    color: $magenta;
   }
 }
