@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { graphql, Link, navigate } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
@@ -10,7 +10,7 @@ import {
   AnchorHeading,
   Button,
   Code,
-  LinkHelper,
+  LinkHelper as Link,
   HeadingsTableOfContents,
   Icon,
   NoteBox,
@@ -111,7 +111,7 @@ export default function DocumentationPage({ data, location, path }) {
                 components={{
                   ...replacedComponents,
                   ...shortcodes,
-                  a: props => <LinkHelper {...props} location={location} />,
+                  a: props => <Link {...props} location={location} />,
                   // the page title is h1
                   // so demote markdown headings by one level
                   h1: props => <AnchorHeading location={location} size="h2" {...props} />,
