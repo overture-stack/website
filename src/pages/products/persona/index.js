@@ -1,16 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
 import productsDict from 'meta/products-dict';
@@ -33,7 +34,7 @@ const featureGridData = [
     {
       header: 'Pairs with Ego',
       details:
-        "Built to interact seamlessly with the user authorization product, <a href='/products/ego'/>Ego.</a>",
+        "Built to interact seamlessly with the user authorization product, <a href='/products/ego/'/>Ego.</a>",
       icon: 'target',
     },
   ],
@@ -116,11 +117,10 @@ const PersonaPage = () => (
 
             <ul className="step-text">
               <li className="bullet">
-                Add the required environment variables, documented in
-                <a href="https://github.com/overture-stack/persona/blob/master/.env.schema">
-                  {' '}
+                Add the required environment variables, documented in{' '}
+                <Link to="https://github.com/overture-stack/persona/blob/master/.env.schema">
                   .env.schema.
-                </a>
+                </Link>
               </li>
               <li className="bullet">Install required dependencies node, mongodb, and npm.</li>
             </ul>
@@ -137,8 +137,8 @@ const PersonaPage = () => (
 
             <div className="py3">
               <div>
-                Persona is now running and you can access it at
-                <a href="http://localhost:3232/graphql"> http://localhost:3232/graphql</a>.
+                Persona is now running and you can access it at{' '}
+                <Link to="http://localhost:3232/graphql">http://localhost:3232/graphql</Link>.
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
-import { Icon } from 'components';
+import { Icon, LinkHelper as Link } from 'components';
 import productsDict from 'meta/products-dict';
 import './styles.scss';
 import logo from './logo.svg';
@@ -182,19 +182,19 @@ const Footer = () => {
         <div className="footer-credits__text">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
           <div className="px1">
-            <a href="/privacy">Privacy</a>
+            <Link to="/privacy/">Privacy</Link>
             <span>|</span>
-            <a href="/terms-conditions">Terms & Conditions</a>
+            <Link to="/terms-conditions/">Terms & Conditions</Link>
           </div>
         </div>
       </div>
       <div className="netlify-badge">
-        <a target="_blank" href="https://www.netlify.com">
+        <Link to="https://www.netlify.com">
           <img
             src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
             alt="Deploys by Netlify"
           />
-        </a>
+        </Link>
       </div>
     </footer>
   );

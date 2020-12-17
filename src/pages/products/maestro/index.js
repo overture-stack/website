@@ -1,16 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
 import productsDict from 'meta/products-dict';
@@ -28,7 +29,7 @@ const featureGridData = [
     {
       header: 'Exclusion rule',
       details:
-        "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>Song</a>.",
+        "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song/'>Song</a>.",
       icon: 'target',
     },
   ],
@@ -43,7 +44,7 @@ const featureGridData = [
     {
       header: 'Multiple Repository Management',
       details:
-        "Connect multiple <a href='/products/song'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
+        "Connect multiple <a href='/products/song/'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
       icon: 'target',
     },
   ],
@@ -69,8 +70,8 @@ const MaestroPage = () => (
       cardText={
         <div>
           Maestro helps you manage geographically distributed data stored in{' '}
-          <a href="/products/song">Song</a> and <a href="/products/score">Score</a> with a single,
-          configurable index.
+          <Link to="/products/song/">Song</Link> and <Link to="/products/score/">Score</Link> with a
+          single, configurable index.
         </div>
       }
       getStartedLink={productsDict.maestro.github}
@@ -85,7 +86,7 @@ const MaestroPage = () => (
         header="Customizable record indexing"
         icon="arrowsRight"
         iconSize={96}
-        details="Index a single analysis, a study or a full <a href='/products/song'>Song</a> repository with one request.
+        details="Index a single analysis, a study or a full <a href='/products/song/'>Song</a> repository with one request.
 "
       />
       <ProductFeature
@@ -99,7 +100,7 @@ const MaestroPage = () => (
         header="Seamless integration"
         icon="vennDiagram"
         iconSize={64}
-        details="Built to interact natively with <a href='/products/song'>Song</a> and <a href='/products/arranger'>Arranger</a>. "
+        details="Built to interact natively with <a href='/products/song/'>Song</a> and <a href='/products/arranger/'>Arranger</a>. "
       />
     </ProductFeatureRow>
 
