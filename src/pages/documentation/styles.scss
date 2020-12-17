@@ -1,0 +1,155 @@
+@import '../../styles/colors';
+
+.DocumentationLandingPage {
+  h2,
+  h3,
+  p,
+  li {
+    color: $blue-black;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 18px;
+  }
+  .hero {
+    background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
+    height: 310px;
+    text-align: center;
+    flex-direction: row;
+    h1 {
+      font-size: 32px;
+      color: $white;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+    }
+    .search__container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 475px;
+      justify-content: center;
+      padding: 0 20px;
+      @media (max-width: 1024px) {
+        flex-basis: auto;
+      }
+    }
+    .image {
+      flex: 0 1 auto;
+      &-consulting {
+        align-self: start;
+      }
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
+
+  .documentation {
+    &-section {
+      padding: 42px 0;
+      h2 {
+        margin-bottom: 24px;
+      }
+      p,
+      li,
+      span {
+        font-size: 18px;
+        line-height: 30px;
+      }
+      ul {
+        list-style-type: disc;
+        padding-left: 18px;
+      }
+      p {
+        margin-bottom: 8px;
+      }
+      span {
+        font-weight: bold;
+        margin-left: 12px;
+        display: inline-block;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      .button.is-primary.is-medium {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: 8px;
+        padding: 8px 18px;
+      }
+      .dms-row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 10px;
+        .Icon {
+          max-height: 40px;
+        }
+        &__text {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+  .product {
+    &-section {
+      padding: 30px 0 24px;
+    }
+    &-column {
+      .Badge {
+        font-size: 12px;
+        margin-bottom: 16px;
+        display: block;
+        text-align: center;
+        line-height: 16px;
+      }
+      a {
+        display: block;
+      }
+    }
+    &-card {
+      border-radius: 5px;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
+      background-color: $white;
+      padding: 8px 16px 16px;
+      margin-bottom: 16px;
+      &:hover {
+        background-color: $grey-bg-hover;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+      }
+      .chevron-link {
+        color: $magenta !important;
+        font-weight: 700;
+        font-size: 14px;
+        display: flex;
+        line-height: 1;
+        img[style] {
+          padding: 2px 0 0 1px;
+          height: 13px !important;
+        }
+      }
+      &__title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+        .Icon {
+          max-height: 32px;
+        }
+        h3 {
+          font-size: 18px;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+      }
+      p {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

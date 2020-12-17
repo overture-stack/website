@@ -1,0 +1,36 @@
+@import '../../styles/colors';
+
+.note-box {
+  background-color: $blue-dark;
+  padding: 17px 19px 1px 22px;
+  border-radius: 5px;
+  * {
+    color: $white !important;
+  }
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      color: $blue-bg !important;
+    }
+  }
+  code {
+    background: $blue-3 !important;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 12px !important;
+  }
+  &__icon {
+    height: 36px;
+    margin-right: 12px;
+  }
+  &__content {
+    margin-bottom: 0 !important;
+    *:last-child {
+      margin-bottom: 16px !important;
+    }
+  }
+}

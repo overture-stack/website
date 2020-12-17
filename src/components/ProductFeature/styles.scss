@@ -1,10 +1,12 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
 .ProductFeatureRow {
   display: flex;
-  @media(max-width: 768px){
-    flex-direction: column
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 }
-
 
 .ProductFeature {
   display: flex;
@@ -19,23 +21,22 @@
     }
 
     .header {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 30px;
-      color: #003055;
+      color: $blue-darker;
       letter-spacing: 0;
       line-height: 37px;
       padding: 16px 0 24px;
-
     }
 
     .details {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 18px;
-      color: #003055;
+      color: $blue-darker;
       letter-spacing: 0;
       line-height: 30px;
       max-width: 350px;
-      @media(max-width: 768px) {
+      @media (max-width: 768px) {
         max-width: none;
       }
     }
@@ -46,16 +47,16 @@
     display: flex;
     flex-direction: column;
 
-  .header {
-    font-weight: bold;
-    font-size: 18px;
-    padding-left: 16px;
-  }
+    .header {
+      font-weight: bold;
+      font-size: 18px;
+      padding-left: 16px;
+    }
 
-  .details {
-    // max-width: 492px;
-    font-size: 18px;
-    line-height: 32px;
-  }
+    .details {
+      // max-width: 492px;
+      font-size: 18px;
+      line-height: 32px;
+    }
   }
 }

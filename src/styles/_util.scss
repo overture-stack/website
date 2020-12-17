@@ -1,43 +1,60 @@
 // Custom utility classes for when basscss doesn't do the trick.
+@import './colors';
+@import './variables';
 
 // Backgrounds
 .bg-grey {
-  background: #eff0f3;
+  background: $grey-5;
+}
+
+.bg-grey-light {
+  background: $grey;
 }
 
 .bg-blue {
-  background: #04518c;
+  background: $blue-dark;
 }
 
 .bg-green {
-  background: #00ddbe;
+  background: $green-bg;
 }
 
 // Typography
 
 .text-white {
-  color: white;
+  color: $white;
 }
 
 .text-green {
-  color: #3dd3b1;
+  color: $green-text;
 }
 
 .text-magenta {
-  color: #9e005d;
+  color: $magenta;
 }
 
 .link-magenta {
-  font-family: Lato;
+  font-family: $font-sans-serif;
   font-weight: 700;
-  color: #9e005d;
+  color: $magenta;
   letter-spacing: 0;
 
-  a, a:hover {
-    color: #9e005d;
+  a,
+  a:hover {
+    color: $magenta;
   }
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+
+.chevron-link,
+.chevron-link a {
+  color: $magenta;
+  font-weight: bold;
 }

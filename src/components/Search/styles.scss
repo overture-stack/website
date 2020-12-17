@@ -1,0 +1,123 @@
+@import '../../styles/colors';
+
+.search {
+  &__root {
+    position: relative;
+    margin: 0.6em 0;
+    max-width: 475px;
+    width: 100%;
+  }
+  &__box {
+    width: 100%;
+    max-width: 475px;
+    position: relative;
+    &__input {
+      border-radius: 5px;
+      border: 1px solid $grey-input-border;
+      color: #003055;
+      font-size: 16px;
+      height: 50px;
+      padding: 0 42px;
+      width: 100%;
+      &:focus {
+        border: 1px solid $blue-outline;
+        box-shadow: 0 0 4px 1px rgba(155, 199, 237, 0.8);
+        outline: none;
+      }
+    }
+    &__icon {
+      position: absolute;
+      top: 15px;
+      left: 16px;
+      width: 20px;
+    }
+    &__reset {
+      background: transparent;
+      border: 0;
+      height: 50px;
+      padding: 4px 0 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 42px;
+    }
+  }
+  &__results {
+    &.closed {
+      display: none;
+    }
+    &.open {
+      display: block;
+    }
+    -webkit-overflow-scrolling: touch;
+    background: $white;
+    border-radius: 4px;
+    border: solid 1px $grey-border;
+    max-height: 70vh;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 2;
+    .HitCount {
+      display: none;
+      justify-content: flex-end;
+    }
+    .Hits {
+      ul {
+        list-style: none;
+        margin-left: 0;
+      }
+    }
+  }
+  &__result {
+    text-align: left;
+    mark {
+      background: #fcf3c7;
+      border-radius: 3px;
+    }
+    &__section,
+    &__page-title,
+    &__page-snippet {
+      padding: 2px 8px;
+    }
+    &__section {
+      background: $grey-blue;
+      color: #151c3d;
+      font-weight: bold;
+    }
+    &__page {
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid $grey-hr;
+      font-size: 14px;
+      &-title,
+      &-snippet {
+        padding-bottom: 8px;
+      }
+      &-title {
+        flex: 0 0 130px;
+        border-right: 1px solid $grey-hr;
+        font-weight: bold;
+      }
+      &-snippet {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+.ais-PoweredBy {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 80%;
+  padding-right: 8px;
+  padding-top: 4px;
+  align-items: center;
+  svg {
+    width: 70px;
+    margin-left: 4px;
+  }
+}

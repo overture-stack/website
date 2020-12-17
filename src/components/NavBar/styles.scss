@@ -1,13 +1,14 @@
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .NavHeader {
-  background: white;
+  background: $white;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
 
   .nav-container {
     margin: 0 auto;
     width: 100%;
     display: block;
-
 
     @include breakpoint(navmenu-up) {
       display: flex;
@@ -15,8 +16,8 @@
   }
 
   .active-item {
-    color: #9e005d;
-    background-color: "#F2F3F5";
+    color: $magenta;
+    background-color: '$grey';
   }
 
   // Overture Logo container and Link
@@ -26,7 +27,7 @@
   }
 
   .navbar-brand-link {
-    margin-right: 4rem;
+    margin-right: 1rem;
     align-self: stretch;
   }
 
@@ -39,7 +40,7 @@
   .navbar-burger > .is-active {
     height: 2.4rem;
     width: 2.4rem;
-    border-color: #66c2ea !important;
+    border-color: $blue-light !important;
     background-color: none !important;
     outline: none !important;
 
@@ -48,11 +49,11 @@
     }
 
     & > span {
-      background-color: #66c2ea;
+      background-color: $blue-light;
     }
   }
 
-  .products-link-box {
+  .megamenu-link-box {
     display: flex;
     align-self: stretch;
     margin-right: 16px;
@@ -65,42 +66,47 @@
   }
 
   // similar to .nav-link but slightly different.
-  .products-link {
+  .megamenu-link {
     display: flex;
     align-self: stretch;
     justify-content: space-between;
     cursor: pointer;
 
     &:hover {
-      background-color: #f1f3f5;
+      background-color: $grey-1;
     }
   }
 
-  .products-link-open {
-    background: #f1f3f5;
+  .megamenu-link-open,
+  .megamenu-link-highlight {
+    background: $grey-1;
     color: #9d005d;
     justify-content: space-between;
   }
 
   .nav-link {
     @include breakpoint(navmenu-up) {
-      margin-right: 16px;
+      margin-right: 8px;
       display: flex;
       align-self: stretch;
     }
     @include breakpoint(navmenu-below) {
-      border-top: 1px solid #efefef;
+      border-top: 1px solid $grey-2;
     }
   }
 
   .navbar-item {
-    font-family: Lato, "Arial";
-    font-size: 18px;
+    font-family: $font-sans-serif;
+    font-size: 16px;
     letter-spacing: 0;
+    padding: 0.75rem;
+    @media (max-width: 1260px) {
+      padding: 0.5rem;
+    }
   }
 
-  .products-arrow {
-    background: white;
+  .megamenu-arrow {
+    background: $white;
     display: none;
     align-self: center;
     @include breakpoint(navmenu-below) {
@@ -109,7 +115,7 @@
     }
 
     &.open {
-      background: #f2f3f5;
+      background: $grey;
     }
   }
 
@@ -118,6 +124,11 @@
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
+
+    .slack-button {
+      font-size: 1rem;
+      font-weight: 500;
+    }
 
     @media (max-width: 400px) {
       flex-direction: column;
@@ -129,6 +140,13 @@
     }
   }
 
+  .custom-button {
+    .button.is-medium {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
   //
   // Media Queries:
   //
@@ -137,13 +155,6 @@
   @media (max-width: 1260px) and (min-width: 1024px) {
     .navbar-brand-link {
       margin-right: 0;
-    }
-
-    // Shrink the bulma custom button font size if more space is needed.
-    .custom-button {
-      .button.is-medium {
-        font-size: 1rem;
-      }
     }
   }
 }

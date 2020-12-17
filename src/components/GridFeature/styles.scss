@@ -1,45 +1,40 @@
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .GridFeature {
+  .bottom-border {
+    border-bottom: 2px solid;
 
-	.bottom-border {
-		border-bottom: 2px solid;
+    &.white {
+      border-color: $white;
+    }
 
-		&.white {
-			border-color: white;
-		}
+    &.grey {
+      border-color: $grey-4;
+    }
 
-		&.grey {
-			border-color: #D4D4D4;
+    @media (max-width: $tablet) {
+      border-bottom: none;
+    }
+  }
 
-		}
+  .feature-item {
+    padding: 56px 24px 64px 0px;
+    @media (max-width: $tablet) {
+      padding: 32px 0px;
+    }
+  }
 
-		@media(max-width: $tablet) {
-			border-bottom: none;
-		}
+  .right-item {
+    border-left: 2px solid $white;
+    padding-left: 48px;
+    @media (max-width: $tablet) {
+      border-left: none;
+      padding-left: 0px;
+    }
 
-	}
-
-	.white-border-bottom {
-	}
-
-	.feature-item {
-		padding: 56px 24px 64px 0px;
-		@media(max-width: $tablet) {
-			padding: 32px 0px;
-		}
-	}
-
-	.right-item {
-		border-left: 2px solid white;
-		padding-left: 48px;
-		@media(max-width: $tablet) {
-			border-left: none;
-			padding-left: 0px;
-		}
-
-		@media(min-width: $tablet) and (max-width: 1100px) {
-			padding-left: 32px;
-		}
-	}
+    @media (min-width: $tablet) and (max-width: 1100px) {
+      padding-left: 32px;
+    }
+  }
 }

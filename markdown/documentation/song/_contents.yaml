@@ -1,0 +1,6 @@
+sectionSlug: song
+pages:
+  - title: Introduction
+    url: song
+  - title: Markdown Kitchen Sink
+    url: song/markdown

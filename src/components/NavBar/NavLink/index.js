@@ -1,9 +1,9 @@
 /**
- * Component: Navigation Link used in Navbar
+ * Component: Navigation Link used in NavBar
  */
 
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const NavLink = ({ url, name, closeMenus }) => {
   return (
@@ -15,7 +15,7 @@ const NavLink = ({ url, name, closeMenus }) => {
     >
       {name}
     </Link>
-  )
-}
+  );
+};
 
-export default NavLink
+export default NavLink;

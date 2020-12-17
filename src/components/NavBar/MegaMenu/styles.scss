@@ -1,15 +1,18 @@
-@import "../../../styles/variables";
+@import '../../../styles/variables';
+@import '../../../styles/colors';
 
-.ProductsPopup {
-  position: fixed;
+.MegaMenu {
+  border-bottom: 3px solid $grey-border;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   display: flex;
-  left: 0;
-  right: 0;
-  z-index: 4;
-  width: 100%;
   height: auto;
-  transition: top ease 0.5s 0.0s;
+  left: 0;
   margin: 0 auto;
+  position: fixed;
+  right: 0;
+  transition: top ease 0.5s 0s;
+  width: 100%;
+  z-index: 4;
 
   // Shrinking the slack button changes nav size; update popover top.
   @media (max-width: 1260px) and (min-width: 1160px) {
@@ -21,7 +24,7 @@
   }
 
   &.open {
-  top: 60px;
+    top: 60px;
     @media (max-width: 1260px) and (min-width: 1160px) {
       top: 50px;
     }
@@ -41,10 +44,10 @@
   }
 
   .menu-items {
-    border: 1px solid #dfdfdf;
+    border: 1px solid $grey-3;
     display: flex;
     width: 100%;
-    background: white;
+    background: $white;
   }
 
   // for leveling heading menu headers that don't have "core" badge
@@ -70,53 +73,74 @@
   .menu-section-links {
     display: flex;
     flex-direction: column;
+  }
 
+  @include breakpoint(navmenu-up) {
+    .menu-section-links {
+      color: $blue-black;
+      list-style: disc;
+      padding: 0.5rem 0 0 1.5rem;
+    }
   }
 
   .menu-section-link {
-    padding-top: 1rem;
-    font-weight: bold;
+    color: $blue-black;
     display: flex;
     font-size: 1rem;
-    color: #04518c;
+    padding: 0.25rem 0;
+    &:hover,
+    &.active {
+      color: $magenta;
+    }
   }
 
-  // explore our products heading and text; desktop only
+  @include breakpoint(navmenu-up) {
+    .Badge {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  // explore heading and text; desktop only
   .explore-text {
     min-width: 345px;
-    background: #f2f3f5;
+    background: $grey;
 
     .heading-text {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
 
-      @include breakpoint(navmenu-below) {display: none;}
+      @include breakpoint(navmenu-below) {
+        display: none;
+      }
     }
 
     .body-text {
-      @include breakpoint(navmenu-below) {display: none;}
+      @include breakpoint(navmenu-below) {
+        display: none;
+      }
     }
 
-    .all-products-link {
+    .chevron-link {
       padding-top: 12px;
-      a {color: #9e005d !important;}
+      a {
+        color: $magenta !important;
+      }
       font-weight: 700;
 
       @include breakpoint(navmenu-below) {
         padding: 0 0 12px 0;
-        color: #04518c !important;
-        img { display: none }
-        a {color: #04518c !important;}
       }
     }
   }
 }
 
-// 2) Products Popup Mobile Styles - resets all the desktop styles and then customizes.
+// 2) MegaMenu Mobile Styles - resets all the desktop styles and then customizes.
 
 @include breakpoint(navmenu-below) {
-  .ProductsPopup {
+  .MegaMenu {
     position: relative;
     margin-left: 0;
     margin-top: 0;
@@ -132,12 +156,12 @@
       padding: 0px 0 24px 0;
       border: 0;
       flex-direction: column;
-      background: #f2f3f5;
+      background: $grey;
     }
 
     .menu-section {
       // flex-direction: row;
-      padding: 20px 12px;
+      padding: 20px 12px 4px;
       justify-content: center;
       border-bottom: 1px solid #cfcfcf;
     }
@@ -152,15 +176,25 @@
       display: flex;
       flex-direction: row;
 
-			.Icons {
-				order: 1;
-				margin-left: 12px;
-			}
+      .Icons {
+        order: 1;
+        margin-left: 12px;
+      }
     }
 
     .menu-section-links {
-      padding: 24px 0 0 0;
+      padding: 16px 0 0 0;
       flex-direction: row;
+      li:not(:first-child) {
+        display: inline-block;
+        margin-left: 24px;
+      }
+      &.vertical {
+        flex-direction: column;
+        li:not(:first-child) {
+          margin-left: 0;
+        }
+      }
     }
 
     .core-links {
@@ -172,13 +206,9 @@
       padding-top: 0;
       padding: 0 0 12px 0;
       // flex: 1;
-
-      &:not(:first-child) {
-        margin-left: 48px;
+      &.active {
+        color: $magenta;
       }
     }
   }
 }
-
-
-

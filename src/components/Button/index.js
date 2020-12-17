@@ -1,29 +1,35 @@
-import React from 'react'
-import { Icon } from '../'
-import { Link } from 'gatsby'
-import './styles.scss'
+import React from 'react';
+import { Link } from 'gatsby';
+import { Icon } from 'components';
+import './styles.scss';
 
 const btnTypes = {
   primary: 'is-primary', // uses bulma
   secondary: 'is-white secondary', // bulma + custom css
-  blue: "blue"
-}
+  blue: 'blue',
+};
 
 const btnSizes = {
   // Bulma classes
+  default: '',
   large: 'is-large',
   medium: 'is-medium',
+  navGithub: 'is-medium',
+  navSlack: 'is-medium',
   small: 'is-small',
   default: '',
-}
+};
 
 // Icon sizes vary based on passed in button size prop.
 const iconSizes = {
+  default: 16,
   large: 32,
   medium: 24,
+  navGithub: 20,
+  navSlack: 22,
   small: 16,
   default: 16,
-}
+};
 
 /**
  * Component: Button
@@ -47,20 +53,13 @@ export default ({
   onClick,
   target = '_blank',
 }) => {
-  let customClassName = className ? className : ''
-  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`
+  let customClassName = className ? className : '';
+  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
   let IconComp = () => {
     if (icon) {
-      return (
-        <Icon
-          className="mr2"
-          style={iconStyle}
-          size={iconSizes[size]}
-          img={icon}
-        />
-      )
+      return <Icon className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />;
     }
-  }
+  };
 
   // If we have an external link, make the button wrap with an <a>
   if (externalLink) {
@@ -71,7 +70,7 @@ export default ({
           {children}
         </a>
       </button>
-    )
+    );
   } else if (internalLink) {
     return (
       <button className="custom-button">
@@ -80,16 +79,15 @@ export default ({
           {children}
         </Link>
       </button>
-    )
+    );
   } else {
     return (
       <button onClick={() => onClick()} className="custom-button">
         <div className={classes}>
-        {IconComp()}
-        {children}
+          {IconComp()}
+          {children}
         </div>
       </button>
-    )
-
+    );
   }
-}
+};

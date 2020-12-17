@@ -1,16 +1,21 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
 .PrivacyPage {
-  p, div, li {
-    font-family: Lato;
+  p,
+  div,
+  li {
+    font-family: $font-sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
-    color: #003055;
+    color: $blue-darker;
   }
-  
+
   p {
     margin: 20px 0;
   }
-  
+
   /** YUCK BELOW: **/
 
   ol > li {
@@ -30,8 +35,9 @@
     counter-increment: customlistcounter;
   }
 
-  ol > li:before { /* the only way to remove "." from an OL ?! */
-    content: counter(customlistcounter) " ";
+  ol > li:before {
+    /* the only way to remove "." from an OL ?! */
+    content: counter(customlistcounter) ' ';
     font-weight: bold;
     float: left;
     width: 1em;
@@ -40,6 +46,4 @@
   ol:first-child {
     counter-reset: customlistcounter;
   }
-
-
 }

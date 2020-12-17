@@ -1,12 +1,15 @@
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .ContactPage {
-  p, div, li {
-    font-family: Lato;
+  p,
+  div,
+  li {
+    font-family: $font-sans-serif;
     font-size: 24px;
     letter-spacing: 0;
     line-height: 32px;
-    color: #003055;
+    color: $blue-darker;
   }
 
   .contact-hero-content {
@@ -19,7 +22,7 @@
     }
 
     // align image and contact us text >768 < 1024
-    @media(min-width: 768px) and (max-width: 1024px) {
+    @media (min-width: 768px) and (max-width: 1024px) {
       transform: translateY(150px);
     }
   }
@@ -38,22 +41,21 @@
   }
 
   .contact-details {
-    font-family: Lato-Regular;
+    font-family: $font-sans-serif;
     font-size: 24px;
-    color: #003055;
+    color: $blue-darker;
     letter-spacing: 0;
     line-height: 40px;
   }
 
   .contact-hero-img {
-    transform: scale(1.0) translateY(120px);
-    @media(min-width: 768px) and (max-width: 1024px) {
+    transform: scale(1) translateY(120px);
+    @media (min-width: 768px) and (max-width: 1024px) {
       transform: scale(0.6);
     }
 
-    @media(min-width: 1025px) and (max-width: 1216px) {
+    @media (min-width: 1025px) and (max-width: 1216px) {
       transform: translateY(130px);
     }
   }
-
 }
