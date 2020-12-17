@@ -123,7 +123,6 @@ const PrivacyPage = () => (
               href="https://oicr.on.ca/oicr-policies-and-procedures/"
               target="_blank"
             >
-              {' '}
               organizational Privacy Policy
             </a>
             . You may also view our{' '}
