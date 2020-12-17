@@ -98,19 +98,19 @@ class NavBar extends Component {
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
                   className="slack-button"
-                  type="secondary"
-                  size="navSlack"
                   icon="slack"
-                  externalLink="http://slack.overture.bio/"
+                  link="http://slack.overture.bio/"
+                  size="navSlack"
+                  type="secondary"
                 >
                   Join us on Slack
                 </Button>
 
                 <Button
-                  type="secondary"
-                  size="navGithub"
-                  externalLink={productsDict.overture.github}
                   icon="githubMagenta"
+                  link={productsDict.overture.github}
+                  size="navGithub"
+                  type="secondary"
                 >
                   Overture Github
                 </Button>

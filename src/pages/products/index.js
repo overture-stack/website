@@ -277,10 +277,10 @@ export default function ProductsPage() {
           className="center"
         >
           <Button
-            type="primary"
-            size="medium"
-            externalLink={productsDict.overture.github}
             icon="githubWhite"
+            link={productsDict.overture.github}
+            size="medium"
+            type="primary"
           >
             Get Started
           </Button>

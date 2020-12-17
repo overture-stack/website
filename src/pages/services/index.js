@@ -39,7 +39,7 @@ const ServicesPage = () => (
           stacks and building custom solutions for joint projects.
         </p>
 
-        <Button type="primary" size="medium" className="mt3" internalLink="/contact">
+        <Button className="mt3" link="/contact/" size="medium" type="primary">
           Request a collaboration
         </Button>
       </div>
@@ -73,7 +73,7 @@ const ServicesPage = () => (
           <li className="bullet">Scalability</li>
         </ul>
 
-        <Button type="primary" size="medium" internalLink="/contact">
+        <Button link="/contact/" size="medium" type="primary">
           Request consulting
         </Button>
       </div>
@@ -95,7 +95,7 @@ const ServicesPage = () => (
           <li className="bullet">Troubleshooting</li>
         </ul>
 
-        <Button type="primary" size="medium" internalLink="/contact">
+        <Button link="/contact/" size="medium" type="primary">
           Request technical support
         </Button>
       </div>

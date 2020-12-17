@@ -97,7 +97,7 @@ class HomePage extends React.Component {
               The Overture story
             </Button>
 
-            <Button type="blue" className="my2 mr2" size="medium" internalLink="case-studies">
+            <Button className="my2 mr2" link="/case-studies/" size="medium" type="blue">
               The products in action
             </Button>
           </span>

@@ -100,8 +100,13 @@ export default function DocumentationPage({ data, location, path }) {
         <div className="docs__main-container">
           {/* GITHUB BUTTON */}
           <div className="docs__github-btn">
-            <Button externalLink={productsDict[sectionSlug].github} type="primary">
-              <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+            <Button
+              icon="githubWhite"
+              link={productsDict[sectionSlug].github}
+              size="navGithub"
+              type="primary"
+            >
+              {sectionTitle} Github
             </Button>
           </div>
           <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
@@ -158,11 +163,7 @@ export default function DocumentationPage({ data, location, path }) {
       {/* PAGE/HEADINGS TABLE OF CONTENTS */}
       <div className="docs__toc-headings">
         {/* GITHUB BUTTON */}
-        <Button
-          className="docs__github-btn"
-          externalLink={productsDict[sectionSlug].github}
-          type="primary"
-        >
+        <Button className="docs__github-btn" link={productsDict[sectionSlug].github} type="primary">
           <Icon img="githubWhite" size={20} /> {sectionTitle} Github
         </Button>
         {!redirectDest && headingsTableOfContents && (

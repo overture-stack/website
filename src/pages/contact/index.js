@@ -60,21 +60,20 @@ export default function ContactPage() {
 
               <div className="flex">
                 <Button
-                  type="primary"
                   className="my2 mr2"
-                  size="medium"
                   icon="mail"
-                  externalLink="mailto:contact@overture.bio"
-                  target="_self"
+                  link="mailto:contact@overture.bio"
+                  size="medium"
+                  type="primary"
                 >
                   Contact Us
                 </Button>
 
                 <Button
-                  type="secondary"
-                  size="medium"
                   icon="slack"
-                  externalLink="http://slack.overture.bio/"
+                  link="http://slack.overture.bio/"
+                  size="medium"
+                  type="secondary"
                 >
                   Join us on Slack
                 </Button>

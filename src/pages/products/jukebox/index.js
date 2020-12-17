@@ -182,11 +182,11 @@ const JukeboxPage = () => (
         description="Explore and manipulate data without having to set up the environment yourself."
       >
         <Button
-          type="primary"
-          size="medium"
           className="mt2"
-          externalLink={productsDict.jukebox.github}
           icon="githubWhite"
+          link={productsDict.jukebox.github}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>
@@ -197,10 +197,10 @@ const JukeboxPage = () => (
         description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
       >
         <Button
-          type="primary"
-          size="medium"
           className="mt2"
-          externalLink="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
+          link="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
+          size="medium"
+          type="primary"
         >
           Related Blog Post
         </Button>

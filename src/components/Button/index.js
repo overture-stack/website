@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Icon } from 'components';
+import { LinkHelper as Link, Icon } from 'components';
 import './styles.scss';
 
 const btnTypes = {
@@ -42,52 +41,28 @@ const iconSizes = {
  *
  */
 export default ({
-  icon,
-  className,
-  iconStyle,
   children,
-  type = 'default',
+  className = '',
+  icon,
+  iconStyle,
+  link = '',
+  onClick = '',
   size = 'default',
-  externalLink,
-  internalLink,
-  onClick,
-  target = '_blank',
+  type = 'default',
 }) => {
-  let customClassName = className ? className : '';
-  let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
-  let IconComp = () => {
-    if (icon) {
-      return <Icon className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />;
-    }
-  };
+  const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
+  const IconComp = () =>
+    icon && <Icon className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />;
 
-  // If we have an external link, make the button wrap with an <a>
-  if (externalLink) {
-    return (
-      <button className="custom-button">
-        <a className={classes} target={target} href={externalLink}>
-          {IconComp()}
-          {children}
-        </a>
-      </button>
-    );
-  } else if (internalLink) {
-    return (
-      <button className="custom-button">
-        <Link className={classes} to={internalLink}>
-          {IconComp()}
-          {children}
-        </Link>
-      </button>
-    );
-  } else {
-    return (
-      <button onClick={() => onClick()} className="custom-button">
-        <div className={classes}>
-          {IconComp()}
-          {children}
-        </div>
-      </button>
-    );
-  }
+  return onClick ? (
+    <button className={classes} onClick={() => onClick()} type="button">
+      {IconComp()}
+      {children}
+    </button>
+  ) : (
+    <Link className={classes} to={link}>
+      {IconComp()}
+      {children}
+    </Link>
+  );
 };

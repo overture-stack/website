@@ -139,12 +139,7 @@ const RiffPage = () => (
         className="center"
         description="Save user queries and state and share them through convenient short URLs."
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.riff.github}
-          icon="githubWhite"
-        >
+        <Button icon="githubWhite" link={productsDict.riff.github} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

@@ -339,12 +339,7 @@ const OncoPage = () => (
         description="Bring data to life with stunning visualizations and real-time analysis."
         className="center"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.oncojs.github}
-          icon="githubWhite"
-        >
+        <Button icon="githubWhite" link={productsDict.oncojs.github} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

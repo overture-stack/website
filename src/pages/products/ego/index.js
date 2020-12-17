@@ -205,12 +205,7 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.ego.github}
-          icon="githubWhite"
-        >
+        <Button icon="githubWhite" link={productsDict.ego.github} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

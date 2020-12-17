@@ -145,12 +145,7 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.score.github}
-          icon="githubWhite"
-        >
+        <Button icon="githubWhite" link={productsDict.score.github} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

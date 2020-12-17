@@ -193,12 +193,7 @@ const ArrangerPage = () => (
         description="Provide your administrators with the power to organize an intuitive data search interface."
         className="center"
       >
-        <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.arranger.github}
-          icon="githubWhite"
-        >
+        <Button icon="githubWhite" link={productsDict.arranger.github} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>
