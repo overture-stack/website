@@ -111,7 +111,7 @@ class HomePage extends React.Component {
             <div className="pt2" style={{ maxWidth: '900px' }}>
               Data is the essence of our field. Implement Overture’s core products to
               <span>
-                <Link to="products#generate-upload">
+                <Link to="/products#generate-upload">
                   <Badge className="mx1" color="pink">
                     Generate & Upload{' '}
                   </Badge>
@@ -119,7 +119,7 @@ class HomePage extends React.Component {
               </span>
               and <br />
               <span>
-                <Link to="products#access-download">
+                <Link to="/products#access-download">
                   <Badge className="mx1" color="blue">
                     Access & Download
                   </Badge>
@@ -182,13 +182,13 @@ class HomePage extends React.Component {
               <div className="explore-solutions-header"> Also explore our products for:</div>
               <div className="badges">
                 <div>
-                  <Link to="products#analyze-discover">
+                  <Link to="/products#analyze-discover">
                     <Badge className="mr2" color="red">
                       Analyze & Discover
                     </Badge>
                   </Link>
 
-                  <Link to="products#collaborate-share">
+                  <Link to="/products#collaborate-share">
                     <Badge className="mr2" color="light-green">
                       Collaborate & Share
                     </Badge>
@@ -196,7 +196,7 @@ class HomePage extends React.Component {
                 </div>
 
                 <div>
-                  <Link to="products#track-manage">
+                  <Link to="/products#track-manage">
                     <Badge className="mr2" color="yellow">
                       Track & Manage
                     </Badge>

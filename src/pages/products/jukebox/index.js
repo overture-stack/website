@@ -22,15 +22,23 @@ const featureGridData = [
   [
     {
       header: 'Learn',
-      details:
-        'This environment allows you to learn as you go without having to do any of the setup yourself.',
+      details: (
+        <div>
+          This environment allows you to learn as you go without having to do any of the setup
+          yourself.
+        </div>
+      ),
       icon: 'target',
     },
 
     {
       header: 'Experiment',
-      details:
-        'Forget the expense. Now you can run experiments on datasets cost effectively and worry free.',
+      details: (
+        <div>
+          Forget the expense. Now you can run experiments on datasets cost effectively and worry
+          free.
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -38,14 +46,17 @@ const featureGridData = [
   [
     {
       header: 'Collaborative',
-      details:
-        'Jupyter Hub allows multiple people within your group to use and access the notebooks.',
+      details: (
+        <div>
+          Jupyter Hub allows multiple people within your group to use and access the notebooks.
+        </div>
+      ),
       icon: 'target',
     },
 
     {
       header: 'Cloud-based',
-      details: 'Cloud deployment for data co-location, take your analysis to the data.',
+      details: <div>Cloud deployment for data co-location, take your analysis to the data.'</div>,
       icon: 'target',
     },
   ],
@@ -96,20 +107,29 @@ const JukeboxPage = () => (
         header="Quick start"
         icon="power"
         iconSize={92}
-        details="The setup has been done for you, all that’s left for you to do is your research."
+        details={
+          <div>
+            The setup has been done for you, all that’s left for you to do is your research.
+          </div>
+        }
       />
       <ProductFeature
         header="Contained"
         icon="spiral"
         iconSize={72}
-        details="Users operate in a virtual machine, so everything is contained. Nothing can be broken, so experiment away with the API and data sets."
+        details={
+          <div>
+            Users operate in a virtual machine, so everything is contained. Nothing can be broken,
+            so experiment away with the API and data sets.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Automation"
         icon="cloudSquare"
         iconSize={82}
-        details="Cloud deployment automation through OpenStack Ansible. "
+        details={<div>Cloud deployment automation through OpenStack Ansible.</div>}
       />
     </ProductFeatureRow>
 

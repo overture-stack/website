@@ -88,19 +88,31 @@ const SongPage = () => (
       <ProductFeature
         header="Scalable"
         icon="barGraph"
-        details="Designed to handle the volume of your requests in an efficient and timely manner."
+        details={
+          <div>
+            Designed to handle the volume of your requests in an efficient and timely manner.
+          </div>
+        }
       />
       <ProductFeature
         header="Easy to adopt"
         icon="download"
         iconSize={54}
-        details="Relying on a standard REST API. Get started running Song with two Docker commands."
+        details={
+          <div>
+            Relying on a standard REST API. Get started running Song with two Docker commands.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Accurate and efficient"
         icon="user"
-        details="Specifically designed to track genome data, Song tracks and validates your submissions."
+        details={
+          <div>
+            Specifically designed to track genome data, Song tracks and validates your submissions.
+          </div>
+        }
       />
     </ProductFeatureRow>
 

@@ -15,38 +15,37 @@ export const ProductFeatureRow = ({ children }) => (
  * A ProductFeature might be large or small
  * Small versions have the icon and the header and icon are on the same line.
  */
-export const ProductFeature = ({ header, details, icon, iconSize, size, className }) => {
+export const ProductFeature = ({ className = '', details, header, icon, iconSize = 0, size }) => {
   if (size == 'small') {
-    let _iconSize = iconSize || 32;
     return (
-      <div className={`ProductFeature small ${className ? className : ''}`}>
+      <div className={`ProductFeature small ${className}`}>
         <div className="flex items-center py2">
           {/* Icon */}
-          <Icon img={icon} size={_iconSize} />
+          <Icon img={icon} size={iconSize || 32} />
 
           {/* header */}
           {header ? (
             <div className="header">{header}</div>
           ) : (
-            <div className="ml2 details">{details}</div>
+            React.cloneElement(details, { className: 'ml2 details ' })
           )}
         </div>
 
         {/* feature */}
-        {header && <div className="details" dangerouslySetInnerHTML={{ __html: details }} />}
+        {header && React.cloneElement(details, { className: 'details ' })}
       </div>
     );
   } else {
     return (
       <div className="ProductFeature default">
         {/* Icon */}
-        <Icon img={icon} size={iconSize ? iconSize : 64} />
+        <Icon img={icon} size={iconSize || 64} />
 
         {/* header */}
         <div className="header">{header}</div>
 
         {/* feature */}
-        <div className="details" dangerouslySetInnerHTML={{ __html: details }} />
+        {React.cloneElement(details, { className: 'details ' })}
       </div>
     );
   }

@@ -45,18 +45,22 @@ const ArrangerPage = () => (
       <ProductFeature
         header="User managed"
         icon="user"
-        details="Sit back and relax as your administrators determine facets and search terms."
+        details={
+          <div>Sit back and relax as your administrators determine facets and search terms.</div>
+        }
       />
       <ProductFeature
         header="Customizable"
         icon="customizable"
         iconSize={80}
-        details="Use the default theme, or create a portal with your own branded theme. "
+        details={<div>Use the default theme, or create a portal with your own branded theme.</div>}
       />
       <ProductFeature
         header="Search API"
         icon="search"
-        details="Arranger creates and manages a flexible yet powerful GraphQL search API."
+        details={
+          <div>Arranger creates and manages a flexible yet powerful GraphQL search API.</div>
+        }
       />
     </ProductFeatureRow>
 
@@ -72,7 +76,7 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="It’s index based"
-                details="Simply provide an Elasticsearch index and you’re good to go!"
+                details={<div>Simply provide an Elasticsearch index and you’re good to go!</div>}
               />
             </div>
 
@@ -81,7 +85,12 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="Built-in components"
-                details="Search through a list of data-types and pre-built aggregation components like boolean, list, string and date. "
+                details={
+                  <div>
+                    Search through a list of data-types and pre-built aggregation components like
+                    boolean, list, string and date.
+                  </div>
+                }
               />
             </div>
 
@@ -90,7 +99,11 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="Content Administration"
-                details="Customize the content of your data portal display such as filters and tables."
+                details={
+                  <div>
+                    Customize the content of your data portal display such as filters and tables.
+                  </div>
+                }
               />
             </div>
           </div>

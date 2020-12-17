@@ -47,19 +47,19 @@ const EgoPage = () => (
       <ProductFeature
         header="Single sign on"
         icon="security"
-        details="No more usernames and passwords for your users to remember."
+        details={<div>No more usernames and passwords for your users to remember.</div>}
       />
 
       <ProductFeature
         header="Scalable"
         icon="barGraph"
-        details="No sessions management means less code to write."
+        details={<div>No sessions management means less code to write.</div>}
       />
 
       <ProductFeature
         header="User Administration"
         icon="user"
-        details="Manage users, groups and applications."
+        details={<div>Manage users, groups and applications.</div>}
       />
     </ProductFeatureRow>
 
@@ -75,7 +75,7 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="It’s stateless"
-                details="Ego uses JSON Web Tokens (JWT) for authorization."
+                details={<div>Ego uses JSON Web Tokens (JWT) for authorization.</div>}
               />
             </div>
 
@@ -84,7 +84,12 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="It's secure"
-                details="Built with modern frameworks such as Spring Security, you can rest assured that users will be authorized securely."
+                details={
+                  <div>
+                    Built with modern frameworks such as Spring Security, you can rest assured that
+                    users will be authorized securely.
+                  </div>
+                }
               />
             </div>
 
@@ -93,7 +98,11 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="Scale up"
-                details="There are no limits to the number of applications you can use Ego alongside."
+                details={
+                  <div>
+                    There are no limits to the number of applications you can use Ego alongside.
+                  </div>
+                }
               />
             </div>
           </div>

@@ -20,21 +20,30 @@ const featureGridData = [
   [
     {
       header: 'Adaptable user information',
-      details:
-        'MondoDB backend enables user profiles with different roles to have different fields.',
+      details: (
+        <div>
+          MondoDB backend enables user profiles with different roles to have different fields.
+        </div>
+      ),
       icon: 'target',
     },
     {
       header: 'Scalable',
-      details: 'As your user base grows, Persona grows to accommodate the profile information.',
+      details: (
+        <div>As your user base grows, Persona grows to accommodate the profile information.</div>
+      ),
       icon: 'target',
     },
   ],
   [
     {
       header: 'Pairs with Ego',
-      details:
-        "Built to interact seamlessly with the user authorization product, <a href='/products/ego/'/>Ego.</a>",
+      details: (
+        <div>
+          Built to interact seamlessly with the user authorization product,{' '}
+          <Link to="/products/ego/">Ego.</Link>
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -67,21 +76,23 @@ const PersonaPage = () => (
         header="Extensible"
         icon="extensible"
         iconSize={48}
-        details="Add, expand and validate user information."
+        details={<div>Add, expand and validate user information.</div>}
       />
 
       <ProductFeature
         header="Proactive"
         icon="fingerSnap"
         iconSize={40}
-        details="Let us do the set up for you. Focus on the details that matter."
+        details={<div>Let us do the set up for you. Focus on the details that matter.</div>}
       />
 
       <ProductFeature
         header="Efficient"
         icon="checkmark"
         iconSize={60}
-        details="An efficient way to organize user profiles in one place for easy reference. "
+        details={
+          <div>An efficient way to organize user profiles in one place for easy reference.</div>
+        }
       />
     </ProductFeatureRow>
 

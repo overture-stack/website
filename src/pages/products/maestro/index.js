@@ -86,21 +86,30 @@ const MaestroPage = () => (
         header="Customizable record indexing"
         icon="arrowsRight"
         iconSize={96}
-        details="Index a single analysis, a study or a full <a href='/products/song/'>Song</a> repository with one request.
-"
+        details={
+          <div>
+            Index a single analysis, a study or a full <a href="/products/song/">Song</a> repository
+            with one request.
+          </div>
+        }
       />
       <ProductFeature
         header="Different indexing APIs"
         icon="kafka"
         iconSize={52}
-        details="Receive requests through Kafka or JSON Web API."
+        details={<div>Receive requests through Kafka or JSON Web API.</div>}
       />
 
       <ProductFeature
         header="Seamless integration"
         icon="vennDiagram"
         iconSize={64}
-        details="Built to interact natively with <a href='/products/song/'>Song</a> and <a href='/products/arranger/'>Arranger</a>. "
+        details={
+          <div>
+            Built to interact natively with <a href="/products/song/">Song</a> and{' '}
+            <a href="/products/arranger/">Arranger</a>.
+          </div>
+        }
       />
     </ProductFeatureRow>
 

@@ -19,14 +19,19 @@ const featureGridData = [
   [
     {
       header: 'Data Integrity',
-      details:
-        'Leave corrupted files behind as downloaded files are always verified against their MD5sum.',
+      details: (
+        <div>
+          Leave corrupted files behind as downloaded files are always verified against their MD5sum.
+        </div>
+      ),
       icon: 'target',
     },
 
     {
       header: 'Tracks and validate',
-      details: 'The transfer protocols allow setup with any public or private cloud service.',
+      details: (
+        <div>The transfer protocols allow setup with any public or private cloud service.</div>
+      ),
       icon: 'target',
     },
   ],
@@ -34,7 +39,9 @@ const featureGridData = [
   [
     {
       header: 'Pick up where you left off',
-      details: 'Score allows you to resume file transfer when a process stops mid-transfer.',
+      details: (
+        <div>Score allows you to resume file transfer when a process stops mid-transfer.</div>
+      ),
       icon: 'target',
     },
   ],
@@ -72,21 +79,30 @@ const ScorePage = () => (
       <ProductFeature
         header="Genomic solutions"
         icon="dna"
-        details="Slice and dice BAM and CRAM files with integrated command line tools."
+        details={<div>Slice and dice BAM and CRAM files with integrated command line tools.</div>}
       />
 
       <ProductFeature
         header="Accessible"
         icon="fingerSnap"
         iconSize={45}
-        details="Once your server is set up, transferring data is simple. Access any data, anytime on all major cloud services."
+        details={
+          <div>
+            Once your server is set up, transferring data is simple. Access any data, anytime on all
+            major cloud services.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Streamlined"
         icon="cloud"
         iconSize={68}
-        details="Score’s parallel solution makes the upload and download of files efficient and fast."
+        details={
+          <div>
+            Score’s parallel solution makes the upload and download of files efficient and fast.
+          </div>
+        }
       />
     </ProductFeatureRow>
 

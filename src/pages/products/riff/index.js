@@ -19,12 +19,16 @@ const featureGridData = [
   [
     {
       header: 'Short URLs',
-      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing.',
+      details: (
+        <div>
+          Each Riff can be mapped to by a Short URL which is generated on saving or sharing.
+        </div>
+      ),
       icon: 'target',
     },
     {
       header: 'Social',
-      details: 'Allow users to share urls via link, Facebook, Twitter, or LinkedIn.',
+      details: <div>Allow users to share urls via link, Facebook, Twitter, or LinkedIn.</div>,
       icon: 'target',
     },
   ],
@@ -56,19 +60,19 @@ const RiffPage = () => (
       <ProductFeature
         header="Simple"
         icon="magnify"
-        details="A tiny service for a specific problem."
+        details={<div>A tiny service for a specific problem.</div>}
       />
 
       <ProductFeature
         header="Flexible"
         icon="history"
-        details="Store arbitrary information about a user’s state."
+        details={<div>Store arbitrary information about a user’s state.</div>}
       />
 
       <ProductFeature
         header="Collaborative"
         icon="share"
-        details="Sharing is just one click away."
+        details={<div>Sharing is just one click away.</div>}
       />
     </ProductFeatureRow>
 
