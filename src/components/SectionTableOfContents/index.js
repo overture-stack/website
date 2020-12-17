@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'gatsby';
 import { useSSRWorkaround } from 'hooks';
-import { Icon } from 'components';
+import { Icon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const makeUrl = url => `/documentation/${url}/`;

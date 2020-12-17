@@ -19,16 +19,12 @@ const featureGridData = [
   [
     {
       header: 'Short URLs',
-      details: (
-        <div>
-          Each Riff can be mapped to by a Short URL which is generated on saving or sharing.
-        </div>
-      ),
+      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing',
       icon: 'target',
     },
     {
       header: 'Social',
-      details: <div>Allow users to share urls via link, Facebook, Twitter, or LinkedIn.</div>,
+      details: 'Allow users to share urls via link, Facebook, Twitter, or LinkedIn.',
       icon: 'target',
     },
   ],

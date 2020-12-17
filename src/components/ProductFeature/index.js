@@ -15,7 +15,15 @@ export const ProductFeatureRow = ({ children }) => (
  * A ProductFeature might be large or small
  * Small versions have the icon and the header and icon are on the same line.
  */
-export const ProductFeature = ({ className = '', details, header, icon, iconSize = 0, size }) => {
+export const ProductFeature = ({
+  className = '',
+  details = '',
+  header,
+  icon,
+  iconSize = 0,
+  size,
+}) => {
+  const detailsEl = typeof details === 'string' ? <div>{details}</div> : details;
   if (size == 'small') {
     return (
       <div className={`ProductFeature small ${className}`}>
@@ -27,12 +35,12 @@ export const ProductFeature = ({ className = '', details, header, icon, iconSize
           {header ? (
             <div className="header">{header}</div>
           ) : (
-            React.cloneElement(details, { className: 'ml2 details ' })
+            React.cloneElement(detailsEl, { className: 'ml2 details ' })
           )}
         </div>
 
         {/* feature */}
-        {header && React.cloneElement(details, { className: 'details ' })}
+        {header && React.cloneElement(detailsEl, { className: 'details ' })}
       </div>
     );
   } else {
@@ -45,7 +53,7 @@ export const ProductFeature = ({ className = '', details, header, icon, iconSize
         <div className="header">{header}</div>
 
         {/* feature */}
-        {React.cloneElement(details, { className: 'details ' })}
+        {React.cloneElement(detailsEl, { className: 'details ' })}
       </div>
     );
   }

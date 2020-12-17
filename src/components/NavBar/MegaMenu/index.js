@@ -2,9 +2,8 @@
  * Component: Display the Megamenu on mouse over / tap.
  */
 import React from 'react';
-import Link from 'gatsby-link';
 import productsDict from 'meta/products-dict';
-import { Icon, IconCommon, Badge } from '../../index.js';
+import { Badge, Icon, IconCommon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const verticalMobileMenuSections = ['DMS Bundle'];
@@ -216,10 +215,10 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                       {link.text}
                     </Link>
                   ) : (
-                    <a className="menu-section-link" href={link.to} target="_blank">
+                    <Link className="menu-section-link" to={link.to}>
                       {link.text}
                       {link.hasGithubIcon && <Icon className="pl1" img="githubGrey" />}
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}

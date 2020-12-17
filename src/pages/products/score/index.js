@@ -19,19 +19,14 @@ const featureGridData = [
   [
     {
       header: 'Data Integrity',
-      details: (
-        <div>
-          Leave corrupted files behind as downloaded files are always verified against their MD5sum.
-        </div>
-      ),
+      details:
+        'Leave corrupted files behind as downloaded files are always verified against their MD5sum.',
       icon: 'target',
     },
 
     {
       header: 'Tracks and validate',
-      details: (
-        <div>The transfer protocols allow setup with any public or private cloud service.</div>
-      ),
+      details: 'The transfer protocols allow setup with any public or private cloud service.',
       icon: 'target',
     },
   ],
@@ -39,9 +34,7 @@ const featureGridData = [
   [
     {
       header: 'Pick up where you left off',
-      details: (
-        <div>Score allows you to resume file transfer when a process stops mid-transfer.</div>
-      ),
+      details: 'Score allows you to resume file transfer when a process stops mid-transfer.',
       icon: 'target',
     },
   ],

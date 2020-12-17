@@ -152,10 +152,10 @@ const FooterColumns = () => {
 
                 return (
                   <li key={linkKey}>
-                    <a className="link" target={target} href={link}>
+                    <Link className="link" to={link}>
                       <span>{linkKey}</span>
                       {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
@@ -172,9 +172,9 @@ const Footer = () => {
     <footer className="Footer site-wrapper__footer">
       <div className="container">
         <div className="footer-box">
-          <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
+          <Link className="oicr-logo" to="http://oicr.on.ca">
             <img src={logo} alt="OICR" />
-          </a>
+          </Link>
           <FooterColumns />
         </div>
       </div>

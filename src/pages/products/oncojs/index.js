@@ -84,13 +84,9 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
+                Live example &gt;
+              </Link>
             </div>
           </div>
           {/* screenshot */}
@@ -146,13 +142,12 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <a
+              <Link
                 className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
+                to="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
               >
                 Live example &gt;
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -205,13 +200,12 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <a
+              <Link
                 className="bold text-magenta"
-                target="_blank"
-                href="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
+                to="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
               >
                 Live example &gt;
-              </a>
+              </Link>
             </div>
           </div>
           {/* screenshot */}
@@ -271,13 +265,12 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <a
+              <Link
                 className="bold text-magenta"
-                target="_blank"
-                href="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
+                to="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
               >
                 Live example &gt;
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -329,13 +322,9 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
+                Live example &gt;
+              </Link>
             </div>
           </div>
 

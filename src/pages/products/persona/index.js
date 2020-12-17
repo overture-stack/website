@@ -20,18 +20,13 @@ const featureGridData = [
   [
     {
       header: 'Adaptable user information',
-      details: (
-        <div>
-          MondoDB backend enables user profiles with different roles to have different fields.
-        </div>
-      ),
+      details:
+        'MondoDB backend enables user profiles with different roles to have different fields',
       icon: 'target',
     },
     {
       header: 'Scalable',
-      details: (
-        <div>As your user base grows, Persona grows to accommodate the profile information.</div>
-      ),
+      details: 'As your user base grows, Persona grows to accommodate the profile information.',
       icon: 'target',
     },
   ],

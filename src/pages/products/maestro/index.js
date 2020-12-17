@@ -28,8 +28,12 @@ const featureGridData = [
     },
     {
       header: 'Exclusion rule',
-      details:
-        "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song/'>Song</a>.",
+      details: (
+        <div>
+          Manage data release by exclusion of specific analyses based on any metadata tags found in{' '}
+          <Link to="/products/song/">Song</Link>.
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -38,13 +42,17 @@ const featureGridData = [
     {
       header: 'Event Based Indexing',
       details:
-        'Instant data release with configurable event based indexing with Apache Kafka messaging queue. ',
+        'Instant data release with configurable event based indexing with Apache Kafka messaging queue.',
       icon: 'target',
     },
     {
       header: 'Multiple Repository Management',
-      details:
-        "Connect multiple <a href='/products/song/'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
+      details: (
+        <div>
+          Connect multiple <Link to="/products/song/">Song</Link> servers to the same Maestro to
+          query data distributed across different repositories.
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -88,8 +96,8 @@ const MaestroPage = () => (
         iconSize={96}
         details={
           <div>
-            Index a single analysis, a study or a full <a href="/products/song/">Song</a> repository
-            with one request.
+            Index a single analysis, a study or a full <Link to="/products/song/">Song</Link>{' '}
+            repository with one request.
           </div>
         }
       />
@@ -106,8 +114,8 @@ const MaestroPage = () => (
         iconSize={64}
         details={
           <div>
-            Built to interact natively with <a href="/products/song/">Song</a> and{' '}
-            <a href="/products/arranger/">Arranger</a>.
+            Built to interact natively with <Link to="/products/song/">Song</Link> and{' '}
+            <Link to="/products/arranger/">Arranger</Link>.
           </div>
         }
       />

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
 import productsDict from 'meta/products-dict';
-import { Icon, Search, SectionTableOfContents } from 'components';
+import { Icon, LinkHelper as Link, Search, SectionTableOfContents } from 'components';
 
 const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: searchIndex, title: searchIndex }];

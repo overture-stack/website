@@ -1,15 +1,16 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
   UrlBar,
 } from 'components';
@@ -165,7 +166,11 @@ const ArrangerPage = () => (
 
         <div className="column is-8 is-offset-1 self-center">
           <UrlBar
-            prompts={["<a target='_blank' href='https://localhost:8080'>http://localhost:8080</a>"]}
+            prompts={[
+              <div>
+                <Link to="https://localhost:8080">http://localhost:8080</Link>
+              </div>,
+            ]}
           />
         </div>
       </div>
@@ -178,12 +183,9 @@ const ArrangerPage = () => (
             {' '}
             <H4>
               Follow the{' '}
-              <a
-                target="_blank"
-                href="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html"
-              >
+              <Link to="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html">
                 quick guide
-              </a>{' '}
+              </Link>{' '}
               to generate demo data and a local portal!
             </H4>{' '}
           </div>
@@ -193,7 +195,12 @@ const ArrangerPage = () => (
         <div className="column is-8 is-offset-1 self-center">
           <UrlBar
             prompts={[
-              "Visit <a target='_blank' href='https://arranger.readthedocs.io/en/latest/src/gettingstarted.html'>https://arranger.readthedocs.io/en/latest/src/gettingstarted.html</a> ",
+              <div>
+                Visit{' '}
+                <Link to="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html">
+                  https://arranger.readthedocs.io/en/latest/src/gettingstarted.html
+                </Link>
+              </div>,
             ]}
           />
         </div>

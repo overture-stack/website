@@ -1,15 +1,16 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
 import productsDict from 'meta/products-dict';
@@ -153,12 +154,9 @@ const EgoPage = () => (
             <ul className="step-text">
               <li className="bullet">
                 Copy the{' '}
-                <a
-                  target="_blank"
-                  href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql"
-                >
+                <Link to="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql">
                   psql-schema.sql
-                </a>{' '}
+                </Link>{' '}
                 file locally. {/* TJS NEEDS LINK */}
               </li>
               <li className="bullet">

@@ -196,27 +196,22 @@ const SongPage = () => (
         icon="githubYellow"
         description="A flexible data model for tracking your genomic data across the cloud."
       >
-        <a
-          target="_blank"
-          href={productsDict.song.github}
-          className="button is-primary is-medium mt2"
-        >
+        <Link className="button is-primary is-medium mt2" to={productsDict.song.github}>
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
-        </a>
+        </Link>
       </Callout>
 
       <Callout
         icon="pageWhite"
         description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
       >
-        <a
-          target="_blank"
-          href="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
+        <Link
           className="button is-primary is-medium mt2"
+          to="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
         >
           <div className="ml1 text-white">Related blog post</div>
-        </a>
+        </Link>
       </Callout>
     </BottomCallout>
   </main>

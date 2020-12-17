@@ -1,16 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
   UrlBar,
 } from 'components';
@@ -22,23 +23,15 @@ const featureGridData = [
   [
     {
       header: 'Learn',
-      details: (
-        <div>
-          This environment allows you to learn as you go without having to do any of the setup
-          yourself.
-        </div>
-      ),
+      details:
+        'This environment allows you to learn as you go without having to do any of the setup yourself.',
       icon: 'target',
     },
 
     {
       header: 'Experiment',
-      details: (
-        <div>
-          Forget the expense. Now you can run experiments on datasets cost effectively and worry
-          free.
-        </div>
-      ),
+      details:
+        'Forget the expense. Now you can run experiments on datasets cost effectively and worry free.',
       icon: 'target',
     },
   ],
@@ -46,17 +39,14 @@ const featureGridData = [
   [
     {
       header: 'Collaborative',
-      details: (
-        <div>
-          Jupyter Hub allows multiple people within your group to use and access the notebooks.
-        </div>
-      ),
+      details:
+        'Jupyter Hub allows multiple people within your group to use and access the notebooks.',
       icon: 'target',
     },
 
     {
       header: 'Cloud-based',
-      details: <div>Cloud deployment for data co-location, take your analysis to the data.'</div>,
+      details: 'Cloud deployment for data co-location, take your analysis to the data.',
       icon: 'target',
     },
   ],
@@ -81,18 +71,10 @@ const JukeboxPage = () => (
       subTitle="Spinning up interactive development environments is hard!"
       cardText={
         <div>
-          Jukebox automates set-up and deployment of
-          <a target="_blank" href="http://jupyter.org/index.html">
-            {' '}
-            JupyterHub
-          </a>
-          . Your users can access personal
-          <a target="_blank" href="http://jupyter.org/install.html">
-            {' '}
-            Jupyter notebooks{' '}
-          </a>
-          in one click to do science right from the web browser in a live, collaborative
-          environment.
+          Jukebox automates set-up and deployment of{' '}
+          <Link to="http://jupyter.org/index.html">JupyterHub</Link>. Your users can access personal{' '}
+          <Link to="http://jupyter.org/install.html">Jupyter notebooks</Link> in one click to do
+          science right from the web browser in a live, collaborative environment.
         </div>
       }
       getStartedLink={productsDict.jukebox.github}
@@ -190,7 +172,7 @@ const JukeboxPage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <UrlBar prompts={['Visit http://localhost:<your port number>']} />
+          <UrlBar prompts={[<div>Visit http://localhost: &lt;your port number&gt;</div>]} />
         </div>
       </div>
     </GettingStarted>

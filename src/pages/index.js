@@ -169,7 +169,7 @@ class HomePage extends React.Component {
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div href="#" className="link-magenta">
+                <div className="link-magenta">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -227,21 +227,18 @@ class HomePage extends React.Component {
                 <p className="pt2">
                   Built to be reusable and scalable, Overture’s components are well documented,
                   actively supported and welcome{' '}
-                  <a target="_blank" href={productsDict.overture.github}>
-                    external feedback and contributions
-                  </a>
+                  <Link to={productsDict.overture.github}>external feedback and contributions</Link>
                   . If you need assistance, we also offer{' '}
-                  <Link to="/services">consulting, support and collaborative services.</Link>
+                  <Link to="/services/">consulting, support and collaborative services.</Link>
                 </p>
 
                 <div className="mt3">
-                  <a
+                  <Link
                     className="button is-primary is-medium"
-                    href="http://softeng.oicr.on.ca/team/"
-                    target="_blank"
+                    to="http://softeng.oicr.on.ca/team/"
                   >
                     Meet the team
-                  </a>
+                  </Link>
 
                   {/* Hiding for now:
                        <button className="button is-primary is-medium">Case studies</button>
