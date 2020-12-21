@@ -93,6 +93,17 @@ export default function DocumentationPage({ data, location, path }) {
 
   useScrollToHash(location);
 
+  console.log([...Array(7).keys()].slice(1));
+
+  const headings = [...Array(7).keys()].slice(1).map(size => ({
+    [`h${size}`]: props => (
+      <h1 {...props} />
+      // <AnchorHeading {...props} location={location} size={`h${size === 6 ? size : size + 1}`} />
+    ),
+  }));
+
+  console.log({ headings });
+
   return (
     <React.Fragment>
       {/* MAIN CONTENT */}
@@ -114,12 +125,13 @@ export default function DocumentationPage({ data, location, path }) {
                   a: props => <LinkHelper {...props} location={location} />,
                   // the page title is h1
                   // so demote markdown headings by one level
-                  h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                  h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                  h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                  h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                  h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                  h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  ...headings,
+                  // h1: props => <AnchorHeading location={location} size="h2" {...props} />,
+                  // h2: props => <AnchorHeading location={location} size="h3" {...props} />,
+                  // h3: props => <AnchorHeading location={location} size="h4" {...props} />,
+                  // h4: props => <AnchorHeading location={location} size="h5" {...props} />,
+                  // h5: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  // h6: props => <AnchorHeading location={location} size="h6" {...props} />,
                 }}
               >
                 <MDXRenderer>{body}</MDXRenderer>
