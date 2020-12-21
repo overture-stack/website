@@ -1,14 +1,14 @@
 import React from 'react';
 import { navigate } from '@reach/router';
 import scrollToElement from 'scroll-to-element';
+import { LinkHelper as Link } from 'components';
 
 // https://www.gatsbyjs.com/docs/gatsby-link#recommendations-for-programmatic-in-app-navigation
 
 export default function HashLink({ location: { hash = '' }, to, ...props }) {
   return (
-    <a
+    <Link
       {...props}
-      href={to}
       onClick={e => {
         e.preventDefault();
         if (hash === to) {
@@ -24,6 +24,7 @@ export default function HashLink({ location: { hash = '' }, to, ...props }) {
           navigate(to);
         }
       }}
+      to={to}
     />
   );
 }

@@ -50,15 +50,18 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
         <div className="details">
           <div className="details-left">
             {caseData.details.map((detail, idx) => {
-              const activeClass = currentScreenshot == idx ? 'active' : '';
+              const activeClass = currentScreenshot === idx ? 'active' : '';
+              const { description = '', title } = detail;
+              const descriptionEl =
+                typeof description === 'string' ? <div>{description}</div> : description;
               return (
                 <div
                   className={`details-left-item ${activeClass}`}
                   onClick={() => _handleDetailChange(idx)}
-                  key={detail.title + idx}
+                  key={title + idx}
                 >
-                  <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
-                  <div className="details-left-description">{detail.description}</div>
+                  <div className={`details-left-title ${activeClass}`}>{title}</div>
+                  {React.cloneElement(descriptionEl, { className: 'details-left-description' })}
                 </div>
               );
             })}
