@@ -5,8 +5,11 @@
 
 const path = require('path');
 const startCase = require('lodash.startcase');
+const properUrlJoin = require('proper-url-join');
 
-const onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
+
+const onCreateNode = ({ actions, getNode, node }) => {
   // nodes in gatsby are the main data interface. everything is a node.
   // gatsby creates nodes (data) THEN creates pages.
 
@@ -17,14 +20,27 @@ const onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
-    const pageSlug = isIndex ? '' : `${pageName}/`;
+    const pageSlug = isIndex ? '' : pageName;
 
     // documentation section
     const isDocs = sourceInstanceName === 'docs';
 
     const slug = isDocs
-      ? `/documentation/${relativeDirectory}/${pageSlug}`
-      : `/${relativePath.replace(ext, '')}/`;
+      ? urlJoin(['documentation', relativeDirectory, pageSlug])
+      : urlJoin([relativePath.replace(ext, '')]);
+    actions.createNodeField({
+      // relative URL of the page
+      name: `slug`,
+      node,
+      value: slug,
+    });
+
+    actions.createNodeField({
+      // need this to make per-page graphQL queries
+      name: 'id',
+      node,
+      value: node.id,
+    });
 
     const title =
       node.frontmatter.title ||
@@ -38,30 +54,19 @@ const onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
             .pop()
         )) ||
       '';
-
-    createNodeField({
-      // relative URL of the page
-      name: `slug`,
-      node,
-      value: slug,
-    });
-
-    createNodeField({
-      // need this to make per-page graphQL queries
-      name: 'id',
-      node,
-      value: node.id,
-    });
-
-    createNodeField({
+    actions.createNodeField({
       // frontmatter title field
       name: 'title',
       node,
       value: title,
     });
 
-    const sectionSlug = relativeDirectory.split('/').filter(x => x)[0];
-    createNodeField({
+    const sectionSlug = relativeDirectory
+      .split('/')
+      .filter(x => x)
+      .shift();
+    console.log({ sectionSlug });
+    actions.createNodeField({
       name: 'sectionSlug',
       node,
       value: sectionSlug,
