@@ -1,17 +1,17 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H4,
+  Icon,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  GridFeature,
-  BottomCallout,
-  Icon,
-  Callout,
   Terminal,
 } from 'components';
 import productsDict from 'meta/products-dict';

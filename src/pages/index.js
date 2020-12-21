@@ -1,9 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
 import Modal from 'react-modal';
 import productsDict from 'meta/products-dict';
-import { Badge, Button, H1, H2, Hero, Icon } from 'components';
+import { Badge, Button, H1, H2, Hero, Icon, LinkHelper as Link } from 'components';
 import heroImg from './assets/heroImg.svg';
 import './home/styles.scss';
 

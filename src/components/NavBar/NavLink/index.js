@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import Link from 'gatsby-link';
+import { LinkHelper as Link } from 'components';
 
 const NavLink = ({ url, name, closeMenus }) => {
   return (
