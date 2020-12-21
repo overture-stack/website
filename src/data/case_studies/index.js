@@ -1,6 +1,7 @@
 // Data structure to represent the case studies.
 // We iterate over the cases, and render their content.
 
+import React from 'react';
 import { LinkHelper as Link } from 'components';
 
 // GDC Assets
