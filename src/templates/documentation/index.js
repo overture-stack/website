@@ -14,8 +14,6 @@ import {
   HeadingsTableOfContents,
   Icon,
   NoteBox,
-  Search,
-  SectionTableOfContents,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
@@ -25,8 +23,6 @@ import { findNextPrevPages } from './utils';
 import './styles.scss';
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const shortcodes = {
   // custom react components.
@@ -73,7 +69,6 @@ export default function DocumentationPage({ data, location, path }) {
   const sectionObj = data.allYaml.nodes[0];
   const pagesFlat = flatten(sectionObj.pages);
   const sectionTitle = productsDict[sectionSlug].title;
-  const sectionIcon = productsDict[sectionSlug].iconWhite;
   const pagePath = slug.split('/documentation/')[1].slice(0, -1); // remove trailing slash
 
   // get page info
@@ -98,130 +93,83 @@ export default function DocumentationPage({ data, location, path }) {
 
   useScrollToHash(location);
 
-  const [isMobileSidebarActive, setMobileSidebarActive] = useState(false);
-
   return (
-    <main className="docs__page">
-      <div class="docs__mobile-sidebar__button">
-        <button
-          type="button"
-          className={`button navbar-burger ${isMobileSidebarActive ? 'is-active' : ''}`}
-          onClick={() => setMobileSidebarActive(!isMobileSidebarActive)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div className="docs__header">
-        <div className="docs__header-title">
-          <Icon className="icon" size={45} img={sectionIcon} />
-          <h1>{sectionTitle} Documentation</h1>
-        </div>
-        <div className="docs__header-search">
-          <Search indices={searchIndices} />
-        </div>
-      </div>
-      <div className="docs__columns">
-        {/* SECTION TABLE OF CONTENTS */}
-        <div
-          className={`docs__sidebar docs__mobile-sidebar  ${
-            isMobileSidebarActive ? 'docs__mobile-sidebar__active' : ''
-          }`}
-        >
-          {!redirectDest && (
-            <div className="docs__sidebar__sticky">
-              <Link to="/documentation/" className="docs__sidebar__overview">
-                <Icon size={6} img="arrowLeftBlue" />
-                Documentation Overview
-              </Link>
-
-              <SectionTableOfContents
-                pages={sectionObj.pages}
-                path={path}
-                sectionSlug={sectionSlug}
-              />
-            </div>
-          )}
-        </div>
-
-        {/* MAIN CONTENT */}
-        <div className="docs__main">
-          <div className="docs__main-container">
-            {/* GITHUB BUTTON */}
-            <div class="docs__github-btn">
-              <Button externalLink={productsDict[sectionSlug].github} type="primary">
-                <Icon img="githubWhite" size={20} /> {sectionTitle} Github
-              </Button>
-            </div>
-            <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
-            {!redirectDest && (
-              <React.Fragment>
-                <MDXProvider
-                  components={{
-                    ...replacedComponents,
-                    ...shortcodes,
-                    a: props => <LinkHelper {...props} location={location} />,
-                    // the page title is h1
-                    // so demote markdown headings by one level
-                    h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                    h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                    h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                    h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                    h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                    h6: props => <AnchorHeading location={location} size="h6" {...props} />,
-                  }}
-                >
-                  <MDXRenderer>{body}</MDXRenderer>
-                </MDXProvider>
-
-                {/* PREV/NEXT BUTTONS */}
-                <div className="docs__main-pagination">
-                  <div>
-                    {prevPage && (
-                      <div className="chevron-link">
-                        <Link to={prevPage.url}>
-                          <Icon
-                            size={12}
-                            img="arrowRightMagenta"
-                            style={{ transform: 'scaleX(-1)' }}
-                          />{' '}
-                          {prevPage.title}
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                  <div>
-                    {nextPage && (
-                      <div className="chevron-link">
-                        <Link to={nextPage.url}>
-                          {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </React.Fragment>
-            )}
-          </div>
-        </div>
-
-        {/* PAGE/HEADINGS TABLE OF CONTENTS */}
-        <div className="docs__toc-headings">
+    <React.Fragment>
+      {/* MAIN CONTENT */}
+      <div className="docs__main">
+        <div className="docs__main-container">
           {/* GITHUB BUTTON */}
-          <Button
-            className="docs__github-btn"
-            externalLink={productsDict[sectionSlug].github}
-            type="primary"
-          >
-            <Icon img="githubWhite" size={20} /> {sectionTitle} Github
-          </Button>
-          {!redirectDest && headingsTableOfContents && (
-            <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
+          <div className="docs__github-btn">
+            <Button externalLink={productsDict[sectionSlug].github} type="primary">
+              <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+            </Button>
+          </div>
+          <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
+          {!redirectDest && (
+            <React.Fragment>
+              <MDXProvider
+                components={{
+                  ...replacedComponents,
+                  ...shortcodes,
+                  a: props => <LinkHelper {...props} location={location} />,
+                  // the page title is h1
+                  // so demote markdown headings by one level
+                  h1: props => <AnchorHeading location={location} size="h2" {...props} />,
+                  h2: props => <AnchorHeading location={location} size="h3" {...props} />,
+                  h3: props => <AnchorHeading location={location} size="h4" {...props} />,
+                  h4: props => <AnchorHeading location={location} size="h5" {...props} />,
+                  h5: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+                }}
+              >
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
+
+              {/* PREV/NEXT BUTTONS */}
+              <div className="docs__main-pagination">
+                <div>
+                  {prevPage && (
+                    <div className="chevron-link">
+                      <Link to={prevPage.url}>
+                        <Icon
+                          size={12}
+                          img="arrowRightMagenta"
+                          style={{ transform: 'scaleX(-1)' }}
+                        />{' '}
+                        {prevPage.title}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  {nextPage && (
+                    <div className="chevron-link">
+                      <Link to={nextPage.url}>
+                        {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </React.Fragment>
           )}
         </div>
       </div>
-    </main>
+      {/* PAGE/HEADINGS TABLE OF CONTENTS */}
+      <div className="docs__toc-headings">
+        {/* GITHUB BUTTON */}
+        <Button
+          className="docs__github-btn"
+          externalLink={productsDict[sectionSlug].github}
+          type="primary"
+        >
+          <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+        </Button>
+        {!redirectDest && headingsTableOfContents && (
+          <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
+        )}
+      </div>
+    </React.Fragment>
   );
 }
 
@@ -254,6 +202,10 @@ export const pageQuery = graphql`
             pages {
               title
               url
+              pages {
+                title
+                url
+              }
             }
           }
         }

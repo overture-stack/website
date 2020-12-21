@@ -1,49 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-import { Icon } from 'components';
 import { useSSRWorkaround } from 'hooks';
+import { Icon } from 'components';
 import './styles.scss';
 
 const makeUrl = url => `/documentation/${url}/`;
 
-const RenderItems = ({ pages, path }) => (
-  <ol>
-    {pages.map(page => {
-      const { isHeading, pages, title } = page;
-      const url = makeUrl(page.url);
-      const isLinkActive = path === url;
-      const aClassName = isLinkActive ? 'link-active' : '';
+const MenuItems = ({ level = 1, pages = [], path }) => {
+  if (!pages.length) return null;
+  const [isOpen, setIsOpen] = useState(null);
+  // when the user closes a parent menu
+  const olClassName = `menu-level-${level}`;
+  const nextLevel = level + 1;
 
-      // submenus
-      const isMenuActive = pages && path.includes(url);
-      const liClassName = isMenuActive ? 'menu-active' : '';
-      const iconImg = isMenuActive ? 'chevronMagenta' : 'chevronGrey';
-      const iconStyle = isMenuActive ? { transform: 'rotate(90deg)' } : {};
+  return (
+    <ol className={olClassName}>
+      {pages.map(page => {
+        const { isHeading, pages: subpages, title } = page;
+        const url = makeUrl(page.url);
+        const isLinkActive = path === url;
 
-      // headings
-      // change link destination to first child page
-      const linkUrl = isHeading && pages ? makeUrl(pages[0].url) : url;
+        // submenus
+        const hasToggle = !!(subpages && !isHeading);
+        const isMenuActive = hasToggle && path.includes(url);
+        const isMenuOpenOnLoad = hasToggle && isOpen === null && isMenuActive;
+        const isMenuOpen = hasToggle && (isMenuOpenOnLoad || isOpen);
 
-      return (
-        <li key={url} className={liClassName}>
-          <Link to={linkUrl} className={aClassName}>
-            <span>
-              {pages && <Icon img={iconImg} size={7} style={iconStyle} />}
-              {title}
-            </span>
-          </Link>
-          {isMenuActive && <RenderItems pages={pages} path={path} />}
-        </li>
-      );
-    })}
-  </ol>
-);
+        const toggle = () => {
+          setIsOpen(!isMenuOpen);
+        };
+
+        useEffect(() => {
+          if (isMenuActive) setIsOpen(true);
+        }, []);
+
+        const liClassName = `${
+          isHeading ? 'menu-heading' : isMenuActive ? 'menu-active' : isMenuOpen ? 'menu-open' : ''
+        } ${isLinkActive ? 'link-active' : ''}`;
+        const iconImg = isLinkActive ? 'chevronMagenta' : 'chevronGrey';
+        const iconStyle = isMenuOpen ? { transform: 'rotate(90deg)' } : {};
+
+        return (
+          <li key={url} className={liClassName}>
+            {isHeading && subpages && <h4>{title}</h4>}
+            {!isHeading && !subpages && <Link to={url}>{title}</Link>}
+            {hasToggle && (
+              <React.Fragment>
+                <Link onClick={toggle} to={url} className="menu-toggle-link">
+                  {title}
+                </Link>
+                <button className="menu-toggle-btn" onClick={toggle}>
+                  <Icon img={iconImg} size={10} style={iconStyle} />
+                </button>
+              </React.Fragment>
+            )}
+            {(isHeading || isMenuOpen) && (
+              <MenuItems level={nextLevel} pages={subpages} path={path} />
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
 
 export default function SectionTableOfContents({ pages, path }) {
   const { key } = useSSRWorkaround();
+  // useSSRWorkaround will force a re-render after the component mounts
+  // in order to correctly highlight the active page.
   return (
     <div className="toc-section" key={key}>
-      <RenderItems pages={pages} path={path} />
+      <MenuItems pages={pages} path={path} />
     </div>
   );
 }
