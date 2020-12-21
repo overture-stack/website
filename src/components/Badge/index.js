@@ -2,12 +2,10 @@ import React from 'react';
 import { LinkHelper as Link } from 'components';
 import './styles.scss';
 
-const Badge = ({ children, className = '', color, link, style }) =>
+const Badge = ({ children, className = '', color = '', link, style = {} }) =>
   link ? (
-    <Link to={link}>
-      <div className={`Badge ${className} ${color}`} style={style}>
-        {children}
-      </div>
+    <Link className={`Badge ${className} ${color}`} style={style} to={link}>
+      {children}
     </Link>
   ) : (
     <div className={`Badge ${className} ${color}`} style={style}>
