@@ -65,7 +65,6 @@ const onCreateNode = ({ actions, getNode, node }) => {
       .split('/')
       .filter(x => x)
       .shift();
-    console.log({ sectionSlug });
     actions.createNodeField({
       name: 'sectionSlug',
       node,
