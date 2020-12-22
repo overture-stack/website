@@ -84,8 +84,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
-                Live example &gt;
+              <Link className="chevron-link" to="https://portal.gdc.cancer.gov/">
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -143,10 +143,10 @@ const OncoPage = () => (
 
             <div className="mt2">
               <Link
-                className="bold text-magenta"
+                className="chevron-link"
                 to="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
               >
-                Live example &gt;
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -201,10 +201,10 @@ const OncoPage = () => (
 
             <div className="mt2">
               <Link
-                className="bold text-magenta"
+                className="chevron-link"
                 to="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
               >
-                Live example &gt;
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -266,10 +266,10 @@ const OncoPage = () => (
 
             <div className="mt2">
               <Link
-                className="bold text-magenta"
+                className="chevron-link"
                 to="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
               >
-                Live example &gt;
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -322,8 +322,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
-                Live example &gt;
+              <Link className="chevron-link" to="https://portal.gdc.cancer.gov/">
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>

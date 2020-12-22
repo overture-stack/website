@@ -134,7 +134,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Authorization service for identity providers such as Google and Facebook.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -145,7 +145,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -156,7 +156,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Tracks genomic data scattered across multiple cloud storage systems.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -168,7 +168,7 @@ class HomePage extends React.Component {
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>

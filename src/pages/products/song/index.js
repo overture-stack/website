@@ -183,8 +183,8 @@ const SongPage = () => (
 
         <div className="center h3">
           Or use our storage system
-          <Link className="link-magenta pl1" to="/products/score/">
-            Score >
+          <Link className="chevron-link pl1" to="/products/score/">
+            Score <Icon size={12} img="arrowRightMagenta" />
           </Link>
         </div>
       </section>
