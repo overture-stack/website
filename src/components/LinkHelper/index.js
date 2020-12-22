@@ -8,7 +8,7 @@ import urlJoin from 'proper-url-join';
 
 // hash links: https://www.gatsbyjs.com/docs/gatsby-link#recommendations-for-programmatic-in-app-navigation
 
-export default function LinkHelper({ location = {}, to = '', ...props }) {
+export default function LinkHelper({ location = {}, onClick = undefined, to = '', ...props }) {
   const samePageHash = to.charAt(0) === '#';
   const isExternal = to.match(/^\b(http|mailto)/);
   const isInternal = to && !isExternal && !samePageHash;
@@ -35,11 +35,11 @@ export default function LinkHelper({ location = {}, to = '', ...props }) {
   };
 
   return isExternal ? (
-    <a {...props} href={url} target="_blank" />
+    <a {...props} href={url} onClick={onClick} target="_blank" />
   ) : url ? (
-    <Link {...props} to={url} onClick={samePageHash ? hashOnClick : undefined} />
+    <Link {...props} to={url} onClick={samePageHash ? hashOnClick : onClick} />
   ) : (
     // probably <a name="string" />
-    <a {...props} />
+    <a {...props} onClick={onClick} />
   );
 }
