@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkHelper as Link, Icon } from 'components';
+import { Icon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const btnTypes = {

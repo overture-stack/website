@@ -183,7 +183,7 @@ const SongPage = () => (
 
         <div className="center h3">
           Or use our storage system
-          <Link className="link-magenta pl1" to="/products/score">
+          <Link className="link-magenta pl1" to="/products/score/">
             Score >
           </Link>
         </div>

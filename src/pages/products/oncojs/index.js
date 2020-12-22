@@ -1,14 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
-  H2,
-  Button,
-  Layout,
-  ProductHero,
-  ProductFeature,
-  WindowGui,
   BottomCallout,
+  Button,
   Callout,
+  H2,
+  LinkHelper as Link,
+  ProductFeature,
+  ProductHero,
+  WindowGui,
 } from 'components';
 import productsDict from 'meta/products-dict';
 

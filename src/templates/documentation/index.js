@@ -10,9 +10,9 @@ import {
   AnchorHeading,
   Button,
   Code,
-  LinkHelper as Link,
   HeadingsTableOfContents,
   Icon,
+  LinkHelper as Link,
   NoteBox,
   WarningBox,
 } from 'components';
