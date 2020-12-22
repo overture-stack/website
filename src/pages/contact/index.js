@@ -58,7 +58,7 @@ export default function ContactPage() {
                 There are many reasons to get in touch with us and we want to hear from you!
               </div>
 
-              <div className="flex">
+              <div className="flex" style={{ alignItems: 'center' }}>
                 <Button
                   className="my2 mr2"
                   icon="mail"
