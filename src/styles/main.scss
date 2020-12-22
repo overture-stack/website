@@ -98,3 +98,33 @@ body,
   height: 1px;
   overflow: hidden;
 }
+
+a {
+  color: $link-blue;
+  text-decoration: underline;
+}
+
+.button {
+  text-decoration: none;
+  &.is-primary {
+    background: $button-blue;
+    &:hover,
+    &:focus {
+      background: darken($button-blue, 4%);
+    }
+    &:active {
+      background: darken($button-blue, 8%);
+    }
+  }
+}
+
+.BottomCallout .button.is-primary {
+  background: $button-magenta;
+  &:hover,
+  &:focus {
+    background: darken($button-magenta, 4%);
+  }
+  &:active {
+    background: darken($button-magenta, 8%);
+  }
+}
