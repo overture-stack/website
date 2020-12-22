@@ -85,6 +85,7 @@
   }
 
   .nav-link {
+    text-decoration: none;
     @include breakpoint(navmenu-up) {
       margin-right: 8px;
       display: flex;
@@ -138,6 +139,10 @@
         margin: 0.5rem 0;
       }
     }
+  }
+
+  .custom-button {
+    text-decoration: none;
   }
 
   .custom-button.button.is-medium {
