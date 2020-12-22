@@ -41,7 +41,7 @@
   }
 
   .link-group-header {
-    color: $green-link;
+    color: $blue-dark;
     font-weight: 700;
   }
 
@@ -52,6 +52,7 @@
     color: $blue-black;
     letter-spacing: 0;
     line-height: 30px;
+    text-decoration: none;
     &:hover {
       color: $magenta;
     }
