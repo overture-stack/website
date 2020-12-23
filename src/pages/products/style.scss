@@ -76,7 +76,8 @@
 
     .icon-link {
       display: flex;
-      flex: 1;
+      flex: 1 1 auto;
+      font-weight: bold;
     }
 
     .icon {
@@ -105,22 +106,33 @@
         color: $magenta;
       }
     }
-
+    h2 {
+      font-weight: bold;
+    }
     // per box styling
     &.collaborate-share {
+      h2 {
+        color: $c-title-green;
+      }
     }
-
     &.access-download {
+      h2 {
+        color: $c-title-blue;
+      }
     }
-
     &.analyze-discover {
+      h2 {
+        color: $c-title-red;
+      }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
         border-right: none;
       }
     }
-
     &.generate-upload {
+      h2 {
+        color: $c-title-magenta;
+      }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
         border-right: none;
@@ -128,6 +140,9 @@
       }
     }
     &.track-manage {
+      h2 {
+        color: $c-title-yellow;
+      }
     }
   }
 }

@@ -29,36 +29,19 @@ const ProductBox = ({
   return (
     <div id={id} className={`product-box column ${containerClass}`}>
       {isCore && <IconCommon.Core />}
-      <div className="heading" style={{ color: headerColor }}>
-        {header}
-      </div>
+      <h2 className="heading">{header}</h2>
       <div className="details">{details}</div>
       <div className="links">
         {links.map(l => {
-          // If external links, render with <a> tag.
-          if (typeof l.extlink !== 'undefined') {
-            return (
-              <span key={l.extlink} className="icon-link">
-                <Link className="link" to={l.extlink}>
-                  <Icon className="icon" size={l.iconSize ? l.iconSize : iconSize} img={l.icon} />
-                  {l.text}
-                </Link>
-              </span>
-            );
-          } else {
-            return (
-              <span key={l.link} className="icon-link">
-                <Link className="link" to={`/products/${l.link}`}>
-                  <Icon
-                    className="icon"
-                    size={l.iconSize ? l.iconSize : iconSize}
-                    img={l.icon}
-                  ></Icon>
-                  {l.text}
-                </Link>
-              </span>
-            );
-          }
+          return (
+            <span key={l.link} className="icon-link">
+              <Link className="link" to={`/products/${l.link}`}>
+                <Icon className="icon" size={l.iconSize ? l.iconSize : iconSize} img={l.icon} />
+                {l.text}
+                <Icon size={12} img="chevronGrey" style={{ marginLeft: 4, marginTop: 4 }} />
+              </Link>
+            </span>
+          );
         })}
       </div>
     </div>
@@ -72,13 +55,12 @@ const featureGridData = [
       id: 'generate-upload',
       containerClass: 'generate-upload',
       headerColor: '#D087B4',
-      bgColor: '#F2F3F5',
       isCore: true,
       details:
         'Products that allow your data submitters to generate genomic and clinical metadata and securely upload the corresponding files: ',
       links: [
-        { icon: 'productScore', text: 'Score', link: 'score' },
-        { icon: 'productSong', text: 'Song', link: 'song' },
+        { icon: 'productScore', text: 'Score', link: '/products/score/' },
+        { icon: 'productSong', text: 'Song', link: '/products/song/' },
       ],
       ChildComponent: ProductBox,
     },
@@ -88,19 +70,18 @@ const featureGridData = [
       headerColor: '#6AC3E8',
       id: 'access-download',
       containerClass: 'access-download',
-      bgColor: '#F2F3F5',
       isCore: true,
       details:
         'Products that give your users the correct permissions to view and download controlled data: ',
       links: [
-        { icon: 'productEgo', text: 'Ego', link: 'ego', iconSize: 24 },
+        { icon: 'productEgo', text: 'Ego', link: '/products/ego/', iconSize: 24 },
         {
           icon: 'productMaestro',
           text: 'Maestro',
           link: 'maestro',
           iconSize: 40,
         },
-        { icon: 'productArranger', text: 'Arranger', link: 'arranger' },
+        { icon: 'productArranger', text: 'Arranger', link: '/products/arranger/' },
       ],
       ChildComponent: ProductBox,
     },
@@ -114,12 +95,11 @@ const featureGridData = [
       details:
         'Products that allow your users to access interactive visualizations and code-based analysis environments: ',
       links: [
-        { icon: 'productJukebox', text: 'Jukebox', link: 'jukebox' },
-        { icon: 'productOnco', text: 'OncoJS', link: 'oncojs' },
+        { icon: 'productJukebox', text: 'Jukebox', link: '/products/jukebox/' },
+        { icon: 'productOnco', text: 'OncoJS', link: '/products/oncojs/' },
       ],
       ChildComponent: ProductBox,
     },
-
     {
       header: 'Collaborate & Share',
       headerColor: '#47D9BF',
@@ -128,13 +108,12 @@ const featureGridData = [
       details:
         'Products that allow your users to set up a profile and share urls in order to raise awareness across the scientific community: ',
       links: [
-        { icon: 'productPersona', text: 'Persona', link: 'persona' },
-        { icon: 'productRiff', text: 'Riff', link: 'riff' },
+        { icon: 'productPersona', text: 'Persona', link: '/products/persona/' },
+        { icon: 'productRiff', text: 'Riff', link: '/products/riff/' },
       ],
       ChildComponent: ProductBox,
     },
   ],
-
   [
     {
       header: 'Track & Manage',
@@ -147,12 +126,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: productsDict.billing.github,
+          link: productsDict.billing.github,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: productsDict.enrolment.github,
+          link: productsDict.enrolment.github,
         },
       ],
       ChildComponent: ProductBox,
@@ -266,11 +245,10 @@ export default function ProductsPage() {
       {/* Grid sections */}
       <div className="grid-feature-wrap">
         <GridFeature
-          iconSize={48}
-          data={featureGridData}
-          childComponent={ProductBox}
           borderColor="grey"
-          sectionBG={['#F2F3F5', 'white', 'white']}
+          childComponent={ProductBox}
+          data={featureGridData}
+          iconSize={48}
         />
       </div>
 

@@ -64,16 +64,12 @@ function buildStyle(arr, idx) {
  * makes a row of grids for each items in the array;
  * can also take a child component for custom content
  */
-const GridFeature = ({ data, iconSize = 32, borderColor = 'white', sectionBG = [] }) => {
+const GridFeature = ({ data, iconSize = 32, borderColor = 'white' }) => {
   return (
-    <div className="bg-grey GridFeature">
+    <div className="GridFeature">
       {data.map((arr, idx) => {
         return (
-          <section
-            key={idx}
-            className={`bottom-border ${borderColor}`}
-            style={{ backgroundColor: sectionBG[idx] }}
-          >
+          <section key={idx} className={`bottom-border ${borderColor}`}>
             <div className="container">
               <article className="columns m0">
                 {arr.map((feat, idx) => {
