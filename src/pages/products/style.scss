@@ -103,7 +103,7 @@
       display: flex;
       text-decoration: none;
       &:hover {
-        color: $magenta;
+        color: $pink-darker;
       }
     }
     h2 {
@@ -122,7 +122,7 @@
     }
     &.analyze-discover {
       h2 {
-        color: $c-title-red;
+        color: $red;
       }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
@@ -131,7 +131,7 @@
     }
     &.generate-upload {
       h2 {
-        color: $c-title-magenta;
+        color: $pink-dark;
       }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
@@ -141,7 +141,7 @@
     }
     &.track-manage {
       h2 {
-        color: $c-title-yellow;
+        color: $yellow-darker;
       }
     }
   }

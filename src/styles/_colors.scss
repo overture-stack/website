@@ -6,14 +6,31 @@ $c-yellow-200: #f2d021;
 $c-yellow-300: #ecc000;
 $c-yellow-400: #af9204;
 
-// MAGENTA
-$c-magenta-100: #f7ecf3;
-$c-magenta-200: #d087b4;
-$c-magenta-400: #b74a89;
-$c-magenta-600: #9e005d;
+// PINK
+$c-pink-100: #f7ecf3;
+$c-pink-200: #d087b4;
+$c-pink-400: #b74a89;
+$c-pink-600: #9e005d;
 
 // RED
 $c-red-300: #c86370;
+
+// FIXED COLORS
+
+// PINK
+$pink-light: $c-pink-100;
+$pink: $c-pink-200;
+$pink-dark: $c-pink-400;
+$pink-darker: $c-pink-600;
+
+// RED
+$red: $c-red-300;
+
+// YELLOW
+$yellow-light: $c-yellow-100;
+$yellow: $c-yellow-200;
+$yellow-dark: $c-yellow-300;
+$yellow-darker: $c-yellow-400;
 
 // OLD COLORS
 
@@ -52,27 +69,14 @@ $grey-table-border: #dcdde1;
 $grey-text: #555555;
 $grey: #f2f3f5;
 $image-border: #dfdfe1;
-$magenta-border: #b74a89;
-$magenta: #9e005d;
-$pink-light-bg: #f7ecf3;
-$pink: #d087b4;
-$red-bg: #c86370;
-$tooltip-bg: #5e6068;
 $tooltip-bg: #5e6068;
 $white: #ffffff;
-$yellow-bg: #ecc000;
-$yellow-light-bg: #fcf3c7;
-$yellow: $c-yellow-200;
 $blue-outline: #4bc6f0;
 $grey-input-border: #babcc2;
 
 // accessible colors
 $c-button-blue: #04518c;
-$c-button-magenta: #b74a89;
 $c-link-blue: #0b75a2;
 $c-text-blue: #0c7cac;
 $c-title-blue: #109ed9;
 $c-title-green: #00a88f;
-$c-title-magenta: #b74a89;
-$c-title-red: #c86370;
-$c-title-yellow: #af9204;

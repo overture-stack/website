@@ -91,7 +91,7 @@
     text-decoration: none;
     &:hover,
     &.active {
-      color: $magenta;
+      color: $pink-darker;
     }
   }
 
@@ -127,7 +127,7 @@
     .chevron-link {
       padding-top: 12px;
       a {
-        color: $magenta !important;
+        color: $pink-darker !important;
       }
       font-weight: 700;
 
@@ -208,7 +208,7 @@
       padding: 0 0 12px 0;
       // flex: 1;
       &.active {
-        color: $magenta;
+        color: $pink-darker;
       }
     }
   }

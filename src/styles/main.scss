@@ -8,7 +8,7 @@
 // BULMA VARIABLE OVERRIDES! --------------------
 
 $primary-invert: $white;
-$navbar-item-hover-color: $magenta;
+$navbar-item-hover-color: $pink-darker;
 $navbar-item-color: $blue-black;
 $navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
@@ -26,7 +26,7 @@ a.navbar-item:hover {
 a.navbar-item.active-item {
   background: $grey;
   &:hover {
-    color: $magenta;
+    color: $pink-darker;
   }
 }
 
@@ -119,13 +119,13 @@ a {
 }
 
 .BottomCallout .button.is-primary {
-  background: $c-button-magenta;
+  background: $pink-dark;
   &:hover,
   &:focus {
-    background: darken($c-button-magenta, 4%);
+    background: darken($pink-dark, 4%);
   }
   &:active {
-    background: darken($c-button-magenta, 8%);
+    background: darken($pink-dark, 8%);
   }
 }
 

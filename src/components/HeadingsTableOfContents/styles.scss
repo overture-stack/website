@@ -1,7 +1,7 @@
 @import '../../styles/colors';
 
 .toc-headings {
-  border-left: 2px solid $magenta-border;
+  border-left: 2px solid $pink-dark;
   list-style-type: none;
   margin-bottom: 24px;
   max-height: calc(100vh - 132px);
@@ -28,8 +28,8 @@
           background: $grey-bg-hover-light;
         }
         &.active {
-          color: $magenta;
-          background: $pink-light-bg;
+          color: $pink-darker;
+          background: $pink-light;
         }
       }
     }

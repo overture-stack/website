@@ -30,7 +30,7 @@
       }
     }
     &.link-active {
-      border-left-color: $magenta-border;
+      border-left-color: $pink-dark;
       background-color: $white;
     }
     & + li:not(.menu-heading) {
@@ -58,7 +58,7 @@
   }
   .menu-level-2 > li {
     &.menu-active {
-      border-left-color: $magenta-border;
+      border-left-color: $pink-dark;
       background-color: $white;
       a:hover {
         background-color: $grey-bg-hover;
@@ -100,6 +100,6 @@
     }
   }
   .link-active > a {
-    color: $magenta;
+    color: $pink-darker;
   }
 }
