@@ -25,12 +25,13 @@
       }
     }
     &__overview {
-      color: $blue-links-darker;
+      color: $c-link-blue;
       display: block;
       font-size: 14px;
       font-weight: bold;
       line-height: 1;
       margin-bottom: 40px;
+      text-decoration: none;
       img {
         margin-right: 4px;
       }
@@ -301,7 +302,7 @@
         height: 3px;
         width: 106px;
         border-radius: 1.5px;
-        background-color: $yellow-light-border;
+        background-color: $yellow;
       }
     }
     h3 {

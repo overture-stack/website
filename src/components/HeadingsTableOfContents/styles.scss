@@ -9,6 +9,9 @@
   overflow: auto;
   position: sticky;
   top: 108px; // nav height 60px + padding 48px
+  a {
+    text-decoration: none;
+  }
   // all levels
   &__list {
     list-style-type: none;

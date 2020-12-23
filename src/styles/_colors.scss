@@ -1,3 +1,22 @@
+// new colors
+
+// YELLOW
+$c-yellow-100: #fcf3c7;
+$c-yellow-200: #f2d021;
+$c-yellow-300: #ecc000;
+$c-yellow-400: #af9204;
+
+// MAGENTA
+$c-magenta-100: #f7ecf3;
+$c-magenta-200: #d087b4;
+$c-magenta-400: #b74a89;
+$c-magenta-600: #9e005d;
+
+// RED
+$c-red-300: #c86370;
+
+// OLD COLORS
+
 $blue-2: #00a1d9;
 $blue-3: #4f85ae;
 $blue-bg: #6ac3e8;
@@ -30,12 +49,11 @@ $grey-border: #aeafb3;
 $grey-hr: #dfdfe1;
 $grey-table-bg: #f2f5f8;
 $grey-table-border: #dcdde1;
-$grey-text: #555;
+$grey-text: #555555;
 $grey: #f2f3f5;
 $image-border: #dfdfe1;
 $magenta-border: #b74a89;
 $magenta: #9e005d;
-$pink-bg: #c66fa5;
 $pink-light-bg: #f7ecf3;
 $pink: #d087b4;
 $red-bg: #c86370;
@@ -44,8 +62,7 @@ $tooltip-bg: #5e6068;
 $white: #ffffff;
 $yellow-bg: #ecc000;
 $yellow-light-bg: #fcf3c7;
-$yellow-light-border: #f2d021;
-$yellow: #f2d03a;
+$yellow: $c-yellow-200;
 $blue-outline: #4bc6f0;
 $grey-input-border: #babcc2;
 

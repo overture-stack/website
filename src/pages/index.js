@@ -109,21 +109,13 @@ class HomePage extends React.Component {
             <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
             <div className="pt2" style={{ maxWidth: '900px' }}>
               Data is the essence of our field. Implement Overture’s core products to
-              <span>
-                <Link to="/products#generate-upload">
-                  <Badge className="mx1" color="pink">
-                    Generate & Upload{' '}
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 pink" to="/products#generate-upload">
+                Generate & Upload
+              </Link>
               and <br />
-              <span>
-                <Link to="/products#access-download">
-                  <Badge className="mx1" color="blue">
-                    Access & Download
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 blue" to="/products#access-download">
+                Access & Download
+              </Link>
               genomic data across multiple cloud providers:
             </div>
           </div>
@@ -181,24 +173,18 @@ class HomePage extends React.Component {
               <div className="explore-solutions-header"> Also explore our products for:</div>
               <div className="badges">
                 <div>
-                  <Link to="/products#analyze-discover">
-                    <Badge className="mr2" color="red">
-                      Analyze & Discover
-                    </Badge>
+                  <Link className="Badge mr2 red" to="/products#analyze-discover">
+                    Analyze & Discover
                   </Link>
 
-                  <Link to="/products#collaborate-share">
-                    <Badge className="mr2" color="light-green">
-                      Collaborate & Share
-                    </Badge>
+                  <Link className="Badge mr2 light-green" to="/products#collaborate-share">
+                    Collaborate & Share
                   </Link>
                 </div>
 
                 <div>
-                  <Link to="/products#track-manage">
-                    <Badge className="mr2" color="yellow">
-                      Track & Manage
-                    </Badge>
+                  <Link className="Badge mr2 yellow" to="/products#track-manage">
+                    Track & Manage
                   </Link>
                 </div>
               </div>

@@ -4,6 +4,9 @@
   margin-bottom: 24px;
   max-height: calc(100vh - 150px);
   overflow: auto;
+  a {
+    text-decoration: none;
+  }
   ol {
     list-style-type: none;
     li {
