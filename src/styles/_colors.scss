@@ -26,12 +26,34 @@ $green-bg-dark: $c-teal-700;
 $green-bg: $c-teal-500;
 $green-link: $c-teal-600;
 $green-text: $c-teal-600;
+$grey-1: $c-grey-100;
+$grey-2: $c-grey-200;
+$grey-3: $c-grey-300;
+$grey-4: $c-grey-300;
+$grey-5: $c-grey-200;
 $grey-6: $c-grey-300;
+$grey-bg-hover-2: $c-grey-100;
+$grey-bg-hover-light: $c-grey-100;
+$grey-bg-hover: $c-grey-100;
+$grey-blue: $c-grey-200;
+$grey-border: $c-grey-400;
+$grey-hr: $c-grey-300;
+$grey-input-border: $c-grey-400;
+$grey-table-bg: $c-grey-100;
+$grey-table-border: $c-grey-300;
+$grey-text: $c-grey-600;
 $grey: $c-grey-200;
+$image-border: $c-grey-300;
 $pink-dark: $c-pink-500;
 $pink-darker: $c-pink-600;
 $pink-light: $c-pink-100;
 $pink: $c-pink-400;
+$tooltip-bg: $c-grey-600;
+$white: $c-white;
+$yellow-dark: $c-yellow-600;
+$yellow-darker: $c-yellow-700;
+$yellow-light: $c-yellow-200;
+$yellow: $c-yellow-500;
 
 // badges
 $badge-bg-red: $c-red-500;
@@ -42,40 +64,3 @@ $title-red: $c-red-500;
 // misc
 $gradient-bg: $c-gradient-bg;
 $terminal-green: $c-green-bright;
-
-// december colors
-
-// YELLOW
-$c-yellow-100: #fcf3c7;
-$c-yellow-200: #f2d021;
-$c-yellow-300: #ecc000;
-$c-yellow-400: #af9204;
-
-// FIXED COLORS
-
-// YELLOW
-$yellow-light: $c-yellow-100;
-$yellow: $c-yellow-200;
-$yellow-dark: $c-yellow-300;
-$yellow-darker: $c-yellow-400;
-
-// OLD COLORS
-
-$grey-1: #f1f3f5;
-$grey-2: #efefef;
-$grey-3: #dfdfdf;
-$grey-4: #d4d4d4;
-$grey-5: #eff0f3;
-$grey-bg-hover-2: #fbfbfc;
-$grey-bg-hover-light: #f1f5f5;
-$grey-bg-hover: #f2f5f8;
-$grey-blue: #e5edf3;
-$grey-border: #aeafb3;
-$grey-hr: #dfdfe1;
-$grey-table-bg: #f2f5f8;
-$grey-table-border: #dcdde1;
-$grey-text: #555555;
-$image-border: #dfdfe1;
-$tooltip-bg: #5e6068;
-$white: #ffffff;
-$grey-input-border: #babcc2;
