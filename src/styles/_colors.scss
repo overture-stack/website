@@ -3,13 +3,31 @@
 // january colors
 
 // colors to sort later
-$grey: $c-grey-200;
+$blue-2: $c-blue-600;
+$blue-3: $c-navy-400;
+$blue-bg: $c-blue-400;
+$blue-black: $c-navy-600;
+$blue-dark: $c-navy-500;
+$blue-darker: $c-navy-600;
 $blue-darkest: $c-grey-600;
+$blue-light: $c-blue-400;
+$blue-links-darker: $c-blue-700;
+$blue-links-yellow-bg: $c-blue-700;
+$blue-links: $c-blue-600;
+$blue-nav: $c-navy-600;
+$blue-outline: $c-blue-500;
+$blue: $c-blue-600;
+$c-button-blue: $c-navy-500;
+$c-link-blue: $c-blue-700;
+$c-text-blue: $c-blue-700;
+$c-title-blue: $c-blue-600;
+$c-title-green: $c-teal-700;
 $grey-6: $c-grey-300;
-$pink-light: $c-pink-100;
-$pink: $c-pink-400;
+$grey: $c-grey-200;
 $pink-dark: $c-pink-500;
 $pink-darker: $c-pink-600;
+$pink-light: $c-pink-100;
+$pink: $c-pink-400;
 
 // badges
 $badge-bg-red: $c-red-500;
@@ -39,18 +57,6 @@ $yellow-darker: $c-yellow-400;
 
 // OLD COLORS
 
-$blue-2: #00a1d9;
-$blue-3: #4f85ae;
-$blue-bg: #6ac3e8;
-$blue-black: #151c3d;
-$blue-dark: #04518c;
-$blue-darker: #003055;
-$blue-light: #66c2ea;
-$blue-links-darker: #0c7cac;
-$blue-links-yellow-bg: #0b75a2;
-$blue-links: #109ed9;
-$blue-nav: #004773;
-$blue: #00a2d9;
 $green-bg-dark: #5db9ae;
 $green-bg: #00ddbe;
 $green-link: #47d9bf;
@@ -72,12 +78,4 @@ $grey-text: #555555;
 $image-border: #dfdfe1;
 $tooltip-bg: #5e6068;
 $white: #ffffff;
-$blue-outline: #4bc6f0;
 $grey-input-border: #babcc2;
-
-// accessible colors
-$c-button-blue: #04518c;
-$c-link-blue: #0b75a2;
-$c-text-blue: #0c7cac;
-$c-title-blue: #109ed9;
-$c-title-green: #00a88f;
