@@ -15,7 +15,17 @@ $c-pink-600: #9e005d;
 // RED
 $c-red-300: #c86370;
 
+// TEAL
+$c-teal-200: #00ddbe;
+$c-teal-400: #5db9ae;
+$c-teal-600: #00a88f;
+
+// GREEN
+$c-green-200: #82ee86;
+
 // FIXED COLORS
+
+$primary: $c-teal-200;
 
 // PINK
 $pink-light: $c-pink-100;
@@ -32,6 +42,14 @@ $yellow: $c-yellow-200;
 $yellow-dark: $c-yellow-300;
 $yellow-darker: $c-yellow-400;
 
+// TEAL
+$teal: $c-teal-200;
+$teal-dark: $c-teal-400;
+$teal-darker: $c-teal-600;
+
+// GREEN
+$green: $c-green-200;
+
 // OLD COLORS
 
 $blue-2: #00a1d9;
@@ -47,11 +65,6 @@ $blue-links-yellow-bg: #0b75a2;
 $blue-links: #109ed9;
 $blue-nav: #004773;
 $blue: #00a2d9;
-$green-bg-dark: #5db9ae;
-$green-bg: #00ddbe;
-$green-link: #47d9bf;
-$green-terminal: #82ee86;
-$green-text: #3dd3b1;
 $grey-1: #f1f3f5;
 $grey-2: #efefef;
 $grey-3: #dfdfdf;
@@ -79,4 +92,3 @@ $c-button-blue: #04518c;
 $c-link-blue: #0b75a2;
 $c-text-blue: #0c7cac;
 $c-title-blue: #109ed9;
-$c-title-green: #00a88f;
