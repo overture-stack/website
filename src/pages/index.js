@@ -91,12 +91,17 @@ class HomePage extends React.Component {
           ImgComponent={() => <img className="home-img" src={heroImg} />}
         >
           <span className="hero-buttons">
-            <Button type="blue" className="my2 mr2" size="medium" onClick={() => this.openModal()}>
+            <Button
+              type="primary"
+              className="my2 mr2"
+              size="medium"
+              onClick={() => this.openModal()}
+            >
               <Icon img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 
-            <Button className="my2 mr2" link="/case-studies/" size="medium" type="blue">
+            <Button className="my2 mr2" link="/case-studies/" size="medium" type="primary">
               The products in action
             </Button>
           </span>

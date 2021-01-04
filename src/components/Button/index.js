@@ -5,7 +5,6 @@ import './styles.scss';
 const btnTypes = {
   primary: 'is-primary', // uses bulma
   secondary: 'is-white secondary', // bulma + custom css
-  blue: 'blue',
 };
 
 const btnSizes = {

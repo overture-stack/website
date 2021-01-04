@@ -14,29 +14,29 @@
   text-decoration: none;
 
   &.pink {
-    background-color: $pink;
+    background-color: $badge-bg-pink;
   }
 
   &.blue {
-    background-color: $blue-bg;
+    background-color: $badge-bg-blue;
   }
 
   &.dark-blue {
-    background-color: $blue-dark;
+    background-color: $badge-bg-navy;
     color: $white;
   }
 
   &.yellow {
-    background-color: $yellow-dark;
+    background-color: $badge-bg-yellow;
     border: none;
   }
 
   &.green {
-    background-color: $green-bg-dark;
+    background-color: $badge-bg-teal-dark;
   }
 
   &.light-green {
-    background-color: $green-bg;
+    background-color: $badge-bg-teal;
   }
 
   &.red {
