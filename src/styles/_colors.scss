@@ -1,4 +1,4 @@
-@import './color-scheme';
+@import './color-codes';
 
 // january colors
 
@@ -22,6 +22,10 @@ $c-link-blue: $c-blue-700;
 $c-text-blue: $c-blue-700;
 $c-title-blue: $c-blue-600;
 $c-title-green: $c-teal-700;
+$green-bg-dark: $c-teal-700;
+$green-bg: $c-teal-500;
+$green-link: $c-teal-600;
+$green-text: $c-teal-600;
 $grey-6: $c-grey-300;
 $grey: $c-grey-200;
 $pink-dark: $c-pink-500;
@@ -57,10 +61,6 @@ $yellow-darker: $c-yellow-400;
 
 // OLD COLORS
 
-$green-bg-dark: #5db9ae;
-$green-bg: #00ddbe;
-$green-link: #47d9bf;
-$green-text: #3dd3b1;
 $grey-1: #f1f3f5;
 $grey-2: #efefef;
 $grey-3: #dfdfdf;
