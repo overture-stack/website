@@ -18,7 +18,7 @@
 }
 
 .Terminal-text {
-  color: $green-terminal;
+  color: $terminal-green;
 }
 
 .Browser {
@@ -44,7 +44,6 @@
   margin-left: 12px;
   padding-bottom: 4px;
   display: flex;
-
   .circle {
     width: 10px;
     height: 10px;

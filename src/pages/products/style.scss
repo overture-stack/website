@@ -122,7 +122,7 @@
     }
     &.analyze-discover {
       h2 {
-        color: $red;
+        color: $title-red;
       }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
