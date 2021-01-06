@@ -2,6 +2,9 @@
 
 // january colors
 
+$yellow: $c-yellow-500;
+$white: $c-white;
+
 // colors to sort later
 $blue-2: $c-blue-600;
 $blue-3: $c-navy-400;
@@ -47,11 +50,6 @@ $pink-darker: $c-pink-600;
 $pink-light: $c-pink-100;
 $pink: $c-pink-400;
 $tooltip-bg: $c-grey-600;
-$white: $c-white;
-$yellow-dark: $c-yellow-600;
-$yellow-darker: $c-yellow-700;
-$yellow-light: $c-yellow-200;
-$yellow: $c-yellow-500;
 
 // badges
 $badge-bg-blue: $c-blue-400;
@@ -63,9 +61,16 @@ $badge-bg-teal: $c-teal-500;
 $badge-bg-yellow: $c-yellow-600;
 
 // titles
-$title-red: $c-red-500;
 $title-blue: $c-blue-600;
 $title-green: $c-teal-700;
+$title-pink: $c-pink-500;
+$title-red: $c-red-500;
+$title-yellow: $c-yellow-700;
+
+// warning box
+$warning-bg: $c-yellow-200;
+$warning-border: $c-yellow-500;
+$warning-text: $c-navy-600;
 
 // misc
 $gradient-bg: $c-gradient-bg;

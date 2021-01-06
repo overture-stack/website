@@ -18,7 +18,6 @@ import './style.scss';
 // Component for rendering a single "box" representing a feature (ie "Generate & Upload")
 const ProductBox = ({
   header,
-  headerColor,
   containerClass = 'is-6 box-section',
   details,
   links,
@@ -54,7 +53,6 @@ const featureGridData = [
       header: 'Generate & Upload',
       id: 'generate-upload',
       containerClass: 'generate-upload',
-      headerColor: '#D087B4',
       isCore: true,
       details:
         'Products that allow your data submitters to generate genomic and clinical metadata and securely upload the corresponding files: ',
@@ -67,7 +65,6 @@ const featureGridData = [
 
     {
       header: 'Access & Download',
-      headerColor: '#6AC3E8',
       id: 'access-download',
       containerClass: 'access-download',
       isCore: true,
@@ -89,7 +86,6 @@ const featureGridData = [
   [
     {
       header: 'Analyze & Discover',
-      headerColor: '#C86370',
       id: 'analyze-discover',
       containerClass: 'analyze-discover',
       details:
@@ -102,7 +98,6 @@ const featureGridData = [
     },
     {
       header: 'Collaborate & Share',
-      headerColor: '#47D9BF',
       id: 'collaborate-share',
       containerClass: 'collaborate-share',
       details:
@@ -117,7 +112,6 @@ const featureGridData = [
   [
     {
       header: 'Track & Manage',
-      headerColor: '#ECC000',
       id: 'track-manage',
       containerClass: 'track-manage is-6 is-offset-3',
       details:

@@ -131,7 +131,7 @@
     }
     &.generate-upload {
       h2 {
-        color: $pink-dark;
+        color: $title-pink;
       }
       border-right: 2px solid $grey-4;
       @media (max-width: $tablet) {
@@ -141,7 +141,7 @@
     }
     &.track-manage {
       h2 {
-        color: $yellow-darker;
+        color: $title-yellow;
       }
     }
   }
