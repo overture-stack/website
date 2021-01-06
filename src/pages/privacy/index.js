@@ -106,13 +106,26 @@ const PrivacyPage = () => (
       <section>
         <Heading>Additional Information</Heading>
         <p>
-          If you would like to learn more about OICR’s commitment to protecting privacy, please see
-          our <a href=""> organizational Privacy Policy</a>. You may also view our{' '}
-          <a href="#">Information Practices Frequently Asked Questions</a>.
+          If you would like to learn more about OICR’s commitment to
+          protecting privacy, please see our{' '}
+          <a
+            href="https://oicr.on.ca/oicr-policies-and-procedures/"
+            target="_blank"
+          >
+            organizational Privacy Policy
+          </a>
+          . You may also view our{' '}
+          <a
+            href="https://oicr.on.ca/information-practices-frequently-asked-questions/"
+            target="_blank"
+          >
+            Information Practices Frequently Asked Questions
+          </a>
+          .
         </p>
         <p>
-          If you have any questions or concerns about privacy at OICR, please send a written request
-          to:
+          If you have any questions or concerns about privacy at OICR, please
+          send a written request to:
         </p>
 
         <div className="bold"> Attn: Privacy Officer</div>
