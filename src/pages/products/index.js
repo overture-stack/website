@@ -34,7 +34,7 @@ const ProductBox = ({
         {links.map(l => {
           return (
             <span key={l.link} className="icon-link">
-              <Link className="link" to={`/products/${l.link}`}>
+              <Link className="link" to={l.link}>
                 <Icon className="icon" size={l.iconSize ? l.iconSize : iconSize} img={l.icon} />
                 {l.text}
                 <Icon size={12} img="chevronGrey" style={{ marginLeft: 4, marginTop: 4 }} />
