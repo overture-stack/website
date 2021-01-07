@@ -2,7 +2,7 @@
 @import '../../styles/variables';
 
 .Terminal {
-  background: $grey;
+  background: $grey-2;
   padding: 16px 2px 2px;
   border-radius: 4px;
   margin-bottom: 16px;
@@ -22,7 +22,7 @@
 }
 
 .Browser {
-  background: $grey;
+  background: $grey-2;
   display: flex;
   align-items: center;
   padding: 12px 6px;

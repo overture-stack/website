@@ -34,10 +34,10 @@
       background-color: $white;
     }
     & + li:not(.menu-heading) {
-      border-top: 1px solid $grey-hr;
+      border-top: 1px solid $grey-3;
     }
     &:last-child {
-      border-bottom: 1px solid $grey-hr;
+      border-bottom: 1px solid $grey-3;
     }
   }
   .menu-level-1 > li {

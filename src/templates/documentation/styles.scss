@@ -15,7 +15,7 @@
   }
   &__sidebar {
     flex: 0 0 280px;
-    background: $grey;
+    background: $grey-2;
     padding: 20px 16px;
     &__github {
       position: absolute;
@@ -248,12 +248,12 @@
       }
     }
     table {
-      border: 1px solid $grey-table-border;
+      border: 1px solid $grey-3;
       td,
       th {
         font-size: 14px;
         line-height: 1.5;
-        border: 1px solid $grey-table-border;
+        border: 1px solid $grey-3;
         padding: 4px 8px;
       }
       th {
@@ -265,7 +265,7 @@
         border-bottom-width: 0;
       }
       tr:nth-child(2n) {
-        background: $grey-table-bg;
+        background: $grey-1;
       }
     }
     h2,
@@ -324,7 +324,7 @@
       list-style-type: decimal;
     }
     blockquote {
-      border-left: 6px solid $grey-table-border;
+      border-left: 6px solid $grey-3;
       padding: 0 18px;
       margin-bottom: 24px;
       *:last-child {
@@ -335,12 +335,12 @@
       div,
       strong,
       em {
-        color: $grey-text !important;
+        color: $grey-darkest !important;
       }
     }
     .gatsby-resp-image-wrapper {
       box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
-      border: solid 1px $image-border;
+      border: solid 1px $grey-3;
     }
   }
   &__toc-headings {

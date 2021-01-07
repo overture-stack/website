@@ -10,7 +10,7 @@
 $primary-invert: $white;
 $navbar-item-hover-color: $pink-darker;
 $navbar-item-color: $navy-black;
-$navbar-item-hover-background-color: $grey;
+$navbar-item-hover-background-color: $grey-2;
 $navbar-breakpoint: 1160px;
 $link: $blue;
 $family-serif: $font-sans-serif;
@@ -24,7 +24,7 @@ a.navbar-item:hover {
 }
 
 a.navbar-item.active-item {
-  background: $grey;
+  background: $grey-2;
   &:hover {
     color: $pink-darker;
   }

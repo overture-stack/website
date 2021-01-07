@@ -1,12 +1,5 @@
 @import './color-codes';
 
-// january colors
-
-$yellow: $c-yellow-500;
-$white: $c-white;
-
-// streamlined colors
-// variables could be renamed
 $blue-light: $c-blue-400;
 $blue-outline: $c-blue-500;
 $blue: $c-blue-600;
@@ -21,27 +14,19 @@ $grey-darkest: $c-grey-600;
 $navy-dark: $c-navy-500;
 $navy-black: $c-navy-600;
 
+$pink-light: $c-pink-100;
+$pink: $c-pink-400;
+$pink-dark: $c-pink-500;
+$pink-darker: $c-pink-600;
+
 // rename to teal?
 $green-bg: $c-teal-500;
 $green-text: $c-teal-600;
 
-// colors to sort later
-$grey-blue: $c-grey-200;
-$grey-border: $c-grey-400;
-$grey-hr: $c-grey-300;
-$grey-input-border: $c-grey-400;
-$grey-table-bg: $c-grey-100;
-$grey-table-border: $c-grey-300;
-$grey-text: $c-grey-600;
-$grey: $c-grey-200;
-$image-border: $c-grey-300;
-$pink-dark: $c-pink-500;
-$pink-darker: $c-pink-600;
-$pink-light: $c-pink-100;
-$pink: $c-pink-400;
-$tooltip-bg: $c-grey-600;
+$yellow: $c-yellow-500;
+$white: $c-white;
 
-// sorted colours
+// contextual colours
 
 // badges
 $badge-bg-blue: $c-blue-400;
