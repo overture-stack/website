@@ -13,7 +13,7 @@
       line-height: 24px;
       position: relative;
       a {
-        color: $blue-black;
+        color: $navy-black;
         display: block;
         font-weight: bold;
       }
@@ -61,11 +61,11 @@
       border-left-color: $pink-dark;
       background-color: $white;
       a:hover {
-        background-color: $grey-bg-hover;
+        background-color: $grey-1;
       }
     }
     &.menu-open {
-      border-left-color: $grey-border;
+      border-left-color: $grey-1;
     }
   }
   button.menu-toggle-btn {

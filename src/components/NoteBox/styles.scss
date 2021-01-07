@@ -11,11 +11,11 @@
     &:hover,
     &:active,
     &:focus {
-      color: $blue-bg !important;
+      color: $blue-light !important;
     }
   }
   code {
-    background: $blue-darker !important;
+    background: $navy-black !important;
   }
   &__title {
     display: flex;

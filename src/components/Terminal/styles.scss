@@ -9,7 +9,7 @@
 }
 
 .Terminal-inner {
-  background-color: $blue-darkest;
+  background-color: $grey-darkest;
   border-radius: 6px;
   padding: 24px;
   margin: 8px;
@@ -18,7 +18,7 @@
 }
 
 .Terminal-text {
-  color: $terminal-green;
+  color: $terminal-text;
 }
 
 .Browser {
@@ -47,7 +47,7 @@
   .circle {
     width: 10px;
     height: 10px;
-    background-color: $grey-6;
+    background-color: $grey-3;
     margin-right: 8px;
   }
 }

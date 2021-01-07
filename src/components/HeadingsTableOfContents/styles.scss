@@ -18,14 +18,14 @@
     li {
       a {
         background: transparent;
-        color: $blue-black;
+        color: $navy-black;
         display: block;
         font-size: 12px;
         font-weight: bold;
         padding: 5px 0;
         line-height: 18px;
         &:hover {
-          background: $grey-bg-hover-light;
+          background: $grey-1;
         }
         &.active {
           color: $pink-darker;

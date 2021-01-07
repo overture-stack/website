@@ -2,7 +2,7 @@
 @import '../../styles/variables';
 
 .Footer {
-  border-top: 1px solid $grey-4;
+  border-top: 1px solid $grey-3;
   position: relative;
   background: $white;
   .footer-box {
@@ -49,7 +49,7 @@
     font-family: $font-sans-serif;
     font-weight: 400;
     font-size: 16px;
-    color: $blue-black;
+    color: $navy-black;
     letter-spacing: 0;
     line-height: 30px;
     text-decoration: none;

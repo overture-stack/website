@@ -14,7 +14,7 @@
     &__input {
       border-radius: 5px;
       border: 1px solid $grey-input-border;
-      color: $blue-darker;
+      color: $navy-black;
       font-size: 16px;
       height: 50px;
       padding: 0 42px;
@@ -52,7 +52,7 @@
     -webkit-overflow-scrolling: touch;
     background: $white;
     border-radius: 4px;
-    border: solid 1px $grey-border;
+    border: solid 1px $grey-4;
     max-height: 70vh;
     overflow-y: auto;
     position: absolute;
@@ -74,7 +74,7 @@
   &__result {
     text-align: left;
     mark {
-      background: #fcf3c7;
+      background: $warning-bg;
       border-radius: 3px;
     }
     &__section,
@@ -83,8 +83,8 @@
       padding: 2px 8px;
     }
     &__section {
-      background: $grey-blue;
-      color: #151c3d;
+      background: $grey-1;
+      color: $grey-darkest;
       font-weight: bold;
     }
     &__page {

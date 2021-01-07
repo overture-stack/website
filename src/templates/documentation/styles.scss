@@ -25,7 +25,7 @@
       }
     }
     &__overview {
-      color: $c-link-blue;
+      color: $blue-links;
       display: block;
       font-size: 14px;
       font-weight: bold;
@@ -38,7 +38,7 @@
       &:hover,
       &:active,
       &:focus {
-        color: $blue-links-darker;
+        color: $blue-links;
       }
     }
     &__sticky {
@@ -88,7 +88,7 @@
           height: 2px;
         }
         &:hover {
-          background: $blue-links-darker;
+          background: $blue-links;
         }
       }
     }
@@ -187,7 +187,7 @@
     // markdown
     code {
       color: $pink-darker;
-      background: $grey-blue;
+      background: $grey-2;
       font-family: $font-monospace;
       border-radius: 3px;
       padding: 0.15em 0.25em;
@@ -232,14 +232,14 @@
     p,
     div,
     li {
-      color: $blue-darker;
+      color: $navy-black;
     }
     p,
     li,
     W td,
     th {
       a {
-        color: $blue-links-darker;
+        color: $blue-links;
         text-decoration: underline;
         &:hover,
         &:active {
@@ -257,10 +257,10 @@
         padding: 4px 8px;
       }
       th {
-        color: $blue-black;
+        color: $navy-black;
       }
       td {
-        color: $blue-darkest;
+        color: $grey-darkest;
         border-top-width: 0;
         border-bottom-width: 0;
       }

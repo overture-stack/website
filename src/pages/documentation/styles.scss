@@ -5,7 +5,7 @@
   h3,
   p,
   li {
-    color: $blue-black;
+    color: $navy-black;
   }
   h2 {
     font-size: 20px;
@@ -119,7 +119,7 @@
       padding: 8px 16px 16px;
       margin-bottom: 16px;
       &:hover {
-        background-color: $grey-bg-hover;
+        background-color: $grey-1;
         box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
       }
       .chevron-link {

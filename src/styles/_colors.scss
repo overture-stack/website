@@ -5,37 +5,27 @@
 $yellow: $c-yellow-500;
 $white: $c-white;
 
-// colors to sort later
-$blue-2: $c-blue-600;
-$blue-3: $c-navy-400;
-$blue-bg: $c-blue-400;
-$blue-black: $c-navy-600;
-$blue-dark: $c-navy-500;
-$blue-darker: $c-navy-600;
-$blue-darkest: $c-grey-600;
+// streamlined colors
+// variables could be renamed
 $blue-light: $c-blue-400;
-$blue-links-darker: $c-blue-700;
-$blue-links-yellow-bg: $c-blue-700;
-$blue-links: $c-blue-700;
-$blue-nav: $c-navy-600;
 $blue-outline: $c-blue-500;
 $blue: $c-blue-600;
-$c-button-blue: $c-navy-500;
-$c-link-blue: $c-blue-700;
-$c-text-blue: $c-blue-700;
-$green-bg-dark: $c-teal-700;
-$green-bg: $c-teal-500;
-$green-link: $c-teal-600;
-$green-text: $c-teal-600;
+$blue-links: $c-blue-700;
+
 $grey-1: $c-grey-100;
 $grey-2: $c-grey-200;
 $grey-3: $c-grey-300;
-$grey-4: $c-grey-300;
-$grey-5: $c-grey-200;
-$grey-6: $c-grey-300;
-$grey-bg-hover-2: $c-grey-100;
-$grey-bg-hover-light: $c-grey-100;
-$grey-bg-hover: $c-grey-100;
+$grey-4: $c-grey-400;
+$grey-darkest: $c-grey-600;
+
+$navy-dark: $c-navy-500;
+$navy-black: $c-navy-600;
+
+// rename to teal?
+$green-bg: $c-teal-500;
+$green-text: $c-teal-600;
+
+// colors to sort later
 $grey-blue: $c-grey-200;
 $grey-border: $c-grey-400;
 $grey-hr: $c-grey-300;
@@ -50,6 +40,8 @@ $pink-darker: $c-pink-600;
 $pink-light: $c-pink-100;
 $pink: $c-pink-400;
 $tooltip-bg: $c-grey-600;
+
+// sorted colours
 
 // badges
 $badge-bg-blue: $c-blue-400;
@@ -73,5 +65,5 @@ $warning-border: $c-yellow-500;
 $warning-text: $c-navy-600;
 
 // misc
-$gradient-bg: $c-gradient-bg;
-$terminal-green: $c-green-bright;
+$gradient-bg: $c-blue-green-gradient;
+$terminal-text: $c-green-bright;

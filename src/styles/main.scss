@@ -9,7 +9,7 @@
 
 $primary-invert: $white;
 $navbar-item-hover-color: $pink-darker;
-$navbar-item-color: $blue-black;
+$navbar-item-color: $navy-black;
 $navbar-item-hover-background-color: $grey;
 $navbar-breakpoint: 1160px;
 $link: $blue;
@@ -20,7 +20,7 @@ $family-primary: $family-serif;
 
 // override bulma's hover CSS for the top navbar
 a.navbar-item:hover {
-  color: $blue-black;
+  color: $navy-black;
 }
 
 a.navbar-item.active-item {
@@ -100,20 +100,20 @@ body,
 }
 
 a {
-  color: $c-link-blue;
+  color: $blue-links;
   text-decoration: underline;
 }
 
 .button {
   text-decoration: none;
   &.is-primary {
-    background: $c-button-blue;
+    background: $navy-dark;
     &:hover,
     &:focus {
-      background: darken($c-button-blue, 4%);
+      background: darken($navy-dark, 4%);
     }
     &:active {
-      background: darken($c-button-blue, 8%);
+      background: darken($navy-dark, 8%);
     }
   }
 }
