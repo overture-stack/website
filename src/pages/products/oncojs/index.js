@@ -5,6 +5,7 @@ import {
   Button,
   Callout,
   H2,
+  Icon,
   LinkHelper as Link,
   ProductFeature,
   ProductHero,
