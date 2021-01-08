@@ -48,7 +48,7 @@ const ProductBox = ({
           } else {
             return (
               <span key={l.link} className="icon-link">
-                <Link className="link" to={`/products/${l.link}`}>
+                <Link className="link" to={l.link}>
                   <Icon
                     className="icon"
                     size={l.iconSize ? l.iconSize : iconSize}
