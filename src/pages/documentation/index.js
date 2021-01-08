@@ -158,7 +158,7 @@ export default function DocumentationPage() {
         </section>
       </div>
       {/* PRODUCT DOCUMENTATION SECTION */}
-      <div className="product-section bg-grey-light">
+      <div className="product-section bg-grey">
         <section className="container">
           <h2>Product Documentation</h2>
           <div className="columns">

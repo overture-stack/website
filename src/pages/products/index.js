@@ -243,6 +243,7 @@ export default function ProductsPage() {
           childComponent={ProductBox}
           data={featureGridData}
           iconSize={48}
+          sectionBG={['white', 'white', 'white']}
         />
       </div>
 

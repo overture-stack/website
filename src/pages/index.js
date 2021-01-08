@@ -12,8 +12,7 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
     <header className="card-header">
-      <div className="text-white">{header}</div>
-      <Icon img={icon} />
+      {header} <Icon img={icon} />
     </header>
 
     <section className="card-body">{children}</section>
