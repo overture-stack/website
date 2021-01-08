@@ -60,7 +60,7 @@ const ScorePage = () => (
       title="Score"
       subTitle="Transfer data quickly and easily to and from any cloud-based storage system."
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
-      getStartedLink={productsDict.score.github}
+      getStartedLink={productsDict.score.githubUrl}
       logo="logoScore"
       progressType="ga"
       badge={{ color: 'pink', text: 'Generate & Upload' }}
@@ -154,7 +154,7 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-        <Button icon="githubWhite" link={productsDict.score.github} size="medium" type="primary">
+        <Button icon="githubWhite" link={productsDict.score.githubUrl} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

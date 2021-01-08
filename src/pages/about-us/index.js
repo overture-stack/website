@@ -90,7 +90,7 @@ export default function AboutUsPage() {
         >
           <Button
             icon="githubWhite"
-            link={productsDict.overture.github}
+            link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"
           >

@@ -77,7 +77,7 @@ const JukeboxPage = () => (
           science right from the web browser in a live, collaborative environment.
         </div>
       }
-      getStartedLink={productsDict.jukebox.github}
+      getStartedLink={productsDict.jukebox.githubUrl}
       logo="logoJukebox"
       progressType="rc"
       badge={{ color: 'red', text: 'Analyze & Discover' }}
@@ -119,7 +119,7 @@ const JukeboxPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink={productsDict.jukebox.github}>
+    <GettingStarted pinnedLink={productsDict.jukebox.githubUrl}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -186,7 +186,7 @@ const JukeboxPage = () => (
         <Button
           className="mt2"
           icon="githubWhite"
-          link={productsDict.jukebox.github}
+          link={productsDict.jukebox.githubUrl}
           size="medium"
           type="primary"
         >

@@ -107,7 +107,7 @@ class NavBar extends Component {
 
                 <Button
                   icon="githubMagenta"
-                  link={productsDict.overture.github}
+                  link={productsDict.overture.githubUrl}
                   size="navGithub"
                   type="secondary"
                 >

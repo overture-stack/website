@@ -59,12 +59,12 @@ const data = {
         color: 'yellow',
         links: [
           {
-            to: productsDict.billing.github,
+            to: productsDict.billing.githubUrl,
             text: 'Billing & Usage',
             hasGithubIcon: true,
           },
           {
-            to: productsDict.enrolment.github,
+            to: productsDict.enrolment.githubUrl,
             text: 'Enrolment',
             hasGithubIcon: true,
           },

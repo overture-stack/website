@@ -147,12 +147,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: productsDict.billing.github,
+          extlink: productsDict.billing.githubUrl,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: productsDict.enrolment.github,
+          extlink: productsDict.enrolment.githubUrl,
         },
       ],
       ChildComponent: ProductBox,
@@ -282,7 +282,7 @@ export default function ProductsPage() {
         >
           <Button
             icon="githubWhite"
-            link={productsDict.overture.github}
+            link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"
           >

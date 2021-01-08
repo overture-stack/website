@@ -58,7 +58,7 @@ const PersonaPage = () => (
       title="Persona"
       subTitle="An effortless solution for storing profile information."
       cardText="Persona provides an easy-to-use solution for storing profile information. In tandem with Ego, users’ personas can be validated and expanded upon with custom fields."
-      getStartedLink={productsDict.persona.github}
+      getStartedLink={productsDict.persona.githubUrl}
       logo="logoPersona"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -165,7 +165,12 @@ const PersonaPage = () => (
         className="center"
         description="Persona provides an easy-to-use solution for storing profile information"
       >
-        <Button icon="githubWhite" link={productsDict.persona.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.persona.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

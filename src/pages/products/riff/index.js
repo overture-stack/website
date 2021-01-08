@@ -44,7 +44,7 @@ const RiffPage = () => (
       title="Riff"
       subTitle="Quintessential sharing."
       cardText="Riff is a service that allows you to save user queries and state and share them through convenient short URLs."
-      getStartedLink={productsDict.riff.github}
+      getStartedLink={productsDict.riff.githubUrl}
       logo="logoRiff"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -139,7 +139,7 @@ const RiffPage = () => (
         className="center"
         description="Save user queries and state and share them through convenient short URLs."
       >
-        <Button icon="githubWhite" link={productsDict.riff.github} size="medium" type="primary">
+        <Button icon="githubWhite" link={productsDict.riff.githubUrl} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

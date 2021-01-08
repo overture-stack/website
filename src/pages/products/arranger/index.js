@@ -35,7 +35,7 @@ const ArrangerPage = () => (
       title="Arranger"
       subTitle="Data can be messy, let Arranger organize it for you. "
       cardText="Provide your administrators with the power to organize an intuitive data search interface, complete with customizable components, tables, and search terms."
-      getStartedLink={productsDict.arranger.github}
+      getStartedLink={productsDict.arranger.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoArranger"
       progressType="rc"
@@ -213,7 +213,12 @@ const ArrangerPage = () => (
         description="Provide your administrators with the power to organize an intuitive data search interface."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.arranger.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.arranger.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

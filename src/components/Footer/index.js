@@ -77,13 +77,13 @@ const columns = {
   'Track & Manage': [
     {
       'Billing & Usage': {
-        link: productsDict.billing.github,
+        link: productsDict.billing.githubUrl,
         icon: 'githubGrey',
         newTab: true,
         className: '',
       },
       Enrolment: {
-        link: productsDict.enrolment.github,
+        link: productsDict.enrolment.githubUrl,
         icon: 'githubGrey',
         newTab: true,
         className: '',

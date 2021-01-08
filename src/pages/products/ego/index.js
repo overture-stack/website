@@ -37,7 +37,7 @@ const EgoPage = () => (
       title="Ego"
       subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
-      getStartedLink={productsDict.ego.github}
+      getStartedLink={productsDict.ego.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoEgo"
       progressType="ga"
@@ -212,7 +212,7 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.ego.github} size="medium" type="primary">
+        <Button icon="githubWhite" link={productsDict.ego.githubUrl} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

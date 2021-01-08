@@ -82,7 +82,7 @@ const MaestroPage = () => (
           single, configurable index.
         </div>
       }
-      getStartedLink={productsDict.maestro.github}
+      getStartedLink={productsDict.maestro.githubUrl}
       logo="logoMaestro"
       progressType="rc"
       badge={{ color: 'blue', text: 'Access & Download' }}
@@ -177,7 +177,12 @@ const MaestroPage = () => (
         className="center"
         description="Index a single analysis, a study or a full Song with one request."
       >
-        <Button icon="githubWhite" link={productsDict.maestro.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.maestro.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

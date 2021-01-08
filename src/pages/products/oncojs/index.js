@@ -40,7 +40,7 @@ const OncoPage = () => (
       title="OncoJS"
       subTitle="Bring data to life with stunning visualizations and real-time analysis."
       cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
-      getStartedLink={productsDict.oncojs.github}
+      getStartedLink={productsDict.oncojs.githubUrl}
       badge={{ color: 'red', text: 'Analyze & Discover' }}
       logo="logoOncojs"
       progressType="ga"
@@ -346,7 +346,12 @@ const OncoPage = () => (
         description="Bring data to life with stunning visualizations and real-time analysis."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.oncojs.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.oncojs.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>
