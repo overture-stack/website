@@ -1,3 +1,5 @@
+const properUrlJoin = require('proper-url-join');
+
 module.exports = {
   copyToClipboard: function(str) {
     // ref: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
@@ -21,4 +23,5 @@ module.exports = {
       .substring(0, 25)
       .toLowerCase();
   },
+  internalUrlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true }),
 };
