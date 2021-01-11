@@ -1,17 +1,10 @@
 import urlJoin from 'proper-url-join';
 import { internalUrlJoin } from '../utils';
+import { PRODUCTS_PATH } from './pages';
+import { ONCOJS_GITHUB_LINK, OVERTURE_GITHUB_LINK } from './external-links';
 
-// github
-
-const GITHUB_ROOT = 'https://github.com/overture-stack/';
-const DOCS_ROOT = '/documentation';
-const PRODUCTS_ROOT = '/products';
-
-const makeProductsObj = slug => ({
-  docs: internalUrlJoin(DOCS_ROOT, slug),
-  github: urlJoin(GITHUB_ROOT, slug),
-  products: internalUrlJoin(PRODUCTS_ROOT, slug),
-});
+// products info that is created or accessed programmatically
+// for other external link constants use external-links.js
 
 const productsObj = {
   arranger: {
@@ -20,7 +13,7 @@ const productsObj = {
   },
   billing: {
     iconWhite: 'productBillingWhite',
-    products: null,
+    productsPath: null,
     title: 'Billing & Usage',
   },
   enrolment: {
@@ -29,7 +22,7 @@ const productsObj = {
   },
   dms: {
     iconWhite: 'productDMSWhite',
-    products: null,
+    productsPath: null,
     title: 'DMS',
   },
   ego: {
@@ -37,7 +30,7 @@ const productsObj = {
     title: 'Ego',
   },
   jukebox: {
-    // github: properUrlJoin(GITHUB_ROOT, 'jupyter'),
+    githubUrl: urlJoin(OVERTURE_GITHUB_LINK, 'jupyter'),
     iconWhite: 'productJukeboxWhite',
     title: 'Jukebox',
   },
@@ -46,11 +39,11 @@ const productsObj = {
     title: 'Maestro',
   },
   oncojs: {
-    github: 'https://github.com/oncojs',
+    githubUrl: ONCOJS_GITHUB_LINK,
     iconWhite: 'productOncoWhite',
     title: 'OncoJS',
   },
-  overture: { docs: null, github: GITHUB_ROOT, products: null, title: 'Overture' },
+  overture: { githubUrl: OVERTURE_GITHUB_LINK, productsPath: null, title: 'Overture' },
   persona: {
     iconWhite: 'productPersonaWhite',
     title: 'Persona',
@@ -69,15 +62,20 @@ const productsObj = {
   },
 };
 
-module.exports = Object.entries(productsObj).reduce(
-  ([key, value], acc) => ({
-    [key]: {
-      docs: internalUrlJoin(DOCS_ROOT, key),
-      github: properUrlJoin(GITHUB_ROOT, key),
-      products: internalUrlJoin(PRODUCTS_ROOT, key),
-      ...value,
-    },
+const productsDict = Object.entries(productsObj).reduce(
+  (acc, [key, value]) => ({
     ...acc,
+    ...(key
+      ? {
+          [key]: {
+            githubUrl: urlJoin(OVERTURE_GITHUB_LINK, key),
+            productsPath: internalUrlJoin([PRODUCTS_PATH, key]),
+            ...value,
+          },
+        }
+      : {}),
   }),
   {}
 );
+
+export default productsDict;

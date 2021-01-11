@@ -3,7 +3,14 @@
  */
 import React from 'react';
 import { Icon, LinkHelper as Link } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH } from 'constants/pages';
+import {
+  NETLIFY_LINK,
+  NETLIFY_IMAGE_LINK,
+  OICR_LINK,
+  TEAM_BLOG_LINK,
+} from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
 
@@ -13,13 +20,13 @@ const columns = {
   'Generate & Upload': [
     {
       Score: {
-        link: '/products/score',
+        link: productsDict.score.productsPath,
         icon: null,
         newTab: false,
         className: '',
       },
       Song: {
-        link: '/products/song',
+        link: productsDict.song.productsPath,
         icon: null,
         newTab: false,
         className: '',
@@ -29,7 +36,7 @@ const columns = {
   'Access & Download': [
     {
       Ego: {
-        link: '/products/ego',
+        link: productsDict.ego.productsPath,
         icon: null,
         newTab: false,
         className: '',
@@ -38,25 +45,25 @@ const columns = {
         icon: null,
         newTab: false,
         className: '',
-        link: '/products/maestro',
+        link: productsDict.maestro.productsPath,
       },
       Arranger: {
         icon: null,
         newTab: false,
         className: '',
-        link: '/products/arranger',
+        link: productsDict.arranger.productsPath,
       },
     },
   ],
   'Analyze & Discover': [
     {
       Jukebox: {
-        link: '/products/jukebox',
+        link: productsDict.jukebox.productsPath,
         newTab: false,
         className: '',
       },
       OncoJS: {
-        link: '/products/oncojs',
+        link: productsDict.oncojs.productsPath,
         className: '',
       },
     },
@@ -65,10 +72,10 @@ const columns = {
     {
       Persona: {
         className: '',
-        link: '/products/persona',
+        link: productsDict.persona.productsPath,
       },
       Riff: {
-        link: '/products/riff',
+        link: productsDict.riff.productsPath,
         newTab: false,
         className: '',
       },
@@ -109,7 +116,7 @@ const columns = {
         className: '',
       },
       'About Us': {
-        link: '/about-us',
+        link: ABOUT_US_PATH,
         icon: null,
         newTab: false,
         className: '',
@@ -129,7 +136,7 @@ const columns = {
         className: '',
       },
       'Team Blog': {
-        link: 'http://softeng.oicr.on.ca/',
+        link: TEAM_BLOG_LINK,
         icon: null,
         newTab: true,
         className: '',
@@ -172,7 +179,7 @@ const Footer = () => {
     <footer className="Footer site-wrapper__footer">
       <div className="container">
         <div className="footer-box">
-          <Link className="oicr-logo" to="http://oicr.on.ca">
+          <Link className="oicr-logo" to={OICR_LINK}>
             <img src={logo} alt="OICR" />
           </Link>
           <FooterColumns />
@@ -182,18 +189,15 @@ const Footer = () => {
         <div className="footer-credits__text">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
           <div className="px1">
-            <Link to="/privacy/">Privacy</Link>
+            <Link to={PRIVACY_PATH}>Privacy</Link>
             <span>|</span>
-            <Link to="/terms-conditions/">Terms & Conditions</Link>
+            <Link to={TERMS_PATH}>Terms & Conditions</Link>
           </div>
         </div>
       </div>
       <div className="netlify-badge">
-        <Link to="https://www.netlify.com">
-          <img
-            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
-            alt="Deploys by Netlify"
-          />
+        <Link to={NETLIFY_LINK}>
+          <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
         </Link>
       </div>
     </footer>

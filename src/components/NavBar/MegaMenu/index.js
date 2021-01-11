@@ -2,7 +2,8 @@
  * Component: Display the Megamenu on mouse over / tap.
  */
 import React from 'react';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { PRODUCTS_PATH } from 'constants/pages';
 import { Badge, Icon, IconCommon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
@@ -14,7 +15,7 @@ const data = {
       title: 'Explore our products',
       text: 'Overture is a collection of open-source products for big-data genomic science.',
       link: {
-        to: '/products/',
+        to: PRODUCTS_PATH,
         text: 'All products',
       },
     },
@@ -24,8 +25,8 @@ const data = {
         color: 'pink',
         hasCoreIcon: true,
         links: [
-          { to: '/products/song/', text: 'Song' },
-          { to: '/products/score/', text: 'Score' },
+          { to: productsDict.song.productsPath, text: 'Song' },
+          { to: productsDict.score.productsPath, text: 'Score' },
         ],
       },
       {
@@ -33,25 +34,25 @@ const data = {
         color: 'blue',
         hasCoreIcon: true,
         links: [
-          { to: '/products/ego/', text: 'Ego' },
-          { to: '/products/maestro/', text: 'Maestro' },
-          { to: '/products/arranger/', text: 'Arranger' },
+          { to: productsDict.ego.productsPath, text: 'Ego' },
+          { to: productsDict.maestro.productsPath, text: 'Maestro' },
+          { to: productsDict.arranger.productsPath, text: 'Arranger' },
         ],
       },
       {
         title: 'Analyze & Discover',
         color: 'red',
         links: [
-          { to: '/products/jukebox/', text: 'Jukebox' },
-          { to: '/products/oncojs/', text: 'OncoJS' },
+          { to: productsDict.jukebox.productsPath, text: 'Jukebox' },
+          { to: productsDict.oncojs.productsPath, text: 'OncoJS' },
         ],
       },
       {
         title: 'Collaborate & Share',
         color: 'light-green',
         links: [
-          { to: '/products/persona/', text: 'Persona' },
-          { to: '/products/riff/', text: 'Riff' },
+          { to: productsDict.persona.productsPath, text: 'Persona' },
+          { to: productsDict.riff.productsPath, text: 'Riff' },
         ],
       },
       {

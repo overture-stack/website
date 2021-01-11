@@ -14,7 +14,8 @@ import {
   ProductHero,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { PERSONA_ENV_SCHEMA_LINK } from 'constants/external-links';
 
 const featureGridData = [
   [
@@ -36,7 +37,7 @@ const featureGridData = [
       details: (
         <div>
           Built to interact seamlessly with the user authorization product,{' '}
-          <Link to="/products/ego/">Ego.</Link>
+          <Link to={productsDict.ego.productsPath}>Ego.</Link>
         </div>
       ),
       icon: 'target',
@@ -124,9 +125,7 @@ const PersonaPage = () => (
             <ul className="step-text">
               <li className="bullet">
                 Add the required environment variables, documented in{' '}
-                <Link to="https://github.com/overture-stack/persona/blob/master/.env.schema">
-                  .env.schema.
-                </Link>
+                <Link to={PERSONA_ENV_SCHEMA_LINK}>.env.schema.</Link>
               </li>
               <li className="bullet">Install required dependencies node, mongodb, and npm.</li>
             </ul>
@@ -144,7 +143,7 @@ const PersonaPage = () => (
             <div className="py3">
               <div>
                 Persona is now running and you can access it at{' '}
-                <Link to="http://localhost:3232/graphql">http://localhost:3232/graphql</Link>.
+                <Link to={PERSONA_LOCAL_LINK}>{PERSONA_LOCAL_LINK}</Link>.
               </div>
             </div>
           </div>

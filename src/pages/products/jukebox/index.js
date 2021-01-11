@@ -15,7 +15,8 @@ import {
   Terminal,
   UrlBar,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { JUPYTER_LINK, JUPYTER_INSTALL_LINK } from 'constants/external-links';
 
 import './style.scss';
 
@@ -71,10 +72,9 @@ const JukeboxPage = () => (
       subTitle="Spinning up interactive development environments is hard!"
       cardText={
         <div>
-          Jukebox automates set-up and deployment of{' '}
-          <Link to="http://jupyter.org/index.html">JupyterHub</Link>. Your users can access personal{' '}
-          <Link to="http://jupyter.org/install.html">Jupyter notebooks</Link> in one click to do
-          science right from the web browser in a live, collaborative environment.
+          Jukebox automates set-up and deployment of <Link to={JUPYTER_LINK}>JupyterHub</Link>. Your
+          users can access personal <Link to={JUPYTER_INSTALL_LINK}>Jupyter notebooks</Link> in one
+          click to do science right from the web browser in a live, collaborative environment.
         </div>
       }
       getStartedLink={productsDict.jukebox.githubUrl}
@@ -198,12 +198,7 @@ const JukeboxPage = () => (
         icon="pageWhite"
         description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
       >
-        <Button
-          className="mt2"
-          link="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
-          size="medium"
-          type="primary"
-        >
+        <Button className="mt2" link={JUKEBOX_BLOG_POST_LINK} size="medium" type="primary">
           Related Blog Post
         </Button>
       </Callout>

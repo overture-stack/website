@@ -14,7 +14,7 @@ import {
   ProductHero,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 import './style.scss';
 
@@ -121,7 +121,7 @@ const SongPage = () => (
 
     {/* Getting Started /  Terminals */}
 
-    <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
+    <GettingStarted pinnedLink={SONG_DOCS_LINK}>
       {/* Getting Started: Step 1 */}
       <div className="columns Step">
         <div className="column is-3">
@@ -183,8 +183,8 @@ const SongPage = () => (
 
         <div className="center h3">
           Or use our storage system
-          <Link className="link-magenta pl1" to="/products/score/">
-            Score >
+          <Link className="link-magenta pl1" to={productsDict.score.productsPath}>
+            Score &gt;
           </Link>
         </div>
       </section>
@@ -206,10 +206,7 @@ const SongPage = () => (
         icon="pageWhite"
         description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
       >
-        <Link
-          className="button is-primary is-medium mt2"
-          to="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
-        >
+        <Link className="button is-primary is-medium mt2" to={SONG_BLOG_POST_LINK}>
           <div className="ml1 text-white">Related blog post</div>
         </Link>
       </Callout>

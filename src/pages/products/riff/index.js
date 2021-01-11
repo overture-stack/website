@@ -13,7 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 const featureGridData = [
   [

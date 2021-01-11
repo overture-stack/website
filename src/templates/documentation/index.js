@@ -18,7 +18,7 @@ import {
 } from 'components';
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import { findNextPrevPages } from './utils';
 import './styles.scss';
 

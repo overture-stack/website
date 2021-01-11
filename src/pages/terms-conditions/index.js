@@ -1,4 +1,5 @@
 import React from 'react';
+import { PRIVACY_PATH } from 'constants/pages';
 import { H1, H4, LinkHelper as Link } from 'components';
 import './styles.scss';
 
@@ -75,9 +76,9 @@ const TermsConditionsPage = () => (
           <span className="bold pr2">2</span>Website Privacy Statement
         </Heading>
         <p>
-          The <Link to="/privacy/">Website Privacy Statement </Link> applies to your use of this
+          The <Link to={PRIVACY_PATH}>Website Privacy Statement </Link> applies to your use of this
           website. Please ensure you have read and agree with the{' '}
-          <Link to="/privacy/">Website Privacy Statement</Link>. By visiting and using this Site,
+          <Link to={PRIVACY_PATH}>Website Privacy Statement</Link>. By visiting and using this Site,
           you are consenting to the collection, use and disclosure of your Personal Information
           while visiting the Site.
         </p>

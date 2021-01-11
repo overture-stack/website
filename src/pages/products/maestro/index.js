@@ -14,7 +14,7 @@ import {
   ProductHero,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 import './style.scss';
 
@@ -31,7 +31,7 @@ const featureGridData = [
       details: (
         <div>
           Manage data release by exclusion of specific analyses based on any metadata tags found in{' '}
-          <Link to="/products/song/">Song</Link>.
+          <Link to={productsDict.song.productsPath}>Song</Link>.
         </div>
       ),
       icon: 'target',
@@ -49,8 +49,8 @@ const featureGridData = [
       header: 'Multiple Repository Management',
       details: (
         <div>
-          Connect multiple <Link to="/products/song/">Song</Link> servers to the same Maestro to
-          query data distributed across different repositories.
+          Connect multiple <Link to={productsDict.song.productsPath}>Song</Link> servers to the same
+          Maestro to query data distributed across different repositories.
         </div>
       ),
       icon: 'target',
@@ -78,8 +78,8 @@ const MaestroPage = () => (
       cardText={
         <div>
           Maestro helps you manage geographically distributed data stored in{' '}
-          <Link to="/products/song/">Song</Link> and <Link to="/products/score/">Score</Link> with a
-          single, configurable index.
+          <Link to={productsDict.song.productsPath}>Song</Link> and{' '}
+          <Link to={productsDict.score.productsPath}>Score</Link> with a single, configurable index.
         </div>
       }
       getStartedLink={productsDict.maestro.githubUrl}
@@ -96,8 +96,8 @@ const MaestroPage = () => (
         iconSize={96}
         details={
           <div>
-            Index a single analysis, a study or a full <Link to="/products/song/">Song</Link>{' '}
-            repository with one request.
+            Index a single analysis, a study or a full{' '}
+            <Link to={productsDict.song.productsPath}>Song</Link> repository with one request.
           </div>
         }
       />
@@ -114,8 +114,8 @@ const MaestroPage = () => (
         iconSize={64}
         details={
           <div>
-            Built to interact natively with <Link to="/products/song/">Song</Link> and{' '}
-            <Link to="/products/arranger/">Arranger</Link>.
+            Built to interact natively with <Link to={productsDict.song.productsPath}>Song</Link>{' '}
+            and <Link to={productsDict.arranger.productsPath}>Arranger</Link>.
           </div>
         }
       />
@@ -125,7 +125,7 @@ const MaestroPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink="https://maestro-overture.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={MAESTRO_UPDATES_LINK}>
       <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>

@@ -10,7 +10,8 @@ import {
   ProductHero,
   WindowGui,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { GDC_LINK, LOLLIPLOT_EXAMPLE_LINK, ONCOGRID_EXAMPLE_LINK } from 'constants/external-links';
 
 // Screenshots
 import lolliplotScreen from './assets/lolliplot_screen.png';
@@ -84,7 +85,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
+              <Link className="bold text-magenta" to={GDC_LINK}>
                 Live example &gt;
               </Link>
             </div>
@@ -142,10 +143,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="bold text-magenta"
-                to="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
-              >
+              <Link className="bold text-magenta" to={LOLLIPLOT_EXAMPLE_LINK}>
                 Live example &gt;
               </Link>
             </div>
@@ -200,10 +198,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="bold text-magenta"
-                to="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
-              >
+              <Link className="bold text-magenta" to={ONCOGRID_EXAMPLE_LINK}>
                 Live example &gt;
               </Link>
             </div>
@@ -265,10 +260,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="bold text-magenta"
-                to="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
-              >
+              <Link className="bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINKS}>
                 Live example &gt;
               </Link>
             </div>
@@ -322,7 +314,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to="https://portal.gdc.cancer.gov/">
+              <Link className="bold text-magenta" to={GDC_LINK}>
                 Live example &gt;
               </Link>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { H1, H4, LinkHelper as Link } from 'components';
+import { FAQ_LINK, POLICIES_LINK, PRIVACY_EMAIL_LINK } from 'constants/external-links';
 import './styles.scss';
 
 const Heading = ({ children }) => (
@@ -107,15 +108,8 @@ const PrivacyPage = () => (
         <Heading>Additional Information</Heading>
         <p>
           If you would like to learn more about OICR’s commitment to protecting privacy, please see
-          our{' '}
-          <Link to="https://oicr.on.ca/oicr-policies-and-procedures/">
-            organizational Privacy Policy
-          </Link>
-          . You may also view our{' '}
-          <Link to="https://oicr.on.ca/information-practices-frequently-asked-questions/">
-            Information Practices Frequently Asked Questions
-          </Link>
-          .
+          our <Link to={POLICIES_LINK}>organizational Privacy Policy</Link>. You may also view our{' '}
+          <Link to={FAQ_LINK}>Information Practices Frequently Asked Questions</Link>.
         </p>
         <p>
           If you have any questions or concerns about privacy at OICR, please send a written request
@@ -130,7 +124,7 @@ const PrivacyPage = () => (
         <div>Canada M5G 0A3</div>
         <div>
           <span className="bold pr1">Email:</span>
-          <Link to="mailto:privacy@oicr.on.ca">privacy@oicr.on.ca</Link>
+          <Link to={PRIVACY_EMAIL_LINK}>privacy@oicr.on.ca</Link>
         </div>
       </section>
     </article>

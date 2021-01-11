@@ -9,7 +9,7 @@ import {
   IconCommon,
   LinkHelper as Link,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
