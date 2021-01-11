@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import productsDict from 'constants/products';
-import { CASE_STUDIES_PATH } from 'constants/pages';
+import { CASE_STUDIES_PATH, SERVICES_PATH } from 'constants/pages';
 import { Badge, Button, H1, H2, Hero, Icon, LinkHelper as Link } from 'components';
 import { OVERTURE_YOUTUBE_LINK, TEAM_LINK } from 'constants/external-links';
 import { productsAnchors } from 'constants/pages';
