@@ -9,6 +9,9 @@ export const ProductFeatureRow = ({ children }) => (
   </div>
 );
 
+const SmallIcon = ({ img, size = 32 }) => <Icon img={img} size={size} />;
+const LargeIcon = ({ img, size = 64 }) => <Icon img={img} size={size} />;
+
 /**
  * Component for displaying a header, an icon, and a paragraph of text.
  * Used exensively across product pages.
@@ -29,7 +32,7 @@ export const ProductFeature = ({
       <div className={`ProductFeature small ${className}`}>
         <div className="flex items-center py2">
           {/* Icon */}
-          <Icon img={icon} size={iconSize || 32} />
+          <SmallIcon img={icon} size={iconSize} />
 
           {/* header */}
           {header ? (
@@ -47,7 +50,7 @@ export const ProductFeature = ({
     return (
       <div className="ProductFeature default">
         {/* Icon */}
-        <Icon img={icon} size={iconSize || 64} />
+        <LargeIcon img={icon} size={iconSize} />
 
         {/* header */}
         <div className="header">{header}</div>
