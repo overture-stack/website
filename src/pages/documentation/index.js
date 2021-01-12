@@ -9,6 +9,9 @@ const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+// TODO: create constants for documentation URLs
+// once content is created
+const linkTodo = '#';
 
 const productSections = [
   {
@@ -127,7 +130,7 @@ export default function DocumentationPage() {
                   ))}
                 </div>
               </div>
-              <Button type="primary" size="medium" link="/documentation/TODO/">
+              <Button type="primary" size="medium" link={linkTodo}>
                 Installation Instructions
               </Button>
             </div>
@@ -135,22 +138,21 @@ export default function DocumentationPage() {
               <h2>Help by Topic</h2>
               <ul>
                 <li>
-                  How can I <Link to="/documentation/TODO/">extend the DMS system</Link> to include
-                  other Overture products?
+                  How can I <Link to={linkTodo}>extend the DMS system</Link> to include other
+                  Overture products?
                 </li>
                 <li>
-                  How do I <Link to="/documentation/TODO/">customize the look of my DMS</Link>?
+                  How do I <Link to={linkTodo}>customize the look of my DMS</Link>?
                 </li>
                 <li>
-                  Where can I find the <Link to="/documentation/TODO/">release notes</Link> for the
-                  DMS and each product?
+                  Where can I find the <Link to={linkTodo}>release notes</Link> for the DMS and each
+                  product?
                 </li>
                 <li>
-                  How can I <Link to="/documentation/TODO/">get involved</Link> with this open
-                  source project?
+                  How can I <Link to={linkTodo}>get involved</Link> with this open source project?
                 </li>
                 <li>
-                  Where can I <Link to="/documentation/TODO/">see these products in action</Link>?
+                  Where can I <Link to={linkTodo}>see these products in action</Link>?
                 </li>
               </ul>
             </div>
