@@ -251,6 +251,7 @@ export default function ProductsPage() {
     <main className="ProductsPage">
       {/* HERO */}
       <Hero
+        alt=""
         title="Products"
         titleClass="hero-text is-4-desktop"
         subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
