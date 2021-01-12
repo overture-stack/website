@@ -93,7 +93,7 @@ class HomePage extends React.Component {
         >
           <span className="hero-buttons">
             <Button type="blue" className="my2 mr2" size="medium" onClick={() => this.openModal()}>
-              <Icon img="play" size={26} className="mr1" />
+              <Icon alt="Play video" img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 

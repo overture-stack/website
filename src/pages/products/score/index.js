@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H4,
+  H3,
   ProductFeature,
   ProductFeatureRow,
   GridFeature,
@@ -101,7 +101,7 @@ const ScorePage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Build the Score server.</H4>
+            <H3>Build the Score server.</H3>
             <div className="py3">
               This will be your users method of interfacing with the cloud-based service you choose
               to store your data on.
@@ -121,7 +121,7 @@ const ScorePage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build the Score client.</H4>
+            <H3>Build the Score client.</H3>
 
             <div className="py3">
               The Score client communicates with the Score server, which uploads and downloads your
