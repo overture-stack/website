@@ -100,7 +100,7 @@ const EgoPage = () => (
 
           {/* screenshot */}
           <div className="column is-8-desktop  is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>

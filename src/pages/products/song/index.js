@@ -164,9 +164,9 @@ const SongPage = () => (
         <H2 className="center pb3">Compatible storage partners</H2>
 
         <div className="column storage-partners">
-          <img src={aws} style={{ width: '120px' }} />
-          <img src={azure} style={{ width: '175px' }} />
-          <img src={pgsql} style={{ width: '120px' }} />
+          <img alt="AWS logo" src={aws} style={{ width: '120px' }} />
+          <img alt="Azure logo" src={azure} style={{ width: '175px' }} />
+          <img alt="PGSql logo" src={pgsql} style={{ width: '120px' }} />
         </div>
 
         <div className="center h3">

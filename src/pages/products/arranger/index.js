@@ -97,7 +97,7 @@ const ArrangerPage = () => (
 
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>
