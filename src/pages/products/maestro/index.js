@@ -15,6 +15,7 @@ import {
   Terminal,
 } from 'components';
 import productsDict from 'constants/products';
+import { MAESTRO_UPDATES_LINK } from 'constants/external-links';
 
 import './style.scss';
 

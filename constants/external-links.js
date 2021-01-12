@@ -40,7 +40,7 @@ export const LOLLIPLOT_EXAMPLE_LINK = 'https://portal.gdc.cancer.gov/genes/ENSG0
 export const ONCOGRID_EXAMPLE_LINK =
   'https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e';
 export const SURVIVALPLOT_EXAMPLE_LINK =
-  '"https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6';
+  'https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6';
 export const ONCOJS_GITHUB_LINK = 'https://github.com/oncojs';
 
 // maestro

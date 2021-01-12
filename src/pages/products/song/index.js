@@ -15,6 +15,7 @@ import {
   Terminal,
 } from 'components';
 import productsDict from 'constants/products';
+import { SONG_BLOG_POST_LINK, SONG_DOCS_LINK } from 'constants/external-links';
 
 import './style.scss';
 

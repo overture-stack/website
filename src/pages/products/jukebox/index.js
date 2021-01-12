@@ -16,7 +16,11 @@ import {
   UrlBar,
 } from 'components';
 import productsDict from 'constants/products';
-import { JUPYTER_LINK, JUPYTER_INSTALL_LINK } from 'constants/external-links';
+import {
+  JUKEBOX_BLOG_POST_LINK,
+  JUPYTER_LINK,
+  JUPYTER_INSTALL_LINK,
+} from 'constants/external-links';
 
 import './style.scss';
 

@@ -14,7 +14,7 @@ import {
   Terminal,
 } from 'components';
 import productsDict from 'constants/products';
-import { EGO_UPDATES_LINK } from 'constants/external-links';
+import { EGO_SQL_LINK, EGO_UPDATES_LINK } from 'constants/external-links';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 

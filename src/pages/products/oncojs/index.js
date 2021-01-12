@@ -11,7 +11,12 @@ import {
   WindowGui,
 } from 'components';
 import productsDict from 'constants/products';
-import { GDC_LINK, LOLLIPLOT_EXAMPLE_LINK, ONCOGRID_EXAMPLE_LINK } from 'constants/external-links';
+import {
+  GDC_LINK,
+  LOLLIPLOT_EXAMPLE_LINK,
+  ONCOGRID_EXAMPLE_LINK,
+  SURVIVALPLOT_EXAMPLE_LINK,
+} from 'constants/external-links';
 
 // Screenshots
 import lolliplotScreen from './assets/lolliplot_screen.png';
@@ -260,7 +265,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINKS}>
+              <Link className="bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINK}>
                 Live example &gt;
               </Link>
             </div>

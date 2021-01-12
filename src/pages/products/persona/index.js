@@ -15,7 +15,7 @@ import {
   Terminal,
 } from 'components';
 import productsDict from 'constants/products';
-import { PERSONA_ENV_SCHEMA_LINK } from 'constants/external-links';
+import { PERSONA_LOCAL_LINK, PERSONA_ENV_SCHEMA_LINK } from 'constants/external-links';
 
 const featureGridData = [
   [
