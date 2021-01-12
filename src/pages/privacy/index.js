@@ -118,8 +118,8 @@ const PrivacyPage = () => (
           .
         </p>
         <p>
-          If you have any questions or concerns about privacy at OICR, please send a written request
-          to:
+          If you have any questions or concerns about privacy at OICR, please
+          send a written request to:
         </p>
 
         <div className="bold"> Attn: Privacy Officer</div>
