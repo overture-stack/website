@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H4,
+  H3,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
@@ -84,7 +84,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Install Postgres.</H4>
+            <H3>Install Postgres.</H3>
             <div className="step-text">
               To get started, you'll first need to install a database.
             </div>
@@ -103,7 +103,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Clone the git repo.</H4>
+            <H3>Clone the git repo.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -117,7 +117,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Set up Riff.</H4>
+            <H3>Set up Riff.</H3>
             <div className="step-text">
               The database schema will be preconfigured as part of the set up!
             </div>

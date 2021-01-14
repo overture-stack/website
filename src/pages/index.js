@@ -89,11 +89,11 @@ class HomePage extends React.Component {
         <Hero
           title="Worry less, science more"
           subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
-          ImgComponent={() => <img className="home-img" src={heroImg} />}
+          ImgComponent={() => <img alt="" className="home-img" src={heroImg} />}
         >
           <span className="hero-buttons">
             <Button type="blue" className="my2 mr2" size="medium" onClick={() => this.openModal()}>
-              <Icon img="play" size={26} className="mr1" />
+              <Icon alt="Play video" img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 

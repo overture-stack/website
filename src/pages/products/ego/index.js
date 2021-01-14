@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H4,
+  H3,
   Button,
   ProductFeature,
   ProductFeatureRow,
@@ -100,7 +100,7 @@ const EgoPage = () => (
 
           {/* screenshot */}
           <div className="column is-8-desktop  is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>
@@ -115,7 +115,7 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>To get started, you’ll first need to set up a database.</H4>
+            <H3>To get started, you’ll first need to set up a database.</H3>
             <ul className="step-text">
               <li className="bullet">Install Postgres. </li>
               <li className="bullet">
@@ -139,7 +139,7 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Define the tables in your database.</H4>
+            <H3>Define the tables in your database.</H3>
 
             <ul className="step-text">
               <li className="bullet">
@@ -171,7 +171,7 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Run one of the three supported Ego profiles.</H4>
+            <H3>Run one of the three supported Ego profiles.</H3>
 
             <ul className="step-text">
               <li className="bullet">
