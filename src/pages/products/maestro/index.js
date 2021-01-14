@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H3,
+  H4,
   Button,
   ProductFeature,
   ProductFeatureRow,
@@ -112,7 +112,7 @@ const MaestroPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H3>Clone the repo.</H3>
+            <H4>Clone the repo.</H4>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -128,7 +128,7 @@ const MaestroPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H3>Build and run the source code with maven.</H3>{' '}
+            <H4>Build and run the source code with maven.</H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -142,7 +142,7 @@ const MaestroPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H3>Or run using docker compose.</H3>{' '}
+            <H4>Or run using docker compose.</H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>

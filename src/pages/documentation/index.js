@@ -99,14 +99,14 @@ export default function DocumentationPage() {
       <div className="hero">
         <div className="container">
           <div className="image image-consulting">
-            <img alt="" src={consultingSvg} />
+            <img src={consultingSvg} />
           </div>
           <div className="search__container">
             <h1>How can we help?</h1>
             <Search indices={searchIndices} />
           </div>
           <div className="image image-techsupport">
-            <img alt="" src={techSupportSvg} />
+            <img src={techSupportSvg} />
           </div>
         </div>
       </div>

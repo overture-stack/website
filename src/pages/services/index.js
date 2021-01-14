@@ -46,7 +46,7 @@ const ServicesPage = () => (
 
       {/* Img  */}
       <div className="column is-half is-offset-1 is-hidden-mobile">
-        <img alt="" src={academicImg} />
+        <img src={academicImg} />
       </div>
     </MarketingSection>
 
@@ -102,7 +102,7 @@ const ServicesPage = () => (
 
       {/* Img  */}
       <div className="column is-half is-offset-1 is-hidden-mobile">
-        <img alt="" src={techImg} />
+        <img src={techImg} />
       </div>
     </MarketingSection>
 

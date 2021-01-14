@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* HERO */}
       <Hero
         title="Contact Us"
-        ImgComponent={() => <img alt="" className="contact-hero-img" src={heroImg} />}
+        ImgComponent={() => <img className="contact-hero-img" src={heroImg} />}
         fgImage="img_contact"
         fgImageClass="contact-hero-img"
       />

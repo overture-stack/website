@@ -48,7 +48,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
 
         {/* Right Column */}
         <div className="column is-one-third card-img-box">
-          <img alt="" className={`card-img ${logo}`} src={logos[logo]} />
+          <img className={`card-img ${logo}`} src={logos[logo]} />
         </div>
       </div>
     </div>

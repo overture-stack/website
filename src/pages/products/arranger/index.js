@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H3,
+  H4,
   Button,
   ProductFeature,
   ProductFeatureRow,
@@ -97,7 +97,7 @@ const ArrangerPage = () => (
 
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
-            <img alt="" src={screenshot} />
+            <img src={screenshot} />
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@ const ArrangerPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H3>Clone the repo.</H3>
+            <H4>Clone the repo.</H4>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -129,7 +129,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">2</H2>
           <div>
             {' '}
-            <H3>Run docker compose.</H3>{' '}
+            <H4>Run docker compose.</H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -145,7 +145,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">3</H2>
           <div>
             {' '}
-            <H3>Go to localhost to see arranger server.</H3>{' '}
+            <H4>Go to localhost to see arranger server.</H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -163,7 +163,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">4</H2>
           <div>
             {' '}
-            <H3>
+            <H4>
               Follow the{' '}
               <a
                 target="_blank"
@@ -172,7 +172,7 @@ const ArrangerPage = () => (
                 quick guide
               </a>{' '}
               to generate demo data and a local portal!
-            </H3>{' '}
+            </H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
