@@ -1,10 +1,10 @@
 import React from 'react';
-import { H1, H3 } from 'components';
+import { H1, H2 } from 'components';
 import './styles.scss';
 
 const Heading = ({ children }) => (
   <div className="pt2">
-    <H3 className="">{children}</H3>
+    <H2 className="t-h4">{children}</H2>
     <div className="my2 yellow-bar" />
   </div>
 );

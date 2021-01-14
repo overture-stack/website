@@ -49,11 +49,11 @@ export default function AboutUsPage() {
         <div className="flex py2">
           <a className="hero-link" target="_blank" href="https://softeng.oicr.on.ca/team/">
             Meet the team
-            <Icon size={16} img="arrowRightMagenta" />
+            <Icon alt="right arrow" size={16} img="arrowRightMagenta" />
           </a>
           <a className="hero-link pl3" target="_blank" href="https://softeng.oicr.on.ca/">
             Team blog
-            <Icon size={16} img="arrowRightMagenta" />
+            <Icon alt="right arrow" size={16} img="arrowRightMagenta" />
           </a>
         </div>
       </Hero>
@@ -72,6 +72,7 @@ export default function AboutUsPage() {
             size="medium"
             externalLink={productsDict.overture.github}
             icon="githubWhite"
+            iconAlt="github icon"
           >
             Get Started
           </Button>

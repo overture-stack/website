@@ -64,6 +64,7 @@ export default function ContactPage() {
                   className="my2 mr2"
                   size="medium"
                   icon="mail"
+                  iconAlt="mail icon"
                   externalLink="mailto:contact@overture.bio"
                   target="_self"
                 >
@@ -74,6 +75,7 @@ export default function ContactPage() {
                   type="secondary"
                   size="medium"
                   icon="slack"
+                  iconAlt="slack logo"
                   externalLink="http://slack.overture.bio/"
                 >
                   Join us on Slack

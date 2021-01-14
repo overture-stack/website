@@ -144,6 +144,7 @@ const RiffPage = () => (
           size="medium"
           externalLink={productsDict.riff.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

@@ -150,6 +150,7 @@ const ScorePage = () => (
           size="medium"
           externalLink={productsDict.score.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

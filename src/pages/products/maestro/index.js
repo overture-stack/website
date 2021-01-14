@@ -164,6 +164,7 @@ const MaestroPage = () => (
           size="medium"
           externalLink={productsDict.maestro.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

@@ -210,6 +210,7 @@ const EgoPage = () => (
           size="medium"
           externalLink={productsDict.ego.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

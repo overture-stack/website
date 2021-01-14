@@ -198,6 +198,7 @@ const ArrangerPage = () => (
           size="medium"
           externalLink={productsDict.arranger.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

@@ -187,6 +187,7 @@ const JukeboxPage = () => (
           className="mt2"
           externalLink={productsDict.jukebox.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

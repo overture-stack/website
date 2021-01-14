@@ -12,7 +12,7 @@
 
 import React, { Component } from 'react';
 import { Waypoint } from 'react-waypoint';
-import { CaseStudy, H1, H3 } from 'components';
+import { CaseStudy, H1, H2 } from 'components';
 import caseData from 'data/case_studies';
 import Navigation from './navigation';
 import './styles.scss';
@@ -120,10 +120,10 @@ class CaseStudiesPage extends Component {
         <section className={`case-hero ${fixedClass}`}>
           <div className="case-hero-content">
             <H1 className="case-heading">Case Studies</H1>
-            <H3>
+            <H2 className="t-h4">
               We’ve participated in projects from small to large. We welcome the chance to
               collaborate with you and bring your data into the future with the Overture stack!
-            </H3>
+            </H2>
           </div>
         </section>
 

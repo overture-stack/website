@@ -33,6 +33,7 @@ const ProductBox = ({
               <span key={l.extlink} className="icon-link">
                 <a target="_blank" className="link" href={l.extlink}>
                   <Icon
+                    alt={`${l.text} icon`}
                     className="icon"
                     size={l.iconSize ? l.iconSize : iconSize}
                     img={l.icon}
@@ -46,6 +47,7 @@ const ProductBox = ({
               <span key={l.link} className="icon-link">
                 <Link className="link" to={`/products/${l.link}`}>
                   <Icon
+                    alt={`${l.text} icon`}
                     className="icon"
                     size={l.iconSize ? l.iconSize : iconSize}
                     img={l.icon}
@@ -282,6 +284,7 @@ export default function ProductsPage() {
             size="medium"
             externalLink={productsDict.overture.github}
             icon="githubWhite"
+            iconAlt="github icon"
           >
             Get Started
           </Button>

@@ -42,6 +42,7 @@ const iconSizes = {
  *
  */
 export default ({
+  iconAlt = '',
   icon,
   className,
   iconStyle,
@@ -57,7 +58,9 @@ export default ({
   let classes = `button ${btnTypes[type]} ${btnSizes[size]} ${customClassName}`;
   let IconComp = () => {
     if (icon) {
-      return <Icon className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />;
+      return (
+        <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
+      );
     }
   };
 

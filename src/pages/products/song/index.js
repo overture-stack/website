@@ -189,7 +189,7 @@ const SongPage = () => (
           href={productsDict.song.github}
           className="button is-primary is-medium mt2"
         >
-          <Icon size={24} img="githubWhite" />
+          <Icon size={24} img="githubWhite" alt="github icon" />
           <div className="ml1 text-white">Get Started</div>
         </a>
       </Callout>

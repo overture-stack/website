@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import Modal from 'react-modal';
 import productsDict from 'meta/products-dict';
-import { Badge, Button, H1, H2, Hero, Icon } from 'components';
+import { Badge, Button, H3, H2, Hero, Icon } from 'components';
 import heroImg from './assets/heroImg.svg';
 import './home/styles.scss';
 
@@ -14,7 +14,7 @@ const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
     <header className="card-header">
       <div className="text-white">{header}</div>
-      <Icon img={icon} />
+      <Icon alt={`${header} icon`} img={icon} />
     </header>
 
     <section className="card-body">{children}</section>
@@ -136,7 +136,7 @@ class HomePage extends React.Component {
                   Authorization service for identity providers such as Google and Facebook.
                 </div>
                 <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -147,7 +147,7 @@ class HomePage extends React.Component {
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
                 </div>
                 <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -158,7 +158,7 @@ class HomePage extends React.Component {
                   Tracks genomic data scattered across multiple cloud storage systems.
                 </div>
                 <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -169,8 +169,8 @@ class HomePage extends React.Component {
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div href="#" className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -213,9 +213,9 @@ class HomePage extends React.Component {
           <div className="container">
             <div className="columns py3">
               <div className="column is-half">
-                <H1 className="bottom-header">
+                <H3 className="bottom-header">
                   We created Overture to share our data science components with the community.
-                </H1>
+                </H3>
               </div>
 
               <div className="column is-half pb4 mt2">

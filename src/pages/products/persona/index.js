@@ -164,6 +164,7 @@ const PersonaPage = () => (
           size="medium"
           externalLink={productsDict.persona.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

@@ -344,6 +344,7 @@ const OncoPage = () => (
           size="medium"
           externalLink={productsDict.oncojs.github}
           icon="githubWhite"
+          iconAlt="github icon"
         >
           Get Started
         </Button>

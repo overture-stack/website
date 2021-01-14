@@ -4,7 +4,7 @@
  **/
 
 import React from 'react';
-import { H1, H3 } from 'components';
+import { H1, H2 } from 'components';
 import './styles.scss';
 import img_services from './assets/img_services.svg';
 
@@ -37,7 +37,7 @@ const Hero = ({
       <div className=" flex container">
         <section className={_titleClass}>
           <H1>{title}</H1>
-          {subtitle && <H3 className="pt3">{subtitle}</H3>}
+          {subtitle && <H2 className="pt3 t-h4">{subtitle}</H2>}
           {children}
         </section>
 
