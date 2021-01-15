@@ -8,7 +8,6 @@ export { default as Code } from './Code';
 export { default as Footer } from './Footer';
 export { default as GettingStarted } from './GettingStarted';
 export { default as GridFeature } from './GridFeature';
-export { default as HashLink } from './HashLink';
 export { default as HeadingsTableOfContents } from './HeadingsTableOfContents';
 export { default as Hero } from './Hero';
 export { Icon, IconCommon } from './Icon';

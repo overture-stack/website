@@ -1,5 +1,5 @@
-// The custom-button class wraps the entire button component.
-// The nested classes are custom css to extend what bulma gives us / allows escape hatches
+// The custom-button class applies to the entire button component.
+// The additional classes are custom css to extend what bulma gives us / allows escape hatches
 @import '../../styles/colors';
 
 .custom-button {
@@ -11,11 +11,11 @@
 
   // This class is added like so:
   // <button type="secondary"
-  .secondary {
+  &.secondary {
     color: $magenta !important;
   }
 
-  .blue {
+  &.blue {
     background: $blue-2;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
     color: $white;

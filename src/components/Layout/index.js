@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import 'styles/main.scss';
 import DocsWrapper from './DocsWrapper';
 

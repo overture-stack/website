@@ -13,7 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 const featureGridData = [
   [
@@ -60,7 +60,7 @@ const ScorePage = () => (
       title="Score"
       subTitle="Transfer data quickly and easily to and from any cloud-based storage system."
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
-      getStartedLink={productsDict.score.github}
+      getStartedLink={productsDict.score.githubUrl}
       logo="logoScore"
       progressType="ga"
       badge={{ color: 'pink', text: 'Generate & Upload' }}
@@ -72,21 +72,30 @@ const ScorePage = () => (
       <ProductFeature
         header="Genomic solutions"
         icon="dna"
-        details="Slice and dice BAM and CRAM files with integrated command line tools."
+        details={<div>Slice and dice BAM and CRAM files with integrated command line tools.</div>}
       />
 
       <ProductFeature
         header="Accessible"
         icon="fingerSnap"
         iconSize={45}
-        details="Once your server is set up, transferring data is simple. Access any data, anytime on all major cloud services."
+        details={
+          <div>
+            Once your server is set up, transferring data is simple. Access any data, anytime on all
+            major cloud services.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Streamlined"
         icon="cloud"
         iconSize={68}
-        details="Score’s parallel solution makes the upload and download of files efficient and fast."
+        details={
+          <div>
+            Score’s parallel solution makes the upload and download of files efficient and fast.
+          </div>
+        }
       />
     </ProductFeatureRow>
 
@@ -146,11 +155,11 @@ const ScorePage = () => (
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
         <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.score.github}
           icon="githubWhite"
           iconAlt="github icon"
+          link={productsDict.score.githubUrl}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>

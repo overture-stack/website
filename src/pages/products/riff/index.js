@@ -13,13 +13,13 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 const featureGridData = [
   [
     {
       header: 'Short URLs',
-      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing.',
+      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing',
       icon: 'target',
     },
     {
@@ -44,7 +44,7 @@ const RiffPage = () => (
       title="Riff"
       subTitle="Quintessential sharing."
       cardText="Riff is a service that allows you to save user queries and state and share them through convenient short URLs."
-      getStartedLink={productsDict.riff.github}
+      getStartedLink={productsDict.riff.githubUrl}
       logo="logoRiff"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -56,19 +56,19 @@ const RiffPage = () => (
       <ProductFeature
         header="Simple"
         icon="magnify"
-        details="A tiny service for a specific problem."
+        details={<div>A tiny service for a specific problem.</div>}
       />
 
       <ProductFeature
         header="Flexible"
         icon="history"
-        details="Store arbitrary information about a user’s state."
+        details={<div>Store arbitrary information about a user’s state.</div>}
       />
 
       <ProductFeature
         header="Collaborative"
         icon="share"
-        details="Sharing is just one click away."
+        details={<div>Sharing is just one click away.</div>}
       />
     </ProductFeatureRow>
 
@@ -140,11 +140,11 @@ const RiffPage = () => (
         description="Save user queries and state and share them through convenient short URLs."
       >
         <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.riff.github}
           icon="githubWhite"
           iconAlt="github icon"
+          link={productsDict.riff.githubUrl}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>

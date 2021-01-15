@@ -10,6 +10,12 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
   const _handleDetailChange = idx => {
     handleDetailChange({ section: caseData.slug, screenNumber: idx });
   };
+  const descriptionEl =
+    typeof caseData.description === 'string' ? (
+      <div>{caseData.description}</div>
+    ) : (
+      caseData.description
+    );
 
   return (
     <section className="Case-Study">
@@ -22,10 +28,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
         <div className="columns">
           <div className="column is-6">
             <img alt={`${caseData.title} logo`} className="client-logo" src={caseData.logo} />
-            <div
-              className="case-description"
-              dangerouslySetInnerHTML={{ __html: caseData.description }}
-            />
+            {React.cloneElement(descriptionEl, { className: 'case-description' })}
           </div>
 
           <div className="column is-offset-1 is-5">
@@ -38,7 +41,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
                 );
               })}
             </ul>
-            <Button className="my2" type="primary" size="medium" externalLink={caseData.clientLink}>
+            <Button className="my2" type="primary" size="medium" link={caseData.clientLink}>
               Check it out!
             </Button>
           </div>
@@ -50,7 +53,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
         <div className="details">
           <div className="details-left">
             {caseData.details.map((detail, idx) => {
-              let activeClass = currentScreenshot == idx ? 'active' : '';
+              const activeClass = currentScreenshot === idx ? 'active' : '';
               return (
                 <div
                   className={`details-left-item ${activeClass}`}

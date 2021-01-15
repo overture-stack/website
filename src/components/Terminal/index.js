@@ -2,8 +2,8 @@
  * Component for displaying a terminal + text
  **/
 
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import './styles.scss';
 
 export const TrafficLights = ({ style }) => (
   <div className="Traffic-Lights" style={style}>
@@ -11,7 +11,7 @@ export const TrafficLights = ({ style }) => (
     <div className="circle"></div>
     <div className="circle"></div>
   </div>
-)
+);
 
 export const Terminal = ({ prompts }) => (
   <div className="Terminal">
@@ -25,21 +25,15 @@ export const Terminal = ({ prompts }) => (
       ))}
     </div>
   </div>
-)
+);
 
 export const UrlBar = ({ prompts }) => (
   <div className="Browser">
     <TrafficLights />
     <div className="url-bar mx2">
-      {prompts.map(p => (
-        <div
-          key={p}
-          className="url-text"
-          dangerouslySetInnerHTML={{ __html: p }}
-        ></div>
-      ))}
+      {prompts.map(p => React.cloneElement(p, { key: p, className: 'url-text' }))}
     </div>
   </div>
-)
+);
 
-export default Terminal
+export default Terminal;

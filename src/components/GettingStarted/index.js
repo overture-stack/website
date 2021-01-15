@@ -3,7 +3,7 @@
  **/
 
 import React from 'react';
-import { H2 } from 'components';
+import { H2, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const GettingStarted = ({ pinnedLink, children }) => (
@@ -15,13 +15,9 @@ const GettingStarted = ({ pinnedLink, children }) => (
             <H2 className="header-offset">Getting Started</H2>
           </div>
           {pinnedLink ? (
-            <a
-              target="_blank"
-              className="button is-medium is-primary pinned-link"
-              href={pinnedLink}
-            >
+            <Link className="button is-medium is-primary pinned-link" to={pinnedLink}>
               Documentation
-            </a>
+            </Link>
           ) : (
             <div />
           )}

@@ -1,20 +1,26 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H3,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
   UrlBar,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import {
+  JUKEBOX_BLOG_POST_LINK,
+  JUPYTER_LINK,
+  JUPYTER_INSTALL_LINK,
+} from 'constants/external-links';
 
 import './style.scss';
 
@@ -70,21 +76,12 @@ const JukeboxPage = () => (
       subTitle="Spinning up interactive development environments is hard!"
       cardText={
         <div>
-          Jukebox automates set-up and deployment of
-          <a target="_blank" href="http://jupyter.org/index.html">
-            {' '}
-            JupyterHub
-          </a>
-          . Your users can access personal
-          <a target="_blank" href="http://jupyter.org/install.html">
-            {' '}
-            Jupyter notebooks{' '}
-          </a>
-          in one click to do science right from the web browser in a live, collaborative
-          environment.
+          Jukebox automates set-up and deployment of <Link to={JUPYTER_LINK}>JupyterHub</Link>. Your
+          users can access personal <Link to={JUPYTER_INSTALL_LINK}>Jupyter notebooks</Link> in one
+          click to do science right from the web browser in a live, collaborative environment.
         </div>
       }
-      getStartedLink={productsDict.jukebox.github}
+      getStartedLink={productsDict.jukebox.githubUrl}
       logo="logoJukebox"
       progressType="rc"
       badge={{ color: 'red', text: 'Analyze & Discover' }}
@@ -96,20 +93,29 @@ const JukeboxPage = () => (
         header="Quick start"
         icon="power"
         iconSize={92}
-        details="The setup has been done for you, all that’s left for you to do is your research."
+        details={
+          <div>
+            The setup has been done for you, all that’s left for you to do is your research.
+          </div>
+        }
       />
       <ProductFeature
         header="Contained"
         icon="spiral"
         iconSize={72}
-        details="Users operate in a virtual machine, so everything is contained. Nothing can be broken, so experiment away with the API and data sets."
+        details={
+          <div>
+            Users operate in a virtual machine, so everything is contained. Nothing can be broken,
+            so experiment away with the API and data sets.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Automation"
         icon="cloudSquare"
         iconSize={82}
-        details="Cloud deployment automation through OpenStack Ansible. "
+        details={<div>Cloud deployment automation through OpenStack Ansible.</div>}
       />
     </ProductFeatureRow>
 
@@ -117,7 +123,7 @@ const JukeboxPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink={productsDict.jukebox.github}>
+    <GettingStarted pinnedLink={productsDict.jukebox.githubUrl}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -170,7 +176,7 @@ const JukeboxPage = () => (
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
-          <UrlBar prompts={['Visit http://localhost:<your port number>']} />
+          <UrlBar prompts={[<div>Visit http://localhost: &lt;your port number&gt;</div>]} />
         </div>
       </div>
     </GettingStarted>
@@ -182,12 +188,12 @@ const JukeboxPage = () => (
         description="Explore and manipulate data without having to set up the environment yourself."
       >
         <Button
-          type="primary"
-          size="medium"
           className="mt2"
-          externalLink={productsDict.jukebox.github}
           icon="githubWhite"
           iconAlt="github icon"
+          link={productsDict.jukebox.githubUrl}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>
@@ -197,12 +203,7 @@ const JukeboxPage = () => (
         icon="pageWhite"
         description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
       >
-        <Button
-          type="primary"
-          size="medium"
-          className="mt2"
-          externalLink="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
-        >
+        <Button className="mt2" link={JUKEBOX_BLOG_POST_LINK} size="medium" type="primary">
           Related Blog Post
         </Button>
       </Callout>

@@ -2,6 +2,7 @@ import React from 'react';
 import heroImg from './assets/hero_img.svg';
 import Helmet from 'react-helmet';
 import { H2, Button, Hero } from 'components';
+import { EMAIL_LINK, SLACK_LINK } from 'constants/external-links';
 import './styles.scss';
 
 export default function ContactPage() {
@@ -58,25 +59,24 @@ export default function ContactPage() {
                 There are many reasons to get in touch with us and we want to hear from you!
               </div>
 
-              <div className="flex">
+              <div className="flex" style={{ alignItems: 'center' }}>
                 <Button
-                  type="primary"
                   className="my2 mr2"
-                  size="medium"
                   icon="mail"
                   iconAlt="mail icon"
-                  externalLink="mailto:contact@overture.bio"
-                  target="_self"
+                  link={EMAIL_LINK}
+                  size="medium"
+                  type="primary"
                 >
                   Contact Us
                 </Button>
 
                 <Button
-                  type="secondary"
-                  size="medium"
                   icon="slack"
                   iconAlt="slack logo"
-                  externalLink="http://slack.overture.bio/"
+                  link={SLACK_LINK}
+                  size="medium"
+                  type="secondary"
                 >
                   Join us on Slack
                 </Button>

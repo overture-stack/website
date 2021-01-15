@@ -1,26 +1,28 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H3,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { PERSONA_LOCAL_LINK, PERSONA_ENV_SCHEMA_LINK } from 'constants/external-links';
 
 const featureGridData = [
   [
     {
       header: 'Adaptable user information',
       details:
-        'MondoDB backend enables user profiles with different roles to have different fields.',
+        'MondoDB backend enables user profiles with different roles to have different fields',
       icon: 'target',
     },
     {
@@ -32,8 +34,12 @@ const featureGridData = [
   [
     {
       header: 'Pairs with Ego',
-      details:
-        "Built to interact seamlessly with the user authorization product, <a href='/products/ego'/>Ego.</a>",
+      details: (
+        <div>
+          Built to interact seamlessly with the user authorization product,{' '}
+          <Link to={productsDict.ego.productsPath}>Ego.</Link>
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -53,7 +59,7 @@ const PersonaPage = () => (
       title="Persona"
       subTitle="An effortless solution for storing profile information."
       cardText="Persona provides an easy-to-use solution for storing profile information. In tandem with Ego, users’ personas can be validated and expanded upon with custom fields."
-      getStartedLink={productsDict.persona.github}
+      getStartedLink={productsDict.persona.githubUrl}
       logo="logoPersona"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -66,21 +72,23 @@ const PersonaPage = () => (
         header="Extensible"
         icon="extensible"
         iconSize={48}
-        details="Add, expand and validate user information."
+        details={<div>Add, expand and validate user information.</div>}
       />
 
       <ProductFeature
         header="Proactive"
         icon="fingerSnap"
         iconSize={40}
-        details="Let us do the set up for you. Focus on the details that matter."
+        details={<div>Let us do the set up for you. Focus on the details that matter.</div>}
       />
 
       <ProductFeature
         header="Efficient"
         icon="checkmark"
         iconSize={60}
-        details="An efficient way to organize user profiles in one place for easy reference. "
+        details={
+          <div>An efficient way to organize user profiles in one place for easy reference.</div>
+        }
       />
     </ProductFeatureRow>
 
@@ -116,11 +124,8 @@ const PersonaPage = () => (
 
             <ul className="step-text">
               <li className="bullet">
-                Add the required environment variables, documented in
-                <a href="https://github.com/overture-stack/persona/blob/master/.env.schema">
-                  {' '}
-                  .env.schema.
-                </a>
+                Add the required environment variables, documented in{' '}
+                <Link to={PERSONA_ENV_SCHEMA_LINK}>.env.schema.</Link>
               </li>
               <li className="bullet">Install required dependencies node, mongodb, and npm.</li>
             </ul>
@@ -137,8 +142,8 @@ const PersonaPage = () => (
 
             <div className="py3">
               <div>
-                Persona is now running and you can access it at
-                <a href="http://localhost:3232/graphql"> http://localhost:3232/graphql</a>.
+                Persona is now running and you can access it at{' '}
+                <Link to={PERSONA_LOCAL_LINK}>{PERSONA_LOCAL_LINK}</Link>.
               </div>
             </div>
           </div>
@@ -160,11 +165,11 @@ const PersonaPage = () => (
         description="Persona provides an easy-to-use solution for storing profile information"
       >
         <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.persona.github}
           icon="githubWhite"
           iconAlt="github icon"
+          link={productsDict.persona.githubUrl}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>
