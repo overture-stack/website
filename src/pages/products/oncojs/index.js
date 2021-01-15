@@ -15,10 +15,7 @@ import {
   GDC_LINK,
   LOLLIPLOT_EXAMPLE_LINK,
   ONCOGRID_EXAMPLE_LINK,
-<<<<<<< HEAD
   PATHWAYVIEWER_EXAMPLE_LINK,
-=======
->>>>>>> 037f5fd3c0e563bf5297f52cbce9b8a85ffed05f
   SURVIVALPLOT_EXAMPLE_LINK,
 } from 'constants/external-links';
 
