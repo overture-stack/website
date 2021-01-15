@@ -1,6 +1,15 @@
 import React from 'react';
-import { BottomCallout, Button, Callout, GridFeature, Hero, Icon } from 'components';
-import productsDict from 'meta/products-dict';
+import {
+  BottomCallout,
+  Button,
+  Callout,
+  GridFeature,
+  Hero,
+  Icon,
+  LinkHelper as Link,
+} from 'components';
+import productsDict from 'constants/products';
+import { GITHUB_ISSUES_LINK, TEAM_LINK, TEAM_BLOG_LINK } from 'constants/external-links';
 import heroImg from './assets/hero_img.svg';
 import './styles.scss';
 
@@ -8,8 +17,14 @@ const featureGridData = [
   [
     {
       header: 'Genome informatics first.',
-      details:
-        "You can use our solutions for anything, but here at Overture we focus on <strong>Genome Informatics</strong>. With rapidly expanding datasets at the heart, we've built our bioinformatics bundle to track, transfer, and secure genomic data in distributed cloud environments.",
+      details: (
+        <div>
+          You can use our solutions for anything, but here at Overture we focus on{' '}
+          <strong>Genome Informatics</strong>. With rapidly expanding datasets at the heart, we've
+          built our bioinformatics bundle to track, transfer, and secure genomic data in distributed
+          cloud environments.
+        </div>
+      ),
       icon: 'dna',
     },
     {
@@ -22,8 +37,14 @@ const featureGridData = [
   [
     {
       header: 'An open world.',
-      details:
-        "We are strong believers in open-source software, open science, and open communication. Don’t hesitate to follow our team activities on <a target='_blank' href='https://github.com/overture-stack/roadmap/issues'> GitHub </a> by taking a look at upcoming or in-progress tickets, or even be the first to test out a feature detailed in a Pull Request.",
+      details: (
+        <div>
+          We are strong believers in open-source software, open science, and open communication.
+          Don’t hesitate to follow our team activities on{' '}
+          <Link to={GITHUB_ISSUES_LINK}>GitHub</Link> by taking a look at upcoming or in-progress
+          tickets, or even be the first to test out a feature detailed in a Pull Request.
+        </div>
+      ),
       icon: 'lockCode',
     },
     {
@@ -47,14 +68,14 @@ export default function AboutUsPage() {
         ImgComponent={() => <img src={heroImg} className="about-img" />}
       >
         <div className="flex py2">
-          <a className="hero-link" target="_blank" href="https://softeng.oicr.on.ca/team/">
+          <Link className="hero-link" to={TEAM_LINK}>
             Meet the team
             <Icon size={16} img="arrowRightMagenta" />
-          </a>
-          <a className="hero-link pl3" target="_blank" href="https://softeng.oicr.on.ca/">
+          </Link>
+          <Link className="hero-link pl3" to={TEAM_BLOG_LINK}>
             Team blog
             <Icon size={16} img="arrowRightMagenta" />
-          </a>
+          </Link>
         </div>
       </Hero>
 
@@ -68,10 +89,10 @@ export default function AboutUsPage() {
           className="center"
         >
           <Button
-            type="primary"
-            size="medium"
-            externalLink={productsDict.overture.github}
             icon="githubWhite"
+            link={productsDict.overture.githubUrl}
+            size="medium"
+            type="primary"
           >
             Get Started
           </Button>

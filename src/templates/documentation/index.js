@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { graphql, Link, navigate } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import flatten from 'flat';
@@ -10,15 +10,15 @@ import {
   AnchorHeading,
   Button,
   Code,
-  LinkHelper,
   HeadingsTableOfContents,
   Icon,
+  LinkHelper as Link,
   NoteBox,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import { findNextPrevPages } from './utils';
 import './styles.scss';
 
@@ -100,8 +100,13 @@ export default function DocumentationPage({ data, location, path }) {
         <div className="docs__main-container">
           {/* GITHUB BUTTON */}
           <div className="docs__github-btn">
-            <Button externalLink={productsDict[sectionSlug].github} type="primary">
-              <Icon img="githubWhite" size={20} /> {sectionTitle} Github
+            <Button
+              icon="githubWhite"
+              link={productsDict[sectionSlug].githubUrl}
+              size="navGithub"
+              type="primary"
+            >
+              {sectionTitle} Github
             </Button>
           </div>
           <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
@@ -111,7 +116,7 @@ export default function DocumentationPage({ data, location, path }) {
                 components={{
                   ...replacedComponents,
                   ...shortcodes,
-                  a: props => <LinkHelper {...props} location={location} />,
+                  a: props => <Link {...props} location={location} />,
                   // the page title is h1
                   // so demote markdown headings by one level
                   h1: props => <AnchorHeading location={location} size="h2" {...props} />,
@@ -160,7 +165,7 @@ export default function DocumentationPage({ data, location, path }) {
         {/* GITHUB BUTTON */}
         <Button
           className="docs__github-btn"
-          externalLink={productsDict[sectionSlug].github}
+          link={productsDict[sectionSlug].githubUrl}
           type="primary"
         >
           <Icon img="githubWhite" size={20} /> {sectionTitle} Github

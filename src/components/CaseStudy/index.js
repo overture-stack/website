@@ -1,20 +1,21 @@
-import { H4, Button, Icon, TrafficLights, ImageCrossfade } from '..'
-import React from 'react'
+import { H4, Button, Icon, TrafficLights, ImageCrossfade } from '..';
+import React from 'react';
 
 /**
  * A case study is made up of a:
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({
-  caseData,
-  handleDetailChange,
-  handlePageScreenshot,
-  currentScreenshot,
-}) => {
+const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
   const _handleDetailChange = idx => {
-    handleDetailChange({ section: caseData.slug, screenNumber: idx })
-  }
+    handleDetailChange({ section: caseData.slug, screenNumber: idx });
+  };
+  const descriptionEl =
+    typeof caseData.description === 'string' ? (
+      <div>{caseData.description}</div>
+    ) : (
+      caseData.description
+    );
 
   return (
     <section className="Case-Study">
@@ -27,10 +28,7 @@ const CaseStudy = ({
         <div className="columns">
           <div className="column is-6">
             <img className="client-logo" src={caseData.logo} />
-            <div
-              className="case-description"
-              dangerouslySetInnerHTML={{ __html: caseData.description }}
-            />
+            {React.cloneElement(descriptionEl, { className: 'case-description' })}
           </div>
 
           <div className="column is-offset-1 is-5">
@@ -40,15 +38,10 @@ const CaseStudy = ({
                   <li className="client-list-item" key={idx}>
                     {i}
                   </li>
-                )
+                );
               })}
             </ul>
-            <Button
-              className="my2"
-              type="primary"
-              size="medium"
-              externalLink={caseData.clientLink}
-            >
+            <Button className="my2" type="primary" size="medium" link={caseData.clientLink}>
               Check it out!
             </Button>
           </div>
@@ -60,21 +53,17 @@ const CaseStudy = ({
         <div className="details">
           <div className="details-left">
             {caseData.details.map((detail, idx) => {
-              let activeClass = currentScreenshot == idx ? 'active' : ''
+              const activeClass = currentScreenshot === idx ? 'active' : '';
               return (
                 <div
                   className={`details-left-item ${activeClass}`}
                   onClick={() => _handleDetailChange(idx)}
                   key={detail.title + idx}
                 >
-                  <div className={`details-left-title ${activeClass}`}>
-                    {detail.title}
-                  </div>
-                  <div className="details-left-description">
-                    {detail.description}
-                  </div>
+                  <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
+                  <div className="details-left-description">{detail.description}</div>
                 </div>
-              )
+              );
             })}
           </div>
 
@@ -107,15 +96,13 @@ const CaseStudy = ({
 
             <div className="Browser details-right-browser-wrapper">
               <TrafficLights style={{ marginLeft: 0, paddingBottom: '16px' }} />
-              <ImageCrossfade
-                src={caseData.details[currentScreenshot].screenshot}
-              />
+              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CaseStudy
+export default CaseStudy;

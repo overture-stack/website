@@ -2,8 +2,15 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
-import { Icon } from 'components';
-import productsDict from 'meta/products-dict';
+import { Icon, LinkHelper as Link } from 'components';
+import productsDict from 'constants/products';
+import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH } from 'constants/pages';
+import {
+  NETLIFY_LINK,
+  NETLIFY_IMAGE_LINK,
+  OICR_LINK,
+  TEAM_BLOG_LINK,
+} from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
 
@@ -13,13 +20,13 @@ const columns = {
   'Generate & Upload': [
     {
       Score: {
-        link: '/products/score',
+        link: productsDict.score.productsPath,
         icon: null,
         newTab: false,
         className: '',
       },
       Song: {
-        link: '/products/song',
+        link: productsDict.song.productsPath,
         icon: null,
         newTab: false,
         className: '',
@@ -29,7 +36,7 @@ const columns = {
   'Access & Download': [
     {
       Ego: {
-        link: '/products/ego',
+        link: productsDict.ego.productsPath,
         icon: null,
         newTab: false,
         className: '',
@@ -38,25 +45,25 @@ const columns = {
         icon: null,
         newTab: false,
         className: '',
-        link: '/products/maestro',
+        link: productsDict.maestro.productsPath,
       },
       Arranger: {
         icon: null,
         newTab: false,
         className: '',
-        link: '/products/arranger',
+        link: productsDict.arranger.productsPath,
       },
     },
   ],
   'Analyze & Discover': [
     {
       Jukebox: {
-        link: '/products/jukebox',
+        link: productsDict.jukebox.productsPath,
         newTab: false,
         className: '',
       },
       OncoJS: {
-        link: '/products/oncojs',
+        link: productsDict.oncojs.productsPath,
         className: '',
       },
     },
@@ -65,10 +72,10 @@ const columns = {
     {
       Persona: {
         className: '',
-        link: '/products/persona',
+        link: productsDict.persona.productsPath,
       },
       Riff: {
-        link: '/products/riff',
+        link: productsDict.riff.productsPath,
         newTab: false,
         className: '',
       },
@@ -77,13 +84,13 @@ const columns = {
   'Track & Manage': [
     {
       'Billing & Usage': {
-        link: productsDict.billing.github,
+        link: productsDict.billing.githubUrl,
         icon: 'githubGrey',
         newTab: true,
         className: '',
       },
       Enrolment: {
-        link: productsDict.enrolment.github,
+        link: productsDict.enrolment.githubUrl,
         icon: 'githubGrey',
         newTab: true,
         className: '',
@@ -109,7 +116,7 @@ const columns = {
         className: '',
       },
       'About Us': {
-        link: '/about-us',
+        link: ABOUT_US_PATH,
         icon: null,
         newTab: false,
         className: '',
@@ -129,7 +136,7 @@ const columns = {
         className: '',
       },
       'Team Blog': {
-        link: 'http://softeng.oicr.on.ca/',
+        link: TEAM_BLOG_LINK,
         icon: null,
         newTab: true,
         className: '',
@@ -152,10 +159,10 @@ const FooterColumns = () => {
 
                 return (
                   <li key={linkKey}>
-                    <a className="link" target={target} href={link}>
+                    <Link className="link" to={link}>
                       <span>{linkKey}</span>
                       {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
@@ -172,9 +179,9 @@ const Footer = () => {
     <footer className="Footer site-wrapper__footer">
       <div className="container">
         <div className="footer-box">
-          <a className="oicr-logo" target="_blank" href="http://oicr.on.ca">
+          <Link className="oicr-logo" to={OICR_LINK}>
             <img src={logo} alt="OICR" />
-          </a>
+          </Link>
           <FooterColumns />
         </div>
       </div>
@@ -182,19 +189,16 @@ const Footer = () => {
         <div className="footer-credits__text">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
           <div className="px1">
-            <a href="/privacy">Privacy</a>
+            <Link to={PRIVACY_PATH}>Privacy</Link>
             <span>|</span>
-            <a href="/terms-conditions">Terms & Conditions</a>
+            <Link to={TERMS_PATH}>Terms & Conditions</Link>
           </div>
         </div>
       </div>
       <div className="netlify-badge">
-        <a target="_blank" href="https://www.netlify.com">
-          <img
-            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
-            alt="Deploys by Netlify"
-          />
-        </a>
+        <Link to={NETLIFY_LINK}>
+          <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
+        </Link>
       </div>
     </footer>
   );

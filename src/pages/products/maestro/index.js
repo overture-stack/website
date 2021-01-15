@@ -1,19 +1,21 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Button,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
   H4,
-  Button,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { MAESTRO_UPDATES_LINK } from 'constants/external-links';
 
 import './style.scss';
 
@@ -27,8 +29,12 @@ const featureGridData = [
     },
     {
       header: 'Exclusion rule',
-      details:
-        "Manage data release by exclusion of specific analyses based on any metadata tags found in <a href='/products/song'>Song</a>.",
+      details: (
+        <div>
+          Manage data release by exclusion of specific analyses based on any metadata tags found in{' '}
+          <Link to={productsDict.song.productsPath}>Song</Link>.
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -37,13 +43,17 @@ const featureGridData = [
     {
       header: 'Event Based Indexing',
       details:
-        'Instant data release with configurable event based indexing with Apache Kafka messaging queue. ',
+        'Instant data release with configurable event based indexing with Apache Kafka messaging queue.',
       icon: 'target',
     },
     {
       header: 'Multiple Repository Management',
-      details:
-        "Connect multiple <a href='/products/song'>Song</a> servers to the same Maestro to query data distributed across different repositories.",
+      details: (
+        <div>
+          Connect multiple <Link to={productsDict.song.productsPath}>Song</Link> servers to the same
+          Maestro to query data distributed across different repositories.
+        </div>
+      ),
       icon: 'target',
     },
   ],
@@ -69,11 +79,11 @@ const MaestroPage = () => (
       cardText={
         <div>
           Maestro helps you manage geographically distributed data stored in{' '}
-          <a href="/products/song">Song</a> and <a href="/products/score">Score</a> with a single,
-          configurable index.
+          <Link to={productsDict.song.productsPath}>Song</Link> and{' '}
+          <Link to={productsDict.score.productsPath}>Score</Link> with a single, configurable index.
         </div>
       }
-      getStartedLink={productsDict.maestro.github}
+      getStartedLink={productsDict.maestro.githubUrl}
       logo="logoMaestro"
       progressType="rc"
       badge={{ color: 'blue', text: 'Access & Download' }}
@@ -85,21 +95,30 @@ const MaestroPage = () => (
         header="Customizable record indexing"
         icon="arrowsRight"
         iconSize={96}
-        details="Index a single analysis, a study or a full <a href='/products/song'>Song</a> repository with one request.
-"
+        details={
+          <div>
+            Index a single analysis, a study or a full{' '}
+            <Link to={productsDict.song.productsPath}>Song</Link> repository with one request.
+          </div>
+        }
       />
       <ProductFeature
         header="Different indexing APIs"
         icon="kafka"
         iconSize={52}
-        details="Receive requests through Kafka or JSON Web API."
+        details={<div>Receive requests through Kafka or JSON Web API.</div>}
       />
 
       <ProductFeature
         header="Seamless integration"
         icon="vennDiagram"
         iconSize={64}
-        details="Built to interact natively with <a href='/products/song'>Song</a> and <a href='/products/arranger'>Arranger</a>. "
+        details={
+          <div>
+            Built to interact natively with <Link to={productsDict.song.productsPath}>Song</Link>{' '}
+            and <Link to={productsDict.arranger.productsPath}>Arranger</Link>.
+          </div>
+        }
       />
     </ProductFeatureRow>
 
@@ -107,7 +126,7 @@ const MaestroPage = () => (
     <GridFeature data={featureGridData} />
 
     {/* Getting Started /  Terminals */}
-    <GettingStarted pinnedLink="https://maestro-overture.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={MAESTRO_UPDATES_LINK}>
       <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
@@ -160,10 +179,10 @@ const MaestroPage = () => (
         description="Index a single analysis, a study or a full Song with one request."
       >
         <Button
-          type="primary"
-          size="medium"
-          externalLink={productsDict.maestro.github}
           icon="githubWhite"
+          link={productsDict.maestro.githubUrl}
+          size="medium"
+          type="primary"
         >
           Get Started
         </Button>

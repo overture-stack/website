@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
-import productsDict from 'meta/products-dict';
+import {
+  BottomCallout,
+  Button,
+  Callout,
+  GridFeature,
+  Hero,
+  Icon,
+  IconCommon,
+  LinkHelper as Link,
+} from 'components';
+import productsDict from 'constants/products';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -31,20 +39,16 @@ const ProductBox = ({
           if (typeof l.extlink !== 'undefined') {
             return (
               <span key={l.extlink} className="icon-link">
-                <a target="_blank" className="link" href={l.extlink}>
-                  <Icon
-                    className="icon"
-                    size={l.iconSize ? l.iconSize : iconSize}
-                    img={l.icon}
-                  ></Icon>
+                <Link className="link" to={l.extlink}>
+                  <Icon className="icon" size={l.iconSize ? l.iconSize : iconSize} img={l.icon} />
                   {l.text}
-                </a>
+                </Link>
               </span>
             );
           } else {
             return (
               <span key={l.link} className="icon-link">
-                <Link className="link" to={`/products/${l.link}`}>
+                <Link className="link" to={l.link}>
                   <Icon
                     className="icon"
                     size={l.iconSize ? l.iconSize : iconSize}
@@ -143,12 +147,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: productsDict.billing.github,
+          extlink: productsDict.billing.githubUrl,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: productsDict.enrolment.github,
+          extlink: productsDict.enrolment.githubUrl,
         },
       ],
       ChildComponent: ProductBox,
@@ -277,10 +281,10 @@ export default function ProductsPage() {
           className="center"
         >
           <Button
-            type="primary"
-            size="medium"
-            externalLink={productsDict.overture.github}
             icon="githubWhite"
+            link={productsDict.overture.githubUrl}
+            size="medium"
+            type="primary"
           >
             Get Started
           </Button>

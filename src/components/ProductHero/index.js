@@ -32,7 +32,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
         <div className="card-content is-two-thirds flex flex-column justify-center">
           <div className="card-text">{cardText}</div>
           <div className="left-align">
-            <Button type="primary" size="medium" externalLink={getStartedLink} icon="githubWhite">
+            <Button link={getStartedLink} icon="githubWhite" size="medium" type="primary">
               Get Started
             </Button>
 
