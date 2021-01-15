@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H3,
+  H4,
   Button,
   ProductFeature,
   ProductFeatureRow,
@@ -96,7 +96,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H3>Download Persona.</H3>
+            <H4>Download Persona.</H4>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -112,7 +112,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H3>Set up your environment.</H3>
+            <H4>Set up your environment.</H4>
 
             <ul className="step-text">
               <li className="bullet">
@@ -133,7 +133,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H3>Start your server.</H3>
+            <H4>Start your server.</H4>
 
             <div className="py3">
               <div>

@@ -1,10 +1,10 @@
 import React from 'react';
-import { H1, H3 } from 'components';
+import { H1, H4 } from 'components';
 import './styles.scss';
 
 const Heading = ({ children }) => (
   <div className="pt2">
-    <H3 className="">{children}</H3>
+    <H4 className="">{children}</H4>
     <div className="my2 yellow-bar" />
   </div>
 );
@@ -106,9 +106,12 @@ const PrivacyPage = () => (
       <section>
         <Heading>Additional Information</Heading>
         <p>
-          If you would like to learn more about OICR’s commitment to protecting privacy, please see
-          our{' '}
-          <a href="https://oicr.on.ca/oicr-policies-and-procedures/" target="_blank">
+          If you would like to learn more about OICR’s commitment to
+          protecting privacy, please see our{' '}
+          <a
+            href="https://oicr.on.ca/oicr-policies-and-procedures/"
+            target="_blank"
+          >
             organizational Privacy Policy
           </a>
           . You may also view our{' '}
@@ -121,8 +124,8 @@ const PrivacyPage = () => (
           .
         </p>
         <p>
-          If you have any questions or concerns about privacy at OICR, please send a written request
-          to:
+          If you have any questions or concerns about privacy at OICR, please
+          send a written request to:
         </p>
 
         <div className="bold"> Attn: Privacy Officer</div>

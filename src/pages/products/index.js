@@ -236,10 +236,10 @@ class HeroImg extends React.Component {
         ></canvas>
         <div className="img_hero_products">
           {/* hidden clouds for canvas animations */}
-          <img alt="" ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
-          <img alt="" ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
+          <img ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
+          <img ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
           {/* the hero image: */}
-          <img alt="" style={{ zIndex: 3 }} src={heroImg} />
+          <img style={{ zIndex: 3 }} src={heroImg} />
         </div>
       </div>
     );
@@ -251,7 +251,6 @@ export default function ProductsPage() {
     <main className="ProductsPage">
       {/* HERO */}
       <Hero
-        alt=""
         title="Products"
         titleClass="hero-text is-4-desktop"
         subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
