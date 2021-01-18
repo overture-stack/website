@@ -108,24 +108,20 @@ a {
   text-decoration: none;
   &.is-primary {
     background: $navy-dark;
+    &:active,
     &:hover,
     &:focus {
-      background: darken($navy-dark, 4%);
-    }
-    &:active {
-      background: darken($navy-dark, 8%);
+      background: $navy-black;
     }
   }
 }
 
 .BottomCallout .button.is-primary {
   background: $pink-dark;
+  &:active,
   &:hover,
   &:focus {
-    background: darken($pink-dark, 4%);
-  }
-  &:active {
-    background: darken($pink-dark, 8%);
+    background: $pink-darker;
   }
 }
 
