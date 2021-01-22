@@ -12,7 +12,7 @@ export const OICR_LINK = 'https://oicr.on.ca';
 export const OVERTURE_YOUTUBE_LINK = 'https://www.youtube.com/embed/NrgL8vpFm5s';
 export const POLICIES_LINK = 'https://oicr.on.ca/oicr-policies-and-procedures/';
 export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
-export const SLACK_LINK = 'https://slack.overture.bio/';
+export const SLACK_LINK = 'http://slack.overture.bio/';
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
 
@@ -41,6 +41,8 @@ export const ONCOGRID_EXAMPLE_LINK =
   'https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e';
 export const SURVIVALPLOT_EXAMPLE_LINK =
   'https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6';
+export const PATHWAYVIEWER_EXAMPLE_LINK =
+  'https://dcc.icgc.org/genesets/R-HSA-1236974/pathway-viewer';
 export const ONCOJS_GITHUB_LINK = 'https://github.com/oncojs';
 
 // maestro

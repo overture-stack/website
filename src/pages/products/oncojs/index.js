@@ -15,6 +15,7 @@ import {
   GDC_LINK,
   LOLLIPLOT_EXAMPLE_LINK,
   ONCOGRID_EXAMPLE_LINK,
+  PATHWAYVIEWER_EXAMPLE_LINK,
   SURVIVALPLOT_EXAMPLE_LINK,
 } from 'constants/external-links';
 
@@ -319,7 +320,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={GDC_LINK}>
+              <Link className="bold text-magenta" to={PATHWAYVIEWER_EXAMPLE_LINK}>
                 Live example &gt;
               </Link>
             </div>
