@@ -57,8 +57,8 @@ const featureGridData = [
       details:
         'Products that allow your data submitters to generate genomic and clinical metadata and securely upload the corresponding files: ',
       links: [
-        { icon: 'productScore', text: 'Score', link: '/products/score/' },
-        { icon: 'productSong', text: 'Song', link: '/products/song/' },
+        { icon: 'productScore', text: 'Score', link: productsDict.score.productsPath },
+        { icon: 'productSong', text: 'Song', link: productsDict.song.productsPath },
       ],
       ChildComponent: ProductBox,
     },
@@ -71,14 +71,14 @@ const featureGridData = [
       details:
         'Products that give your users the correct permissions to view and download controlled data: ',
       links: [
-        { icon: 'productEgo', text: 'Ego', link: '/products/ego/', iconSize: 24 },
+        { icon: 'productEgo', text: 'Ego', link: productsDict.ego.productsPath, iconSize: 24 },
         {
           icon: 'productMaestro',
           text: 'Maestro',
           link: 'maestro',
           iconSize: 40,
         },
-        { icon: 'productArranger', text: 'Arranger', link: '/products/arranger/' },
+        { icon: 'productArranger', text: 'Arranger', link: productsDict.arranger.productsPath },
       ],
       ChildComponent: ProductBox,
     },
@@ -91,8 +91,8 @@ const featureGridData = [
       details:
         'Products that allow your users to access interactive visualizations and code-based analysis environments: ',
       links: [
-        { icon: 'productJukebox', text: 'Jukebox', link: '/products/jukebox/' },
-        { icon: 'productOnco', text: 'OncoJS', link: '/products/oncojs/' },
+        { icon: 'productJukebox', text: 'Jukebox', link: productsDict.jukebox.productsPath },
+        { icon: 'productOnco', text: 'OncoJS', link: productsDict.oncojs.productsPath },
       ],
       ChildComponent: ProductBox,
     },
@@ -103,8 +103,8 @@ const featureGridData = [
       details:
         'Products that allow your users to set up a profile and share urls in order to raise awareness across the scientific community: ',
       links: [
-        { icon: 'productPersona', text: 'Persona', link: '/products/persona/' },
-        { icon: 'productRiff', text: 'Riff', link: '/products/riff/' },
+        { icon: 'productPersona', text: 'Persona', link: productsDict.persona.productsPath },
+        { icon: 'productRiff', text: 'Riff', link: productsDict.riff.productsPath },
       ],
       ChildComponent: ProductBox,
     },
