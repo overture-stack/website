@@ -8,7 +8,15 @@ import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';
 import { Button, LinkHelper as Link } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import {
+  ABOUT_US_PATH,
+  CASE_STUDIES_PATH,
+  CONTACT_PATH,
+  HOME_PATH,
+  SERVICES_PATH,
+} from 'constants/pages';
+import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 
@@ -35,7 +43,11 @@ class NavBar extends Component {
       <nav className="NavHeader navbar is-fixed-top" aria-label="main navigation">
         <div className="nav-container">
           <div className="navbar-brand">
-            <Link to="/" onClick={() => closeMenus()} className="navbar-item navbar-brand-link">
+            <Link
+              to={HOME_PATH}
+              onClick={() => closeMenus()}
+              className="navbar-item navbar-brand-link"
+            >
               <img src={logo} alt="Overture.bio homepage" />
             </Link>
 
@@ -87,18 +99,18 @@ class NavBar extends Component {
                 </MegaMenuLink>
               )}
 
-              <NavLink closeMenus={closeMenus} url="/case-studies/" name="Case Studies" />
+              <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
 
-              <NavLink closeMenus={closeMenus} url="/about-us/" name="About Us" />
-              <NavLink closeMenus={closeMenus} url="/services/" name="Services" />
-              <NavLink closeMenus={closeMenus} url="/contact/" name="Contact" />
+              <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
+              <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
+              <NavLink closeMenus={closeMenus} url={CONTACT_PATH} name="Contact" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
                   className="slack-button"
                   icon="slack"
-                  link="http://slack.overture.bio/"
+                  link={SLACK_LINK}
                   size="navSlack"
                   type="secondary"
                 >
@@ -107,7 +119,7 @@ class NavBar extends Component {
 
                 <Button
                   icon="githubMagenta"
-                  link={productsDict.overture.github}
+                  link={productsDict.overture.githubUrl}
                   size="navGithub"
                   type="secondary"
                 >

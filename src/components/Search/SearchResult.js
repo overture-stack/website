@@ -1,7 +1,7 @@
 import React from 'react';
 import { connectHits, Highlight, Index, Snippet, PoweredBy } from 'react-instantsearch-dom';
 import { LinkHelper as Link } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 
 // TODO: not sure if we're using this
 // const HitCount = connectStateResults(({ searchResults }) => {

@@ -1,8 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { CASE_STUDIES_PATH, SERVICES_PATH } from 'constants/pages';
 import { Badge, Button, H1, H2, Hero, Icon, LinkHelper as Link } from 'components';
+import { OVERTURE_YOUTUBE_LINK, TEAM_LINK } from 'constants/external-links';
+import { productsAnchors } from 'constants/pages';
 import heroImg from './assets/heroImg.svg';
 import './home/styles.scss';
 
@@ -42,7 +45,7 @@ const VideoModal = ({ isOpen, closeModal }) => {
       <iframe
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/NrgL8vpFm5s"
+        src={OVERTURE_YOUTUBE_LINK}
         style={{ position: 'relative', top: 0, bottom: 0, height: '100%' }}
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -100,7 +103,7 @@ class HomePage extends React.Component {
               The Overture story
             </Button>
 
-            <Button className="my2 mr2" link="/case-studies/" size="medium" type="primary">
+            <Button className="my2 mr2" link={CASE_STUDIES_PATH} size="medium" type="blue">
               The products in action
             </Button>
           </span>
@@ -113,11 +116,11 @@ class HomePage extends React.Component {
             <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
             <div className="pt2" style={{ maxWidth: '900px' }}>
               Data is the essence of our field. Implement Overture’s core products to
-              <Link className="Badge mx1 pink" to="/products#generate-upload">
+              <Link className="Badge mx1 pink" to={productsAnchors.generate}>
                 Generate & Upload
               </Link>
               and <br />
-              <Link className="Badge mx1 blue" to="/products#access-download">
+              <Link className="Badge mx1 blue" to={productsAnchors.access}>
                 Access & Download
               </Link>
               genomic data across multiple cloud providers:
@@ -125,7 +128,7 @@ class HomePage extends React.Component {
           </div>
 
           <div className="columns column">
-            <Link className="column" to="/products/ego">
+            <Link className="column" to={productsDict.ego.productsPath}>
               <BundleCard icon="lock" header="Ego">
                 <div className="py2">
                   Authorization service for identity providers such as Google and Facebook.
@@ -136,7 +139,7 @@ class HomePage extends React.Component {
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/score">
+            <Link className="column" to={productsDict.score.productsPath}>
               <BundleCard icon="database" header="Score">
                 <div className="py2">
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
@@ -147,7 +150,7 @@ class HomePage extends React.Component {
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/song">
+            <Link className="column" to={productsDict.song.productsPath}>
               <BundleCard icon="shield" header="Song">
                 <div className="py2">
                   Tracks genomic data scattered across multiple cloud storage systems.
@@ -158,13 +161,13 @@ class HomePage extends React.Component {
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/arranger">
+            <Link className="column" to={productsDict.arranger.productsPath}>
               <BundleCard icon="gridGlass" header="Arranger">
                 <div className="py2">
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div className="chevron-link">
+                <div className="chevron-link link-magenta">
                   Learn More <Icon size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -177,17 +180,17 @@ class HomePage extends React.Component {
               <div className="explore-solutions-header"> Also explore our products for:</div>
               <div className="badges">
                 <div>
-                  <Link className="Badge mr2 red" to="/products#analyze-discover">
+                  <Link className="Badge mr2 red" to={productsAnchors.analyze}>
                     Analyze & Discover
                   </Link>
 
-                  <Link className="Badge mr2 light-green" to="/products#collaborate-share">
+                  <Link className="Badge mr2 light-green" to={productsAnchors.collaborate}>
                     Collaborate & Share
                   </Link>
                 </div>
 
                 <div>
-                  <Link className="Badge mr2 yellow" to="/products#track-manage">
+                  <Link className="Badge mr2 yellow" to={productsAnchors.track}>
                     Track & Manage
                   </Link>
                 </div>
@@ -216,16 +219,15 @@ class HomePage extends React.Component {
                 <p className="pt2">
                   Built to be reusable and scalable, Overture’s components are well documented,
                   actively supported and welcome{' '}
-                  <Link to={productsDict.overture.github}>external feedback and contributions</Link>
+                  <Link to={productsDict.overture.githubUrl}>
+                    external feedback and contributions
+                  </Link>
                   . If you need assistance, we also offer{' '}
-                  <Link to="/services/">consulting, support and collaborative services.</Link>
+                  <Link to={SERVICES_PATH}>consulting, support and collaborative services.</Link>
                 </p>
 
                 <div className="mt3">
-                  <Link
-                    className="button is-primary is-medium"
-                    to="http://softeng.oicr.on.ca/team/"
-                  >
+                  <Link className="button is-primary is-medium" to={TEAM_LINK}>
                     Meet the team
                   </Link>
 

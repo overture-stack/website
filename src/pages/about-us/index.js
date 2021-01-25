@@ -8,7 +8,8 @@ import {
   Icon,
   LinkHelper as Link,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { GITHUB_ISSUES_LINK, TEAM_LINK, TEAM_BLOG_LINK } from 'constants/external-links';
 import heroImg from './assets/hero_img.svg';
 import './styles.scss';
 
@@ -40,9 +41,8 @@ const featureGridData = [
         <div>
           We are strong believers in open-source software, open science, and open communication.
           Don’t hesitate to follow our team activities on{' '}
-          <Link to="https://github.com/overture-stack/roadmap/issues">GitHub</Link> by taking a look
-          at upcoming or in-progress tickets, or even be the first to test out a feature detailed in
-          a Pull Request.
+          <Link to={GITHUB_ISSUES_LINK}>GitHub</Link> by taking a look at upcoming or in-progress
+          tickets, or even be the first to test out a feature detailed in a Pull Request.
         </div>
       ),
       icon: 'lockCode',
@@ -68,11 +68,11 @@ export default function AboutUsPage() {
         ImgComponent={() => <img src={heroImg} className="about-img" />}
       >
         <div className="flex py2">
-          <Link className="hero-link" to="https://softeng.oicr.on.ca/team/">
+          <Link className="hero-link" to={TEAM_LINK}>
             Meet the team
             <Icon size={16} img="arrowRightMagenta" />
           </Link>
-          <Link className="hero-link pl3" to="https://softeng.oicr.on.ca/">
+          <Link className="hero-link pl3" to={TEAM_BLOG_LINK}>
             Team blog
             <Icon size={16} img="arrowRightMagenta" />
           </Link>
@@ -90,7 +90,7 @@ export default function AboutUsPage() {
         >
           <Button
             icon="githubWhite"
-            link={productsDict.overture.github}
+            link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"
           >

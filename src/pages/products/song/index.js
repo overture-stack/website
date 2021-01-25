@@ -14,7 +14,8 @@ import {
   ProductHero,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { SONG_BLOG_POST_LINK, SONG_DOCS_LINK } from 'constants/external-links';
 
 import './style.scss';
 
@@ -77,7 +78,7 @@ const SongPage = () => (
       title="Song"
       subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
       cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
-      getStartedLink={productsDict.song.github}
+      getStartedLink={productsDict.song.githubUrl}
       badge={{ color: 'pink', text: 'Generate & Upload' }}
       progressType="ga"
       logo="logoSong"
@@ -121,7 +122,7 @@ const SongPage = () => (
 
     {/* Getting Started /  Terminals */}
 
-    <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
+    <GettingStarted pinnedLink={SONG_DOCS_LINK}>
       {/* Getting Started: Step 1 */}
       <div className="columns Step">
         <div className="column is-3">
@@ -183,7 +184,7 @@ const SongPage = () => (
 
         <div className="center h3">
           Or use our storage system
-          <Link className="chevron-link pl1" to="/products/score/">
+          <Link className="link-magenta pl1" to={productsDict.score.productsPath}>
             Score <Icon size={12} img="arrowRightMagenta" />
           </Link>
         </div>
@@ -196,7 +197,7 @@ const SongPage = () => (
         icon="githubYellow"
         description="A flexible data model for tracking your genomic data across the cloud."
       >
-        <Link className="button is-primary is-medium mt2" to={productsDict.song.github}>
+        <Link className="button is-primary is-medium mt2" to={productsDict.song.githubUrl}>
           <Icon size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </Link>
@@ -206,10 +207,7 @@ const SongPage = () => (
         icon="pageWhite"
         description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
       >
-        <Link
-          className="button is-primary is-medium mt2"
-          to="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
-        >
+        <Link className="button is-primary is-medium mt2" to={SONG_BLOG_POST_LINK}>
           <div className="ml1 text-white">Related blog post</div>
         </Link>
       </Callout>

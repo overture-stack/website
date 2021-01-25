@@ -11,7 +11,14 @@ import {
   ProductHero,
   WindowGui,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import {
+  GDC_LINK,
+  LOLLIPLOT_EXAMPLE_LINK,
+  ONCOGRID_EXAMPLE_LINK,
+  PATHWAYVIEWER_EXAMPLE_LINK,
+  SURVIVALPLOT_EXAMPLE_LINK,
+} from 'constants/external-links';
 
 // Screenshots
 import lolliplotScreen from './assets/lolliplot_screen.png';
@@ -41,7 +48,7 @@ const OncoPage = () => (
       title="OncoJS"
       subTitle="Bring data to life with stunning visualizations and real-time analysis."
       cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
-      getStartedLink={productsDict.oncojs.github}
+      getStartedLink={productsDict.oncojs.githubUrl}
       badge={{ color: 'red', text: 'Analyze & Discover' }}
       logo="logoOncojs"
       progressType="ga"
@@ -85,7 +92,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="chevron-link" to="https://portal.gdc.cancer.gov/">
+              <Link className="chevron-link bold text-magenta" to={GDC_LINK}>
                 Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
@@ -143,10 +150,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="chevron-link"
-                to="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
-              >
+              <Link className="chevron-link bold text-magenta" to={LOLLIPLOT_EXAMPLE_LINK}>
                 Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
@@ -201,10 +205,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="chevron-link"
-                to="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
-              >
+              <Link className="chevron-link bold text-magenta" to={ONCOGRID_EXAMPLE_LINK}>
                 Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
@@ -266,10 +267,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link
-                className="chevron-link"
-                to="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
-              >
+              <Link className="chevron-link bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINK}>
                 Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
@@ -323,7 +321,7 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="chevron-link" to="https://portal.gdc.cancer.gov/">
+              <Link className="chevron-link bold text-magenta" to={PATHWAYVIEWER_EXAMPLE_LINK}>
                 Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
@@ -347,7 +345,12 @@ const OncoPage = () => (
         description="Bring data to life with stunning visualizations and real-time analysis."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.oncojs.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.oncojs.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

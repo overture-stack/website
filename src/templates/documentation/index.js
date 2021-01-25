@@ -18,7 +18,7 @@ import {
 } from 'components';
 import { useScrollToHash } from 'hooks';
 import NotFoundPage from 'pages/404';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import { findNextPrevPages } from './utils';
 import './styles.scss';
 
@@ -102,7 +102,7 @@ export default function DocumentationPage({ data, location, path }) {
           <div className="docs__github-btn">
             <Button
               icon="githubWhite"
-              link={productsDict[sectionSlug].github}
+              link={productsDict[sectionSlug].githubUrl}
               size="navGithub"
               type="primary"
             >
@@ -163,7 +163,11 @@ export default function DocumentationPage({ data, location, path }) {
       {/* PAGE/HEADINGS TABLE OF CONTENTS */}
       <div className="docs__toc-headings">
         {/* GITHUB BUTTON */}
-        <Button className="docs__github-btn" link={productsDict[sectionSlug].github} type="primary">
+        <Button
+          className="docs__github-btn"
+          link={productsDict[sectionSlug].githubUrl}
+          type="primary"
+        >
           <Icon img="githubWhite" size={20} /> {sectionTitle} Github
         </Button>
         {!redirectDest && headingsTableOfContents && (

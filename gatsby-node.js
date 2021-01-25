@@ -135,6 +135,7 @@ const onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
+        constants: path.resolve(__dirname, 'constants'),
         data: path.resolve(__dirname, 'src/data'),
         hooks: path.resolve(__dirname, 'src/hooks'),
         meta: path.resolve(__dirname, 'meta'),

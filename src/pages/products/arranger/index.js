@@ -14,7 +14,12 @@ import {
   Terminal,
   UrlBar,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import {
+  ARRANGER_GETTING_STARTED_LINK,
+  ARRANGER_LOCAL_LINK,
+  ARRANGER_UPDATES_LINK,
+} from 'constants/external-links';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -35,7 +40,7 @@ const ArrangerPage = () => (
       title="Arranger"
       subTitle="Data can be messy, let Arranger organize it for you. "
       cardText="Provide your administrators with the power to organize an intuitive data search interface, complete with customizable components, tables, and search terms."
-      getStartedLink={productsDict.arranger.github}
+      getStartedLink={productsDict.arranger.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoArranger"
       progressType="rc"
@@ -119,7 +124,7 @@ const ArrangerPage = () => (
 
     {/* Getting Started Terminals / steps */}
 
-    <GettingStarted pinnedLink="https://arranger.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={ARRANGER_UPDATES_LINK}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -168,7 +173,7 @@ const ArrangerPage = () => (
           <UrlBar
             prompts={[
               <div>
-                <Link to="https://localhost:8080">http://localhost:8080</Link>
+                <Link to={ARRANGER_LOCAL_LINK}>{ARRANGER_LOCAL_LINK}</Link>
               </div>,
             ]}
           />
@@ -182,11 +187,8 @@ const ArrangerPage = () => (
           <div>
             {' '}
             <H4>
-              Follow the{' '}
-              <Link to="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html">
-                quick guide
-              </Link>{' '}
-              to generate demo data and a local portal!
+              Follow the <Link to={ARRANGER_GETTING_STARTED_LINK}>quick guide</Link> to generate
+              demo data and a local portal!
             </H4>{' '}
           </div>
           <div className="mt3 yellow-bar" />
@@ -197,9 +199,7 @@ const ArrangerPage = () => (
             prompts={[
               <div>
                 Visit{' '}
-                <Link to="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html">
-                  https://arranger.readthedocs.io/en/latest/src/gettingstarted.html
-                </Link>
+                <Link to={ARRANGER_GETTING_STARTED_LINK}>{ARRANGER_GETTING_STARTED_LINK}</Link>
               </div>,
             ]}
           />
@@ -213,7 +213,12 @@ const ArrangerPage = () => (
         description="Provide your administrators with the power to organize an intuitive data search interface."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.arranger.github} size="medium" type="primary">
+        <Button
+          icon="githubWhite"
+          link={productsDict.arranger.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

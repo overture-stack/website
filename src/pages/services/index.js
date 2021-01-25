@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { CONTACT_PATH } from 'constants/pages';
 import { Button, H2, Hero, MarketingSection } from 'components';
 import academicImg from './assets/academic.svg';
 import techImg from './assets/tech_support.svg';
@@ -39,7 +40,7 @@ const ServicesPage = () => (
           stacks and building custom solutions for joint projects.
         </p>
 
-        <Button className="mt3" link="/contact/" size="medium" type="primary">
+        <Button className="mt3" link={CONTACT_PATH} size="medium" type="primary">
           Request a collaboration
         </Button>
       </div>
@@ -73,7 +74,7 @@ const ServicesPage = () => (
           <li className="bullet">Scalability</li>
         </ul>
 
-        <Button link="/contact/" size="medium" type="primary">
+        <Button link={CONTACT_PATH} size="medium" type="primary">
           Request consulting
         </Button>
       </div>
@@ -95,7 +96,7 @@ const ServicesPage = () => (
           <li className="bullet">Troubleshooting</li>
         </ul>
 
-        <Button link="/contact/" size="medium" type="primary">
+        <Button link={CONTACT_PATH} size="medium" type="primary">
           Request technical support
         </Button>
       </div>

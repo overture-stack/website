@@ -9,7 +9,7 @@ import {
   IconCommon,
   LinkHelper as Link,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -120,12 +120,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          link: productsDict.billing.github,
+          extlink: productsDict.billing.githubUrl,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          link: productsDict.enrolment.github,
+          extlink: productsDict.enrolment.githubUrl,
         },
       ],
       ChildComponent: ProductBox,
@@ -255,7 +255,7 @@ export default function ProductsPage() {
         >
           <Button
             icon="githubWhite"
-            link={productsDict.overture.github}
+            link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"
           >

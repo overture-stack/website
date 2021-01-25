@@ -13,7 +13,8 @@ import {
   ProductHero,
   Terminal,
 } from 'components';
-import productsDict from 'meta/products-dict';
+import productsDict from 'constants/products';
+import { EGO_SQL_LINK, EGO_UPDATES_LINK } from 'constants/external-links';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -37,7 +38,7 @@ const EgoPage = () => (
       title="Ego"
       subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
-      getStartedLink={productsDict.ego.github}
+      getStartedLink={productsDict.ego.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoEgo"
       progressType="ga"
@@ -118,7 +119,7 @@ const EgoPage = () => (
 
     {/* Getting Started Terminals / steps */}
 
-    <GettingStarted pinnedLink="http://ego.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={EGO_UPDATES_LINK}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
@@ -153,11 +154,8 @@ const EgoPage = () => (
 
             <ul className="step-text">
               <li className="bullet">
-                Copy the{' '}
-                <Link to="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql">
-                  psql-schema.sql
-                </Link>{' '}
-                file locally. {/* TJS NEEDS LINK */}
+                Copy the <Link to={EGO_SQL_LINK}>psql-schema.sql</Link> file locally.{' '}
+                {/* TJS NEEDS LINK */}
               </li>
               <li className="bullet">
                 Execute the SQL script to setup the tables. {/* TJS NEEDS LINK */}
@@ -212,7 +210,7 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
       >
-        <Button icon="githubWhite" link={productsDict.ego.github} size="medium" type="primary">
+        <Button icon="githubWhite" link={productsDict.ego.githubUrl} size="medium" type="primary">
           Get Started
         </Button>
       </Callout>

@@ -2,6 +2,7 @@ import React from 'react';
 import heroImg from './assets/hero_img.svg';
 import Helmet from 'react-helmet';
 import { H2, Button, Hero } from 'components';
+import { SLACK_LINK } from 'constants/external-links';
 import './styles.scss';
 
 export default function ContactPage() {
@@ -69,12 +70,7 @@ export default function ContactPage() {
                   Contact Us
                 </Button>
 
-                <Button
-                  icon="slack"
-                  link="http://slack.overture.bio/"
-                  size="medium"
-                  type="secondary"
-                >
+                <Button icon="slack" link={SLACK_LINK} size="medium" type="secondary">
                   Join us on Slack
                 </Button>
               </div>
