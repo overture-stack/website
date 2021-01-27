@@ -185,7 +185,7 @@ const SongPage = () => (
         <div className="center h3">
           Or use our storage system
           <Link className="link-magenta pl1" to={productsDict.score.productsPath}>
-            Score &gt;
+            Score <Icon size={12} img="arrowRightMagenta" />
           </Link>
         </div>
       </section>

@@ -15,7 +15,7 @@
   }
   &__sidebar {
     flex: 0 0 280px;
-    background: $grey;
+    background: $grey-2;
     padding: 20px 16px;
     &__github {
       position: absolute;
@@ -25,19 +25,20 @@
       }
     }
     &__overview {
-      color: $blue-links-darker;
+      color: $blue-links;
       display: block;
       font-size: 14px;
       font-weight: bold;
       line-height: 1;
       margin-bottom: 40px;
+      text-decoration: none;
       img {
         margin-right: 4px;
       }
       &:hover,
       &:active,
       &:focus {
-        color: $blue-links-darker;
+        color: $blue-links;
       }
     }
     &__sticky {
@@ -87,7 +88,7 @@
           height: 2px;
         }
         &:hover {
-          background: $blue-links-darker;
+          background: $blue-links;
         }
       }
     }
@@ -185,8 +186,8 @@
   &__mdx {
     // markdown
     code {
-      color: $magenta;
-      background: $grey-blue;
+      color: $pink-darker;
+      background: $grey-2;
       font-family: $font-monospace;
       border-radius: 3px;
       padding: 0.15em 0.25em;
@@ -231,14 +232,14 @@
     p,
     div,
     li {
-      color: $blue-darker;
+      color: $navy-black;
     }
     p,
     li,
     W td,
     th {
       a {
-        color: $blue-links-darker;
+        color: $blue-links;
         text-decoration: underline;
         &:hover,
         &:active {
@@ -247,24 +248,24 @@
       }
     }
     table {
-      border: 1px solid $grey-table-border;
+      border: 1px solid $grey-3;
       td,
       th {
         font-size: 14px;
         line-height: 1.5;
-        border: 1px solid $grey-table-border;
+        border: 1px solid $grey-3;
         padding: 4px 8px;
       }
       th {
-        color: $blue-black;
+        color: $navy-black;
       }
       td {
-        color: $blue-darkest;
+        color: $grey-darkest;
         border-top-width: 0;
         border-bottom-width: 0;
       }
       tr:nth-child(2n) {
-        background: $grey-table-bg;
+        background: $grey-1;
       }
     }
     h2,
@@ -301,7 +302,7 @@
         height: 3px;
         width: 106px;
         border-radius: 1.5px;
-        background-color: $yellow-light-border;
+        background-color: $yellow;
       }
     }
     h3 {
@@ -323,7 +324,7 @@
       list-style-type: decimal;
     }
     blockquote {
-      border-left: 6px solid $grey-table-border;
+      border-left: 6px solid $grey-3;
       padding: 0 18px;
       margin-bottom: 24px;
       *:last-child {
@@ -334,12 +335,12 @@
       div,
       strong,
       em {
-        color: $grey-text !important;
+        color: $grey-darkest !important;
       }
     }
     .gatsby-resp-image-wrapper {
       box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
-      border: solid 1px $image-border;
+      border: solid 1px $grey-3;
     }
   }
   &__toc-headings {

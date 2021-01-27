@@ -15,8 +15,7 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
     <header className="card-header">
-      <div className="text-white">{header}</div>
-      <Icon alt={`${header} icon`} img={icon} />
+      {header} <Icon alt={`${header} icon`} img={icon} />
     </header>
 
     <section className="card-body">{children}</section>
@@ -94,12 +93,17 @@ class HomePage extends React.Component {
           ImgComponent={() => <img alt="" className="home-img" src={heroImg} />}
         >
           <span className="hero-buttons">
-            <Button type="blue" className="my2 mr2" size="medium" onClick={() => this.openModal()}>
+            <Button
+              type="primary"
+              className="my2 mr2"
+              size="medium"
+              onClick={() => this.openModal()}
+            >
               <Icon alt="Play video" img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 
-            <Button className="my2 mr2" link={CASE_STUDIES_PATH} size="medium" type="blue">
+            <Button className="my2 mr2" link={CASE_STUDIES_PATH} size="medium" type="primary">
               The products in action
             </Button>
           </span>
@@ -112,21 +116,13 @@ class HomePage extends React.Component {
             <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
             <div className="pt2" style={{ maxWidth: '900px' }}>
               Data is the essence of our field. Implement Overture’s core products to
-              <span>
-                <Link to={productsAnchors.generate}>
-                  <Badge className="mx1" color="pink">
-                    Generate & Upload{' '}
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 pink" to={productsAnchors.generate}>
+                Generate & Upload
+              </Link>
               and <br />
-              <span>
-                <Link to={productsAnchors.access}>
-                  <Badge className="mx1" color="blue">
-                    Access & Download
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 blue" to={productsAnchors.access}>
+                Access & Download
+              </Link>
               genomic data across multiple cloud providers:
             </div>
           </div>
@@ -137,7 +133,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Authorization service for identity providers such as Google and Facebook.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link link-magenta">
                   Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -148,7 +144,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link link-magenta">
                   Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -159,7 +155,7 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Tracks genomic data scattered across multiple cloud storage systems.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link link-magenta">
                   Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -171,7 +167,7 @@ class HomePage extends React.Component {
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div className="link-magenta">
+                <div className="chevron-link link-magenta">
                   Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
@@ -184,24 +180,18 @@ class HomePage extends React.Component {
               <div className="explore-solutions-header"> Also explore our products for:</div>
               <div className="badges">
                 <div>
-                  <Link to={productsAnchors.analyze}>
-                    <Badge className="mr2" color="red">
-                      Analyze & Discover
-                    </Badge>
+                  <Link className="Badge mr2 red" to={productsAnchors.analyze}>
+                    Analyze & Discover
                   </Link>
 
-                  <Link to={productsAnchors.collaborate}>
-                    <Badge className="mr2" color="light-green">
-                      Collaborate & Share
-                    </Badge>
+                  <Link className="Badge mr2 light-green" to={productsAnchors.collaborate}>
+                    Collaborate & Share
                   </Link>
                 </div>
 
                 <div>
-                  <Link to={productsAnchors.track}>
-                    <Badge className="mr2" color="yellow">
-                      Track & Manage
-                    </Badge>
+                  <Link className="Badge mr2 yellow" to={productsAnchors.track}>
+                    Track & Manage
                   </Link>
                 </div>
               </div>

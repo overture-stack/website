@@ -12,11 +12,11 @@
   // This class is added like so:
   // <button type="secondary"
   &.secondary {
-    color: $magenta !important;
+    color: $pink-darker !important;
   }
 
   &.blue {
-    background: $blue-2;
+    background: $blue;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
     color: $white;
     border: none;

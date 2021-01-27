@@ -5,6 +5,7 @@ import {
   Button,
   Callout,
   H2,
+  Icon,
   LinkHelper as Link,
   ProductFeature,
   ProductHero,
@@ -91,8 +92,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={GDC_LINK}>
-                Live example &gt;
+              <Link className="chevron-link bold text-magenta" to={GDC_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -149,8 +150,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={LOLLIPLOT_EXAMPLE_LINK}>
-                Live example &gt;
+              <Link className="chevron-link bold text-magenta" to={LOLLIPLOT_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -204,8 +205,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={ONCOGRID_EXAMPLE_LINK}>
-                Live example &gt;
+              <Link className="chevron-link bold text-magenta" to={ONCOGRID_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -266,8 +267,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINK}>
-                Live example &gt;
+              <Link className="chevron-link bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>
@@ -320,8 +321,8 @@ const OncoPage = () => (
             </div>
 
             <div className="mt2">
-              <Link className="bold text-magenta" to={PATHWAYVIEWER_EXAMPLE_LINK}>
-                Live example &gt;
+              <Link className="chevron-link bold text-magenta" to={PATHWAYVIEWER_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
               </Link>
             </div>
           </div>

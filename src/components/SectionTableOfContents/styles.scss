@@ -4,13 +4,16 @@
   margin-bottom: 24px;
   max-height: calc(100vh - 150px);
   overflow: auto;
+  a {
+    text-decoration: none;
+  }
   ol {
     list-style-type: none;
     li {
       line-height: 24px;
       position: relative;
       a {
-        color: $blue-black;
+        color: $navy-black;
         display: block;
         font-weight: bold;
       }
@@ -27,14 +30,14 @@
       }
     }
     &.link-active {
-      border-left-color: $magenta-border;
+      border-left-color: $pink-dark;
       background-color: $white;
     }
     & + li:not(.menu-heading) {
-      border-top: 1px solid $grey-hr;
+      border-top: 1px solid $grey-3;
     }
     &:last-child {
-      border-bottom: 1px solid $grey-hr;
+      border-bottom: 1px solid $grey-3;
     }
   }
   .menu-level-1 > li {
@@ -55,14 +58,14 @@
   }
   .menu-level-2 > li {
     &.menu-active {
-      border-left-color: $magenta-border;
+      border-left-color: $pink-dark;
       background-color: $white;
       a:hover {
-        background-color: $grey-bg-hover;
+        background-color: $grey-1;
       }
     }
     &.menu-open {
-      border-left-color: $grey-border;
+      border-left-color: $grey-1;
     }
   }
   button.menu-toggle-btn {
@@ -97,6 +100,6 @@
     }
   }
   .link-active > a {
-    color: $magenta;
+    color: $pink-darker;
   }
 }

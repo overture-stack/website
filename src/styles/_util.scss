@@ -4,15 +4,11 @@
 
 // Backgrounds
 .bg-grey {
-  background: $grey-5;
-}
-
-.bg-grey-light {
-  background: $grey;
+  background: $grey-2;
 }
 
 .bg-blue {
-  background: $blue-dark;
+  background: $navy-dark;
 }
 
 .bg-green {
@@ -30,18 +26,19 @@
 }
 
 .text-magenta {
-  color: $magenta;
+  color: $pink-darker;
 }
 
 .link-magenta {
   font-family: $font-sans-serif;
   font-weight: 700;
-  color: $magenta;
+  color: $pink-darker;
   letter-spacing: 0;
+  text-decoration: none;
 
   a,
   a:hover {
-    color: $magenta;
+    color: $pink-darker;
   }
 }
 
@@ -55,6 +52,7 @@
 
 .chevron-link,
 .chevron-link a {
-  color: $magenta;
+  color: $pink-darker;
   font-weight: bold;
+  text-decoration: none;
 }

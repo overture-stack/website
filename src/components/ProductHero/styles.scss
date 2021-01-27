@@ -41,7 +41,7 @@
   .card-img-box {
     justify-content: center;
     display: flex;
-    background-color: $grey;
+    background-color: $grey-2;
     height: 280px;
     border-top-right-radius: 5px;
 
@@ -61,7 +61,7 @@
   .card-text {
     font-family: $font-sans-serif;
     font-size: 24px;
-    color: $blue-darker;
+    color: $navy-black;
     letter-spacing: 0;
     line-height: 40px;
     text-align: left;
@@ -89,7 +89,7 @@
     font-family: $font-sans-serif;
     font-weight: 700;
     font-size: 56px;
-    color: $white;
+    color: $navy-black;
     letter-spacing: 0;
     line-height: 70px;
 
@@ -103,7 +103,7 @@
     margin: 0 auto;
     font-family: $font-sans-serif;
     font-size: 30px;
-    color: $white;
+    color: $navy-black;
     letter-spacing: 0;
     text-align: center;
     line-height: 45px;
