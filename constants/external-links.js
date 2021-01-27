@@ -15,6 +15,7 @@ export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
 export const SLACK_LINK = 'http://slack.overture.bio/';
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
+export const EMAIL_LINK = 'mailto:contact@overture.bio';
 
 // PRODUCTS LINKS
 

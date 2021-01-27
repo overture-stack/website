@@ -7,7 +7,7 @@ import {
   GettingStarted,
   GridFeature,
   H2,
-  H4,
+  H3,
   LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
@@ -104,7 +104,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Download Persona.</H4>
+            <H3>Download Persona.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -120,7 +120,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Set up your environment.</H4>
+            <H3>Set up your environment.</H3>
 
             <ul className="step-text">
               <li className="bullet">
@@ -138,7 +138,7 @@ const PersonaPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Start your server.</H4>
+            <H3>Start your server.</H3>
 
             <div className="py3">
               <div>
@@ -166,6 +166,7 @@ const PersonaPage = () => (
       >
         <Button
           icon="githubWhite"
+          iconAlt="github icon"
           link={productsDict.persona.githubUrl}
           size="medium"
           type="primary"

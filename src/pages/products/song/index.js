@@ -6,7 +6,7 @@ import {
   GettingStarted,
   GridFeature,
   H2,
-  H4,
+  H3,
   Icon,
   LinkHelper as Link,
   ProductFeature,
@@ -128,7 +128,7 @@ const SongPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Download the Song client - Sing, our command line interface.</H4>
+            <H3>Download the Song client - Sing, our command line interface.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -143,7 +143,7 @@ const SongPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build and run the source using maven with simple instructions.</H4>
+            <H3>Build and run the source using maven with simple instructions.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -161,7 +161,7 @@ const SongPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Get started running Song with just two Docker commands.</H4>
+            <H3>Get started running Song with just two Docker commands.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -177,9 +177,9 @@ const SongPage = () => (
         <H2 className="center pb3">Compatible storage partners</H2>
 
         <div className="column storage-partners">
-          <img src={aws} style={{ width: '120px' }} />
-          <img src={azure} style={{ width: '175px' }} />
-          <img src={pgsql} style={{ width: '120px' }} />
+          <img alt="AWS logo" src={aws} style={{ width: '120px' }} />
+          <img alt="Azure logo" src={azure} style={{ width: '175px' }} />
+          <img alt="PGSql logo" src={pgsql} style={{ width: '120px' }} />
         </div>
 
         <div className="center h3">
@@ -198,7 +198,7 @@ const SongPage = () => (
         description="A flexible data model for tracking your genomic data across the cloud."
       >
         <Link className="button is-primary is-medium mt2" to={productsDict.song.githubUrl}>
-          <Icon size={24} img="githubWhite" />
+          <Icon alt="githubicon" size={24} img="githubWhite" />
           <div className="ml1 text-white">Get Started</div>
         </Link>
       </Callout>

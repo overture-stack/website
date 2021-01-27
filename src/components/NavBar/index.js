@@ -108,6 +108,7 @@ class NavBar extends Component {
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
+                  iconAlt="slack logo"
                   className="slack-button"
                   icon="slack"
                   link={SLACK_LINK}
@@ -119,6 +120,7 @@ class NavBar extends Component {
 
                 <Button
                   icon="githubMagenta"
+                  iconAlt="github logo"
                   link={productsDict.overture.githubUrl}
                   size="navGithub"
                   type="secondary"

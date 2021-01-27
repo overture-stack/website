@@ -40,7 +40,12 @@ const ProductBox = ({
             return (
               <span key={l.extlink} className="icon-link">
                 <Link className="link" to={l.extlink}>
-                  <Icon className="icon" size={l.iconSize ? l.iconSize : iconSize} img={l.icon} />
+                  <Icon
+                    alt={`${l.text} icon`}
+                    className="icon"
+                    img={l.icon}
+                    size={l.iconSize || iconSize}
+                  />
                   {l.text}
                 </Link>
               </span>
@@ -50,6 +55,7 @@ const ProductBox = ({
               <span key={l.link} className="icon-link">
                 <Link className="link" to={l.link}>
                   <Icon
+                    alt={`${l.text} icon`}
                     className="icon"
                     size={l.iconSize ? l.iconSize : iconSize}
                     img={l.icon}
@@ -240,10 +246,10 @@ class HeroImg extends React.Component {
         ></canvas>
         <div className="img_hero_products">
           {/* hidden clouds for canvas animations */}
-          <img ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
-          <img ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
+          <img alt="" ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
+          <img alt="" ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
           {/* the hero image: */}
-          <img style={{ zIndex: 3 }} src={heroImg} />
+          <img alt="" style={{ zIndex: 3 }} src={heroImg} />
         </div>
       </div>
     );
@@ -255,6 +261,7 @@ export default function ProductsPage() {
     <main className="ProductsPage">
       {/* HERO */}
       <Hero
+        alt=""
         title="Products"
         titleClass="hero-text is-4-desktop"
         subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
@@ -282,6 +289,7 @@ export default function ProductsPage() {
         >
           <Button
             icon="githubWhite"
+            iconAlt="github icon"
             link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"

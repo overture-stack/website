@@ -1,11 +1,11 @@
 import React from 'react';
-import { H1, H4, LinkHelper as Link } from 'components';
+import { H1, H2, LinkHelper as Link } from 'components';
 import { FAQ_LINK, POLICIES_LINK, PRIVACY_EMAIL_LINK } from 'constants/external-links';
 import './styles.scss';
 
 const Heading = ({ children }) => (
   <div className="pt2">
-    <H4 className="">{children}</H4>
+    <H2 className="t-h4">{children}</H2>
     <div className="my2 yellow-bar" />
   </div>
 );
@@ -112,8 +112,8 @@ const PrivacyPage = () => (
           <Link to={FAQ_LINK}>Information Practices Frequently Asked Questions</Link>.
         </p>
         <p>
-          If you have any questions or concerns about privacy at OICR, please
-          send a written request to:
+          If you have any questions or concerns about privacy at OICR, please send a written request
+          to:
         </p>
 
         <div className="bold"> Attn: Privacy Officer</div>

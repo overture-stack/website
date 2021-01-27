@@ -1,4 +1,4 @@
-import { H4, Button, Icon, TrafficLights, ImageCrossfade } from '..';
+import { H3, Button, Icon, TrafficLights, ImageCrossfade } from '..';
 import React from 'react';
 
 /**
@@ -22,12 +22,12 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
       <div className="container top-segment">
         <div className="case-heading">
-          <H4>{caseData.title}</H4>
+          <H3>{caseData.title}</H3>
           <div className="yellow-bar" />
         </div>
         <div className="columns">
           <div className="column is-6">
-            <img className="client-logo" src={caseData.logo} />
+            <img alt={`${caseData.title} logo`} className="client-logo" src={caseData.logo} />
             {React.cloneElement(descriptionEl, { className: 'case-description' })}
           </div>
 

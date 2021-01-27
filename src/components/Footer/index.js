@@ -161,7 +161,7 @@ const FooterColumns = () => {
                   <li key={linkKey}>
                     <Link className="link" to={link}>
                       <span>{linkKey}</span>
-                      {icon && <Icon img={icon} style={{ marginLeft: 4 }} />}
+                      {icon && <Icon alt="github logo" img={icon} style={{ marginLeft: 4 }} />}
                     </Link>
                   </li>
                 );
