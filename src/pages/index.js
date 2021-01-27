@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import productsDict from 'constants/products';
 import { CASE_STUDIES_PATH, SERVICES_PATH } from 'constants/pages';
-import { Badge, Button, H1, H2, Hero, Icon, LinkHelper as Link } from 'components';
+import { Badge, Button, H2, H3, Hero, Icon, LinkHelper as Link } from 'components';
 import { OVERTURE_YOUTUBE_LINK, TEAM_LINK } from 'constants/external-links';
 import { productsAnchors } from 'constants/pages';
 import heroImg from './assets/heroImg.svg';
@@ -15,7 +15,7 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
     <header className="card-header">
-      {header} <Icon img={icon} />
+      {header} <Icon alt={`${header} icon`} img={icon} />
     </header>
 
     <section className="card-body">{children}</section>
@@ -90,7 +90,7 @@ class HomePage extends React.Component {
         <Hero
           title="Worry less, science more"
           subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
-          ImgComponent={() => <img className="home-img" src={heroImg} />}
+          ImgComponent={() => <img alt="" className="home-img" src={heroImg} />}
         >
           <span className="hero-buttons">
             <Button
@@ -99,7 +99,7 @@ class HomePage extends React.Component {
               size="medium"
               onClick={() => this.openModal()}
             >
-              <Icon img="play" size={26} className="mr1" />
+              <Icon alt="Play video" img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 
@@ -133,8 +133,8 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Authorization service for identity providers such as Google and Facebook.
                 </div>
-                <div className="chevron-link">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -144,8 +144,8 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
                 </div>
-                <div className="chevron-link">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -155,8 +155,8 @@ class HomePage extends React.Component {
                 <div className="py2">
                   Tracks genomic data scattered across multiple cloud storage systems.
                 </div>
-                <div className="chevron-link">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -168,7 +168,7 @@ class HomePage extends React.Component {
                   interface.
                 </div>
                 <div className="chevron-link link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -205,9 +205,9 @@ class HomePage extends React.Component {
           <div className="container">
             <div className="columns py3">
               <div className="column is-half">
-                <H1 className="bottom-header">
+                <H3 className="bottom-header">
                   We created Overture to share our data science components with the community.
-                </H1>
+                </H3>
               </div>
 
               <div className="column is-half pb4 mt2">

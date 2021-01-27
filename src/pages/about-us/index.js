@@ -65,16 +65,16 @@ export default function AboutUsPage() {
         subtitle="Our vision is to help research, healthcare, and patient communities collaborate and advance genomic research by providing cutting-edge open source software solutions."
         fgImage="img_our_vision"
         fgImageClass="about-img"
-        ImgComponent={() => <img src={heroImg} className="about-img" />}
+        ImgComponent={() => <img alt="" src={heroImg} className="about-img" />}
       >
         <div className="flex py2">
           <Link className="hero-link" to={TEAM_LINK}>
             Meet the team
-            <Icon size={16} img="arrowRightMagenta" />
+            <Icon alt="right arrow" size={16} img="arrowRightMagenta" />
           </Link>
           <Link className="hero-link pl3" to={TEAM_BLOG_LINK}>
             Team blog
-            <Icon size={16} img="arrowRightMagenta" />
+            <Icon alt="right arrow" size={16} img="arrowRightMagenta" />
           </Link>
         </div>
       </Hero>
@@ -90,6 +90,7 @@ export default function AboutUsPage() {
         >
           <Button
             icon="githubWhite"
+            iconAlt="github icon"
             link={productsDict.overture.githubUrl}
             size="medium"
             type="primary"

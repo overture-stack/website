@@ -100,7 +100,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={sapienScreen} />
+              <img alt="" src={sapienScreen} />
             </WindowGui>
           </div>
         </div>
@@ -114,7 +114,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-6 flex items-center">
             <WindowGui>
-              <img src={lolliplotScreen} />
+              <img alt="" src={lolliplotScreen} />
             </WindowGui>
           </div>
           <div className="column pt2 is-5-desktop pl3 pt2">
@@ -213,7 +213,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={oncogridScreen} />
+              <img alt="" src={oncogridScreen} />
             </WindowGui>
           </div>
         </div>
@@ -228,7 +228,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-6 flex items-center">
             <WindowGui>
-              <img src={survivalplotScreen} />
+              <img alt="" src={survivalplotScreen} />
             </WindowGui>
           </div>
           <div className="column pt2 is-5-desktop pl3 pt2">
@@ -330,7 +330,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={pathwayviewerScreen} />
+              <img alt="" src={pathwayviewerScreen} />
             </WindowGui>
           </div>
         </div>
@@ -347,6 +347,7 @@ const OncoPage = () => (
       >
         <Button
           icon="githubWhite"
+          iconAlt="github icon"
           link={productsDict.oncojs.githubUrl}
           size="medium"
           type="primary"

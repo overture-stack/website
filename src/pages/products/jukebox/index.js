@@ -7,7 +7,7 @@ import {
   GettingStarted,
   GridFeature,
   H2,
-  H4,
+  H3,
   LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
@@ -130,7 +130,7 @@ const JukeboxPage = () => (
         <div className="column is-3-desktop">
           <H2 className="pb1">1</H2>
           <div>
-            <H4> To set up locally, clone the Jupyter repository. </H4>
+            <H3> To set up locally, clone the Jupyter repository. </H3>
             <div className="step-text">
               {' '}
               Edit default permissions and configurations if needed.{' '}
@@ -150,7 +150,7 @@ const JukeboxPage = () => (
         <div className="column is-3-desktop">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Use Ansible to deploy Jukebox.</H4>
+            <H3>Use Ansible to deploy Jukebox.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -166,7 +166,7 @@ const JukeboxPage = () => (
         <div className="column is-3-desktop">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Learn, explore, experiment.</H4>
+            <H3>Learn, explore, experiment.</H3>
             <div className="step-text">
               Experiment with scientific packages such as NumPy, SciPy, Pandas and Seaborn and
               languages including Python, Scala and R.
@@ -190,6 +190,7 @@ const JukeboxPage = () => (
         <Button
           className="mt2"
           icon="githubWhite"
+          iconAlt="github icon"
           link={productsDict.jukebox.githubUrl}
           size="medium"
           type="primary"

@@ -6,7 +6,7 @@ import {
   Callout,
   GettingStarted,
   H2,
-  H4,
+  H3,
   LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
@@ -116,7 +116,7 @@ const ArrangerPage = () => (
 
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ const ArrangerPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Clone the repo.</H4>
+            <H3>Clone the repo.</H3>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -148,7 +148,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">2</H2>
           <div>
             {' '}
-            <H4>Run docker compose.</H4>{' '}
+            <H3>Run docker compose.</H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -164,7 +164,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">3</H2>
           <div>
             {' '}
-            <H4>Go to localhost to see arranger server.</H4>{' '}
+            <H3>Go to localhost to see arranger server.</H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -186,10 +186,10 @@ const ArrangerPage = () => (
           <H2 className="pb1">4</H2>
           <div>
             {' '}
-            <H4>
+            <H3>
               Follow the <Link to={ARRANGER_GETTING_STARTED_LINK}>quick guide</Link> to generate
               demo data and a local portal!
-            </H4>{' '}
+            </H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -215,6 +215,7 @@ const ArrangerPage = () => (
       >
         <Button
           icon="githubWhite"
+          iconAlt="github icon"
           link={productsDict.arranger.githubUrl}
           size="medium"
           type="primary"

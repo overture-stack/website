@@ -158,8 +158,9 @@ const icons = {
   xGrey,
 };
 
-export const Icon = ({ img, size, className, style }) => (
+export const Icon = ({ alt = '', img, size, className, style }) => (
   <img
+    alt={alt}
     className={`${className ? className : ''} Icon`}
     src={icons[img]}
     style={{ width: size, height: 'auto', ...style }}
@@ -172,7 +173,7 @@ function Core() {
   return (
     <span className="Icons">
       <div className="core">
-        <Icon className="" img="star" /> CORE{' '}
+        <Icon className="" img="star" alt="" /> CORE{' '}
       </div>
     </span>
   );
