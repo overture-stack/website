@@ -107,6 +107,11 @@
       }
     }
   }
+  &__no-results {
+    border-bottom: 1px solid $grey-3;
+    padding: 10px;
+    text-align: left;
+  }
 }
 
 .ais-PoweredBy {
