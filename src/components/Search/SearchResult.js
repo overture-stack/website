@@ -13,7 +13,7 @@ import productsDict from 'constants/products';
 //   );
 // });
 
-const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className, query }) => {
+const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className, query = '' }) => {
   const hitsBySection = hits.reduce(
     (acc, curr) => ({
       ...acc,
@@ -24,7 +24,7 @@ const CustomHits = connectHits(({ hits, hitComponent: HitComponent, className, q
 
   return (
     <div className={className}>
-      {Object.keys(hitsBySection).length === 0 && query && (
+      {Object.keys(hitsBySection).length === 0 && query && query.length > 0 && (
         <div className="search__result search__no-results">
           No results were found for the keyword: <mark>{query}</mark>
         </div>
