@@ -2,12 +2,17 @@
 title: Introduction
 ---
 
-Commodo esse ipsum ut irure non voluptate consectetur sit Lorem laboris. Esse elit magna adipisicing labore et non. Occaecat et quis elit anim nisi aliqua excepteur. Tempor est id magna ad. Cupidatat in velit cillum ipsum duis.
+With great data, comes great data responsibility.  Genomic data files are being generated at a fast pace; Song provides a metadata management and storage system to easily track and manage files in a secure and validated environment, against your established data model.  Some features are particularly tailored towards genomic files, but Song supports any data type! 
 
-Velit consectetur non enim fugiat aliquip pariatur velit cupidatat eu. Eu ut cupidatat Lorem officia minim id ex in non cupidatat id nisi. Enim incididunt ex quis nisi aute ex.
+# Features
+## Metadata to File Validation
+In conjunction with the data upload tool Score, provides:
+- Validation of file metadata associated with a file against a metadata record
+- Assignment of global identifiers for data management, managed by Song or an external ID database
+- Assignment of access control rules for open (public access) versus controlled (authentication required) access to files.
 
-Quis ea eu duis commodo. Qui amet eiusmod ad sunt amet nisi nostrud culpa dolor consequat et. Pariatur officia nulla non magna tempor cillum enim aliquip minim eiusmod duis ex. Fugiat quis nostrud ipsum est officia sit et officia. Pariatur dolor nisi minim proident ea. Ea nostrud magna ad reprehenderit proident officia tempor eu occaecat pariatur voluptate incididunt. Adipisicing eiusmod excepteur ut duis excepteur nostrud aliqua Lorem.
+## Data Lifecyle Management 
+Song manages a lifecycle of data publication from initial upload, to publication, and even eventual removal of data. 
 
-Reprehenderit consectetur et cillum aliquip occaecat non labore duis quis. Tempor officia laboris adipisicing ex mollit cillum veniam amet. Est commodo mollit id culpa sint ea culpa enim qui commodo eiusmod duis qui reprehenderit. Sunt veniam tempor aliqua labore et excepteur minim eiusmod aliquip veniam cupidatat nulla.
-
-Et ex ex ullamco minim veniam. Eiusmod eiusmod non proident veniam esse. Amet deserunt velit labore quis sunt aliquip nostrud aliquip.
+## Flexible Data Model 
+We recognize that there are a multitude of use cases for how different institutions may collect data elements.  With that in mind, Song is built to be ultimately flexible to any type of data model.  There is a small "base" data model that all Songs follow to track basic patient identifiers, but beyond that any desired business rules can be encoded Song's Dynamic Schemas, which are based on JSON Schema. 

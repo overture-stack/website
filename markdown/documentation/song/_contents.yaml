@@ -2,5 +2,12 @@ sectionSlug: song
 pages:
   - title: Introduction
     url: song
-  - title: Markdown Kitchen Sink
-    url: song/markdown
+  - title: Dynamic Scheamas
+    url: song/dynamic-schemas
+    isHeading: true
+    pages:
+      - title: Creating a Scheama
+        url: song/dynamic-schemas/create-schema
+      - title: Schema Configuration and Management 
+        url: song/dynamic-schemas/manage-schema
+
