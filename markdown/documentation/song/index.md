@@ -16,3 +16,6 @@ Song manages a lifecycle of data publication from initial upload, to publication
 
 ## Flexible Data Model 
 We recognize that there are a multitude of use cases for how different institutions may collect data elements.  With that in mind, Song is built to be ultimately flexible to any type of data model.  There is a small "base" data model that all Songs follow to track basic patient identifiers, but beyond that any desired business rules can be encoded Song's Dynamic Schemas, which are based on JSON Schema. 
+
+# Integrations
+xxx

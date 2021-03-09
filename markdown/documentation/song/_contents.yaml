@@ -2,12 +2,47 @@ sectionSlug: song
 pages:
   - title: Introduction
     url: song
-  - title: Dynamic Scheamas
-    url: song/dynamic-schemas
+  - title: Installation Guide 
+    url: song/installation
     isHeading: true
     pages:
-      - title: Creating a Scheama
-        url: song/dynamic-schemas/create-schema
-      - title: Schema Configuration and Management 
-        url: song/dynamic-schemas/manage-schema
+      - title: Markdown 
+        url: song/installation/markdown
+      - title: Installation
+        url: song/installation/installation
+      - title: Configuration
+        url: song/installation/configuration
+        pages: 
+          - title: ID Management 
+            url: song/installation/configuration/id
+          - title: Score Server Integration
+            url: song/installation/configuration/score
+          - title: Schema Strictness
+            url: song/installation/configuration/schema
+          - title: Schema Strictness
+            url: song/installation/configuration/kafka
+      - title: Authentication 
+        url: song/installation/auth-config
+  - title: User Guide 
+    url: song/user-guide
+    isHeading: true
+    pages:
+      - title: Dynamic Schemas 
+        url: song/user-guide/schema
+        pages: 
+          - title: What is a schema?
+            url: song/user-guide/schema/introduction
+          - title: Managing Schemas
+            url: song/user-guide/schema/manage-schema
+      - title: Analysis Management 
+        url: song/user-guide/analysis
+        pages: 
+          - title: Submitting Data 
+            url: song/user-guide/analysis/submit
+          - title: Managing Data 
+            url: song/user-guide/analysis/update
+          - title: Searching Data 
+            url: song/user-guide/analysis/search
+
+
 
