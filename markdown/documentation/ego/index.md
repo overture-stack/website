@@ -19,7 +19,7 @@ Once users are authenticated, they are granted [tokens](./getting-started/tokens
 
 - User API Keys
 - User JWTs
-- Appliation JWTs
+- Application JWTs
 
 Secured applications can create and manage authorization tokens, and use those tokens to interact with third party applications registered in Ego to manage resource authorization.  For more details on how tokens are used in Ego, see [Tokens](./getting-started/tokens.md).
 
@@ -27,7 +27,7 @@ The actual permissions that can be granted are managed using Applications, Group
 
 # API
 
-Ego provides a [Swagger-based API](https://swagger.io/docs/specification/2-0/what-is-swagger/) for third party applications to programmatically interact with Ego's core functionality.  One major benefit of Swagger-based APIs is that they also provide easy-to-use, interactive API documentation via a web interface.  In your deployment, the Ego Swagger-UI is accessible via `https://ego._<yourDomain>_>/api/swagger-ui.html#/`.  
+Ego provides a [Swagger-based API](https://swagger.io/docs/specification/2-0/what-is-swagger/) for third party applications to programmatically interact with Ego's core functionality.  One major benefit of Swagger-based APIs is that they also provide easy-to-use, interactive API documentation via a web interface.  In your deployment, the Ego Swagger-UI is accessible via `https://ego.<yourDomain>/api/swagger-ui.html#/`.  
 
 # UI Management  
 In addition to the comprehensive API, Ego is complemented by a UI application to make user management even easier.  For details on how to perform key user management tasks in the UI, see [Managing Users via the UI](./getting-started/usage.md#ui).
