@@ -1,0 +1,16 @@
+sectionSlug: ego
+pages:
+  - title: Introduction
+    url: ego
+  - title: Getting Started
+    url: ego/getting-started
+    isHeading: true
+    pages:
+      - title: Tokens
+        url: ego/getting-started/tokens
+      - title: Installation
+        url: ego/getting-started/installation
+      - title: Configuring Login Providers
+        url: ego/getting-started/login-providers
+      - title: Usage
+        url: ego/getting-started/usage
