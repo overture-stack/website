@@ -389,14 +389,3 @@ This JSON, and all of the allowed values for the fields, are defined by the Song
 ```
 
 </details>
-
-
-
-
-
-
-
-
-
-
-

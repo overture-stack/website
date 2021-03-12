@@ -6,20 +6,18 @@ pages:
     url: song/installation
     isHeading: true
     pages:
-      - title: Markdown 
-        url: song/installation/markdown
       - title: Installation
         url: song/installation/installation
       - title: Configuration
         url: song/installation/configuration
         pages: 
+          - title: Score Server
+            url: song/installation/configuration/score
           - title: ID Management 
             url: song/installation/configuration/id
-          - title: Score Server Integration
-            url: song/installation/configuration/score
           - title: Schema Strictness
             url: song/installation/configuration/schema
-          - title: Schema Strictness
+          - title: Event Management
             url: song/installation/configuration/kafka
       - title: Authentication 
         url: song/installation/auth-config
@@ -30,8 +28,6 @@ pages:
       - title: Dynamic Schemas 
         url: song/user-guide/schema
         pages: 
-          - title: What is a schema?
-            url: song/user-guide/schema/introduction
           - title: Managing Schemas
             url: song/user-guide/schema/manage-schema
       - title: Analysis Management 

@@ -1,10 +1,7 @@
 ---
 title: Uploading Data to Song
 ---
-Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes your data).
-
-
-Data is submitted to Song & score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
+Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes your data). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
 
 # Configuring submission clients 
 
@@ -12,7 +9,7 @@ Data is submitted to Song & score using the Song and Score CLIs (Command Line Cl
 
 Download the **[latest version of the song-client](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-client/[RELEASE]/song-client-[RELEASE]-dist.tar.gz)**. Once you have unzipped the tarball, change directories into the unzipped folder:
 
-```shell
+```bash
 > wget -O song-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-client/[RELEASE]/song-client-[RELEASE]-dist.tar.gz
 
 > tar xvzf song-client.tar.gz
@@ -41,11 +38,11 @@ retry:
   multiplier: 2.0
 ```
 
-### Score-Client
+## Score-Client
 
 Download the **[latest version of the score-client](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz)**. Once you have unzipped the tarball, change directories into the unzipped folder:
 
-```shell
+```bash
 > wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz
 
 > tar xvzf score-client.tar.gz
@@ -75,14 +72,13 @@ storage.url=https://score-url.example.com
 
 # Data Submission Cycle 
 ## Step 1. Prepare a payload
-First, a metadata payload must be prepared.  The payload must conform to an `analysis_type` that has been registered as a schema.  For help with schemas please see
-<Warning>`<<INSERT LINK HERE>>`</Warning>
+First, a metadata payload must be prepared.  The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the [Dynamic Schemas](/documentation/song/user-guide/schema) documentation.
  
 ## Step 2. Upload the metadata payload file
 
 Once you have formatted the payload correctly, use the song-client `submit` command to upload the payload.
 
-```shell
+```bash 
 > ./bin/sing submit -f example-payload.json
 ```
 
@@ -101,42 +97,41 @@ At this point, since the payload data has successfully been submitted and accept
 
 Use the returned `analysis_id` from step 2 to generate a manifest for file upload. This manifest will be used with the score-client in the next step. The manifest establishes a link between the analysis-id that has been submitted and the data file on your local systems that is being uploaded. Using the song-client `manifest` command, define
 
-- the analysis id using `-a` parameter
-- the location of your input files with the `-d` parameter,
-- the output file path for the manifest file with the `-f` parameter. *Note, this is a FILE PATH not a directory path
+- The analysis id using `-a` parameter.
+- The location of your input files with the `-d` parameter.
+- The output file path for the manifest file with the `-f` parameter. **Note**: this is a FILE PATH not a directory path.
 
-```shell
+```bash
 
 > ./bin/sing manifest -a a4142a01-1274-45b4-942a-01127465b422 -f /some/output/dir/manifest.txt  -d /submitting/file/directory
 
 Wrote manifest file 'manifest.txt' for analysisId 'a4142a01-1274-45b4-942a-01127465b422'
 ```
 
-The `manifest.txt` file will be written out to the directory /some/output/dir/. If the output directory does not exist, it will be automatically created.
+The `manifest.txt` file will be written out to the directory `/some/output/dir/`. If the output directory does not exist, it will be automatically created.
 
-## Step 4. Upload files
+## Step 4. Upload data files to cloud storage
 
 Using the score-client `upload` command, upload all files associated with the payload. This requires the manifest file generated in step 3.
 
-```shell
+```bash
 > .bin/score-client  upload --manifest manifest.txt
 ```
 
 If the file(s) successfully upload, then you will receive an `Upload completed` message.
 
 ### Troubleshooting Upload 
-Sometimes if an 
-```shell
+- If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly. 
+Sometimes if an upload is stuck, you can reinitiate the upload using the `--force` command. 
+```bash
 > .bin/score-client  upload --manifest manifest.txt --force 
 ```
-For more detailed troubleshooting instructions, please see the Score documentation. 
-<Warning>`<<INSERT LINK HERE>>`</Warning>
-
+For more detailed troubleshooting instructions, please see the [Score](/documentation/score) documentation. 
 ## Step 5. Publish the analysis
 
 The final step to submitting molecular data is to set the state of an analysis to `PUBLISHED`. A published analysis signals to the DCC that this data is ready to be processed.
 
-```shell
+```bash
 > ./bin/sing publish -a a4142a01-1274-45b4-942a-01127465b422
 
 AnalysisId a4142a01-1274-45b4-942a-01127465b422 successfully published
@@ -144,4 +139,4 @@ AnalysisId a4142a01-1274-45b4-942a-01127465b422 successfully published
 
 Once your analysis has been successfully submitted and published, it will be searchable in Song. 
 
-<Note title="Integration Tips">Song is a relational database designed for secure and consistent storage of data.  For an optimal data query experience, use song with a search platform.  The Overture components Maestro and Score can be used to index and view data from Song in an easy GraphQL API. </Note>
+<Note title="Integration Tips">Song is a relational database designed for secure and consistent storage of data.  For an optimal data query experience, use song with a search platform.  The Overture components [Maestro](/documentation/maestro) and [Arranger](/documentation/arranger) can be used to index and view data from Song in an easy GraphQL API. </Note>
