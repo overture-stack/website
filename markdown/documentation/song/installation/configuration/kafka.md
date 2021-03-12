@@ -11,6 +11,7 @@ if you choose to use Kafka, here show to connect it.
 # Configuration Example 
 You can find or create the config at: 
 
-```yaml
-#show them content fro config
+```bash
+# Need this template from developers 
+# Example of just how to configure the kafka config. 
 ```

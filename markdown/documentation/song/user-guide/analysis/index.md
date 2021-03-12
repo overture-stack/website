@@ -6,4 +6,4 @@ Submitted data consists of data files (e.g. sequencing reads or VCFs), as well a
 
 Analysis types are described by Song administrators, who can model the data inside an analysis type by creating [Dyanmic Scheamas](documentation/song/user-guide/schema).  An analysis type can contain any variety  of information that needs to be recorded about a file type, define din `JSON` format. 
 
-Song users mainly interact with Song by submitting data against an established analysis type schema, or by downloading file associated to an analysis in a bundle (e.g multiple files that are bundled together in one analysis)
+Song users mainly interact with Song by submitting data against an established analysis type schema, or by downloading files associated to an analysis in a bundle (e.g multiple files that are bundled together in one analysis).  
