@@ -2,13 +2,20 @@
 title: Introduction
 ---
 
-With great data, comes great data responsibility.  Genomic data files are being generated at an fast pace and more and more laboratory groups are required a method to manage this fast growing pile of data; Song provides a metadata management and storage system to easily track and manage files in a secure and validated environment, against your established data model.  Some features are particularly tailored towards genomic files, but Song supports any data type! 
+Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research.
 
-Strings together the overture product suite, including:
 
-list them and link them
+Recognizing the value and re-usability of such a platform, not only for big-data genomic science, but for other big-data disciplines as well, the Overture team has now bundled our product suite into an easily-deployable, easily-configurable Data Management System (DMS) Bundle.
+
+This bundle includes a range of useful features to help both instutations and individual users make use of our software and standup a data portal in short efficient time
+
+# System Overview
+
+
 
 # Features
+
+The first general availability release of the DMS bundle includes the following features.
 
 ## Interactive Configuration Questionnaire
 
@@ -26,6 +33,8 @@ secure server mode (HTTPS, SSL)
 
 easy path routing via gateway
 
+for details please see decide local or server deployment
+
 ## Saved Configurations
 
 saves config for later use, get/view, manual edit, 
@@ -35,11 +44,15 @@ saves config for later use, get/view, manual edit,
 clean deploy
 remove volumes
 
+## Comprehensive User Documentation
+
+Good docs
+
 # Integrations
 
 Certbot
 MinIo
-S3 storage (Amazon, other like Ceph)
+object-based storage (including Amazon S3, Azure Straoge, Openstack Ceph)
 OAUTH 2.0 providers
 Docker
 Elasticsearch
