@@ -2,9 +2,9 @@
  * Component: Display the Megamenu on mouse over / tap.
  */
 import React from 'react';
-import Link from 'gatsby-link';
-import { githubLinks } from 'meta/config';
-import { Icon, IconCommon, Badge } from '../../index.js';
+import productsDict from 'constants/products';
+import { PRODUCTS_PATH } from 'constants/pages';
+import { Badge, Icon, IconCommon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const verticalMobileMenuSections = ['DMS Bundle'];
@@ -15,7 +15,7 @@ const data = {
       title: 'Explore our products',
       text: 'Overture is a collection of open-source products for big-data genomic science.',
       link: {
-        to: '/products/',
+        to: PRODUCTS_PATH,
         text: 'All products',
       },
     },
@@ -25,8 +25,8 @@ const data = {
         color: 'pink',
         hasCoreIcon: true,
         links: [
-          { to: '/products/song/', text: 'Song' },
-          { to: '/products/score/', text: 'Score' },
+          { to: productsDict.song.productsPath, text: 'Song' },
+          { to: productsDict.score.productsPath, text: 'Score' },
         ],
       },
       {
@@ -34,25 +34,25 @@ const data = {
         color: 'blue',
         hasCoreIcon: true,
         links: [
-          { to: '/products/ego/', text: 'Ego' },
-          { to: '/products/maestro/', text: 'Maestro' },
-          { to: '/products/arranger/', text: 'Arranger' },
+          { to: productsDict.ego.productsPath, text: 'Ego' },
+          { to: productsDict.maestro.productsPath, text: 'Maestro' },
+          { to: productsDict.arranger.productsPath, text: 'Arranger' },
         ],
       },
       {
         title: 'Analyze & Discover',
         color: 'red',
         links: [
-          { to: '/products/jukebox/', text: 'Jukebox' },
-          { to: '/products/oncojs/', text: 'OncoJS' },
+          { to: productsDict.jukebox.productsPath, text: 'Jukebox' },
+          { to: productsDict.oncojs.productsPath, text: 'OncoJS' },
         ],
       },
       {
         title: 'Collaborate & Share',
         color: 'light-green',
         links: [
-          { to: '/products/persona/', text: 'Persona' },
-          { to: '/products/riff/', text: 'Riff' },
+          { to: productsDict.persona.productsPath, text: 'Persona' },
+          { to: productsDict.riff.productsPath, text: 'Riff' },
         ],
       },
       {
@@ -60,12 +60,12 @@ const data = {
         color: 'yellow',
         links: [
           {
-            to: githubLinks.billing,
+            to: productsDict.billing.githubUrl,
             text: 'Billing & Usage',
             hasGithubIcon: true,
           },
           {
-            to: githubLinks.enrolment,
+            to: productsDict.enrolment.githubUrl,
             text: 'Enrolment',
             hasGithubIcon: true,
           },
@@ -216,10 +216,10 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                       {link.text}
                     </Link>
                   ) : (
-                    <a className="menu-section-link" href={link.to} target="_blank">
+                    <Link className="menu-section-link" to={link.to}>
                       {link.text}
                       {link.hasGithubIcon && <Icon className="pl1" img="githubGrey" />}
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}

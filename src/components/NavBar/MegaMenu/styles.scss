@@ -2,7 +2,7 @@
 @import '../../../styles/colors';
 
 .MegaMenu {
-  border-bottom: 3px solid $grey-border;
+  border-bottom: 3px solid $grey-4;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   height: auto;
@@ -77,20 +77,21 @@
 
   @include breakpoint(navmenu-up) {
     .menu-section-links {
-      color: $blue-black;
+      color: $navy-black;
       list-style: disc;
       padding: 0.5rem 0 0 1.5rem;
     }
   }
 
   .menu-section-link {
-    color: $blue-black;
+    color: $navy-black;
     display: flex;
     font-size: 1rem;
     padding: 0.25rem 0;
+    text-decoration: none;
     &:hover,
     &.active {
-      color: $magenta;
+      color: $pink-darker;
     }
   }
 
@@ -105,7 +106,7 @@
   // explore heading and text; desktop only
   .explore-text {
     min-width: 345px;
-    background: $grey;
+    background: $grey-2;
 
     .heading-text {
       font-size: 18px;
@@ -126,7 +127,7 @@
     .chevron-link {
       padding-top: 12px;
       a {
-        color: $magenta !important;
+        color: $pink-darker !important;
       }
       font-weight: 700;
 
@@ -156,7 +157,7 @@
       padding: 0px 0 24px 0;
       border: 0;
       flex-direction: column;
-      background: $grey;
+      background: $grey-2;
     }
 
     .menu-section {
@@ -207,7 +208,7 @@
       padding: 0 0 12px 0;
       // flex: 1;
       &.active {
-        color: $magenta;
+        color: $pink-darker;
       }
     }
   }

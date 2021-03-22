@@ -5,7 +5,7 @@
   h3,
   p,
   li {
-    color: $blue-black;
+    color: $navy-black;
   }
   h2 {
     font-size: 20px;
@@ -26,8 +26,13 @@
       display: flex;
       align-items: center;
     }
-    .search-container {
+    .search__container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
       flex: 1 0 475px;
+      justify-content: center;
+      padding: 0 20px;
       @media (max-width: 1024px) {
         flex-basis: auto;
       }
@@ -105,6 +110,7 @@
       }
       a {
         display: block;
+        text-decoration: none;
       }
     }
     &-card {
@@ -114,11 +120,11 @@
       padding: 8px 16px 16px;
       margin-bottom: 16px;
       &:hover {
-        background-color: $grey-bg-hover;
+        background-color: $grey-1;
         box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
       }
       .chevron-link {
-        color: $magenta !important;
+        color: $pink-darker !important;
         font-weight: 700;
         font-size: 14px;
         display: flex;

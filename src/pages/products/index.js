@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Button, Hero, GridFeature, Icon, IconCommon, BottomCallout, Callout } from 'components';
-import { githubLinks } from 'meta/config';
+import {
+  BottomCallout,
+  Button,
+  Callout,
+  GridFeature,
+  Hero,
+  Icon,
+  IconCommon,
+  LinkHelper as Link,
+} from 'components';
+import productsDict from 'constants/products';
 import heroImg from './assets/products_hero_no_clouds.svg';
 import cloud_1 from './assets/cloud_1.svg';
 import cloud_2 from './assets/cloud_2.svg';
@@ -10,7 +18,6 @@ import './style.scss';
 // Component for rendering a single "box" representing a feature (ie "Generate & Upload")
 const ProductBox = ({
   header,
-  headerColor,
   containerClass = 'is-6 box-section',
   details,
   links,
@@ -21,40 +28,29 @@ const ProductBox = ({
   return (
     <div id={id} className={`product-box column ${containerClass}`}>
       {isCore && <IconCommon.Core />}
-      <div className="heading" style={{ color: headerColor }}>
-        {header}
-      </div>
+      <h2 className="heading">{header}</h2>
       <div className="details">{details}</div>
       <div className="links">
         {links.map(l => {
-          // If external links, render with <a> tag.
-          if (typeof l.extlink !== 'undefined') {
-            return (
-              <span key={l.extlink} className="icon-link">
-                <a target="_blank" className="link" href={l.extlink}>
-                  <Icon
-                    className="icon"
-                    size={l.iconSize ? l.iconSize : iconSize}
-                    img={l.icon}
-                  ></Icon>
-                  {l.text}
-                </a>
-              </span>
-            );
-          } else {
-            return (
-              <span key={l.link} className="icon-link">
-                <Link className="link" to={`/products/${l.link}`}>
-                  <Icon
-                    className="icon"
-                    size={l.iconSize ? l.iconSize : iconSize}
-                    img={l.icon}
-                  ></Icon>
-                  {l.text}
-                </Link>
-              </span>
-            );
-          }
+          return (
+            <span key={l.link} className="icon-link">
+              <Link className="link" to={l.link}>
+                <Icon
+                  alt={`${l.text} icon`}
+                  className="icon"
+                  size={l.iconSize || iconSize}
+                  img={l.icon}
+                />
+                {l.text}
+                <Icon
+                  alt={`${l.text} icon`}
+                  size={12}
+                  img="chevronGrey"
+                  style={{ marginLeft: 4, marginTop: 4 }}
+                />
+              </Link>
+            </span>
+          );
         })}
       </div>
     </div>
@@ -67,36 +63,32 @@ const featureGridData = [
       header: 'Generate & Upload',
       id: 'generate-upload',
       containerClass: 'generate-upload',
-      headerColor: '#D087B4',
-      bgColor: '#F2F3F5',
       isCore: true,
       details:
         'Products that allow your data submitters to generate genomic and clinical metadata and securely upload the corresponding files: ',
       links: [
-        { icon: 'productScore', text: 'Score', link: 'score' },
-        { icon: 'productSong', text: 'Song', link: 'song' },
+        { icon: 'productScore', text: 'Score', link: productsDict.score.productsPath },
+        { icon: 'productSong', text: 'Song', link: productsDict.song.productsPath },
       ],
       ChildComponent: ProductBox,
     },
 
     {
       header: 'Access & Download',
-      headerColor: '#6AC3E8',
       id: 'access-download',
       containerClass: 'access-download',
-      bgColor: '#F2F3F5',
       isCore: true,
       details:
         'Products that give your users the correct permissions to view and download controlled data: ',
       links: [
-        { icon: 'productEgo', text: 'Ego', link: 'ego', iconSize: 24 },
+        { icon: 'productEgo', text: 'Ego', link: productsDict.ego.productsPath, iconSize: 24 },
         {
           icon: 'productMaestro',
           text: 'Maestro',
           link: 'maestro',
           iconSize: 40,
         },
-        { icon: 'productArranger', text: 'Arranger', link: 'arranger' },
+        { icon: 'productArranger', text: 'Arranger', link: productsDict.arranger.productsPath },
       ],
       ChildComponent: ProductBox,
     },
@@ -104,37 +96,32 @@ const featureGridData = [
   [
     {
       header: 'Analyze & Discover',
-      headerColor: '#C86370',
       id: 'analyze-discover',
       containerClass: 'analyze-discover',
       details:
         'Products that allow your users to access interactive visualizations and code-based analysis environments: ',
       links: [
-        { icon: 'productJukebox', text: 'Jukebox', link: 'jukebox' },
-        { icon: 'productOnco', text: 'OncoJS', link: 'oncojs' },
+        { icon: 'productJukebox', text: 'Jukebox', link: productsDict.jukebox.productsPath },
+        { icon: 'productOnco', text: 'OncoJS', link: productsDict.oncojs.productsPath },
       ],
       ChildComponent: ProductBox,
     },
-
     {
       header: 'Collaborate & Share',
-      headerColor: '#47D9BF',
       id: 'collaborate-share',
       containerClass: 'collaborate-share',
       details:
         'Products that allow your users to set up a profile and share urls in order to raise awareness across the scientific community: ',
       links: [
-        { icon: 'productPersona', text: 'Persona', link: 'persona' },
-        { icon: 'productRiff', text: 'Riff', link: 'riff' },
+        { icon: 'productPersona', text: 'Persona', link: productsDict.persona.productsPath },
+        { icon: 'productRiff', text: 'Riff', link: productsDict.riff.productsPath },
       ],
       ChildComponent: ProductBox,
     },
   ],
-
   [
     {
       header: 'Track & Manage',
-      headerColor: '#ECC000',
       id: 'track-manage',
       containerClass: 'track-manage is-6 is-offset-3',
       details:
@@ -143,12 +130,12 @@ const featureGridData = [
         {
           icon: 'productBilling',
           text: 'Billing & Usage',
-          extlink: githubLinks.billing,
+          extlink: productsDict.billing.githubUrl,
         },
         {
           icon: 'productEnrolment',
           text: 'Enrolment',
-          extlink: githubLinks.enrolment,
+          extlink: productsDict.enrolment.githubUrl,
         },
       ],
       ChildComponent: ProductBox,
@@ -236,10 +223,10 @@ class HeroImg extends React.Component {
         ></canvas>
         <div className="img_hero_products">
           {/* hidden clouds for canvas animations */}
-          <img ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
-          <img ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
+          <img alt="" ref="cloud_1" src={cloud_1} style={{ display: 'none' }} />
+          <img alt="" ref="cloud_2" src={cloud_2} style={{ display: 'none' }} />
           {/* the hero image: */}
-          <img style={{ zIndex: 3 }} src={heroImg} />
+          <img alt="" style={{ zIndex: 3 }} src={heroImg} />
         </div>
       </div>
     );
@@ -251,6 +238,7 @@ export default function ProductsPage() {
     <main className="ProductsPage">
       {/* HERO */}
       <Hero
+        alt=""
         title="Products"
         titleClass="hero-text is-4-desktop"
         subtitle="Build your own genomics platform that allows your users to collaborate and share their scientific discoveries."
@@ -262,11 +250,11 @@ export default function ProductsPage() {
       {/* Grid sections */}
       <div className="grid-feature-wrap">
         <GridFeature
-          iconSize={48}
-          data={featureGridData}
-          childComponent={ProductBox}
           borderColor="grey"
-          sectionBG={['#F2F3F5', 'white', 'white']}
+          childComponent={ProductBox}
+          data={featureGridData}
+          iconSize={48}
+          sectionBG={['white', 'white', 'white']}
         />
       </div>
 
@@ -277,10 +265,11 @@ export default function ProductsPage() {
           className="center"
         >
           <Button
-            type="primary"
-            size="medium"
-            externalLink={githubLinks.overture}
             icon="githubWhite"
+            iconAlt="github icon"
+            link={productsDict.overture.githubUrl}
+            size="medium"
+            type="primary"
           >
             Get Started
           </Button>

@@ -5,8 +5,11 @@
 
 const path = require('path');
 const startCase = require('lodash.startcase');
+const properUrlJoin = require('proper-url-join');
 
-export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
+const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
+
+const onCreateNode = ({ actions, getNode, node }) => {
   // nodes in gatsby are the main data interface. everything is a node.
   // gatsby creates nodes (data) THEN creates pages.
 
@@ -17,14 +20,27 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
-    const pageSlug = isIndex ? '' : `${pageName}/`;
+    const pageSlug = isIndex ? '' : pageName;
 
     // documentation section
     const isDocs = sourceInstanceName === 'docs';
 
     const slug = isDocs
-      ? `/documentation/${relativeDirectory}/${pageSlug}`
-      : `/${relativePath.replace(ext, '')}/`;
+      ? urlJoin(['documentation', relativeDirectory, pageSlug])
+      : urlJoin([relativePath.replace(ext, '')]);
+    actions.createNodeField({
+      // relative URL of the page
+      name: `slug`,
+      node,
+      value: slug,
+    });
+
+    actions.createNodeField({
+      // need this to make per-page graphQL queries
+      name: 'id',
+      node,
+      value: node.id,
+    });
 
     const title =
       node.frontmatter.title ||
@@ -38,50 +54,45 @@ export function onCreateNode({ node, getNode, actions: { createNodeField } }) {
             .pop()
         )) ||
       '';
-
-    createNodeField({
-      // relative URL of the page
-      name: `slug`,
-      node,
-      value: slug,
-    });
-
-    createNodeField({
-      // need this to make per-page graphQL queries
-      name: 'id',
-      node,
-      value: node.id,
-    });
-
-    createNodeField({
+    actions.createNodeField({
       // frontmatter title field
       name: 'title',
       node,
       value: title,
     });
-  }
-}
 
-export async function createPages(params) {
+    const sectionSlug = relativeDirectory
+      .split('/')
+      .filter(x => x)
+      .shift();
+    actions.createNodeField({
+      name: 'sectionSlug',
+      node,
+      value: sectionSlug,
+    });
+  }
+};
+
+const createPages = async params => {
   // use promise.all to build different page types concurrently.
   // required when using external APIs for content.
   await Promise.all([createMarkdownPages(params)]);
-}
+};
 
-async function createMarkdownPages({ actions, graphql }) {
+const createMarkdownPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     {
       allMdx {
         nodes {
           fields {
             id
+            sectionSlug
             slug
           }
         }
       }
       allYaml {
         nodes {
-          sectionTitle
           sectionSlug
           pages {
             isHeading
@@ -102,29 +113,29 @@ async function createMarkdownPages({ actions, graphql }) {
   `);
 
   data.allMdx.nodes.forEach(node => {
-    const { id, slug } = node.fields;
+    const { id, sectionSlug, slug } = node.fields;
 
     // documentation section
     if (slug.match(/^\/documentation/)) {
-      const section = slug.split('/').filter(x => x)[1];
       actions.createPage({
         path: slug,
         component: path.resolve('src/templates/documentation/index.js'),
         context: {
           // use for graphQL query in template
           id,
-          section,
+          sectionSlug,
         },
       });
     }
   });
-}
+};
 
-export function onCreateWebpackConfig({ actions }) {
+const onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
         components: path.resolve(__dirname, 'src/components'),
+        constants: path.resolve(__dirname, 'constants'),
         data: path.resolve(__dirname, 'src/data'),
         hooks: path.resolve(__dirname, 'src/hooks'),
         meta: path.resolve(__dirname, 'meta'),
@@ -135,9 +146,9 @@ export function onCreateWebpackConfig({ actions }) {
       },
     },
   });
-}
+};
 
-export function createSchemaCustomization({ actions }) {
+const createSchemaCustomization = ({ actions }) => {
   // DOCUMENTATION PAGE TYPES
   // - describe structure of _contents.yaml
   // - throw descriptive errors if required fields are missing
@@ -146,7 +157,6 @@ export function createSchemaCustomization({ actions }) {
   const documentationTypeDefs = `
     type Yaml implements Node {
       sectionSlug: String!
-      sectionTitle: String!
       pages: [YamlPages!]
     }
     type YamlPages implements Node {
@@ -167,4 +177,6 @@ export function createSchemaCustomization({ actions }) {
     }
   `;
   actions.createTypes(documentationTypeDefs);
-}
+};
+
+module.exports = { createPages, createSchemaCustomization, onCreateNode, onCreateWebpackConfig };

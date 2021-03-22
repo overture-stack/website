@@ -1,12 +1,17 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { Badge, Button, Icon } from 'components';
+import { Badge, Button, Icon, LinkHelper as Link, Search } from 'components';
 import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
 import './styles.scss';
 
+const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
+const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
+
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
+// TODO: create constants for documentation URLs
+// once content is created
+const linkTodo = '#';
 
 const productSections = [
   {
@@ -96,13 +101,14 @@ export default function DocumentationPage() {
       <div className="hero">
         <div className="container">
           <div className="image image-consulting">
-            <img src={consultingSvg} />
+            <img alt="" src={consultingSvg} />
           </div>
-          <div className="search-container">
+          <div className="search__container">
             <h1>How can we help?</h1>
+            <Search indices={searchIndices} />
           </div>
           <div className="image image-techsupport">
-            <img src={techSupportSvg} />
+            <img alt="" src={techSupportSvg} />
           </div>
         </div>
       </div>
@@ -119,12 +125,12 @@ export default function DocumentationPage() {
               <div className="dms-row">
                 <Icon img="productDMS" size={40} />
                 <div className="dms-row__text">
-                  {'DMS = Score + Song + Ego + Maestro + Arranger'.split(' ').map(word => (
-                    <span>{word}</span>
+                  {'DMS = Score + Song + Ego + Maestro + Arranger'.split(' ').map((word, i) => (
+                    <span key={`${word}${i}`}>{word}</span>
                   ))}
                 </div>
               </div>
-              <Button type="primary" size="medium" internalLink="/documentation/TODO">
+              <Button type="primary" size="medium" link={linkTodo}>
                 Installation Instructions
               </Button>
             </div>
@@ -132,22 +138,21 @@ export default function DocumentationPage() {
               <h2>Help by Topic</h2>
               <ul>
                 <li>
-                  How can I <Link to="/documentation/TODO">extend the DMS system</Link> to include
-                  other Overture products?
+                  How can I <Link to={linkTodo}>extend the DMS system</Link> to include other
+                  Overture products?
                 </li>
                 <li>
-                  How do I <Link to="/documentation/TODO">customize the look of my DMS</Link>?
+                  How do I <Link to={linkTodo}>customize the look of my DMS</Link>?
                 </li>
                 <li>
-                  Where can I find the <Link to="/documentation/TODO">release notes</Link> for the
-                  DMS and each product?
+                  Where can I find the <Link to={linkTodo}>release notes</Link> for the DMS and each
+                  product?
                 </li>
                 <li>
-                  How can I <Link to="/documentation/TODO">get involved</Link> with this open source
-                  project?
+                  How can I <Link to={linkTodo}>get involved</Link> with this open source project?
                 </li>
                 <li>
-                  Where can I <Link to="/documentation/TODO">see these products in action</Link>?
+                  Where can I <Link to={linkTodo}>see these products in action</Link>?
                 </li>
               </ul>
             </div>
@@ -155,7 +160,7 @@ export default function DocumentationPage() {
         </section>
       </div>
       {/* PRODUCT DOCUMENTATION SECTION */}
-      <div className="product-section bg-grey-light">
+      <div className="product-section bg-grey">
         <section className="container">
           <h2>Product Documentation</h2>
           <div className="columns">

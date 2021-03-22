@@ -1,19 +1,25 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
-  H2,
-  H4,
+  BottomCallout,
   Button,
+  Callout,
+  GettingStarted,
+  H2,
+  H3,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
   UrlBar,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'constants/products';
+import {
+  ARRANGER_GETTING_STARTED_LINK,
+  ARRANGER_LOCAL_LINK,
+  ARRANGER_UPDATES_LINK,
+} from 'constants/external-links';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -34,7 +40,7 @@ const ArrangerPage = () => (
       title="Arranger"
       subTitle="Data can be messy, let Arranger organize it for you. "
       cardText="Provide your administrators with the power to organize an intuitive data search interface, complete with customizable components, tables, and search terms."
-      getStartedLink={githubLinks.arranger}
+      getStartedLink={productsDict.arranger.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoArranger"
       progressType="rc"
@@ -45,18 +51,22 @@ const ArrangerPage = () => (
       <ProductFeature
         header="User managed"
         icon="user"
-        details="Sit back and relax as your administrators determine facets and search terms."
+        details={
+          <div>Sit back and relax as your administrators determine facets and search terms.</div>
+        }
       />
       <ProductFeature
         header="Customizable"
         icon="customizable"
         iconSize={80}
-        details="Use the default theme, or create a portal with your own branded theme. "
+        details={<div>Use the default theme, or create a portal with your own branded theme.</div>}
       />
       <ProductFeature
         header="Search API"
         icon="search"
-        details="Arranger creates and manages a flexible yet powerful GraphQL search API."
+        details={
+          <div>Arranger creates and manages a flexible yet powerful GraphQL search API.</div>
+        }
       />
     </ProductFeatureRow>
 
@@ -72,7 +82,7 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="It’s index based"
-                details="Simply provide an Elasticsearch index and you’re good to go!"
+                details={<div>Simply provide an Elasticsearch index and you’re good to go!</div>}
               />
             </div>
 
@@ -81,7 +91,12 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="Built-in components"
-                details="Search through a list of data-types and pre-built aggregation components like boolean, list, string and date. "
+                details={
+                  <div>
+                    Search through a list of data-types and pre-built aggregation components like
+                    boolean, list, string and date.
+                  </div>
+                }
               />
             </div>
 
@@ -90,14 +105,18 @@ const ArrangerPage = () => (
                 size="small"
                 icon="target"
                 header="Content Administration"
-                details="Customize the content of your data portal display such as filters and tables."
+                details={
+                  <div>
+                    Customize the content of your data portal display such as filters and tables.
+                  </div>
+                }
               />
             </div>
           </div>
 
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>
@@ -105,14 +124,14 @@ const ArrangerPage = () => (
 
     {/* Getting Started Terminals / steps */}
 
-    <GettingStarted pinnedLink="https://arranger.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={ARRANGER_UPDATES_LINK}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Clone the repo.</H4>
+            <H3>Clone the repo.</H3>
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -129,7 +148,7 @@ const ArrangerPage = () => (
           <H2 className="pb1">2</H2>
           <div>
             {' '}
-            <H4>Run docker compose.</H4>{' '}
+            <H3>Run docker compose.</H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -145,14 +164,18 @@ const ArrangerPage = () => (
           <H2 className="pb1">3</H2>
           <div>
             {' '}
-            <H4>Go to localhost to see arranger server.</H4>{' '}
+            <H3>Go to localhost to see arranger server.</H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
 
         <div className="column is-8 is-offset-1 self-center">
           <UrlBar
-            prompts={["<a target='_blank' href='https://localhost:8080'>http://localhost:8080</a>"]}
+            prompts={[
+              <div>
+                <Link to={ARRANGER_LOCAL_LINK}>{ARRANGER_LOCAL_LINK}</Link>
+              </div>,
+            ]}
           />
         </div>
       </div>
@@ -163,16 +186,10 @@ const ArrangerPage = () => (
           <H2 className="pb1">4</H2>
           <div>
             {' '}
-            <H4>
-              Follow the{' '}
-              <a
-                target="_blank"
-                href="https://arranger.readthedocs.io/en/latest/src/gettingstarted.html"
-              >
-                quick guide
-              </a>{' '}
-              to generate demo data and a local portal!
-            </H4>{' '}
+            <H3>
+              Follow the <Link to={ARRANGER_GETTING_STARTED_LINK}>quick guide</Link> to generate
+              demo data and a local portal!
+            </H3>{' '}
           </div>
           <div className="mt3 yellow-bar" />
         </div>
@@ -180,7 +197,10 @@ const ArrangerPage = () => (
         <div className="column is-8 is-offset-1 self-center">
           <UrlBar
             prompts={[
-              "Visit <a target='_blank' href='https://arranger.readthedocs.io/en/latest/src/gettingstarted.html'>https://arranger.readthedocs.io/en/latest/src/gettingstarted.html</a> ",
+              <div>
+                Visit{' '}
+                <Link to={ARRANGER_GETTING_STARTED_LINK}>{ARRANGER_GETTING_STARTED_LINK}</Link>
+              </div>,
             ]}
           />
         </div>
@@ -193,7 +213,13 @@ const ArrangerPage = () => (
         description="Provide your administrators with the power to organize an intuitive data search interface."
         className="center"
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.arranger} icon="githubWhite">
+        <Button
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.arranger.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

@@ -1,20 +1,5 @@
 import { findIndex } from 'lodash';
 
-export const sectionIcons = {
-  arranger: 'productArrangerWhite',
-  billing: 'productBillingWhite',
-  dms: 'productDMSWhite',
-  ego: 'productEgoWhite',
-  enrolment: 'productEnrolmentWhite',
-  jukebox: 'productJukeboxWhite',
-  maestro: 'productMaestroWhite',
-  oncojs: 'productOncoWhite',
-  persona: 'productPersonaWhite',
-  riff: 'productRiffWhite',
-  score: 'productScoreWhite',
-  song: 'productSongWhite',
-};
-
 export const findNextPrevPages = ({ pagesFlat, sectionSlug, pagePath }) => {
   const pageIndex = Object.values(pagesFlat).indexOf(pagePath);
   const isLandingPage = pagePath === sectionSlug;

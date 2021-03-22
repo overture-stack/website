@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H4,
+  H3,
   ProductFeature,
   ProductFeatureRow,
   GridFeature,
@@ -13,7 +13,7 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'constants/products';
 
 const featureGridData = [
   [
@@ -60,7 +60,7 @@ const ScorePage = () => (
       title="Score"
       subTitle="Transfer data quickly and easily to and from any cloud-based storage system."
       cardText="Score facilitates the transfer and storage of your data seamlessly for cloud-based projects. File bundling, resumable downloads, and BAM/CRAM slicing make data transfer fast and smooth."
-      getStartedLink={githubLinks.score}
+      getStartedLink={productsDict.score.githubUrl}
       logo="logoScore"
       progressType="ga"
       badge={{ color: 'pink', text: 'Generate & Upload' }}
@@ -72,21 +72,30 @@ const ScorePage = () => (
       <ProductFeature
         header="Genomic solutions"
         icon="dna"
-        details="Slice and dice BAM and CRAM files with integrated command line tools."
+        details={<div>Slice and dice BAM and CRAM files with integrated command line tools.</div>}
       />
 
       <ProductFeature
         header="Accessible"
         icon="fingerSnap"
         iconSize={45}
-        details="Once your server is set up, transferring data is simple. Access any data, anytime on all major cloud services."
+        details={
+          <div>
+            Once your server is set up, transferring data is simple. Access any data, anytime on all
+            major cloud services.
+          </div>
+        }
       />
 
       <ProductFeature
         header="Streamlined"
         icon="cloud"
         iconSize={68}
-        details="Score’s parallel solution makes the upload and download of files efficient and fast."
+        details={
+          <div>
+            Score’s parallel solution makes the upload and download of files efficient and fast.
+          </div>
+        }
       />
     </ProductFeatureRow>
 
@@ -101,7 +110,7 @@ const ScorePage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Build the Score server.</H4>
+            <H3>Build the Score server.</H3>
             <div className="py3">
               This will be your users method of interfacing with the cloud-based service you choose
               to store your data on.
@@ -121,7 +130,7 @@ const ScorePage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Build the Score client.</H4>
+            <H3>Build the Score client.</H3>
 
             <div className="py3">
               The Score client communicates with the Score server, which uploads and downloads your
@@ -145,7 +154,13 @@ const ScorePage = () => (
         className="center"
         description="Transfer and store your data seamlessly for cloud-based projects."
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.score} icon="githubWhite">
+        <Button
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.score.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

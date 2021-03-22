@@ -1,9 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
 import Modal from 'react-modal';
-import { githubLinks } from 'meta/config';
-import { Badge, Button, H1, H2, Hero, Icon } from 'components';
+import productsDict from 'constants/products';
+import { CASE_STUDIES_PATH, SERVICES_PATH } from 'constants/pages';
+import { Badge, Button, H2, H3, Hero, Icon, LinkHelper as Link } from 'components';
+import { OVERTURE_YOUTUBE_LINK, TEAM_LINK } from 'constants/external-links';
+import { productsAnchors } from 'constants/pages';
 import heroImg from './assets/heroImg.svg';
 import './home/styles.scss';
 
@@ -13,8 +15,7 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 const BundleCard = ({ header, icon, children }) => (
   <div className="BundleCard">
     <header className="card-header">
-      <div className="text-white">{header}</div>
-      <Icon img={icon} />
+      {header} <Icon alt={`${header} icon`} img={icon} />
     </header>
 
     <section className="card-body">{children}</section>
@@ -44,7 +45,7 @@ const VideoModal = ({ isOpen, closeModal }) => {
       <iframe
         width="100%"
         height="100%"
-        src="https://www.youtube.com/embed/NrgL8vpFm5s"
+        src={OVERTURE_YOUTUBE_LINK}
         style={{ position: 'relative', top: 0, bottom: 0, height: '100%' }}
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -89,15 +90,20 @@ class HomePage extends React.Component {
         <Hero
           title="Worry less, science more"
           subtitle="Overture is a collection of open-source, extendable solutions for big-data genomic science that you can use to support your research."
-          ImgComponent={() => <img className="home-img" src={heroImg} />}
+          ImgComponent={() => <img alt="" className="home-img" src={heroImg} />}
         >
           <span className="hero-buttons">
-            <Button type="blue" className="my2 mr2" size="medium" onClick={() => this.openModal()}>
-              <Icon img="play" size={26} className="mr1" />
+            <Button
+              type="primary"
+              className="my2 mr2"
+              size="medium"
+              onClick={() => this.openModal()}
+            >
+              <Icon alt="Play video" img="play" size={26} className="mr1" />
               The Overture story
             </Button>
 
-            <Button type="blue" className="my2 mr2" size="medium" internalLink="case-studies">
+            <Button className="my2 mr2" link={CASE_STUDIES_PATH} size="medium" type="primary">
               The products in action
             </Button>
           </span>
@@ -110,67 +116,59 @@ class HomePage extends React.Component {
             <H2 className="flex-auto pr2">Bioinformatics Core Products</H2>
             <div className="pt2" style={{ maxWidth: '900px' }}>
               Data is the essence of our field. Implement Overture’s core products to
-              <span>
-                <Link to="products#generate-upload">
-                  <Badge className="mx1" color="pink">
-                    Generate & Upload{' '}
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 pink" to={productsAnchors.generate}>
+                Generate & Upload
+              </Link>
               and <br />
-              <span>
-                <Link to="products#access-download">
-                  <Badge className="mx1" color="blue">
-                    Access & Download
-                  </Badge>
-                </Link>
-              </span>
+              <Link className="Badge mx1 blue" to={productsAnchors.access}>
+                Access & Download
+              </Link>
               genomic data across multiple cloud providers:
             </div>
           </div>
 
           <div className="columns column">
-            <Link className="column" to="/products/ego">
+            <Link className="column" to={productsDict.ego.productsPath}>
               <BundleCard icon="lock" header="Ego">
                 <div className="py2">
                   Authorization service for identity providers such as Google and Facebook.
                 </div>
-                <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/score">
+            <Link className="column" to={productsDict.score.productsPath}>
               <BundleCard icon="database" header="Score">
                 <div className="py2">
                   Facilitates the transfer and storage of data seamlessly for cloud-based projects.
                 </div>
-                <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/song">
+            <Link className="column" to={productsDict.song.productsPath}>
               <BundleCard icon="shield" header="Song">
                 <div className="py2">
                   Tracks genomic data scattered across multiple cloud storage systems.
                 </div>
-                <div className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
 
-            <Link className="column" to="/products/arranger">
+            <Link className="column" to={productsDict.arranger.productsPath}>
               <BundleCard icon="gridGlass" header="Arranger">
                 <div className="py2">
                   Provide your administrators with the power to organize an intuitive search
                   interface.
                 </div>
-                <div href="#" className="link-magenta">
-                  Learn More <Icon size={12} img="arrowRightMagenta" />
+                <div className="chevron-link link-magenta">
+                  Learn More <Icon alt="right arrow" size={12} img="arrowRightMagenta" />
                 </div>
               </BundleCard>
             </Link>
@@ -182,24 +180,18 @@ class HomePage extends React.Component {
               <div className="explore-solutions-header"> Also explore our products for:</div>
               <div className="badges">
                 <div>
-                  <Link to="products#analyze-discover">
-                    <Badge className="mr2" color="red">
-                      Analyze & Discover
-                    </Badge>
+                  <Link className="Badge mr2 red" to={productsAnchors.analyze}>
+                    Analyze & Discover
                   </Link>
 
-                  <Link to="products#collaborate-share">
-                    <Badge className="mr2" color="light-green">
-                      Collaborate & Share
-                    </Badge>
+                  <Link className="Badge mr2 light-green" to={productsAnchors.collaborate}>
+                    Collaborate & Share
                   </Link>
                 </div>
 
                 <div>
-                  <Link to="products#track-manage">
-                    <Badge className="mr2" color="yellow">
-                      Track & Manage
-                    </Badge>
+                  <Link className="Badge mr2 yellow" to={productsAnchors.track}>
+                    Track & Manage
                   </Link>
                 </div>
               </div>
@@ -213,9 +205,9 @@ class HomePage extends React.Component {
           <div className="container">
             <div className="columns py3">
               <div className="column is-half">
-                <H1 className="bottom-header">
+                <H3 className="bottom-header">
                   We created Overture to share our data science components with the community.
-                </H1>
+                </H3>
               </div>
 
               <div className="column is-half pb4 mt2">
@@ -227,21 +219,17 @@ class HomePage extends React.Component {
                 <p className="pt2">
                   Built to be reusable and scalable, Overture’s components are well documented,
                   actively supported and welcome{' '}
-                  <a target="_blank" href={githubLinks.overture}>
+                  <Link to={productsDict.overture.githubUrl}>
                     external feedback and contributions
-                  </a>
+                  </Link>
                   . If you need assistance, we also offer{' '}
-                  <Link to="/services">consulting, support and collaborative services.</Link>
+                  <Link to={SERVICES_PATH}>consulting, support and collaborative services.</Link>
                 </p>
 
                 <div className="mt3">
-                  <a
-                    className="button is-primary is-medium"
-                    href="http://softeng.oicr.on.ca/team/"
-                    target="_blank"
-                  >
+                  <Link className="button is-primary is-medium" to={TEAM_LINK}>
                     Meet the team
-                  </a>
+                  </Link>
 
                   {/* Hiding for now:
                        <button className="button is-primary is-medium">Case studies</button>

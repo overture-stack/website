@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {
   H2,
-  H4,
+  H3,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
@@ -13,13 +13,13 @@ import {
   Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'constants/products';
 
 const featureGridData = [
   [
     {
       header: 'Short URLs',
-      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing.',
+      details: 'Each Riff can be mapped to by a Short URL which is generated on saving or sharing',
       icon: 'target',
     },
     {
@@ -44,7 +44,7 @@ const RiffPage = () => (
       title="Riff"
       subTitle="Quintessential sharing."
       cardText="Riff is a service that allows you to save user queries and state and share them through convenient short URLs."
-      getStartedLink={githubLinks.riff}
+      getStartedLink={productsDict.riff.githubUrl}
       logo="logoRiff"
       progressType="rc"
       badge={{ color: 'light-green', text: 'COLLABORATE & SHARE' }}
@@ -56,19 +56,19 @@ const RiffPage = () => (
       <ProductFeature
         header="Simple"
         icon="magnify"
-        details="A tiny service for a specific problem."
+        details={<div>A tiny service for a specific problem.</div>}
       />
 
       <ProductFeature
         header="Flexible"
         icon="history"
-        details="Store arbitrary information about a user’s state."
+        details={<div>Store arbitrary information about a user’s state.</div>}
       />
 
       <ProductFeature
         header="Collaborative"
         icon="share"
-        details="Sharing is just one click away."
+        details={<div>Sharing is just one click away.</div>}
       />
     </ProductFeatureRow>
 
@@ -84,7 +84,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>Install Postgres.</H4>
+            <H3>Install Postgres.</H3>
             <div className="step-text">
               To get started, you'll first need to install a database.
             </div>
@@ -103,7 +103,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Clone the git repo.</H4>
+            <H3>Clone the git repo.</H3>
           </div>
           <div className="yellow-bar" />
         </div>
@@ -117,7 +117,7 @@ const RiffPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Set up Riff.</H4>
+            <H3>Set up Riff.</H3>
             <div className="step-text">
               The database schema will be preconfigured as part of the set up!
             </div>
@@ -139,7 +139,13 @@ const RiffPage = () => (
         className="center"
         description="Save user queries and state and share them through convenient short URLs."
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.riff} icon="githubWhite">
+        <Button
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.riff.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

@@ -1,20 +1,12 @@
 @import '../../styles/colors';
 
 .warning-box {
-  background: $yellow-light-bg;
-  border-left: 6px solid $yellow-light-border;
-  color: $blue-black;
+  background: $warning-bg;
+  border-left: 6px solid $warning-border;
+  color: $warning-text;
   padding: 20px 18px;
   margin-bottom: 24px;
   *:last-child {
     margin-bottom: 0;
-  }
-  a {
-    color: $blue-links-yellow-bg !important;
-    &:hover,
-    &:active,
-    &:focus {
-      color: inherit !important;
-    }
   }
 }

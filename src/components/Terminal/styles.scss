@@ -2,14 +2,14 @@
 @import '../../styles/variables';
 
 .Terminal {
-  background: $grey;
+  background: $grey-2;
   padding: 16px 2px 2px;
   border-radius: 4px;
   margin-bottom: 16px;
 }
 
 .Terminal-inner {
-  background-color: $blue-darkest;
+  background-color: $grey-darkest;
   border-radius: 6px;
   padding: 24px;
   margin: 8px;
@@ -18,11 +18,11 @@
 }
 
 .Terminal-text {
-  color: $green-terminal;
+  color: $terminal-text;
 }
 
 .Browser {
-  background: $grey;
+  background: $grey-2;
   display: flex;
   align-items: center;
   padding: 12px 6px;
@@ -44,11 +44,10 @@
   margin-left: 12px;
   padding-bottom: 4px;
   display: flex;
-
   .circle {
     width: 10px;
     height: 10px;
-    background-color: $grey-6;
+    background-color: $grey-3;
     margin-right: 8px;
   }
 }

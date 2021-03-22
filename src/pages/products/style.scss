@@ -34,8 +34,8 @@
   }
 
   .grid-feature-wrap {
-    border-top: 2px solid $grey-4;
-    border-bottom: 2px solid $grey-4;
+    border-top: 2px solid $grey-3;
+    border-bottom: 2px solid $grey-3;
   }
 
   // sub component for `ProductBox`
@@ -46,7 +46,7 @@
     @media (max-width: $tablet) {
       padding: 44px;
       border-right: none;
-      border-bottom: 2px solid $grey-4;
+      border-bottom: 2px solid $grey-3;
     }
 
     .heading {
@@ -64,7 +64,7 @@
     .details {
       font-family: $font-sans-serif;
       font-size: 18px;
-      color: $blue-darker;
+      color: $navy-black;
       letter-spacing: 0;
       line-height: 30px;
       padding: 32px 0;
@@ -76,7 +76,8 @@
 
     .icon-link {
       display: flex;
-      flex: 1;
+      flex: 1 1 auto;
+      font-weight: bold;
     }
 
     .icon {
@@ -95,39 +96,53 @@
     .link {
       font-family: $font-sans-serif;
       font-size: 26px;
-      color: $blue-darker;
+      color: $navy-black;
       letter-spacing: 0;
       line-height: 70px;
       align-items: center;
       display: flex;
-
+      text-decoration: none;
       &:hover {
-        color: $magenta;
+        color: $pink-darker;
       }
     }
-
+    h2 {
+      font-weight: bold;
+    }
     // per box styling
     &.collaborate-share {
+      h2 {
+        color: $title-green;
+      }
     }
-
     &.access-download {
+      h2 {
+        color: $title-blue;
+      }
     }
-
     &.analyze-discover {
-      border-right: 2px solid $grey-4;
+      h2 {
+        color: $title-red;
+      }
+      border-right: 2px solid $grey-3;
       @media (max-width: $tablet) {
         border-right: none;
       }
     }
-
     &.generate-upload {
-      border-right: 2px solid $grey-4;
+      h2 {
+        color: $title-pink;
+      }
+      border-right: 2px solid $grey-3;
       @media (max-width: $tablet) {
         border-right: none;
-        border-bottom: 2px solid $grey-4;
+        border-bottom: 2px solid $grey-3;
       }
     }
     &.track-manage {
+      h2 {
+        color: $title-yellow;
+      }
     }
   }
 }

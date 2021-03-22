@@ -1,10 +1,11 @@
 import React from 'react';
-import { H1, H4 } from 'components';
+import { PRIVACY_PATH } from 'constants/pages';
+import { H1, H2, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const Heading = ({ children }) => (
   <div className="pt2">
-    <H4 className="">{children}</H4>
+    <H2 className="t-h4">{children}</H2>
     <div className="my2 yellow-bar" />
   </div>
 );
@@ -75,11 +76,11 @@ const TermsConditionsPage = () => (
           <span className="bold pr2">2</span>Website Privacy Statement
         </Heading>
         <p>
-          The <a href="/privacy">Website Privacy Statement </a> applies to your use of this website.
-          Please ensure you have read and agree with the{' '}
-          <a href="/privacy">Website Privacy Statement</a>. By visiting and using this Site, you are
-          consenting to the collection, use and disclosure of your Personal Information while
-          visiting the Site.
+          The <Link to={PRIVACY_PATH}>Website Privacy Statement </Link> applies to your use of this
+          website. Please ensure you have read and agree with the{' '}
+          <Link to={PRIVACY_PATH}>Website Privacy Statement</Link>. By visiting and using this Site,
+          you are consenting to the collection, use and disclosure of your Personal Information
+          while visiting the Site.
         </p>
       </section>
 

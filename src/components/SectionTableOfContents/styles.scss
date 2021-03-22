@@ -4,75 +4,102 @@
   margin-bottom: 24px;
   max-height: calc(100vh - 150px);
   overflow: auto;
+  a {
+    text-decoration: none;
+  }
   ol {
     list-style-type: none;
-    padding-left: 0;
     li {
-      &.menu-active > a {
-        color: $magenta;
-      }
+      line-height: 24px;
+      position: relative;
       a {
-        background: transparent;
-        color: $blue-black;
+        color: $navy-black;
         display: block;
-        font-size: 16px;
         font-weight: bold;
-        &:hover,
-        &.active {
-          background: $white;
-        }
-        &.link-active {
-          color: $magenta;
-        }
-      }
-      span {
-        position: relative;
-        .Icon {
-          position: absolute;
-          left: -12px;
-          top: 7px;
-        }
       }
     }
   }
-  // first level
-  > ol > li {
-    border-bottom: 1px solid $grey-table-border;
-    border-left: 3px solid transparent;
-    &.menu-active {
-      background: $white;
-      border-left-color: $magenta;
-      a {
-        &:hover {
-          background: $grey-bg-hover;
-        }
-      }
-    }
+  .menu-level-1 > li,
+  .menu-level-2 > li {
+    border-left: 2px solid transparent;
     > a {
-      border-left: 3px solid transparent;
-      line-height: 18px;
-      padding: 12px 0 12px 24px;
-      &.link-active {
-        background: $white;
-        border-color: $magenta-border;
+      font-size: 14px;
+      padding: 6px 16px;
+      &:hover {
+        background-color: $white;
       }
     }
-    // all lower levels
-    ol li {
-      a {
-        font-size: 14px;
-        line-height: 16px;
-        padding: 10px 0 10px 32px;
+    &.link-active {
+      border-left-color: $pink-dark;
+      background-color: $white;
+    }
+    & + li:not(.menu-heading) {
+      border-top: 1px solid $grey-3;
+    }
+    &:last-child {
+      border-bottom: 1px solid $grey-3;
+    }
+  }
+  .menu-level-1 > li {
+    &.menu-heading {
+      border-bottom-width: 0;
+      margin-bottom: 24px;
+      &:not(:first-child) {
+        margin-top: 20px;
       }
-      span .Icon {
-        top: 6px;
+      h4 {
+        font-size: 13px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        padding: 6px 16px;
+        text-transform: uppercase;
       }
     }
-    // third level
-    > ol > li > ol > li {
-      > a {
-        padding-left: 48px;
+  }
+  .menu-level-2 > li {
+    &.menu-active {
+      border-left-color: $pink-dark;
+      background-color: $white;
+      a:hover {
+        background-color: $grey-1;
       }
     }
+    &.menu-open {
+      border-left-color: $grey-1;
+    }
+  }
+  button.menu-toggle-btn {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 36px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .menu-level-3 > li {
+    > a {
+      font-size: 13px;
+      padding: 4px 24px;
+    }
+    button.menu-toggle-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .menu-level-4 > li {
+    > a {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 3px 8px 3px 40px;
+    }
+  }
+  .link-active > a {
+    color: $pink-darker;
   }
 }

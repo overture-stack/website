@@ -32,7 +32,13 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
         <div className="card-content is-two-thirds flex flex-column justify-center">
           <div className="card-text">{cardText}</div>
           <div className="left-align">
-            <Button type="primary" size="medium" externalLink={getStartedLink} icon="githubWhite">
+            <Button
+              iconAlt="github icon"
+              link={getStartedLink}
+              icon="githubWhite"
+              size="medium"
+              type="primary"
+            >
               Get Started
             </Button>
 
@@ -48,7 +54,7 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
 
         {/* Right Column */}
         <div className="column is-one-third card-img-box">
-          <img className={`card-img ${logo}`} src={logos[logo]} />
+          <img alt="" className={`card-img ${logo}`} src={logos[logo]} />
         </div>
       </div>
     </div>

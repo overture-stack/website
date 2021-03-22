@@ -8,9 +8,9 @@
 // BULMA VARIABLE OVERRIDES! --------------------
 
 $primary-invert: $white;
-$navbar-item-hover-color: $magenta;
-$navbar-item-color: $blue-black;
-$navbar-item-hover-background-color: $grey;
+$navbar-item-hover-color: $pink-darker;
+$navbar-item-color: $navy-black;
+$navbar-item-hover-background-color: $grey-2;
 $navbar-breakpoint: 1160px;
 $link: $blue;
 $family-serif: $font-sans-serif;
@@ -20,13 +20,13 @@ $family-primary: $family-serif;
 
 // override bulma's hover CSS for the top navbar
 a.navbar-item:hover {
-  color: $blue-black;
+  color: $navy-black;
 }
 
 a.navbar-item.active-item {
-  background: $grey;
+  background: $grey-2;
   &:hover {
-    color: $magenta;
+    color: $pink-darker;
   }
 }
 
@@ -88,4 +88,43 @@ body,
 #gatsby-focus-wrapper > div {
   // fix safari sticky footer issues
   height: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+a {
+  color: $blue-links;
+  text-decoration: underline;
+}
+
+.button {
+  text-decoration: none;
+  &.is-primary {
+    background: $navy-dark;
+    &:active,
+    &:hover,
+    &:focus {
+      background: $navy-black;
+    }
+  }
+}
+
+.BottomCallout .button.is-primary {
+  background: $pink-dark;
+  &:active,
+  &:hover,
+  &:focus {
+    background: $pink-darker;
+  }
+}
+
+a.column {
+  text-decoration: none;
 }

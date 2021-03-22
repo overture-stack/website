@@ -16,7 +16,7 @@
   }
 
   .active-item {
-    color: $magenta;
+    color: $pink-darker;
     background-color: '$grey';
   }
 
@@ -85,6 +85,7 @@
   }
 
   .nav-link {
+    text-decoration: none;
     @include breakpoint(navmenu-up) {
       margin-right: 8px;
       display: flex;
@@ -115,7 +116,7 @@
     }
 
     &.open {
-      background: $grey;
+      background: $grey-2;
     }
   }
 
@@ -140,11 +141,9 @@
     }
   }
 
-  .custom-button {
-    .button.is-medium {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+  .custom-button.button.is-medium {
+    font-size: 1rem;
+    font-weight: 600;
   }
 
   //

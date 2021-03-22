@@ -1,18 +1,20 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
-  H2,
-  H4,
+  BottomCallout,
   Button,
+  Callout,
+  GettingStarted,
+  H2,
+  H3,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'constants/products';
+import { EGO_SQL_LINK, EGO_UPDATES_LINK } from 'constants/external-links';
 import screenshot from './assets/screenshot.png';
 import './style.scss';
 
@@ -36,7 +38,7 @@ const EgoPage = () => (
       title="Ego"
       subTitle="A stateless authorization and user management service."
       cardText="Ego provides single sign-on through Facebook, Google and Github, as well as providing an intuitive GUI for painless user management."
-      getStartedLink={githubLinks.ego}
+      getStartedLink={productsDict.ego.githubUrl}
       badge={{ color: 'blue', text: 'Access & Download' }}
       logo="logoEgo"
       progressType="ga"
@@ -47,19 +49,19 @@ const EgoPage = () => (
       <ProductFeature
         header="Single sign on"
         icon="security"
-        details="No more usernames and passwords for your users to remember."
+        details={<div>No more usernames and passwords for your users to remember.</div>}
       />
 
       <ProductFeature
         header="Scalable"
         icon="barGraph"
-        details="No sessions management means less code to write."
+        details={<div>No sessions management means less code to write.</div>}
       />
 
       <ProductFeature
         header="User Administration"
         icon="user"
-        details="Manage users, groups and applications."
+        details={<div>Manage users, groups and applications.</div>}
       />
     </ProductFeatureRow>
 
@@ -75,7 +77,7 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="It’s stateless"
-                details="Ego uses JSON Web Tokens (JWT) for authorization."
+                details={<div>Ego uses JSON Web Tokens (JWT) for authorization.</div>}
               />
             </div>
 
@@ -84,7 +86,12 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="It's secure"
-                details="Built with modern frameworks such as Spring Security, you can rest assured that users will be authorized securely."
+                details={
+                  <div>
+                    Built with modern frameworks such as Spring Security, you can rest assured that
+                    users will be authorized securely.
+                  </div>
+                }
               />
             </div>
 
@@ -93,14 +100,18 @@ const EgoPage = () => (
                 size="small"
                 icon="target"
                 header="Scale up"
-                details="There are no limits to the number of applications you can use Ego alongside."
+                details={
+                  <div>
+                    There are no limits to the number of applications you can use Ego alongside.
+                  </div>
+                }
               />
             </div>
           </div>
 
           {/* screenshot */}
           <div className="column is-8-desktop  is-offset-1 flex items-center">
-            <img src={screenshot} />
+            <img alt="" src={screenshot} />
           </div>
         </div>
       </div>
@@ -108,14 +119,14 @@ const EgoPage = () => (
 
     {/* Getting Started Terminals / steps */}
 
-    <GettingStarted pinnedLink="http://ego.readthedocs.io/en/latest/">
+    <GettingStarted pinnedLink={EGO_UPDATES_LINK}>
       {/* Getting Started: Step 1 */}
 
       <div className="columns Step">
         <div className="column is-3">
           <H2 className="pb1">1</H2>
           <div>
-            <H4>To get started, you’ll first need to set up a database.</H4>
+            <H3>To get started, you’ll first need to set up a database.</H3>
             <ul className="step-text">
               <li className="bullet">Install Postgres. </li>
               <li className="bullet">
@@ -139,18 +150,12 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">2</H2>
           <div>
-            <H4>Define the tables in your database.</H4>
+            <H3>Define the tables in your database.</H3>
 
             <ul className="step-text">
               <li className="bullet">
-                Copy the{' '}
-                <a
-                  target="_blank"
-                  href="https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql"
-                >
-                  psql-schema.sql
-                </a>{' '}
-                file locally. {/* TJS NEEDS LINK */}
+                Copy the <Link to={EGO_SQL_LINK}>psql-schema.sql</Link> file locally.{' '}
+                {/* TJS NEEDS LINK */}
               </li>
               <li className="bullet">
                 Execute the SQL script to setup the tables. {/* TJS NEEDS LINK */}
@@ -171,7 +176,7 @@ const EgoPage = () => (
         <div className="column is-3">
           <H2 className="pb1">3</H2>
           <div>
-            <H4>Run one of the three supported Ego profiles.</H4>
+            <H3>Run one of the three supported Ego profiles.</H3>
 
             <ul className="step-text">
               <li className="bullet">
@@ -205,7 +210,13 @@ const EgoPage = () => (
         description="Single sign on functionality for your users in multiple microservices."
         className="center"
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.ego} icon="githubWhite">
+        <Button
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.ego.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>

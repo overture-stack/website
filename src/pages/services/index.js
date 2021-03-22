@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { CONTACT_PATH } from 'constants/pages';
 import { Button, H2, Hero, MarketingSection } from 'components';
 import academicImg from './assets/academic.svg';
 import techImg from './assets/tech_support.svg';
@@ -39,14 +40,14 @@ const ServicesPage = () => (
           stacks and building custom solutions for joint projects.
         </p>
 
-        <Button type="primary" size="medium" className="mt3" internalLink="/contact">
+        <Button className="mt3" link={CONTACT_PATH} size="medium" type="primary">
           Request a collaboration
         </Button>
       </div>
 
       {/* Img  */}
       <div className="column is-half is-offset-1 is-hidden-mobile">
-        <img src={academicImg} />
+        <img alt="" src={academicImg} />
       </div>
     </MarketingSection>
 
@@ -73,7 +74,7 @@ const ServicesPage = () => (
           <li className="bullet">Scalability</li>
         </ul>
 
-        <Button type="primary" size="medium" internalLink="/contact">
+        <Button link={CONTACT_PATH} size="medium" type="primary">
           Request consulting
         </Button>
       </div>
@@ -95,14 +96,14 @@ const ServicesPage = () => (
           <li className="bullet">Troubleshooting</li>
         </ul>
 
-        <Button type="primary" size="medium" internalLink="/contact">
+        <Button link={CONTACT_PATH} size="medium" type="primary">
           Request technical support
         </Button>
       </div>
 
       {/* Img  */}
       <div className="column is-half is-offset-1 is-hidden-mobile">
-        <img src={techImg} />
+        <img alt="" src={techImg} />
       </div>
     </MarketingSection>
 

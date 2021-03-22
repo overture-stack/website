@@ -4,40 +4,42 @@
   align-self: flex-start;
   border-radius: 4px;
   border: none;
-  color: $white;
+  color: $black;
   display: inline;
   font-size: 13px;
   font-weight: 600;
   padding: 0 14px;
   padding: 4px 8px;
   text-transform: uppercase;
+  text-decoration: none;
 
   &.pink {
-    background-color: $pink-bg;
+    background-color: $badge-bg-pink;
   }
 
   &.blue {
-    background-color: $blue-bg;
+    background-color: $badge-bg-blue;
   }
 
   &.dark-blue {
-    background-color: $blue-dark;
+    background-color: $badge-bg-navy;
+    color: $white;
   }
 
   &.yellow {
-    background-color: $yellow-bg;
+    background-color: $badge-bg-yellow;
     border: none;
   }
 
   &.green {
-    background-color: $green-bg-dark;
+    background-color: $badge-bg-teal-dark;
   }
 
   &.light-green {
-    background-color: $green-bg;
+    background-color: $badge-bg-teal;
   }
 
   &.red {
-    background-color: $red-bg;
+    background-color: $badge-bg-red;
   }
 }

@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
+import productsDict from 'constants/products';
 import 'styles/main.scss';
+import DocsWrapper from './DocsWrapper';
+
+const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -93,11 +97,12 @@ class TemplateWrapper extends Component {
    * All in all, there's probably a more elegant way to do this. ¯\_(ツ)_/¯
    */
   render() {
-    const { megaMenuOpen, popOverRef, megaMenuType, mobileMenuOpen } = this.state;
-    const { children, path } = this.props;
+    const { megaMenuOpen, megaMenuType, mobileMenuOpen, popOverRef } = this.state;
+    const { children, data = {}, path } = this.props;
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
+    const isDocs = path.includes('/documentation/') && data.mdx;
 
     return (
       <div>
@@ -130,7 +135,13 @@ class TemplateWrapper extends Component {
 
         <div className="site-wrapper">
           <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
-            {children}
+            {isDocs && SHOW_DOCS ? (
+              <DocsWrapper path={path} data={data}>
+                {children}
+              </DocsWrapper>
+            ) : (
+              <React.Fragment>{children}</React.Fragment>
+            )}
           </div>
           <Footer />
         </div>

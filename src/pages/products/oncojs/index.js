@@ -1,16 +1,24 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
-  H2,
-  Button,
-  Layout,
-  ProductHero,
-  ProductFeature,
-  WindowGui,
   BottomCallout,
+  Button,
   Callout,
+  H2,
+  Icon,
+  LinkHelper as Link,
+  ProductFeature,
+  ProductHero,
+  WindowGui,
 } from 'components';
-import { githubLinks } from 'meta/config';
+import productsDict from 'constants/products';
+import {
+  GDC_LINK,
+  LOLLIPLOT_EXAMPLE_LINK,
+  ONCOGRID_EXAMPLE_LINK,
+  PATHWAYVIEWER_EXAMPLE_LINK,
+  SURVIVALPLOT_EXAMPLE_LINK,
+} from 'constants/external-links';
 
 // Screenshots
 import lolliplotScreen from './assets/lolliplot_screen.png';
@@ -40,7 +48,7 @@ const OncoPage = () => (
       title="OncoJS"
       subTitle="Bring data to life with stunning visualizations and real-time analysis."
       cardText="A picture is worth a thousand data points, so we created OncoJS to help see the science! Interactive and beautifully styled components that complete real-time analysis can bring your visualizations to the next level."
-      getStartedLink={githubLinks.oncojs}
+      getStartedLink={productsDict.oncojs.githubUrl}
       badge={{ color: 'red', text: 'Analyze & Discover' }}
       logo="logoOncojs"
       progressType="ga"
@@ -62,7 +70,11 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Provide an opportunity for your users to learn and explore data visually."
+                details={
+                  <div>
+                    Provide an opportunity for your users to learn and explore data visually.
+                  </div>
+                }
               />
             </div>
 
@@ -71,24 +83,24 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Deliver an interactive experience for users to consume key information and data."
+                details={
+                  <div>
+                    Deliver an interactive experience for users to consume key information and data.
+                  </div>
+                }
               />
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="chevron-link bold text-magenta" to={GDC_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
+              </Link>
             </div>
           </div>
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={sapienScreen} />
+              <img alt="" src={sapienScreen} />
             </WindowGui>
           </div>
         </div>
@@ -102,7 +114,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-6 flex items-center">
             <WindowGui>
-              <img src={lolliplotScreen} />
+              <img alt="" src={lolliplotScreen} />
             </WindowGui>
           </div>
           <div className="column pt2 is-5-desktop pl3 pt2">
@@ -115,7 +127,7 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Lollipop height is based on cohort frequency."
+                details={<div>Lollipop height is based on cohort frequency.</div>}
               />
             </div>
 
@@ -124,7 +136,7 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Zoom in/out of protein domains."
+                details={<div>Zoom in/out of protein domains.</div>}
               />
             </div>
 
@@ -133,18 +145,14 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Pass in a d3 object (v3 or v4) to generate your plot."
+                details={<div>Pass in a d3 object (v3 or v4) to generate your plot.</div>}
               />
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/genes/ENSG00000183914"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="chevron-link bold text-magenta" to={LOLLIPLOT_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
+              </Link>
             </div>
           </div>
         </div>
@@ -168,7 +176,11 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Customize your grid by plotting clinical data tracks along the same axis."
+                details={
+                  <div>
+                    Customize your grid by plotting clinical data tracks along the same axis.
+                  </div>
+                }
               />
             </div>
 
@@ -177,7 +189,9 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Interactively explore mutation trends with heat-map view and scrolling."
+                details={
+                  <div>Interactively explore mutation trends with heat-map view and scrolling.</div>
+                }
               />
             </div>
 
@@ -186,24 +200,20 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Get started easily with examples in API documents."
+                details={<div>Get started easily with examples in API documents.</div>}
               />
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="chevron-link bold text-magenta" to={ONCOGRID_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
+              </Link>
             </div>
           </div>
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={oncogridScreen} />
+              <img alt="" src={oncogridScreen} />
             </WindowGui>
           </div>
         </div>
@@ -218,7 +228,7 @@ const OncoPage = () => (
           {/* screenshot */}
           <div className="column is-6 flex items-center">
             <WindowGui>
-              <img src={survivalplotScreen} />
+              <img alt="" src={survivalplotScreen} />
             </WindowGui>
           </div>
           <div className="column pt2 is-5-desktop pl3 pt2">
@@ -226,7 +236,7 @@ const OncoPage = () => (
 
             <p className="pb2">
               Visualize and compare datasets to determine probable health outcomes and their
-              frequency in patient groups.{' '}
+              frequency in patient groups.
             </p>
 
             <div className="">
@@ -234,7 +244,7 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="View summary data and observe survival patterns over time."
+                details={<div>View summary data and observe survival patterns over time.</div>}
               />
             </div>
 
@@ -243,7 +253,7 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Compare different patterns and trends using expansive datasets."
+                details={<div>Compare different patterns and trends using expansive datasets.</div>}
               />
             </div>
 
@@ -252,18 +262,14 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Easily download summaries and graphs for 360 degree analysis."
+                details={<div>Easily download summaries and graphs for 360 degree analysis.</div>}
               />
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="chevron-link bold text-magenta" to={SURVIVALPLOT_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
+              </Link>
             </div>
           </div>
         </div>
@@ -288,7 +294,9 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="See the biology: visualize reactome data in a quick and easy way."
+                details={
+                  <div>See the biology: visualize reactome data in a quick and easy way.</div>
+                }
               />
             </div>
 
@@ -297,7 +305,9 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details="Explore your data: understand pathways and predict their implications."
+                details={
+                  <div>Explore your data: understand pathways and predict their implications.</div>
+                }
               />
             </div>
 
@@ -306,25 +316,21 @@ const OncoPage = () => (
                 size="small"
                 icon="target"
                 className="p0"
-                details=" View and synthesize data in the context of different pathways."
+                details={<div> View and synthesize data in the context of different pathways.</div>}
               />
             </div>
 
             <div className="mt2">
-              <a
-                className="bold text-magenta"
-                target="_blank"
-                href="https://portal.gdc.cancer.gov/"
-              >
-                Live example >{' '}
-              </a>
+              <Link className="chevron-link bold text-magenta" to={PATHWAYVIEWER_EXAMPLE_LINK}>
+                Live example <Icon size={12} img="arrowRightMagenta" />
+              </Link>
             </div>
           </div>
 
           {/* screenshot */}
           <div className="column is-offset-1 flex items-center">
             <WindowGui>
-              <img src={pathwayviewerScreen} />
+              <img alt="" src={pathwayviewerScreen} />
             </WindowGui>
           </div>
         </div>
@@ -339,7 +345,13 @@ const OncoPage = () => (
         description="Bring data to life with stunning visualizations and real-time analysis."
         className="center"
       >
-        <Button type="primary" size="medium" externalLink={githubLinks.oncojs} icon="githubWhite">
+        <Button
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.oncojs.githubUrl}
+          size="medium"
+          type="primary"
+        >
           Get Started
         </Button>
       </Callout>
