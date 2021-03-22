@@ -18,7 +18,7 @@ pages:
       url: dms/installation/installation/other
     - title: Install Docker
       url: dms/installation/installation/docker
-    - title: Install DMS Executable
+    - title: Install the DMS Executable
       url: dms/installation/installation/executable
   - title: Configuration
     url: dms/installation/configuration
