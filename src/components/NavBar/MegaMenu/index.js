@@ -89,15 +89,15 @@ const data = {
         color: 'dark-blue',
         links: [
           {
-            to: '/documentation/introduction/',
+            to: '/documentation/dms/',
             text: 'Introduction',
           },
           {
-            to: '/documentation/dms/how-to-install/',
+            to: '/documentation/dms/installation/',
             text: 'How to Install',
           },
           {
-            to: '/documentation/dms/for-administrators/',
+            to: '/documentation/dms/user-guide/',
             text: 'For Administrators',
           },
         ],
