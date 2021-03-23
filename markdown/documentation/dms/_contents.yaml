@@ -58,7 +58,7 @@ pages:
       url: dms/installation/configuration/elasticsearch
     - title: Configure Maestro
       url: dms/installation/configuration/maestro
-    - title: Configure DMS-UI
+    - title: Configure DMS-UI (Data Portal)
       url: dms/installation/configuration/dms-ui
     - title: Check Configuration File
       url: dms/installation/configuration/check-config
