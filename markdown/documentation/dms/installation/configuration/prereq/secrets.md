@@ -108,7 +108,7 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 6. Enter the **Homepage URL** - The URL to your app's homepage.  You may simply enter the following:
 
-| Mode               | URI |
+| Mode               | URL |
 | --------------------| ------------|
 | Local   | http://localhost:80/ego-api |
 | Server  | https://_myDomain_/ego-api |
@@ -183,3 +183,63 @@ Where _myDomain_ is the registered [domain you will configure](../domain) for th
 8. You can now supply the **Client ID** and **Client Secret** to the DMS Installer in the Ego configuration section as required.
 
 # ORCiD
+
+The Overture DMS makes use of the free, public ORCiD API for client applications.  Hence, all steps below are described based on the use of the free, public API, and not the paid membership API.  For full details on setting up OAUTH 2.0 for an application to with with ORCiD using their free, public API, [see here](https://support.orcid.org/hc/en-us/articles/360006897174-Register-a-public-API-client-application).
+
+However, specifically for the DMS setup, see the summary steps below for acquiring an ORCiD client ID and secret.
+
+1. Setup an account with [ORCiD](https://orcid.org/), if you don't already have one.  If you are an individual working solo with the DMS platform, you may wish to simply use a personal account.  However, if you work for a larger organization or institution, they may already have a designated account which you can or should be using.  Please consult your IT department if required.
+
+
+2. Log into ORCiD.
+
+
+3. From your profile icon in the top right, go to **Developer Tools**:
+
+![Entity](../../../assets/orcid-dev-tools.png 'ORCiD Dev Tools')
+
+4. Click **Register for the free ORCID public API**:
+
+![Entity](../../../assets/orcid-register-api.png 'ORCiD Register API')
+
+5. Read and consent to the **Public Client Terms of Service**, then click **Continue**:
+
+![Entity](../../../assets/orcid-consent.png 'ORCiD Consent')
+
+6.  You can now enter the details for your app.  Enter the **Name of your application** - A descriptive name for your app, e.g. "_DMS Test App_".
+
+
+7.  Enter your **website URL**.  This is the URL to your app's homepage.
+
+<Warning>**NOTE:** ORCiD requires a real URL be provided and will actually attempt to ping the site and establish its validity.  For server mode deployments, you can simply provide the domain which you will configure for the DMS Gateway.  For local mode deployments, you may provide your personal website or your institution's website.  However, if you have neither of these, we suggest you simply enter the Overture homepage, _https://overture.bio_.</Warning>
+
+| Mode               | URI |
+| --------------------| ------------|
+| Local   | Your personal website, institution's website, or https://overture.bio |
+| Server  | https://_myDomain_/ego-api |
+
+Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+
+8.  Enter the **Description of your application** - A short description for your app.
+
+
+9. Under **Redirect URIs**, enter the URI where ORCiD will redirect users once they have authenticated with the provider (i.e. redirect them back to Ego once logged in successfully):
+
+| Mode               | URI |
+| --------------------| ------------|
+| Local   | http://localhost:80/ego-api/oauth/login/orcid |
+| Server  | https://_myDomain_/ego-api/oauth/login/orcid |
+
+Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+
+<Warning>**NOTE:** ORCiD may give a warning that "_**Only https redirect URIs are accepted**_".  However, this is a warning only and you may still enter an HTTP URI as indicated above.  The application will still save and the Client ID and Secret will still be generated.</Warning>
+
+7. Click the save icon in the bottom right:
+
+![Entity](../../../assets/orcid-app-details.png 'ORCiD App Details')
+
+8. After saving the app, the **Client ID** and **Client Secret** will be displayed to you so you can copy them for use later.  Keep these safe and secure.  You can always access & view these values in by going to the **ORCiD Developer Tools** and viewing your app:
+
+![Entity](../../../assets/orcid-secret.png 'ORCiD Secret')
+
+9. You can now supply the **Client ID** and **Client Secret** to the DMS Installer in the Ego configuration section as required.
