@@ -2,31 +2,65 @@
 title: Check Configuration File
 ---
 
-The DMS Gateway acts as an ingress controller where all incoming traffic and requests are received via a single port.
-
-This simplifies communication and allows the Gateway to easily route requests to the correct underlying Overture service via convenient sub-paths (e.g. "_locahost:80/dms-ui_" or "_dms.test.cancercollaboratory.org/dms-ui_").
-
-# Local Mode
-
-If deploying in local mode, specify the port on which the DMS Gateway will be exposed.  Port 80 is used by default:
+After completing the configuration for all services, the value are saved successfully to the configuration YAML file (_**~/.dms/config.yaml**_):
 
 ```shell
-What port will the gateway be exposed on? [80]:
+Wrote config file to /root/.dms/config.yaml
 ```
 
-# Server Mode
-
-If deploying in server mode, specify the [domain name](../prereq/domain) and [SSL certificate](../prereq/sslcert) you setup in the earlier pre-requisites.
-
-1. Enter the base gateway URL using the configured domain:
+View and verify that your configuration values were captured correctly in the YAML file with this command:
 
 ```shell
-What is the base DMS Gateway URL (example: https://dms.cancercollaboratory.org)? https://dms.test.cancercollaboratory.org
-
+dms config get
 ```
 
-2. Enter the **absolute** path to the SSL certificate you installed earlier with Certbot.  For typically Certbot installs, this path should be "_**/etc/letsencrypt**_":
+The contents of the saved config file will be displayed.  Here is a sample extract:
 
 ```shell
-What is the absolute path for the SSL certificate ? /etc/letsencrypt
+---
+gateway:
+  pathBased: true
+  hostPort: 443
+  url: "https://dms.test.cancercollaboratory.org:443"
+  sslDir: "/etc/letsencrypt"
+healthCheck:
+  retries: 15
+  delaySec: 10
+clusterRunMode: "SERVER"
+version: "0.15.1"
+network: "dms-swarm-network"
+ego:
+  api:
+    tokenDurationDays: 30
+    jwt:
+      user:
+        durationMs: 10800000
+      app:
+        durationMs: 10800000
+    refreshTokenDurationMS: 43200000
+    hostPort: 9000
+    sso:
+      google:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/google"
+      github:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/github"
+      linkedin:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/linkedin"
+      orcid:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/orcid"
+    url: "https://dms.test.cancercollaboratory.org:443/ego-api"
+    dmsAppCredential:
+      name: "dms"
+      clientId: "dms"
+      clientSecret: "abc123"
+
+<...and so on...>
 ```
