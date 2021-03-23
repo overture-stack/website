@@ -2,31 +2,38 @@
 title: Configure Ego
 ---
 
-The DMS Gateway acts as an ingress controller where all incoming traffic and requests are received via a single port.
+[Ego](../../../../ego) is responsible for user management and authentication, allowing users to login and authenticate themselves over the OAuth 2.0 protocol via supported Identity Providers.
 
-This simplifies communication and allows the Gateway to easily route requests to the correct underlying Overture service via convenient sub-paths (e.g. "_locahost:80/dms-ui_" or "_dms.test.cancercollaboratory.org/dms-ui_").
+Configure the following for Ego:
 
-# Local Mode
+???
 
-If deploying in local mode, specify the port on which the DMS Gateway will be exposed.  Port 80 is used by default:
-
-```shell
-What port will the gateway be exposed on? [80]:
-```
-
-# Server Mode
-
-If deploying in server mode, specify the [domain name](../prereq/domain) and [SSL certificate](../prereq/sslcert) you setup in the earlier pre-requisites.
-
-1. Enter the base gateway URL using the configured domain:
+For example:
 
 ```shell
-What is the base DMS Gateway URL (example: https://dms.cancercollaboratory.org)? https://dms.test.cancercollaboratory.org
-
-```
-
-2. Enter the **absolute** path to the SSL certificate you installed earlier with Certbot.  For typically Certbot installs, this path should be "_**/etc/letsencrypt**_":
-
-```shell
-What is the absolute path for the SSL certificate ? /etc/letsencrypt
+===============
+EGO
+===============
+How many days should api keys be valid for? [30]:
+How many hours should USER JWTs be valid for? [3]:
+How many hours should APP JWTs be valid for? [3]:
+How many hours should refresh tokens be valid for? [12]:
+What SSO providers would you like to enable?
+  1: GOOGLE
+  2: LINKEDIN
+  3: GITHUB
+  4: ORCID
+Enter your choices as comma-separated values: 1,2,3,4
+What is the GOOGLE client id? abc123
+What is the GOOGLE client secret? abc123
+What is the LINKEDIN client id? abc123
+What is the LINKEDIN client secret? abc123
+What is the GITHUB client id? abc123
+What is the GITHUB client secret? abc123
+What is the ORCID client id? abc123
+What is the ORCID client secret? abc123
+The EGO application with name 'dms' was not yet configured. Please input the clientId? [dms]:
+How many characters should the randomly generated clientSecret contain? [30]:
+Would you like to set the database password for EGO? (Y/N): y
+What should the EGO db password be? ******
 ```

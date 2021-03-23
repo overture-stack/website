@@ -19,6 +19,4 @@ Where _myDomain_ is the registered [domain you will configure](../domain) for th
 
 ![Entity](../../assets/dms-explorer-empty.png 'DMS Explorer Empty')
 
-
-
 <Note title="Verification Complete">**NOTE:** This completes the verification of your DMS installation.  The final step in preparing your DMS platform is to upload actual data to it for end user consumption.  In the [Test Data Upload Flow](../../test-upload) section, we will teach you how to populate the system with data using a simple demo example. </Note>

@@ -2,31 +2,23 @@
 title: Configure Score
 ---
 
-The DMS Gateway acts as an ingress controller where all incoming traffic and requests are received via a single port.
+[Score](../../../../score) manages data transfer to (upload) and from (download) cloud object storage.  As such, a storage service is required for Score to interact with.  The DMS allows either the use of MinIo](https://min.io/) pre-bundled with the DMS platform, or an external service such as [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/).
 
-This simplifies communication and allows the Gateway to easily route requests to the correct underlying Overture service via convenient sub-paths (e.g. "_locahost:80/dms-ui_" or "_dms.test.cancercollaboratory.org/dms-ui_").
+Configure the following for Score:
 
-# Local Mode
+???
 
-If deploying in local mode, specify the port on which the DMS Gateway will be exposed.  Port 80 is used by default:
-
-```shell
-What port will the gateway be exposed on? [80]:
-```
-
-# Server Mode
-
-If deploying in server mode, specify the [domain name](../prereq/domain) and [SSL certificate](../prereq/sslcert) you setup in the earlier pre-requisites.
-
-1. Enter the base gateway URL using the configured domain:
+For example:
 
 ```shell
-What is the base DMS Gateway URL (example: https://dms.cancercollaboratory.org)? https://dms.test.cancercollaboratory.org
-
-```
-
-2. Enter the **absolute** path to the SSL certificate you installed earlier with Certbot.  For typically Certbot installs, this path should be "_**/etc/letsencrypt**_":
-
-```shell
-What is the absolute path for the SSL certificate ? /etc/letsencrypt
+===============
+SCORE
+===============
+Do you have an existing S3 service you would like to use with the SCORE service? (Y/N): y
+Will you be using AWS S3? (Y/N): n
+What is the URL of the S3 service? https://object.cancercollaboratory.org:9080/
+What is the S3 accessKey? abc123
+What is the S3 secretKey? abc123
+What is the name of the OBJECT bucket used for SCORE? [dms.object]: test_object_bucket
+What is the name of the STATE bucket used for SCORE? [dms.state]: test_state_bucket
 ```
