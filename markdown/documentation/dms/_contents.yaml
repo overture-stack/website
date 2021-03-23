@@ -37,7 +37,7 @@ pages:
       - title: Setup a Domain Name (Server Mode Only)
         url: dms/installation/configuration/prereq/domain
       - title: Install an SSL Certificate (Server Mode Only)
-        url: dms/installation/configuration/preq/sslcert
+        url: dms/installation/configuration/prereq/sslcert
     - title: "Before You Start: Things to Note"
       url: dms/installation/configuration/before-you-start
     - title: Check the DMS Executable and Version
