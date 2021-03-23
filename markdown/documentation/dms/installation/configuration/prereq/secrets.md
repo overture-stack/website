@@ -140,5 +140,46 @@ You can always view the **Client ID** and manage (generate new, delete) the **Cl
 
 # LinkedIn
 
+For full details on setting up OAUTH 2.0 for an application to work with LinkedIn, [see here](https://docs.wpwebelite.com/social-network-integration/linkedin/#:~:text=To%20create%20a%20LinkedIn%20App,.com%2Fsecure%2Fdeveloper.&text=On%20that%20page%20click%20on,which%20do%20contain%20a%20star.).
+
+However, specifically for the DMS setup, see the summary steps below for acquiring a LinkedIn client ID and secret:
+
+1. Setup an account with [LinkedIn Developers](https://www.linkedin.com/developers/), if you don't already have one.  If you are an individual working solo with the DMS platform, you may wish to simply use a personal account.  However, if you work for a larger organization or institution, they may already have a designated account which you can or should be using.  Please consult your IT department if required.
+
+
+2. Log into LinkedIn Developers.
+
+
+3. Click **My apps > Create app** in the top menu:
+
+![Entity](../../../assets/linkedin-create-app.png 'LinkedIn Create App')
+
+4. Enter the following:
+
+| Field               | Description |
+| --------------------| ------------|
+| App name    | Descriptive name for your app, e.g. "_DMS Test App_" |
+| LinkedIn Page | Enter or select the LinkedIn page to be associated with your app.  If you do not have one, you can create one (either real or placeholder) by clicking **Create a new LinkedInPage**. |
+| App logo | Upload a logo for your app |
+| Legal agreement | **Read and agree to the API Terms of Use** |
+
+5. Click **Create app**:
+
+![Entity](../../../assets/linkedin-create-app2.png 'LinkedIn Create App 2')
+
+6. After the app is registered, the **Client ID** and **Client Secret** will be displayed to you so you can copy them for use later.  Keep these safe and secure.  You can always access & view these values in by going to the **Auth** tab in the app's top-level navigation:
+
+![Entity](../../../assets/linkedin-secret.png 'LinkedIn Secret')
+
+7. In the app's top navigation menu, go to **Auth** and under **OAuth 2.0 settings**, add an **Authorized redirect URL** for your app.  This is the URI where LinkedIn will redirect users once they have authenticated with the provider (i.e. redirect them back to Ego once logged in successfully):
+
+| Mode               | URI |
+| --------------------| ------------|
+| Local   | http://localhost:80/ego-api/oauth/login/linkedin |
+| Server  | https://_myDomain_/ego-api/oauth/login/linkedin |
+
+Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+
+8. You can now supply the **Client ID** and **Client Secret** to the DMS Installer in the Ego configuration section as required.
 
 # ORCiD
