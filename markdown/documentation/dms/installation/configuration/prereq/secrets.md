@@ -234,7 +234,7 @@ Where _myDomain_ is the registered [domain you will configure](../domain) for th
 
 <Warning>**NOTE:** ORCiD may give a warning that "_**Only https redirect URIs are accepted**_".  However, this is a warning only and you may still enter an HTTP URI as indicated above.  The application will still save and the Client ID and Secret will still be generated.</Warning>
 
-7. Click the save icon in the bottom right:
+7. Click the **Save** icon in the bottom right:
 
 ![Entity](../../../assets/orcid-app-details.png 'ORCiD App Details')
 
