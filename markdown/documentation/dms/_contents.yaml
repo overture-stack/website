@@ -44,6 +44,8 @@ pages:
       url: dms/installation/configuration/check-executable
     - title: Start the Interactive Questionnaire
       url: dms/installation/configuration/build-config
+    - title: Select the Cluster Deployment Mode
+      url: dms/installation/configuration/deployment-mode
     - title: Configure the DMS Gateway
       url: dms/installation/configuration/gateway
     - title: Configure Ego
