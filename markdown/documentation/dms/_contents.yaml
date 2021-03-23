@@ -38,76 +38,76 @@ pages:
         url: dms/installation/configuration/prereq/domain
       - title: Install an SSL Certificate (Server Mode Only)
         url: dms/installation/configuration/preq/sslcert
-      - title: "Before You Start: Things to Note"
-        url: dms/installation/configuration/before-you-start
-      - title: Check the DMS Executable and Version
-        url: dms/installation/configuration/check-executable
-      - title: Start the Interactive Questionnaire
-        url: dms/installation/configuration/build-config
-      - title: Configure the DMS Gateway
-        url: dms/installation/configuration/gateway
-      - title: Configure Ego
-        url: dms/installation/configuration/ego
-      - title: Configure Song
-        url: dms/installation/configuration/song
-      - title: Configure Score
-        url: dms/installation/configuration/score
-      - title: Configure Elasticsearch
-        url: dms/installation/configuration/elasticsearch
-      - title: Configure Maestro
-        url: dms/installation/configuration/maestro
-      - title: Configure DMS-UI
-        url: dms/installation/configuration/dms-ui
-      - title: Check Configuration File
-        url: dms/installation/configuration/check-config
-      - title: A Note About Arranger Configuration
-        url: dms/installation/configuration/arranger-note
-    - title: Deploy Your Cluster
-      url: dms/installation/deploy
-    - title: Post-Deployment Verification & Configuration
-      url: dms/installation/deploy-and-verify
-      pages:
-      - title: Check Docker Services are Running
-        url: dms/installation/deploy-and-verify/docker
-      - title: Check Ego API is Running
-        url: dms/installation/deploy-and-verify/ego-api
-      - title: Check Ego UI is Running
-        url: dms/installation/deploy-and-verify/ego-ui
-      - title: Check Song API is Running
-        url: dms/installation/deploy-and-verify/song-api
-      - title: Check Maestro API is Running
-        url: dms/installation/deploy-and-verify/maestro-api
-      - title: Check Elasticsearch is Running
-        url: dms/installation/deploy-and-verify/elasticsearch
-      - title: Add Project to Arranger UI
-        url: dms/installation/deploy-and-verify/arranger-ui
-      - title: Check DMS UI (Data Portal) is Running
-        url: dms/installation/deploy-and-verify/dms-ui
-    - title: Test Data Upload
-      url: dms/installation/test-upload
-      pages:
-      - title: Configure User Permissions in Ego
-        url: dms/installation/test-upload/configure-permissions
-      - title: Create Study in Song
-        url: dms/installation/test-upload/create-stidy
-      - title: Download and Configure Song Client
-        url: dms/installation/test-upload/configure-song
-      - title: Download and Configure Score Client
-        url: dms/installation/test-upload/configure-score
-      - title: Register Analysis Type with Song
-        url: dms/installation/test-upload/register-analysis-type
-      - title: Submit Analysis to Song
-        url: dms/installation/test-upload/submit-analysis
-      - title: Create Manifest for Score
-        url: dms/installation/test-upload/create-manifest
-      - title: Upload Data via Score
-        url: dms/installation/test-upload/upload-data
-      - title: Publish Analysis
-        url: dms/installation/test-upload/publish-analysis
-      - title: Index Study via Maestro
-        url: dms/installation/test-upload/index-Study
-      - title: Verify the Data in DMS-UI (Data Portal)
-        url: dms/installation/test-upload/verify-portal
+    - title: "Before You Start: Things to Note"
+      url: dms/installation/configuration/before-you-start
+    - title: Check the DMS Executable and Version
+      url: dms/installation/configuration/check-executable
+    - title: Start the Interactive Questionnaire
+      url: dms/installation/configuration/build-config
+    - title: Configure the DMS Gateway
+      url: dms/installation/configuration/gateway
+    - title: Configure Ego
+      url: dms/installation/configuration/ego
+    - title: Configure Song
+      url: dms/installation/configuration/song
+    - title: Configure Score
+      url: dms/installation/configuration/score
+    - title: Configure Elasticsearch
+      url: dms/installation/configuration/elasticsearch
+    - title: Configure Maestro
+      url: dms/installation/configuration/maestro
+    - title: Configure DMS-UI
+      url: dms/installation/configuration/dms-ui
+    - title: Check Configuration File
+      url: dms/installation/configuration/check-config
+    - title: A Note About Arranger Configuration
+      url: dms/installation/configuration/arranger-note
+  - title: Deploy Your Cluster
+    url: dms/installation/deploy
+  - title: Post-Deployment Verification & Configuration
+    url: dms/installation/deploy-and-verify
+    pages:
+    - title: Check Docker Services are Running
+      url: dms/installation/deploy-and-verify/docker
+    - title: Check Ego API is Running
+      url: dms/installation/deploy-and-verify/ego-api
+    - title: Check Ego UI is Running
+      url: dms/installation/deploy-and-verify/ego-ui
+    - title: Check Song API is Running
+      url: dms/installation/deploy-and-verify/song-api
+    - title: Check Maestro API is Running
+      url: dms/installation/deploy-and-verify/maestro-api
+    - title: Check Elasticsearch is Running
+      url: dms/installation/deploy-and-verify/elasticsearch
+    - title: Add Project to Arranger UI
+      url: dms/installation/deploy-and-verify/arranger-ui
+    - title: Check DMS UI (Data Portal) is Running
+      url: dms/installation/deploy-and-verify/dms-ui
+  - title: Test Data Upload
+    url: dms/installation/test-upload
+    pages:
+    - title: Configure User Permissions in Ego
+      url: dms/installation/test-upload/configure-permissions
+    - title: Create Study in Song
+      url: dms/installation/test-upload/create-stidy
+    - title: Download and Configure Song Client
+      url: dms/installation/test-upload/configure-song
+    - title: Download and Configure Score Client
+      url: dms/installation/test-upload/configure-score
+    - title: Register Analysis Type with Song
+      url: dms/installation/test-upload/register-analysis-type
+    - title: Submit Analysis to Song
+      url: dms/installation/test-upload/submit-analysis
+    - title: Create Manifest for Score
+      url: dms/installation/test-upload/create-manifest
+    - title: Upload Data via Score
+      url: dms/installation/test-upload/upload-data
+    - title: Publish Analysis
+      url: dms/installation/test-upload/publish-analysis
+    - title: Index Study via Maestro
+      url: dms/installation/test-upload/index-Study
+    - title: Verify the Data in DMS-UI (Data Portal)
+      url: dms/installation/test-upload/verify-portal
 - title: User Guide
   url: dms/user-guide
   isHeading: true
