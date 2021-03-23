@@ -10,7 +10,7 @@ This bundle includes a range of useful features to help both institutions and in
 
 # System Overview
 
-< Add diagram + description >
+??? Add diagram + description ???
 
 # Features
 
@@ -18,7 +18,7 @@ The first general availability release of the DMS bundle includes the following 
 
 ## Interactive Configuration Questionnaire
 
-< To be cleaned up >
+??? To be cleaned up ???
 
 - Easy to use
 - Step-by-step walkthrough
@@ -26,6 +26,8 @@ The first general availability release of the DMS bundle includes the following 
 - Automates as many steps as possible
 
 ## Cluster Deployment Modes
+
+??? To be cleaned up ???
 
 - Initial release supports single-cluster deployment only
 - Can deploy in one of two modes: Local, Server
@@ -35,20 +37,18 @@ local vs server
 
 ## Saved Configurations
 
-< To be cleaned up >
-
+??? To be cleaned up ???
 - Ability to save config, allow user to view and verify before deploy
 
 ## Comprehensive User Documentation
 
-< To be cleaned up >
-
+??? To be cleaned up ???
 
 - Detailed user documentation to help administrators, users enable themselves and act as a first line of knowledge & support
 
-# Bundling & Integration with Robust 3rd Party Software Providers
+## Bundling & Integration with Robust 3rd Party Software Providers
 
-< To be cleaned up >
+??? To be cleaned up ???
 
 - Where necessary, DMS platform bundles together or in other cases integrates with robust, quality 3rd party software providers for various use cases
 
