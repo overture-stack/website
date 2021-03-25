@@ -4,7 +4,7 @@
 import React from 'react';
 import productsDict from 'constants/products';
 import { PRODUCTS_PATH } from 'constants/pages';
-import { Badge, Icon, IconCommon, LinkHelper as Link } from 'components';
+import { Badge, ComingSoonBadge, Icon, IconCommon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const verticalMobileMenuSections = ['DMS Bundle'];
@@ -139,10 +139,12 @@ const data = {
         color: 'red',
         links: [
           {
+            comingSoon: true,
             to: '/documentation/jukebox/',
             text: 'Jukebox',
           },
           {
+            comingSoon: true,
             to: '/documentation/oncojs/',
             text: 'OncoJs',
           },
@@ -153,10 +155,12 @@ const data = {
         color: 'light-green',
         links: [
           {
+            comingSoon: true,
             to: '/documentation/persona/',
             text: 'Persona',
           },
           {
+            comingSoon: true,
             to: '/documentation/riff/',
             text: 'Riff',
           },
@@ -172,6 +176,21 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
     return <div className={`MegaMenu ${className}`} />;
   }
   const { explore, sections } = data[megaMenuType];
+
+  const MenuItem = (link) => (
+    link.comingSoon
+      ? <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>{link.text} <ComingSoonBadge /></span>
+      : (
+        <Link
+          className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
+          onClick={() => closeMenus()}
+          to={link.to}
+          >
+          {link.text}
+        </Link>
+      )
+  );
+
   return (
     <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>
@@ -207,20 +226,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
             >
               {section.links.map(link => (
                 <li key={link.text}>
-                  {link.to.charAt(0) === '/' ? (
-                    <Link
-                      className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
-                      onClick={() => closeMenus()}
-                      to={link.to}
-                    >
-                      {link.text}
-                    </Link>
-                  ) : (
-                    <Link className="menu-section-link" to={link.to}>
-                      {link.text}
-                      {link.hasGithubIcon && <Icon className="pl1" img="githubGrey" />}
-                    </Link>
-                  )}
+                  {MenuItem(link)}
                 </li>
               ))}
             </ul>

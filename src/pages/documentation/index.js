@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Button, Icon, LinkHelper as Link, Search } from 'components';
+import { Badge, ComingSoonBadge, Button, Icon, LinkHelper as Link, Search } from 'components';
 import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
@@ -61,12 +61,14 @@ const productSections = [
     color: 'red',
     cards: [
       {
+        comingSoon: true,
         icon: 'productJukebox',
         link: '/documentation/jukebox/',
         text: 'Automates set-up and deployment of JupyterHub.',
         title: 'Jukebox',
       },
       {
+        comingSoon: true,
         icon: 'productOnco',
         link: '/documentation/oncojs/',
         text: 'Brings data to life with stunning visualizations and real-time analysis.',
@@ -79,12 +81,14 @@ const productSections = [
     color: 'green',
     cards: [
       {
+        comingSoon: true,
         icon: 'productPersona',
         link: '/documentation/persona/',
         text: 'Provides an easy-to-use solution for storing profile information.',
         title: 'Persona',
       },
       {
+        comingSoon: true,
         icon: 'productRiff',
         link: '/documentation/riff/',
         text: 'Allows you to save user queries and states and share them through short URLs.',
@@ -167,20 +171,32 @@ export default function DocumentationPage() {
             {productSections.map(section => (
               <div className="product-column column" key={section.title}>
                 <Badge color={section.color}>{section.title}</Badge>
-                {section.cards.map(card => (
-                  <Link to={card.link} key={card.title}>
+                {section.cards.map(card => {
+                  const SectionCard = () => (
                     <div className="product-card">
                       <div className="product-card__title">
                         <Icon size={32} img={card.icon} />
                         <h3>{card.title}</h3>
+                        {card.comingSoon && (
+                          <ComingSoonBadge style={{ position: 'absolute', right: 10, top: 10 }} />
+                        )}
                       </div>
                       <p>{card.text}</p>
-                      <div className="chevron-link">
-                        <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
-                      </div>
+                      {!card.comingSoon && (
+                        <div className="chevron-link">
+                          <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
+                        </div>
+                      )}
                     </div>
-                  </Link>
-                ))}
+                  );
+                  return card.comingSoon
+                    ? <SectionCard />
+                    : (
+                      <Link to={card.link} key={card.title}>
+                        <SectionCard />
+                      </Link>
+                    )
+                })}
               </div>
             ))}
           </div>

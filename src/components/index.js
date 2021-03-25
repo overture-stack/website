@@ -1,6 +1,7 @@
 // Top level components folder, allowing easy importing of components from a single source.
 export { default as AnchorHeading } from './AnchorHeading';
 export { default as Badge } from './Badge';
+export { default as ComingSoonBadge } from './Badge/ComingSoonBadge';
 export { BottomCallout, Callout } from './BottomCallout';
 export { default as Button } from './Button';
 export { default as CaseStudy } from './CaseStudy';
