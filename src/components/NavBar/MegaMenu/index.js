@@ -89,16 +89,20 @@ const data = {
         color: 'dark-blue',
         links: [
           {
-            to: '/documentation/introduction/',
+            to: '/documentation/dms/',
             text: 'Introduction',
           },
           {
-            to: '/documentation/dms/how-to-install/',
+            to: '/documentation/dms/installation/installation',
             text: 'How to Install',
           },
           {
-            to: '/documentation/dms/for-administrators/',
+            to: '/documentation/dms/admin-guide/',
             text: 'For Administrators',
+          },
+          {
+            to: '/documentation/dms/user-guide/',
+            text: 'For Users',
           },
         ],
       },
@@ -179,7 +183,11 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
 
   const MenuItem = (link) => (
     link.comingSoon
-      ? <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>{link.text} <ComingSoonBadge /></span>
+      ? (
+        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          {link.text} <ComingSoonBadge />
+        </span>
+      )
       : (
         <Link
           className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}

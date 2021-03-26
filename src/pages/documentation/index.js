@@ -190,7 +190,7 @@ export default function DocumentationPage() {
                     </div>
                   );
                   return card.comingSoon
-                    ? <SectionCard />
+                    ? <SectionCard key={card.title} />
                     : (
                       <Link to={card.link} key={card.title}>
                         <SectionCard />
