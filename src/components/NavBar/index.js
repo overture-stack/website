@@ -20,8 +20,6 @@ import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-
 class NavBar extends Component {
   render() {
     const {
@@ -77,27 +75,25 @@ class NavBar extends Component {
                   )}
                 </div>
               </MegaMenuLink>
-
-              {SHOW_DOCS && (
-                <MegaMenuLink
-                  isActive={megaMenuType === 'documentation'}
-                  name="Documentation"
-                  path={path}
-                  toggleMegaMenu={toggleMegaMenu}
-                  type="documentation"
-                >
-                  <div ref={r => (this.popoverRef = r)}>
-                    {mobileMegaCheck && (
-                      <MegaMenu
-                        className="open"
-                        closeMenus={closeMenus}
-                        megaMenuType="documentation"
-                        path={path}
-                      />
-                    )}
-                  </div>
-                </MegaMenuLink>
-              )}
+              
+              <MegaMenuLink
+                isActive={megaMenuType === 'documentation'}
+                name="Documentation"
+                path={path}
+                toggleMegaMenu={toggleMegaMenu}
+                type="documentation"
+              >
+                <div ref={r => (this.popoverRef = r)}>
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="documentation"
+                      path={path}
+                    />
+                  )}
+                </div>
+              </MegaMenuLink>
 
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
 

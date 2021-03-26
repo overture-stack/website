@@ -14,8 +14,6 @@ import './styles.scss';
 const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-
 const productSections = [
   {
     title: 'Generate & Upload',
@@ -102,7 +100,7 @@ const productSections = [
 ];
 
 export default function DocumentationPage() {
-  return SHOW_DOCS ? (
+  return (
     <main className="DocumentationLandingPage">
       {/* HERO */}
       <div className="hero">
@@ -208,7 +206,5 @@ export default function DocumentationPage() {
         </section>
       </div>
     </main>
-  ) : (
-    <NotFoundPage />
   );
 }
