@@ -25,9 +25,12 @@ export const ARRANGER_GETTING_STARTED_LINK =
 export const ARRANGER_LOCAL_LINK = 'https://localhost:8080';
 export const ARRANGER_UPDATES_LINK = 'https://arranger.readthedocs.io/en/latest';
 
+// DMS
+export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
+
 // ego
 export const EGO_SQL_LINK =
-  'https://github.com/overture-stack/ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql';
+  `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;
 export const EGO_UPDATES_LINK = 'http://ego.readthedocs.io/en/latest/';
 
 // jukebox
@@ -52,7 +55,7 @@ export const MAESTRO_UPDATES_LINK = 'https://maestro-overture.readthedocs.io/en/
 // persona
 export const PERSONA_LOCAL_LINK = 'http://localhost:3232/graphql';
 export const PERSONA_ENV_SCHEMA_LINK =
-  'https://github.com/overture-stack/persona/blob/master/.env.schema';
+  `${OVERTURE_GITHUB_LINK}persona/blob/master/.env.schema`;
 
 // song
 export const SONG_DOCS_LINK = 'https://song-docs.readthedocs.io/en/develop/introduction.html';

@@ -1,5 +1,11 @@
 import React from 'react';
 import { Badge, ComingSoonBadge, Button, Icon, LinkHelper as Link, Search } from 'components';
+import {
+  DOCS_DMS_ADMIN_CUSTOMIZE_LINK,
+  DOCS_DMS_INSTALL_LINK,
+  DOCS_DMS_INSTALL_DEMO,
+} from 'constants/docs';
+import { DMS_RELEASE_NOTES, OVERTURE_GITHUB_LINK } from 'constants/external-links';
 import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
@@ -9,9 +15,6 @@ const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
 const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-// TODO: create constants for documentation URLs
-// once content is created
-const linkTodo = '#';
 
 const productSections = [
   {
@@ -134,29 +137,31 @@ export default function DocumentationPage() {
                   ))}
                 </div>
               </div>
-              <Button type="primary" size="medium" link={linkTodo}>
+              <Button type="primary" size="medium" link={DOCS_DMS_INSTALL_LINK}>
                 Installation Instructions
               </Button>
             </div>
             <div className="column">
               <h2>Help by Topic</h2>
               <ul>
-                <li>
-                  How can I <Link to={linkTodo}>extend the DMS system</Link> to include other
+                {/* <li>
+                  How can I <Link to="">extend the DMS system</Link> to include other
                   Overture products?
+                </li> */}
+                <li>
+                  How do I{' '}
+                  <Link to={DOCS_DMS_ADMIN_CUSTOMIZE_LINK}>customize the look of my DMS</Link>?
                 </li>
                 <li>
-                  How do I <Link to={linkTodo}>customize the look of my DMS</Link>?
+                  Where can I find the <Link to={DMS_RELEASE_NOTES}>release notes</Link> for the DMS
+                  and each product?
                 </li>
                 <li>
-                  Where can I find the <Link to={linkTodo}>release notes</Link> for the DMS and each
-                  product?
+                  How can I <Link to={OVERTURE_GITHUB_LINK}>get involved</Link> with this open
+                  source project?
                 </li>
                 <li>
-                  How can I <Link to={linkTodo}>get involved</Link> with this open source project?
-                </li>
-                <li>
-                  Where can I <Link to={linkTodo}>see these products in action</Link>?
+                  Where can I <Link to={DOCS_DMS_INSTALL_DEMO}>see these products in action</Link>?
                 </li>
               </ul>
             </div>
@@ -189,13 +194,13 @@ export default function DocumentationPage() {
                       )}
                     </div>
                   );
-                  return card.comingSoon
-                    ? <SectionCard key={card.title} />
-                    : (
-                      <Link to={card.link} key={card.title}>
-                        <SectionCard />
-                      </Link>
-                    )
+                  return card.comingSoon ? (
+                    <SectionCard key={card.title} />
+                  ) : (
+                    <Link to={card.link} key={card.title}>
+                      <SectionCard />
+                    </Link>
+                  );
                 })}
               </div>
             ))}
