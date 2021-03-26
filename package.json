@@ -57,6 +57,7 @@
   "scripts": {
     "build-prod": "netlify build --context production",
     "build-qa": "netlify build --context branch-deploy",
+    "build-preview": "netlify build --context deploy-preview",
     "build": "gatsby build --prefix-paths",
     "deploy-draft-prod": "npm run build-prod && netlify deploy -o",
     "deploy": "npm run build-qa && netlify deploy -o",

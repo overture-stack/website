@@ -14,8 +14,6 @@ import {
 import './styles.scss';
 import logo from './logo.svg';
 
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
-
 const columns = {
   'Generate & Upload': [
     {
@@ -99,16 +97,12 @@ const columns = {
   ],
   Other: [
     {
-      ...(SHOW_DOCS
-        ? {
-            Documentation: {
-              link: '/documentation',
-              icon: null,
-              newTab: false,
-              className: '',
-            },
-          }
-        : {}),
+      Documentation: {
+        link: '/documentation',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
       'Case Studies': {
         link: '/case-studies',
         icon: null,

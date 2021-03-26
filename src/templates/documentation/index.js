@@ -17,12 +17,9 @@ import {
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
-import NotFoundPage from 'pages/404';
 import productsDict from 'constants/products';
 import { findNextPrevPages } from './utils';
 import './styles.scss';
-
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 const shortcodes = {
   // custom react components.
@@ -57,8 +54,6 @@ const replacedComponents = {
 };
 
 export default function DocumentationPage({ data, location, path }) {
-  if (!SHOW_DOCS) return <NotFoundPage />;
-
   const {
     body,
     fields: { sectionSlug, slug, title },
