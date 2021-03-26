@@ -6,7 +6,6 @@ import {
   DOCS_DMS_INSTALL_DEMO,
 } from 'constants/docs';
 import { DMS_RELEASE_NOTES, OVERTURE_GITHUB_LINK } from 'constants/external-links';
-import NotFoundPage from '../404';
 import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
 import './styles.scss';
