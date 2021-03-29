@@ -23,16 +23,14 @@ pages:
         url: dms/installation/configuration/prereq/buckets
       - title: Configure Arranger Metadata Files
         url: dms/installation/configuration/prereq/arranger
+      - title: Copy Logo to Assets Folder
+        url: dms/installation/configuration/prereq/logo
       - title: Setup a Domain Name (Server Mode Only)
         url: dms/installation/configuration/prereq/domain
       - title: Install an SSL Certificate (Server Mode Only)
         url: dms/installation/configuration/prereq/sslcert
     - title: Configure the DMS
       url: dms/installation/configuration/configure-dms
-    - title: Configure Maestro
-      url: dms/installation/configuration/maestro
-    - title: Configure DMS-UI (Data Portal)
-      url: dms/installation/configuration/dms-ui
     - title: Check Configuration File
       url: dms/installation/configuration/check-config
     - title: A Note About Arranger Configuration

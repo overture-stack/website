@@ -39,7 +39,7 @@ Enter your choices as comma-separated values: 1,2,3,4
 Before running the interactive configuration, make sure you are running the latest DMS version.  This also serves as a check that the executable can run properly:
 
 ```shell
-dms version
+$ dms version
 ```
 
 The latest version displays successfully (where `x.y.z` is the latest version):
@@ -53,7 +53,7 @@ x.y.z
 Start the interactive configuration questionnaire with this command:
 
 ```shell
-dms config build
+$ dms config build
 
 *****************************************************************************************************
 !!! NOTE !!!
@@ -264,4 +264,59 @@ ELASTICSEARCH
 ===============
 Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#elasticsearch
 Elasticsearch provides a superuser with default username 'elastic'. What should the superuser's password be? ******
+```
+
+# Configure Maestro
+
+The [Maestro service](../../../../maestro) provides the ability to automate the building of search indexes in Elasticsearch.  This vastly reduces the time and complexity a DMS administrator would need to deal with Elasticsearch directly themselves.
+
+Configure the following for Maestro:
+
+| Input | Description | Default |
+| ------| ------------| --------| 
+| ???
+
+For example:
+
+```shell
+===============
+MAESTRO
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-maestro
+What is the alias of the Elasticsearch index that Maestro will build (must be different from the index name)? [file_centric]:
+What is the index name of the Elasticsearch index that Maestro will build (must be different from the alias)? [file_centric_1]:
+```
+
+# Configure DMS UI
+
+The DMS UI is the user-facing Data Portal where users can search, explore, and download the data you have uploaded to the DMS platform.
+
+| Input | Description | Default |
+| ------| ------------| --------| 
+| ???
+
+For example:
+
+```shell
+===============
+DMS UI
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-dms-ui
+What is the e-mail that your DMS users can contact for support (will appear in the DMS UI)? firstname.lastname@gmail.com
+Would you like to customize the data portal name (appears in the DMS UI header)? [Data Management System]: Test Data Portal
+
+*****************************************************************************************************
+!!! NOTE !!!
+
+    The next 3 fields (Arranger Project ID, Project Name, Elasticsearch AliasName are
+    required when you create your project in the Arranger administrative UI after
+    deployment.  The values you use MUST match the ones you supply here for the
+    DMS UI configuration. The DMS UI interacts with Arranger and expects the same
+    values you input here. For instructions on adding an Arranger project, see:
+    https://overture.bio/documentation/dms/installation/deploy-and-verify/
+*****************************************************************************************************
+
+What is the Project ID you will configure in Arranger (to be referenced by DMS UI)? [file]:
+What is the Project Name you will configure in Arranger (to be referenced by DMS UI)? [file]:
+What is the Elasticsearch alias name you will configure in Arranger (to be referenced by DMS UI and ALSO must match the alias name previously supplied for Maestro) be?  [file_centric]:
 ```
