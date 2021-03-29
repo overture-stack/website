@@ -1,5 +1,5 @@
 ---
-title: Creating Schemas
+title: Managing Schemas
 ---
 When registering a dynamic schema, you must only submit the dynamic portion of an analysis schema, that is the schema that defines your unique business rules.
 
@@ -25,7 +25,7 @@ This template can be used to start your dynamic schema:
 }
 ```
 <Note title="User Tip">
-There's no need to write your own JSON Schema by hand.  There are lots of libraries built already to help you format your data.  For basic schemas, a good resource is https://jsonschema.net or https://www.liquid-technologies.com/online-json-to-schema-converter, where you can convert JSON to JSON Schema. 
+There's no need to write your own JSON Schema by hand. There are many existing libraries to help you format your data.  For basic schemas, a good resource is https://jsonschema.net or https://www.liquid-technologies.com/online-json-to-schema-converter, where you can convert JSON to JSON Schema. 
 
 </Note>
 
@@ -37,9 +37,9 @@ There's no need to write your own JSON Schema by hand.  There are lots of librar
 # Endpoints
 ## Add a Schema
 
-Once your schema is ready, it must be registered through the Song Rest API.   
+Once your schema is ready, it must be registered through the Song REST API.   
 
-When a schema is registered, it is assigned `version 1`.  For all future schemas that are registered with the same `analysis_type`, the version of the schema will be autoincremented.  
+When a schema is registered, it is assigned `version 1`.  For all future schemas that are registered with the same `analysis_type`, the version of the schema will be auto incremented.  
 
 - update a schema based on name 
 auto incrementing of versions 

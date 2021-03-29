@@ -11,6 +11,8 @@ pages:
       - title: Configuration
         url: song/installation/configuration
         pages: 
+          - title: Run Profiles
+            url: song/installation/configuration/profiles
           - title: Score Server
             url: song/installation/configuration/score
           - title: ID Management 

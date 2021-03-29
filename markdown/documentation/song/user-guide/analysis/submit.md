@@ -1,5 +1,5 @@
 ---
-title: Uploading Data to Song
+title: Submitting Data to Song
 ---
 Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes your data). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
 

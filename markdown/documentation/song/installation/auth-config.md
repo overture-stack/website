@@ -6,11 +6,11 @@ title: Configuration Authentication
 
 ![DEV_CONTENT](../assets/developer-content-needed.png 'Dev content needed')
 
-There there is AUTH for users and APPLICTION TO APPLUCATION auth with Song/score.
+There there is AUTH for users and APPLICTION TO APPLICTION  auth with Song/score.
 
-# Application  Authorization 
+# Application Authorization 
 
-Please provide instructions on WHERE the user can input these  values. 
+Please provide instructions on WHERE the system administrator can input these  values. 
 - define any application-token requirements  from the authorization system
 - define a required or expected policies or scopes that users should set up as part of their auth  system. 
 - Note the two profiles; api key  or app jwt allowed. pro/con of each?

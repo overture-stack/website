@@ -1,5 +1,5 @@
 ---
-title: Updating Analyses
+title: Managing Analyses
 ---
 
 HELLLO update.
