@@ -245,3 +245,23 @@ What is the S3 secret key? abc123
 What is the name of the OBJECT bucket used for SCORE? [dms.object]: dms_object_bucket
 What is the name of the STATE bucket used for SCORE? [dms.state]: dms_state_bucket
 ```
+
+# Configure Elasticsearch
+
+The DMS platform indexes its data into [Elasticsearch](https://www.elastic.co/).  Elasticsearch provides a flexible and highly-optimized mechanism for indexing and searching data.  [Arranger](../../../../arranger) interfaces with Elasticsearch to interpret the index structure and allow DMS administrators to configure which data fields can be exposed to end users in the Data Portal for their consumption.
+
+Configure the following for Elasticsearch:
+
+| Input | Description | Default |
+| ------| ------------| --------| 
+| Superuser Password | Password used by the superuser to gain administrative access to Elasticsearch. By default, the superuser's username is `elastic`; this value, along with the password you enter here, must be used when logging into Elasticsearch. | None |
+
+For example:
+
+```shell
+===============
+ELASTICSEARCH
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#elasticsearch
+Elasticsearch provides a superuser with default username 'elastic'. What should the superuser's password be? ******
+```

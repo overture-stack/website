@@ -29,10 +29,6 @@ pages:
         url: dms/installation/configuration/prereq/sslcert
     - title: Configure the DMS
       url: dms/installation/configuration/configure-dms
-    - title: Configure Score
-      url: dms/installation/configuration/score
-    - title: Configure Elasticsearch
-      url: dms/installation/configuration/elasticsearch
     - title: Configure Maestro
       url: dms/installation/configuration/maestro
     - title: Configure DMS-UI (Data Portal)
