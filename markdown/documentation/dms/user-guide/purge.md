@@ -1,6 +1,0 @@
----
-title: Purging Your Cluster
----
-
-???
-

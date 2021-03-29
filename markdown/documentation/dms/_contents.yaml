@@ -9,17 +9,6 @@ pages:
   pages:
   - title: Installation
     url: dms/installation/installation
-    pages:
-    - title: Decide Local or Server Deployment
-      url: dms/installation/installation/deployment-mode
-    - title: Check System Requirements
-      url: dms/installation/installation/requirements
-    - title: Check Other Requirements
-      url: dms/installation/installation/other
-    - title: Install Docker
-      url: dms/installation/installation/docker
-    - title: Install the DMS Executable
-      url: dms/installation/installation/executable
   - title: Configuration
     url: dms/installation/configuration
     pages: 
@@ -110,15 +99,29 @@ pages:
       url: dms/installation/test-upload/index-Study
     - title: Verify the Data in DMS-UI (Data Portal)
       url: dms/installation/test-upload/verify-portal
+- title: Admin Guide
+  url: dms/admin-guide
+  isHeading: true
+  pages:
+  - title: Updating a Configuration
+    url: dms/admin-guide/update-config
+  - title: Stopping Your Cluster
+    url: dms/admin-guide/stop
+  - title: Destroying Your Cluster
+    url: dms/admin-guide/destroy
+  - title: Customizing the Look of the Data Portal
+    url: dms/admin-guide/customize
+  - title: Common Problems
+    url: dms/admin-guide/common-problems
+  - title: Command Reference
+    url: dms/admin-guide/commands
 - title: User Guide
   url: dms/user-guide
   isHeading: true
   pages:
-  - title: Updating a Configuration
-    url: dms/user-guide/update-config
-  - title: Stopping Your Cluster
-    url: dms/user-guide/stop
-  - title: Purging Your Cluster
-    url: dms/user-guide/purge
-  - title: Command Reference
-    url: dms/user-guide/commands
+  - title: Logging Into the Portal
+    url: dms/user-guide/login
+  - title: Exploring Data
+    url: dms/user-guide/explore
+  - title: Managing Your User Profile
+    url: dms/user-guide/profile
