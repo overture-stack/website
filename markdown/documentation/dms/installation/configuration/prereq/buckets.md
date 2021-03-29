@@ -23,4 +23,7 @@ However, if you plan to use an external service such as [Amazon S3](https://aws.
 
 3. Make sure to note the **URL**, **access key**, and **secret key** used to access your external service, as these are also required as input during DMS configuration.  **Keep these values safe and secure**.
 
+
+4. If specifically using Amazon S3, makes ure to note the geographic **Region** where you have configured your buckets to be stored, as this is also required as an input during DMS configuration.
+
 If assistance is required, please consult your IT department if you are part of an institution, or contact support with your specific storage provider.

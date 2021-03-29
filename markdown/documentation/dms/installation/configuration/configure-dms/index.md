@@ -179,3 +179,69 @@ SONG
 Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-song
 What should the SONG database password be? ******
 ```
+
+# Configure Score
+
+[Score](../../../../score) manages data transfer to (upload) and from (download) cloud object storage.  As such, a storage service is required for Score to interact with.  The DMS allows either the use of MinIo](https://min.io/) pre-bundled with the DMS platform, or an external service such as [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/).
+
+Configure the following for Song:
+
+| Input | Description | Default |
+| ------| ------------| --------| 
+| Use Existing S3 Object Storage Service? | Select whether you have an existing S3 object storage service such as Amazon S3, Microsoft Azure, or Openstack with Ceph that you wish to use with Score.  If you have an S3 service, enter `Y`.  If not, enter `N`.  If you enter `N`, then MinIo is used as the storage service by default (comes bundled with the DMS). | None |
+| Automatically Create MinIo Credentials? | This input only appears if you do not have an existing S3 object storage service and must use the MinIo service.  Select whether you want the DMS to automatically create credentials for accessing MinIo.  To auto-generate credentials, enter `Y`.  To enter your own custom credentials, enter `N`. | None |
+| MinIo Access Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the access key required to authenticate with MinIo. | None |
+| MinIo Secret Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the secret key required to authenticate with MinIo. | None |
+| Will You Use AWS S3? | This input only appears if you are using an existing S3 object storage service.  Select whether you are specifically using Amazon S3, or another S3 service.  If using Amazon, enter `Y`.  If not, enter `N`. | None |
+| Amazon S3 Region | This input only appears if you are using Amazon S3 as your object storage service.  Enter the geographic region where you have configured your Amazon S3 service to store the buckets. These values are predefined for you to select during your Amazon S3 service configuration.  For example, `CA_Central` is the region for Amazon servers located in Canada. | None |
+| S3 Access Key | This input only appears if you are using an existing S3 object storage service. This is the access key required to access the buckets with your service. You should have recorded this as aprt of your [prequisite setup](../prereq/buckets). | None |
+| S3 Secret Key | This input only appears if you are using an existing S3 object storage service. This is the secret key required to access the buckets with your service. You should have recorded this as aprt of your [prequisite setup](../prereq/buckets). | None |
+| Object Bucket ID | ID of the bucket used to store object data for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.object` if using MinIo |
+| State Bucket ID | ID of the bucket used to store and maintain state information for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.state` if using MinIo |
+
+## MinIo Example
+
+```shell
+===============
+SCORE
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-score
+Do you have an existing S3 object storage service you want to use with the SCORE service? (Y/N): n
+MinIO will be used as the SCORE S3 object storage service. Would you like to automatically create credentials? If no, you must enter them in the subsequent questions. (Y/N): n
+What should the MinIO access key be? abc123
+What should the MinIO secret key be? abc123
+What is the name of the OBJECT bucket used for SCORE? [dms.object]:
+What is the name of the STATE bucket used for SCORE? [dms.state]:
+```
+
+## Non-Amazon S3 Example
+
+```shell
+===============
+SCORE
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-score
+Do you have an existing S3 object storage service you want to use with the SCORE service? (Y/N): y
+Will you be using AWS S3? (Y/N): n
+What is the URL of the S3 service? https://object.cancercollaboratory.org:9080
+What is the S3 access key? abc123
+What is the S3 secret key? abc123
+What is the name of the OBJECT bucket used for SCORE? [dms.object]: dms_object_bucket
+What is the name of the STATE bucket used for SCORE? [dms.state]: dms_state_bucket
+```
+
+## Amazon S3 Example
+
+```shell
+===============
+SCORE
+===============
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-score
+Do you have an existing S3 object storage service you want to use with the SCORE service? (Y/N): y
+Will you be using AWS S3? (Y/N): y
+What is the S3 region? CA_Central
+What is the S3 access key? abc123
+What is the S3 secret key? abc123
+What is the name of the OBJECT bucket used for SCORE? [dms.object]: dms_object_bucket
+What is the name of the STATE bucket used for SCORE? [dms.state]: dms_state_bucket
+```
