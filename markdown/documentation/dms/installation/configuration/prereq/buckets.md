@@ -18,7 +18,7 @@ However, if you plan to use an external service such as [Amazon S3](https://aws.
 1. Create an object bucket and a state bucket and remember both their IDs, as they will be required as input during DMS configuration.
 
 
-2. Make sure a "_**/data**_" sub-folder is created in advance in each bucket.
+2. Make sure a `/data` sub-folder is created in advance in each bucket.
 
 
 3. Make sure to note the **URL**, **access key**, and **secret key** used to access your external service, as these are also required as input during DMS configuration.  **Keep these values safe and secure**.

@@ -82,11 +82,11 @@ Specifically, make sure of the following:
 2. **You have SSH access to the environment you are deploying to** - Specifically for deployments to remote servers, you will need to remotely access the server via SSH to perform certain operations.
 
 
-3. **You have the ability to _sudo_ on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
+3. **You have the ability to `sudo` on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
 
 4.  **You have Bash shell 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash shell.
 
-If you do not have SSH access, **_sudo_** capability, or Bash shell installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.
+If you do not have SSH access, `sudo` capability, or Bash shell installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.
 
 # Install Docker
 

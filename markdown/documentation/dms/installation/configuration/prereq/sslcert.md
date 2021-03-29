@@ -13,11 +13,11 @@ Follow these steps to install Certbot and setup your certificate:
 1. Go to the [Certbot](https://certbot.eff.org/) website.
 
 
-2. In the **My HTTP website is running <_software_> on <_system_>** section, select the following:
+2. In the **My HTTP website is running `<software>` on `<system>`** section, select the following:
 
 | Input              | Selection |
 | --------------------| ------------|
-| Software           | Set to "_None of the above_" |
+| Software           | Set to `None of the above` |
 | System | From the drop-down, select the operating system your server is running |
 
 In the example below we are using a VM running Ubuntu 20.04:
@@ -29,7 +29,7 @@ In the example below we are using a VM running Ubuntu 20.04:
 - You have your [domain name](../domain) registered
 - Port 80 is open on your server (Certbot certificate generation needs to use this port)
 - You can access your server via SSH (to execute commands)
-- You have the ability to _**sudo**_ on your server (you are able to run operations or programs by assuming the security privileges as another user, e.g. as an administrator)
+- You have the ability to `sudo` on your server (you are able to run operations or programs by assuming the security privileges as another user, e.g. as an administrator)
 
 
 4. Click the **default** tab and **follow the instructions from Certbot, but note these specifics for the DMS**:
@@ -116,8 +116,8 @@ IMPORTANT NOTES:
 
 In the example above:
 
-- **certificate chain** = _/etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem_
+- **certificate chain** = `/etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem`
 
-- **certificate keyfile** = _/etc/letsencrypt/live/dms.test.cancercollaboratory.org/privkey.pem_
+- **certificate keyfile** = `/etc/letsencrypt/live/dms.test.cancercollaboratory.org/privkey.pem`
 
 6. The certificate is now generated, installed, and ready to be used as an input to the DMS interactive configuration questionnaire.

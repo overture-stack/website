@@ -2,7 +2,7 @@
 title: Setup a Domain Name (Server Mode Only)
 ---
 
-If you are [deploying in server mode](../../../installation/deployment-mode), then you must first acquire and setup a domain name through which the DMS services can be externally accessible.
+If you are [deploying in server mode](../../../installation#decice-local-or-server-deployment), then you must first acquire and setup a domain name through which the DMS services can be externally accessible.
 
 The purpose of server mode is to make the DMS system easily available to external users via a custom domain name and secured over HTTPS.
 

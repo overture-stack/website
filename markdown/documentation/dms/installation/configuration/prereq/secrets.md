@@ -52,7 +52,7 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 | App name            | Name for the app requiring consent.  Typically just set this to something simple such as, "_DMS_". |
 | User support e-mail | For users to contact you with questions about their consent. |
 
-8. If you plan to deploy DMS in server mode (**NOT** local), then under **Authorized Domains**, add the top-most level of the [domain that you will be configuring](../domain) in the DMS Gateway (e.g. "_cancercollaboratory.org_").  Then under **Developer Contact Information**, enter an e-mail address for Google to notify you of any changes to your project:
+8. If you plan to deploy DMS in server mode (**NOT** local), then under **Authorized Domains**, add the top-most level of the [domain that you will be configuring](../domain) in the DMS Gateway (e.g. `cancercollaboratory.org`).  Then under **Developer Contact Information**, enter an e-mail address for Google to notify you of any changes to your project:
 
 ![Entity](../../../assets/google-authorized-domain.png 'Google Authorized Domain')
 
@@ -64,23 +64,25 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 | Field               | Description |
 | --------------------| ------------|
-| Application type    | Set to "_Web application_" |
-| Name                | Enter a name for the client, e.g. "_DMS client_" |
+| Application type    | Set to `Web application` |
+| Name                | Enter a name for the client, e.g. `DMS client` |
 
 12. Under **Authorized redirect URIs**, add a URI.  This is the URI where Google will redirect users once they have authenticated with the provider (i.e. redirect them back to Ego once logged in successfully):
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:80/ego-api/oauth/login/google |
-| Server  | https://_myDomain_/ego-api/oauth/login/google |
+| Local   | http://localhost:`<port>`/ego-api/oauth/login/google |
+| Server  | https://`<myDomain>`/ego-api/oauth/login/google |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 11. Click **Create**:
 
 ![Entity](../../../assets/google-create-creds2.png 'Google Create Credentials 2')
 
-12. The credentials for your app will be created and the **Client ID** and **Client Secret** will be displayed to you so you can copy them for use later.  Keep these safe and secure.  You can always access & view these values in **Google Developer Console** by viewing your **Oauth Client ID** details; the **Client ID**** and **Client Secret** will be listed on the righthand side:
+12. The credentials for your app will be created and the **Client ID** and **Client Secret** will be displayed to you so you can copy them for use later.  Keep these safe and secure.  You can always access & view these values in **Google Developer Console** by viewing your **Oauth Client ID** details; the **Client ID** and **Client Secret** will be listed on the righthand side:
 
 ![Entity](../../../assets/google-secret.png 'Google Secret')
 
@@ -104,25 +106,29 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 ![Entity](../../../assets/github-new-app.png 'GitHub New App')
 
-5. Enter the **Application Name** - A descriptive name for your app, e.g. "_DMS Test App_".
+5. Enter the **Application Name** - A descriptive name for your app, e.g. `DMS Test App`.
 
 6. Enter the **Homepage URL** - The URL to your app's homepage.  You may simply enter the following:
 
 | Mode               | URL |
 | --------------------| ------------|
-| Local   | http://localhost:80/ego-api |
-| Server  | https://_myDomain_/ego-api |
+| Local   | http://localhost:`<port>`/ego-api |
+| Server  | https://`<myDomain`>/ego-api |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 7. In **Authorized callback URIs**, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e. redirect them back to Ego once logged in successfully):
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:80/ego-api/oauth/login/github |
-| Server  | https://_myDomain_/ego-api/oauth/login/github |
+| Local   | http://localhost:`<port>`/ego-api/oauth/login/github |
+| Server  | https://`<myDomain>`/ego-api/oauth/login/github |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 8. Click **Register application**:
 
@@ -158,7 +164,7 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 | Field               | Description |
 | --------------------| ------------|
-| App name    | Descriptive name for your app, e.g. "_DMS Test App_" |
+| App name    | Descriptive name for your app, e.g. `DMS Test App` |
 | LinkedIn Page | Enter or select the LinkedIn page to be associated with your app.  If you do not have one, you can create one (either real or placeholder) by clicking **Create a new LinkedInPage**. |
 | App logo | Upload a logo for your app |
 | Legal agreement | **Read and agree to the API Terms of Use** |
@@ -175,12 +181,33 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:80/ego-api/oauth/login/linkedin |
-| Server  | https://_myDomain_/ego-api/oauth/login/linkedin |
+| Local   | http://localhost:`<port>`/ego-api/oauth/login/linkedin |
+| Server  | https://`<myDomain>`:443/ego-api/oauth/login/linkedin |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
-8. You can now supply the **Client ID** and **Client Secret** to the DMS Installer in the Ego configuration section as required.
+<Warning>**NOTE:** When entering the domain in LinkedIn for server mode, you **must** append the port `:443` to the end of the domain.  The true redirect URI sent by the DMS actually contains `:443` suffixed to the domain.  While other identity providers ignore or drop this suffix, LinkedIn requires the redirect URI to match exactly, hence `:443` must be explicitly entered.</Warning>
+
+8. You can now supply the **Client ID** and **Client Secret** to the DMS Installer in the Ego configuration section as required.  **However, LinkedIn requires a few additional steps before the process is complete.**
+
+
+9. Go to the **Products** tab and **Select** the **Sign in with LinkedIn** product.  This allows LinkedIn users to sign into your app:
+
+![Entity](../../../assets/linkedin-products.png 'LinkedIn Products')
+
+10. Read and agree to the legal terms, then click **Add Product**:
+
+![Entity](../../../assets/linkedin-add-product.png 'LinkedIn Add Product')
+
+11.  Your request to add the product will be submitted for review, with the status set to `Review in progress`. Wait for some time and refresh the page to see if the product has been approved and added. Usually this is very quick (within a few minutes), but allow up to 24 hours for this to process.  If after 24 hours you still have not been approved, please contact LinkedIn support:
+
+![Entity](../../../assets/linkedin-review.png 'LinkedIn Product Request Review')
+
+12. To verify the **Sign in with LinkedIn** product was properly added, go to the **Settings** tab.  Under **OAuth 2.0 scopes**, verify that these scopes have been added: `r_emailaddress`, `r_liteprofile`:
+
+![Entity](../../../assets/linkedin-scopes.png 'LinkedIn Scopes')
 
 # ORCiD
 
@@ -216,9 +243,9 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 | Mode               | URI |
 | --------------------| ------------|
 | Local   | Your personal website, institution's website, or https://overture.bio |
-| Server  | https://_myDomain_/ego-api |
+| Server  | https://`<myDomain>`/ego-api |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 8.  Enter the **Description of your application** - A short description for your app.
 
@@ -227,10 +254,12 @@ Where _myDomain_ is the registered [domain you will configure](../domain) for th
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:80/ego-api/oauth/login/orcid |
-| Server  | https://_myDomain_/ego-api/oauth/login/orcid |
+| Local   | http://localhost:`<port>`/ego-api/oauth/login/orcid |
+| Server  | https://`<myDomain>`/ego-api/oauth/login/orcid |
 
-Where _myDomain_ is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. "_dms.test.cancercollaboratory.org_")
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you will configure](../domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 <Warning>**NOTE:** ORCiD may give a warning that "_**Only https redirect URIs are accepted**_".  However, this is a warning only and you may still enter an HTTP URI as indicated above.  The application will still save and the Client ID and Secret will still be generated.</Warning>
 

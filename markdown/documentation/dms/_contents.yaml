@@ -12,7 +12,7 @@ pages:
   - title: Configuration
     url: dms/installation/configuration
     pages: 
-    - title: Pre-Requisite Setup
+    - title: Setup Pre-Requisites
       url: dms/installation/configuration/prereq
       pages:
       - title: Setup Identity Provider Secrets
@@ -27,20 +27,8 @@ pages:
         url: dms/installation/configuration/prereq/domain
       - title: Install an SSL Certificate (Server Mode Only)
         url: dms/installation/configuration/prereq/sslcert
-    - title: Before You Start
-      url: dms/installation/configuration/before-you-start
-    - title: Check the DMS Executable and Version
-      url: dms/installation/configuration/check-executable
-    - title: Start the Interactive Questionnaire
-      url: dms/installation/configuration/build-config
-    - title: Select the Cluster Deployment Mode
-      url: dms/installation/configuration/deployment-mode
-    - title: Configure the DMS Gateway
-      url: dms/installation/configuration/gateway
-    - title: Configure Ego
-      url: dms/installation/configuration/ego
-    - title: Configure Song
-      url: dms/installation/configuration/song
+    - title: Configure the DMS
+      url: dms/installation/configuration/configure-dms
     - title: Configure Score
       url: dms/installation/configuration/score
     - title: Configure Elasticsearch

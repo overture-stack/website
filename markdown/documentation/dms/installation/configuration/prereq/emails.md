@@ -8,7 +8,7 @@ However, some providers may allow their users to make their e-mail addresses pri
 
 In scenarios where users have their e-mails set to private, they will **NOT** be able to login via Ego, and two alternatives are available:
 
-1. The user must change the privacy setting to allow access to their e-mail via that provider, **OR**
+1. The user must change the privacy setting to allow access to their e-mail via that provider, **OR**,
 
 
 2. The user must login with a different provider that does not have this requirement or setting.

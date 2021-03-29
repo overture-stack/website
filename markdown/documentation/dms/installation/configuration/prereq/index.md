@@ -2,7 +2,7 @@
 title: Pre-Requisite Setup
 ---
 
-Prior to running the DMS interactive configuration questionnaire, the following pre-requisites must be setup.  Certain tasks are required regardless of the [deployment mode](../../installation/deployment-mode), while others are only required if running in a specific mode (e.g. Server mode).
+Prior to running the DMS interactive configuration questionnaire, the following pre-requisites must be setup.  Certain tasks are required regardless of the [deployment mode](../../installation#decide-local-or-server-deployment), while others are only required if running in a specific mode (e.g. Server mode).
 
 Prior to running the DMS installer and configuring the Overture services in local mode, the following pre-requisites need to be setup:
 
