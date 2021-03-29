@@ -75,6 +75,8 @@ First select the cluster deployment mode, which you should have thought through 
 
 <Warning>**NOTE:** You must choose the same deployment mode you decided earlier, since all of your prerequisite setup would have been based on that decision.</Warning>
 
+For example:
+
 ```shell:
 ===============
 CLUSTER MODE & GATEWAY
@@ -172,6 +174,8 @@ Configure the following for Song:
 | ------| ------------| --------| 
 | Song Database Password | Password used by an administrator to access the Song PostgresSQL database. | None |
 
+For example:
+
 ```shell
 ===============
 SONG
@@ -184,7 +188,7 @@ What should the SONG database password be? ******
 
 [Score](../../../../score) manages data transfer to (upload) and from (download) cloud object storage.  As such, a storage service is required for Score to interact with.  The DMS allows either the use of MinIo](https://min.io/) pre-bundled with the DMS platform, or an external service such as [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/).
 
-Configure the following for Song:
+Configure the following for Score:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
@@ -274,7 +278,8 @@ Configure the following for Maestro:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| ???
+| Elasticsearch Index Alias | The alias used to represent the Elasticsearch index that Maestro will build. **This must be different from the actual index name.** Typically, it is recommended to simply use the system default, `file_centric`. | `file_centric` |
+| Elasticsearch Index Name | The actual name of the Elasticsearch index that Maestro will build. **This must be different from the alias.** Typically, it is recommended to simply use the system default, `file_centric_1`. | `file_centric_1` |
 
 For example:
 
@@ -293,7 +298,11 @@ The DMS UI is the user-facing Data Portal where users can search, explore, and d
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| ???
+| Contact Email | This is the email that you wish your Data Portal users to contact for support (for example, the DMS Administrator's email). This email will appear, for example, in error messages directing users to contact support. This may be more useful or applicable to institutions deploying the Portal for groups of users than for an individual deploying the DMS for personal research use. This value must be in proper email format. | None |
+| Data Portal Name | Optionally enter a custom name for the Data Portal to be displayed in the header beside the logo. For example, you may wish to display your institution or lab name. The logo must be customized separately (see [here](../prereq/logo)) | `Data Management System` |
+| Arranger Project ID | ID of the project that you will confiigure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger. The Data Portal references this value and if they do not match, an error will occur. | `file` |
+| Arranger Project Name | Name of the project that you will confiigure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger. The Data Portal references this value and if they do not match, an error will occur. | `file` |
+| Arranger Elasticsearch Alias Name | Name of the alias for the Elasticsearch index that you will configure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger **AND** it must also match the alias name previously [supplied for Maestro](#configure-maestro). The Data Portal references this value and if they do not match, an error will occur. | `file_centric` |
 
 For example:
 
@@ -320,3 +329,84 @@ What is the Project ID you will configure in Arranger (to be referenced by DMS U
 What is the Project Name you will configure in Arranger (to be referenced by DMS UI)? [file]:
 What is the Elasticsearch alias name you will configure in Arranger (to be referenced by DMS UI and ALSO must match the alias name previously supplied for Maestro) be?  [file_centric]:
 ```
+
+## Arranger-Specific Fields
+
+As indicated, the Arranger-specific fields (`Project ID`, `Project Name`, `Elasticsearch Alias Name`) that you supply here **MUST** match the values configured later in Arranger after deployment.  For details, see [Add Project to Arranger UI](../../deploy-and-verify/arranger-ui).
+
+This screenshot shows how the Arranger UI fields map to the inputs in the DMS installation script:
+
+![Entity](../../../assets/arranger-project-fields.png 'Arranger Project Fields')
+
+# Check Configuration File
+
+After completing the configuration for all services, the values are saved successfully to the configuration YAML file (`~/.dms/config.yaml`):
+
+```shell
+Wrote config file to /root/.dms/config.yaml
+```
+
+View and verify that your configuration values were captured correctly in the YAML file with this command:
+
+```shell
+$ dms config get
+```
+
+The contents of the saved config file will be displayed.  Here is a sample extract:
+
+```shell
+---
+gateway:
+  pathBased: true
+  hostPort: 443
+  url: "https://dms.test.cancercollaboratory.org:443"
+  sslDir: "/etc/letsencrypt/"
+healthCheck:
+  retries: 15
+  delaySec: 10
+clusterRunMode: "SERVER"
+version: "1.0.0"
+network: "dms-swarm-network"
+ego:
+  api:
+    tokenDurationDays: 30
+    jwt:
+      user:
+        durationMs: 10800000
+      app:
+        durationMs: 10800000
+    refreshTokenDurationMS: 43200000
+    hostPort: 9000
+    sso:
+      google:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/google"
+      github:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/github"
+      linkedin:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/linkedin"
+      orcid:
+        clientId: "abc123"
+        clientSecret: "abc123"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/orcid"
+    url: "https://dms.test.cancercollaboratory.org:443/ego-api"
+    dmsAppCredential:
+      name: "dms"
+      clientId: "dms"
+      clientSecret: "abc123"
+
+<...and so on...>
+```
+
+# A Note About Arranger Configuration
+
+[Arranger]((../../../../arranger)) is a key service in Overture, allowing administrators to configure what data to expose in their data portal based on the deployed Elasticsearch index.
+
+Although Arranger does not have any configurations required in the DMS configuration questionnaire, it has mandatory configuration tasks after a successful cluster deployment.
+
+For details of these tasks, see [Add Project to Arranger-UI](../../deploy-and-verify/arranger-ui) later on.

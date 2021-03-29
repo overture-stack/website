@@ -84,6 +84,7 @@ Specifically, make sure of the following:
 
 3. **You have the ability to `sudo` on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
 
+
 4.  **You have Bash shell 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash shell.
 
 If you do not have SSH access, `sudo` capability, or Bash shell installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.

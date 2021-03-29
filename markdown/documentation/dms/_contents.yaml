@@ -31,10 +31,6 @@ pages:
         url: dms/installation/configuration/prereq/sslcert
     - title: Configure the DMS
       url: dms/installation/configuration/configure-dms
-    - title: Check Configuration File
-      url: dms/installation/configuration/check-config
-    - title: A Note About Arranger Configuration
-      url: dms/installation/configuration/arranger-note
   - title: Deploy Your Cluster
     url: dms/installation/deploy
   - title: Post-Deployment Verification & Configuration
