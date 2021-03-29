@@ -343,7 +343,10 @@ This screenshot shows how the Arranger UI fields map to the inputs in the DMS in
 After completing the configuration for all services, the values are saved successfully to the configuration YAML file (`~/.dms/config.yaml`):
 
 ```shell
-Wrote config file to /root/.dms/config.yaml
+Your configuration file was successfully saved to: /root/.dms/config.yaml
+
+You may now deploy your configuration to your cluster. For instructions, see:
+https://overture.bio/documentation/dms/installation/deploy/
 ```
 
 View and verify that your configuration values were captured correctly in the YAML file with this command:
