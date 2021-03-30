@@ -76,13 +76,13 @@ pages:
   - In your `.env.development` & `.env.production` files:
     - Update the environment variable `GATSBY_ALGOLIA_INDEX_NAME` with the temp index name.
     - Set `ENABLE_SEARCH_INDEXING` to `true`.
-- Environments:
+- Environment variables:
   - Netlify: Algolia secrets are stored in the Netlify admin UI.
   - Local: You'll need an `.env.development` & `.env.production` file with Algolia secrets.
 
 ## Draft pages
 
-- Draft pages will not be built in a production context.
+- Draft pages will not be built by Netlify in production or deploy previews.
   - They will be built in local development & Netlify branch deploys.
   - If you run `npm run deploy` to make a Netlify link, you'll see draft pages.
 - **Important!** Drafts won't be indexed by Algolia search in ANY context.
