@@ -249,7 +249,7 @@ After [adding your project to Arranger](#add-project-to-arranger-ui), check that
 | Mode               | URI |
 | --------------------| ------------|
 | Local   | http://localhost:`<port>`/dms-ui |
-| Server  | https://`<myDomain>`/dms-ui |
+| Server  | https://`<myDomain>` |
 
 Where:
 - `<port>` is the port on which you will deploy the DMS Gateway in local mode
