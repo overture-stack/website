@@ -2,7 +2,7 @@
 title:  ID Management
 ---
 
-It is acknowledged that data often originates in other systems like research databases, LIMS systems etc.  Song has three modes of primary key management for the most important entitles (Donors, Specimens, Samples, Files): 
+It is acknowledged that data often originates in other systems like research databases, LIMS systems etc.  Song has three modes of primary key management for the most important entities (Donors, Specimens, Samples, Files): 
 - **LOCAL:** Represents a local-to-Song ID Management that persists to internal memory and is thread safe.
 - **FEDERATED_DYNAMIC_AUTH:** Represents the usage of external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
 - **FEDERATED_STATIC_AUTH:** Represents the usage of external ID service that uses statically defined tokens for authorization.

@@ -2,16 +2,21 @@
 title: Event Connection Configuration
 ---
 
+This documentation assumes that you have already installed Kafka on your system.  For help installing Kafka, please refer to [their documentation](https://kafka.apache.org/quickstart).
 
+## Configuration Example 
+Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values.  By default, song is configured to output to a topic called `song-analysis`. If you configure your Kafka with a different name, make sure to adjust this configuration to your topic name. 
 
-![DEV_CONTENT](../../assets/developer-content-needed.png 'Dev content needed')
+```yaml
+spring:
+  profiles:
+    active: "kafka"
+...
 
-
-if you choose to use Kafka, here show to connect it. 
-# Configuration Example 
-You can find or create the config at: 
-
-```bash
-# Need this template from developers 
-# Example of just how to configure the kafka config. 
+spring:
+  profiles: kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    template:
+      default-topic: song-analysis
 ```

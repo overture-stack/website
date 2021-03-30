@@ -15,7 +15,11 @@ Using the configurations file at `song-server-[version]/conf/application.yml`, s
 score:
   accessToken: "ad83ebde-a55c-11e7-abc4-cec278b6b50a "   
   url: "http://localhost:8087" 
-
+...
+spring:
+  profiles:
+    active: "score-client-cred"
+...
 spring.profiles: score-client-cred
 score:
   url: "http://localhost:8087"

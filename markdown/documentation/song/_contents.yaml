@@ -37,10 +37,10 @@ pages:
         pages: 
           - title: Submitting Data 
             url: song/user-guide/analysis/submit
-          - title: Managing Data 
-            url: song/user-guide/analysis/update
-          - title: Searching Data 
-            url: song/user-guide/analysis/search
+          #- title: Managing Data 
+          #  url: song/user-guide/analysis/update
+          #- title: Searching Data 
+          #  url: song/user-guide/analysis/search
 
 
 

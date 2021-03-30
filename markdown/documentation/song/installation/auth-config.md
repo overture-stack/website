@@ -2,24 +2,39 @@
 title: Configuration Authentication 
 ---
 
-**<------------UPDATE NEEDED START---------------->**
-
-![DEV_CONTENT](../assets/developer-content-needed.png 'Dev content needed')
-
-There there is AUTH for users and APPLICTION TO APPLICTION  auth with Song/score.
-
 # Application Authorization 
 
-Please provide instructions on WHERE the system administrator can input these  values. 
-- define any application-token requirements  from the authorization system
-- define a required or expected policies or scopes that users should set up as part of their auth  system. 
-- Note the two profiles; api key  or app jwt allowed. pro/con of each?
+For an application to interact with song, authentication and authorization must be provided.  You can do this by using an authorized users API Key with the correct permissions, or enabling application-to-application authorization following the OAuth 2.0 protocol.
 
-# User Authorization 
-- explain what the system vs study scope rules are for default submissions/access of data from song.
+Scope requirements are defined in the `auth` section, and the `secure` and `jwt` profiles are available to manage the desired configuration. 
 
 # Configuration Example 
+Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values: 
 
-Please provide instructions on WHERE the user can input these  values, and what values they should  be inputting.
-
-**<------------UPDATE NEEDED STOP---------------->**
+```yaml
+spring:
+  profiles:
+    active: "prod,jwt,secure,score-client-credentials"
+...
+auth:
+  server:
+    url: "http://<host>:<port>/check_token/"
+    clientId: <client id from Ego>
+    clientSecret: <client secret from ego>
+    tokenName: "token"
+    enableStrictSSL: false
+    enableHttpLogging: false
+    scope:     
+      study:
+        prefix: "song."
+        suffix: ".WRITE"
+      system: "song.WRITE"
+...
+spring.profiles: jwt
+spring:
+  profiles:
+    include: [secure]
+auth:
+  jwt:
+    public-key-url: http://localhost:8084/oauth/token/public_key
+```

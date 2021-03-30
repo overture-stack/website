@@ -13,9 +13,9 @@ In conjunction with the data upload tool [Score](/documentation/score), Song pro
 
 ## Data Lifecycle Management 
 Song manages a lifecycle of data publication from initial upload, to publication, and even eventual removal of data. 
-- Data administrators or applications can upload metadata and files, which remains in an  `UNPUBLISHED` state. 
-- Data administrators or applications can update data to a `PUBLISHED` state, making it available for search or download.
-- If data is no longer relevant, the data administrators can update to a `SUPPRESSED` state, removing it from search and download for users. 
+- Data administrators or applications can upload metadata and files, which remains in an `UNPUBLISHED` state. 
+- When data is ready for search and download, Data administrators or applications can make it available by updating to a `PUBLISHED` state.
+- If data is no longer relevant, the data administrators can update to a `SUPPRESSED` state, making it unavailable for search and download. 
 
 ## Flexible Data Model 
 We recognize that there are a multitude of use cases for how different institutions may collect data elements.  With that in mind, Song is ultimately built to be flexible for any type of data model.  There is a small "base" data model that all Song deployments follow to track basic patient identifiers (in the context of genomic data), but beyond that any desired business rules can be encoded within Song's [Dynamic Schemas](/documentation/song/user-guide/schema), which are based on JSON Schema. 
