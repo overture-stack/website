@@ -4,6 +4,22 @@ title: Common Problems
 
 This section describes some common problems and known issues currently present in the DMS platform, and suggestions on how to troubleshoot and/or work around them.
 
+# Arranger UI URL Inconsistency
+
+**Problem:**
+
+When accessing the Arranger UI, the URL that must be entered requires a trailing slash `\` in the final sub-path (e.g. `\arranger-ui\`), otherwise an `HTTP 404 Not Found` error is encountered and the URL cannot be resolved.
+
+This is inconsistent from other services, where a trailing slash is **NOT** required (e.g. `\ego-ui`).
+
+**Cause:**
+
+This is a [known issue](https://github.com/overture-stack/arranger/issues/655) to be addressed in a future DMS release.
+
+**Solution:**
+
+Currently, the trailing slash must be added to the URL to access the Arranger UI.
+
 # Docker Daemon Error When Running DMS Installer
 
 **Problem:**
@@ -100,6 +116,26 @@ This ensures that when OAUTH errors occurs, the DMS UI (Data Portal) is routed t
 
 ![Entity](../assets/dms-app.png 'DMS App Error Redirect URI')
 
+# Omitting Bearer Prefix When Using Swagger UI
+
+**Problem:**
+
+Even after authenticating with the Swagger UI for a given API service (e.g. Ego API, Song API, etc.), using the endpoints always results in a `Forbidden Access` error.  For example:
+
+![Entity](../assets/swagger-error.png 'Swagger Access Error')
+
+**Cause:**
+
+Make sure that, when authenticating with the Swagger UI, you have prefixed your credential (e.g. JWT, API Key, whichever applies in the given context) with the term `Bearer` and a whitespace. This is a common human/user error that occurs.
+
+For example: `Bearer abc123DEF456ghi789`
+
+**Solution:**
+
+Make sure the `Bearer` prefix is added before your credential (e.g. JWT, API Key, whichever applies) when authenticating with the API. For example:
+
+![Entity](../assets/bearer2.png 'Bearer Prefix')
+
 # User Has No Permissions to Generate an API Token
 
 **Problem:**
@@ -135,7 +171,3 @@ Where:
 3. Under **Groups**, make sure the user is assigned a group with the correct permissions, OR under **Permissions** directly assign the necessary permissions.  The permissions needed for their API key depends on functions or use cases the user needs to fulfill.  For example, if the user needs to submit analyses via Song, then upload the data via score, they will need the `SONG.WRITE` and `SCORE.WRITE` permissions, respectively:
 
 ![Entity](../assets/correct-permissions2.png 'Correct Permissions')
-
-# Trailing Slash
-
-# Bearer
