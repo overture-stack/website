@@ -266,7 +266,7 @@ For example:
 ===============
 ELASTICSEARCH
 ===============
-Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#elasticsearch
+Guide: https://overture.bio/documenation/dms/installation/configuration/configure-dms#configure-elasticsearch
 Elasticsearch provides a superuser with default username 'elastic'. What should the superuser's password be? ******
 ```
 
