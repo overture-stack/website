@@ -181,6 +181,7 @@ Where:
 
 2. Enter the `Access Key` and `Secret Key`.  If you chose to provide your own credentials during configuration, then you should have recorded these earlier.  Otherwise, if you chose for credentials to be auto-generated, you can view them by running the `dms config get` command or inspecting the `~/.dms/config.yaml` file.
 
+
 3. Click the login button. Your buckets are displayed. Verify that the bucket IDs you specified during configuration have been created:
 
 ![Entity](../../assets/minio-buckets.png 'MinIo Buckets')
