@@ -14,7 +14,7 @@ The following sections below describe these tasks in detail.
 
 # Release Information
 
-The table below lists the specific Overture service versions bundled with the current release of the DMS platform, including links to their release pages and notes:
+The table below lists the specific Overture service versions bundled with the current release of the DMS platform, including links to their release pages where you can download the latest versions and view their release notes:
 
 | Service          | Release # | Link to Releases & Notes |
 | --------------------| ------------|--------------------|
