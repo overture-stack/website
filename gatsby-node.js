@@ -169,7 +169,7 @@ const createSchemaCustomization = ({ actions }) => {
   // - prevent build failures if optional fields are missing,
   //   i.e. if none of the sections are nested 4 levels deep.
 
-  // for MDX: define optional frontmatter fields in MdxFields.
+  // for MDX: define optional fields (added in createNode) in MdxFields.
   // otherwise, if none of the pages have that field,
   // the build will fail.
 
