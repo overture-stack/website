@@ -11,8 +11,8 @@
   YARN_FLAGS = "--no-ignore-optional"
 
 [context.production.environment]
-   GATSBY_ENABLE_DRAFTS="false"
-   ENABLE_SEARCH_INDEXING="true"
+  GATSBY_ENABLE_DRAFTS="false"
+  ENABLE_SEARCH_INDEXING="true"
 
 [context.deploy-preview.environment]
   GATSBY_ENABLE_DRAFTS="false"
