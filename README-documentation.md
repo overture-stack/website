@@ -85,6 +85,7 @@ pages:
 - Draft pages will not be built by Netlify in production or deploy previews.
   - They will be built in local development & Netlify branch deploys.
   - If you run `npm run deploy` to make a Netlify link, you'll see draft pages.
+- "Coming Soon" badges will not appear when drafts are enabled, so that you can navigate to draft pages.
 - **Important!** Drafts won't be indexed by Algolia search in ANY context.
 
 ### Step 0: Environment variables
