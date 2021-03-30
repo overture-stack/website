@@ -10,6 +10,8 @@ import consultingSvg from './assets/consulting.svg';
 import techSupportSvg from './assets/techSupport.svg';
 import './styles.scss';
 
+const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+
 const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
 
@@ -19,6 +21,7 @@ const productSections = [
     color: 'pink',
     cards: [
       {
+        comingSoon: true,
         icon: 'productScore',
         link: '/documentation/score/',
         text: 'Facilitates the transfer and storage of data seamlessly for cloud-based products.',
@@ -37,18 +40,21 @@ const productSections = [
     color: 'blue',
     cards: [
       {
+        comingSoon: true,
         icon: 'productEgo',
         link: '/documentation/ego/',
         text: 'Authorization services for identity providers such as Google and Facebook.',
         title: 'Ego',
       },
       {
+        comingSoon: true,
         icon: 'productMaestro',
         link: '/documentation/maestro/',
         text: 'Manages geographically distributed data with a single, configurable index.',
         title: 'Maestro',
       },
       {
+        comingSoon: true,
         icon: 'productArranger',
         link: '/documentation/arranger/',
         text: 'Provides the power to organize your data into an intuitive search interface.',
@@ -179,19 +185,19 @@ export default function DocumentationPage() {
                       <div className="product-card__title">
                         <Icon size={32} img={card.icon} />
                         <h3>{card.title}</h3>
-                        {card.comingSoon && (
+                        {card.comingSoon && !ENABLE_DRAFTS && (
                           <ComingSoonBadge style={{ position: 'absolute', right: 10, top: 10 }} />
                         )}
                       </div>
                       <p>{card.text}</p>
-                      {!card.comingSoon && (
+                      {(!card.comingSoon || ENABLE_DRAFTS) && (
                         <div className="chevron-link">
                           <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
                         </div>
                       )}
                     </div>
                   );
-                  return card.comingSoon ? (
+                  return card.comingSoon && !ENABLE_DRAFTS ? (
                     <SectionCard key={card.title} />
                   ) : (
                     <Link to={card.link} key={card.title}>
