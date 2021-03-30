@@ -15,6 +15,14 @@ As you submit data, Song will create and manage all primary keys for users in UU
 - All IDs, except for analysisId, are stateless and are computed using UUID5 hash. 
 - As the only exception, AnalysisID's are stateful, in order to guarantee uniqueness. The `LocalIdService` does not have to save/register an analysisId directly since `AnalysisService.create` method will take care of that. 
 
+# Local ID Configuration Example 
+Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values. 
+
+```yaml
+id:
+    useLocal: true
+```
+
 # External ID Management 
 
 As data is submitted, Song will refer to an `external` ID database for each entity type. If data is submitted and the entity IDs are not validated by the external database, Song will reject the data submission.  Once an ID has been validated, it will be stored in the Song database.  As an optimization, Song caches IDs it has verified.  If the ID is changed in an external database, this will need to be updated in Song. To enable external ID management: 
@@ -55,23 +63,12 @@ DO224719
 }
 ```
 
-## External ID Configuration Example 
-An example of a fully configured ID management is provided here. To update your configuration, 
-
-**<------------UPDATE NEEDED START---------------->**
-
-![DEV_CONTENT](../../assets/developer-content-needed.png 'Dev content needed')
-
-Please provide instructions on WHERE the user can input these  values. 
-
-**<------------UPDATE NEEDED STOP---------------->**
-
+# External ID Configuration Example 
+Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values. An example of a fully configured ID management is provided here:
 
 ```yaml
 id:
-    # if true, will ignore all other id configs and use LOCAL mode to create or get IDs, otherwise, assume federated config
     useLocal: false
-
     federated:
         # All the urls below MUST be defined. If a required urlTemplateVariable (such as studyId and submitterId) is not defined in the urlTemplate, an error occurs
         uriTemplate:
