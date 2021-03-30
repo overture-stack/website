@@ -12,9 +12,12 @@
 
 [context.production.environment]
    GATSBY_ENABLE_DRAFTS="false"
+   ENABLE_SEARCH_INDEXING="true"
 
 [context.deploy-preview.environment]
   GATSBY_ENABLE_DRAFTS="false"
+  ENABLE_SEARCH_INDEXING="false"
 
 [context.branch-deploy.environment]
   GATSBY_ENABLE_DRAFTS="true"
+  ENABLE_SEARCH_INDEXING="false"

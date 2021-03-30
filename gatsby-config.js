@@ -7,6 +7,12 @@ const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
+// ALGOLIA SEARCH
+// search indexing is only enabled in Netlify production builds,
+// i.e. only the live production site is indexed.
+// if you want to test indexing, enable this setting & make a temp index in Algolia.
+const ENABLE_SEARCH_INDEXING = process.env.ENABLE_SEARCH_INDEXING === 'true';
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -140,11 +146,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-algolia',
       options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        chunkSize: 10000, // default 1000
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
         queries: require('./meta/algolia-queries.js'),
-        chunkSize: 10000, // default 1000
+        skipIndexing: !ENABLE_SEARCH_INDEXING,
       },
     },
   ],
