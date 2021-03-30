@@ -381,7 +381,49 @@ For `repositoryCode`, this must be set to `song.overture`.
 
 ## Index Study Using Swagger UI
 
+To index your study via the Swagger UI:
+
+1. Go to the Maestro API's Swagger UI:
+
+| Mode               | URL |
+| --------------------| ------------|
+| Local   | http://localhost:`<port>`/maestroi/api-docs |
+| Server  | https://`<myDomain>`/maestroy/api-docs |
+
+Where:
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
+
+2. Under **management-controller**, click the `POST /index/repository/{repositoryCode}/study/{studyId}` endpoint.
+
+3. Click **Try it out**.
+
+
+4. In `studyId`, enter `ABC123`, the study you created earlier.
+
+
+5. In `repositoryCode`, you must enter `song.overture`.
+
+
+6. Click **Execute**. For example:
+
+![Entity](../../assets/index-study.png 'Index Study')
+
 ## Verify Study Indexed
+
+If successful, either the cURL command or the Swagger UI will return a successful response indicating the study is created in Song:
+
+```shell
+[
+  {
+    "indexName": "file_centric_1",
+    "failureData": {
+      "failingIds": {}
+    },
+    "successful": true
+  }
+]
+```
 
 # Verify the Data in the Portal
 
