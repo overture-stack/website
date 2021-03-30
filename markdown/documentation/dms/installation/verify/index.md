@@ -55,7 +55,7 @@ Check that the Ego API is running by going to:
 | Server  | https://`<myDomain>`/ego-api/swagger-ui.html |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 If running, the Swagger API will be accessible via your browser in graphical format:
@@ -101,7 +101,7 @@ ego:
 | Server  | https://`<myDomain>`/ego-ui |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 ![Entity](../../assets/ego-login.png 'Ego Login')
@@ -123,7 +123,7 @@ Where:
 
 6. Click **Save**.  Here is an example of the resulting profile changes:
 
-![Entity](../../assets/ego-first-user.png 'Ego First User')
+![Entity](../../assets/ego-first-user2.png 'Ego First User')
 
 7. From the left navigation, click **Applications** and verify that the `dms` application has been created.
 
@@ -136,7 +136,7 @@ Where:
 | Server  | https://`<myDomain>`:443/dms-ui/403 |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 This ensures that when OAUTH errors occurs, the DMS UI (Data Portal) is routed to the correct error page to display to the end user.
@@ -155,7 +155,7 @@ Check that the Song API is running by going to:
 | Server  | https://`<myDomain>`/song-api/swagger-ui.html |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 If running, the Swagger API will be accessible via your browser in graphical format:
@@ -172,7 +172,7 @@ Check that the Maestro API is running by going to:
 | Server  | https://`<myDomain>`/maestro/api-docs |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 If running, the Swagger API will be accessible via your browser in graphical format:
@@ -193,7 +193,7 @@ Do the following:
 | Server  | https://`<myDomain>`/elasticsearch |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 2. Enter username `elastic` and the password you provided during configuration.
@@ -216,7 +216,7 @@ Do the following:
 | Server  | https://`<myDomain>`/arranger-ui/ |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 2. From the **Project versions** list, click **Add Project**:
@@ -272,7 +272,7 @@ After [adding your project to Arranger](#add-project-to-arranger-ui), check that
 | Server  | https://`<myDomain>` |
 
 Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<port>` is the port on which you have deployed the DMS Gateway in local mode
 - `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
 
 1. Click **Login**, select one of the identity providers, and test that you can log into the Data Portal:
