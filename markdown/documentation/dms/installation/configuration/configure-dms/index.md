@@ -17,6 +17,10 @@ Before starting the interactive configuration questionnaire, here are some impor
 
 3. **About default values:** Some input questions suggest a recommended default value at the end of the question, displayed in square brackets `[ ]`.  A user can simply accept and use the recommended default by pressing `Enter`.  However, they can of course, enter their own custom value and override the default.  In the example below, the recommended default values for the the first four questions (30 days, 3 hours, 3 hours, 12 hours, respectively) have all been accepted by the user by pressing `Enter` for each input:
 
+4. The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.
+
+5. The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.</Warning>
+
 ```shell
 ===============
 EGO
@@ -194,12 +198,12 @@ Configure the following for Score:
 | ------| ------------| --------| 
 | Use Existing S3 Object Storage Service? | Select whether you have an existing S3 object storage service such as Amazon S3, Microsoft Azure, or Openstack with Ceph that you wish to use with Score.  If you have an S3 service, enter `Y`.  If not, enter `N`.  If you enter `N`, then MinIo is used as the storage service by default (comes bundled with the DMS). | None |
 | Automatically Create MinIo Credentials? | This input only appears if you do not have an existing S3 object storage service and must use the MinIo service.  Select whether you want the DMS to automatically create credentials for accessing MinIo.  To auto-generate credentials, enter `Y`.  To enter your own custom credentials, enter `N`. | None |
-| MinIo Access Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the access key required to authenticate with MinIo. | None |
-| MinIo Secret Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the secret key required to authenticate with MinIo. | None |
+| MinIo Access Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the access key required to authenticate with MinIo. **NOTE:** If you choose to auto-generate credentials, the auto-generated value can be viewed using the `dms config get` command or viewing the `~/.dms/config.yaml` file. | None |
+| MinIo Secret Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the secret key required to authenticate with MinIo. **NOTE:** If you choose to auto-generate credentials, the auto-generated value can be viewed using the `dms config get` command or viewing the `~/.dms/config.yaml` file. | None |
 | Will You Use AWS S3? | This input only appears if you are using an existing S3 object storage service.  Select whether you are specifically using Amazon S3, or another S3 service.  If using Amazon, enter `Y`.  If not, enter `N`. | None |
 | Amazon S3 Region | This input only appears if you are using Amazon S3 as your object storage service.  Enter the geographic region where you have configured your Amazon S3 service to store the buckets. These values are predefined for you to select during your Amazon S3 service configuration.  For example, `CA_Central` is the region for Amazon servers located in Canada. | None |
-| S3 Access Key | This input only appears if you are using an existing S3 object storage service. This is the access key required to access the buckets with your service. You should have recorded this as aprt of your [prequisite setup](../prereq/buckets). | None |
-| S3 Secret Key | This input only appears if you are using an existing S3 object storage service. This is the secret key required to access the buckets with your service. You should have recorded this as aprt of your [prequisite setup](../prereq/buckets). | None |
+| S3 Access Key | This input only appears if you are using an existing S3 object storage service. This is the access key required to access the buckets with your service. You should have recorded this as part of your [prequisite setup](../prereq/buckets). | None |
+| S3 Secret Key | This input only appears if you are using an existing S3 object storage service. This is the secret key required to access the buckets with your service. You should have recorded this as part of your [prequisite setup](../prereq/buckets). | None |
 | Object Bucket ID | ID of the bucket used to store object data for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.object` if using MinIo |
 | State Bucket ID | ID of the bucket used to store and maintain state information for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.state` if using MinIo |
 

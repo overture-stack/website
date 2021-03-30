@@ -109,4 +109,4 @@ From your profile, click **Revoke Token**.  Once revoked, the token value disapp
 
 # Logging Out of the Portal
 
-To log out at any time, simply click **Logout** in the top right of the header.  Once logged out, you are automatically redirected to the Data Explorer by default.
+To log out at any time, click your display name, then select **Logout** in the top-right in the header. Once logged out, you are automatically redirected to the Data Explorer.

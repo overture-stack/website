@@ -51,6 +51,8 @@ Your decision will depend on the following factors and you may need to consult w
 
 <Warning>**NOTE:** Once the DMS has been deployed in a specific mode, it cannot be switched dynamically to use a different mode on-the-fly.  For example, you cannot switch from local mode to server mode by simply updating your configuration.  To re-deploy with a different mode, you must destroy your DMS cluster and restart fresh.  For instructions on destroying  your cluster, see [here](../../admin-guide/destroy).</Warning>
 
+<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is meant for use as a single node system is not currently mean to be highly available.</Warning>
+
 # Check System Requirements
 
 Once you have [decided your deployment mode](#decide-local-or-server-deployment), check that the environment you will be deploying to meets the recommended system requirements.
@@ -72,7 +74,7 @@ If your system does not meet the recommended requirements, you may need to upgra
 
 # Check Other Requirements
 
-After [checking your minimum system requirements](../requirements), next you must also check that certain additional, ancillary requirements are also met.
+After [checking your system requirements](#check-system-requirements), next you must also check that certain additional, ancillary requirements are also met.
 
 Specifically, make sure of the following:
 
@@ -228,7 +230,9 @@ $ dms bash-completion -n dms > ~/dms.bash_completion
 $ source ~/dms.bash_completion
 ```
 
-<Warning>**NOTE:** Currently, the bash completion file must be loaded manually.  Hence, whenever you open a new terminal session to use the DMS, you will need to manually source the bash completion file again.</Warning>
+<Warning>**NOTE:** Currently, the bash completion file must be loaded manually.  Hence, whenever you open a new terminal session to use the DMS, you will need to manually source the bash completion file again.  However, you are free to automate this by adding the source command to your `.bashrc` file.</Warning>
+
+you can just mention that this can be placed in .bashrc if they wish to automate it otherwise they have to manually do it as you stated now
 
 3. Test the automcomplete functionality:
 

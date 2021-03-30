@@ -64,3 +64,7 @@ Deployment completed successfully
 
 *****************************************************************************************************
 ```
+
+<Warning>**NOTE:** The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.</Warning>
+
+<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.</Warning>

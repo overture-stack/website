@@ -66,6 +66,8 @@ Finished stopping cluster
 
 In some scenarios you may need to entirely destroy your cluster, its services, and all the data volumes. For example, to deploy the DMS platform from scratch with a new configuration and completely fresh data.
 
+<Warning>**NOTE:** The DMS platform does **NOT** currently support automatic backup of the data volumes are deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.</Warning>
+
 1. To destroy your cluster with a confirmation requested as a precaution:
 
 ```shell
