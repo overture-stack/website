@@ -17,10 +17,6 @@ Before starting the interactive configuration questionnaire, here are some impor
 
 3. **About default values:** Some input questions suggest a recommended default value at the end of the question, displayed in square brackets `[ ]`.  A user can simply accept and use the recommended default by pressing `Enter`.  However, they can of course, enter their own custom value and override the default.  In the example below, the recommended default values for the the first four questions (30 days, 3 hours, 3 hours, 12 hours, respectively) have all been accepted by the user by pressing `Enter` for each input:
 
-4. The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.
-
-5. The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.</Warning>
-
 ```shell
 ===============
 EGO
@@ -37,6 +33,11 @@ Which OAuth identity providers would you like to enable? e.g: 1,4
   4: ORCID
 Enter your choices as comma-separated values: 1,2,3,4
 ```
+
+4. The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.
+
+
+5. The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.
 
 # Check the DMS Executable and Version
 

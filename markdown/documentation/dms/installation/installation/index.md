@@ -232,8 +232,6 @@ $ source ~/dms.bash_completion
 
 <Warning>**NOTE:** Currently, the bash completion file must be loaded manually.  Hence, whenever you open a new terminal session to use the DMS, you will need to manually source the bash completion file again.  However, you are free to automate this by adding the source command to your `.bashrc` file.</Warning>
 
-you can just mention that this can be placed in .bashrc if they wish to automate it otherwise they have to manually do it as you stated now
-
 3. Test the automcomplete functionality:
 
 ```shell

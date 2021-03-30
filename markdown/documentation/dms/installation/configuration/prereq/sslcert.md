@@ -120,4 +120,45 @@ In the example above:
 
 - **certificate keyfile** = `/etc/letsencrypt/live/dms.test.cancercollaboratory.org/privkey.pem`
 
+
 6. The certificate is now generated, installed, and ready to be used as an input to the DMS interactive configuration questionnaire.
+
+# Test Certificate Renewal
+
+After generating and installing your certificate, you can optionally test Certbot's automatic certificate renewal. The Certbot pacakges come wiht a `cron` job or `systemd` timer that renews your certificate automatically before they expire.  To test certificate renewal:
+
+```shell
+ubuntu@test-dms:~$ sudo certbot renew --dry-run
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing /etc/letsencrypt/renewal/dms.test.cancercollaboratory.org.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Cert not due for renewal, but simulating renewal for dry run
+Plugins selected: Authenticator standalone, Installer None
+Simulating renewal of an existing certificate for dms.brandon.cancercollaboratory.org
+Performing the following challenges:
+http-01 challenge for dms.brandon.cancercollaboratory.org
+Waiting for verification...
+Cleaning up challenges
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+new certificate deployed without reload, fullchain is
+/etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations, all simulated renewals succeeded:
+  /etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem (success)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```
+
+If the dry run test is successful, the script will indicate so, per the example above.
+
+For future reference, the command to renew certbot is installed in one of the following locations:
+
+- `/etc/crontab/`
+- `/etc/cron.*/*`
+- `systemctl list-timers`
+
+<Warning>**NOTE:** It is the DMS administrator's responsibility to ensure certificate renewal will trigger and at the desired interval. Although Certbot sets the renewal process up for your automatically, the administrator just still check and ensure it runs on time, and make any adjustments as required. If assistance is required, please reach out to Certbot support.</Warning>
