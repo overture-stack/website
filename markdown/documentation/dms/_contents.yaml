@@ -36,14 +36,6 @@ pages:
   - title: Post-Deployment Verification & Configuration
     url: dms/installation/deploy-and-verify
     pages:
-    - title: Check Docker Services are Running
-      url: dms/installation/deploy-and-verify/docker
-    - title: Check Ego API is Running
-      url: dms/installation/deploy-and-verify/ego-api
-    - title: Check Ego UI is Running
-      url: dms/installation/deploy-and-verify/ego-ui
-    - title: Check Song API is Running
-      url: dms/installation/deploy-and-verify/song-api
     - title: Check Maestro API is Running
       url: dms/installation/deploy-and-verify/maestro-api
     - title: Check Elasticsearch is Running

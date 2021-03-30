@@ -10,7 +10,7 @@ Before the interactive DMS installer can be used to configure and deploy the DMS
 4. [Install Docker](#install-docker)
 5. [Install DMS executable](#install-the-dms-executable)
 
-For detailed instructions on these tasks, continue reading through the installation sections below.
+The following sections below describe these tasks in detail.
 
 # Release Information
 
