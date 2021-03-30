@@ -162,10 +162,17 @@ const onCreateWebpackConfig = ({ actions }) => {
 
 const createSchemaCustomization = ({ actions }) => {
   // DOCUMENTATION PAGE TYPES
+
+  // for YAML:
   // - describe structure of _contents.yaml
   // - throw descriptive errors if required fields are missing
   // - prevent build failures if optional fields are missing,
   //   i.e. if none of the sections are nested 4 levels deep.
+
+  // for MDX: define optional frontmatter fields in MdxFields.
+  // otherwise, if none of the pages have that field,
+  // the build will fail.
+
   const documentationTypeDefs = `
     type Yaml implements Node {
       sectionSlug: String!
@@ -186,6 +193,12 @@ const createSchemaCustomization = ({ actions }) => {
     type YamlPagesPagesPages implements Node {
       title: String!
       url: String!
+    }
+    type MdxFields implements Node {
+      draft: Boolean
+    }
+    type Mdx implements Node {
+      fields: MdxFields
     }
   `;
   actions.createTypes(documentationTypeDefs);
