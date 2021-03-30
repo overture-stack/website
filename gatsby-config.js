@@ -7,10 +7,6 @@ const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
-// ALGOLIA SEARCH
-// search indexing is only enabled in Netlify production builds,
-// i.e. only the live production site is indexed.
-// if you want to test indexing, enable this setting & make a temp index in Algolia.
 const ENABLE_SEARCH_INDEXING = process.env.ENABLE_SEARCH_INDEXING === 'true';
 
 module.exports = {

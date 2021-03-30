@@ -35,7 +35,7 @@ Markdown content goes here! You can do anything you would normally do in Markdow
 ### File organization
 
 1. Describe the placement/order of pages in the folder's `_contents.yaml` for navigation purposes.
-    - The title of the page can be different in the page versus in the navigation. For example, if you want a long verbose title on the page but that long title looks awkward in the nav, you could shorten the title for the nav only. Nav is matched to pages based on URL, not based on titles.
+    - You can make the titles different (i.e. shorter) in the nav. They don't need to match what's on the page.
 1. Keep in mind folder/file names will be used to make URLs, so they need to be lowercase, not have spaces, etc.
 1. All folders need an `index.md` file, which will be the landing page/entry point for that folder.
 1. You can nest folders up to 4 levels deep.
@@ -45,34 +45,37 @@ Markdown content goes here! You can do anything you would normally do in Markdow
 ```yaml
 sectionSlug: score
 pages:
-  - title: Introduction
-    url: score
-    # landing page for this section
-  - title: Section 1
-    url: score/section-1
-    isHeading: true
-    # isHeading makes this link a heading.
-    # links to this page will be redirected to
-    # the first child page.
+- title: Introduction
+  url: score
+  # landing page for this section
+- title: Section 1
+  url: score/section-1
+  isHeading: true
+  # isHeading makes this link a heading.
+  # links to this page will be redirected to
+  # the first child page.
+  pages:
+  - title: Section Page 1
+    url: score/section-1/section-page-1
+    # make this a section by adding a list of child pages
     pages:
-      - title: Section Page 1
-        url: score/section-1/section-page-1
-        # make this a section by adding a list of child pages
-        pages:
-          - title: Subsection Page 1
-            url: score/section-1/subsection-1/subsection-page-1
-  - title: Page 1
-    url: score/page-1
-    # this is a top-level page with no children
+    - title: Subsection Page 1
+      url: score/section-1/subsection-1/subsection-page-1
+- title: Page 1
+  url: score/page-1
+  # this is a top-level page with no children
 ```
 
 ## Algolia search
 
 - Current implementation is based on [Gatsby docs: Adding Search with Algolia](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)
 - The site is re-indexed only in production, i.e. automatically when you merge a PR into the master branch on Github.
-- Drafts are EXCLUDED.
-- Algolia search only indexes the Documentation markdown pages.
-- TODO: local debugging/development?
+- Algolia search only indexes the Documentation Markdown pages, that aren't marked as drafts.
+- To test indexing locally:
+  - Make a temporary search index in our Algolia account on their website.
+  - In your `.env.development` & `.env.production` files:
+    - Update the environment variable `GATSBY_ALGOLIA_INDEX_NAME` with the temp index name.
+    - Set `ENABLE_SEARCH_INDEXING` to `true`.
 - Environments:
   - Netlify: Algolia secrets are stored in the Netlify admin UI.
   - Local: You'll need an `.env.development` & `.env.production` file with Algolia secrets.
@@ -93,7 +96,7 @@ Make sure your ENV files have the following:
 GATSBY_ENABLE_DRAFTS=true
 
 # .env.production
-GATSBY_ENABLE_DRAFTS=false
+GATSBY_ENABLE_DRAFTS=true
 ```
 
 ### Step 1: Create a draft page
