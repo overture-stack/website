@@ -6,7 +6,7 @@ After successfully [deploying all services to your cluster](../deploy), you must
 
 1. [Check Docker services are running](#check-docker-services-are-running)
 2. [Check Ego API is running](#check-ego-api-is-running)
-3. [Check Ego UI is running](#check-ego-ui-is-running)
+3. [Check and configure Ego UI](#check-and-configure-ego-ui)
 4. [Check Song API is running](#check-song-api-is-running)
 5. [Check Maestro API is running](#check-maestro-api-is-running)
 6. [Check Elasticsearch is running](#check-elasticsearch-is-running)
@@ -62,7 +62,7 @@ If running, the Swagger API will be accessible via your browser in graphical for
 
 ![Entity](../../assets/ego-swagger.png 'Ego Swagger')
 
-# Check Ego UI is Running
+# Check and Configure Ego UI
 
 ## Check Your Providers' Redirect URIs
 
@@ -91,7 +91,7 @@ ego:
 
 <Warning>**NOTE:** When entering the domain in LinkedIn for server mode, you **must** append the port `:443` to the end of the domain.  The true redirect URI sent by the DMS actually contains `:443` suffixed to the domain.  While other identity providers ignore or drop this suffix, LinkedIn requires the redirect URI to match exactly, hence `:443` must be explicitly entered.</Warning>
 
-## Login and Check Ego UI
+## Login and Configure Ego UI
 
 1. Next, log in using one of the providers you setup in your configuration (e.g. Google) by going to:
 
@@ -124,6 +124,26 @@ Where:
 6. Click **Save**.  Here is an example of the resulting profile changes:
 
 ![Entity](../../assets/ego-first-user.png 'Ego First User')
+
+7. From the left navigation, click **Groups** and verify that the `dms` application has been created.
+
+
+8.  Click **Edit** on the `dms` application and in the **ERROR REDIRECT URI** field, enter:
+
+| Mode               | URI |
+| --------------------| ------------|
+| Local   | http://localhost:`<port>`/dms-ui/403 |
+| Server  | https://`<myDomain>`:443/dms-ui/403 |
+
+Where:
+- `<port>` is the port on which you will deploy the DMS Gateway in local mode
+- `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
+
+This ensures that when OAUTH errors occurs, the DMS UI (Data Portal) is routed to the correct error page to display to the end user.
+
+9.  Click **Save**.  Here is an example of the resulting application changes:
+
+![Entity](../../assets/dms-app.png 'DMS App Error Redirect URI')
 
 # Check Song API is Running
 
