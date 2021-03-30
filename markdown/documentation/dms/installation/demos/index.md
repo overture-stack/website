@@ -2,8 +2,10 @@
 title: Demonstration Videos
 ---
 
-Below are links to demonstration videos showing real examples of configuration, deployment, and data upload using the DMS platform:
+A series of short demonstration videos are available [here](https://drive.google.com/drive/folders/16Kw7ztYo6XNk8Tcfad7ahOFtO3-L-BfP?usp=sharing), showing real examples of configuration, deployment, and data upload using the DMS platform.
 
-- [Configuring and Deploying the DMS with the Interactive Questionnaire]()
-- [Performing Post-Deployment Verification and Configuration of the DMS]()
-- [Uploading Data for Exploration in the Data Portal]()
+Available content includes:
+
+- Configuring and deploying the DMS with the interactive questionnaire
+- Performing post-deployment verification and configuration of the DMS
+- Uploading data for exploration in the Data Portal
