@@ -2,7 +2,7 @@
 title: Testing Data Upload
 ---
 
-After you have completed all [post-deployment verification and configuration](../verify), the DMS platform is ready for user.
+After you have completed all [post-deployment verification and configuration](../verify), the DMS platform is ready for use.
 
 Here we will demonstrate and test a simple, end-to-end data upload.  We will use demo data available with the DMS to submit data, index it, configure it for display, and finally explore that data in the Data Portal.
 

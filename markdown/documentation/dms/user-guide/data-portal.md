@@ -24,7 +24,7 @@ To log into the Portal, from any page:
 
 <Warning>**NOTE:** If you deny access to the DMS platform, then your only alternative is to log in again with a different identity provider with which you are comfortable granting access.</Warning>
 
-4. After granting access, if the email address on your identity provider profile is not configured to be publicly-accessible, you may receive an error message indicating so:
+4. After granting access, if the email address on your identity provider profile is not configured to be publicly accessible, you may receive an error message indicating so:
 
 ![Entity](../assets/no-email.png 'No Primary Email')
 
@@ -48,15 +48,15 @@ To explore and search for data in the Portal:
 
 - **(A)** The list of available values for that field are displayed.  Clicking the checkmark beside a value will filter the data table to show only records that match that field value.
 
-- **(B)** For each of the fields available values, a count (or aggregation) is displayed to the right of it, indicating how many records in the daa set contain this value.
+- **(B)** For each of the fields available values, a count (or aggregation) is displayed to the right of it, indicating how many records in the data set contain this value.
 
-- **(C)** Click the magnifying glass control to display a text search box that lets you search for a specific value for that fields.  This is useful when the list of values for a field is very long.
+- **(C)** Click the magnifying glass control to display a text search box that lets you search for a specific value for that field.  This is useful when the list of values for a field is very long.
 
-3. As you select different filters, your query is dynamically built and the query parameters are displayed above the results table.  The results table itself, in the middle of the page, dynamic refreshes with updated results based on your query:
+3. As you select different filters, your query is dynamically built and the query parameters are displayed above the results table.  The results table itself, in the middle of the page, dynamically refreshes with updated results based on your query:
 
 ![Entity](../assets/filtered-data.png 'Filtered Data')
 
-4. You can use the **Columns** control in the top-right of the results table to hide or show field columns which you feel are not useful or useful to your exploration needs:
+4. You can use the **Columns** control in the top-right of the results table to hide or show field columns depending on your exploration needs:
 
 ![Entity](../assets/columns.png 'Customize Columns')
 
@@ -71,7 +71,7 @@ To explore and search for data in the Portal:
 
 Once you have [logged in](#logging-into-the-portal), you can manage various aspects of your DMS user profile.
 
-To access your profile, click your display nane, then select **Profile & Token** in the top-right in the header.  
+To access your profile, click your display name, then select **Profile & Token** in the top-right in the header.  
 
 Your profile is displayed showing your name (as captured from your identity provider), your contact email (as captured from your identity provider), and the identity provider that you have logged in with:
 
@@ -89,6 +89,14 @@ From your profile, click **Generate Token**.  A new token is generated, with its
 
 ![Entity](../assets/generate-token.png 'Generate Token')
 
+<Warning>**NOTE:** Generating a new API token automatically revokes all of your previous tokens.</Warning>
+
+## Viewing an Expired API Token
+
+Expired tokens will appear in your profile with a status of `Expired`.  Expired tokens can no longer be used and a new one must be generated.  For example:
+
+![Entity](../assets/expired-token.png 'Expired Token')
+
 ## Revoking Your API Token
 
 If required, a user can also revoke their API token.  For example, if they no longer need it and want to be sure to dispose of it for security purposes.
@@ -98,3 +106,7 @@ A user can revoke their own API token from the Data Portal UI once they have log
 From your profile, click **Revoke Token**.  Once revoked, the token value disappears, the **Revoke Token** becomes disabled, and the user is free to generate an entirely new token again if and when they need:
 
 ![Entity](../assets/revoke-token.png 'Revoke Token')
+
+# Logging Out of the Portal
+
+To log out at any time, simply click **Logout** in the top right of the header.  Once logged out, you are automatically redirected to the Data Explorer by default.
