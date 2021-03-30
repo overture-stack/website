@@ -161,4 +161,4 @@ For future reference, the command to renew certbot is installed in one of the fo
 - `/etc/cron.*/*`
 - `systemctl list-timers`
 
-<Warning>**NOTE:** It is the DMS administrator's responsibility to ensure certificate renewal will trigger and at the desired interval. Although Certbot sets the renewal process up for your automatically, the administrator just still check and ensure it runs on time, and make any adjustments as required. If assistance is required, please reach out to Certbot support.</Warning>
+<Warning>**NOTE:** It is the DMS administrator's responsibility to ensure certificate renewal will trigger and at the desired interval. Although Certbot sets the renewal process up for your automatically, the administrator just still check and ensure it runs on time, and make any adjustments as required. Renewal should occur no later than every 90 days. If assistance is required, please reach out to Certbot support.</Warning>
