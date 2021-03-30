@@ -73,7 +73,9 @@ const onCreateNode = ({ actions, getNode, node }) => {
       value: sectionSlug,
     });
 
-    const isDraft = node.frontmatter.draft || false;
+    const isDraft = ENABLE_DRAFTS && 
+      node.frontmatter.draft &&
+      node.frontmatter.draft === true;
     actions.createNodeField({
       name: 'draft',
       node,
@@ -91,7 +93,7 @@ const createPages = async params => {
 const createMarkdownPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     {
-      allMdx {
+      allMdx(filter: { fields: { draft: { ne: true } } }) {
         nodes {
           fields {
             id
@@ -121,10 +123,9 @@ const createMarkdownPages = async ({ actions, graphql }) => {
     }
   `);
 
-  console.log(JSON.stringify(data, 2))
 
   data.allMdx.nodes.forEach(node => {
-    const { draft, id, sectionSlug, slug } = node.fields;
+    const { id, sectionSlug, slug } = node.fields;
 
     // documentation section
     if (slug.match(/^\/documentation/)) {
