@@ -1,5 +1,6 @@
 ---
 title: Installation
+draft: true
 ---
 
 # Download the latest version

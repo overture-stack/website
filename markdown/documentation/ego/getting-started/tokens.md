@@ -1,5 +1,6 @@
 ---
 title: Tokens
+draft: true
 ---
 
 User Authentication tokens are signed [JSON Web Tokens ](http://jwt.io)(JWT) issued when a user successfully logs into Ego using their [Login Provider](/documentation/ego/getting-started/login-providers) credentials.  JWTs are an open, industry standard [RFC 7519](https://tools.ietf.org/rfc/rfc7519.txt) method for statelessly representing claims securely between two parties, and are intended to be used as a Bearer token, passed as the Authorization header as part of any web request. Authentication establishes the identity, or _who_, a user is and as such authentication tokens are used to verify an application or user’s identity and contain information about the entity. 

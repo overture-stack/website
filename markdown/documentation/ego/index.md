@@ -1,5 +1,6 @@
 ---
 title: Introduction
+draft: true
 ---
 
 Ego is an open-source OAuth 2.0/OpenID application that simplifies user management by providing methods to authenticate (establish _who_ a user is) and authorize (establish _what_ a user is allowed to do) users of your application through well-known social Single-Sign-On identity providers like ORCID or Google. Ego provides stateless authorization using JWT (JSON Web Tokens) and can scale very well to a large number of users.

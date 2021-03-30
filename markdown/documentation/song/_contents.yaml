@@ -1,6 +1,47 @@
 sectionSlug: song
+sectionTitle: Song
 pages:
   - title: Introduction
     url: song
-  - title: Markdown Kitchen Sink
-    url: song/markdown
+  - title: Installation Guide 
+    url: song/installation
+    isHeading: true
+    pages:
+      - title: Installation
+        url: song/installation/installation
+      - title: Configuration
+        url: song/installation/configuration
+        pages: 
+          - title: Run Profiles
+            url: song/installation/configuration/profiles
+          - title: Score Server
+            url: song/installation/configuration/score
+          - title: ID Management 
+            url: song/installation/configuration/id
+          - title: Schema Strictness
+            url: song/installation/configuration/schema
+          - title: Event Management
+            url: song/installation/configuration/kafka
+      - title: Authentication 
+        url: song/installation/auth-config
+  - title: User Guide 
+    url: song/user-guide
+    isHeading: true
+    pages:
+      - title: Dynamic Schemas 
+        url: song/user-guide/schema
+        pages: 
+          - title: Managing Schemas
+            url: song/user-guide/schema/manage-schema
+      - title: Analysis Management 
+        url: song/user-guide/analysis
+        pages: 
+          - title: Submitting Data 
+            url: song/user-guide/analysis/submit
+          #- title: Managing Data 
+          #  url: song/user-guide/analysis/update
+          #- title: Searching Data 
+          #  url: song/user-guide/analysis/search
+
+
+
