@@ -6,6 +6,6 @@ A series of short demonstration videos are available here, showing real examples
 
 Available content includes:
 
-- Configuring and deploying the DMS with the interactive questionnaire
-- Performing post-deployment verification and configuration of the DMS
+- Configuring the DMS with the interactive questionnaire
+- Deploying your cluster and post-deployment verification 
 - Uploading data for exploration in the Data Portal
