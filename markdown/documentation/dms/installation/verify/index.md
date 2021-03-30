@@ -125,7 +125,7 @@ Where:
 
 ![Entity](../../assets/ego-first-user.png 'Ego First User')
 
-7. From the left navigation, click **Groups** and verify that the `dms` application has been created.
+7. From the left navigation, click **Applications** and verify that the `dms` application has been created.
 
 
 8.  Click **Edit** on the `dms` application and in the **ERROR REDIRECT URI** field, enter:
