@@ -1,5 +1,5 @@
 ---
-title: Deploy Your Cluster
+title: Deploying Your Cluster
 ---
 
 After your [configuration is complete](../configuration/configure-dms) and saved to file, you can deploy all services to your cluster:

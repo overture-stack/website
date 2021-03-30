@@ -1,6 +1,0 @@
----
-title: Stopping Your Cluster
----
-
-???
-

@@ -1,6 +1,0 @@
----
-title: Destroying Your Cluster
----
-
-???
-

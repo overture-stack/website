@@ -108,6 +108,8 @@ Where:
 
 2. Once logged in, the first user is automatically created and treated as an administrator.
 
+<Warning>**NOTE:** Subsequent users logging into Ego UI will **NOT** be automatically treated as administrators, for security precautions.  It is then the responsibility of the first user (first admin) to assign an `Admin` role to other users as required.</Warning>
+
 
 3. From the left navigation, click **Groups** and verify that the `dms-admin` group has been automatically created and is assigned these permissions: `DMS.WRITE`, `SONG.WRITE`, `SCORE.WRITE`
 

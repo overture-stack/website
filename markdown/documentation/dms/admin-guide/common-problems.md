@@ -8,3 +8,7 @@ title: Common Problems
 
 # Bearer
 
+# Re-Direct URI
+
+# Token No Permissions
+

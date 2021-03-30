@@ -31,47 +31,20 @@ pages:
         url: dms/installation/configuration/prereq/sslcert
     - title: Configure the DMS
       url: dms/installation/configuration/configure-dms
-  - title: Deploy Your Cluster
+  - title: Deploying Your Cluster
     url: dms/installation/deploy
   - title: Post-Deployment Verification & Configuration
     url: dms/installation/verify
-  - title: Test Data Upload
+  - title: Testing Data Upload
     url: dms/installation/test-upload
-    pages:
-    - title: Configure User Permissions in Ego
-      url: dms/installation/test-upload/configure-permissions
-    - title: Create Study in Song
-      url: dms/installation/test-upload/create-stidy
-    - title: Download and Configure Song Client
-      url: dms/installation/test-upload/configure-song
-    - title: Download and Configure Score Client
-      url: dms/installation/test-upload/configure-score
-    - title: Register Analysis Type with Song
-      url: dms/installation/test-upload/register-analysis-type
-    - title: Submit Analysis to Song
-      url: dms/installation/test-upload/submit-analysis
-    - title: Create Manifest for Score
-      url: dms/installation/test-upload/create-manifest
-    - title: Upload Data via Score
-      url: dms/installation/test-upload/upload-data
-    - title: Publish Analysis
-      url: dms/installation/test-upload/publish-analysis
-    - title: Index Study via Maestro
-      url: dms/installation/test-upload/index-Study
-    - title: Verify the Data in DMS-UI (Data Portal)
-      url: dms/installation/test-upload/verify-portal
+  - title: Demonstration Videos
+    url: dms/installation/demos
 - title: Admin Guide
   url: dms/admin-guide
   isHeading: true
   pages:
-  - title: Updating a Configuration
-    url: dms/admin-guide/update-config
-  - title: Stopping Your Cluster
-    url: dms/admin-guide/stop
-  - title: Destroying Your Cluster
-    url: dms/admin-guide/destroy
-  - title: Customizing the Look of the Data Portal
-    url: dms/admin-guide/customize
+  - title: Admin Tasks
+    url: dms/admin-guide/tasks
   - title: Common Problems
     url: dms/admin-guide/common-problems
   - title: Command Reference
@@ -80,9 +53,5 @@ pages:
   url: dms/user-guide
   isHeading: true
   pages:
-  - title: Logging Into the Portal
-    url: dms/user-guide/login
-  - title: Exploring Data
-    url: dms/user-guide/explore
-  - title: Managing Your User Profile
-    url: dms/user-guide/profile
+  - title: Using the Data Portal
+    url: dms/user-guide/data-portal
