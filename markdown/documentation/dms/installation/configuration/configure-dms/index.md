@@ -322,7 +322,7 @@ Would you like to customize the data portal name (appears in the DMS UI header)?
     deployment.  The values you use MUST match the ones you supply here for the
     DMS UI configuration. The DMS UI interacts with Arranger and expects the same
     values you input here. For instructions on adding an Arranger project, see:
-    https://overture.bio/documentation/dms/installation/deploy-and-verify/
+    https://overture.bio/documentation/dms/installation/verify#add-project-to-arranger-ui
 *****************************************************************************************************
 
 What is the Project ID you will configure in Arranger (to be referenced by DMS UI)? [file]:
@@ -332,7 +332,7 @@ What is the Elasticsearch alias name you will configure in Arranger (to be refer
 
 ## Arranger-Specific Fields
 
-As indicated, the Arranger-specific fields (`Project ID`, `Project Name`, `Elasticsearch Alias Name`) that you supply here **MUST** match the values configured later in Arranger after deployment.  For details, see [Add Project to Arranger UI](../../deploy-and-verify/arranger-ui).
+As indicated, the Arranger-specific fields (`Project ID`, `Project Name`, `Elasticsearch Alias Name`) that you supply here **MUST** match the values configured later in Arranger after deployment.  For details, see [Add Project to Arranger UI](../../verify#add-project-to-arranger-ui).
 
 This screenshot shows how the Arranger UI fields map to the inputs in the DMS installation script:
 
@@ -412,4 +412,4 @@ ego:
 
 Although Arranger does not have any configurations required in the DMS configuration questionnaire, it has mandatory configuration tasks after a successful cluster deployment.
 
-For details of these tasks, see [Add Project to Arranger-UI](../../deploy-and-verify/arranger-ui) later on.
+For details of these tasks, see [Add Project to Arranger-UI](../../verify#add-project-to-arranger-ui) later on.

@@ -49,7 +49,7 @@ healthCheck:
   delaySec: 10
 ```
 
-Once complete, a success message appears, including a note (with a link to documentation) reminding you to perform necessary [post-deployment verification and configuration tasks](../deploy-and-verify) to make sure the DMS platform is up and running healthily:
+Once complete, a success message appears, including a note (with a link to documentation) reminding you to perform necessary [post-deployment verification and configuration tasks](../verify) to make sure the DMS platform is up and running healthily:
 
 ```shell
 Deployment completed successfully
@@ -60,7 +60,7 @@ Deployment completed successfully
     Before using the DMS platform, please complete post-deployment verification
     and configuration steps required to check the health of your deployment.  For
     instructions, see:
-    https://overture.bio/documentation/dms/installation/deploy-and-verify/
+    https://overture.bio/documentation/dms/installation/verify/
 
 *****************************************************************************************************
 ```

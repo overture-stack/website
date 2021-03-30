@@ -34,16 +34,7 @@ pages:
   - title: Deploy Your Cluster
     url: dms/installation/deploy
   - title: Post-Deployment Verification & Configuration
-    url: dms/installation/deploy-and-verify
-    pages:
-    - title: Check Maestro API is Running
-      url: dms/installation/deploy-and-verify/maestro-api
-    - title: Check Elasticsearch is Running
-      url: dms/installation/deploy-and-verify/elasticsearch
-    - title: Add Project to Arranger UI
-      url: dms/installation/deploy-and-verify/arranger-ui
-    - title: Check DMS UI (Data Portal) is Running
-      url: dms/installation/deploy-and-verify/dms-ui
+    url: dms/installation/verify
   - title: Test Data Upload
     url: dms/installation/test-upload
     pages:
