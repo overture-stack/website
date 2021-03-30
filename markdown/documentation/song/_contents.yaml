@@ -1,4 +1,5 @@
 sectionSlug: song
+sectionTitle: Song
 pages:
   - title: Introduction
     url: song
