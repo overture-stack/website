@@ -2,14 +2,14 @@
 
 ## Page/file locations
 
-- Landing page ([https://overture.bio/documentation]): [src/pages/documentation]
-- Other pages: [markdown/documentation]
-- Template for Markdown pages: [src/templates/documentation]
-- List of pages: See `_contents.yaml` in every `markdown/documentation` folder.
+- Landing page (<https://overture.bio/documentation>): `~/src/pages/documentation`
+- Content for Markdown pages: `~/markdown/documentation`
+- Template for Markdown pages: `~/src/templates/documentation`
+- List of pages: See `_contents.yaml` in every `~/markdown/documentation` folder.
 
 ## How to write documentation
 
-### File structure
+### Markdown files
 
 Add a `title` to each file, otherwise one will be generated based on the filename.
 
@@ -26,6 +26,7 @@ Markdown content goes here! You can do anything you would normally do in Markdow
 ### File organization
 
 1. Describe the placement/order of pages in the folder's `_contents.yaml` for navigation purposes.
+    - The title of the page can be different in the page versus in the navigation. For example, if you want a long verbose title on the page but that long title looks awkward in the nav, you could shorten the title for the nav only. Nav is matched to pages based on URL, not based on titles.
 1. Keep in mind folder/file names will be used to make URLs, so they need to be lowercase, not have spaces, etc.
 1. All folders need an `index.md` file, which will be the landing page/entry point for that folder.
 1. You can nest folders up to 4 levels deep.
@@ -59,5 +60,7 @@ pages:
 ## Algolia search
 
 - Current implementation is based on [Gatsby docs: Adding Search with Algolia](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)
-- The site is re-indexed on build. To test this locally, run `npm run build && npm run serve`.
-- For Netlify purposes, all the Algolia environment variables are stored in the admin UI.
+- The site is re-indexed on **build**. To test this locally, run `npm run build && npm run serve`.
+- Environments:
+  - Netlify: Algolia secrets are stored in the Netlify admin UI.
+  - Local: You'll need an `.env.development` & `.env.production` file with Algolia secrets.

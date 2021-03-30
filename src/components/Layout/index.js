@@ -3,11 +3,8 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
-import productsDict from 'constants/products';
 import 'styles/main.scss';
 import DocsWrapper from './DocsWrapper';
-
-const SHOW_DOCS = process.env.GATSBY_SHOW_DOCS === 'true';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -135,7 +132,7 @@ class TemplateWrapper extends Component {
 
         <div className="site-wrapper">
           <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
-            {isDocs && SHOW_DOCS ? (
+            {isDocs ? (
               <DocsWrapper path={path} data={data}>
                 {children}
               </DocsWrapper>
