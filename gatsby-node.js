@@ -7,6 +7,8 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const properUrlJoin = require('proper-url-join');
 
+const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+
 const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
 
 const onCreateNode = ({ actions, getNode, node }) => {
@@ -70,6 +72,13 @@ const onCreateNode = ({ actions, getNode, node }) => {
       node,
       value: sectionSlug,
     });
+
+    const isDraft = node.frontmatter.draft || false;
+    actions.createNodeField({
+      name: 'draft',
+      node,
+      value: isDraft,
+    });
   }
 };
 
@@ -112,8 +121,10 @@ const createMarkdownPages = async ({ actions, graphql }) => {
     }
   `);
 
+  console.log(JSON.stringify(data, 2))
+
   data.allMdx.nodes.forEach(node => {
-    const { id, sectionSlug, slug } = node.fields;
+    const { draft, id, sectionSlug, slug } = node.fields;
 
     // documentation section
     if (slug.match(/^\/documentation/)) {
