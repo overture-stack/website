@@ -7,6 +7,8 @@ import { PRODUCTS_PATH } from 'constants/pages';
 import { Badge, ComingSoonBadge, Icon, IconCommon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
+const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+
 const verticalMobileMenuSections = ['DMS Bundle'];
 
 const data = {
@@ -111,6 +113,7 @@ const data = {
         color: 'pink',
         links: [
           {
+            comingSoon: true,
             to: '/documentation/score/',
             text: 'Score',
           },
@@ -125,14 +128,17 @@ const data = {
         color: 'blue',
         links: [
           {
+            comingSoon: true,
             to: '/documentation/ego/',
             text: 'Ego',
           },
           {
+            comingSoon: true,
             to: '/documentation/maestro/',
             text: 'Maestro',
           },
           {
+            comingSoon: true,
             to: '/documentation/arranger/',
             text: 'Arranger',
           },
@@ -182,7 +188,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
   const { explore, sections } = data[megaMenuType];
 
   const MenuItem = (link) => (
-    link.comingSoon
+    link.comingSoon && !ENABLE_DRAFTS
       ? (
         <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {link.text} <ComingSoonBadge />

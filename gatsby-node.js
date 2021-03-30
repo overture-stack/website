@@ -7,6 +7,8 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const properUrlJoin = require('proper-url-join');
 
+const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+
 const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
 
 const onCreateNode = ({ actions, getNode, node }) => {
@@ -70,6 +72,15 @@ const onCreateNode = ({ actions, getNode, node }) => {
       node,
       value: sectionSlug,
     });
+
+    const isDraft = ENABLE_DRAFTS && 
+      node.frontmatter.draft &&
+      node.frontmatter.draft === true;
+    actions.createNodeField({
+      name: 'draft',
+      node,
+      value: isDraft,
+    });
   }
 };
 
@@ -82,7 +93,7 @@ const createPages = async params => {
 const createMarkdownPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     {
-      allMdx {
+      allMdx(filter: { fields: { draft: { ne: true } } }) {
         nodes {
           fields {
             id
@@ -111,6 +122,7 @@ const createMarkdownPages = async ({ actions, graphql }) => {
       }
     }
   `);
+
 
   data.allMdx.nodes.forEach(node => {
     const { id, sectionSlug, slug } = node.fields;
@@ -150,10 +162,17 @@ const onCreateWebpackConfig = ({ actions }) => {
 
 const createSchemaCustomization = ({ actions }) => {
   // DOCUMENTATION PAGE TYPES
+
+  // for YAML:
   // - describe structure of _contents.yaml
   // - throw descriptive errors if required fields are missing
   // - prevent build failures if optional fields are missing,
   //   i.e. if none of the sections are nested 4 levels deep.
+
+  // for MDX: define optional fields (added in createNode) in MdxFields.
+  // otherwise, if none of the pages have that field,
+  // the build will fail.
+
   const documentationTypeDefs = `
     type Yaml implements Node {
       sectionSlug: String!
@@ -174,6 +193,12 @@ const createSchemaCustomization = ({ actions }) => {
     type YamlPagesPagesPages implements Node {
       title: String!
       url: String!
+    }
+    type MdxFields implements Node {
+      draft: Boolean
+    }
+    type Mdx implements Node {
+      fields: MdxFields
     }
   `;
   actions.createTypes(documentationTypeDefs);

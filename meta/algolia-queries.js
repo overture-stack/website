@@ -2,7 +2,7 @@ const indexName = 'test_overturedocs';
 
 const docsAlgoliaQuery = `
   {
-    allMdx {
+    allMdx(filter: { fields: { draft: { ne: true } } }) {
       nodes {
         id
         fields {
