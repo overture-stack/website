@@ -21,4 +21,3 @@
 [context.branch-deploy.environment]
   GATSBY_ENABLE_DRAFTS="true"
   ENABLE_SEARCH_INDEXING="false"
-  
