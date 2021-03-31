@@ -7,7 +7,7 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const properUrlJoin = require('proper-url-join');
 
-// const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
 const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
 
@@ -124,24 +124,23 @@ const createMarkdownPages = async ({ actions, graphql }) => {
   `);
 
   data.allMdx.nodes
-  // TODO CHECK FOR FLAG HERE
-  .filter(node => !node.fields.draft)
-  .forEach(node => {
-    const { id, sectionSlug, slug } = node.fields;
+    .filter(node => ENABLE_DRAFTS || !node.fields.draft)
+    .forEach(node => {
+      const { id, sectionSlug, slug } = node.fields;
 
-    // documentation section
-    if (slug.match(/^\/documentation/)) {
-      actions.createPage({
-        path: slug,
-        component: path.resolve('src/templates/documentation/index.js'),
-        context: {
-          // use for graphQL query in template
-          id,
-          sectionSlug,
-        },
-      });
-    }
-  });
+      // documentation section
+      if (slug.match(/^\/documentation/)) {
+        actions.createPage({
+          path: slug,
+          component: path.resolve('src/templates/documentation/index.js'),
+          context: {
+            // use for graphQL query in template
+            id,
+            sectionSlug,
+          },
+        });
+      }
+    });
 };
 
 const onCreateWebpackConfig = ({ actions }) => {
