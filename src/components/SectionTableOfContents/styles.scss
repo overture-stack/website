@@ -1,0 +1,105 @@
+@import '../../styles/colors';
+
+.toc-section {
+  margin-bottom: 24px;
+  max-height: calc(100vh - 150px);
+  overflow: auto;
+  a {
+    text-decoration: none;
+  }
+  ol {
+    list-style-type: none;
+    li {
+      line-height: 24px;
+      position: relative;
+      a {
+        color: $navy-black;
+        display: block;
+        font-weight: bold;
+      }
+    }
+  }
+  .menu-level-1 > li,
+  .menu-level-2 > li {
+    border-left: 2px solid transparent;
+    > a {
+      font-size: 14px;
+      padding: 6px 16px;
+      &:hover {
+        background-color: $white;
+      }
+    }
+    &.link-active {
+      border-left-color: $pink-dark;
+      background-color: $white;
+    }
+    & + li:not(.menu-heading) {
+      border-top: 1px solid $grey-3;
+    }
+    &:last-child {
+      border-bottom: 1px solid $grey-3;
+    }
+  }
+  .menu-level-1 > li {
+    &.menu-heading {
+      border-bottom-width: 0;
+      margin-bottom: 24px;
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+      h4 {
+        font-size: 13px;
+        font-weight: normal;
+        letter-spacing: 0.25px;
+        padding: 6px 16px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .menu-level-2 > li {
+    &.menu-active {
+      border-left-color: $pink-dark;
+      background-color: $white;
+      a:hover {
+        background-color: $grey-1;
+      }
+    }
+    &.menu-open {
+      border-left-color: $grey-1;
+    }
+  }
+  button.menu-toggle-btn {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 36px;
+    padding-top: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .menu-level-3 > li {
+    > a {
+      font-size: 13px;
+      padding: 4px 24px;
+    }
+    button.menu-toggle-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  .menu-level-4 > li {
+    > a {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 3px 8px 3px 40px;
+    }
+  }
+  .link-active > a {
+    color: $pink-darker;
+  }
+}

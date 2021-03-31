@@ -1,0 +1,359 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.docs {
+  &__page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__columns {
+    // column css is temp until sidebars are done
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+  }
+  &__sidebar {
+    flex: 0 0 280px;
+    background: $grey-2;
+    padding: 20px 16px;
+    &__github {
+      position: absolute;
+      bottom: 5px;
+      img {
+        margin-right: 8px;
+      }
+    }
+    &__overview {
+      color: $blue-links;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 40px;
+      text-decoration: none;
+      img {
+        margin-right: 4px;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $blue-links;
+      }
+    }
+    &__sticky {
+      padding-bottom: 24px;
+      position: sticky;
+      top: 75px;
+    }
+  }
+  &__mobile-sidebar {
+    @media screen and (max-width: 1160px) {
+      // display: none;
+      position: fixed;
+      bottom: -100%;
+      transition: bottom 0.25s;
+      visibility: hidden;
+      width: 100%;
+      height: 100vh;
+      &__active {
+        bottom: 0;
+        max-height: 100vh;
+        position: fixed;
+        visibility: visible;
+        z-index: 35;
+        .toc-section {
+          top: 0;
+          max-height: calc(100vh - 120px);
+        }
+        .docs__sidebar__overview {
+          display: none;
+        }
+      }
+    }
+    &__button {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+      button {
+        background: $blue-links;
+        border-radius: 10px !important;
+        border: 0 none !important;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        padding: 24px;
+        span {
+          background: $white;
+          height: 2px;
+        }
+        &:hover {
+          background: $blue-links;
+        }
+      }
+    }
+  }
+  &__header {
+    background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (max-width: 1160px) {
+      flex-direction: column-reverse;
+      padding: 0 10px;
+    }
+    &-title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      @media (max-width: 1160px) {
+        justify-content: start;
+        padding: 10px 0;
+      }
+      .icon {
+        height: 32px !important;
+        margin-right: 4px;
+        @media (max-width: 1160px) {
+          height: 24px !important;
+          margin-right: 2px;
+        }
+      }
+      h1 {
+        color: $white;
+        display: inline-block;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 1;
+        padding: 18px 0;
+        @media (max-width: 1160px) {
+          font-size: 24px;
+        }
+      }
+    }
+    &-search {
+      flex: 1 0 400px;
+      @media (max-width: 1160px) {
+        flex-basis: auto;
+        margin-top: 10px;
+        width: 100%;
+      }
+      .search__box__input,
+      .search__box__reset {
+        height: 36px;
+      }
+      .search__box__icon {
+        top: 8px;
+        left: 11px;
+      }
+    }
+  }
+  &__main {
+    display: flex;
+    flex: 1;
+    justify-content: left;
+    padding: 48px 48px 10px;
+    @media screen and (max-width: 1160px) {
+      padding-top: 10px 20px;
+    }
+    &-container {
+      flex: 0 1 70em;
+    }
+    &-title {
+      margin: 0 0 44px;
+      font-size: 30px;
+      line-height: 36px;
+    }
+    &-pagination {
+      display: flex;
+      justify-content: space-between;
+      margin: 32px 0;
+      .chevron-link {
+        flex: 0 0 50%;
+      }
+      @media (min-width: 1160px) {
+        margin: 64px 0;
+      }
+    }
+    .docs__github-btn {
+      width: 100%;
+      text-align: right;
+      @media screen and (min-width: 1160px) {
+        display: none;
+      }
+    }
+  }
+  &__mdx {
+    // markdown
+    code {
+      color: $pink-darker;
+      background: $grey-2;
+      font-family: $font-monospace;
+      border-radius: 3px;
+      padding: 0.15em 0.25em;
+    }
+    p,
+    li {
+      code {
+        font-size: 0.85em;
+      }
+    }
+    div,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    pre,
+    table,
+    ul,
+    ol,
+    .gatsby-resp-image-wrapper {
+      margin-bottom: 24px;
+    }
+    pre {
+      // making pre responsive
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      text-align: justify;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol,
+    li p {
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    p,
+    div,
+    li {
+      color: $navy-black;
+    }
+    p,
+    li,
+    W td,
+    th {
+      a {
+        color: $blue-links;
+        text-decoration: underline;
+        &:hover,
+        &:active {
+          color: inherit;
+        }
+      }
+    }
+    table {
+      border: 1px solid $grey-3;
+      td,
+      th {
+        font-size: 14px;
+        line-height: 1.5;
+        border: 1px solid $grey-3;
+        padding: 4px 8px;
+      }
+      th {
+        color: $navy-black;
+      }
+      td {
+        color: $grey-darkest;
+        border-top-width: 0;
+        border-bottom-width: 0;
+      }
+      tr:nth-child(2n) {
+        background: $grey-1;
+      }
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: bold;
+      position: relative;
+      .anchor {
+        padding-right: 10px !important;
+        &.before {
+          position: absolute;
+          top: 0.1em;
+          left: 8px;
+          transform: translateX(-100%);
+        }
+        svg {
+          visibility: hidden;
+        }
+      }
+      &:hover .anchor svg {
+        visibility: visible;
+      }
+    }
+    h2 {
+      font-size: 20px;
+      margin: 48px 0 40px;
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        display: block;
+        height: 3px;
+        width: 106px;
+        border-radius: 1.5px;
+        background-color: $yellow;
+      }
+    }
+    h3 {
+      font-size: 18px;
+    }
+    h5,
+    h6 {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    ul,
+    ol {
+      padding-left: 16px;
+    }
+    ul {
+      list-style-type: initial;
+    }
+    ol {
+      list-style-type: decimal;
+    }
+    blockquote {
+      border-left: 6px solid $grey-3;
+      padding: 0 18px;
+      margin-bottom: 24px;
+      *:last-child {
+        margin-bottom: 0;
+      }
+      p,
+      li,
+      div,
+      strong,
+      em {
+        color: $grey-darkest !important;
+      }
+    }
+    .gatsby-resp-image-wrapper {
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+      border: solid 1px $grey-3;
+    }
+  }
+  &__toc-headings {
+    flex: 0 0 300px;
+    padding: 48px 20px 0 0;
+    @media (max-width: 1160px) {
+      display: none;
+    }
+  }
+  &__github-btn {
+    margin-bottom: 24px;
+    .Icon {
+      margin-right: 4px;
+    }
+  }
+}

@@ -1,35 +1,32 @@
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .BottomCallout {
-
-  background-color: #04518c;
+  background-color: $navy-dark;
   padding: 24px 0;
-  color: white;
+  color: $white;
   display: flex;
 
-
-    .callout-container {
-      display: flex;
-      @media (max-width: $tablet) {
-        flex-direction: column;
-      }
+  .callout-container {
+    display: flex;
+    @media (max-width: $tablet) {
+      flex-direction: column;
     }
-
-  @media(max-width: $tablet) {
-    flex-direction: column;
   }
 
+  @media (max-width: $tablet) {
+    flex-direction: column;
+  }
 
   .Callout {
     max-width: 500px;
     margin: 0 auto;
     padding: 12px;
-    font-family: Lato;
+    font-family: $font-sans-serif;
     font-size: 22px;
-    color: #ffffff;
+    color: $white;
     letter-spacing: 0;
     line-height: 36px;
-
 
     &:only-child {
       text-align: center;

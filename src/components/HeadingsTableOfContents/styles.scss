@@ -1,0 +1,80 @@
+@import '../../styles/colors';
+
+.toc-headings {
+  border-left: 2px solid $pink-dark;
+  list-style-type: none;
+  margin-bottom: 24px;
+  max-height: calc(100vh - 132px);
+  // nav height 60px + padding 48px + 24px
+  overflow: auto;
+  position: sticky;
+  top: 108px; // nav height 60px + padding 48px
+  a {
+    text-decoration: none;
+  }
+  // all levels
+  &__list {
+    list-style-type: none;
+    li {
+      a {
+        background: transparent;
+        color: $navy-black;
+        display: block;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 5px 0;
+        line-height: 18px;
+        &:hover {
+          background: $grey-1;
+        }
+        &.active {
+          color: $pink-darker;
+          background: $pink-light;
+        }
+      }
+    }
+  }
+  // first level
+  > ol {
+    > li {
+      > a {
+        font-weight: bold;
+        padding-left: 16px;
+      }
+      // all lower levels
+      ol {
+        li a {
+          font-weight: normal;
+          padding-left: 40px;
+          span {
+            position: relative;
+            &:before {
+              content: '•';
+              position: absolute;
+              left: -14px;
+              top: 0;
+            }
+          }
+        }
+      }
+      // third level
+      li li {
+        a {
+          padding-left: 56px;
+        }
+        // fourth level
+        li {
+          a {
+            padding-left: 72px;
+          }
+          // fifth level
+          li {
+            a {
+              padding-left: 88px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,22 +1,28 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 import {
-  H2,
-  H4,
+  BottomCallout,
   Button,
-  Layout,
+  Callout,
+  GettingStarted,
+  GridFeature,
+  H2,
+  H3,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GridFeature,
-  GettingStarted,
-  BottomCallout,
-  Callout,
   Terminal,
   UrlBar,
-} from '../../../components'
+} from 'components';
+import productsDict from 'constants/products';
+import {
+  JUKEBOX_BLOG_POST_LINK,
+  JUPYTER_LINK,
+  JUPYTER_INSTALL_LINK,
+} from 'constants/external-links';
 
-import './style.scss'
+import './style.scss';
 
 const featureGridData = [
   [
@@ -45,175 +51,164 @@ const featureGridData = [
 
     {
       header: 'Cloud-based',
-      details:
-        'Cloud deployment for data co-location, take your analysis to the data.',
+      details: 'Cloud deployment for data co-location, take your analysis to the data.',
       icon: 'target',
     },
   ],
-]
+];
 
 const JukeboxPage = () => (
-  <Layout>
-    <main className="Jukebox">
-      {/* Metadata */}
-      <Helmet>
-        <title>Overture Products - Jukebox </title>
-        <meta name="description" content="" />
-        <meta
-          name="keywords"
-          content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"
-        />
-      </Helmet>
+  <main className="Jukebox">
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Jukebox </title>
+      <meta name="description" content="" />
+      <meta
+        name="keywords"
+        content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"
+      />
+    </Helmet>
 
-      {/* Hero */}
-      {/*  Ugly html inside props so that I can add links to the cardText..*/}
-      <ProductHero
-        title="Jukebox"
-        subTitle="Spinning up interactive development environments is hard!"
-        cardText={
+    {/* Hero */}
+    {/*  Ugly html inside props so that I can add links to the cardText..*/}
+    <ProductHero
+      title="Jukebox"
+      subTitle="Spinning up interactive development environments is hard!"
+      cardText={
+        <div>
+          Jukebox automates set-up and deployment of <Link to={JUPYTER_LINK}>JupyterHub</Link>. Your
+          users can access personal <Link to={JUPYTER_INSTALL_LINK}>Jupyter notebooks</Link> in one
+          click to do science right from the web browser in a live, collaborative environment.
+        </div>
+      }
+      getStartedLink={productsDict.jukebox.githubUrl}
+      logo="logoJukebox"
+      progressType="rc"
+      badge={{ color: 'red', text: 'Analyze & Discover' }}
+    />
+
+    {/* Features  */}
+    <ProductFeatureRow>
+      <ProductFeature
+        header="Quick start"
+        icon="power"
+        iconSize={92}
+        details={
           <div>
-            Jukebox automates set-up and deployment of
-            <a target="_blank" href="http://jupyter.org/index.html">
-              {' '}
-              JupyterHub
-            </a>
-            . Your users can access personal
-            <a target="_blank" href="http://jupyter.org/install.html">
-              {' '}
-              Jupyter notebooks{' '}
-            </a>
-            in one click to do science right from the web browser in a live,
-            collaborative environment.
+            The setup has been done for you, all that’s left for you to do is your research.
           </div>
         }
-        getStartedLink="https://github.com/overture-stack/jupyter"
-        logo="logoJukebox"
-        progressType="rc"
-        badge={{ color: 'red', text: 'Analyze & Discover' }}
+      />
+      <ProductFeature
+        header="Contained"
+        icon="spiral"
+        iconSize={72}
+        details={
+          <div>
+            Users operate in a virtual machine, so everything is contained. Nothing can be broken,
+            so experiment away with the API and data sets.
+          </div>
+        }
       />
 
-      {/* Features  */}
-      <ProductFeatureRow>
-        <ProductFeature
-          header="Quick start"
-          icon="power"
-          iconSize={92}
-          details="The setup has been done for you, all that’s left for you to do is your research."
-        />
-        <ProductFeature
-          header="Contained"
-          icon="spiral"
-          iconSize={72}
-          details="Users operate in a virtual machine, so everything is contained. Nothing can be broken, so experiment away with the API and data sets."
-        />
+      <ProductFeature
+        header="Automation"
+        icon="cloudSquare"
+        iconSize={82}
+        details={<div>Cloud deployment automation through OpenStack Ansible.</div>}
+      />
+    </ProductFeatureRow>
 
-        <ProductFeature
-          header="Automation"
-          icon="cloudSquare"
-          iconSize={82}
-          details="Cloud deployment automation through OpenStack Ansible. "
-        />
-      </ProductFeatureRow>
+    {/* Target Features Things */}
+    <GridFeature data={featureGridData} />
 
-      {/* Target Features Things */}
-      <GridFeature data={featureGridData} />
+    {/* Getting Started /  Terminals */}
+    <GettingStarted pinnedLink={productsDict.jukebox.githubUrl}>
+      {/* Getting Started: Step 1 */}
 
-      {/* Getting Started /  Terminals */}
-      <GettingStarted pinnedLink="https://github.com/overture-stack/Jupyter">
-        {/* Getting Started: Step 1 */}
-
-        <div className="columns Step">
-          <div className="column is-3-desktop">
-            <H2 className="pb1">1</H2>
-            <div>
-              <H4> To set up locally, clone the Jupyter repository. </H4>
-              <div className="step-text">
-                {' '}
-                Edit default permissions and configurations if needed.{' '}
-              </div>
+      <div className="columns Step">
+        <div className="column is-3-desktop">
+          <H2 className="pb1">1</H2>
+          <div>
+            <H3> To set up locally, clone the Jupyter repository. </H3>
+            <div className="step-text">
+              {' '}
+              Edit default permissions and configurations if needed.{' '}
             </div>
-            <div className="mt1 yellow-bar" />
           </div>
-
-          <div className="column is-8 is-offset-1 self-center">
-            <Terminal
-              prompts={[
-                'git clone https://github.com/overture-stack/Jupyter.git',
-              ]}
-            />
-          </div>
+          <div className="mt1 yellow-bar" />
         </div>
 
-        {/* Getting Started: step 2 */}
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal prompts={['git clone https://github.com/overture-stack/Jupyter.git']} />
+        </div>
+      </div>
 
-        <div className="columns Step">
-          <div className="column is-3-desktop">
-            <H2 className="pb1">2</H2>
-            <div>
-              <H4>Use Ansible to deploy Jukebox.</H4>
-            </div>
-            <div className="yellow-bar" />
-          </div>
+      {/* Getting Started: step 2 */}
 
-          <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={['ansible-playbook setup-jukebox.yml']} />
+      <div className="columns Step">
+        <div className="column is-3-desktop">
+          <H2 className="pb1">2</H2>
+          <div>
+            <H3>Use Ansible to deploy Jukebox.</H3>
           </div>
+          <div className="yellow-bar" />
         </div>
 
-        {/* Getting Started: step 3 */}
-
-        <div className="columns Step">
-          <div className="column is-3-desktop">
-            <H2 className="pb1">3</H2>
-            <div>
-              <H4>Learn, explore, experiment.</H4>
-              <div className="step-text">
-                Experiment with scientific packages such as NumPy, SciPy, Pandas
-                and Seaborn and languages including Python, Scala and R.
-              </div>
-            </div>
-            <div className="yellow-bar" />
-          </div>
-
-          <div className="column is-8 is-offset-1 self-center">
-            <UrlBar prompts={['Visit http://localhost:<your port number>']} />
-          </div>
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal prompts={['ansible-playbook setup-jukebox.yml']} />
         </div>
-      </GettingStarted>
+      </div>
 
-      {/* Footer */}
-      <BottomCallout>
-        <Callout
-          icon="githubYellow"
-          description="Explore and manipulate data without having to set up the environment yourself."
+      {/* Getting Started: step 3 */}
+
+      <div className="columns Step">
+        <div className="column is-3-desktop">
+          <H2 className="pb1">3</H2>
+          <div>
+            <H3>Learn, explore, experiment.</H3>
+            <div className="step-text">
+              Experiment with scientific packages such as NumPy, SciPy, Pandas and Seaborn and
+              languages including Python, Scala and R.
+            </div>
+          </div>
+          <div className="yellow-bar" />
+        </div>
+
+        <div className="column is-8 is-offset-1 self-center">
+          <UrlBar prompts={[<div>Visit http://localhost: &lt;your port number&gt;</div>]} />
+        </div>
+      </div>
+    </GettingStarted>
+
+    {/* Footer */}
+    <BottomCallout>
+      <Callout
+        icon="githubYellow"
+        description="Explore and manipulate data without having to set up the environment yourself."
+      >
+        <Button
+          className="mt2"
+          icon="githubWhite"
+          iconAlt="github icon"
+          link={productsDict.jukebox.githubUrl}
+          size="medium"
+          type="primary"
         >
-          <Button
-            type="primary"
-            size="medium"
-            className="mt2"
-            externalLink="https://github.com/overture-stack/jupyter"
-            icon="githubWhite"
-          >
-            Get Started
-          </Button>
-        </Callout>
+          Get Started
+        </Button>
+      </Callout>
 
-        <Callout
-          icon="pageWhite"
-          description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
-        >
-          <Button
-            type="primary"
-            size="medium"
-            className="mt2"
-            externalLink="http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/"
-          >
-            Related Blog Post
-          </Button>
-        </Callout>
-      </BottomCallout>
-    </main>
-  </Layout>
-)
+      <Callout
+        icon="pageWhite"
+        description="Drops of Jupyter...or, How I Learned To Stop Worrying and Dockerized JupyterHub"
+      >
+        <Button className="mt2" link={JUKEBOX_BLOG_POST_LINK} size="medium" type="primary">
+          Related Blog Post
+        </Button>
+      </Callout>
+    </BottomCallout>
+  </main>
+);
 
-export default JukeboxPage
+export default JukeboxPage;

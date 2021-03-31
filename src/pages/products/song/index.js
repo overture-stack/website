@@ -1,27 +1,28 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 import {
+  BottomCallout,
+  Callout,
+  GettingStarted,
+  GridFeature,
   H2,
-  H4,
-  Layout,
+  H3,
+  Icon,
+  LinkHelper as Link,
   ProductFeature,
   ProductFeatureRow,
   ProductHero,
-  GettingStarted,
-  GridFeature,
-  BottomCallout,
-  Icon,
-  Callout,
   Terminal,
-} from '../../../components'
+} from 'components';
+import productsDict from 'constants/products';
+import { SONG_BLOG_POST_LINK, SONG_DOCS_LINK } from 'constants/external-links';
 
-import './style.scss'
+import './style.scss';
 
 // images
-import azure from './assets/azure.svg'
-import pgsql from './assets/pgsql.png'
-import aws from './assets/aws.svg'
+import azure from './assets/azure.svg';
+import pgsql from './assets/pgsql.png';
+import aws from './assets/aws.svg';
 
 const featureGridData = [
   [
@@ -55,170 +56,163 @@ const featureGridData = [
       icon: 'target',
     },
   ],
-]
+];
 
 const SongPage = () => (
-  <Layout>
-    <main className="Song">
-      {/* Metadata */}
-      <Helmet>
-        <title>Overture Products - Song </title>
-        <meta
-          name="description"
-          content="Song is an open source system for validating and tracking metadata from genomic  raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
-        />
-        <meta
-          name="keywords"
-          content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"
-        />
-      </Helmet>
+  <main className="Song">
+    {/* Metadata */}
+    <Helmet>
+      <title>Overture Products - Song </title>
+      <meta
+        name="description"
+        content="Song is an open source system for validating and tracking metadata from genomic  raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
+      />
+      <meta
+        name="keywords"
+        content="Overture, data science software, bioinformatics software, open-source software, cancer research, cloud-based storage, genomic metadata, data submission, REST API, JSON, YAML, REST, Amazon Web Services, Microsoft Azure, PostgreSQL, Ontario Institute for Cancer Research, OICR"
+      />
+    </Helmet>
 
-      {/* Hero */}
-      <ProductHero
-        title="Song"
-        subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
-        cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
-        getStartedLink="https://github.com/overture-stack/song"
-        badge={{ color: 'pink', text: 'Generate & Upload' }}
-        progressType="ga"
-        logo="logoSong"
+    {/* Hero */}
+    <ProductHero
+      title="Song"
+      subTitle="Quickly and reliably track genome metadata scattered across multiple Cloud storage systems."
+      cardText="Song is an open source system for validating and tracking metadata about raw data submissions, assigning identifiers to entities of interest, and managing the state of the raw data with regards to publication and access."
+      getStartedLink={productsDict.song.githubUrl}
+      badge={{ color: 'pink', text: 'Generate & Upload' }}
+      progressType="ga"
+      logo="logoSong"
+    />
+
+    {/* Features  */}
+    <ProductFeatureRow>
+      <ProductFeature
+        header="Scalable"
+        icon="barGraph"
+        details={
+          <div>
+            Designed to handle the volume of your requests in an efficient and timely manner.
+          </div>
+        }
+      />
+      <ProductFeature
+        header="Easy to adopt"
+        icon="download"
+        iconSize={54}
+        details={
+          <div>
+            Relying on a standard REST API. Get started running Song with two Docker commands.
+          </div>
+        }
       />
 
-      {/* Features  */}
-      <ProductFeatureRow>
-        <ProductFeature
-          header="Scalable"
-          icon="barGraph"
-          details="Designed to handle the volume of your requests in an efficient and timely manner."
-        />
-        <ProductFeature
-          header="Easy to adopt"
-          icon="download"
-          iconSize={54}
-          details="Relying on a standard REST API. Get started running Song with two Docker commands."
-        />
-
-        <ProductFeature
-          header="Accurate and efficient"
-          icon="user"
-          details="Specifically designed to track genome data, Song tracks and validates your submissions."
-        />
-      </ProductFeatureRow>
-
-      {/* Target Section */}
-      <GridFeature data={featureGridData} />
-
-      {/* Getting Started /  Terminals */}
-
-      <GettingStarted pinnedLink="https://song-docs.readthedocs.io/en/develop/introduction.html">
-        {/* Getting Started: Step 1 */}
-        <div className="columns Step">
-          <div className="column is-3">
-            <H2 className="pb1">1</H2>
-            <div>
-              <H4>
-                Download the Song client - Sing, our command line interface.
-              </H4>
-            </div>
-            <div className="yellow-bar" />
+      <ProductFeature
+        header="Accurate and efficient"
+        icon="user"
+        details={
+          <div>
+            Specifically designed to track genome data, Song tracks and validates your submissions.
           </div>
+        }
+      />
+    </ProductFeatureRow>
 
-          <div className="column is-8 is-offset-1 self-center">
-            <Terminal
-              prompts={['git clone https://github.com/overture-stack/SONG.git']}
-            />
+    {/* Target Section */}
+    <GridFeature data={featureGridData} />
+
+    {/* Getting Started /  Terminals */}
+
+    <GettingStarted pinnedLink={SONG_DOCS_LINK}>
+      {/* Getting Started: Step 1 */}
+      <div className="columns Step">
+        <div className="column is-3">
+          <H2 className="pb1">1</H2>
+          <div>
+            <H3>Download the Song client - Sing, our command line interface.</H3>
           </div>
+          <div className="yellow-bar" />
         </div>
 
-        {/* Getting Started: step 2 */}
-        <div className="columns Step">
-          <div className="column is-3">
-            <H2 className="pb1">2</H2>
-            <div>
-              <H4>
-                Build and run the source using maven with simple instructions.
-              </H4>
-            </div>
-            <div className="yellow-bar" />
-          </div>
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal prompts={['git clone https://github.com/overture-stack/SONG.git']} />
+        </div>
+      </div>
 
-          <div className="column is-8 is-offset-1 self-center">
-            <Terminal
-              prompts={[
-                'cd SONG/song-server',
-                'mvn spring-boot:run -Drun.profiles=dev,test',
-              ]}
-            />
+      {/* Getting Started: step 2 */}
+      <div className="columns Step">
+        <div className="column is-3">
+          <H2 className="pb1">2</H2>
+          <div>
+            <H3>Build and run the source using maven with simple instructions.</H3>
           </div>
+          <div className="yellow-bar" />
         </div>
 
-        {/* Getting Started: step 3 */}
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal
+            prompts={['cd SONG/song-server', 'mvn spring-boot:run -Drun.profiles=dev,test']}
+          />
+        </div>
+      </div>
 
-        <div className="columns Step">
-          <div className="column is-3">
-            <H2 className="pb1">3</H2>
-            <div>
-              <H4>Get started running Song with just two Docker commands.</H4>
-            </div>
-            <div className="yellow-bar" />
-          </div>
+      {/* Getting Started: step 3 */}
 
-          <div className="column is-8 is-offset-1 self-center">
-            <Terminal prompts={['docker-compose build', 'docker-compose up']} />
+      <div className="columns Step">
+        <div className="column is-3">
+          <H2 className="pb1">3</H2>
+          <div>
+            <H3>Get started running Song with just two Docker commands.</H3>
           </div>
+          <div className="yellow-bar" />
         </div>
 
-        {/* Storage Solutions */}
+        <div className="column is-8 is-offset-1 self-center">
+          <Terminal prompts={['docker-compose build', 'docker-compose up']} />
+        </div>
+      </div>
 
-        <section className="py4">
-          <H2 className="center pb3">Compatible storage partners</H2>
+      {/* Storage Solutions */}
 
-          <div className="column storage-partners">
-            <img src={aws} style={{ width: '120px' }} />
-            <img src={azure} style={{ width: '175px' }} />
-            <img src={pgsql} style={{ width: '120px' }} />
-          </div>
+      <section className="py4">
+        <H2 className="center pb3">Compatible storage partners</H2>
 
-          <div className="center h3">
-            Or use our storage system
-            <Link className="link-magenta pl1" to="/products/score">
-              Score >
-            </Link>
-          </div>
-        </section>
-      </GettingStarted>
+        <div className="column storage-partners">
+          <img alt="AWS logo" src={aws} style={{ width: '120px' }} />
+          <img alt="Azure logo" src={azure} style={{ width: '175px' }} />
+          <img alt="PGSql logo" src={pgsql} style={{ width: '120px' }} />
+        </div>
 
-      {/* Footer */}
-      <BottomCallout>
-        <Callout
-          icon="githubYellow"
-          description="A flexible data model for tracking your genomic data across the cloud."
-        >
-          <a
-            target="_blank"
-            href="https://github.com/overture-stack/song"
-            className="button is-primary is-medium mt2"
-          >
-            <Icon size={24} img="githubWhite" />
-            <div className="ml1 text-white">Get Started</div>
-          </a>
-        </Callout>
+        <div className="center h3">
+          Or use our storage system
+          <Link className="link-magenta pl1" to={productsDict.score.productsPath}>
+            Score <Icon size={12} img="arrowRightMagenta" />
+          </Link>
+        </div>
+      </section>
+    </GettingStarted>
 
-        <Callout
-          icon="pageWhite"
-          description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
-        >
-          <a
-            target="_blank"
-            href="http://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/"
-            className="button is-primary is-medium mt2"
-          >
-            <div className="ml1 text-white">Related blog post</div>
-          </a>
-        </Callout>
-      </BottomCallout>
-    </main>
-  </Layout>
-)
+    {/* Footer */}
+    <BottomCallout>
+      <Callout
+        icon="githubYellow"
+        description="A flexible data model for tracking your genomic data across the cloud."
+      >
+        <Link className="button is-primary is-medium mt2" to={productsDict.song.githubUrl}>
+          <Icon alt="githubicon" size={24} img="githubWhite" />
+          <div className="ml1 text-white">Get Started</div>
+        </Link>
+      </Callout>
 
-export default SongPage
+      <Callout
+        icon="pageWhite"
+        description="Using JWT's with Spring Security's @PreAuthorize annotation for method specific target."
+      >
+        <Link className="button is-primary is-medium mt2" to={SONG_BLOG_POST_LINK}>
+          <div className="ml1 text-white">Related blog post</div>
+        </Link>
+      </Callout>
+    </BottomCallout>
+  </main>
+);
+
+export default SongPage;

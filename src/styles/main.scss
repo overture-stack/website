@@ -1,21 +1,34 @@
-@import "./util";
-@import "./defaults";
-@import "./common";
-@import "./variables";
-@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import './util';
+@import './defaults';
+@import './common';
+@import './variables';
+@import './colors';
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
 
 // BULMA VARIABLE OVERRIDES! --------------------
 
-$primary-invert: white;
-$navbar-item-hover-color: #9e005d;
-$navbar-item-color: #004773;
-$navbar-item-hover-background-color: #f2f3f5;
+$primary-invert: $white;
+$navbar-item-hover-color: $pink-darker;
+$navbar-item-color: $navy-black;
+$navbar-item-hover-background-color: $grey-2;
 $navbar-breakpoint: 1160px;
-$link: #00a2d9;
-$family-serif: "Lato", "Arial";
+$link: $blue;
+$family-serif: $font-sans-serif;
 $family-primary: $family-serif;
 
-@import "../../node_modules/bulma/bulma.sass";
+@import '../../node_modules/bulma/bulma.sass';
+
+// override bulma's hover CSS for the top navbar
+a.navbar-item:hover {
+  color: $navy-black;
+}
+
+a.navbar-item.active-item {
+  background: $grey-2;
+  &:hover {
+    color: $pink-darker;
+  }
+}
 
 // patch bulma's `.container` class; nicer padding across the site.
 .container {
@@ -44,8 +57,74 @@ $family-primary: $family-serif;
   font-size: 64px;
   background: none;
   border: none;
-  color: white;
+  color: $white;
   z-index: 2;
   cursor: pointer;
   outline: none;
+}
+
+// fix footer to the bottom of the page
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__content {
+    flex: 1 0 auto;
+    display: flex;
+    main {
+      flex: 1;
+    }
+  }
+  .footer {
+    margin-top: auto;
+    flex-shrink: 0;
+  }
+}
+
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper,
+#gatsby-focus-wrapper > div {
+  // fix safari sticky footer issues
+  height: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+a {
+  color: $blue-links;
+  text-decoration: underline;
+}
+
+.button {
+  text-decoration: none;
+  &.is-primary {
+    background: $navy-dark;
+    &:active,
+    &:hover,
+    &:focus {
+      background: $navy-black;
+    }
+  }
+}
+
+.BottomCallout .button.is-primary {
+  background: $pink-dark;
+  &:active,
+  &:hover,
+  &:focus {
+    background: $pink-darker;
+  }
+}
+
+a.column {
+  text-decoration: none;
 }

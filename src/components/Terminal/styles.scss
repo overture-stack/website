@@ -1,25 +1,28 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
 .Terminal {
-  background: #f2f3f5;
+  background: $grey-2;
   padding: 16px 2px 2px;
   border-radius: 4px;
   margin-bottom: 16px;
 }
 
 .Terminal-inner {
-  background-color: #282a35;
+  background-color: $grey-darkest;
   border-radius: 6px;
   padding: 24px;
   margin: 8px;
-  font-family: "Source Code Pro";
+  font-family: $font-monospace;
   font-size: 18px;
 }
 
 .Terminal-text {
-  color: #82ee86;
+  color: $terminal-text;
 }
 
 .Browser {
-  background: #f2f3f5;
+  background: $grey-2;
   display: flex;
   align-items: center;
   padding: 12px 6px;
@@ -31,7 +34,7 @@
   }
 
   .url-text {
-    background: white;
+    background: $white;
     border-radius: 8px;
     padding: 8px 16px;
   }
@@ -41,11 +44,10 @@
   margin-left: 12px;
   padding-bottom: 4px;
   display: flex;
-
   .circle {
     width: 10px;
     height: 10px;
-    background-color: #d8d8d8;
+    background-color: $grey-3;
     margin-right: 8px;
   }
 }

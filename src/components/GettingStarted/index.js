@@ -2,9 +2,9 @@
  * getting started + documentation header.
  **/
 
-import React from 'react'
-import './styles.scss'
-import { H2 } from '../Typography/index'
+import React from 'react';
+import { H2, LinkHelper as Link } from 'components';
+import './styles.scss';
 
 const GettingStarted = ({ pinnedLink, children }) => (
   <div className="pt1">
@@ -15,13 +15,9 @@ const GettingStarted = ({ pinnedLink, children }) => (
             <H2 className="header-offset">Getting Started</H2>
           </div>
           {pinnedLink ? (
-            <a
-              target="_blank"
-              className="button is-medium is-primary pinned-link"
-              href={pinnedLink}
-            >
+            <Link className="button is-medium is-primary pinned-link" to={pinnedLink}>
               Documentation
-            </a>
+            </Link>
           ) : (
             <div />
           )}
@@ -31,6 +27,6 @@ const GettingStarted = ({ pinnedLink, children }) => (
       </div>
     </section>
   </div>
-)
+);
 
-export default GettingStarted
+export default GettingStarted;

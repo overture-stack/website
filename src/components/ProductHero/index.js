@@ -1,19 +1,16 @@
-import Icon from '../Icon/index'
-import React from 'react'
-import './styles.scss'
-import Badge from '../Badge/index'
-import bg from './bg_blue_curved.svg' // used in css
-import logoScore from './images/score.svg'
-import logoSong from './images/song.svg'
-import logoEgo from './images/ego.svg'
-import logoOncojs from './images/oncojs.svg'
-import logoJukebox from './images/jukebox.svg'
-import logoMaestro from './images/maestro.svg'
-import logoArranger from './images/arranger.svg'
-import logoRiff from './images/riff.svg'
-import logoPersona from './images/persona.svg'
-import ProgressBar from '../ProgressBar/index'
-import Button from '../Button/index'
+import React from 'react';
+import { Badge, Button, ProgressBar } from 'components';
+import './styles.scss';
+import bg from './bg_blue_curved.svg'; // used in css
+import logoScore from './images/score.svg';
+import logoSong from './images/song.svg';
+import logoEgo from './images/ego.svg';
+import logoOncojs from './images/oncojs.svg';
+import logoJukebox from './images/jukebox.svg';
+import logoMaestro from './images/maestro.svg';
+import logoArranger from './images/arranger.svg';
+import logoRiff from './images/riff.svg';
+import logoPersona from './images/persona.svg';
 
 const logos = {
   logoScore,
@@ -25,7 +22,7 @@ const logos = {
   logoPersona,
   logoRiff,
   logoArranger,
-}
+};
 
 const HeroCard = ({ cardText, getStartedLink, logo }) => (
   <div className="container mt3 mb2">
@@ -36,10 +33,11 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
           <div className="card-text">{cardText}</div>
           <div className="left-align">
             <Button
-              type="primary"
-              size="medium"
-              externalLink={getStartedLink}
+              iconAlt="github icon"
+              link={getStartedLink}
               icon="githubWhite"
+              size="medium"
+              type="primary"
             >
               Get Started
             </Button>
@@ -56,22 +54,14 @@ const HeroCard = ({ cardText, getStartedLink, logo }) => (
 
         {/* Right Column */}
         <div className="column is-one-third card-img-box">
-          <img className={`card-img ${logo}`} src={logos[logo]} />
+          <img alt="" className={`card-img ${logo}`} src={logos[logo]} />
         </div>
       </div>
     </div>
   </div>
-)
+);
 
-const ProductHero = ({
-  title,
-  subTitle,
-  cardText,
-  logo,
-  getStartedLink,
-  badge,
-  progressType,
-}) => (
+const ProductHero = ({ title, subTitle, cardText, logo, getStartedLink, badge, progressType }) => (
   <div className="ProductHero">
     <section className="hero hero-gradient py1">
       <div className="hero-body has-text-centered">
@@ -87,15 +77,11 @@ const ProductHero = ({
 
           <ProgressBar type={progressType} />
 
-          <HeroCard
-            getStartedLink={getStartedLink}
-            cardText={cardText}
-            logo={logo}
-          />
+          <HeroCard getStartedLink={getStartedLink} cardText={cardText} logo={logo} />
         </div>
       </div>
     </section>
   </div>
-)
+);
 
-export default ProductHero
+export default ProductHero;

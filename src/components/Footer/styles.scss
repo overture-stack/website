@@ -1,14 +1,16 @@
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .Footer {
-  border-top: 1px solid #D4D4D4;
-
+  border-top: 1px solid $grey-3;
+  position: relative;
+  background: $white;
   .footer-box {
-  padding: 48px 0;
+    padding: 48px 0;
     display: flex;
     @include breakpoint(desktop-below) {
       flex-direction: column;
-      padding: 20px;
+      padding: 20px 0;
     }
   }
 
@@ -17,10 +19,11 @@
   }
 
   .oicr-logo {
-    width: 140px;
-    margin-right: 64px;
+    width: 128px;
     order: 1;
     align-self: center;
+    display: block;
+    margin-right: 32px;
 
     @include breakpoint(mobile) {
       margin: 32px;
@@ -32,28 +35,95 @@
   .footer-links {
     order: 2;
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       order: 1;
     }
   }
 
   .link-group-header {
-    color: #47D9BF;
+    color: $navy-dark;
     font-weight: 700;
   }
 
   .link {
-    font-family: Lato;
-    font-weight: 300;
+    font-family: $font-sans-serif;
+    font-weight: 400;
     font-size: 16px;
-    color: #003055;
+    color: $navy-black;
     letter-spacing: 0;
     line-height: 30px;
+    text-decoration: none;
+    &:hover {
+      color: $pink-darker;
+    }
   }
 
-  .netlify-badge a {
-    bottom: -5px;
+  .netlify-badge {
     position: absolute;
-    right: 80px;
+    bottom: 6px;
+    right: 16px;
+    line-height: 0;
+  }
+
+  // based on bulma columns.
+  // - last item uses 2 columns except on mobile.
+  // desktop: 7 columns
+  // tablet: 2 rows of 3, last column is wide
+  // mobile: 3 rows of 2 columns
+
+  .footer-column {
+    width: 15%;
+    // heading text wraps if the width is precisely 1/7
+    // so leave it as 15% instead
+    padding: 0.75rem;
+    &:last-child {
+      width: 25%;
+      ul {
+        width: 50%;
+        float: left;
+        @media (max-width: 1400px) {
+          width: 60%;
+          &:last-child {
+            width: 40%;
+          }
+        }
+      }
+    }
+    @include breakpoint(desktop-below) {
+      width: 33%;
+      &:last-child {
+        width: 33%;
+      }
+    }
+    @include breakpoint(mobile) {
+      width: 50%;
+      &:last-child {
+        width: 50%;
+        ul {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .footer-credits {
+    display: flex;
+    height: 65px;
+    font-size: 14px;
+    @media (min-width: 1024px) {
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    &__text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      span {
+        padding: 0 8px;
+      }
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+    }
   }
 }

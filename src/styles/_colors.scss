@@ -1,0 +1,55 @@
+@import './color-codes';
+
+$blue-light: $c-blue-400;
+$blue-outline: $c-blue-500;
+$blue: $c-blue-600;
+$blue-links: $c-blue-700;
+
+$grey-1: $c-grey-100;
+$grey-2: $c-grey-200;
+$grey-3: $c-grey-300;
+$grey-4: $c-grey-400;
+$grey-darkest: $c-grey-600;
+
+$navy-dark: $c-navy-500;
+$navy-black: $c-navy-600;
+
+$pink-light: $c-pink-100;
+$pink: $c-pink-400;
+$pink-dark: $c-pink-500;
+$pink-darker: $c-pink-600;
+
+// rename to teal?
+$green-bg: $c-teal-500;
+$green-text: $c-teal-600;
+
+$black: $c-black;
+$yellow: $c-yellow-500;
+$white: $c-white;
+
+// contextual colours
+
+// badges
+$badge-bg-blue: $c-blue-400;
+$badge-bg-navy: $c-navy-500;
+$badge-bg-pink: $c-pink-400;
+$badge-bg-red: $c-red-400;
+$badge-bg-teal-dark: $c-teal-700;
+$badge-bg-teal: $c-teal-500;
+$badge-bg-yellow: $c-yellow-600;
+
+// titles
+$title-blue: $c-blue-600;
+$title-green: $c-teal-700;
+$title-pink: $c-pink-500;
+$title-red: $c-red-500;
+$title-yellow: $c-yellow-700;
+
+// warning box
+$warning-bg: $c-yellow-200;
+$warning-border: $c-yellow-500;
+$warning-text: $c-navy-600;
+
+// misc
+$gradient-bg: $c-blue-green-gradient;
+$terminal-text: $c-green-bright;

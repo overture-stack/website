@@ -1,14 +1,18 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
 .TermsConditionsPage {
-  p, div, li {
-    font-family: Lato;
+  p,
+  div,
+  li {
+    font-family: $font-sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     line-height: 30px;
-    color: #003055;
+    color: $navy-black;
   }
-  
+
   p {
     margin: 20px 0;
   }
-  
 }

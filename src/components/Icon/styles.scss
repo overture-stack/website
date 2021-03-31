@@ -1,3 +1,4 @@
+@import '../../styles/colors';
 // Icon component styles
 .Icon {
 }
@@ -5,11 +6,10 @@
 // Icon grouping styles.
 .Icons {
   .core {
-    color: #00a1d9;
-    text-transform: uppercase;
+    color: $blue-links;
+    font-size: 14px;
     font-weight: 700;
     padding: 4px 0;
-    font-size: 14px;
+    text-transform: uppercase;
   }
-
 }

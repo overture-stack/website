@@ -1,37 +1,45 @@
+@import '../../styles/colors';
+
 .Badge {
-  padding: 0 14px;
+  align-self: flex-start;
+  border-radius: 4px;
+  border: none;
+  color: $black;
+  display: inline;
   font-size: 13px;
   font-weight: 600;
-  text-transform: uppercase;
-  border: none;
-  color: white;
-  align-self: flex-start;
-  display: inline;
+  padding: 0 14px;
   padding: 4px 8px;
-  border-radius: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
 
   &.pink {
-    background-color: #c66fa5;
+    background-color: $badge-bg-pink;
   }
 
   &.blue {
-    background-color: #6ac3e8;
+    background-color: $badge-bg-blue;
+  }
+
+  &.dark-blue {
+    background-color: $badge-bg-navy;
+    color: $white;
   }
 
   &.yellow {
-    background-color: #ecc000;
+    background-color: $badge-bg-yellow;
     border: none;
   }
 
   &.green {
-    background-color: #5db9ae;
+    background-color: $badge-bg-teal-dark;
   }
 
   &.light-green {
-    background-color: #00ddbe;
+    background-color: $badge-bg-teal;
   }
 
   &.red {
-    background-color: #c86370;
+    background-color: $badge-bg-red;
   }
 }

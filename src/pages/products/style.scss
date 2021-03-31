@@ -1,28 +1,25 @@
 // $tablet: 600px;
-@import "../../styles/variables";
+@import '../../styles/colors';
+@import '../../styles/variables';
 
 .ProductsPage {
-
   .spacer {
     height: 180px;
 
-    @media(max-width: 1408px) {
+    @media (max-width: 1408px) {
       height: 90px;
     }
 
-    @media(max-width: 1215px) {
+    @media (max-width: 1215px) {
       display: none;
     }
   }
 
-
-
   // remove container padding on this page on mobile so the boxes had full width borders.
-  @media(max-width: $tablet ) {
+  @media (max-width: $tablet) {
     .GridFeature > .bottom-border > .container {
       padding: 0;
     }
-
   }
 
   .img_hero_products {
@@ -31,14 +28,14 @@
 
   .hero-text {
     margin-right: 48px;
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       margin-right: 0;
     }
   }
 
   .grid-feature-wrap {
-    border-top: 2px solid #D4D4D4;
-    border-bottom: 2px solid #D4D4D4;
+    border-top: 2px solid $grey-3;
+    border-bottom: 2px solid $grey-3;
   }
 
   // sub component for `ProductBox`
@@ -46,40 +43,41 @@
   .product-box {
     padding: 32px;
 
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       padding: 44px;
-        border-right: none;
-        border-bottom: 2px solid #D4D4D4;
+      border-right: none;
+      border-bottom: 2px solid $grey-3;
     }
 
     .heading {
-      font-family: "Lato", "Arial" ;
+      font-family: $font-sans-serif;
       font-size: 40px;
-      color: #D087B4;
+      color: $pink;
       letter-spacing: 0;
       text-transform: capitalize;
 
-      @media(max-width: $tablet) {
+      @media (max-width: $tablet) {
         font-size: 28px;
       }
     }
 
     .details {
-      font-family: Lato, Arial;
+      font-family: $font-sans-serif;
       font-size: 18px;
-      color: #003055;
+      color: $navy-black;
       letter-spacing: 0;
       line-height: 30px;
       padding: 32px 0;
 
-      @media(max-width: $tablet) {
+      @media (max-width: $tablet) {
         padding: 16px 0;
       }
     }
 
     .icon-link {
       display: flex;
-      flex: 1;
+      flex: 1 1 auto;
+      font-weight: bold;
     }
 
     .icon {
@@ -90,52 +88,61 @@
       display: flex;
       margin-right: 24px;
 
-      @media(max-width: $tablet) {
+      @media (max-width: $tablet) {
         flex-direction: column;
       }
     }
 
-
     .link {
-      font-family: Lato;
+      font-family: $font-sans-serif;
       font-size: 26px;
-      color: #003055;
+      color: $navy-black;
       letter-spacing: 0;
       line-height: 70px;
       align-items: center;
       display: flex;
-
+      text-decoration: none;
       &:hover {
-        color: #9e005d;
+        color: $pink-darker;
       }
     }
-
-
+    h2 {
+      font-weight: bold;
+    }
     // per box styling
     &.collaborate-share {
+      h2 {
+        color: $title-green;
+      }
     }
-
     &.access-download {
+      h2 {
+        color: $title-blue;
+      }
     }
-
     &.analyze-discover {
-      border-right: 2px solid #D4D4D4;
-      @media(max-width: $tablet) {
+      h2 {
+        color: $title-red;
+      }
+      border-right: 2px solid $grey-3;
+      @media (max-width: $tablet) {
         border-right: none;
       }
     }
-
     &.generate-upload {
-      border-right: 2px solid #D4D4D4;
-      @media(max-width: $tablet) {
+      h2 {
+        color: $title-pink;
+      }
+      border-right: 2px solid $grey-3;
+      @media (max-width: $tablet) {
         border-right: none;
-        border-bottom: 2px solid #D4D4D4;
+        border-bottom: 2px solid $grey-3;
       }
     }
     &.track-manage {
+      h2 {
+        color: $title-yellow;
+      }
     }
-
-
-
   }
 }

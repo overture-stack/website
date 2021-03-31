@@ -1,6 +1,6 @@
-import React from 'react'
-import './styles.scss'
-import { Icon } from '../'
+import React from 'react';
+import { Icon } from 'components';
+import './styles.scss';
 
 export const BottomCallout = ({ children, className }) => (
   <section className={`${className ? className : ''} BottomCallout`}>
@@ -8,7 +8,7 @@ export const BottomCallout = ({ children, className }) => (
       <div className="callout-container">{children}</div>
     </div>
   </section>
-)
+);
 
 export const Callout = ({ icon, description, children, className }) => (
   <div className={`${className ? className : ''} Callout `}>
@@ -16,6 +16,6 @@ export const Callout = ({ icon, description, children, className }) => (
     <div className="text-white py2">{description}</div>
     {children}
   </div>
-)
+);
 
-export default BottomCallout
+export default BottomCallout;

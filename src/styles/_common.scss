@@ -1,15 +1,17 @@
 // Common styles that don't belong to a component (yet)
+@import './colors';
+@import './variables';
 
 .yellow-bar {
   max-width: 80px;
   height: 4px;
   min-width: 48px;
-  background-color: #f2d03a;
+  background-color: $yellow;
 }
 
 .bullet {
-  font-family: Lato-Regular, "Arial";
-  color: #003055;
+  font-family: $font-sans-serif;
+  color: $navy-black;
   letter-spacing: 0;
   // line-height: 30px;
   list-style-type: disc;

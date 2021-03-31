@@ -1,9 +1,13 @@
-/**
- * Created  on 31/3/18
- */
-const config = require('./meta/config')
+// needs to be at the top of the file.
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const remarkSlug = require('remark-slug');
+const config = require('./meta/config');
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+
+const ENABLE_SEARCH_INDEXING = process.env.ENABLE_SEARCH_INDEXING === 'true';
 
 module.exports = {
   siteMetadata: {
@@ -20,13 +24,13 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet', // adds meta tags
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-87708930-2',
+        trackingId: config.googleAnalyticsTrackingId,
         // Puts tracking script in the head instead of the body
         head: false,
         anonymize: true, // optional
@@ -35,12 +39,50 @@ module.exports = {
         exclude: [],
       },
     },
-
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        // required for headings table of contents
+        // adds ID to H# tags
+        remarkPlugins: [remarkSlug],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+            },
+          },
+          {
+            // copies over *any* random files you linked to
+            // from a markdown page
+            resolve: 'gatsby-remark-copy-linked-files',
+          },
+        ],
+        extensions: ['.mdx', '.md'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'docs',
+        path: `${__dirname}/markdown/documentation`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-yaml`,
+      options: {
+        typeName: 'Yaml',
+      },
+    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
+        // /src/pages is a "gatsby thing".
+        // these pages are created based on folder structure.
+        // e.g. pages/index.js is the homepage.
         name: 'pages',
       },
     },
@@ -65,13 +107,14 @@ module.exports = {
         showSpinner: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: config.googleTagManagerID,
-        includeInDevelopment: false,
-      },
-    },
+    // {
+    // TODO: get a google tag manager ID if we're using it
+    //   resolve: `gatsby-plugin-google-tagmanager`,
+    //   options: {
+    //     id: config.googleTagManagerID,
+    //     includeInDevelopment: false,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -96,5 +139,16 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        chunkSize: 10000, // default 1000
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
+        queries: require('./meta/algolia-queries.js'),
+        skipIndexing: !ENABLE_SEARCH_INDEXING,
+      },
+    },
   ],
-}
+};

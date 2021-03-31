@@ -3,13 +3,13 @@
  * text describing the page, and an image.
  **/
 
-import React from 'react'
-import './styles.scss'
-import { H1, H4 } from '../../components'
-import img_services from './assets/img_services.svg'
+import React from 'react';
+import { H1, H2 } from 'components';
+import './styles.scss';
+import img_services from './assets/img_services.svg';
 
 // some images
-const imgs = { img_services }
+const imgs = { img_services };
 
 const Hero = ({
   title,
@@ -22,14 +22,14 @@ const Hero = ({
   className,
 }) => {
   // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
-  let wrapperClass = ` Hero ${className && className} ${bgImage && 'bg-image'}`
-  let _titleClass = `titles column is-half-desktop ${titleClass && titleClass}`
+  let wrapperClass = ` Hero ${className && className} ${bgImage && 'bg-image'}`;
+  let _titleClass = `titles column is-half-desktop ${titleClass && titleClass}`;
 
   // Add background image + styles if hero needs one.
   let bgImageURL = {
     backgroundImage: `url(${imgs[bgImage]})`,
     ...bgImageStyles,
-  }
+  };
 
   return (
     <div className={wrapperClass} style={bgImageURL}>
@@ -37,7 +37,7 @@ const Hero = ({
       <div className=" flex container">
         <section className={_titleClass}>
           <H1>{title}</H1>
-          {subtitle && <H4 className="pt3">{subtitle}</H4>}
+          {subtitle && <H2 className="pt3 t-h4">{subtitle}</H2>}
           {children}
         </section>
 
@@ -48,7 +48,7 @@ const Hero = ({
         {!ImgComponent && <div className="image" />}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
