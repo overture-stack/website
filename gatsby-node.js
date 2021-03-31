@@ -7,7 +7,7 @@ const path = require('path');
 const startCase = require('lodash.startcase');
 const properUrlJoin = require('proper-url-join');
 
-const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
+// const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
 const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
 
@@ -73,9 +73,8 @@ const onCreateNode = ({ actions, getNode, node }) => {
       value: sectionSlug,
     });
 
-    const isDraft = ENABLE_DRAFTS && 
-      node.frontmatter.draft &&
-      node.frontmatter.draft === true;
+    const isDraft = node.frontmatter.draft && node.frontmatter.draft === true;
+
     actions.createNodeField({
       name: 'draft',
       node,
@@ -93,9 +92,10 @@ const createPages = async params => {
 const createMarkdownPages = async ({ actions, graphql }) => {
   const { data } = await graphql(`
     {
-      allMdx(filter: { fields: { draft: { ne: true } } }) {
+      allMdx {
         nodes {
           fields {
+            draft
             id
             sectionSlug
             slug
@@ -123,8 +123,10 @@ const createMarkdownPages = async ({ actions, graphql }) => {
     }
   `);
 
-
-  data.allMdx.nodes.forEach(node => {
+  data.allMdx.nodes
+  // TODO CHECK FOR FLAG HERE
+  .filter(node => !node.fields.draft)
+  .forEach(node => {
     const { id, sectionSlug, slug } = node.fields;
 
     // documentation section

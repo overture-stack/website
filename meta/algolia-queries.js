@@ -6,6 +6,7 @@ const docsAlgoliaQuery = `
       nodes {
         id
         fields {
+          draft
           sectionSlug
           slug
           title
@@ -17,9 +18,12 @@ const docsAlgoliaQuery = `
 `;
 
 function pageToAlgoliaRecord({ id, fields = {}, ...rest }) {
+  const { sectionSlug, slug, title } = fields;
   return {
     objectID: id,
-    ...fields,
+    sectionSlug,
+    slug,
+    title,
     ...rest,
   };
 }
