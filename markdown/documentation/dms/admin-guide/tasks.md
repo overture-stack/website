@@ -115,5 +115,5 @@ Currently, only these parts of the Data Portal's look-and-feel can be customized
 
 These items can only be customized as part of building a configuration via the interactive questionnaire.  Customizing the logo is actually a prerequisite step to running the questionnaire, while customizing the portal name is done during the questionnaire itself.  For details on how to perform these tasks, see these sections:
 
-- [Copy Logo File to Assets Folder](../installation/configuration/prereq/logo)
-- [Configure DMS UI](../installation/configuration/configure-dms#configure-dms-ui)
+- [Copy Logo File to Assets Folder](../../installation/configuration/prereq/logo)
+- [Configure DMS UI](../../installation/configuration/configure-dms#configure-dms-ui)
