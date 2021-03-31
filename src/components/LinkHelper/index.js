@@ -37,7 +37,7 @@ export default function LinkHelper({ location = {}, onClick = undefined, to = ''
   return isExternal ? (
     <a {...props} href={url} onClick={onClick} target="_blank" />
   ) : url ? (
-    <Link {...props} to={url} onClick={samePageHash ? hashOnClick : onClick} />
+    <a {...props} href={url} onClick={samePageHash ? hashOnClick : onClick} />
   ) : (
     // probably <a name="string" />
     <a {...props} onClick={onClick} />
