@@ -19,5 +19,8 @@
   ENABLE_SEARCH_INDEXING="false"
 
 [context.branch-deploy.environment]
+  # GATSBY_ENABLE_DRAFTS="true"
+  # ENABLE_SEARCH_INDEXING="false"
+  # temporarily making this match prod
   GATSBY_ENABLE_DRAFTS="false"
   ENABLE_SEARCH_INDEXING="true"
