@@ -25,7 +25,7 @@ Once users are authenticated, they are granted [tokens](/documentation/ego#token
 |------|-----|
 | [Application JWTs](/documentation/ego#application-jwt) | For authorization of individual applications. |
 | [User JWTs](/documentation/ego#user-jwt) | For authorization of individual users. |
-| [User API Key](/documentation/ego#user-api-keys) | For users to access the Ego API endpoints. |
+| [User API Key](/documentation/ego#user-api-keys) | For users to interact with applications registered in Ego using the level of authority as defined by the key. |
 
 Secured applications can create and manage authorization tokens, and use those tokens to interact with third party applications registered in Ego to manage resource authorization.  For more details on how tokens are used in Ego, see [Tokens](/documentation/ego#tokens) later below.
 
@@ -56,7 +56,7 @@ The diagram below shows the relationship between the entities that work together
 | User | A user is any individual registered in Ego who needs to authorize themselves with Ego-aware applications. |
 | Admin | An admin is a power user whose role is set to `ADMIN`. Only admins are authorized to register users, groups, applications & policies using Ego’s REST endpoints. |
 | Group | A group of users with similar properties. Admins can create new groups and add users to them. They can then assign permissions to an entire group which will be reflected for each user in that group. This greatly simplifies permission management for similar users, since the admin only needs to assign a permission to the entire group, instead of each individual user. |
-| Policy | A policy is a scope or context for which an application may want to grant a user or group `READ/WRITE/DENY` permissions. |
+| Policy | A policy is a scope or context for which an application may want to grant `READ/WRITE/DENY` permissions to a particular user or group. |
 | Permission | A user or group can be given `READ/WRITE/DENY` permissions for a particular policy. |
 | Application | An application is a third party service that registers itself with EGO so that EGO can authorize users on its behalf. Upon registration, the service must provide secure credentials in the form of a `Client ID` and `Client Secret` pair. |
 | Application Authentication Token |  This a basic JWT token which encodes a `Client ID` and `Client Secret`, and authorizes an application to interact with Ego. This is passed in the authorization request header when an application uses the `check_token` endpoint to check a user’s token. |
