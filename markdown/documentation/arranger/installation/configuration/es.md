@@ -18,7 +18,7 @@ To use the default mapping, run the ES initialization script:
 make init-es
 ```
 
-# Supplying A Custom Index Mapping
+# Supplying a Custom Index Mapping
 
 Alternatively, to configure and supply your own mapping:
 
