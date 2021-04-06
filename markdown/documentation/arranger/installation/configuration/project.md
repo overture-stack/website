@@ -46,7 +46,7 @@ To add a new project to the Arranger Admin UI, do the following:
 4. Under **Project ID**, click **Add Index**.  Additional fields appear.
 
 
-5. In the **Name** field, enter a cosmetic name for the project.  If you are using the default sample index, you can simply enter `file`.
+5. In the **Name** field, enter a cosmetic name for the index.  If you are using the default sample index, you can simply enter `file`.
 
 
 6. In the **ES Index** field, enter the **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric_1.0`.
