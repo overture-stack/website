@@ -25,7 +25,7 @@ The JSON files are:
 | extended.json | Extended (extra) configurations for your Elasticsearch index mapping. |
 | matchbox-state.json | Configures the quick search settings gor specified fields in the data portal. |
 
-You can refer to a set of sample files for the default `file_centric` index [here](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) as a guide.
+You can refer to a set of sample files for the default `file_centric_1.0` index [here](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) as a guide.
 
 <Note title="Tip">For your own custom index mapping, you only need to replace the fields in the JSON files with the fields you wish to configure in Arranger.  You do **NOT** need to supply the actual configuration values, since you can do that in the UI once they are imported.  Just make sure the JSON files are in the correct format per the default example, but with the list of fields from your own mapping instead of the default ones.</Note>
 
