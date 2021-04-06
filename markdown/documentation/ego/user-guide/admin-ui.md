@@ -87,6 +87,30 @@ A policy is a scope or context for which an application may want to grant `READ/
 
 Policies are flexible in configuration and it is up to the administrator to determine, based on their requirements, what permissions that policy should grant and to whom (users, groups).
 
+## Permission Inheritance
+
+Before proceeding, it is important to understand how the permissions described earlier are inherited.  First, here is the entity relationship diagram [introduced earlier](/documentation/ego#how-ego-works):
+
+![Entity Diagram](../assets/how-it-works.png 'Ego Entity Diagram')
+
+Observe that a user can have permissions assigned directly against their profile (their user ID), while simultaneously the group they belong to will have permissions assigned against that group.  As such, the user inherits permissions that are directly against their profile and those from groups they belong to.
+
+**This raises a valuable question:** What happens if a user has seemingly conflicting permissions assigned against their profile and against their group?  For example:
+
+* User ID `abc123` is directly assigned permission `SONG.WRITE`
+* Meanwhile, user `abc123` also belongs to group `TestGroup` and `TestGroup` is assigned permission `SONG.DENY`
+
+**How do these resolve?**
+
+In the Ego permission inheritance scheme, only the permission **level** matters, not the source.  That is, it doesn't matter whether the permission comes from the user profile or the group.  What matters is the strictness of the actual permissions (`READ/WRITE/DENY`) assigned.  In Ego, the **least-permissive** permission is the one that will resolve and be used.  Thus, in our example above, because `TestGroup` has the more restrictive permission, `SONG.DENY`, it does not matter that user `abc123` has `SONG.WRITE`.  Ultimately that permission will resolve to `SONG.DENY`.
+
+It is important to note that the Ego API has two separate endpoints to retrieve user-level permissions:
+
+* `users/{id}/permissions` - This returns permissions assigned **directly** to the user
+* `users/{id}/groups/permissions` - This returns the ultimated **resolved** permissions that a user would have
+
+<Warning>**NOTE:** In the Ego Admin UI, when viewing a user's permissions on their details pane, ONLY the ultimate resolved permissions are displayed.</Warning>
+
 ## Creating a Policy
 
 To create a new policy:
@@ -192,7 +216,7 @@ To edit an existing user:
 
 ## Disabling a User
 
-<Note title="No User Deletion in UI">Users cannot be deleted via the Ego Admin UI.  They can only be disabled.  However, is absolutely necessary, users can be deleted via the API if the user has the correct administrative privileges.  If you wish to delete users via the API, proceed with caution and be absolutely sure before performing the delete, as the user is not recoverable afterwards.</Note>
+<Note title="No User Deletion in UI">Users cannot be deleted via the Ego Admin UI.  They can only be disabled.  However, if it is absolutely necessary, users can be deleted via the API if the user has the correct administrative privileges.  If you wish to delete users via the API, proceed with caution and be absolutely sure before performing the delete, as the user is not recoverable afterwards.</Note>
 
 To disable a user:
 

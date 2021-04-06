@@ -18,13 +18,17 @@ To retrieve your Ego Admin JWT:
 
 ![Entity](../assets/network-tab.png 'Network Tab')
 
-2. Log into the Ego Admin UI.  Click **Users** from the lefthand menu, then select your user profile.  Your profile is displayed.  Verify that you have `User Type` set to the `ADMIN` role:
+2. Log into the Ego Admin UI.  Click **Users** from the lefthand menu, then select your user profile.  Your profile is displayed:
 
 ![Entity](../assets/user-admin2.png 'Admin Role')
 
 3. Next look at the **Network** tab in your browser developer tools.  In the request list on the left, search for a request suffixed with `ego-token?client_id=ego-ui`.  Click it, then click the **Response** tab to view your Ego JWT:
 
 ![Entity](../assets/ego-jwt.png 'Ego JWT')
+
+Alternatively, you can click the **Application** tab, go to **Local Storage** on the left, and select the Ego Admin UI URL and view your `user-token`.  The `user-token` value also contains your EGO JWT and can you similarly copy it from here:
+
+![Entity](../assets/local-storage.png 'Local Storage')
 
 4. Copy and record your JWT and keep it secure and safe.  Only you should have access to your JWT.  We will subsequently use it to authorize with the Ego API.
 
@@ -34,7 +38,7 @@ Next, we will use the Ego API to generate an API Key for another user, so that t
 
 ## Check Prerequisites
 
-1. First log back into Ego Admin UI.  Click **Users** from the lefthand menu, then select the user for which we need to generate the API Key.  Their profile is displayed.  Copy their `ID` since it must be supplied later to the relevant endpoint:
+1. From the Ego Admin UI, click **Users** from the lefthand menu, then select the user for which we need to generate the API Key.  Their profile is displayed.  Copy their `ID` since it must be supplied later to the relevant endpoint:
 
 ![Entity](../assets/copy-id.png 'Copy ID')
 
