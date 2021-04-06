@@ -49,7 +49,7 @@ To add a new project to the Arranger Admin UI, do the following:
 5. In the **Name** field, enter a cosmetic name for the project.  If you are using the default sample index, you can simply enter `file`.
 
 
-6. In the **ES Index** field, enter the **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric`.
+6. In the **ES Index** field, enter the **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric_1.0`.
 
 
 7. Click **Choose Files**, then browse for and select the four (4) JSON metadata files that define your project's default configuration in Arranger.  These are the same files you setup [earlier above](/documentation/arranger/installation/configuration/project#setup-arranger-metadata-files):
