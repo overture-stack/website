@@ -25,7 +25,7 @@ make file
 This deploys and starts the following services:
 
 * Elasticsearch: Configured with default username `elastic` and password `myelasticpassword`
-    * These values can be modified if required, see [here](/documentation/arranger/installation/authentication)
+    * If you prefer setting different credentials, these values can be modified if required, prior to deploying these services, for details see [here](/documentation/arranger/installation/authentication)
 * [Kibana](https://www.elastic.co/kibana): Elastic's tool for visualizing indices
 * `arranger-server`: The server-side application
 * `arranger-ui`: The administrative UI
