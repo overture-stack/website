@@ -14,9 +14,11 @@ There are several parts to this:
 
 # Setup Arranger Metadata Files
 
-When creating a new project, several metadata JSON files need to be imported.  These files need to be created in advance to reflect the fields in your index mapping that need to be configured within Arranger.
+When creating a new project, several JSON files need to be imported.  They describe the metadata configurations for your project.  These files need to be created in advance to reflect the fields in your index mapping that need to be configured within Arranger.
 
-The JSON files are:
+For reference, we provide a set of sample JSON files for the default `file_centric_1.0` index [here](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) as a guide.
+
+The required JSON files are:
 
 | File | Description |
 |------|-------------|
@@ -24,8 +26,6 @@ The JSON files are:
 | columns-state.json | Configures the data columns in the data portal's search results table. |
 | extended.json | Extended (extra) configurations for your Elasticsearch index mapping. |
 | matchbox-state.json | Configures the quick search settings gor specified fields in the data portal. |
-
-You can refer to a set of sample files for the default `file_centric_1.0` index [here](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) as a guide.
 
 <Note title="Tip">For your own custom index mapping, you only need to replace the fields in the JSON files with the fields you wish to configure in Arranger.  You do **NOT** need to supply the actual configuration values, since you can do that in the UI once they are imported.  Just make sure the JSON files are in the correct format per the default example, but with the list of fields from your own mapping instead of the default ones.</Note>
 
@@ -40,7 +40,7 @@ To add a new project to the Arranger Admin UI, do the following:
 2. From the **Project versions** list, click **Add Project**:
 
 
-3. A pop-up control appears.  In the **Project ID** field, enter a **Project ID**.  This must be in [`snake_case`](https://en.wikipedia.org/wiki/Snake_case).  If you are using the default sample index, you can simply enter `file`.
+3. A pop-up control appears.  In the **Project ID** field, enter a **Project ID**.  This must be in [`snake_case`](https://en.wikipedia.org/wiki/Snake_case) and dashes (`-`) are not allowed.  If you are using the default sample index, you can simply enter `file`.
 
 
 4. Under **Project ID**, click **Add Index**.  Additional fields appear.
@@ -49,7 +49,7 @@ To add a new project to the Arranger Admin UI, do the following:
 5. In the **Name** field, enter a cosmetic name for the project.  If you are using the default sample index, you can simply enter `file`.
 
 
-6. In the **ES Index** field, enter the **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric_1.0`.
+6. In the **ES Index** field, enter the actual **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric_1.0`.
 
 
 7. Click **Choose Files**, then browse for and select the four (4) JSON metadata files that define your project's default configuration in Arranger.  These are the same files you setup [earlier above](/documentation/arranger/installation/configuration/project#setup-arranger-metadata-files):
