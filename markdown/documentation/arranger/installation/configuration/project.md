@@ -10,7 +10,7 @@ There are several parts to this:
 2. Adding the project to the Arranger Admin UI
 3. Configuring the project once it is created
 
-<Warning>**NOTE:** Although multiple projects can be created and exist in the Arranger Admin UI, currently only **ONE** project can be actively in use by the front-end data portal at a time.  This will always be the latest created project.</Warning>
+<Warning>**NOTE:** Although multiple projects can be created and exist in the Arranger Admin UI, currently only **ONE** project can be actively in use by the front-end data portal at a time.  Your UI application must specify in its interactions with Arranger (e.g. queries) which project to use.</Warning>
 
 # Setup Arranger Metadata Files
 
