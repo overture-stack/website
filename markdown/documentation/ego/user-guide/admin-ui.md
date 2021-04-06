@@ -107,7 +107,7 @@ In the Ego permission inheritance scheme, only the permission **level** matters,
 It is important to note that the Ego API has two separate endpoints to retrieve user-level permissions:
 
 * `users/{id}/permissions` - This returns permissions assigned **directly** to the user
-* `users/{id}/groups/permissions` - This returns the ultimated **resolved** permissions that a user would have
+* `users/{id}/groups/permissions` - This returns the ultimate **resolved** permissions that a user would have from direct permissions and group permissions
 
 <Warning>**NOTE:** In the Ego Admin UI, when viewing a user's permissions on their details pane, ONLY the ultimate resolved permissions are displayed.</Warning>
 
