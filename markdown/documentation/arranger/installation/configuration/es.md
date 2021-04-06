@@ -27,7 +27,7 @@ Alternatively, to configure and supply your own mapping:
 
 2. Once you have your mapping created, you must copy and paste it into the aforementioned `index_config.json` file in the proper format. Again, use the existing sample file as a guide.  The `index_config.json` file can be found in the `arranger/docker/elasticsearch` directory.
 
-<Warning>**NOTE:** You can rename the alias, but it may be simpler to leave it as `file_centric` for easy-of-use.  This is because, if you change the alias, you will need to modify the `make init-es` script, `load-es-data.sh` to reference your alias name instead.</Warning>
+<Warning>**NOTE:** You can rename the alias, but it may be simpler to leave it as `file_centric_1.0` for ease-of-use.  This is because, if you change the alias, you will need to modify the `make init-es` script, `load-es-data.sh` to reference your alias name instead.</Warning>
 
 3. To use your custom mapping, run the ES initialization script:
 

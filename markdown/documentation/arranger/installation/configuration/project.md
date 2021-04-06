@@ -25,7 +25,7 @@ The required JSON files are:
 | aggs-state.json | Configures the search filters and aggregations in the data portal's facet panel. |
 | columns-state.json | Configures the data columns in the data portal's search results table. |
 | extended.json | Extended (extra) configurations for your Elasticsearch index mapping. |
-| matchbox-state.json | Configures the quick search settings gor specified fields in the data portal. |
+| matchbox-state.json | Configures the quick search settings for specified fields in the data portal. |
 
 <Note title="Tip">For your own custom index mapping, you only need to replace the fields in the JSON files with the fields you wish to configure in Arranger.  You do **NOT** need to supply the actual configuration values, since you can do that in the UI once they are imported.  Just make sure the JSON files are in the correct format per the default example, but with the list of fields from your own mapping instead of the default ones.</Note>
 
@@ -46,7 +46,7 @@ To add a new project to the Arranger Admin UI, do the following:
 4. Under **Project ID**, click **Add Index**.  Additional fields appear.
 
 
-5. In the **Name** field, enter a cosmetic name for the project.  If you are using the default sample index, you can simply enter `file`.
+5. In the **Name** field, enter a cosmetic name for the index.  If you are using the default sample index, you can simply enter `file`.
 
 
 6. In the **ES Index** field, enter the actual **Elasticsearch Alias Name** value that you specified in the `index_config.json` file.  If you are using the default sample index, then enter `file_centric_1.0`.
