@@ -102,7 +102,7 @@ Observe that a user can have permissions assigned directly against their profile
 
 **How do these resolve?**
 
-In the Ego permission inheritance scheme, only the permission **level** matters, not the source.  That is, it doesn't matter whether the permission comes from the user profile or the group.  What matters is the strictness of the actual permissions (`READ/WRITE/DENY`) assigned.  In Ego, the **least-permissive** permission is the one that will resolve and be used.  Thus, in our example above, because `TestGroup` has the more restrictive permission, `SONG.DENY`, it does not matter that user `abc123` has `SONG.WRITE`.  Ultimately that permission will resolve to `SONG.DENY`.
+In the Ego permission inheritance scheme, only the permission **level** matters, not the source.  That is, it doesn't matter whether the permission comes from the user profile or the group.  What matters is the strictness of the actual permissions (`READ/WRITE/DENY`) assigned.  In Ego, the **least-permissive** permission is the one that will resolve and be used.  Thus, in our example above, because `TestGroup` has the more restrictive permission, `SONG.DENY`, it will override the `SONG.WRITE` permission.
 
 It is important to note that the Ego API has two separate endpoints to retrieve user-level permissions:
 
