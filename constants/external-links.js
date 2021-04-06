@@ -27,6 +27,7 @@ export const ARRANGER_UPDATES_LINK = 'https://arranger.readthedocs.io/en/latest'
 
 // DMS
 export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
+export const CANARIE_LINK = 'https://www.canarie.ca/';
 
 // ego
 export const EGO_SQL_LINK =
