@@ -29,12 +29,12 @@ To configure the extended properties:
 
 | Config | Description |
 |--------|-------------|
-| Display Name | |
-| Aggregation Type | |
-| Active | |
-| Quicksearch enabled | |
-| Is primary key | |
-| Is array | |
+| Display Name | Name of the field to display in the data portal. This reflects in the facet panel and the results table. We recommend you update these names, since otherwise, the default ES index field name will appear. |
+| Aggregation Type | Type of aggreggation used to count or sum up values for the field. Select a value from the drop-down. The values are types supported by Elasticsearch. The data portal may need to know the aggregation type so that it can render UI components in a certain way or behaviour. For example, for dates, the UI may need to know so that it can display things in a certain format or control. |
+| Active | **DO NOT USE: DEPRECATED** |
+| Quicksearch enabled | If enabled, the field will be enabled for quick search in the facet panel (the quick search text box with the magnifying glass icon). |
+| Is primary key | If enabled, this indicates if the field is the primary key for an entity in the Elasticsearch index. The data portal may need to know this in order to perform some logic or operations.  Hence, the admin must mark it as a primary key here so that the data portal knows. |
+| Is array | If enabled, this indicates if the field is an array. Elasticsearch does not support this information. Hence, if the data portal needs to know if a field is an array or not, it cannot rely on the ES mapping. Instead, the admin must mark it as an array in Arranger so that the data portal knows. |
 
 6. Click **Save Project**.
 
@@ -63,9 +63,9 @@ To configure properties of the facet panel:
 
 | Config | Description |
 |--------|-------------|
-| Position | |
-| Active  | |
-| Shown | |
+| Position | Indicates the position in the facet panel that the field appears. `0` represents the top-most position. You can use the drop-down to specify the position or drag-'n-drop the field in the Admin UI. |
+| Active  | If enabled, the field can be viewed in the facet panel, but does **NOT** display by default. |
+| Shown | If enabled, the field will display by default in the facet panel. This can only be enabed if `Active` is also enabled. |
 
 6. Click **Save Project**.
 
@@ -86,17 +86,18 @@ To configure properties of the results table:
 3. Click the Elasticsearch index name you wish to configure.
 
 
-4. Click the **Aggs Panel** tab.  The list of all fields from your index mapping appears:
+4. Click the **Table** tab.  The list of all fields from your index mapping appears:
 
-![Entity](../assets/facets.png 'Facets')
+![Entity](../assets/table.png 'Table')
 
 5. For each field, you can configure the following as you deem necessary:
 
 | Config | Description |
 |--------|-------------|
-| Position | |
-| Active  | |
-| Shown | |
+| Position | Indicates the position in the results table that the data column appears. `0` represents the top-most position. You can use the drop-down to specify the position or drag-'n-drop the field in the Admin UI. |
+| Active  | If enabled, the data column can be viewed in the results table, but does **NOT** display by default. |
+| Shown | If enabled, the data column will display by default in the results table. This can only be enabed if `Active` is also enabled. |
+| Sortable | If enabled, the results table will be sortable on the data dolumn. |
 
 6. Click **Save Project**.
 
@@ -125,14 +126,14 @@ To configure global quick search properties:
 
 ![Entity](../assets/quick-search.png 'Quick Search')
 
-5. For each field, you can configure the following as you deem necessary:
+5. For each entity, you can configure the following as you deem necessary:
 
 | Config | Description |
 |--------|-------------|
-| Display Name | |
-| Active  | |
-| Key Field | |
-| Search Field | |
+| Display Name | Name of the entity to display in quick search. We recommend you update these names, since otherwise, the default ES index entity name will appear. |
+| Active  | If enabled, the entity will be available for quick search. |
+| Key Field | The field that unique identifies each instance of the entity. Select the correct field from the drop-down. |
+| Search Field | A list of fields that the entity can be searched with. Select and add as many fields as required from the drop-down, one-by-one. |
 
 6. Click **Save Project**.
 
