@@ -73,7 +73,7 @@ To add a new project to the Arranger Admin UI, do the following:
 
 # Configure Project Metadata
 
-For details on how to configure the project metadatal, see the relevant sections in the [User Guide](/documentation/arranger/user-guide):
+For details on how to configure the project metadata, see the relevant sections in the [User Guide](/documentation/arranger/user-guide):
 
 * [Configuring Extended Field Properties](/documentation/arranger/user-guide#configuring-extended-field-properties)
 * [Configuring the Facet Panel](/documentation/arranger/user-guide#configuring-the-facet-panel)
