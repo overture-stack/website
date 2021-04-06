@@ -31,7 +31,7 @@ To configure the extended properties:
 |--------|-------------|
 | Display Name | Name of the field to display in the data portal. This reflects in the facet panel and the results table. We recommend you update these names, since otherwise, the default ES index field name will appear. |
 | Aggregation Type | Type of aggreggation used to count or sum up values for the field. Select a value from the drop-down. The values are types supported by Elasticsearch. The data portal may need to know the aggregation type so that it can render UI components in a certain way or behaviour. For example, for dates, the UI may need to know so that it can display things in a certain format or control. |
-| Active | **DO NOT USE: DEPRECATED** |
+| Active | **DO NOT USE: Not currently supported** |
 | Quicksearch enabled | If enabled, the field will be enabled for quick search in the facet panel (the quick search text box with the magnifying glass icon). |
 | Is primary key | If enabled, this indicates if the field is the primary key for an entity in the Elasticsearch index. The data portal may need to know this in order to perform some logic or operations.  Hence, the admin must mark it as a primary key here so that the data portal knows. |
 | Is array | If enabled, this indicates if the field is an array. Elasticsearch does not support this information. Hence, if the data portal needs to know if a field is an array or not, it cannot rely on the ES mapping. Instead, the admin must mark it as an array in Arranger so that the data portal knows. |

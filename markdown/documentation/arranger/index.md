@@ -4,7 +4,7 @@ title: Introduction
 
 Arranger is a powerful collection of reusable components that allows administrators to organize an intuitive user interface (data portal) for data search and exploration.
 
-It integrates with an [Elasticsearch](https://www.elastic.co/) cluster to quickly spin up a data portal which search capabilities based on a defined Elasticsearch index mapping.
+It integrates with an [Elasticsearch](https://www.elastic.co/) cluster to quickly spin up a data portal with search capabilities based on a defined Elasticsearch index mapping.
 
 # Features
 
