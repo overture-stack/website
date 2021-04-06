@@ -4,6 +4,7 @@ export { default as Badge } from './Badge';
 export { default as ComingSoonBadge } from './Badge/ComingSoonBadge';
 export { BottomCallout, Callout } from './BottomCallout';
 export { default as Button } from './Button';
+export { default as CanarieCredits } from './CanarieCredits';
 export { default as CaseStudy } from './CaseStudy';
 export { default as Code } from './Code';
 export { default as Footer } from './Footer';

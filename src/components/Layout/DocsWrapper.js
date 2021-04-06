@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import productsDict from 'constants/products';
 import { DOCS_PATH } from 'constants/pages';
-import { Icon, LinkHelper as Link, Search, SectionTableOfContents } from 'components';
+import {
+  CanarieCredits,
+  Icon,
+  LinkHelper as Link,
+  Search,
+  SectionTableOfContents,
+} from 'components';
 
 const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: searchIndex, title: searchIndex }];
@@ -52,6 +58,7 @@ export default function DocsWrapper({ children, data, path }) {
               Documentation Overview
             </Link>
             <SectionTableOfContents pages={pages} path={path} />
+            {sectionSlug === 'dms' && <CanarieCredits />}
           </div>
         </div>
         {children}
