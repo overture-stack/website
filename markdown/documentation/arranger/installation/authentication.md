@@ -6,7 +6,7 @@ Arranger needs the correct Elasticsearch credentials to access the ES cluster.  
 
 However, if these values need to be changed, they can be modified prior to deploying the ES service, by updating the arranger `Makefile`:
 
-1. Open the `Makefile` in an editor and look for the `#Varaibles` section:
+1. Open the `Makefile` in an editor and look for the `#Variables` section:
 
 ```shell
 # Variables
