@@ -10,7 +10,7 @@ However, most users will wish to configure and supply their own index mapping, w
 
 # Using the Default Index Mapping
 
-The default index mapping, called `file_centric`, is a sample mapping used for cancer genomics, which represents genomic file metadata that can be searched in the ata portal.  In arranger, the sample mapping is configured in the `index_config.json` file.  The sample mapping can be examined [here](https://github.com/overture-stack/arranger/blob/2edf185835fa5e9c5db84a9567bce66d03355623/docker/elasticsearch/index_config.json).
+The default index mapping, called `file_centric_1.0`, is a sample mapping used for cancer genomics, which represents genomic file metadata that can be searched in the data portal.  In Arranger, the sample mapping is configured in the `index_config.json` file.  The sample mapping can be examined [here](https://github.com/overture-stack/arranger/blob/2edf185835fa5e9c5db84a9567bce66d03355623/docker/elasticsearch/index_config.json).
 
 To use the default mapping, run the ES initialization script:
 
