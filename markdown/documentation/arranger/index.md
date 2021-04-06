@@ -16,7 +16,7 @@ Arranger automatically generates a search API based on the index mapping you hav
 
 * The API is [GraphQL](https://graphql.org/)-based and fully aware of your Elasticsearch data model.
 
-* The API uses a consistent query & filter notation (called `SQON`) which is both straightforward for humans to understand **and** simple for machine
+* The API uses a consistent query & filter notation (called `SQON`) which is both straightforward for humans to understand **and** simple for software to interpret.
 
 ## Built-In UI Components
 
