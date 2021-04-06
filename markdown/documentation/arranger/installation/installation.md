@@ -19,7 +19,7 @@ cd arranger
 3. Run the quickstart `make` file:
 
 ```shell
-make file
+make start
 ```
 
 This deploys and starts the following services:
