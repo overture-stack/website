@@ -48,7 +48,6 @@ const productSections = [
     color: 'blue',
     cards: [
       {
-        comingSoon: true,
         icon: 'productEgo',
         link: '/documentation/ego/',
         text: 'Authorization services for identity providers such as Google and Facebook.',
@@ -62,7 +61,6 @@ const productSections = [
         title: 'Maestro',
       },
       {
-        comingSoon: true,
         icon: 'productArranger',
         link: '/documentation/arranger/',
         text: 'Provides the power to organize your data into an intuitive search interface.',
