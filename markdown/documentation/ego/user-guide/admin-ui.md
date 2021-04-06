@@ -192,7 +192,7 @@ To edit an existing user:
 
 ## Disabling a User
 
-<Note title="No User Deletion">Users cannot be deleted via the Ego Admin UI or the API.  They can only be disabled.  This ensures historical records are kept intact for provenance and reference purposes.</Note>
+<Note title="No User Deletion in UI">Users cannot be deleted via the Ego Admin UI.  They can only be disabled.  However, is absolutely necessary, users can be deleted via the API if the user has the correct administrative privileges.  If you wish to delete users via the API, proceed with caution and be absolutely sure before performing the delete, as the user is not recoverable afterwards.</Note>
 
 To disable a user:
 
