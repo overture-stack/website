@@ -14,7 +14,7 @@ Arranger automatically generates a search API based on the index mapping you hav
 
 * The ability to auto-generate and expose a search API and user interface (data portal) based on a custom index mapping of your choosing and configuration.
 
-* The API is [GraphQL][(https://graphql.org/)-based and fully aware of your Elasticsearch data model.
+* The API is [GraphQL](https://graphql.org/)-based and fully aware of your Elasticsearch data model.
 
 * The API uses a consistent query & filter notation (called `SQON`) which is both straightforward for humans to understand **and** simple for machine
 
