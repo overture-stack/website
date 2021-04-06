@@ -23,7 +23,7 @@ The JSON files are:
 | aggs-state.json | Configures the search filters and aggregations in the data portal's facet panel. |
 | columns-state.json | Configures the data columns in the data portal's search results table. |
 | extended.json | Extended (extra) configurations for your Elasticsearch index mapping. |
-| matchbox-state.json | Configures the quick search settings gor specified fields in the data portal. |
+| matchbox-state.json | Configures the quick search settings for specified fields in the data portal. |
 
 You can refer to a set of sample files for the default `file_centric_1.0` index [here](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) as a guide.
 
