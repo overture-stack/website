@@ -4,7 +4,7 @@ title: Authentication
 
 Arranger needs the correct Elasticsearch credentials to access the ES cluster.  During [installation](/documentation/arranger/installation/installation), the username and password are defaulted to `elastic` and `myelasticpassword`, respectively.
 
-However, if these values need to be changed, they can be modified prior to deploying the ES service, by updating the arranger `Makefile`:
+However, if these values need to be changed, they can be modified prior to deploying the ES service, by updating Arranger's `Makefile`:
 
 1. Open the `Makefile` in an editor and look for the `#Variables` section:
 
