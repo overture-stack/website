@@ -16,7 +16,7 @@ pages:
   - title: Authentication
     url: ego/installation/authentication
 - title: User Guide
-  url: ego/user-Guide
+  url: ego/user-guide
   isHeading: true
   pages:
   - title: Using the Admin UI
