@@ -63,9 +63,9 @@ cd maestro/maestro-app/src/main/resources/config
 
 | Property | Description |
 |----------|-------------|
-| `code` | This is a unique ID to represent the Song server.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
+| `code` | This is a unique ID to represent the Song repository.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
 | `url` | URL where you have deployed the Song server |
-| `name` | Set to `local song` |
+| `name` | A descriptive name for the repository |
 
 ```
 # List of Genomic files repositories (SONGs)
@@ -104,7 +104,7 @@ cd maestro/maestro-app/src/main/resources/config
 
 To run the Maestro service locally, a `Makefile` is provided for your convenience.  However, if you are unable to use make, you may examine the `Makefile` contents for the raw commands.
 
-**Running from Docker (Recommended for Local Installations)**
+### Running from Docker (Recommended for Local Installations)
 
 It is highly recommended that for local installations, you run Maestro from Docker.
 
@@ -112,25 +112,47 @@ In this mode a `docker-compose.yml` file is provided that contains a Dockerized 
 
 For reference, the Docker image for Maestro can be found on Docker Hub [here](https://hub.docker.com/r/overture/maestro).
 
-To start Maestro from a Docker image with all needed infrastructure, execute:
+To start Maestro from a Docker image with all needed infrastructure, run this command:
 
 ```
 make docker-start
 ```
 
-**Running from Source (No Docker)**
+### Running from Source (No Docker)**
 
-Source Code (No Docker)
+If you need to run Maestro from source without Docker, it will be your responsibility to ensure:
+
+* You have JDK 11 and up installed
+* All [dependencies](/documentation/maestro/installation/installation#dependencies) described earlier are installed
+* Configured the `application.yml` file per your environment
+
+If the above is complete, then run this command:
+
 Provided that you have JDK11+ and all dependencies (see Dependencies) running and modified application.yaml based on your environment and needs, you can run the following command:
 
+```
 make run
+```
 
-Kuberenets (Helm)
-if you want to run in a Kubernetes cluster you can use the maestro helm chart
+## Running on Kubernetes (Helm)
 
-Chart Repository
-prepare your values-override.yaml file based on your env, you can provide the app configs as env variables using the extraEnv key:
+If you wanto to run Maestro as a service in a Kubernetes cluster than you can use the provided Maestro Helm chart in the Overture chart repository [here](https://overture-stack.github.io/charts-server/).
 
+Do the following:
+
+1. Modify your `values-override.yaml` file based on your deployment environment.  You can provide the Maestro application configurations as environment variables using the `extraEnv` key.
+
+For example, similar to our native `application.yml` file, we must provide the following mandatory values:
+
+| Property | Description |
+|----------|-------------|
+| `MAESTRO_ELASTICSEARCH_CLUSTERNODES_0` | URL to your Elasticsearch cluster node |
+| `SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS` | URL to your Kafka broker, if using Kafka for event-based indexing |
+| `MAESTRO_REPOSITORIES_<X>_CODE` | For each Song repository `<X>` you want to setup, this is the unique ID for that repository.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
+| `MAESTRO_REPOSITORIES_<X>_URL` | For each Song repository `<X>` you want to setup, this is the URL where you have deployed the Song server  |
+| `MAESTRO_REPOSITORIES_<X>_NAME` | For each Song repository `<X>` you want to setup, this is a descriptive name for the repository |
+
+```
 extraEnv:
   SERVER_PORT: "11235"
   MAESTRO_ELASTICSEARCH_CLUSTERNODES_0: "http://localhost:9200"
@@ -147,11 +169,11 @@ extraEnv:
   MAESTRO_REPOSITORIES_1_ORGANIZATION: "overture"
   MAESTRO_REPOSITORIES_1_COUNTRY: "OICR"
   MAESTRO_FAILURELOG_DIR: "/app-log"
-  # slack
-  MAESTRO_NOTIFICATIONS_SLACK_ENABLED: "true"
-  MAESTRO_NOTIFICATIONS_SLACK_URL: "secret"
-  MAESTRO_NOTIFICATIONS_SLACK_CHANNEL: "maestro-argo-notif"
-then add overture chart repository and install the chart:
+```
 
+2.  Next add the Overture [chart repository](https://overture-stack.github.io/charts-server/) and install the chart:
+
+```
 helm repo add overture https://overture-stack.github.io/charts-server/
-helm install -f values-override.yaml overture/maestro
+helm install -f values-override.yml overture/maestro
+```
