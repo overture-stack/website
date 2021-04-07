@@ -1,5 +1,13 @@
 import React from 'react';
-import { Badge, ComingSoonBadge, Button, Icon, LinkHelper as Link, Search } from 'components';
+import {
+  Badge,
+  CanarieCredits,
+  ComingSoonBadge,
+  Button,
+  Icon,
+  LinkHelper as Link,
+  Search,
+} from 'components';
 import {
   DOCS_DMS_ADMIN_CUSTOMIZE_LINK,
   DOCS_DMS_INSTALL_LINK,
@@ -40,7 +48,6 @@ const productSections = [
     color: 'blue',
     cards: [
       {
-        comingSoon: true,
         icon: 'productEgo',
         link: '/documentation/ego/',
         text: 'Authorization services for identity providers such as Google and Facebook.',
@@ -54,7 +61,6 @@ const productSections = [
         title: 'Maestro',
       },
       {
-        comingSoon: true,
         icon: 'productArranger',
         link: '/documentation/arranger/',
         text: 'Provides the power to organize your data into an intuitive search interface.',
@@ -143,6 +149,7 @@ export default function DocumentationPage() {
               <Button type="primary" size="medium" link={DOCS_DMS_INSTALL_LINK}>
                 Installation Instructions
               </Button>
+              <CanarieCredits wide />
             </div>
             <div className="column">
               <h2>Help by Topic</h2>

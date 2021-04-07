@@ -128,7 +128,6 @@ const data = {
         color: 'blue',
         links: [
           {
-            comingSoon: true,
             to: '/documentation/ego/',
             text: 'Ego',
           },
@@ -138,7 +137,6 @@ const data = {
             text: 'Maestro',
           },
           {
-            comingSoon: true,
             to: '/documentation/arranger/',
             text: 'Arranger',
           },
