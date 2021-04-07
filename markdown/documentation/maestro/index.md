@@ -36,7 +36,7 @@ Maestro by default only needs the base schema fields to exist to index the data.
 
 In certain use cases, specific data records may need to excluded from indexing.  For example, prior to a major data release, some records may need to be excluded for business, data integrity, legal reasons, etc.
 
-In the context of Song, Maestro supports by providing configurable exclusion rules that omit specific analyses from being indexed based on metadata tags found in Song.  Specific analyses can be excluded by these identifiers: Study ID, Analysis ID, Donor ID, Sample ID, or File ID.
+In the context of Song, Maestro supports this by providing configurable exclusion rules that omit specific analyses from being indexed based on metadata tags found in Song.  Specific analyses can be excluded by these identifiers: Study ID, Analysis ID, File ID, Sample ID, Specimen ID, Donor ID.
 
 ## Event-Based Indexing
 

@@ -18,7 +18,7 @@ Follow these steps to install and setup Maestro.
 
 ## Download Source
 
-From your command line terminal, clone the Maestro repository:
+From your command line, clone the Maestro repository:
 
 ```shell
 $ git@github.com:overture-stack/maestro.git
@@ -28,7 +28,7 @@ $ git@github.com:overture-stack/maestro.git
 
 First, we must make sure that indexing is enabled in the configuration file.  Although by default this setting is enabled, it is good practice to check.
 
-1. Switch to the `config` directory and locate the `application.yml` file:
+1. From your command line, switch to the `config` directory and locate the `application.yml` file:
 
 ```shell
 cd maestro/maestro-app/src/main/resources/config
@@ -43,7 +43,7 @@ cd maestro/maestro-app/src/main/resources/config
 
 Next, we must configure the connections to the Elasticsearch, Song, and Kafka services installed as part our prerequisite setup.
 
-1. Switch to the `config` directory and locate the `application.yml` file:
+1. From your command line, switch to the `config` directory and locate the `application.yml` file:
 
 ```shell
 cd maestro/maestro-app/src/main/resources/config
@@ -140,7 +140,7 @@ If you wanto to run Maestro as a service in a Kubernetes cluster than you can us
 
 Do the following:
 
-1. Modify your `values-override.yaml` file based on your deployment environment.  You can provide the Maestro application configurations as environment variables using the `extraEnv` key.
+1. Modify your `values-override.yml` file based on your deployment environment.  You can provide the Maestro application configurations as environment variables using the `extraEnv` key.
 
 For example, similar to our native `application.yml` file, we must provide the following mandatory values:
 

@@ -4,7 +4,12 @@ title: User Guide
 
 # Sending an Indexing Request
 
+Example:
+
+???
 
 # Maestro API
 
-# Configuring Exclusion Rules
+Supported Endpoints:
+
+???
