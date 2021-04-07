@@ -160,9 +160,13 @@ cd maestro/maestro-app/src/main/resources/config
 * `specimen`
 * `donor`
 
-Each property is a comma-separated list of IDs you want to excluse from indexing for that particular entity.  For example:
+Each property is a comma-separated list of IDs you want to excluse from indexing for that particular entity.
 
-```
+<Warning>**NOTE:** Make sure to uncomment each property that you need to use when editing the file (remove the starting `#` symbol from each one you need).</Warning>
+
+For example:
+
+```shell
   # exclusion rules configs
   exclusionRules:
     byId:
