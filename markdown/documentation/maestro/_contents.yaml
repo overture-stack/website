@@ -11,7 +11,5 @@ pages:
     url: maestro/installation/installation
   - title: Configuration
     url: maestro/installation/configuration
-  - title: Authentication
-    url: maestro/installation/authentication
 - title: User Guide
   url: maestro/user-guide

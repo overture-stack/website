@@ -12,187 +12,119 @@ Before installing Maestro, the following software services needs to be installed
 | [Song](https://github.com/overture-stack/SONG/releases) | Latest | Required | See [here](/documentation/song/installation) for installation instructions | 
 | [Apache Kafka](https://kafka.apache.org/downloads/) | Latest | Optional | Optionaly, only needed if you want to setup event-based indexing |
 
+# Installation
 
-* **Required:** [Elasticsearch](https://www.elastic.co/downloads/elasticsearch) version 7 or up
-* **Required:** [Song](https://github.com/overture-stack/SONG/releases) latest version
-* **Optional** [Apache Kafka](https://kafka.apache.org/downloads/) latest version
+Follow these steps to install and setup Maestro.
 
-Source Code
-Source Code is hosted on Github.
+## Download Source
 
+From your command line terminal, clone the Maestro repository:
 
-Configurations
-In the code repository, configurations are driven by: config/application.yml. Change the relevent sections to connect to Elasticsearch, SONG, Kafka based on your setup.
+```shell
+$ git@github.com:overture-stack/maestro.git
+```
 
-server:
-  port: 11235
+## Enable Indexing
 
-maestro:
-  song:
-    maxRetries: 3
-    timeoutSec:
-        study: 100 # some studies take really long, +30 secs, to be downloaded
-        analysis: 5
+First, we must make sure that indexing is enabled in the configuration file.  Although by default this setting is enabled, it is good practice to check.
 
-  # elastic search server to connect to & client properties
+1. Switch to the `config` directory and locate the `application.yml` file:
+
+```shell
+cd maestro/maestro-app/src/main/resources/config
+```
+
+2. Open the file and verify the following:
+
+* `disableIndexing` = `false` - This ensures Maestro indexing functionality will run
+* `disableEventIndexing` = `false` - This is only needed if you are using Kafka for event-based indexing
+
+## Configure Connections
+
+Next, we must configure the connections to the Elasticsearch, Song, and Kafka services installed as part our prerequisite setup.
+
+1. Switch to the `config` directory and locate the `application.yml` file:
+
+```shell
+cd maestro/maestro-app/src/main/resources/config
+```
+
+2. Open the file, locate the `elasticsearch` --> `clusterNodes` section and edit the value to point to the URL where your Elasticsearch instance is hosted:
+
+```
+# elastic search server to connect to & client properties
   elasticsearch:
     # elasticsearch server nodes to send requests to
     clusterNodes:
       - http://localhost:9200
-      - http://localhost:9201
+```
 
-    # the index name to store documents in (will be created if not existing)
-    indexes:
-      fileCentric:
-          name: file_centric
-          alias: file_centric
+3. Locate the `repositories` section.  This is where you will specify each Song repository that Maestro will connect with.  Add a block for each repository you wish to configure.  For each repository, the following mandatory values must be provided:
 
-    # elasticsearch client properties
-    client:
-      # this is to control the number of documents per bulk request in elasticsearch
-      docsPerBulkReqMax: 5000
-      # max time to wait for a connection to be established
-      connectionTimeout: 5000
-      # max time to wait on idle connection (no data flow)
-      socketTimeout: 10000
-      # in case of failure this controls the retry attempts
-      retry:
-        # maximum number of retry attempts before throwing an error
-        maxAttempts: 3
-        # waiting between retries (ms)
-        waitDurationMillis: 500
+| Property | Description |
+|----------|-------------|
+| `code` | This is a unique ID to represent the Song server.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
+| `url` | URL where you have deployed the Song server |
+| `name` | Set to `local song` |
 
-  # List of Genomic files repositories (SONGs)
+```
+# List of Genomic files repositories (SONGs)
   repositories:
     # these properties will be used in the document (see ../file_centric.json)
     - code: song.overture # must be unique & must match song.serverId if using kafka integration with song
-      url: "http://localhost:8080"
+      url: https://song.domain.com # Change this to a valid domain where the song exists in your setup
       name: local song
-      dataPath: /oicr.icgc/data
-      metadataPath: /oicr.icgc.meta/metadata
       # optional
       storageType: S3
       organization: ICGC
       country: CA
     # you can other SONGs as needed
-    - code: song.overture
-      url: "http://localhost:8080"
+    - code: song.overture1
+      url: http://localhost:8080
       name: local song
-      metadataPath: /oicr.icgc.meta/metadata
       # optional
       storageType: S3
       organization: overture
       country: LH
+```
 
-  # last resort fallback file system log in case of retries exhaustion.
-  failureLog:
-    enabled: true
-    dir: ${user.home}/logs/maestro
+4. Optionally, if you are using Kafka for event-based indexing, locate the `kafka` --> `binders` --> `brokers` block and set the `brokers` value to the location where you have deployed the Kafka broker:
 
-  notifications:
-    slack:
-      # enable/disable slack notifications
-      enabled: false
-      # the types to trigger a notification to this channel (see NotificationName.java)
-      notifiedOn:
-        - ALL
-      # slack workspace url
-      url: https://hooks.slack.com/services/SECRET_TOKEN
-      channel: maestro-alerts
-      username: maestro
-      maxDataLength: 1000
-      # notifications has two parameters (TYPE [string], DATA[map])
-      templates:
-        error: ':bangbang: Error : ##TYPE##, Error Info: ```##DATA##```'
-        warning: ':warning: ##TYPE## ```##DATA##```'
-        info: ':information_source: ##TYPE## ```##DATA##```'
-
-  # exclusion rules configs
-  exclusionRules:
-    byId:
-      study:
-        - "test123"
-#      analysis:
-#        - "analysisId"
-#      file:
-#        - 41ba4fb3-9428-50b5-af6c-d779cd59b04d
-#      sample:
-#        - "sampleId"
-#      specimen:
-#        - "specimenId"
-#      donor:
-#        - DO232991
-
-# logging & monitoring
-logging:
-  level:
-    root: INFO
-    bio.overture: TRACE
-    # very verbose class, only enable lower level when necessary
-    bio.overture.maestro.domain.entities.indexing.rules.IDExclusionRule: INFO
-    org.apache.kafka.clients: INFO
-
-# spring boot actuator endpoints
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show_details: ALWAYS
-
-spring:
-  application:
-    name: maestro
-  output.ansi.enabled: ALWAYS
-  cloud:
-    stream:
-      # kafka integration with song (remove this key to disable kafka)
+```
       kafka:
         binder:
           brokers: localhost:9092
-        bindings:
-          songInput:
-            consumer:
-              enableDlq: true
-              dlqName: maestro_song_analysis_dlq
-              autoCommitOnError: true
-              autoCommitOffset: true
-          input:
-            consumer:
-              enableDlq: true
-              dlqName: maestro_index_requests_dlq
-              autoCommitOnError: true
-              autoCommitOffset: true
-      bindings:
-        input:
-          # we don't specify content type because @StreamListener will handle that
-          destination: maestro_index_requests
-          group: requestsConsumerGrp
-          consumer:
-            maxAttempts: 1
-        songInput:
-          destination: song-analysis
-          group: songConsumerGrp
-          consumer:
-            maxAttempts: 1
+```
 
+5. Save the file.
 
-Running Locally
-Maestro has a Makefile for convenience if you can't use make you can check the make file for the commands.
+# Run the Service
+
+## Running Locally
+
+To run the Maestro service locally, a `Makefile` is provided for your convenience.  However, if you are unable to use make, you may examine the `Makefile` contents for the raw commands.
+
+**Running from Docker (Recommended for Local Installations)**
+
+It is highly recommended that for local installations, you run Maestro from Docker.
+
+In this mode a `docker-compose.yml` file is provided that contains a Dockerized version of Elastidsearh and Kafka.  You can examine this file at `./run/docker-compose/docker-compose.yml`.  To run Song with Docker, please refer to our [Song documentation](/documentation/song).
+
+For reference, the Docker image for Maestro can be found on Docker Hub [here](https://hub.docker.com/r/overture/maestro).
+
+To start Maestro from a Docker image with all needed infrastructure, execute:
+
+```
+make docker-start
+```
+
+**Running from Source (No Docker)**
 
 Source Code (No Docker)
 Provided that you have JDK11+ and all dependencies (see Dependencies) running and modified application.yaml based on your environment and needs, you can run the following command:
 
 make run
-Docker (Recommended for Local installations)
-In this mode a docker-compose.yaml file will be used, it contains a dockerized version of elasticsearch and kafka see ./run/docker-compose/docker-compose.yaml. For SONG please check the SONG github repo here on how to run it with docker.
 
-Docker image Repository: Dockerhub
-starts maestro from a docker image along with all needed infrastructure
-
-make docker-start
 Kuberenets (Helm)
 if you want to run in a Kubernetes cluster you can use the maestro helm chart
 
