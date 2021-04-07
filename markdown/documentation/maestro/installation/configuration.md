@@ -10,8 +10,26 @@ However in this section, we describe some optional configurations that you may w
 
 If you have setup Maestro to integrate with Kafka, then you must configure specific Kafka topics that Maestro will listen for in order to trigger indexing operations.
 
-Maestro can be configured as mentioned under the running configurations section to listen to kafka topics
+By default, the configuration file contains a setup for a basic Kafka integration with Song and Maestro.  We will verify that this configuration section is correct.  If modifications or correctinos are required, you can update the file then restart the service.
 
+For example:
+
+1. From your command line, switch to the `config` directory and locate the `application.yml` file:
+
+```shell
+cd maestro/maestro-app/src/main/resources/config
+```
+
+2. Open the file, locate the `spring` -> `cloud` -> `stream` -> `bindings`  section verify the following:
+
+| Property | Description |
+|----------|-------------|
+| `input` -> `destination` | This topic listens for on-demand request messages instead of requests coming over the JSON web API. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `maestro_index_request` and set the value in the config file here. |
+| `input` -> `group` | Name of the topic group you have configured in Kafka for the `input` -> `destination` topic.  This value must match the group you have configured in Kakfa itself.  In typical deployments, you can create a group called `requestsConsumerGrp` in Kafka and set the value in the config file here.
+| `songInput` -> `destination` | This topic specifically listens for updates to Song analyses. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `song-analysis` and set the value in the config file here. |
+| `songInput` -> `group` | Name of the topic group you have configured in Kafka for the `songInput` -> `destination` topic.  This value must match the group you have configured in Kakfa itself.  In typical deployments, you can create a group called `songConsumerGrp` in Kafka and set the value in the config file here. |
+
+```
 spring:
   application:
     name: maestro
@@ -47,17 +65,10 @@ spring:
           group: songConsumerGrp
           consumer:
             maxAttempts: 1
-The maestro_index_requests topic is for on demand request message instead of using the web api above the body of the messages should be a JSON, and looks like one of the following:
 
-Analysis:
-{"value" : { "repositoryCode" : "collab", "studyId" : "PEK-AB", "analysisId" : "EGAZ000", "remove": true }  }
-Study:
-{"value" : { "repositoryCode" : "collab", "studyId" : "PEK-AB" }    }
-Full repository (SONG):
-{"value" : { "repositoryCode" : "aws" } }
-for song-nalysis topic messages, the message schemas are governed by SONG but they currently look like this:
+```
 
-{"value" : { "analysisId" : "12314124", "studyId" : "PEK-AB", "songServerId": "collab", "state": "PUBLISHED" }  }
+3. If necessary, make any modifications or corrections, save the file, then restart the Maestro service.
 
 # Configuring Slack Notifications
 
@@ -71,7 +82,7 @@ To configure Slack:
 cd maestro/maestro-app/src/main/resources/config
 ```
 
-2. Open the file, locate the `notifications` --> `slack` section and configure the following:
+2. Open the file, locate the `notifications` -> `slack` section and configure the following:
 
 | Property | Description |
 |----------|-------------|
@@ -99,6 +110,7 @@ notifications:
 ```
 
 3. Save the file.
+
 
 4. Optionally, if you are running [Maestro with Kubernetes], you must similarly modify your `values-override.yml` file.  Locate the `slack` section and modify the following:
 

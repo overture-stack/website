@@ -49,7 +49,7 @@ Next, we must configure the connections to the Elasticsearch, Song, and Kafka se
 cd maestro/maestro-app/src/main/resources/config
 ```
 
-2. Open the file, locate the `elasticsearch` --> `clusterNodes` section and edit the value to point to the URL where your Elasticsearch instance is hosted:
+2. Open the file, locate the `elasticsearch` -> `clusterNodes` section and edit the value to point to the URL where your Elasticsearch instance is hosted:
 
 ```
 # elastic search server to connect to & client properties
@@ -88,7 +88,7 @@ cd maestro/maestro-app/src/main/resources/config
       country: LH
 ```
 
-4. Optionally, if you are using Kafka for event-based indexing, locate the `kafka` --> `binders` --> `brokers` block and set the `brokers` value to the location where you have deployed the Kafka broker:
+4. Optionally, if you are using Kafka for event-based indexing, locate the `kafka` -> `binders` -> `brokers` block and set the `brokers` value to the location where you have deployed the Kafka broker:
 
 ```
       kafka:
