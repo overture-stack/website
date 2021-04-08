@@ -110,7 +110,7 @@ It is highly recommended that for local installations, you run Maestro from Dock
 
 In this mode a `docker-compose.yml` file is provided that contains a Dockerized version of Elastidsearh and Kafka.  You can examine this file at `./run/docker-compose/docker-compose.yml`.  To run Song with Docker, please refer to our [Song documentation](/documentation/song).
 
-For reference, the Docker image for Maestro can be found on Docker Hub [here](https://hub.docker.com/r/overture/maestro).
+For reference, the Docker image for Maestro can be found on GitHub [here](https://github.com/orgs/overture-stack/packages/container/package/maestro).
 
 To start Maestro from a Docker image with all needed infrastructure, run this command:
 
