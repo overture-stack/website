@@ -124,7 +124,7 @@ cd maestro/maestro-app/src/main/resources/config
 
 more details on these configurations, see [Spring cloud streams docs](https://docs.spring.io/spring-cloud-stream/docs/3.0.10.RELEASE/reference/html/spring-cloud-stream.html#_configuration_options) 
 
-```
+```yaml
 spring:
   application:
     name: maestro
@@ -186,7 +186,7 @@ cd maestro/maestro-app/src/main/resources/config
 | `channel` | Name of the Slack channel where you want notifications to be sent |
 | `username` | Username required to access the channel |
 
-```
+```yaml
 notifications:
     slack:
       enabled: false
@@ -261,7 +261,7 @@ Each property is a comma-separated list of IDs you want to excluse from indexing
 
 For example:
 
-```shell
+```yaml
   # exclusion rules configs
   exclusionRules:
     byId:
