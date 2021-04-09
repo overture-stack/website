@@ -214,7 +214,8 @@ notifications:
 | `MAESTRO_NOTIFICATIONS_SLACK_ENABLED` | Set to `true` to enable Slack integration |
 | `MAESTRO_NOTIFICATIONS_SLACK_URL` | URL to your Slack authentication token.  For details see the official Slack [documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens). |
 | `MAESTRO_NOTIFICATIONS_SLACK_URL` | Name of the Slack channel where you want notifications to be sent |
-```
+
+```yaml
   # slack
   MAESTRO_NOTIFICATIONS_SLACK_ENABLED: "true"
   MAESTRO_NOTIFICATIONS_SLACK_URL: "secret"
