@@ -6,6 +6,99 @@ During the initial [installation](/documentation/maestro/installation/installati
 
 However in this section, we describe some optional configurations that you may wish to use.
 
+# Configuring Elasticsearch
+
+This portion of configuration file is for Elasticsearch server and client properties:
+```yaml
+  # elastic search server to connect to & client properties
+  elasticsearch:
+    # elasticsearch server nodes to send requests to
+    clusterNodes:
+      - http://localhost:9200
+
+    # the index name to store documents in (will be created if not existing)
+    indexes:
+      fileCentric:
+          name: file_centric_1.0
+          alias: file_centric
+          enabled: true
+      analysisCentric:
+          name: analysis_centric_1.0
+          alias: analysis_centric
+          enabled: true
+
+    # elasticsearch client properties
+    client:
+      basicAuth:
+        enabled: false
+        user: elastic
+        password: dummy-pass
+      trustSelfSignedCert: false
+      # this is to control the number of documents per bulk request in elasticsearch
+      docsPerBulkReqMax: 5000
+      # max time to wait for a connection to be established
+      connectionTimeout: 5000
+      # max time to wait on idle connection (no data flow)
+      socketTimeout: 10000
+      # in case of failure this controls the retry attempts
+      retry:
+        # maximum number of retry attempts before throwing an error
+        maxAttempts: 3
+        # waiting between retries (ms)
+        waitDurationMillis: 500
+
+```
+
+
+## Indexes
+Maestro supports two mappings by default, and you can disable what you don't need in this section:
+
+```yaml
+# the index name to store documents in (will be created if not existing)
+indexes:
+  fileCentric:
+      name: file_centric_1.0
+      alias: file_centric
+      enabled: true
+  analysisCentric:
+      name: analysis_centric_1.0
+      alias: analysis_centric
+      enabled: true
+```
+
+The default mapping for `file_centric` index can be found here: `maestro-app/src/main/resources/file_centric.json`.
+The default mapping for `analysis_centric` index can be found here: `maestro-app/src/main/resources/analysis_centric.json`.
+if you wish to disable one of these you can set the `enabled` property to `false`
+
+## Elasticsearch client
+
+```yaml
+# elasticsearch client properties
+client:
+  basicAuth:
+    enabled: false
+    user: elastic
+    password: dummy-pass
+  trustSelfSignedCert: false
+  # this is to control the number of documents per bulk request in elasticsearch
+  docsPerBulkReqMax: 5000
+  # max time to wait for a connection to be established
+  connectionTimeout: 5000
+  # max time to wait on idle connection (no data flow)
+  socketTimeout: 10000
+  # in case of failure this controls the retry attempts
+  retry:
+    # maximum number of retry attempts before throwing an error
+    maxAttempts: 3
+    # waiting between retries (ms)
+    waitDurationMillis: 500
+```
+In the `client` section you can configure the properties of the elasticsearch client, Maestro uses: `elasticsearch-rest-high-level-client` and exposes some configurations like:
+- `basicAuth`: allows you to configure basic authentication for the elasticsearch client in case that method is used by the server.
+- `trustSelfSignedCert`: Allows the client to accept selfsigned certificates if the server is using one, otherwise it will not accept selfsigned certificates.
+
+The rest of the properties are for tuning the batch indexing and the timeouts, retries, etc.
+
 # Configuring Kafka Topics
 
 If you have setup Maestro to integrate with Kafka, then you must configure specific Kafka topics that Maestro will listen for in order to trigger indexing operations.
@@ -25,11 +118,13 @@ cd maestro/maestro-app/src/main/resources/config
 | Property | Description |
 |----------|-------------|
 | `input` -> `destination` | This topic listens for on-demand request messages instead of requests coming over the JSON web API. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `maestro_index_request` and set the value in the config file here. |
-| `input` -> `group` | Name of the topic group you have configured in Kafka for the `input` -> `destination` topic.  This value must match the group you have configured in Kakfa itself.  In typical deployments, you can create a group called `requestsConsumerGrp` in Kafka and set the value in the config file here.
+| `input` -> `group` | This is the kafka consumer group name for the input channel topic above, you can use the default or change the value. |
 | `songInput` -> `destination` | This topic specifically listens for updates to Song analyses. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `song-analysis` and set the value in the config file here. |
-| `songInput` -> `group` | Name of the topic group you have configured in Kafka for the `songInput` -> `destination` topic.  This value must match the group you have configured in Kakfa itself.  In typical deployments, you can create a group called `songConsumerGrp` in Kafka and set the value in the config file here. |
+| `songInput` -> `group` | This is the kafka consumer group name for the `songInput` channel topic above, you can use the default or change the value. |
 
-```
+more details on these configurations, see [Spring cloud streams docs](https://docs.spring.io/spring-cloud-stream/docs/3.0.10.RELEASE/reference/html/spring-cloud-stream.html#_configuration_options) 
+
+```yaml
 spring:
   application:
     name: maestro
@@ -91,7 +186,7 @@ cd maestro/maestro-app/src/main/resources/config
 | `channel` | Name of the Slack channel where you want notifications to be sent |
 | `username` | Username required to access the channel |
 
-```
+```yaml
 notifications:
     slack:
       enabled: false
@@ -166,7 +261,7 @@ Each property is a comma-separated list of IDs you want to excluse from indexing
 
 For example:
 
-```shell
+```yaml
   # exclusion rules configs
   exclusionRules:
     byId:
