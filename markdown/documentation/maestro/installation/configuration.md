@@ -8,7 +8,18 @@ However in this section, we describe some optional configurations that you may w
 
 # Configuring Elasticsearch
 
-This portion of configuration file is for Elasticsearch server and client properties:
+The `elasticsearch` section of the configuration file allows you to set the properties for the Elasticsearch server and client.  In the server portion, you can configure the default indexes used, while in the client portion, various client authentication and timeout settings are available.
+
+To view these settings:
+
+1. From your command line, switch to the `config` directory and locate the `application.yml` file:
+
+```shell
+cd maestro/maestro-app/src/main/resources/config
+```
+
+2. Open the file, locate the `elasticsearch`  section and exaine the `indexes` and `client` portions:
+
 ```yaml
   # elastic search server to connect to & client properties
   elasticsearch:
@@ -49,9 +60,11 @@ This portion of configuration file is for Elasticsearch server and client proper
 
 ```
 
-
 ## Indexes
-Maestro supports two mappings by default, and you can disable what you don't need in this section:
+
+By default, Maestro supports two Elasticsearch index mappings, `file_centric` and `analysis_centric`, which are enabled by default.
+
+You can disable whichever index you do not need in the `indexes` section by setting the `enabled` property to `false`.
 
 ```yaml
 # the index name to store documents in (will be created if not existing)
@@ -66,11 +79,24 @@ indexes:
       enabled: true
 ```
 
-The default mapping for `file_centric` index can be found here: `maestro-app/src/main/resources/file_centric.json`.
-The default mapping for `analysis_centric` index can be found here: `maestro-app/src/main/resources/analysis_centric.json`.
-if you wish to disable one of these you can set the `enabled` property to `false`
+The default mappings can be found in the Maestro GitHub repository here:
 
-## Elasticsearch client
+* [`file_centric`](maestro-app/src/main/resources/file_centric.json)
+* [`analysis_centric`](maestro-app/src/main/resources/analysis_centric.json)
+
+## Elasticsearch Client
+
+In the `client` section, you can configure the properties of the Elasticsearch client.  Maestro uses the `elasticsearch-rest-high-level-client` provided by Elastic (see [here]()) and exposes a few of the configurations, specifically:
+
+| Property | Description |
+|----------|-------------|
+| `basicAuth` -> `enabled` | If set to `true`, allows you to configure basic authentication for the Elasticsearch client, if this auth method is used by the server. |
+| `basicAuth` -> `user` | Username that the Elasticsearch client will use to authenticate with the server. Only used if `enabled` = `true`. |
+| `trustSelfSignedCert` | If set to `true`, allows the client to accept self-signed certificates, if the server is using one.  Otherwise, it will not accept self-signed certificates. |
+
+The remaining properties are used to tune the batch indexing, connection timeouts and retries, etc.
+
+For example:
 
 ```yaml
 # elasticsearch client properties
@@ -93,11 +119,6 @@ client:
     # waiting between retries (ms)
     waitDurationMillis: 500
 ```
-In the `client` section you can configure the properties of the elasticsearch client, Maestro uses: `elasticsearch-rest-high-level-client` and exposes some configurations like:
-- `basicAuth`: allows you to configure basic authentication for the elasticsearch client in case that method is used by the server.
-- `trustSelfSignedCert`: Allows the client to accept selfsigned certificates if the server is using one, otherwise it will not accept selfsigned certificates.
-
-The rest of the properties are for tuning the batch indexing and the timeouts, retries, etc.
 
 # Configuring Kafka Topics
 
@@ -118,11 +139,11 @@ cd maestro/maestro-app/src/main/resources/config
 | Property | Description |
 |----------|-------------|
 | `input` -> `destination` | This topic listens for on-demand request messages instead of requests coming over the JSON web API. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `maestro_index_request` and set the value in the config file here. |
-| `input` -> `group` | This is the kafka consumer group name for the input channel topic above, you can use the default or change the value. |
+| `input` -> `group` | This is the Kafka consumer group name for the input channel topic that you configured above.  You can use the default or change the value. |
 | `songInput` -> `destination` | This topic specifically listens for updates to Song analyses. This value must match the topic you have configured in Kafka itself. In typical deployments, you can create a topic in Kafka called `song-analysis` and set the value in the config file here. |
-| `songInput` -> `group` | This is the kafka consumer group name for the `songInput` channel topic above, you can use the default or change the value. |
+| `songInput` -> `group` | This is the Kafka consumer group name for the `songInput` channel topic that you configured above.  You can use the default or change the value. |
 
-more details on these configurations, see [Spring cloud streams docs](https://docs.spring.io/spring-cloud-stream/docs/3.0.10.RELEASE/reference/html/spring-cloud-stream.html#_configuration_options) 
+For more details on these configurations, see the [Spring cloud streams documentation](https://docs.spring.io/spring-cloud-stream/docs/3.0.10.RELEASE/reference/html/spring-cloud-stream.html#_configuration_options).
 
 ```yaml
 spring:
@@ -214,14 +235,15 @@ notifications:
 | `MAESTRO_NOTIFICATIONS_SLACK_ENABLED` | Set to `true` to enable Slack integration |
 | `MAESTRO_NOTIFICATIONS_SLACK_URL` | URL to your Slack authentication token.  For details see the official Slack [documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens). |
 | `MAESTRO_NOTIFICATIONS_SLACK_URL` | Name of the Slack channel where you want notifications to be sent |
-```
+
+```yaml
   # slack
   MAESTRO_NOTIFICATIONS_SLACK_ENABLED: "true"
   MAESTRO_NOTIFICATIONS_SLACK_URL: "secret"
   MAESTRO_NOTIFICATIONS_SLACK_CHANNEL: "maestro-argo-notif"
   ```
 
-  5. Restart the Maestro service.
+5. Restart the Maestro service.
 
 # Configuring Exclusion Rules
 

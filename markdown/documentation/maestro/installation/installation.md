@@ -51,7 +51,7 @@ cd maestro/maestro-app/src/main/resources/config
 
 2. Open the file, locate the `elasticsearch` -> `clusterNodes` section and edit the value to point to the URL where your Elasticsearch instance is hosted:
 
-```
+```yaml
 # elastic search server to connect to & client properties
   elasticsearch:
     # elasticsearch server nodes to send requests to
@@ -67,7 +67,7 @@ cd maestro/maestro-app/src/main/resources/config
 | `url` | URL where you have deployed the Song server |
 | `name` | A descriptive name for the repository |
 
-```
+```yaml
 # List of Genomic files repositories (SONGs)
   repositories:
     # these properties will be used in the document (see ../file_centric.json)
@@ -90,7 +90,7 @@ cd maestro/maestro-app/src/main/resources/config
 
 4. Optionally, if you are using Kafka for event-based indexing, locate the `kafka` -> `binders` -> `brokers` block and set the `brokers` value to the location where you have deployed the Kafka broker:
 
-```
+```yaml
       kafka:
         binder:
           brokers: localhost:9092
@@ -114,7 +114,7 @@ For reference, the Docker image for Maestro can be found on GitHub [here](https:
 
 To start Maestro from a Docker image with all needed infrastructure, run this command:
 
-```
+```shell
 make docker-start
 ```
 
@@ -130,7 +130,7 @@ If the above is complete, then run this command:
 
 Provided that you have JDK11+ and all dependencies (see Dependencies) running and modified application.yaml based on your environment and needs, you can run the following command:
 
-```
+```shell
 make run
 ```
 
@@ -152,7 +152,7 @@ For example, similar to our native `application.yml` file, we must provide the f
 | `MAESTRO_REPOSITORIES_<X>_URL` | For each Song repository `<X>` you want to setup, this is the URL where you have deployed the Song server  |
 | `MAESTRO_REPOSITORIES_<X>_NAME` | For each Song repository `<X>` you want to setup, this is a descriptive name for the repository |
 
-```
+```yaml
 extraEnv:
   SERVER_PORT: "11235"
   MAESTRO_ELASTICSEARCH_CLUSTERNODES_0: "http://localhost:9200"
@@ -173,7 +173,7 @@ extraEnv:
 
 2.  Next add the Overture [chart repository](https://overture-stack.github.io/charts-server/) and install the chart:
 
-```
+```yaml
 helm repo add overture https://overture-stack.github.io/charts-server/
 helm install -f values-override.yml overture/maestro
 ```
