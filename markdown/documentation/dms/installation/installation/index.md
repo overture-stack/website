@@ -49,9 +49,9 @@ Your decision will depend on the following factors and you may need to consult w
 - Your institution's available resources and IT infrastructure
 - Security considerations
 
-<Warning>**NOTE:** Once the DMS has been deployed in a specific mode, it cannot be switched dynamically to use a different mode on-the-fly.  For example, you cannot switch from local mode to server mode by simply updating your configuration.  To re-deploy with a different mode, you must destroy your DMS cluster and restart fresh.  For instructions on destroying  your cluster, see [here](../../admin-guide/destroy).</Warning>
+<Warning>**NOTE:** Once the DMS has been deployed in a specific mode, it cannot be switched dynamically to use a different mode on-the-fly.  For example, you cannot switch from local mode to server mode by simply updating your configuration.  To re-deploy with a different mode, you must destroy your DMS cluster and restart fresh.  For instructions on destroying  your cluster, see [here](../../admin-guide/tasks#destroying-your-cluster).</Warning>
 
-<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is meant for use as a single node system is not currently mean to be highly available.</Warning>
+<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and does not currently support high availaibility.</Warning>
 
 # Check System Requirements
 
@@ -84,7 +84,7 @@ Specifically, make sure of the following:
 2. **You have SSH access to the environment you are deploying to** - Specifically for deployments to remote servers, you will need to remotely access the server via SSH to perform certain operations.
 
 
-3. **You have the ability to `sudo` on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
+3. **You have administrator `sudo` level permissions on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
 
 
 4.  **You have Bash shell 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash shell.
@@ -149,7 +149,7 @@ The final installation step is to actually download and install the DMS executab
 1. Log into your environment and open the command-line terminal.
 
 
-2. Download the latest version of the DMS installer executable:
+2. Download the [latest version](https://github.com/overture-stack/dms/releases) of the DMS installer executable, where `<x.y.z>` is the version number:
 
 ```shell
 $ curl https://raw.githubusercontent.com/overture-stack/dms/<x.y.z>/src/main/bin/dms-docker > dms
