@@ -132,7 +132,6 @@ const data = {
             text: 'Ego',
           },
           {
-            comingSoon: true,
             to: '/documentation/maestro/',
             text: 'Maestro',
           },

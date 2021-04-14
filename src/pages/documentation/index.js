@@ -54,7 +54,6 @@ const productSections = [
         title: 'Ego',
       },
       {
-        comingSoon: true,
         icon: 'productMaestro',
         link: '/documentation/maestro/',
         text: 'Manages geographically distributed data with a single, configurable index.',
