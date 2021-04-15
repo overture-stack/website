@@ -25,11 +25,11 @@ Illustrated above are the five core Overture components:
 
 | Component          | Purpose |
 | --------------------| ------------|
-| [Score](../../documentation/score) | Manages cloud-based data object storage and transfer. |
-| [Song](../../documentation/song) | Manages the metadata associated with the data objects. |
-| [Maestro](../../documentation/maestro) | Indexes the metadata in Song into [Elasticsearch](https://www.elastic.co/). |
-| [Arranger](../../documentation/arranger) | Generates an easily-configurable web portal interface with faceted search against the Elasticsearch index. |
-| [Ego](../../documentation/ego)     | Manages user identity for authentication, authorization and data security. |
+| [Score](/products/score) | Manages cloud-based data object storage and transfer. |
+| [Song](/documentation/song) | Manages the metadata associated with the data objects. |
+| [Maestro](/documentation/maestro) | Indexes the metadata in Song into [Elasticsearch](https://www.elastic.co/). |
+| [Arranger](/documentation/arranger) | Generates an easily-configurable web portal interface with faceted search against the Elasticsearch index. |
+| [Ego](/documentation/ego)     | Manages user identity for authentication, authorization and data security. |
 
 The core components described above are currently available as individual containers where the software code and its dependencies are packaged together. However, the DMS platform simplifies their setup and removes technical barriers by bundling the core components together and making it easy for both large and small projects to install, configure, and deploy these services, ultimately standing up a data sharing portal at the end of the process.
 

@@ -24,7 +24,7 @@ Stopping cluster..
 Finished stopping cluster
 ```
 
-2. Run the configuration questionnaire fresh and complete all sections and inputs like before (see [here](../installation/configuration/configure-dms)):
+2. Run the configuration questionnaire fresh and complete all sections and inputs like before (see [here](/documentation/dms/installation/configuration/configure-dms)):
 
 ```shell
 $ dms config build
@@ -46,7 +46,7 @@ $ dms cluster start
 
 Starting your cluster is equivalent to deploying your configurations from your current `~/.dms/config.yaml` file to your cluster.
 
-For details, see [Deploying Your Cluster](../installation/deploy).
+For details, see [Deploying Your Cluster](/documentation/dms/installation/deploy).
 
 # Stopping Your Cluster
 
