@@ -1,6 +1,19 @@
 sectionSlug: maestro
 sectionTitle: Maestro
 pages:
-  - title: Introduction
-    url: maestro
-
+- title: Introduction
+  url: maestro
+- title: Installation Guide
+  url: maestro/installation
+  isHeading: true
+  pages:
+  - title: Installation
+    url: maestro/installation/installation
+  - title: Configuration
+    url: maestro/installation/configuration
+- title: User Guide
+  url: maestro/user-guide
+  isHeading: true
+  pages:
+  - title: Indexing Data
+    url: maestro/user-guide/indexing
