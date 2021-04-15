@@ -22,3 +22,7 @@ pages:
     url: arranger/installation/authentication
 - title: User Guide 
   url: arranger/user-guide
+  isHeading: true
+  pages:
+  - title: Managing Projects
+    url: arranger/user-guide/projects

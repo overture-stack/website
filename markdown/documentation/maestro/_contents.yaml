@@ -13,3 +13,7 @@ pages:
     url: maestro/installation/configuration
 - title: User Guide
   url: maestro/user-guide
+  isHeading: true
+  pages:
+  - title: Indexing Data
+    url: maestro/user-guide/indexing

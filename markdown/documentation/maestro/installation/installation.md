@@ -96,8 +96,6 @@ cd maestro/maestro-app/src/main/resources/config
           brokers: localhost:9092
 ```
 
-5. Save the file.
-
 # Run the Service
 
 ## Running Locally
