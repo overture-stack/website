@@ -1,0 +1,37 @@
+sectionSlug: score
+sectionTitle: Score
+pages:
+- title: Introduction
+  url: score
+- title: Installation Guide
+  url: score/installation
+  isHeading: true
+  pages:
+  - title: Installation
+    url: score/installation/installation
+  - title: Configuration
+    url: score/installation/configuration
+    isHeading: true
+    pages:
+    - title: Run Profiles
+      url: score/installation/configuration/profiles
+    - title: Song Server Integration
+      url: score/installation/configuration/song
+    - title: Object Storage Integration
+      url: score/installation/configuration/object-storage
+    - title: Other Bootstrap Properties
+      url: score/installation/configuration/bootstrap
+  - title: Authentication
+    url: score/installation/authentication
+- title: User Guide
+  url: score/user-guide
+  isHeading: true
+  pages:
+  - title: Setting Up the Score Client
+    url: score/user-guide/client-setup
+  - title: Uploading Data
+    url: score/user-guide/upload
+  - title: Downloading Data
+    url: score/user-guide/download
+  - title: Command Reference
+    url: score/user-guide/commands

@@ -1,10 +1,10 @@
 ---
-title: Configuration Authentication 
+title: Configuring Authentication 
 ---
 
 # Application Authorization 
 
-For an application to interact with song, authentication and authorization must be provided.  You can do this by using an authorized users API Key with the correct permissions, or enabling application-to-application authorization following the OAuth 2.0 protocol.
+For an application to interact with song, authentication and authorization must be provided.  You can do this by using an authorized user's API Key with the correct permissions, or enabling application-to-application authorization following the OAuth 2.0 protocol.
 
 Scope requirements are defined in the `auth` section, and the `secure` and `jwt` profiles are available to manage the desired configuration. 
 
