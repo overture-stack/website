@@ -81,11 +81,11 @@ The `upload` command uploads file object(s) to the remote storage repository.
 
 | Option | Description |
 | -------| ------------|
-| `--file` | Upload a specific file based on a path to that file. |
+| `--file` | Upload a specific file by providing the path to that file. |
 | `--force` | Force a re-upload of the file if it already exists in the object storage (overrides file in the repository). |
-| `--manifest` | Upload specific files based on a manifest file ID, manifest file URL, or path to the manifest file. |
+| `--manifest` | Upload specific files using a manifest by providing the manifest file ID, manifest file URL, or path to the manifest file. |
 | `--md5` | MD5 checksum value of the file to upload. |
-| `--object-id` | Upload a specific file based on its object ID. |
+| `--object-id` | Upload a specific file by providing its object ID. |
 | `--validate` | If available, perform validation on file MD5 checksum. |
 | `--verify-connection` | First verify the connection to the object storage repository. |
 
