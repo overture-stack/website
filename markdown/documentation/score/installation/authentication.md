@@ -19,18 +19,18 @@ The `secure` profile is required if the [Overture](https://overture.bio) product
 
 To configure authentication and authorization via Ego, in the `score-server-[version]/conf/application.properties` file, make sure the `secure` profile exists and configure these settings in the `auth -> server` section:
 
-| Setting | Requirement | Description |
-|---------|-------------|-------------|
-| `url` | Required | URL to the Ego API endpoint that is used to authenticate a user's API key (token). Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/check_token`.  See the example below for guidance. |
-| `tokenName` | Required | Name used to identify a token.  Typically you should leave this set to the default value, `token`. |
-| `clientId` | Required | This is the client ID for the Score application as configured in Ego. |
-| `clientSecret` | Required | This is the client secret for the Score application as configured in Ego. |
-| `scope -> download -> system` | Required | Scope (permission) that a user's API key must have to enable system-level downloads from Score. Typically you should leave this set to the default value, `score.READ`. |
-| `scope -> download -> study -> prefix` | Required | Prefix that must come before the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
-| `scope -> download -> study -> suffix` | Required | Suffix that must come after the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
-| `scope -> upload -> system` | Required | Scope (permission) that a user's API key must have to enable system-level uploads to Score. Typically you should leave this set to the default value, `score.READ`. |
-| `scope -> upload -> study -> prefix` | Required | Prefix that must come before the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
-| `scope -> upload -> study -> suffix` | Required | Suffix that must come after the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
+| Section | Setting | Requirement | Description |
+|---------|---------|-------------|-------------|
+| `server` | `url` | Required | URL to the Ego API endpoint that is used to authenticate a user's API key (token). Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/check_token`.  See the example below for guidance. |
+| | `tokenName` | Required | Name used to identify a token.  Typically you should leave this set to the default value, `token`. |
+| | `clientId` | Required | This is the client ID for the Score application as configured in Ego. |
+| | `clientSecret` | Required | This is the client secret for the Score application as configured in Ego. |
+| `server -> scope -> download` | `system` | Required | Scope (permission) that a user's API key must have to enable system-level downloads from Score. Typically you should leave this set to the default value, `score.READ`. |
+| `server -> scope -> download -> study` | `prefix` | Required | Prefix that must come before the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
+| | `suffix` | Required | Suffix that must come after the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
+| `server -> scope -> upload` | `system` | Required | Scope (permission) that a user's API key must have to enable system-level uploads to Score. Typically you should leave this set to the default value, `score.READ`. |
+| `server -> scope -> upload -> study` | `prefix` | Required | Prefix that must come before the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
+| | `suffix` | Required | Suffix that must come after the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
 
 For example:
 
