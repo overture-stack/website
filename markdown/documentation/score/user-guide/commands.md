@@ -26,7 +26,7 @@ The `download` command downloads file object(s) from the remote storage reposito
 | `--force` | Force a re-download of the file if it already exists locally (overrides local file). |
 | `--index` | If available, also download the file index. |
 | `--length` | Limit the number of bytes to download to this value.  By default, if this option is not specified, all of the file will be downloaded. |
-| `--manifest` | Download files based on a manifest file ID, manifest file URL, or path to the manifest file. |
+| `--manifest` | Download specific files based on a manifest file ID, manifest file URL, or path to the manifest file. |
 | `--object-id` | Download a specific file object ID. |
 | `--offset` | Byte position in the source file to begin download from.  By default, if this option is not specified, all of the file will be downloaded. |
 | `--output-dir` | Path to the output directory where files will be downloaded to. |
@@ -81,28 +81,49 @@ The `upload` command uploads file object(s) to the remote storage repository.
 
 | Option | Description |
 | -------| ------------|
-| `--analysis-id` | Download files for a specific [Song](/documentation/song) analysis ID. |
-| `--force` | Force a re-download of the file if it already exists locally (overrides local file). |
-| `--index` | If available, also download the file index. |
-| `--length` | Limit the number of bytes to download to this value.  By default, if this option is not specified, all of the file will be downloaded. |
-| `--manifest` | Download files based on a manifest file ID, manifest file URL, or path to the manifest file. |
-| `--object-id` | Download a specific file object ID. |
-| `--offset` | Byte position in the source file to begin download from.  By default, if this option is not specified, all of the file will be downloaded. |
-| `--output-dir` | Path to the output directory where files will be downloaded to. |
-| `--output-layout` | Layout of the output directory, one of: |
-| | * `bundle` : Saved according to the filename under the Song bundle ID directory. |
-| | * `filename` : Saved according to the filename in the output directory. |
-| | * `id` : Saved according to the object ID in the output directory. |
-| `--program-id` | Download files for a specific [Song](/documentation/song) program ID. |
-| `--study-id` | Download files for a specific [Song](/documentation/song) study ID. |
+| `--file` | Upload a specific file based on a path to that file. |
+| `--force` | Force a re-upload of the file if it already exists in the object storage (overrides file in the repository). |
+| `--manifest` | Upload specific files based on a manifest file ID, manifest file URL, or path to the manifest file. |
+| `--md5` | MD5 checksum value of the file to upload. |
+| `--object-id` | Upload a specific file based on its object ID. |
 | `--validate` | If available, perform validation on file MD5 checksum. |
 | `--verify-connection` | First verify the connection to the object storage repository. |
 
 ## Url
 
+The `url` command displays the URL of a specific file object in the object storage repository.
+
+| Option | Description |
+| -------| ------------|
+| `--object-id` | Object ID of the specific file you want to display the URL for. |
+
 ## Version
 
+The `version` command displays the Score client's version information.
+
 ## View
+
+The `view` command locally stores and displays some or all contents of a [SAM or BAM](https://samtools.github.io/hts-specs/SAMv1.pdf) file.
+
+| Option | Description |
+| -------| ------------|
+| `--bed-query` | You can optionally specify a file in [BED](https://m.ensembl.org/info/website/upload/bed.html) format containing specific ranges to query.  This option overrides the `--query` option. |
+| `--contained` | Only output sequence alignments completely contained in a specific region.  If this option is not used, then by default any alignment that intersects with a specified region will be returned. |
+| `--header-only` | Only output the header of the SAM or BAM file. |
+| `--input-file` | Local path to the BAM file being queried.  This option supercedes the `--object-id` option. |
+| `--input-file-index` | Local path to index file. This requires the `--input-file` option to also be provided. |
+| `--manifest` | Manifest file ID, manifest file URL, or path to the manifest file containing object IDs and ranges that you want to query for. |
+| `--object-id` | Specific object ID inside a BAM file from which to download a slice from.  This option supercedes the `--manifest` option. |
+| `--output-file` | Name of the file to write output to.  If not specified, then the metadata filename or the original input filename will be used by default. |
+| `--output-format` | File format being queried and written to output, either `SAM` or `BAM`. |
+| `--output-dir` | Path to the output directory where the output file will be stored.  Only used with the `--manifest` option. |
+| `--output-index` | Indicates whether to write index files to output.  Only used with the `--manifest` option. |
+| `--output-original-header` | Output the original header in its entirety. |
+| `--output-type` | Structure of the output file containing query results. One of: `CROSS`, `MERGED`, or `TRIMMED`.  Only used with the `--manifest` option. |
+| `--query` | Query used to define what contents to extract from a BAM file. You must use coordinate format (`sequence:start-end`).  Note that multiple ranges must be separate by a space. |
+| `--reference-file` | Local path to the [FASTA](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp) file that a [CRAM](https://samtools.github.io/hts-specs/CRAMv3.pdf) file was encoded with. |
+| `--stdout` | Indicates whether to send output to `stdout` instead of a file.  Only used with the `--object-id` option and output will always be forced to SAM format. |
+| `--verify-connection` | First verify the connection to the object storage repository. |
 
 # Extra Options
 
