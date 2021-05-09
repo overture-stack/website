@@ -2,215 +2,64 @@
 title: Setting Up the Score Client
 ---
 
-# Indexing Methods
+End users must use the Score command-line client to execute data transfers (uploads and downloads) to and from the configured object storage.  Users must download and install the client and perform some minimal configuration.
 
-Once Maestro is installed, configured, and running, it is now available to receive requests and index data into Elasticsearch.
+# Installing the Score Client
 
-If Maestro is enabled to use event-driven indexing with Kafka, then it will listen for specific messages from the [configured Kafka topics](/documentation/maestro/installation/configuration#configuring-kafka-topics).  Otherwise, without Kafka, Maestro can receive requests over the HTTP JSON API.
+The Score client can be run in different ways depending on your operating system or setup:
 
-Maestro has several ways to index data, described in the following sub-sections.
+* If you are on Windows, use the Score client Docker distribution
+* If you are on a Unix system (IOS/Linux) you can also use the Docker distribution, or alternatively use the Score client directly
 
-## Maestro API
+## Using the Docker Distribution
 
-Maestro provides an API based on the [OpenAPI specification](https://swagger.io/specification/) (formerly known as the Swagger specification) which allows users (manually) and applications (programmatically) to interact with its core functionality.
-
-One major benefit of Swagger-based APIs is that they also provide easy-to-use, interactive API documentation via a web interface.  Users can manually interact with the API by issuing cURL commands via their terminal.  Administrators with access to the Swagger UI can also interact with the API via the web interface.
-
-On a local deployment, the Maestro Swagger UI can be accessed at `http://localhost:11235/maestro/api-docs`:
-
-![Entity](../assets/swagger.png 'Swagger UI')
-
-The following are examples of how to index data at different entity levels using the API.  Recall that Maestro can index data flexibly at either the repository, study, or individual analysis levels.
-
-## Indexing by Repository
-
-It is possible to index an entire Song repository at once.  This operation will index all analyses in all studies in the specified repository.
-
-### Using cURL
-
-To index a repository with cURL, from your command line. execute the following:
+To use the Docker distribution, from your command line, pull the latest version:
 
 ```shell
-    curl -X POST \
-    http://localhost:11235/index/repository/`<repositoryCode>` \
-    -H 'Content-Type: application/json' \
-    -H 'cache-control: no-cache'
+$ docker pull overture/score
 ```
 
-Where `repositoryCode` is the code representing the Song repository you want to index.
+The Docker distribution does not have a specific configuration to setup beforehand.  Configuration parameters are supplied
 
-### Using Swagger UI
+You can now run the Score client for uploads and downloads using a Docker run command and supplying the correct input parameters.  Unlike the direct Score client, the Docker distribution does not have a configuration file that you need to setup in advance.  Instead, certain config parameters are supplied in real-time when you execute the Docker run command.  See [Uploading Data](/documentation/score/user-guide/upload) and [Downloading Data](/documentation/score/user-guide/download) for more details.
 
-To index a repository using the Swagger UI:
+## Using the Score Client Directly with Configured Values
 
-1. Go to `http://localhost:11235/maestro/api-docs`
+To use the Score client directly without Docker:
 
-2. Under **management-controller**, click the `POST /index/repository/{repositoryCode}` endpoint.
-
-3. Click **Try it out**.
-
-4. In `repositoryCode`, enter the code of the Song repository you want to index.
-
-5. Click **Execute**. For example:
-
-![Entity](../assets/index-repo2.png 'Index Repo')
-
-### Verify Repository Indexed
-
-If successful, either the cURL command or the Swagger UI will return a successful response indicating the repository has been indexed.  For example:
-
-```
-[
-  {
-    "indexName": "file_centric_1",
-    "failureData": {
-      "failingIds": {}
-    },
-    "successful": true
-  }
-]
-```
-
-## Indexing by Study
-
-The most common way to index is usually by study. This operation will index all analyses in the specific study provided.
-
-### Using cURL
-
-To index a study with cURL, from your command line, execute the following:
+1. Download and unzip the latest Score client  from [here](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/%5BRELEASE%5D/score-client-%5BRELEASE%5D-dist.tar.gz) or do so from your command line, then switch to the unzipped directory:
 
 ```shell
-    curl -X POST \
-    http://localhost:11235/index/repository/`<repositoryCode>`/study/`<studyId>` \
-    -H 'Content-Type: application/json' \
-    -H 'cache-control: no-cache' \
+$ wget -O score-client.tar.gz https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/[RELEASE]/score-client-[RELEASE]-dist.tar.gz
+ 
+$ tar xvzf score-client.tar.gz
+ 
+$ cd score-client-<latest-release-number>
 ```
 
-Where:
-* `repositoryCode` is the code representing the Song repository that the study belongs to
-* `studyId` is the ID of the study you want to index
+2. Open the `score-client/<latest-release-number>/conf/application.properties` file and edit the `client` section as follows:
 
-### Using Swagger UI
+accessToken: your personal API Token
+metadata.url: the file metadata Song server URL
+storage.url: the object storage Score server URL
 
-To index a study using the Swagger UI:
+* Set `accessToken` to your personal API key (API token).  For example, if you are using Overture's [Ego](/documentation/ego) for authentication, then this would be your personal API key issued by Ego.
+* Uncomment `metadata.url` and set it to the URL of the [Song](/documentation/song) server that you deployed as part of the Score [prerequisites](/documentation/score/installation#dependencies).
+* Uncomment `storage.url` and set it to the URL of the [object storage](/documentation/score/installation#configuring-storage-providers) that you deployed as part of the Score [prerequisites](/documentation/score/installation#dependencies).
 
-1. Go to `http://localhost:11235/maestro/api-docs`
-
-2. Under **management-controller**, click the `POST /index/repository/{repositoryCode}/study/{studyId}` endpoint.
-
-3. Click **Try it out**.
-
-4. In `studyId`, enter the ID fo the study you want to index.
-
-5. In `repositoryCode`, enter the code of the Song repository that the study belongs to.
-
-6. Click **Execute**. For example:
-
-![Entity](../assets/index-study.png 'Index Study')
-
-### Verify Study Indexed
-
-If successful, either the cURL command or the Swagger UI will return a successful response indicating the study has been indexed.  For example:
-
-```
-[
-  {
-    "indexName": "file_centric_1",
-    "failureData": {
-      "failingIds": {}
-    },
-    "successful": true
-  }
-]
-```
-
-## Indexing by Analysis
-
-Lastly, you can also index data from an individual analysis within a study.
-
-### Using cURL
-
-To index an individual analysis with cURL, from your command line, execute the following:
+For example:
 
 ```shell
-    curl -X POST \
-    http://localhost:11235/index/repository/`<repositoryCode>`/study/`<studyId>`/analysis/`<analysisId>` \
-    -H 'Content-Type: application/json' \
-    -H 'cache-control: no-cache' \
+# The access token for authorized access to data
+accessToken=36099917-45b1-49f4-b91e-68a655eb6708
+ 
+# The location of the metadata service (SONG)
+metadata.url=http://localhost:80/song-api
+ 
+# The location of the object storage service (SCORE)
+storage.url=http://localhost:80/score-api
 ```
 
-Where:
-* `repositoryCode` is the code representing the Song repository that the study belongs to
-* `studyId` is the ID of the study that the analysis belongs to
-* `analysisId` is the ID of the analysis you want to index
+3. Save your changes.
 
-### Using Swagger UI
-
-To index a study using the Swagger UI:
-
-1. Go to `http://localhost:11235/maestro/api-docs`
-
-2. Under **management-controller**, click the `POST /index/repository/{repositoryCode}/study/{studyId}/analysis/{analysisId}` endpoint.
-
-3. Click **Try it out**.
-
-4. In `analysisId`, enter the ID of the analysis you want to index.
-
-5. In `studyId`, enter the ID fo the study that the analysis belongs to.
-
-6. In `repositoryCode`, enter the code of the Song repository that the study belongs to.
-
-7. Click **Execute**. For example:
-
-![Entity](../assets/index-analysis.png 'Index Analysis')
-
-### Verify Analysis Indexed
-
-If successful, either the cURL command or the Swagger UI will return a successful response indicating the analysis has been indexed.  For example:
-
-```
-[
-  {
-    "indexName": "file_centric_1",
-    "failureData": {
-      "failingIds": {}
-    },
-    "successful": true
-  }
-]
-```
-
-# Handling Index Mapping Changes
-
-By default, Maestro builds the Elasticsearch index based on a default index mapping that is pre-defined.  The name of this default mapping is set in the configuration file, `application.yml`.
-
-While this mapping is not configurable in runtime, there may be use cases where an administrator will need to change the mapping to meet their business needs.
-
-For example, as mentioned earlier, Song supports [dynamic schemas](/documentation/song/user-guide/schema/), which can be used to extend the base scheme with additional useful fields.
-
-In such a scenario, it is the administrator's responsibility to modify the mapping that Maestro uses as input.  This process requires a proper migration process to be followed.
-
-The guidelines for such a process are as follows:
-
-1. Originally, an Elasticsearch index has been created initially using the base mapping, either manually by Maestro itself.
-
-
-2. Maestro runs initially and starts indexing analyses from Song based on the original mapping.
-
-
-3. Via Song, the administrator introduces new analysis types with new fields (dynamic schema).
-
-
-4. Maestro will continue operating and indexing these new documents, but the new fields will not yet be indexed.
-
-
-5. The administrator updates the existing index mapping to account for the new analysis types and new fields.
-
-
-6. The administrator must re-index the data based on the new mapping.  This can be done by either triggering Maestro by supplying the updated mapping in the configuration input, OR, can be done directly to Elasticsearch by using the Elasticsearch API.
-
-
-7.  Make sure to switch your Elasticsearch aliases to point to the new or updated index instead of the old one.
-
-
-8.  Once all of this is complete, the data will be migrated and Maestro will continue indexing based on the new mapping.
+You can now run the Score client directly using various commands. For details on how to do data transfers, see [Uploading Data](/documentation/score/user-guide/upload) and [Downloading Data](/documentation/score/user-guide/download).  For a full command reference, see [here](/documentation/score/user-guide/commands).

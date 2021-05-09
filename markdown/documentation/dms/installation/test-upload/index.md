@@ -186,7 +186,7 @@ client:
 
 # Download and Configure Score Client
 
-Next, you must download and configure the Score client.  This command-line client is to upload and download data files to and from your configured object storage service.  To understand how to use Score in more detail, see [here](../../../score).
+Next, you must download and configure the Score client.  This command-line client is used to upload and download data files to and from your configured object storage service.  To understand how to use Score in more detail, see [here](../../../score).
 
 1. Download and unzip the latest Score client from [here](https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/score-client/%5BRELEASE%5D/score-client-%5BRELEASE%5D-dist.tar.gz) or do so from your terminal command line, then switch to the unzipped directory:
 
@@ -227,7 +227,7 @@ For example:
 accessToken=36099917-45b1-49f4-b91e-68a655eb6708
  
 # The location of the metadata service (SONG)
-metadata.url=http://locatlhost:80/song-api
+metadata.url=http://localhost:80/song-api
  
 # The location of the object storage service (SCORE)
 storage.url=http://localhost:80/score-api
