@@ -47,6 +47,8 @@ upload:
   connection.timeout: 60000
   clean.cron: “0 0 0 * * ?”
   clean.enabled: true
+
+object.sentinel: heliograph # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
 ```
 
 # Azure
@@ -58,14 +60,21 @@ For example:
 ```yaml
 azure:
   endpointProtocol: https
-  accountName: abc123
-  accountKey: abc123
+  accountName: <storage_account_name>
+  accountKey: <storage_account_secret_key>
 
 bucket:
-  name.object: test_object_bucket
+  name.object: <object_bucket> # Name of the bucket or container that will store the object data
+  policy.upload: <write_policy> # Name of the access policy to use for write/add/modify operations
+  policy.downolad: <read_policy> # Name of the access policy for the read/list operations
 
 upload:
-  partsize: 1048576
+  partsize: 104587
+
+download:
+  partsize: 250000000 # Safe default part size for downloads
+
+object.sentinel: heliograph # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
 ```
 
 # Prod

@@ -36,7 +36,7 @@ Create these buckets and remember both their IDs, as they will be required as in
 
 4. Make sure to note the **URL**, **access key**, and **secret key** used to access your storage service, as these are also required as input during Score configuration.  **Keep these values safe and secure**.
 
-5. If specifically using Amazon S3, makes ure to note the geographic **Region** where you have configured your buckets to be stored, as this is also required as an input during Score configuration.
+5. If specifically using Amazon S3, make sure to note the geographic **Region** where you have configured your buckets to be stored, as this is also required as an input during Score configuration.
 
 If assistance is required, you may need to contact support with your specific storage provider.
 
