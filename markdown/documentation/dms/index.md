@@ -25,7 +25,7 @@ Illustrated above are the five core Overture components:
 
 | Component          | Purpose |
 | --------------------| ------------|
-| [Score](/products/score) | Manages cloud-based data object storage and transfer. |
+| [Score](/documentation/score) | Manages cloud-based data object storage and transfer. |
 | [Song](/documentation/song) | Manages the metadata associated with the data objects. |
 | [Maestro](/documentation/maestro) | Indexes the metadata in Song into [Elasticsearch](https://www.elastic.co/). |
 | [Arranger](/documentation/arranger) | Generates an easily-configurable web portal interface with faceted search against the Elasticsearch index. |
