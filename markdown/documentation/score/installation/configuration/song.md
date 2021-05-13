@@ -18,6 +18,6 @@ To connect Score to your Song server, in the `score-server-[version]/conf/applic
 For example:
 
 ```shell
-metadata.url: "http://localhost:8089/"
-metadata.ssl.enabled: false
+metadata.url="http://localhost:8089/"
+metadata.ssl.enabled="false"
 ```

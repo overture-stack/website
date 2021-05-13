@@ -20,8 +20,8 @@ $ cd $SCORE_SERVER_HOME/conf
 
 For example:
 
-```yaml
-spring.cloud.vault.enabled=false
+```shell
+spring.cloud.vault.enabled="false"
 ```
 
 3. Save the file.

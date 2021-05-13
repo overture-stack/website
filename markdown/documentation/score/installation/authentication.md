@@ -35,16 +35,16 @@ To configure authentication and authorization via Ego, in the `score-server-[ver
 For example:
 
 ```shell
-auth.server.url: "https://localhost:8081/oauth/check_token"
-auth.server.tokenName: "token"
-auth.server.clientId: "<client ID from Ego>"
-auth.server.clientSecret: "<client secret from Ego>"
-auth.server.scope.download.system: "score.READ:"
-auth.server.scope.download.study.prefix: "score."
-auth.server.scope.download.study.suffix: ".READ"
-auth.server.scope.upload.system: "score.WRITE"
-auth.server.scope.upload.study.prefix: "score."
-auth.server.scope.upload.study.suffix: ".WRITE"
+auth.server.url="https://localhost:8081/oauth/check_token"
+auth.server.tokenName="token"
+auth.server.clientId="<client ID from Ego>"
+auth.server.clientSecret="<client secret from Ego>"
+auth.server.scope.download.system="score.READ:"
+auth.server.scope.download.study.prefix="score."
+auth.server.scope.download.study.suffix=".READ"
+auth.server.scope.upload.system="score.WRITE"
+auth.server.scope.upload.study.prefix="score."
+auth.server.scope.upload.study.suffix=".WRITE"
 ```
 
 # JWT Profile Example
@@ -60,5 +60,5 @@ To make use of JWT authentication, in the `score-server-[version]/conf/applicati
 For example:
 
 ```shell
-auth.jwt.publicKeyUrl: "https://<host>:<port>/oauth/token/public_key"
+auth.jwt.publicKeyUrl="https://<host>:<port>/oauth/token/public_key"
 ```
