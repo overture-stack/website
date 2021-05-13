@@ -12,13 +12,12 @@ To connect Score to your Song server, in the `score-server-[version]/conf/applic
 
 | Setting | Requirement | Description |
 |---------|-------------|-------------|
-| `url` | Required | URL to the Song server API that you have setup. When communicating with Song, Score will make requests via this API. |
-| `ssl.enabled` | Optional | If using SSL encryption to securely communicate with Song, set this to `true`.  Else if not using SSL, set this to `false.` |
+| `metadata.url` | Required | URL to the Song server API that you have setup. When communicating with Song, Score will make requests via this API. |
+| `metadata.ssl.enabled` | Optional | If using SSL encryption to securely communicate with Song, set this to `true`.  Else if not using SSL, set this to `false.` |
 
 For example:
 
-```yaml
-metadata:
-   url: "http://localhost:8089/"
-   ssl.enabled: false
+```shell
+metadata.url: "http://localhost:8089/"
+metadata.ssl.enabled: false
 ```

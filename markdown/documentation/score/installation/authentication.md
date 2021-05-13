@@ -21,37 +21,30 @@ To configure authentication and authorization via Ego, in the `score-server-[ver
 
 | Section | Setting | Requirement | Description |
 |---------|---------|-------------|-------------|
-| `server` | `url` | Required | URL to the Ego API endpoint that is used to authenticate a user's API key (token). Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/check_token`.  See the example below for guidance. |
-| | `tokenName` | Required | Name used to identify a token.  Typically you should leave this set to the default value, `token`. |
-| | `clientId` | Required | This is the client ID for the Score application as configured in Ego. |
-| | `clientSecret` | Required | This is the client secret for the Score application as configured in Ego. |
-| `server -> scope -> download` | `system` | Required | Scope (permission) that a user's API key must have to enable system-level downloads from Score. Typically you should leave this set to the default value, `score.READ`. |
-| `server -> scope -> download -> study` | `prefix` | Required | Prefix that must come before the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
-| | `suffix` | Required | Suffix that must come after the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
-| `server -> scope -> upload` | `system` | Required | Scope (permission) that a user's API key must have to enable system-level uploads to Score. Typically you should leave this set to the default value, `score.READ`. |
-| `server -> scope -> upload -> study` | `prefix` | Required | Prefix that must come before the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
-| | `suffix` | Required | Suffix that must come after the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
+| `auth.server.url` | Required | URL to the Ego API endpoint that is used to authenticate a user's API key (token). Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/check_token`.  See the example below for guidance. |
+| `auth.server.tokenName` | Required | Name used to identify a token.  Typically you should leave this set to the default value, `token`. |
+| `auth.server.clientId` | Required | This is the client ID for the Score application as configured in Ego. |
+| `auth.server.clientSecret` | Required | This is the client secret for the Score application as configured in Ego. |
+| `auth.server.scope.download.system` | Required | Scope (permission) that a user's API key must have to enable system-level downloads from Score. Typically you should leave this set to the default value, `score.READ`. |
+| `auth.server.scope.download.study.prefixprefix` | Required | Prefix that must come before the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
+| `auth.server.scope.download.study.suffix` | Required | Suffix that must come after the Song study name when assigning study-level download scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
+| `auth.server.scope.upload.system` | Required | Scope (permission) that a user's API key must have to enable system-level uploads to Score. Typically you should leave this set to the default value, `score.READ`. |
+| `auth.server.scope.upload.study.prefix` | Required | Prefix that must come before the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `score.`. |
+| `auth.server.scope.upload.study.suffix` | Required | Suffix that must come after the Song study name when assigning study-level upload scopes (permissions) for Score.  Typically you should leave this set to the default value, `.READ`. |
 
 For example:
 
-``` yaml
-auth:
-  server:
-    url: "https://<host>:<port>/oauth/check_token"
-    tokenName: "token"
-    clientId: <client ID from Ego>
-    clientSecret: <client secret from Ego>
-    scope:
-      download:
-        system: "score.READ"
-        study:
-          prefix: "score."
-          suffix: ".READ"
-      upload:
-        system: "score.WRITE"
-        study:
-          prefix: "score."
-          suffix: ".WRITE"
+```shell
+auth.server.url: "https://localhost:8081/oauth/check_token"
+auth.server.tokenName: "token"
+auth.server.clientId: "<client ID from Ego>"
+auth.server.clientSecret: "<client secret from Ego>"
+auth.server.scope.download.system: "score.READ:"
+auth.server.scope.download.study.prefix: "score."
+auth.server.scope.download.study.suffix: ".READ"
+auth.server.scope.upload.system: "score.WRITE"
+auth.server.scope.upload.study.prefix: "score."
+auth.server.scope.upload.study.suffix: ".WRITE"
 ```
 
 # JWT Profile Example
@@ -62,12 +55,10 @@ To make use of JWT authentication, in the `score-server-[version]/conf/applicati
 
 | Setting | Requirement | Description |
 |---------|-------------|-------------|
-| `publicKeyUrl` | Required | URL to the Ego API endpoint that is used to retrieve a user's public key . Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/token/public_key`.  See the example below for guidance. |
+| `auth.jwt.publicKeyUrl` | Required | URL to the Ego API endpoint that is used to retrieve a user's public key . Specify the host and port where the endpoint is hosted.  The endpoint to use is `/oauth/token/public_key`.  See the example below for guidance. |
 
 For example:
 
-```yaml
-auth:
-  jwt:
-    publicKeyUrl: "https://<host>:<port>/oauth/token/public_key"
+```shell
+auth.jwt.publicKeyUrl: "https://<host>:<port>/oauth/token/public_key"
 ```
