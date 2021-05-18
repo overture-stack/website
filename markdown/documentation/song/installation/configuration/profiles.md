@@ -1,9 +1,10 @@
 ---
 title: Run Profiles
 ---
-Song uses [Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) as a feature top manage the running of a Song server in different environments.  Spring profiles allow different settings to be applied to different environments, for example keeping security strict in production but less strict in test deployments. 
+Song uses [Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) as a feature to manage the running of a Song server in different environments.  Spring profiles allow different settings to be applied to different environments, for example keeping security strict in production but less strict in test deployments. 
 
-During configuration, you will need to enable the active profiles.  The active profiles to use for a particular application can be specified using the `profiles` argument which should be added at the start of the `spring` block, for example:
+During configuration, you will need to enable the active profiles in the `song-server-[version]/conf/application.yml` file.  The active profiles to use for a particular application can be specified using the `profiles` argument which should be added at the start of the `spring` block, for example:
+
 ```yaml
 spring:
   profiles:

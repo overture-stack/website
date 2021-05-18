@@ -29,7 +29,6 @@ const productSections = [
     color: 'pink',
     cards: [
       {
-        comingSoon: true,
         icon: 'productScore',
         link: '/documentation/score/',
         text: 'Facilitates the transfer and storage of data seamlessly for cloud-based products.',

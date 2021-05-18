@@ -12,11 +12,11 @@ The following software dependencies are required in order to run the Song server
 
 # Installation
 ## Distribution 
-Official Song releases can be found [Github](https://github.com/overture-stack/SONG/releases). Each release contains notes with a description of the bug fixes, new features or enhancements and breaking changes, as well as links to downloads and change logs. 
+Official Song releases can be found on [Github](https://github.com/overture-stack/SONG/releases). Each release contains notes with a description of the bug fixes, new features or enhancements and breaking changes, as well as links to downloads and change logs. 
 
 The latest distribution can be downloaded using the command: 
 ```bash
- curl "https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-server/[RELEASE]/song-server-[RELEASE]-dist.tar.gz" -Ls -o song-server-dist.tar.gz    
+ curl https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-server/[RELEASE]/song-server-[RELEASE]-dist.tar.gz -Ls -o song-server-dist.tar.gz    
 
 ```
 This distribution contains the default configuration and jars for running the server. To unzip, run the command:

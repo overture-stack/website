@@ -113,7 +113,6 @@ const data = {
         color: 'pink',
         links: [
           {
-            comingSoon: true,
             to: '/documentation/score/',
             text: 'Score',
           },

@@ -2,7 +2,7 @@
 title: Setup Data Storage Buckets
 ---
 
-The [Score service]((../../../../../score)) manages data transfer to (upload) and from (download) cloud object storage.  As such, Score requires two specific buckets to get setup in advance in your storage service.  These buckets are supplied as inputs to the DMS interactive configuration questionnaire later on.
+The [Score service](/documentation/score) manages data transfer to (upload) and from (download) cloud object storage.  As such, Score requires two specific buckets to get setup in advance in your storage service.  These buckets are supplied as inputs to the DMS interactive configuration questionnaire later on.
 
 Score requires two buckets to be setup in your storage:
 

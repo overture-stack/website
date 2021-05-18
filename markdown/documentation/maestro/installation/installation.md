@@ -10,7 +10,7 @@ Before installing Maestro, the following software services needs to be installed
 |---------|---------|-------------|-------------|
 | [Elasticsearch](https://www.elastic.co/downloads/elasticsearch) | 7 or up | Required | For Maestro to build the index in |
 | [Song](https://github.com/overture-stack/SONG/releases) | Latest | Required | See [here](/documentation/song/installation) for installation instructions | 
-| [Apache Kafka](https://kafka.apache.org/downloads/) | Latest | Optional | Optionaly, only needed if you want to setup event-based indexing |
+| [Apache Kafka](https://kafka.apache.org/downloads/) | Latest | Optional | Optional, only needed if you want to setup event-based indexing |
 
 # Installation
 
