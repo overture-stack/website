@@ -1,7 +1,5 @@
 # Overture.bio
 
-Test!
-
 - Hosted on Netlify. See **Deployment** for info.
 - Based on the [Gatsby Starter Business](https://gatsby-starter-business.netlify.com).
 
