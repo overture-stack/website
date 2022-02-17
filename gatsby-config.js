@@ -9,6 +9,8 @@ const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 const ENABLE_SEARCH_INDEXING = process.env.ENABLE_SEARCH_INDEXING === 'true';
 
+const REMARK_MAX_WIDTH = 1035;
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
@@ -39,6 +41,15 @@ module.exports = {
         exclude: [],
       },
     },
+
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'docs',
+        path: `${__dirname}/markdown/documentation`,
+      },
+    },
+    'gatsby-remark-images',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -49,8 +60,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true,
+              maxWidth: REMARK_MAX_WIDTH,
             },
           },
           {
@@ -60,15 +70,10 @@ module.exports = {
           },
         ],
         extensions: ['.mdx', '.md'],
+        plugins: ['gatsby-remark-images'],
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'docs',
-        path: `${__dirname}/markdown/documentation`,
-      },
-    },
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-transformer-yaml`,
       options: {
@@ -97,6 +102,22 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: REMARK_MAX_WIDTH,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-nprogress`,
