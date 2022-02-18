@@ -17,6 +17,15 @@
 - `npm install`
 - Setup Netlify deployment: `netlify link` and choose 'Use current git remote origin'.
 
+### Troubleshooting
+
+Overture.bio requires NPM v^8.3.0, to ensure all dependencies are installed correctly
+
+```bash
+# If you need to update your NPM version first, use the following command:
+  npm i -g npm
+```
+
 ## Local development
 
 `npm start`
