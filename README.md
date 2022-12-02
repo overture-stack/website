@@ -11,8 +11,8 @@
 
 ## Installation
 
-- Node 14.4.0
-- Gatsby CLI: `npm install -g gatsby-cli`
+- Node 16.14.2 NPM 8.5.0
+- Gatsby CLI: `npm install -g gatsby-cli@4.7.0`
 - Netlify CLI: `npm install -g netlify-cli`
 - `npm install`
 - Setup Netlify deployment: `netlify link` and choose 'Use current git remote origin'.
