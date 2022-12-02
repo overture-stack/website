@@ -11,7 +11,7 @@
 
 ## Installation
 
-- Node 16.14.2 NPM 8.5.0
+- Node 16 NPM 8
 - Gatsby CLI: `npm install -g gatsby-cli@4.7.0`
 - Netlify CLI: `npm install -g netlify-cli`
 - `npm install`
