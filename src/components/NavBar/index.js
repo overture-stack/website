@@ -103,7 +103,7 @@ class NavBar extends Component {
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">
-                <Button
+                {/*<Button
                   iconAlt="slack logo"
                   className="slack-button"
                   icon="slack"
@@ -112,7 +112,7 @@ class NavBar extends Component {
                   type="secondary"
                 >
                   Join us on Slack
-                </Button>
+                </Button>*/}
 
                 <Button
                   icon="githubMagenta"
