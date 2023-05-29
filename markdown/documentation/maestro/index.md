@@ -2,29 +2,23 @@
 title: Introduction
 ---
 
-Maestro's driving principle is to help organize and manage your geographically-distributed genomic data into a single, searchable index.
+Maestro's driving principle is to organize and manage geographically-distributed data. It achieves this by unifying genomic metadata dispersed across numerous Song repositories into a single, Elasticsearch index. 
 
-With the rapid increase and proliferation of genomic data due to modern scientific technologies, methodologies, and discoveries, the data is invariably becoming more distributed, originating and being stored in many sources.
-
-In the Overture product suite, [Song](/documentation/song) provides such a distributed metadata management and storage system, where multiple, geographically-distributed Song servers can exist.
-
-Recognizing this, the Overture team designed Maestro to seamlessly connect to multiple Song servers, listen for changes, and automatically generate a single [Elasticsearch](https://www.elastic.co/) index.
-
-By orchestrating and consolidating data into a single index, Maestro allows upstream services to easily consume the data and expose it to end users for search and exploration.  In Overture, [Arranger](/documentation/arranger) is one such consumer, able to quickly generate a data portal for end users from the index built by Maestro.
+By orchestrating and consolidating data into a single index, Maestro allows upstream services, such as [Arranger](/documentation/arranger), to consume the data and expose it to end users for search and exploration.
 
 # Features
 
 ## Multiple Repository Management
 
-Maestro natively supports indexing data from multiple Song metadata repositories. Maestro connects to each Song server and will index all files from the repositories into a single Elasticsearch index.  Conflict resolution is built-in as part of the indexing process.  For example, if the same file was identified in multiple Song repositories, Maestro is able to detect this and aggregate the information from all repositories into the same Elasticsearch index document.
+Maestro natively supports indexing metadata from multiple Song repositories. Maestro connects to each Song server and indexes all the metadata into a single Elasticsearch index.  Conflict resolution is built-in as part of the indexing process.  For example, if the same file was identified in multiple Song repositories, Maestro is able to detect this and aggregate the information from all repositories into the same Elasticsearch index document.
 
 ## Multiple Indexing Levels
 
-In the Song data model, data can be grouped by different entities in a specific hierarchy: `Repository --> Study --> Individual Analysis` with Repository being at the highest level.  Maestro is flexible in that it can index data for a specific level, depending on the request.  For example, if indexing is requested for a specific study, then all data for that study (including all analyses under that study) would be indexed.
+In the Song data model, data can be grouped by different entities in a specific hierarchy: `Repository > Study > Analysis` with Repository being at the highest level.  Maestro is flexible in that it can index data at specific levels.  For example, if indexing is requested for a specific study, then all data for that study (including all analyses under that study) are indexed.
 
 ## Support for Song Dynamic Schemas
 
-Song supports a base data model ([schema](/documentation/song/user-guide/schema/)) with basic required fields that need to exist for an analysis.  However, it also supports a flexible dynamic schema which administrators can use to encode additional business rules that their data must comply with.  Maestro by default only needs the base schema fields to exist to index the data.  However, it is also capable of supporting indexing the additional fields found in the dynamic schema.  Note however, that it is the administrator's responsibility to manage the mapping and migration of one index to another should it change due to additional dynamic fields.
+Song supports a base data model ([schema](/documentation/song/user-guide/schema/)) with primary required fields; however, it also supports a flexible, dynamic schema which administrators can use to encode additional rules that their data must comply with.  Maestro, by default, only needs the base schema fields to exist to index data.  However, it also supports the indexing of additional fields found within the dynamic schema.  Note, however, that it is the administrator's responsibility to manage the mapping and migration of one index to another should it change due to additional dynamic fields.
 
 ## Exclusion Rules
 

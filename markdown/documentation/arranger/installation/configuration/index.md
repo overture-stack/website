@@ -2,7 +2,7 @@
 title: Configuration
 ---
 
-After completing installation, a few configuration tasks are required before an administrator can fully use Arranger:
+Here is a list of the configuration tasks required:
 
 * [Configuring Elasticsearch](/documentation/arranger/installation/configuration/es)
 * [Adding a Project to Arranger](/documentation/arranger/installation/configuration/project)

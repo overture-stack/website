@@ -2,49 +2,33 @@
 title: Introduction
 ---
 
-Arranger is a powerful collection of reusable components that allows administrators to organize an intuitive user interface (data portal) for data search and exploration.
+Arranger is a data-agnostic search API that uses [Elasticsearch index mappings](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping.html) to generate customizable and interactive search components (faceted search panels and sortable tables). When deploying a data portal with Arranger, it can be paired with our [DMS-UI](https://www.overture.bio/documentation/dmsui/) or your own custom UI.
 
-It integrates with an [Elasticsearch](https://www.elastic.co/) cluster to quickly spin up a data portal with search capabilities based on a defined Elasticsearch index mapping.
+![Entity](/assets/architecture.png 'Architecture')
 
 # Features
 
 ## GraphQL Search API
 
-Arranger automatically generates a search API based on the index mapping you have configured for your underlying Elasticsearch cluster.  This provides powerful and flexible capabilities including:
+Using a GraphQL Search API, Arranger can query complex datasets efficiently.
 
-* The ability to auto-generate and expose a search API and user interface (data portal) based on a custom index mapping of your choosing and configuration.
+- Arranger makes no assumption about your data model, it generates its search API from an index mapping you configure based on your Elasticsearch cluster.
 
-* The API is [GraphQL](https://graphql.org/)-based and fully aware of your Elasticsearch data model.
+- Arrangers API uses a consistent and custom filter notation ([SQON](http://localhost:8000/documentation/arranger/reference/sqon/)) which is both straightforward for humans to understand **and** simple for software to interpret.
 
-* The API uses a consistent query & filter notation (called `SQON`) which is both straightforward for humans to understand **and** simple for software to interpret.
+## Customizable Search Components
 
-## Built-In UI Components
+Use a default theme for your data portal, or customize it with your own branded theme.
 
-Arranger provides a built-in set of UI components that are easily configured to interact with the search API and to customize what is exposed to the data portal.  Key capabilities include:
+- Configure which data columns are displayed in the search results table (highlighted in blue) and customize their display name and order.
 
-* Provides a canned set of data types (e.g. boolean, string, date, list, etc.) and pre-built aggregation components for you to customize the searchable facets in your data portal.
+- Configure which filters (highlighted in purple) are displayed in the portal and customize their display names and order.
 
-* Ability to use a default theme for your data portal, or customize it with your own branded theme.
+- The searchable facets allow you to configure across a broad set of data types (boolean, string, date, list, etc.) and pre-built aggregation components.
 
-## Administrative UI
 
-Arranger also provides an easy-to-use admin UI for administrators to manage and customize the content of their data portal.  Key capabilities include:
-
-* Ability to configure which filters are displayed in the portal and customize their display names and order.
-
-* Ability to configure which data columns are displayed in the search results table and customize their display name and order.
-
-* Ability to easily import and export these configurations for reusability and migration.
+![Entity](/assets/arrangercomponents.jpg 'Panels')
 
 # Integrations
 
-Arranger integrates with your underlying Elasticsearch cluster to automatically generate the search API based on the index mapping you have configured.  You must have Elasticsearch deployed in advance and your mapping determined as prequisites.  Arranger will also need the correct credentials to authenticate with Elasticsearch.
-
-# Architecture
-
-Arranger and its components integrate with your Elasticsearch cluster, providing:
-
-* A single-instance administrative web UI to configure and customize the data portal content
-* A horizontally-scalable search API layer that interfaces with Elasticsearch to query and return data portal based on your configurations
-
-![Entity](/assets/arch.png 'Architecture')
+Arranger integrates with your underlying Elasticsearch cluster to automatically generate the search API based on your configured index mapping. It's best to have Elasticsearch deployed and your mapping determined before installing and configuring Arranger. Additionally, Arranger will also need the correct credentials to authenticate with Elasticsearch.

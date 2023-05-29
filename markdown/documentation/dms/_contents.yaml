@@ -10,7 +10,7 @@ pages:
   - title: Installation
     url: dms/installation/installation
   - title: Configuration
-    url: dms/installation/configuration
+    url: dmsui/installation/configuration
     pages: 
     - title: Setup Pre-Requisites
       url: dms/installation/configuration/prereq

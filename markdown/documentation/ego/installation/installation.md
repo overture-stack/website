@@ -4,7 +4,7 @@ title: Installing Ego
 
 # Installation
 
-Before installing Ego, make sure you have setup the prerequisites listed [here](/documentation/ego/installation/preqreq).
+Before installing Ego, make sure you have completed all the applicable [prerequisites steps](/documentation/ego/installation/preqreq).
 
 ## Download Ego
 
@@ -23,13 +23,13 @@ Once downloaded, extract the distribution:
 tar zxvf ego-dist.tar.gz
 ```
 
-This creates a folder with the name of `ego-<version>` where `<version>` is the version number of the release.  We recommend moving Ego out of your home directory and into to a directory like `/srv`. You may need elevated privileges to do this:
+This creates a folder with the name of `ego-<version>` where `<version>` is the release number.  We recommend moving Ego out of your home directory and into to a directory like `/srv`. You may need elevated privileges to do this:
 
 ```shell
-$ sudo mv ego-4.4.0 /srv/
+$ sudo mv ego-5.4.0 /srv/
 $ ls -l /srv/
 total 4
-drwxrwxr-x 8 ubuntu ubuntu 4096 Mar 31 18:51 ego-4.4.0
+drwxrwxr-x 8 ubuntu ubuntu 4096 Mar 31 18:51 ego-5.4.0
 ```
 
 We also recommend creating a symlink with the name of `ego-current` in case you ever need to update or rollback to a previous version of Ego while maintaining a single place to look at for running and configuration: 
@@ -41,12 +41,12 @@ total 12
 drwxr-xr-x  3 root   root   4096 Mar 31 18:56 .
 drwxr-xr-x 19 root   root   4096 Mar 31 18:14 ..
 drwxrwxr-x  8 ubuntu ubuntu 4096 Mar 31 18:51 ego-4.4.0
-lrwxrwxrwx  1 root   root      9 Mar 31 18:56 ego-current -> ego-4.4.0
+lrwxrwxrwx  1 root   root      9 Mar 31 18:56 ego-current -> ego-5.4.0
 ```
 
 ## Database Configuration
 
-Next, we must configure the Ego's database. The directory structure inside of the Ego directory is self-explanatory: 
+Next, we must configure the Ego's database.
 
 ```shell
 /srv/ego-current$ ls -l

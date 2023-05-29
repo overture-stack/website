@@ -12,17 +12,20 @@ pages:
   - title: Configuration
     url: arranger/installation/configuration
     pages: 
-    - title: Elasticsearch
+    - title: Index Mapping
       url: arranger/installation/configuration/es
-    - title: Adding a Project
-      url: arranger/installation/configuration/project
+    - title: Metadata File Configuration
+      url: arranger/installation/configuration/metadata
     - title: Integrating Your UI App
       url: arranger/installation/configuration/app
   - title: Authentication 
     url: arranger/installation/authentication
-- title: User Guide 
-  url: arranger/user-guide
+- title: Reference
+  url: arranger/reference
   isHeading: true
   pages:
-  - title: Managing Projects
-    url: arranger/user-guide/projects
+  - title: SQON Filter Notation
+    url: arranger/reference/sqon
+
+    
+
