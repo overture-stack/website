@@ -177,7 +177,8 @@ module.exports = {
         siteId: process.env.GATSBY_MATOMO_SITE_ID,
         matomoUrl: process.env.GATSBY_MATOMO_MATOMO_URL,
         siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
-        dev: process.env.GATSBY_MATOMO_DEV,
+        // set variable dev to true when testing in dev
+        // dev: true,
       },
     },
   ],
