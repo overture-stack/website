@@ -171,5 +171,13 @@ module.exports = {
         skipIndexing: !ENABLE_SEARCH_INDEXING,
       },
     },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '74',
+        matomoUrl: 'https://webstats.oicr.on.ca/piwik/',
+        siteUrl: 'https://www.overture.bio/',
+      },
+    },
   ],
 };
