@@ -19,12 +19,11 @@
 
 ### Troubleshooting
 
-Overture.bio requires NPM v^8.3.0 and Node v^16.0.0 to ensure all dependencies are installed correctly
+Overture.bio requires NPM v^8.3.0, to ensure all dependencies are installed correctly
 
 ```bash
-# If you need to update your NPM, and Node version first, use the following command:
-  npm i -g npm@8.3.0
-  nvm install 16.0.0
+# If you need to update your NPM version first, use the following command:
+  npm i -g npm
 ```
 
 ## Local development
