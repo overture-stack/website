@@ -84,4 +84,4 @@ These environments only apply when deploying to Netlify. The non-secret settings
 
 ### Matomo Gatsby Plug-in
 
-- When working in dev environment (localhost:8000), add the key-value pair `dev:true` to the `options` object for the plug-in to work https://www.gatsbyjs.com/plugins/gatsby-plugin-matomo/ (See Step 3. under Usage)
+- When working in a dev environment (e.g. http://localhost:8000), add the key-value pair `dev: true` to the `options` object for the plug-in to work (See Step 3. under Usage https://www.gatsbyjs.com/plugins/gatsby-plugin-matomo/)
