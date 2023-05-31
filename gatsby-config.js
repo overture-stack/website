@@ -171,5 +171,15 @@ module.exports = {
         skipIndexing: !ENABLE_SEARCH_INDEXING,
       },
     },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: process.env.GATSBY_MATOMO_SITE_ID,
+        matomoUrl: process.env.GATSBY_MATOMO_MATOMO_URL,
+        siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
+        // set variable dev to true when testing in dev
+        // dev: true,
+      },
+    },
   ],
 };
