@@ -81,3 +81,7 @@ These environments only apply when deploying to Netlify. The non-secret settings
 - [Gatsby environment variables](https://www.gatsbyjs.com/docs/environment-variables/)
 - [Netlify environment variables](https://docs.netlify.com/configure-builds/environment-variables/)
 - [Netlify File-Based Configuration](https://docs.netlify.com/configure-builds/file-based-configuration/#sample-file)
+
+### Matomo Gatsby Plug-in
+
+- When working in dev environment (localhost:8000), add the key-value pair `dev:true` to the `options` object for the plug-in to work https://www.gatsbyjs.com/plugins/gatsby-plugin-matomo/ (See Step 3. under Usage)

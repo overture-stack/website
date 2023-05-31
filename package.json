@@ -43,6 +43,7 @@
     "lodash.find": "^4.6.0",
     "lodash.startcase": "^4.4.0",
     "mdx-utils": "^0.2.0",
+    "netlify-cli": "^15.2.0",
     "prism-react-renderer": "^1.2.1",
     "prop-types": "^15.7.2",
     "proper-url-join": "^2.1.1",
