@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .Hero {
   height: 470px;
@@ -20,6 +20,7 @@
     justify-content: center;
     flex-direction: column;
   }
+
   .image {
     flex: 1;
     @media (min-width: $tablet) {

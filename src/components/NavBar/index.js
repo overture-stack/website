@@ -15,6 +15,7 @@ import {
   CONTACT_PATH,
   HOME_PATH,
   SERVICES_PATH,
+  ACKNOWLEDGEMENTS_PATH,
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
@@ -22,14 +23,8 @@ import './styles.scss';
 
 class NavBar extends Component {
   render() {
-    const {
-      closeMenus,
-      megaMenuType,
-      mobileMenuOpen,
-      path,
-      toggleMegaMenu,
-      toggleMobileMenu,
-    } = this.props;
+    const { closeMenus, megaMenuType, mobileMenuOpen, path, toggleMegaMenu, toggleMobileMenu } =
+      this.props;
 
     let mobileMenuClass = mobileMenuOpen ? 'is-active' : '';
     let navbarMenuClass = `navbar-menu ${mobileMenuClass}`;
@@ -64,7 +59,7 @@ class NavBar extends Component {
                 toggleMegaMenu={toggleMegaMenu}
                 type="products"
               >
-                <div ref={r => (this.popoverRef = r)}>
+                <div ref={(r) => (this.popoverRef = r)}>
                   {mobileMegaCheck && (
                     <MegaMenu
                       className="open"
@@ -75,7 +70,7 @@ class NavBar extends Component {
                   )}
                 </div>
               </MegaMenuLink>
-              
+
               <MegaMenuLink
                 isActive={megaMenuType === 'documentation'}
                 name="Documentation"
@@ -83,7 +78,7 @@ class NavBar extends Component {
                 toggleMegaMenu={toggleMegaMenu}
                 type="documentation"
               >
-                <div ref={r => (this.popoverRef = r)}>
+                <div ref={(r) => (this.popoverRef = r)}>
                   {mobileMegaCheck && (
                     <MegaMenu
                       className="open"
@@ -99,6 +94,11 @@ class NavBar extends Component {
 
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
+              <NavLink
+                closeMenus={closeMenus}
+                url={ACKNOWLEDGEMENTS_PATH}
+                name="Acknowledgements"
+              />
               <NavLink closeMenus={closeMenus} url={CONTACT_PATH} name="Contact" />
             </div>
             <div className="navbar-end">

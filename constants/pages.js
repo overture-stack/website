@@ -1,6 +1,7 @@
 import { internalUrlJoin } from '../utils';
 
 export const ABOUT_US_PATH = '/about-us/';
+export const ACKNOWLEDGEMENTS_PATH = '/acknowledgements/';
 export const CASE_STUDIES_PATH = '/case-studies/';
 export const CONTACT_PATH = '/contact/';
 export const DOCS_PATH = '/documentation/';
