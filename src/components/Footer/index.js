@@ -4,7 +4,7 @@
 import React from 'react';
 import { Icon, LinkHelper as Link } from 'components';
 import productsDict from 'constants/products';
-import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH } from 'constants/pages';
+import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH, ACKNOWLEDGEMENTS_PATH } from 'constants/pages';
 import {
   NETLIFY_LINK,
   NETLIFY_IMAGE_LINK,
@@ -115,6 +115,12 @@ const columns = {
         newTab: false,
         className: '',
       },
+      Acknowledgements: {
+        link: '/acknowledgements',
+        icon: null,
+        newTab: false,
+        className: '',
+      },
     },
     {
       Services: {
@@ -142,12 +148,12 @@ const columns = {
 const FooterColumns = () => {
   return (
     <div className="columns is-mobile footer-links flex-auto flex-wrap">
-      {Object.keys(columns).map(columnKey => (
+      {Object.keys(columns).map((columnKey) => (
         <section className="footer-column" key={columnKey}>
           <div className="link-group-header">{columnKey}</div>
-          {columns[columnKey].map(linksObj => (
+          {columns[columnKey].map((linksObj) => (
             <ul className="list-reset" key={Object.keys(linksObj)[0]}>
-              {Object.keys(linksObj).map(linkKey => {
+              {Object.keys(linksObj).map((linkKey) => {
                 const { icon, link, newTab = false } = linksObj[linkKey];
                 const target = newTab ? '_blank' : '_self';
 
@@ -186,6 +192,8 @@ const Footer = () => {
             <Link to={PRIVACY_PATH}>Privacy</Link>
             <span>|</span>
             <Link to={TERMS_PATH}>Terms & Conditions</Link>
+            <span>|</span>
+            <Link to={ACKNOWLEDGEMENTS_PATH}>Acknowledgements</Link>
           </div>
         </div>
       </div>

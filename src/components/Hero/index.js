@@ -7,18 +7,19 @@ import React from 'react';
 import { H1, H2 } from 'components';
 import './styles.scss';
 import img_services from './assets/img_services.svg';
+import img_acknowledgements from './assets/img_acknowledgements.svg';
 
-// some images
-const imgs = { img_services };
+// add svg to this object and use the bgImage prop to use the image in the Hero
+const imgs = { img_services, img_acknowledgements };
 
 const Hero = ({
   title,
   titleClass,
   subtitle,
   children,
-  bgImage,
+  bgImage, // this prop will auto-adjust the image inside the Hero
   bgImageStyles = {},
-  ImgComponent,
+  ImgComponent, // this prop will not auto-adjust
   className,
 }) => {
   // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
