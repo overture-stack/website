@@ -4,171 +4,106 @@
 import React from 'react';
 import { Icon, LinkHelper as Link } from 'components';
 import productsDict from 'constants/products';
-import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH, ACKNOWLEDGEMENTS_PATH } from 'constants/pages';
+import {
+  ABOUT_US_PATH,
+  ACKNOWLEDGEMENTS_PATH,
+  CASE_STUDIES_PATH,
+  CONTACT_US_PATH,
+  DOCUMENTATION_PATH,
+  PRIVACY_PATH,
+  PRODUCTS_PATH,
+  TERMS_PATH,
+} from 'constants/pages';
 import {
   NETLIFY_LINK,
   NETLIFY_IMAGE_LINK,
   OICR_LINK,
+  SLACK_LINK,
   TEAM_BLOG_LINK,
 } from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
 
-const columns = {
-  'Generate & Upload': [
+const column = [
+  [
     {
-      Score: {
-        link: productsDict.score.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Song: {
-        link: productsDict.song.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
+      name: 'Products',
+      link: PRODUCTS_PATH,
+      icon: null,
+      newTab: true,
+      className: '',
+    },
+    {
+      name: 'Documentation',
+      link: DOCUMENTATION_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Access & Download': [
+  [
     {
-      Ego: {
-        link: productsDict.ego.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Maestro: {
-        icon: null,
-        newTab: false,
-        className: '',
-        link: productsDict.maestro.productsPath,
-      },
-      Arranger: {
-        icon: null,
-        newTab: false,
-        className: '',
-        link: productsDict.arranger.productsPath,
-      },
+      name: 'About Us',
+      link: ABOUT_US_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
+    },
+    {
+      name: 'Acknowledgements',
+      link: ACKNOWLEDGEMENTS_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Analyze & Discover': [
+  [
     {
-      Jukebox: {
-        link: productsDict.jukebox.productsPath,
-        newTab: false,
-        className: '',
-      },
-      OncoJS: {
-        link: productsDict.oncojs.productsPath,
-        className: '',
-      },
+      name: 'Team Blog',
+      link: TEAM_BLOG_LINK,
+      icon: null,
+      newTab: true,
+      className: '',
+    },
+    {
+      name: 'Case Studies',
+      link: CASE_STUDIES_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Collaborate & Share': [
+  [
     {
-      Persona: {
-        className: '',
-        link: productsDict.persona.productsPath,
-      },
-      Riff: {
-        link: productsDict.riff.productsPath,
-        newTab: false,
-        className: '',
-      },
+      name: 'Contact Us',
+      link: CONTACT_US_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
+    },
+
+    {
+      name: 'Get Involved',
+      link: SLACK_LINK,
+      icon: null,
+      newTab: true,
+      className: '',
     },
   ],
-  'Track & Manage': [
-    {
-      'Billing & Usage': {
-        link: productsDict.billing.githubUrl,
-        icon: 'githubGrey',
-        newTab: true,
-        className: '',
-      },
-      Enrolment: {
-        link: productsDict.enrolment.githubUrl,
-        icon: 'githubGrey',
-        newTab: true,
-        className: '',
-      },
-    },
-  ],
-  Other: [
-    {
-      Documentation: {
-        link: '/documentation',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'Case Studies': {
-        link: '/case-studies',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'About Us': {
-        link: ABOUT_US_PATH,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Acknowledgements: {
-        link: '/acknowledgements',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-    },
-    {
-      Services: {
-        link: '/services',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Contact: {
-        link: '/contact',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'Team Blog': {
-        link: TEAM_BLOG_LINK,
-        icon: null,
-        newTab: true,
-        className: '',
-      },
-    },
-  ],
-};
+];
 
 const FooterColumns = () => {
   return (
-    <div className="columns is-mobile footer-links flex-auto flex-wrap">
-      {Object.keys(columns).map((columnKey) => (
-        <section className="footer-column" key={columnKey}>
-          <div className="link-group-header">{columnKey}</div>
-          {columns[columnKey].map((linksObj) => (
-            <ul className="list-reset" key={Object.keys(linksObj)[0]}>
-              {Object.keys(linksObj).map((linkKey) => {
-                const { icon, link, newTab = false } = linksObj[linkKey];
-                const target = newTab ? '_blank' : '_self';
-
-                return (
-                  <li key={linkKey}>
-                    <Link className="link" to={link}>
-                      <span>{linkKey}</span>
-                      {icon && <Icon alt="github logo" img={icon} style={{ marginLeft: 4 }} />}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          ))}
-        </section>
+    <div className="column_items_container flex-auto ">
+      {column.map((item) => (
+        <div className="column_group column ">
+          <Link className="columnItem mt1 mb1" to={item[0].link}>
+            {item[0].name}
+          </Link>
+          <Link className="columnItem mt1 mb1" to={item[1].link}>
+            {item[1].name}
+          </Link>
+        </div>
       ))}
     </div>
   );
@@ -188,7 +123,7 @@ const Footer = () => {
       <div className="bg-grey px1 footer-credits">
         <div className="footer-credits__text">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
-          <div className="px1">
+          <div className="px2 ">
             <Link to={PRIVACY_PATH}>Privacy</Link>
             <span>|</span>
             <Link to={TERMS_PATH}>Terms & Conditions</Link>

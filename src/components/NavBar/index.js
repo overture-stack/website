@@ -12,10 +12,10 @@ import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  CONTACT_PATH,
+  CONTACT_US_PATH,
+  COMMUNITY_PATH,
+  DOCUMENTATION_PATH,
   HOME_PATH,
-  SERVICES_PATH,
-  ACKNOWLEDGEMENTS_PATH,
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
@@ -89,24 +89,17 @@ class NavBar extends Component {
                   )}
                 </div>
               </MegaMenuLink>
-
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-
+              <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
-              <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
-              <NavLink
-                closeMenus={closeMenus}
-                url={ACKNOWLEDGEMENTS_PATH}
-                name="Acknowledgements"
-              />
-              <NavLink closeMenus={closeMenus} url={CONTACT_PATH} name="Contact" />
+              <NavLink closeMenus={closeMenus} url={CONTACT_US_PATH} name="Contact Us" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
                   iconAlt="slack logo"
                   className="slack-button"
-                  icon="slack"
+                  icon="slackNew"
                   link={SLACK_LINK}
                   size="navSlack"
                   type="secondary"
@@ -114,14 +107,8 @@ class NavBar extends Component {
                   Join us on Slack
                 </Button>
 
-                <Button
-                  icon="githubMagenta"
-                  iconAlt="github logo"
-                  link={productsDict.overture.githubUrl}
-                  size="navGithub"
-                  type="secondary"
-                >
-                  Overture Github
+                <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
+                  Get Started
                 </Button>
               </div>
             </div>

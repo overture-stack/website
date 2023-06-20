@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Hero, H2, H3, MarketingSection } from 'components';
+import { Hero, H2, H3 } from 'components';
 import './styles.scss';
 
 export default function AcknowledgementsPage() {
@@ -8,7 +8,7 @@ export default function AcknowledgementsPage() {
     <main className="AcknowlegementsPage">
       {/* Metadata */}
       <Helmet>
-        <title>Overture Aknowlegements</title>
+        <title>Overture Acknowledgements</title>
         <meta
           name="description"
           content="We want to thank the following organizations for their funding and support, without which Overture could not have been possible."
@@ -21,7 +21,7 @@ export default function AcknowledgementsPage() {
 
       {/* HERO */}
       <Hero
-        title="Acknowlegements"
+        title="Acknowledgements"
         subtitle="We want to thank the following organizations for their funding and support, without which Overture could not have been possible."
         bgImage="img_acknowledgements"
       />
