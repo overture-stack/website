@@ -70,7 +70,8 @@ import searchBar from './icons/searchBar.svg';
 import security from './icons/security.svg';
 import share from './icons/share.svg';
 import shield from './icons/shield.svg';
-import slack from './icons/icon-slack.svg';
+import slack from './icons/icon_slack.svg';
+import slackNew from './icons/icon_slack_new.svg';
 import spiral from './icons/spiral.svg';
 import star from './icons/star.svg';
 import target from './icons/target.svg';
@@ -150,6 +151,7 @@ const icons = {
   share,
   shield,
   slack,
+  slackNew,
   spiral,
   star,
   target,
