@@ -4,7 +4,7 @@
  **/
 
 import React from 'react';
-import { H1, H2 } from 'components';
+import { H1, P1 } from 'components';
 import './styles.scss';
 import img_services from './assets/img_services.svg';
 import img_acknowledgements from './assets/img_acknowledgements.svg';
@@ -24,7 +24,7 @@ const Hero = ({
 }) => {
   // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
   let wrapperClass = ` Hero ${className && className} ${bgImage && 'bg-image'}`;
-  let _titleClass = `titles column is-half-desktop ${titleClass && titleClass}`;
+  let _titleClass = `titles column  is-half-desktop ${titleClass && titleClass}`;
 
   // Add background image + styles if hero needs one.
   let bgImageURL = {
@@ -38,7 +38,7 @@ const Hero = ({
       <div className=" flex container">
         <section className={_titleClass}>
           <H1>{title}</H1>
-          {subtitle && <H2 className="pt3 t-h4">{subtitle}</H2>}
+          {subtitle && <P1 className="pt1">{subtitle}</P1>}
           {children}
         </section>
 

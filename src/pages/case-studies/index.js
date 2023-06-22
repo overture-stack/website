@@ -12,7 +12,7 @@
 
 import React, { Component } from 'react';
 import { Waypoint } from 'react-waypoint';
-import { CaseStudy, H1, H2 } from 'components';
+import { CaseStudy, H1, H3 } from 'components';
 import caseData from 'data/case_studies';
 import Navigation from './navigation';
 import './styles.scss';
@@ -104,7 +104,7 @@ class CaseStudiesPage extends Component {
     }
   };
 
-  scrollTo = slugName => {
+  scrollTo = (slugName) => {
     let node = this[slugName];
     let rect = node.current.getBoundingClientRect();
     let top = rect.top + window.scrollY - 190;
@@ -120,10 +120,10 @@ class CaseStudiesPage extends Component {
         <section className={`case-hero ${fixedClass}`}>
           <div className="case-hero-content">
             <H1 className="case-heading">Case Studies</H1>
-            <H2 className="t-h4">
+            <H3>
               We’ve participated in projects from small to large. We welcome the chance to
               collaborate with you and bring your data into the future with the Overture stack!
-            </H2>
+            </H3>
           </div>
         </section>
 
@@ -132,7 +132,7 @@ class CaseStudiesPage extends Component {
           caseData={caseData}
           isFixed={this.state.navFixed}
           currentCase={this.state.currentCase}
-          scrollTo={x => this.scrollTo(x)}
+          scrollTo={(x) => this.scrollTo(x)}
         />
 
         {/* Case Study Component */}
@@ -143,8 +143,8 @@ class CaseStudiesPage extends Component {
             return (
               <Waypoint
                 key={d.slug}
-                onEnter={e => this._handleWaypointEnter(d, e)}
-                onLeave={e => this._handleWaypointLeave(d, e)}
+                onEnter={(e) => this._handleWaypointEnter(d, e)}
+                onLeave={(e) => this._handleWaypointLeave(d, e)}
                 threshold={-2.0}
               >
                 <div ref={this[d.slug]} style={{ backgroundColor: bgColor }}>
