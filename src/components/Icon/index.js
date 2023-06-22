@@ -21,6 +21,7 @@ import customizable from './icons/customizable.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
 import download from './icons/download.svg';
+import emailUs from './icons/email-us.svg';
 import extensible from './icons/extensible.svg';
 import fingerSnap from './icons/finger_snap.svg';
 import githubGrey from './icons/github_grey.svg';
@@ -71,6 +72,7 @@ import security from './icons/security.svg';
 import share from './icons/share.svg';
 import shield from './icons/shield.svg';
 import slack from './icons/icon_slack.svg';
+import slackJoin from './icons/slack-join.svg';
 import slackNew from './icons/icon_slack_new.svg';
 import spiral from './icons/spiral.svg';
 import star from './icons/star.svg';
@@ -100,6 +102,7 @@ const icons = {
   dna,
   download,
   extensible,
+  emailUs,
   fingerSnap,
   githubGrey,
   githubMagenta,
@@ -151,6 +154,7 @@ const icons = {
   share,
   shield,
   slack,
+  slackJoin,
   slackNew,
   spiral,
   star,
