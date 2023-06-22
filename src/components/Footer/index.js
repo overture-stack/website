@@ -94,13 +94,13 @@ const column = [
 
 const FooterColumns = () => {
   return (
-    <div className="column_items_container flex-auto ">
+    <div className="column-container flex-auto ">
       {column.map((item) => (
-        <div className="column_group column ">
-          <Link className="columnItem mt1 mb1" to={item[0].link}>
+        <div className="column-container__group column ">
+          <Link className="column-container__link mt1 mb1" to={item[0].link}>
             {item[0].name}
           </Link>
-          <Link className="columnItem mt1 mb1" to={item[1].link}>
+          <Link className="column-container__link mt1 mb1" to={item[1].link}>
             {item[1].name}
           </Link>
         </div>
@@ -111,17 +111,15 @@ const FooterColumns = () => {
 
 const Footer = () => {
   return (
-    <footer className="Footer site-wrapper__footer">
-      <div className="container">
-        <div className="footer-box">
-          <Link className="oicr-logo" to={OICR_LINK}>
-            <img src={logo} alt="OICR" />
-          </Link>
-          <FooterColumns />
-        </div>
+    <footer className="Footer">
+      <div className="footer-white">
+        <Link className="footer-white__oicr-logo" to={OICR_LINK}>
+          <img src={logo} alt="OICR" />
+        </Link>
+        <FooterColumns />
       </div>
-      <div className="bg-grey px1 footer-credits">
-        <div className="footer-credits__text">
+      <div className="bg-grey px1 footer-grey">
+        <div className="footer-grey__text ">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
           <div className="px2 ">
             <Link to={PRIVACY_PATH}>Privacy</Link>

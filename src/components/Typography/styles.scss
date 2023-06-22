@@ -4,7 +4,7 @@
 .t-h1 {
   // for hero headers
   font-family: $font-sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 50px;
   color: $navy-black;
   letter-spacing: 0;
@@ -18,10 +18,12 @@
 
 .t-h2 {
   font-family: $font-sans-serif;
-  font-size: 30px;
-  color: #004773;
+  font-weight: 700;
+  font-size: 36px;
+  color: $navy-black;
   letter-spacing: 0;
-  line-height: 37px;
+  line-height: 40px;
+  text-align: center;
 
   @include breakpoint(mobile) {
     font-size: 24px;
@@ -29,8 +31,9 @@
   }
 }
 
-.t-h4 {
+.t-h3 {
   font-family: $font-sans-serif;
+  font-weight: 900;
   font-size: 24px;
   color: $navy-black;
   letter-spacing: 0;
@@ -39,5 +42,48 @@
   @include breakpoint(mobile) {
     font-size: 20px;
     line-height: 30px;
+  }
+}
+
+.t-p1 {
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: $navy-black;
+  letter-spacing: 0;
+  line-height: 40px;
+
+  @include breakpoint(mobile) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+.t-p2 {
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: $navy-black;
+  letter-spacing: 0;
+  line-height: 34px;
+
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.t-l1 {
+  padding-left: 0;
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: $navy-black;
+  letter-spacing: 0;
+  line-height: 34px;
+
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 24px;
   }
 }

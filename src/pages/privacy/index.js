@@ -1,11 +1,11 @@
 import React from 'react';
-import { H1, H2, LinkHelper as Link } from 'components';
+import { H1, H3, LinkHelper as Link } from 'components';
 import { FAQ_LINK, POLICIES_LINK, PRIVACY_EMAIL_LINK } from 'constants/external-links';
 import './styles.scss';
 
 const Heading = ({ children }) => (
   <div className="pt2">
-    <H2 className="t-h4">{children}</H2>
+    <H3>{children}</H3>
     <div className="my2 yellow-bar" />
   </div>
 );

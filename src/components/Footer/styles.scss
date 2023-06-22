@@ -7,31 +7,8 @@
   background: $white;
   color: $navy-dark;
 
-  .footer-box {
-    padding: 48px 0;
-    display: flex;
-    @include breakpoint(desktop-below) {
-      flex-direction: column;
-      padding: 20px 0;
-    }
-  }
-
   .copyright {
     font-weight: 500;
-  }
-
-  .oicr-logo {
-    width: 128px;
-    order: 1;
-    align-self: center;
-    display: block;
-    margin-right: 32px;
-
-    @include breakpoint(mobile) {
-      margin: 32px;
-      padding-right: 0px;
-      order: 2;
-    }
   }
 
   .netlify-badge {
@@ -41,85 +18,73 @@
     line-height: 0;
   }
 
-  // based on bulma columns.
-  // - last item uses 2 columns except on mobile.
-  // desktop: 7 columns
-  // tablet: 2 rows of 3, last column is wide
-  // mobile: 3 rows of 2 columns
-
-  .footer-column {
-    width: 15%;
-    // heading text wraps if the width is precisely 1/7
-    // so leave it as 15% instead
-    padding: 0.75rem;
-    &:last-child {
-      width: 25%;
-      ul {
-        width: 50%;
-        float: left;
-        @media (max-width: 1400px) {
-          width: 60%;
-          &:last-child {
-            width: 40%;
-          }
-        }
-      }
-    }
-    @include breakpoint(desktop-below) {
-      width: 33%;
-      &:last-child {
-        width: 33%;
-      }
-    }
-    @include breakpoint(mobile) {
-      width: 50%;
-      &:last-child {
-        width: 50%;
-        ul {
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  .footer-credits {
+  .footer-grey {
     display: flex;
     height: 65px;
     font-size: 14px;
-    @media (min-width: 1024px) {
+    @media (min-width: $tablet) {
       align-items: center;
       justify-content: center;
       font-size: 16px;
     }
+
     &__text {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       span {
         padding: 0 8px;
       }
-      @media (min-width: 1024px) {
+      @media (min-width: $tablet) {
         flex-direction: row;
+      }
+      @media (min-width: $mobile) {
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 16px;
       }
     }
   }
 
-  .column_items_container {
+  .footer-white {
+    padding: 48px 0 48px 48px;
     display: flex;
-    order: 2;
-  }
+    @include breakpoint(desktop-below) {
+      flex-direction: column;
+      padding: 20px 0;
+    }
 
-  .columnItem {
-    text-decoration: none;
-    color: $navy-dark;
-    font-weight: 700;
-    &:hover {
-      color: $pink-darker;
+    &__oicr-logo {
+      width: 128px;
+      order: 1;
+      align-self: center;
+      display: block;
+      margin-right: 32px;
+
+      @include breakpoint(mobile) {
+        margin: 32px;
+        padding-right: 0px;
+        order: 2;
+      }
     }
   }
 
-  .column_group {
+  .column-container {
     display: flex;
-    flex-direction: column;
+    order: 2;
+    margin-left: 3rem;
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $navy-dark;
+      font-weight: 700;
+      &:hover {
+        color: $pink-darker;
+      }
+    }
   }
 }

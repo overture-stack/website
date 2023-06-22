@@ -27,6 +27,6 @@ export { default as ProgressBar } from './ProgressBar';
 export { default as Search } from './Search';
 export { default as SectionTableOfContents } from './SectionTableOfContents';
 export { Terminal, UrlBar, TrafficLights } from './Terminal';
-export { H1, H2, H3 } from './Typography';
+export { H1, H2, H3, P1, P2, L1 } from './Typography';
 export { default as WarningBox } from './WarningBox';
 export { default as WindowGui } from './WindowGui';
