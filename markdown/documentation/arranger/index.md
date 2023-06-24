@@ -2,33 +2,21 @@
 title: Introduction
 ---
 
-Arranger is a data-agnostic search API that uses [Elasticsearch index mappings](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping.html) to generate customizable and interactive search components (faceted search panels and sortable tables). When deploying a data portal with Arranger, it can be paired with our [DMS-UI](https://www.overture.bio/documentation/dmsui/) or your own custom UI.
+Arranger is a data-agnostic search API that utilizes [Elasticsearch index mappings](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping.html) to generate interactive and configurable search components.
 
-![Entity](/assets/architecture.png 'Architecture')
+![Entity](./assets/ArrangerArchitecture.png 'Arranger Architecture')
 
-# Features
+Arranger integrates with your underlying Elasticsearch cluster to automatically generate a powerful search API based on your configured index mapping. It consists of two main modules, **Arranger Server** and **Arranger Components**.
 
-## GraphQL Search API
+**Arranger Server** is a GraphQL Search API that communicates with Arranger components and an Elasticsearch index. One unique feature of Arranger Server is its use of a consistent and custom filter notation called [SQON](../documentation/arranger/reference/sqon/). SQON is designed to be user-friendly, allowing humans to easily understand and create custom filters while also being straightforward for software systems to interpret and process.
 
-Using a GraphQL Search API, Arranger can query complex datasets efficiently.
+**Arranger Components** are interactive and configurable UI components specifically designed to display and query complex datasets. The example below showcases the Arranger Components that form the foundation of the VirusSeq data portal.
 
-- Arranger makes no assumption about your data model, it generates its search API from an index mapping you configure based on your Elasticsearch cluster.
+![Entity](./assets/arrangercomponents.png 'Panels')
 
-- Arrangers API uses a consistent and custom filter notation ([SQON](http://localhost:8000/documentation/arranger/reference/sqon/)) which is both straightforward for humans to understand **and** simple for software to interpret.
+  - The left hand box (in purple) is Arrangers **faceted search** component
+  - The bottom box (in blue) is Arrangers **Data Table** component
+  - The top box (in yellow) is Arrangers **SQON Viewer** component
+  
 
-## Customizable Search Components
-
-Use a default theme for your data portal, or customize it with your own branded theme.
-
-- Configure which data columns are displayed in the search results table (highlighted in blue) and customize their display name and order.
-
-- Configure which filters (highlighted in purple) are displayed in the portal and customize their display names and order.
-
-- The searchable facets allow you to configure across a broad set of data types (boolean, string, date, list, etc.) and pre-built aggregation components.
-
-
-![Entity](/assets/arrangercomponents.jpg 'Panels')
-
-# Integrations
-
-Arranger integrates with your underlying Elasticsearch cluster to automatically generate the search API based on your configured index mapping. It's best to have Elasticsearch deployed and your mapping determined before installing and configuring Arranger. Additionally, Arranger will also need the correct credentials to authenticate with Elasticsearch.
+<Note title="DMS-UI">Arranger works best when paired with a user interface (UI) to host its search components. We recommend using the [DMS-UI](https://www.overture.bio/documentation/dmsui/), a React-based UI specifically designed to facilitate Arranger components and the integration of our OAuth tool, Ego. The DMS-UI offers an extensible layout, reusable components, and a themeable front-end interface. Ultimately the DMS-UI enables you to integrate these services into any web-based application.</Note>

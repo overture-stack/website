@@ -2,7 +2,7 @@
 title: Authentication
 ---
 
-Arranger needs the correct Elasticsearch credentials to access the ES cluster. <!--What is a cluster this has not been mentioned yet--> By default the username and password for Elasticsearch is `elastic` and `myelasticpassword`, respectively.
+Arranger needs the correct Elasticsearch credentials to access the ES cluster. <!--What is a cluster this has not been mentioned yet--> By default the username and password for Elasticsearch is `elastic` and `myelasticpassword`.
 
 However, if these values need to be changed, they can be modified prior to deploying the ES service. To do this you will need to update Arranger's `Makefile`.
 

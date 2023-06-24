@@ -1,31 +1,30 @@
-sectionSlug: arranger
-sectionTitle: Arranger
-pages:
-- title: Introduction
-  url: arranger
-- title: Installation Guide 
-  url: arranger/installation
-  isHeading: true
+- sectionSlug: arranger
+  sectionTitle: Arranger
   pages:
-  - title: Installation
-    url: arranger/installation/installation
-  - title: Configuration
-    url: arranger/installation/configuration
-    pages: 
-    - title: Index Mapping
-      url: arranger/installation/configuration/es
-    - title: Metadata File Configuration
-      url: arranger/installation/configuration/metadata
-    - title: Integrating Your UI App
-      url: arranger/installation/configuration/app
-  - title: Authentication 
-    url: arranger/installation/authentication
-- title: Reference
-  url: arranger/reference
-  isHeading: true
-  pages:
-  - title: SQON Filter Notation
-    url: arranger/reference/sqon
+    - title: Introduction
+      url: arranger
+    - title: Installation Guide 
+      url: arranger/installation
+      isHeading: true
+      pages:
+        - title: Installation
+          url: arranger/installation/installation
+        - title: Configuration
+          url: arranger/installation/configuration
+          pages: 
+            - title: Index Mapping
+              url: arranger/installation/configuration/es
+            - title: Metadata File Configuration
+              url: arranger/installation/configuration/metadata
+            - title: Integrating Your UI App
+              url: arranger/installation/configuration/app
+        - title: Authentication 
+          url: arranger/installation/authentication
+    - title: Reference
+      url: arranger/reference
+      isHeading: true
+      pages:
+        - title: SQON Filter Notation
+          url: arranger/reference/sqon
 
-    
 

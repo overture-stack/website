@@ -32,11 +32,11 @@ Combination operations are used to group one or more filters together. For examp
 }
 ```
 
-<Warning>**Note:** The top level of a SQON must always be a Combination Operation, even if only a single filter is being applied.</Warning>
+<Note title="Tip">The top level of a SQON must always be a Combination Operation, even if only a single filter is being applied.</Note>
 
 ## Field Operations
 
-Field operations are used filter value objects
+Field operations are used filter value objects. They have the following structure: 
 
 ```SQON
 {

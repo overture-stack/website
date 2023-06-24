@@ -2,40 +2,37 @@
 title: Metadata File Configuration
 ---
 
-With your Index mapping set up, the next step is to let Arranger know what fields you'd like to use from your mapping. To do this, you will need to configure four metadata files within Arranger.
-
-<!--
-
-<Note title="What is an Arranger Project?">An Arranger project is a collection of JSON files that define the fields available for Arrangers Admin UI. With the Admin UI, adminstrators can then configure how data is displayed on front-end data portal</Note>
-
--->
-
+Once you have set up your index mapping, the next step is to configure the metadata files in Arranger Server. These metadata files specify which fields from your index mapping will be accessible to end users and define how data will be displayed in Arranger's UI components.
 
 # Setting up the Arranger Metadata Files
 
-Arranger metadata files are JSON files that describe which index mapping fields are accessible to end users, these files will also describe how data is displayed within the UI. You will need to supply arranger with four metadata files.
+Arranger metadata files are JSON files that describe the available fields in the index mapping and control the UI behavior. You need to provide four metadata files to Arranger:
 
-| File | Description |
-|------|-------------|
-| aggs-state.json | Configures the search filters and aggregations in the data portal's facet panel. |
-| columns-state.json | Configures the data columns in the data portal's search results table. |
-| extended.json | Extended (extra) configurations for your Elasticsearch index mapping. |
+| File | Description|
+|--|--|
+| aggs-state.json | Configures the search filters and aggregations in the facet panel of the data portal. |
+| columns-state.json | Configures the data columns in the search results table of the data portal. |
+| extended.json | Provides extended (extra) configurations for your Elasticsearch index mapping. |
 | matchbox-state.json | Configures the quick search settings for specified fields in the data portal. |
 
-For reference, here is a set of [sample JSON files](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) created for the default `file_centric_1.0` index mapping.
+You can refer to the [sample JSON files](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) created for the default `file_centric_1.0` index mapping.
 
+<!--Elaboration would be nice here-->
 
-<!--I want a better explaination for what the aggregations are, and what the extended and matchbox-state jsons do-->
+## Aggs-state.json
 
+The `aggs-state.json` file allows you to configure the search filters and aggregations that will be available in the facet panel of the data portal. Aggregations provide insights into the distribution of data based on specified criteria, enabling users to filter and refine their search results.
 
-<!--Requires how to guide
+## Columns-state.json
 
-# Indexed Data
+The `columns-state.json` file is used to configure the data columns that will be displayed in the search results table of the data portal. You can specify the fields from your index mapping that you want to include as columns in the table.
 
-You'll likely want to supply Arranger with data. If you are using Arranger with the full Overture product suite, you can learn how to upload and index data with Song, Score and Maestro.
+## Extended.json
 
-However, if you are using Arranger and Elasticsearch standalone without other Overture components, you will need to index the data into Elasticsearch yourself.  See the [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-index.html) for guidance.
+The `extended.json` file provides additional configurations for your Elasticsearch index mapping. It allows you to define custom behaviors and settings specific to your data model.
 
--->
+## Matchbox-state.json
 
+The `matchbox-state.json` file is used to configure the quick search settings for specified fields in the data portal. It defines which fields will be considered for quick search queries and how the search results will be displayed.
 
+These metadata files play a crucial role in defining the functionality and output of Arranger. Customize them according to your requirements to provide a tailored search experience for your users.
