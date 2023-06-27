@@ -2,7 +2,7 @@
 title: Supplying an Index Mapping
 ---
 
-Now that installation is complete, we need to configure and supply an index mapping to Elasticsearch. This index mapping will complete Elasticsearchs setup and link the Index to the Arranger Server.
+Now that installation is complete, we need to configure and supply an index mapping to Elasticsearch. This index mapping will complete Elasticsearch's setup and link the Index to the Arranger Server.
 
 # Using the Default Index Mapping
 
