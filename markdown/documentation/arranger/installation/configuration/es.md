@@ -14,7 +14,7 @@ To set up Arranger with a default mapping, run the following `make` command:
 make seed-es
 ```
 
-We recommend using the [Elasticvue chrome extenstion](https://chrome.google.com/webstore/detail/elasticvue/hkedbapjpblbodpgbajblpnlpenaebaa) to add the elastic search index. Use the following default information for connecting the index.
+We recommend using [Elasticvue](https://elasticvue.com/) to facilitate adding the Elasticsearch index. Use the following default information for connecting the index.
 
 - **Username:** elastic
 - **Password:** myelasticpassword
