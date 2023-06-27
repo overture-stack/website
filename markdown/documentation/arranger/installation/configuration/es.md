@@ -8,7 +8,7 @@ Now that installation is complete, we need to configure and supply an index mapp
 
 The default index mapping, called `file_centric_1.0`, is a sample mapping used for cancer genomics. The file_centric_1.0 index mapping represents genomic file metadata that can be searched using Arranger.  In Arranger, the sample mapping is configured in the `index_config.json` file.  The sample mapping can be viewed from the GitHub repository [here](https://github.com/overture-stack/arranger/blob/2edf185835fa5e9c5db84a9567bce66d03355623/docker/elasticsearch/index_config.json).
 
-To set up Arranger with a default mapping, run the following `make` command:
+To set up Arranger with this example mapping, run the following `make` command:
 
 ```shell
 make seed-es
