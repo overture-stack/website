@@ -8,7 +8,7 @@ Arranger is a data-agnostic search API that utilizes [Elasticsearch index mappin
 
 Arranger integrates with your underlying Elasticsearch cluster to automatically generate a powerful search API based on your configured index mapping. It consists of two main modules, **Arranger Server** and **Arranger Components**.
 
-**Arranger Server** is a GraphQL Search API that communicates with Arranger components and an Elasticsearch index. One unique feature of Arranger Server is its use of a consistent and custom filter notation called [SQON](../documentation/arranger/reference/sqon/). SQON is designed to be user-friendly, allowing humans to easily understand and create custom filters while also being straightforward for software systems to interpret and process.
+**Arranger Server** is a GraphQL API that communicates with an Elasticsearch index. One unique feature of Arranger Server is its use of a consistent and custom filter notation called [SQON](../documentation/arranger/reference/sqon/). SQON is designed to be user-friendly, allowing humans to easily understand and create custom filters while also being straightforward for software systems to interpret and process.
 
 **Arranger Components** are interactive and configurable UI components specifically designed to display and query complex datasets. The example below showcases the Arranger Components that form the foundation of the VirusSeq data portal.
 
