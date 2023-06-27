@@ -12,7 +12,7 @@ Arranger integrates with your underlying Elasticsearch cluster to automatically 
 
 **Arranger Components** are interactive and configurable UI components specifically designed to display and query complex datasets. The example below showcases the Arranger Components that form the foundation of the VirusSeq data portal.
 
-![Entity](./assets/arrangercomponents.png 'Panels')
+![Entity](./assets/arrangercomponents.jpg 'Panels')
 
   - The left hand box (in red) is Arrangers **faceted search** component
   - The bottom box (in blue) is Arrangers **Data Table** component

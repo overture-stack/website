@@ -30,7 +30,7 @@ The index mapping you create will reflect your own unique data model. You can us
 
 Once you have drafted your index mapping, copy and paste it into the `index_config.json` file [found here](https://github.com/overture-stack/arranger/blob/develop/docker/elasticsearch/index_config.json).
 
-<Note title="Naming your Index Mapping">You can rename the alias, but for ease-of-use it may be simpler to leave it as `file_centric_1.0`. If you change the alias, you will need to modify the `make seed-es` script, `load-es-data.sh` to reference your alias name instead.</Note>
+<Note title="Naming your Index Mapping">You can rename the alias, but for ease-of-use it may be simpler to leave it as `file_centric_1.0`. If you change the alias, update the Make file variable `ES_INDEX` accordingly. You will also need to modify the `make seed-es` script, `load-es-data.sh`, to reference your updated alias name.</Note>
 
 To update Arranger with your index mapping, restart Arranger Server and re-run the ES initialization script: 
 
