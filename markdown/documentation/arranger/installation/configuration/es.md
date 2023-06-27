@@ -20,7 +20,7 @@ We recommend using [Elasticvue](https://elasticvue.com/) to facilitate adding th
 - **Password:** myelasticpassword
 - **URI:** http://localhost:9200
 
-<Note title="Restart the Server"> Once the elasticsearch instance is connected you will need to restart Arranger server</Note>
+<Note title="Restart the Server"> Once the Elasticsearch instance is connected you will need to restart Arranger server</Note>
 
 You should now be able to interact with the Elasticsearch Index through `localhost:5050/graphql`
 
