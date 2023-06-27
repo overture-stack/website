@@ -14,7 +14,7 @@ Arranger integrates with your underlying Elasticsearch cluster to automatically 
 
 ![Entity](./assets/arrangercomponents.png 'Panels')
 
-  - The left hand box (in purple) is Arrangers **faceted search** component
+  - The left hand box (in red) is Arrangers **faceted search** component
   - The bottom box (in blue) is Arrangers **Data Table** component
   - The top box (in yellow) is Arrangers **SQON Viewer** component
   
