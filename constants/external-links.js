@@ -1,3 +1,4 @@
+export const ICGC_ARGO_LINK = 'https://www.icgc-argo.org/';
 export const CGC_LINK = 'https://cancercollaboratory.org/';
 export const FAQ_LINK = 'https://oicr.on.ca/information-practices-frequently-asked-questions/';
 export const GDC_LINK = 'https://portal.gdc.cancer.gov/';
@@ -5,6 +6,7 @@ export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
 export const GITHUB_ISSUES_LINK = `${OVERTURE_GITHUB_LINK}roadmap/issues`;
 export const HCMIS_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const ICGC_LINK = 'https://dcc.icgc.org/';
+export const IHCC_LINK = 'https://atlas.ihccglobal.org/';
 export const KIDS_FIRST_LINK = 'https://portal.kidsfirstdrc.org/';
 export const NETLIFY_IMAGE_LINK = 'https://www.netlify.com/img/global/badges/netlify-color-bg.svg';
 export const NETLIFY_LINK = 'https://www.netlify.com/';
@@ -15,6 +17,7 @@ export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
 export const SLACK_LINK = 'https://overture-bio.slack.com/';
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
+export const VIRUSSEQ_LINK = 'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
 export const EMAIL_LINK = 'mailto:contact@overture.bio';
 
 // PRODUCTS LINKS
@@ -30,8 +33,7 @@ export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
 export const CANARIE_LINK = 'https://www.canarie.ca/';
 
 // ego
-export const EGO_SQL_LINK =
-  `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;
+export const EGO_SQL_LINK = `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;
 export const EGO_UPDATES_LINK = 'http://ego.readthedocs.io/en/latest/';
 
 // jukebox
@@ -55,8 +57,7 @@ export const MAESTRO_UPDATES_LINK = 'https://maestro-overture.readthedocs.io/en/
 
 // persona
 export const PERSONA_LOCAL_LINK = 'http://localhost:3232/graphql';
-export const PERSONA_ENV_SCHEMA_LINK =
-  `${OVERTURE_GITHUB_LINK}persona/blob/master/.env.schema`;
+export const PERSONA_ENV_SCHEMA_LINK = `${OVERTURE_GITHUB_LINK}persona/blob/master/.env.schema`;
 
 // song
 export const SONG_DOCS_LINK = 'https://song-docs.readthedocs.io/en/develop/introduction.html';

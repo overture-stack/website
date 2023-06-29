@@ -9,9 +9,10 @@ import './styles.scss';
 import img_services from './assets/img_services.svg';
 import img_acknowledgements from './assets/img_acknowledgements.svg';
 import img_contact_us from './assets/img_contact_us_new.svg';
+import img_case_studies from './assets/img_case_studies.svg';
 
 // add svg to this object and use the bgImage prop to use the image in the Hero
-const imgs = { img_services, img_acknowledgements, img_contact_us };
+const imgs = { img_services, img_acknowledgements, img_contact_us, img_case_studies };
 
 const Hero = ({
   title,
