@@ -1,4 +1,4 @@
-import { H3, Button, Icon, TrafficLights, ImageCrossfade } from '..';
+import { H2, H3, L1, Button, ImageCrossfade } from '..';
 import React from 'react';
 
 /**
@@ -7,9 +7,6 @@ import React from 'react';
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
 const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
-  const _handleDetailChange = idx => {
-    handleDetailChange({ section: caseData.slug, screenNumber: idx });
-  };
   const descriptionEl =
     typeof caseData.description === 'string' ? (
       <div>{caseData.description}</div>
@@ -22,28 +19,25 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
       <div className="container top-segment">
         <div className="case-heading">
-          <H3>{caseData.title}</H3>
-          <div className="yellow-bar" />
+          <H2 className="mb4">{caseData.title}</H2>
         </div>
         <div className="columns">
           <div className="column is-6">
-            <img alt={`${caseData.title} logo`} className="client-logo" src={caseData.logo} />
             {React.cloneElement(descriptionEl, { className: 'case-description' })}
           </div>
 
-          <div className="column is-offset-1 is-5">
+          <div className="column is-offset-0 ml4">
             <ul>
-              {caseData.listItems.map((i, idx) => {
+              {caseData.listItems[0].map((i, idx) => {
                 return (
-                  <li className="client-list-item" key={idx}>
-                    {i}
-                  </li>
+                  <L1>
+                    <li className="client-list-item" key={idx}>
+                      {i}
+                    </li>
+                  </L1>
                 );
               })}
             </ul>
-            <Button className="my2" type="primary" size="medium" link={caseData.clientLink}>
-              Check it out!
-            </Button>
           </div>
         </div>
       </div>
@@ -52,51 +46,30 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
       <div className="container">
         <div className="details">
           <div className="details-left">
-            {caseData.details.map((detail, idx) => {
-              const activeClass = currentScreenshot === idx ? 'active' : '';
-              return (
-                <div
-                  className={`details-left-item ${activeClass}`}
-                  onClick={() => _handleDetailChange(idx)}
-                  key={detail.title + idx}
-                >
-                  <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
-                  <div className="details-left-description">{detail.description}</div>
-                </div>
-              );
-            })}
+            <div className=" details-left-browser-wrapper">
+              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+            </div>
           </div>
 
-          <div className="details-right">
-            <div
-              onClick={() =>
-                handlePageScreenshot({
-                  section: caseData.slug,
-                  max: caseData.details.length,
-                  dir: 'inc',
-                })
-              }
-              className="screenshot-arrow-right"
-            >
-              <Icon img="arrowRightRound" />
+          <div className="details-right column is-offset-0 mt2">
+            <div>
+              <H3 className="mb2">How was Overture used?</H3>
+              <ul>
+                {caseData.listItems[1].map((i, idx) => {
+                  return (
+                    <L1>
+                      <li className="client-list-item" key={idx}>
+                        <b>{Object.keys(i)}</b> {Object.values(i)}
+                      </li>
+                    </L1>
+                  );
+                })}
+              </ul>
             </div>
-
-            <div
-              onClick={() =>
-                handlePageScreenshot({
-                  section: caseData.slug,
-                  max: caseData.details.length,
-                  dir: 'dec',
-                })
-              }
-              className="screenshot-arrow-left"
-            >
-              <Icon img="arrowLeftRound" />
-            </div>
-
-            <div className="Browser details-right-browser-wrapper">
-              <TrafficLights style={{ marginLeft: 0, paddingBottom: '16px' }} />
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+            <div>
+              <Button className="mt3" type="primary" size="medium" link={caseData.clientLink}>
+                Check it out!
+              </Button>
             </div>
           </div>
         </div>

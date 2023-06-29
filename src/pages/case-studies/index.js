@@ -11,8 +11,9 @@
  */
 
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { Waypoint } from 'react-waypoint';
-import { CaseStudy, H1, H3 } from 'components';
+import { CaseStudy, Hero } from 'components';
 import caseData from 'data/case_studies';
 import Navigation from './navigation';
 import './styles.scss';
@@ -20,12 +21,12 @@ import './styles.scss';
 class CaseStudiesPage extends Component {
   constructor(props) {
     super(props);
+
     // Refs for scroll to navigation
+    this.icgcargo = React.createRef();
+    this.virusseq = React.createRef();
     this.kidsFirst = React.createRef();
-    this.icgcDataPortal = React.createRef();
-    this.nciGdc = React.createRef();
-    this.cgc = React.createRef();
-    this.kidsFirst = React.createRef();
+    this.ihcc = React.createRef();
     this.humanCancerModels = React.createRef();
   }
 
@@ -36,10 +37,10 @@ class CaseStudiesPage extends Component {
     caseStudyScrollPoints: [],
     // Use slugs as keys for easy changing.
     currentScreenshots: {
+      icgcargo: 0,
+      virusseq: 0,
       kidsFirst: 0,
-      icgcDataPortal: 0,
-      nciGdc: 0,
-      cgc: 0,
+      ihcc: 0,
       humanCancerModels: 0,
     },
   };
@@ -116,16 +117,25 @@ class CaseStudiesPage extends Component {
 
     return (
       <main className="CaseStudiesPage">
+        {/* Metadata */}
+        <Helmet>
+          <title>Overture Case Studies</title>
+          <meta
+            name="description"
+            content="See how Overture is tackling diverse challenges across multiple projects."
+          />
+          <meta
+            name="keywords"
+            content="Overture, data science software, bioinformatics software, open-source software, cancer research, academic collaborations, grant co-applicant, software consulting, project architecture, migration, custom development, scalability, technical support, troubleshooting, Ontario Institute for Cancer Research, OICR, Canarie, DMS Command Line Interface, The National Cancer Institutes Informatics Technology for Cancer Research Program, NCI ITCR, Overture DMS, GA4GH passport system"
+          />
+        </Helmet>
+
         {/* HERO */}
-        <section className={`case-hero ${fixedClass}`}>
-          <div className="case-hero-content">
-            <H1 className="case-heading">Case Studies</H1>
-            <H3>
-              We’ve participated in projects from small to large. We welcome the chance to
-              collaborate with you and bring your data into the future with the Overture stack!
-            </H3>
-          </div>
-        </section>
+        <Hero
+          title="Case Studies"
+          subtitle="See how Overture is tackling diverse challenges across multiple projects."
+          bgImage="img_case_studies"
+        />
 
         {/* Case Study Interactive NavBar */}
         <Navigation
