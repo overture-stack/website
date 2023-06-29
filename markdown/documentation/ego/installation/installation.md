@@ -2,11 +2,9 @@
 title: Installing Ego
 ---
 
-# Installation
-
 Before installing Ego, make sure you have completed all the applicable [prerequisite steps](/documentation/ego/installation/prerequisites/).
 
-## Docker Installation
+# Installing Ego Via Docker
 
 To install Ego using Docker, follow these steps:
 
@@ -17,24 +15,34 @@ To install Ego using Docker, follow these steps:
 SPRING_PROFILES_ACTIVE=auth
 
 # Google login stuff
-SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTID={{Insert-Client-ID}}
-SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTSECRET={{Insert-Client-Secret}}
+SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTID={{Client-ID}}
+SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTSECRET={{Client-Secret}}
 
 # Database Connection
-SPRING_DATASOURCE_URL=jdbc:postgresql://{{postgres db host - default is localhost:5432}}/{{postgres db name}}?stringtype=unspecified
-SPRING_DATASOURCE_USERNAME={{Insert-Ego-Db-Username}}
-SPRING_DATASOURCE_PASSWORD={{Insert-Ego-Db-Password}}
+SPRING_DATASOURCE_URL=jdbc:postgresql://{{Postgres-Host(ex. localhost:5432)}}/{{DB-Name}}
+SPRING_DATASOURCE_USERNAME={{Ego-Db-Username}}
+SPRING_DATASOURCE_PASSWORD={{Ego-Db-Password}}
 ```
 
 2. Start the Ego container using the `docker run` command, specifying the mounted `.env` file:
 
+**For Linux (Recommended)**
+
 ```bash
-docker run --env-file .env -p 8081:8081 ghcr.io/overture-stack/ego:edge
+docker run --env-file .env --network=host -d -p 8081:8081 ghcr.io/overture-stack/ego:edge
+```
+
+**For Mac and Windows**
+
+Note: Running Ego through docker with an ARM64 (Apple Silicon) processor can be unstable and is currently not recommended.
+
+```bash
+docker run --env-file .env host.docker.internal -p 8081:8081 ghcr.io/overture-stack/ego:edge
 ```
 
 3. Ego should now be running and accessible at `http://localhost:8081`.
 
-## Ego Admin-UI setup
+# Ego Admin-UI setup
 
 To install and integrate the Ego Admin-UI using Docker, follow these steps:
 
