@@ -1,15 +1,14 @@
 ---
-title: Configuring Authentication 
+title: Authentication
 ---
 
-# Application Authorization 
+# Application Authorization
 
-For an application to interact with song, authentication and authorization must be provided.  You can do this by using an authorized user's API Key with the correct permissions, or enabling application-to-application authorization following the OAuth 2.0 protocol.
+To interact with Song, an application must provide authentication and authorization. This can be done by using an API Key from an authorized user with the appropriate permissions or by enabling application-to-application authorization following the OAuth 2.0 protocol.
 
-Scope requirements are defined in the `auth` section, and the `secure` and `jwt` profiles are available to manage the desired configuration. 
+# Configuration Example
 
-# Configuration Example 
-Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values: 
+To configure authentication, modify the `application.yml` file located at `song-server-[version]/conf/application.yml` with the following values:
 
 ```yaml
 spring:
@@ -38,3 +37,10 @@ auth:
   jwt:
     public-key-url: http://localhost:8084/oauth/token/public_key
 ```
+
+Ensure that you replace `<host>`, `<port>`, `<client id from Ego>`, and `<client secret from ego>`with the appropriate values for your configuration.
+
+Scope requirements are defined in the `auth` section, and the `secure` and `jwt` profiles are available to manage the desired configuration.
+
+
+

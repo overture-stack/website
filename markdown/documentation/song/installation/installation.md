@@ -2,24 +2,40 @@
 title: Deploying a Song Server
 ---
 
-# Dependencies
-The following software dependencies are required in order to run the Song server:
+# Prerequisites 
 
-- Bash Shell
-- Java 11 or higher
-- Postgres database
+Before installing Song, make sure the following are installed and configured on the platform of your choice (we recommend Linux):
 
+1. PostgreSQL
+    - Official download & installation instructions [here](https://www.postgresql.org/download/)
+    - You must have your database setup before installing Song
+
+2. Docker Engine
+    - Official download & installation instructions [here](https://docs.docker.com/engine/install/)
 
 # Installation
-## Distribution 
-Official Song releases can be found on [Github](https://github.com/overture-stack/SONG/releases). Each release contains notes with a description of the bug fixes, new features or enhancements and breaking changes, as well as links to downloads and change logs. 
+
+1. **Docker Pull:** Install the latest stable release with the following command:
+
+```bash
+docker pull ghcr.io/overture-stack/song-server:latest
+```
+
+2. **Run the docker container:** Run the Song-server container with the following command:
+
+```bash
+docker run ghcr.io/overture-stack/song-server:latest
+```
+
+
+1. **Download the latest distribution:** Official Song releases can be found on [Songs Github releases page](https://github.com/overture-stack/SONG/releases).
 
 The latest distribution can be downloaded using the command: 
 ```bash
  curl https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-server/[RELEASE]/song-server-[RELEASE]-dist.tar.gz -Ls -o song-server-dist.tar.gz    
 
 ```
-This distribution contains the default configuration and jars for running the server. To unzip, run the command:
+2. **Unzip the distribution:** To unzip, run the command:
 
 ```bash
 tar zxvf song-server-dist.tar.gz
@@ -27,15 +43,13 @@ tar zxvf song-server-dist.tar.gz
 
 Note that once unzipped, the final directory will be suffixed with the latest release number of the distribution. 
 
-## Feature Configuration
-There are several <span style="color:red"> required</span> components to configure for Song server.  These include: 
+3. **Configurations:** There are several ***required*** components to configure for a Song server including: 
 - [Run Profiles](/documentation/song/installation/configuration/profiles) 
 - [Score Server Integration](/documentation/song/installation/configuration/score) 
 - [ID Management](/documentation/song/installation/configuration/id)
 - [Schema Strictness](/documentation/song/installation/configuration/schema)
 
-There are also some <span style="color:blue">optional</span> components to configure for Song server.  These include:  
-- [Event Management Integration](/documentation/song/installation/configuration/kafka)
+You may also ***optionally*** [Event Management Integration](/documentation/song/installation/configuration/kafka) with Kafka.
 
 The details of each of these options are covered in the [Configuration](/documentation/song/installation/configuration/) section. 
 

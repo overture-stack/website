@@ -1,15 +1,20 @@
 ---
-title: Connecting Song to a Score Server
+title: Score Server Integration
 ---
 
-Song requires an object storage backend to store data files. A [Score](/documentation/score/) server must be configured for use with Song. Score can interact with any S3 API compatible backend, including AWS, Azure, and MinIO. 
+Song requires an object storage backend to store data files. A [Score](/documentation/score/) server must be configured for use with Song. Score is compatible with various S3 API compliant backends such as AWS, Azure, and MinIO.
 
-Song server MUST be pointed to a Score storage backend. Once your score server is ready, you will be able to connect it to your song configuration. 
+To enable Song's integration with the Score server, you need to specify the Score storage backend in your Song server configuration. Once your Score server is set up, you can establish the connection with your Song configuration.
+
 
 ## Configuration Example 
-Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values. 
-- **score:** The `score` section is <span style="color:red"> required</span> and contains the connection details to the score-server. Input the score-server URL and an API Key that has both upload and download permission scopes. An API Key is owned  by a user and has an expiry, so will need to be updated regularly.
-- **score-client-credentials:** The `score-client-credentials` profile  is <span style="color:blue">optional</span>, and contains the connection details to the score-server to be authentication though JWT instead of API Key. If this profile is enabled, the default configurations defined in `score` will be overwritten. 
+
+To configure Score, modify the `application.yml` file located at `song-server-[version]/conf/application.yml` as follows:
+
+- **score:** The `score` section is required and contains the connection details to the score-server. Input the score-server URL and an API Key that has both upload and download permission scopes. An API Key is owned by a user and has an expiry, so will need to be updated regularly.
+
+
+- **score-client-credentials:** The `score-client-credentials` profile is optional, and contains the connection details to the score-server to be authentication though a JWT instead of an API Key. If this profile is enabled, the default configurations defined in `score` will be overwritten. 
 
 ```yaml
 score:
