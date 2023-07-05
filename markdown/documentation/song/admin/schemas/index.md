@@ -4,7 +4,7 @@ title: Introducing Dynamic Schemas
 
 # JSON Schema
 
-Song utilizes [JSON Schema](https://json-schema.org/) to validate metadata during submission. Data is submitted to Song in JSON format and undergoes validation against the data model schema. This schema ensures the presence of required fields and validates the contents of each field, ensuring adherence to the desired data type and allowed values. This validation process preserves the integrity and quality of the metadata within Song.
+Song utilizes [JSON Schema](https://json-schema.org/) to validate metadata during submission. Data is submitted to Song in JSON format and undergoes validation against the data model schema. This schema ensures the presence of required fields and validates the contents of each field, enforcing adherence to the desired data type and allowed values. This validation process preserves the integrity and quality of the metadata stored in the Song repository.
 
 # Analysis Schemas
 
