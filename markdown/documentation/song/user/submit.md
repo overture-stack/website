@@ -4,7 +4,7 @@ title: Submitting Data to Song
 
 # Data Submission Overview
 
-Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes the data file). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
+Submitted data consists of data files (e.g. sequencing reads or variant calls), as well as any associated file metadata (data that describes the data file). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
 
 # Installing the Song-Client
 
@@ -98,7 +98,7 @@ The `manifest.txt` file will be written out to defined output file path. If the 
 Upload all the files associated to the analysis using the score-client `upload` command:
 
 ```bash
-.bin/score-client  upload --manifest manifest.txt
+./bin/score-client  upload --manifest manifest.txt
 ```
 
 Once the file(s) successfully upload you will receive an `Upload completed` message.
@@ -110,7 +110,7 @@ Once the file(s) successfully upload you will receive an `Upload completed` mess
 Sometimes if an upload is stuck, you can reinitiate the upload using the `--force` command. 
 
 ```bash
-.bin/score-client  upload --manifest manifest.txt --force 
+./bin/score-client  upload --manifest manifest.txt
 ```
 For more information on Score, please see the [Score documentation page](/documentation/score).
 
