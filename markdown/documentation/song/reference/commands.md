@@ -33,7 +33,7 @@ The `get-analysis-types` command is used to retrieve schema information based on
 | Option | Description |
 |--|--|
 |-n, --name| name of a registered analysis schema|
-|`-u`, `--unrendered-only`||
+|`-u`, `--unrendered-only`| Triggers the same behaviour as the unrendered flag in the API |
 |`-v`, `--version`||
 
 ## List-Analysis-Types
