@@ -59,5 +59,5 @@ payload = new_schema
 post_response=requests.post(endpoint, json=payload,headers=headers)
 ### Complain only when an attempt fails
 if post_response.status_code!=200:
-print("error calling patch endpoint",endpoint,post_response.status_code)
+   print("error calling patch endpoint",endpoint,post_response.status_code)
 ```
