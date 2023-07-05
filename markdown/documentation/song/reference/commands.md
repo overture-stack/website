@@ -14,7 +14,7 @@ The following sub-sections is provided as a reference to all the commands and co
 
 ## Config
 
-The `config` command shows the current configuraion settings.
+The `config` command shows the current configuration settings.
 
 ## Submit
 
