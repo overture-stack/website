@@ -2,7 +2,7 @@ sectionSlug: dmsui
 sectionTitle: dmsui
 pages:
 - title: Introduction
-  url: dmsui/
+  url: dmsui
 - title: Installation Guide
   url: dmsui/installation
   isHeading: true
