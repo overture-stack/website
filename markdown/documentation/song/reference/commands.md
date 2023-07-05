@@ -91,7 +91,7 @@ The `publish` command is used to publish an analysis based on it's analysis Id. 
 | Option | Description |
 |--|--|
 |`-a`, `--analysis-id`| Associated analysisId |
-|`-i`, `--ignore-undefined-md5`|  |
+|`-i`, `--ignore-undefined-md5`| This flag bypasses the md5 check. |
 
 ## Unpublish
 
