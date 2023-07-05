@@ -27,7 +27,7 @@ The **base schema** is a minimal set of data needed for a schema. The base schem
 - Donor ID, Specimen ID, and Sample ID
 - Basic cancer sample descriptors
 
-The base schema can be seen in the code block shown below: 
+The base schema portion of an analysis object can be seen in the code block shown below:
 
 ```json
 {
