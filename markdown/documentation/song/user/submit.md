@@ -105,13 +105,16 @@ Once the file(s) successfully upload you will receive an `Upload completed` mess
 
 ### Troubleshooting Upload 
 
-- If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly. 
+If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly. 
 
-Sometimes if an upload is stuck, you can reinitiate the upload using the `--force` command. 
+If an upload process appears stuck, you can restart the upload from the last completed chunk by rerunning the same command. Killing the command in case of an issue during upload is also an option.
+
+If multiple files are being uploaded and the command fails during a later file (e.g., the second file), the first file will have already been uploaded successfully. When Song attempts to re-upload all the files, it will recognize the first file as a conflict. In such cases, you can use the --force command to override the first instance and proceed with re-uploading.
 
 ```bash
-./bin/score-client  upload --manifest manifest.txt
+./bin/score-client upload --force --manifest manifest.txt
 ```
+
 For more information on Score, please see the [Score documentation page](/documentation/score).
 
 ## Step 5. Publish the analysis
