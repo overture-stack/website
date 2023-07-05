@@ -51,8 +51,6 @@ The `list-analysis-types` command is used to
 
 ## Register-Analysis-Type
 
-<!--Please Confirme-->
-
 The `register-analysis-type` command is used to register and new analysis type
 
 | Option | Description |
@@ -111,8 +109,6 @@ The `suppress` command is used to block data from being accessed. For more infor
 
 ## Export
 
-<!--confirm-->
-
 The `export` command is used to export a payload based on a variety of input parameters:
 
 | Option | Description |
@@ -121,11 +117,9 @@ The `export` command is used to export a payload based on a variety of input par
 |`-f`, `--inputFile`|Path of input file containing a single column of analysisIds on each new line|
 |`-o`, `--output-dir`|Directory to save the export to|
 |`-s`, `--studyId`| Export payloads under a specified studyId|
-|`-t`, `--threads`| |
+|`-t`, `--threads`| Defines the number of CPUs/threads used |
 
 ## Update-File
-
-<!--Please elaborate-->
 
 The `update-file` command is used to update file data.
 
