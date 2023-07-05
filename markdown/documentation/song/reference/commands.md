@@ -26,8 +26,6 @@ The `ping` command can be used to ping (test) the Song server
 
 ## Get-Analysis-Type
 
-<!--Please Elaborate-->
-
 The `get-analysis-types` command is used to retrieve schema information based on some basic input parameters:
 
 | Option | Description |
@@ -37,8 +35,6 @@ The `get-analysis-types` command is used to retrieve schema information based on
 |`-v`, `--version`| Returns a specific version of the analysis schema |
 
 ## List-Analysis-Types
-
-<!--Please Elaborate-->
 
 The `list-analysis-types` command is used to
 
@@ -65,7 +61,8 @@ The `register-analysis-type` command is used to register and new analysis type
 
 ## Search
 
-The `search` command is used to search for analysis objects based off various input parameters. Unless specified by one of the following options the `search` command will search for analysis within the current studyId.
+The `search` command is used to search for analysis objects based off various input parameters. Unless specified by one of the following options the `search` command will search for analysis within the current studyId. Note the `config` command shows the current configuration settings, including your studyId.
+
 
 | Option | Description |
 |--|--|
