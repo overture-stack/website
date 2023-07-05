@@ -126,8 +126,8 @@ The `update-file` command is used to update file data.
 | Option | Description |
 |--|--|
 |`-a`, `--access`| Options: [open, controlled], Possible Values: [open, controlled] |
-|`-d`, `--datatype`| |
-|`-i`, `--info`||
-|`-m`, `--md5`| |
-|`--object-id`| |
-|`-s`, `--size`| |
+|`-d`, `--datatype`| A new datatype value defined by the base schema, e.g. FASTQ, BAM, VCF |
+|`-i`, `--info`| Update any miscellaneous information in JSON format, e.g. this can be used to store EGA IDs and other workflow data |
+|`-m`, `--md5`| Update md5 checksum values |
+|`--object-id`| Update the object-id assigned by Song and Score |
+|`-s`, `--size`| Update the recorded size of the file in bytes |
