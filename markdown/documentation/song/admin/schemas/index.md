@@ -14,7 +14,7 @@ When submitting an analysis to Song, you need to specify the desired **schema** 
 
 The schema associated with the analysis type consists of two parts:
 
-1. A minimal, **base schema** that is defined for patient data.
+1. A minimal, **base schema** that is defined for donor data.
 
 2. A flexible **dynamic schema** that is configured and uploaded by a Song administrator.
 
