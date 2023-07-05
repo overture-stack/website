@@ -24,19 +24,6 @@ pages:
             url: song/installation/configuration/kafka
       - title: Authentication 
         url: song/installation/auth-config
-  - title: User Guide 
-    url: song/user
-    isHeading: true
-    pages:
-      - title: API Usage
-        url: song/user/api
-        pages: 
-          - title: Retrieving Metadata
-            url: song/user/api/retrieve
-          - title: Updating Metadata
-            url: song/user/api/update
-      - title: Submitting Data 
-        url: song/user/submit
   - title: Admin Guide 
     url: song/admin
     isHeading: true
@@ -52,6 +39,19 @@ pages:
             url: song/admin/schemas/managingschemas
       - title: Analysis Management
         url: song/admin/analysismanagement
+  - title: User Guide 
+    url: song/user
+    isHeading: true
+    pages:
+      - title: API Usage
+        url: song/user/api
+        pages: 
+          - title: Retrieving Metadata
+            url: song/user/api/retrieve
+          - title: Updating Metadata
+            url: song/user/api/update
+      - title: Submitting Data 
+        url: song/user/submit
   - title: Reference
     url: song/reference
     isHeading: true
