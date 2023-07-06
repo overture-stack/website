@@ -5,7 +5,7 @@ title: Installation
 To install the DMS-UI follow these steps.
 
 
-1. Clone the DMS-UI repository to your machine
+1. Clone the repository to your machine
 
 ```bash
 git clone https://github.com/overture-stack/dms-ui.git
