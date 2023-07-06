@@ -15,7 +15,8 @@ NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE=file
 NEXT_PUBLIC_ARRANGER_INDEX=file_centric_1.0
 NEXT_PUBLIC_ARRANGER_API_URL=http://localhost:5000/
 # Columns are field names separated by commas, with or without quotes
-NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=fieldName, "fieldName", 'fieldName'
+# this is where you'd provide here the fields you want to use for manifest downloads
+# NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=fieldName, "fieldName", 'fieldName'
 ```
 
 3. Restart the DMS-UI by exiting out and re-running `npm run dev`
