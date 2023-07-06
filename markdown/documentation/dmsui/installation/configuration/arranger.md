@@ -4,7 +4,7 @@ title: Integrating Arranger
 
 Before integrating Arranger make sure you have Arranger running with an Elasticsearch instance connected. For instructions on setting up arranger see our [arranger documentation here](https://overture.bio/documentation/arranger)
 
-1. Copy the `.env.schema` and rename the new file to `.env.local`
+1. Copy or rename the `.env.schema` file as `.env.local`.
 
 
 2. Update the following fields within your `.env.local`. These values are based of the default elasticsearch values supplied by Arranger.
