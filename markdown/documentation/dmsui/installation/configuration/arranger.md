@@ -7,7 +7,7 @@ Before integrating Arranger make sure you have Arranger running with an Elastics
 1. Copy or rename the `.env.schema` file as `.env.local`.
 
 
-2. Update the following fields within your `.env.local`. These values are based of the default elasticsearch values supplied by Arranger.
+2. Update the following fields within your `.env.local`. These values are based on the default Elasticsearch values supplied with Arranger.
 
 ```
 ######### Arranger
