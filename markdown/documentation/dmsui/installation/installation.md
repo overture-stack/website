@@ -23,7 +23,7 @@ npm ci
 npm run dev
 ```
 
-Once complete you should be able to access the DMS-UI from your `localhost:3000`, without anything configured you should see the following error message:
+Once complete you should be able to access the DMS-UI from your `localhost:3000`, without anything configured you should see the following error message (or similar):
 
 ![Entity](../assets/configerror.png 'Error')
 
