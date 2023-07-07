@@ -6,13 +6,11 @@ Before integrating Ego with the DMS-UI make sure you have Ego running and config
 
 To add Ego to the DMS UI:
 
-1. On the left hand panel select Applications.
+1. On the left hand panel select Applications. From the Applications screen on the right hand side click create. 
 
+![Entity](../../assets/dmsappcreate.jpg 'Ego-UI creating a new application')
 
-2. From the Applications screen on the right hand side click create.
-
-
-3. To set up Ego with the DMS-UI locally insert the following information:
+2. To set up Ego with the DMS-UI locally insert the following information:
 
 |Field|Value|
 |--|--|
@@ -24,6 +22,8 @@ To add Ego to the DMS UI:
 |Error Redirect URI|http://localhost:3000/error|
 
 You can leave the Groups and Users fields blank. Click the save button on the top right of the panel.
+
+![Entity](../../assets/dmsuiappcreatefilled.jpg 'New DMS-UI application values')
 
 4. Within the DMS-UI locate your `.env.local` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.local`.
 

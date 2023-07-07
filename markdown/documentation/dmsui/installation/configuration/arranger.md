@@ -19,11 +19,7 @@ NEXT_PUBLIC_ARRANGER_API_URL=http://localhost:5000/
 # NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=fieldName, "fieldName", 'fieldName'
 ```
 
-3. Restart the DMS-UI. This can be done by exiting out (Ctrl/Cmd + C), and re-running `npm run dev`.
-
-Once compiled you should be able to see Arranger running in the DMS-UI.
-
-<!--Grab screenshot once docker is fixed-->
+3. Restart the DMS-UI. This can be done by exiting out (Ctrl/Cmd + C), and re-running `npm run dev`. Once compiled you should be able to see Arranger running in the DMS-UI.
 
 
-
+![Entity](../../assets/dmsuiarranger.jpg 'Arranger running in the DMS-UI')
