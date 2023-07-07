@@ -20,6 +20,8 @@ Song is a metadata validation and tracking tool designed to streamline the manag
 
 **Data Lifecycle Management:** Analyses uploaded to a Song repository are `UNPUBLISHED` by default. When data is ready for search and download, administrators can make it available by updating it to a `PUBLISHED` state. If data is no longer relevant, the data administrators can set it to a `SUPPRESSED` state, making it unavailable for search and download through downstream services. 
 
+<Note title="The Song Client">We created the `song-client` command line tool to streamline interactions with Songs REST API endpoints. For more information on what the `song-client` can do, see our [Song client command reference documentation](./reference/commands.md).</Note>
+
 # Integrations
 
 As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, [Score](/documentation/score), which manages file transfers and object storage.
