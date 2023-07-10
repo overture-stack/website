@@ -4,6 +4,8 @@ title: Introduction
 
 Maestro's driving principle is organizing data distributed across numerous Song repositories into a single, Elasticsearch index. By organizing data into a single index, Maestro allows upstream services, such as [Arranger](/documentation/arranger), to consume the data and expose it to end users for search and exploration.
 
+![Entity](./assets/MaestroArchitecture.jpg 'Maestro Architecture')
+
 # Features
 
 ## Multi Repo Management
