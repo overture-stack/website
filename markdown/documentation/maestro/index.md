@@ -2,63 +2,52 @@
 title: Introduction
 ---
 
-Maestro's driving principle is to help organize and manage your geographically-distributed genomic data into a single, searchable index.
-
-With the rapid increase and proliferation of genomic data due to modern scientific technologies, methodologies, and discoveries, the data is invariably becoming more distributed, originating and being stored in many sources.
-
-In the Overture product suite, [Song](/documentation/song) provides such a distributed metadata management and storage system, where multiple, geographically-distributed Song servers can exist.
-
-Recognizing this, the Overture team designed Maestro to seamlessly connect to multiple Song servers, listen for changes, and automatically generate a single [Elasticsearch](https://www.elastic.co/) index.
-
-By orchestrating and consolidating data into a single index, Maestro allows upstream services to easily consume the data and expose it to end users for search and exploration.  In Overture, [Arranger](/documentation/arranger) is one such consumer, able to quickly generate a data portal for end users from the index built by Maestro.
+Maestro's driving principle is organizing data distributed across numerous Song repositories into a single, Elasticsearch index. By organizing data into a single index, Maestro allows upstream services, such as [Arranger](/documentation/arranger), to consume the data and expose it to end users for search and exploration.
 
 # Features
 
-## Multiple Repository Management
+## Multi Repo Management
 
-Maestro natively supports indexing data from multiple Song metadata repositories. Maestro connects to each Song server and will index all files from the repositories into a single Elasticsearch index.  Conflict resolution is built-in as part of the indexing process.  For example, if the same file was identified in multiple Song repositories, Maestro is able to detect this and aggregate the information from all repositories into the same Elasticsearch index document.
+- Built-in conflict detection and resolution. For example, if the same file gets identified in multiple Song repositories, Maestro can detect this and aggregate the information from all repositories into the same Elasticsearch index document
 
 ## Multiple Indexing Levels
 
-In the Song data model, data can be grouped by different entities in a specific hierarchy: `Repository --> Study --> Individual Analysis` with Repository being at the highest level.  Maestro is flexible in that it can index data for a specific level, depending on the request.  For example, if indexing is requested for a specific study, then all data for that study (including all analyses under that study) would be indexed.
+- Song repositories follow a standard hierarchy, with the Repository at the highest level (**Repository > Study > Analysis**). Maestro can granularly index at each specific level
 
-## Support for Song Dynamic Schemas
+For example, if you want to index all analyses within a specific study, you can supply Maestro with the following command:
 
-Song supports a base data model ([schema](/documentation/song/user-guide/schema/)) with basic required fields that need to exist for an analysis.  However, it also supports a flexible dynamic schema which administrators can use to encode additional business rules that their data must comply with.  Maestro by default only needs the base schema fields to exist to index the data.  However, it is also capable of supporting indexing the additional fields found in the dynamic schema.  Note however, that it is the administrator's responsibility to manage the mapping and migration of one index to another should it change due to additional dynamic fields.
+```bash
+curl -X POST \
+    http://localhost:11235/index/repository/`<repositoryCode>`/study/`<studyId>` \
+    -H 'Content-Type: application/json' \
+    -H 'cache-control: no-cache' \
+```
+
+## Supports Songs Dynamic Schemas
+
+Song has a base data model and a flexible, user-defined dynamic schema for administrators to encode their data model rules
+
+- Maestro only requires the base schema fields to index data but also supports the indexing of additional fields found within the dynamic schema
+
+<Note title="Index Mapping Migrations">When changes are made to the dynamic schema, it becomes the administrator's responsibility to update and migrate to the new index mapping.</Note> 
 
 ## Exclusion Rules
 
-In certain use cases, specific data records may need to excluded from indexing.  For example, prior to a major data release, some records may need to be excluded for business, data integrity, legal reasons, etc.  In the context of Song, Maestro supports this by providing configurable exclusion rules that omit specific analyses from being indexed based on metadata tags found in Song.  Specific analyses can be excluded by these identifiers:
+In certain use cases, specific data records may need to be excluded from indexing. For example, before a major data release, some records may need to be excluded for data integrity, legal reasons, etc.
 
-* Study ID
-* Analysis ID
-* File ID
-* Sample ID
-* Specimen ID
-* Donor ID
+- Maestro supports data publication controls by providing configurable exclusion rules to omit specific analyses from being indexed based on metadata tags assigned by Song. Study, Analysis, File, Sample, Specimen and Donor IDs can be used to exclude specific analyses
 
-## Event-Based Indexing
+## HTTP or Kafka Indexing APIs
 
-Maestro can optionally integrate with [Apache Kafka](https://kafka.apache.org/) to support configurable, event-based indexing using the Kafka messaging queue.  Maestro can be setup to listen for and trigger indexing operations from specific Kafka topics.
-
-## Different Indexing APIs
-
-Maestro can receive indexing requests through different interfaces.  The following are currently supported:
-
-* Event-driven indexing via integration with [Apache Kafka](https://kafka.apache.org/)
-* JSON Web API (HTTP)
-
-## Slack Integration
-
-To help monitor your indexing service, Maestro can be configured to integrate with [Slack](https://slack.com/) to send you notifications in case of errors during the indexing process.
+- Receive indexing requests through [Apache Kafka](https://kafka.apache.org/) or a standard JSON Web API (HTTP)
 
 # Integrations
 
-Maestro integrates with the following Overture and third party software services:
+Maestro integrates with the following software services:
 
 | Service | Integration Type | Description |
-|---------|------------------|-------------|
+|--|--|--|
 | [Song](/documentation/song) | Default | Maestro natively integrates with Song to index Song metadata into a single index. |
-| [Elasticsearch](https://www.elastic.co/) | Default | Maestro is designed by default to integrate with and build Elasticsearch indices. |
-| [Apache Kafka](https://kafka.apache.org/) | Optional | Maestro can optionally integrate with Kafka to listen for and trigger indexing operations from Kafka topics. |
-| [Slack](https://slack.com/) | Optional | Maestro can optionally integrate with Slack to send notifications about errors during the indexing process. |
+| [Elasticsearch](https://www.elastic.co/) | Default | Maestro is designed to integrate with and build Elasticsearch indices by default. |
+| [Apache Kafka](https://kafka.apache.org/) | Optional |  Event-based indexing using the Kafka messaging queues. Maestro can also listen for and trigger indexing operations from specific Kafka topics |
+| [Slack](https://slack.com/) | Optional | Slack notifications for index monitoring |
