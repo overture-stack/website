@@ -47,29 +47,57 @@ Field operations are used filter value objects. They have the following structur
 
 # Example SQON
 
+All filters applied in the facetted search panel get displayed in the SQON viewer. 
+
+![Entity](../assets/sqon_query.jpg 'Sqon Viewer')
+
+The selection of filters above is recorded in SQON as follows. Note all date values are [Unix timestamps](https://www.unixtimestamp.com/).
+
 ```SQON
-  {
-    op: "and",
-    content: [
+{
+    "content": [
       {
-        op: "or",
-        content: [
-          {
-            op: "in",
-            content: {
-              fieldName: "id",
-              value: ["id123"]
-            }
-          }
-        ]
-      }, // Please provide explaination in this comment
+        "content": {
+          "fieldName": "analysis.experiment.sequencing_instrument",
+          "value": [
+            "Illumina NextSeq 550"
+          ]
+        },
+        "op": "in"
+      },
       {
-        op: "in",
-        content: {
-          fieldName: "id",
-          value: ["id123"]
-        }
+        "content": {
+          "fieldName": "analysis.first_published_at",
+          "value": 1640926800000
+        },
+        "op": ">="
+      },
+      {
+        "content": {
+          "fieldName": "analysis.first_published_at",
+          "value": 1672549199999
+        },
+        "op": "<="
+      },
+      {
+        "content": {
+          "fieldName": "analysis.host.host_age_bin",
+          "value": [
+            "20 - 29"
+          ]
+        },
+        "op": "in"
+      },
+      {
+        "content": {
+          "fieldName": "analysis.sample_collection.geo_loc_province",
+          "value": [
+            "Ontario"
+          ]
+        },
+        "op": "in"
       }
-    ]
-  } // Here as well too, or wherever you find necessary
+    ],
+    "op": "and"
+  }
   ```
