@@ -12,6 +12,7 @@ export { default as GettingStarted } from './GettingStarted';
 export { default as GridFeature } from './GridFeature';
 export { default as HeadingsTableOfContents } from './HeadingsTableOfContents';
 export { default as Hero } from './Hero';
+export { default as HomeProductLink } from './HomeProductLink';
 export { Icon, IconCommon } from './Icon';
 export { default as ImageCrossfade } from './ImageCrossfade';
 export { default as Layout } from './Layout';

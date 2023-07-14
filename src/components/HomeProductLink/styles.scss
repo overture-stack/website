@@ -1,29 +1,24 @@
 @import '../../styles/colors';
 @import '../../styles/variables';
 
-.yellow-button {
-  width: fit-content;
+.ProductLink {
+  text-decoration: none;
 
-  &__link {
+  &__top-container {
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
+    gap: 8px;
     align-items: center;
-    gap: 2rem;
+    margin-bottom: 5px;
   }
 
   &__title {
+    text-decoration: underline;
+    text-underline-offset: 8px;
     font-family: $font-sans-serif;
     font-weight: 700;
     font-size: 24px;
     color: $navy-black;
     letter-spacing: 0;
-    line-height: 34px;
-    text-align: center;
-  }
-
-  &__text {
-    width: 320px;
-    text-align: center;
+    line-height: 21px;
   }
 }

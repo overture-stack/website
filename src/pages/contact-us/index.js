@@ -3,8 +3,6 @@ import Helmet from 'react-helmet';
 import { H3, L1, Button, Hero, LinkHelper as Link, YellowButton } from 'components';
 import { EMAIL_LINK, SLACK_LINK } from 'constants/external-links';
 import './styles.scss';
-import slackJoin from '../../components/Icon/icons/slack-join.svg';
-import emailUs from '../../components/Icon/icons/email-us.svg';
 
 export default function ContactUsPage() {
   return (
@@ -42,13 +40,13 @@ export default function ContactUsPage() {
 
           <YellowButton
             link={SLACK_LINK}
-            img_src={slackJoin}
+            img_src="slackJoin"
             alt="Join Us on Slack"
-            text="Join Us on Slack"
+            title="Join Us on Slack"
           />
 
           {/* right icon */}
-          <YellowButton link={EMAIL_LINK} img_src={emailUs} alt="Email Us" text="Email Us" />
+          <YellowButton link={EMAIL_LINK} img_src="emailUs" alt="Email Us" title="Email Us" />
         </div>
       </section>
 

@@ -1,9 +1,11 @@
 @import './color-codes';
 
-$blue-light: $c-blue-400;
-$blue-outline: $c-blue-500;
-$blue: $c-blue-600;
-$blue-links: $c-blue-700;
+$blue-block: $c-blue-200;
+$blue-light: $c-blue-500;
+$blue-top: $c-blue-600;
+$blue-outline: $c-blue-700;
+$blue: $c-blue-800;
+$blue-links: $c-blue-900;
 
 $grey-1: $c-grey-100;
 $grey-2: $c-grey-200;
@@ -30,7 +32,7 @@ $white: $c-white;
 // contextual colours
 
 // badges
-$badge-bg-blue: $c-blue-400;
+$badge-bg-blue: $c-blue-500;
 $badge-bg-navy: $c-navy-500;
 $badge-bg-pink: $c-pink-400;
 $badge-bg-red: $c-red-400;
@@ -39,7 +41,7 @@ $badge-bg-teal: $c-teal-500;
 $badge-bg-yellow: $c-yellow-600;
 
 // titles
-$title-blue: $c-blue-600;
+$title-blue: $c-blue-800;
 $title-green: $c-teal-700;
 $title-pink: $c-pink-500;
 $title-red: $c-red-500;

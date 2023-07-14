@@ -61,6 +61,10 @@ export default [
         { 'Arranger:': 'Facilitates filtering and querying' },
         { 'Ego:': 'Provides stateless authentication and authorization' },
       ],
+      [
+        'Harmonizing molecular and high-quality clinical data from global genomics efforts',
+        'Built using Overture micro-services',
+      ],
     ],
     clientLink: ICGC_ARGO_LINK,
     details: [{ title: 'Chart', description: 'ICGC', screenshot: icgcargo_chart }],
@@ -96,6 +100,10 @@ export default [
         },
         { 'Ego:': 'Governed the authorization of applications' },
       ],
+      [
+        'Lorem ipsum dolor sit VirusSeq, consectetur adipiscing elit. Integer nec odio.',
+        'Lorem ipsum VirusSeq.',
+      ],
     ],
     clientLink: VIRUSSEQ_LINK,
     details: [{ title: 'Chart', description: 'Virus Seq Chart', screenshot: virusseq_chart }],
@@ -126,6 +134,10 @@ export default [
           'Arranger:':
             'With the faceted search and customizable data table, arranger enabled users to filter and query this large dataset efficiently',
         },
+      ],
+      [
+        'Lorem ipsum dolor Kids First, consectetur adipiscing elit. Integer nec odio.',
+        'Lorem ipsum Kids First.',
       ],
     ],
     clientLink: KIDS_FIRST_LINK,
@@ -158,6 +170,10 @@ export default [
           'Arranger:':
             'With Arranger, users are able to filter and query the database through an intuitive UI with a customizable table and faceted search',
         },
+      ],
+      [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
       ],
     ],
     clientLink: IHCC_LINK,
@@ -194,6 +210,10 @@ export default [
           'Arranger:':
             'Enables search by filtering and querying the database through an intuitive UI',
         },
+      ],
+      [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
       ],
     ],
     clientLink: HCMIS_LINK,

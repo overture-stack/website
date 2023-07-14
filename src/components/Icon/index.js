@@ -3,25 +3,31 @@ import React from 'react';
 import './styles.scss';
 
 import arrowDown from './icons/arrow_down.svg';
+import arrowLeftBlack from './icons/arrow-left-black.svg';
 import arrowLeftBlue from './icons/arrow-left-blue.svg';
 import arrowLeftRound from './icons/arrow_left_round.svg';
 import arrowRight from './icons/arrow_right.svg';
+import arrowRightBlack from './icons/arrow-right-black.svg';
 import arrowRightMagenta from './icons/arrow_right_magenta.svg';
 import arrowRightRound from './icons/arrow_right_round.svg';
 import arrowsRight from './icons/arrows_right.svg';
 import barGraph from './icons/bar_graph.svg';
+import bigData from './icons/big-data.svg';
 import cardStack from './icons/card_stack.svg';
 import checkmark from './icons/checkmark.svg';
 import chevronGrey from './icons/chevron-grey.svg';
 import chevronMagenta from './icons/chevron-magenta.svg';
+import cloudWeather from './icons/cloud-weather.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
 import copy from './icons/copy.svg';
 import customizable from './icons/customizable.svg';
+import data from './icons/data.svg';
 import database from './icons/database.svg';
 import dna from './icons/dna.svg';
 import download from './icons/download.svg';
 import emailUs from './icons/email-us.svg';
+import exploreDocs from './icons/explore-docs.svg';
 import extensible from './icons/extensible.svg';
 import fingerSnap from './icons/finger_snap.svg';
 import githubGrey from './icons/github_grey.svg';
@@ -31,6 +37,8 @@ import githubYellow from './icons/github_yellow.svg';
 import graphCycle from './icons/graph_cycle.svg';
 import gridGlass from './icons/grid_magnifying_glass.svg';
 import history from './icons/history.svg';
+import identifyNeeds from './icons/identify-needs.svg';
+import joinCommunity from './icons/join-community.svg';
 import kafka from './icons/kafka.svg';
 import lock from './icons/lock.svg';
 import lockCode from './icons/lock_code.svg';
@@ -74,6 +82,7 @@ import shield from './icons/shield.svg';
 import slack from './icons/icon_slack.svg';
 import slackJoin from './icons/slack-join.svg';
 import slackNew from './icons/icon_slack_new.svg';
+import softwareEngineers from './icons/software-engineers.svg';
 import spiral from './icons/spiral.svg';
 import star from './icons/star.svg';
 import target from './icons/target.svg';
@@ -83,24 +92,30 @@ import xGrey from './icons/x-grey.svg';
 
 const icons = {
   arrowDown,
+  arrowLeftBlack,
   arrowLeftBlue,
   arrowLeftRound,
   arrowRight,
+  arrowRightBlack,
   arrowRightMagenta,
   arrowRightRound,
   arrowsRight,
   barGraph,
+  bigData,
   cardStack,
   checkmark,
   chevronGrey,
   chevronMagenta,
   cloud,
+  cloudWeather,
   cloudSquare,
   copy,
   customizable,
+  data,
   database,
   dna,
   download,
+  exploreDocs,
   extensible,
   emailUs,
   fingerSnap,
@@ -111,6 +126,8 @@ const icons = {
   graphCycle,
   gridGlass,
   history,
+  identifyNeeds,
+  joinCommunity,
   kafka,
   lock,
   lockCode,
@@ -156,6 +173,7 @@ const icons = {
   slack,
   slackJoin,
   slackNew,
+  softwareEngineers,
   spiral,
   star,
   target,
