@@ -45,7 +45,7 @@ $header-height: 470px;
     @media (max-width: 1200px) {
       @content;
     }
-  } @else if $class == new-wide {
+  } @else if $class == desktop-wide {
     @media (min-width: 1441px) {
       @content;
     }

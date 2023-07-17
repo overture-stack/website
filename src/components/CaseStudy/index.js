@@ -6,7 +6,7 @@ import React from 'react';
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
+const CaseStudy = ({ caseData, currentScreenshot }) => {
   const descriptionEl =
     typeof caseData.description === 'string' ? (
       <div>{caseData.description}</div>
@@ -17,7 +17,7 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
   return (
     <section className="Case-Study">
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
-      <div className="container top-segment">
+      <div className="container top-segment" id={caseData.slug}>
         <div className="case-heading">
           <H2 className="mb4">{caseData.title}</H2>
         </div>

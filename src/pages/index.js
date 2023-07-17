@@ -4,10 +4,13 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import productsDict from 'constants/products';
-import { CASE_STUDIES_PATH, SERVICES_PATH } from 'constants/pages';
+import {
+  ABOUT_US_PATH,
+  DOCUMENTATION_PATH,
+  PRODUCTS_PATH,
+  caseStudyAnchors,
+} from 'constants/pages';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
-import { OVERTURE_YOUTUBE_LINK, TEAM_LINK } from 'constants/external-links';
-import { productsAnchors } from 'constants/pages';
 import bodyImg from './home/assets/home_body_img.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
@@ -17,39 +20,6 @@ import caseData from 'data/case_studies';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
-
-// const VideoModal = ({ isOpen, closeModal }) => {
-//   const customStyles = {
-//     content: {
-//       padding: 0,
-//       border: 'none',
-//       left: '10%',
-//       right: '10%',
-//       bottom: '10%',
-//       top: '10%',
-//       backgroundColor: 'rgb(20, 20, 20)',
-//       overflowY: 'hidden',
-//     },
-//   };
-
-//   return (
-//     <Modal style={customStyles} isOpen={isOpen}>
-//       <button className="__modal_close_btn" onClick={() => closeModal()} aria-label="Close Modal">
-//         &times;
-//       </button>
-//       {/* video content */}
-//       <iframe
-//         width="100%"
-//         height="100%"
-//         src={OVERTURE_YOUTUBE_LINK}
-//         style={{ position: 'relative', top: 0, bottom: 0, height: '100%' }}
-//         frameborder="0"
-//         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-//         allowfullscreen
-//       ></iframe>
-//     </Modal>
-//   );
-// };
 
 export default function HomePage() {
   const [carouselPage, setCarouselPage] = useState(0);
@@ -86,7 +56,7 @@ export default function HomePage() {
             <H1>Genomics Data</H1>
             <P1>Filling the gaps between genomics data and scientific discovery</P1>
             <div className="flex Hero__small-buttons">
-              <Button link="./products" size="medium" type="primary">
+              <Button link={PRODUCTS_PATH} size="medium" type="primary">
                 Our Products
               </Button>
               <Button size="medium" type="primary">
@@ -112,11 +82,13 @@ export default function HomePage() {
         {/* container of the image and product links */}
 
         <div className="upper-white__container-img-links mt4">
-          <img
-            className="upper-white__img"
-            src={bodyImg}
-            alt="Home Page Upper White Section Image"
-          />
+          <div className="upper-white__img-container">
+            <img
+              className="upper-white__img"
+              src={bodyImg}
+              alt="Home Page Upper White Section Image"
+            />
+          </div>
           <div className="upper-white__product-links ">
             <HomeProductLink
               icon={'productSong'}
@@ -196,7 +168,12 @@ export default function HomePage() {
           <h2 className="grey-section-text">treatment of cancer.</h2>
         </div>
 
-        <Button link="./about-us" size="medium" type="primary" className="upper-grey__button mt2">
+        <Button
+          link={ABOUT_US_PATH}
+          size="medium"
+          type="primary"
+          className="upper-grey__button mt2"
+        >
           About Us
         </Button>
       </section>
@@ -262,7 +239,7 @@ export default function HomePage() {
                 type="primary"
                 size="medium"
                 className="mt3"
-                link={caseData[carouselPage].clientLink}
+                link={caseStudyAnchors[caseData[carouselPage].slug]}
               >
                 Learn More
               </Button>
@@ -318,10 +295,10 @@ export default function HomePage() {
             Improving data accessibility with flexible and<br></br> scalable software components.
           </h2>
           <div className="mt3 lower-grey__buttons">
-            <Button type="primary" size="medium" link="./documentation">
+            <Button type="primary" size="medium" link={DOCUMENTATION_PATH}>
               Get Started
             </Button>
-            <Button type="primary" size="medium" link="./products">
+            <Button type="primary" size="medium" link={PRODUCTS_PATH}>
               Our Product
             </Button>
           </div>

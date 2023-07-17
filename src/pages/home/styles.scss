@@ -18,9 +18,9 @@
     align-items: center;
     background-repeat: no-repeat;
     background-position: right;
-    background-position: 96%;
+    background-position-x: 96%;
 
-    @include breakpoint(new-wide) {
+    @include breakpoint(desktop-wide) {
       background-position-x: 68%;
     }
 
@@ -58,16 +58,17 @@
       display: flex;
     }
 
-    &__img {
-      position: relative;
-      left: -390px;
-      // width: auto;
-      // height: auto;
-      margin-right: -380px;
+    &__img-container {
+      width: 200%;
+      height: auto;
+      margin-left: -35%;
+      margin-right: -75%;
 
-      @include breakpoint(new-wide) {
-        left: -20%;
-        margin-right: -20%;
+      @include breakpoint(desktop-wide) {
+        width: 1467px;
+        height: auto;
+        margin-left: -5%;
+        margin-right: 7%;
       }
     }
 
@@ -75,6 +76,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 30%;
+      min-height: 700px;
     }
   }
 
@@ -183,7 +186,6 @@
 
     &__blue-container-list {
       list-style-type: disc;
-      // margin-left: 70px;
     }
 
     &__blue-container-button {

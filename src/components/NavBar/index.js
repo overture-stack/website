@@ -16,6 +16,7 @@ import {
   COMMUNITY_PATH,
   DOCUMENTATION_PATH,
   HOME_PATH,
+  SERVICES_PATH,
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
@@ -91,8 +92,8 @@ class NavBar extends Component {
               </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
               <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" />
+              <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
-              <NavLink closeMenus={closeMenus} url={CONTACT_US_PATH} name="Contact Us" />
             </div>
             <div className="navbar-end">
               <div className="navbar-item nav-link navbar-buttons">

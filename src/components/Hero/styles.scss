@@ -19,6 +19,7 @@
     justify-content: center;
     flex-direction: column;
     margin-top: 5rem;
+    max-width: 600px;
   }
 
   .image {
@@ -40,21 +41,8 @@
     display: flex;
     justify-content: center;
 
-    @include breakpoint(mobile) {
-      height: auto;
-      // padding: 16px;
-    }
-
-    @media (min-width: 1300px) {
-      background-size: 40%;
-    }
-
-    @media (max-width: 1024px) {
-      background-image: none !important;
-    }
-
-    @media (max-width: 1000px) {
-      background-size: 50%;
+    @include breakpoint(desktop-wide) {
+      background-position-x: 73%;
     }
   }
 }

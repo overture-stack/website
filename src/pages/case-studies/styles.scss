@@ -8,6 +8,12 @@ $cs-break: 1000px;
 .CaseStudiesPage {
   font-size: 18px;
   line-height: 30px;
+
+  .image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 96%;
+  }
 }
 
 // -- Component: case-study.js styles ------------------------------------------

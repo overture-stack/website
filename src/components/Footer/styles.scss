@@ -11,13 +11,6 @@
     font-weight: 500;
   }
 
-  .netlify-badge {
-    position: absolute;
-    bottom: 6px;
-    right: 16px;
-    line-height: 0;
-  }
-
   .footer-grey {
     display: flex;
     height: 65px;
@@ -46,32 +39,40 @@
   }
 
   .footer-white {
-    padding: 48px 0 48px 48px;
+    // width: 1366px;
+    padding: 38px 0;
     display: flex;
-    @include breakpoint(desktop-below) {
-      flex-direction: column;
-      padding: 20px 0;
-    }
+    align-items: center;
+    justify-content: center;
+
+    // @include breakpoint(desktop-below) {
+    //   flex-direction: column;
+    //   padding: 20px 0;
+    // }
 
     &__oicr-logo {
-      width: 128px;
-      order: 1;
-      align-self: center;
-      display: block;
-      margin-right: 32px;
+      width: 138px;
+      height: auto;
+      margin-left: -10px;
 
-      @include breakpoint(mobile) {
-        margin: 32px;
-        padding-right: 0px;
-        order: 2;
-      }
+      // align-self: center;
+      // display: block;
+      // margin-right: 32px;
+
+      // @include breakpoint(mobile) {
+      //   margin: 32px;
+      //   padding-right: 0px;
+      //   order: 2;
+      // }
     }
   }
 
   .column-container {
     display: flex;
-    order: 2;
-    margin-left: 3rem;
+    min-width: 1000px;
+    margin-left: 38px;
+
+    // margin-left: 3rem;
     &__group {
       display: flex;
       flex-direction: column;
@@ -86,5 +87,13 @@
         color: $pink-darker;
       }
     }
+  }
+
+  .netlify-badge {
+    // position: absolute;
+    // bottom: 6px;
+    // right: 16px;
+    // line-height: 0;
+    // order: 3;
   }
 }

@@ -94,7 +94,7 @@ const column = [
 
 const FooterColumns = () => {
   return (
-    <div className="column-container flex-auto ">
+    <div className="column-container">
       {column.map((item) => (
         <div className="column-container__group column ">
           <Link className="column-container__link mt1 mb1" to={item[0].link}>
@@ -117,6 +117,11 @@ const Footer = () => {
           <img src={logo} alt="OICR" />
         </Link>
         <FooterColumns />
+        <div className="netlify-badge">
+          <Link to={NETLIFY_LINK}>
+            <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
+          </Link>
+        </div>
       </div>
       <div className="bg-grey px1 footer-grey">
         <div className="footer-grey__text ">
@@ -129,11 +134,6 @@ const Footer = () => {
             <Link to={ACKNOWLEDGEMENTS_PATH}>Acknowledgements</Link>
           </div>
         </div>
-      </div>
-      <div className="netlify-badge">
-        <Link to={NETLIFY_LINK}>
-          <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
-        </Link>
       </div>
     </footer>
   );

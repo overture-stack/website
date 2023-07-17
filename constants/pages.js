@@ -19,3 +19,11 @@ export const productsAnchors = {
   generate: internalUrlJoin([PRODUCTS_PATH, '#generate-upload']),
   track: internalUrlJoin([PRODUCTS_PATH, '#track-manage']),
 };
+
+export const caseStudyAnchors = {
+  icgcargo: internalUrlJoin([CASE_STUDIES_PATH, '#icgcargo']),
+  virusseq: internalUrlJoin([CASE_STUDIES_PATH, '#virusseq']),
+  kidsFirst: internalUrlJoin([CASE_STUDIES_PATH, '#kidsFirst']),
+  ihcc: internalUrlJoin([CASE_STUDIES_PATH, '#ihcc']),
+  humanCancerModels: internalUrlJoin([CASE_STUDIES_PATH, '#humanCancerModels']),
+};
