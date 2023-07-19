@@ -18,6 +18,8 @@ import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import caseData from 'data/case_studies';
 
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
+
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 
@@ -239,7 +241,7 @@ export default function HomePage() {
                 type="primary"
                 size="medium"
                 className="mt3"
-                link={caseStudyAnchors[caseData[carouselPage].slug]}
+                anchorLink={caseStudyAnchors[caseData[carouselPage].slug]}
               >
                 Learn More
               </Button>

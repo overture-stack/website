@@ -114,7 +114,6 @@ class CaseStudiesPage extends Component {
 
   render() {
     let fixedClass = this.state.navFixed ? 'nav-fixed' : '';
-
     return (
       <main className="CaseStudiesPage">
         {/* Metadata */}

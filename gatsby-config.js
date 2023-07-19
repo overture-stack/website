@@ -179,5 +179,11 @@ module.exports = {
         siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
       },
     },
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -300,
+      },
+    },
   ],
 };

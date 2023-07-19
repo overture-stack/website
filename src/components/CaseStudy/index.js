@@ -15,9 +15,9 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
     );
 
   return (
-    <section className="Case-Study">
+    <section className="Case-Study" id={caseData.slug}>
       {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
-      <div className="container top-segment" id={caseData.slug}>
+      <div className="container top-segment">
         <div className="case-heading">
           <H2 className="mb4">{caseData.title}</H2>
         </div>
