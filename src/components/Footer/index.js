@@ -1,7 +1,7 @@
 /**
  * Declarative footer. Loops over links object and spit out routes.
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Icon, LinkHelper as Link } from 'components';
 import productsDict from 'constants/products';
 import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH } from 'constants/pages';
@@ -169,6 +169,11 @@ const FooterColumns = () => {
 };
 
 const Footer = () => {
+  useEffect(() => {
+    const version = require('../../../package.json').version;
+    document.getElementById('version').textContent = version;
+  }, []);
+
   return (
     <footer className="Footer site-wrapper__footer">
       <div className="container">
