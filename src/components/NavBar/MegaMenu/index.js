@@ -12,69 +12,6 @@ const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 const verticalMobileMenuSections = ['DMS Bundle'];
 
 const data = {
-  products: {
-    explore: {
-      title: 'Explore our products',
-      text: 'Overture is a collection of open-source products for big-data genomic science.',
-      link: {
-        to: PRODUCTS_PATH,
-        text: 'All products',
-      },
-    },
-    sections: [
-      {
-        title: 'Generate & Upload',
-        color: 'pink',
-        hasCoreIcon: true,
-        links: [
-          { to: productsDict.song.productsPath, text: 'Song' },
-          { to: productsDict.score.productsPath, text: 'Score' },
-        ],
-      },
-      {
-        title: 'Access & Download',
-        color: 'blue',
-        hasCoreIcon: true,
-        links: [
-          { to: productsDict.ego.productsPath, text: 'Ego' },
-          { to: productsDict.maestro.productsPath, text: 'Maestro' },
-          { to: productsDict.arranger.productsPath, text: 'Arranger' },
-        ],
-      },
-      {
-        title: 'Analyze & Discover',
-        color: 'red',
-        links: [
-          { to: productsDict.jukebox.productsPath, text: 'Jukebox' },
-          { to: productsDict.oncojs.productsPath, text: 'OncoJS' },
-        ],
-      },
-      {
-        title: 'Collaborate & Share',
-        color: 'light-green',
-        links: [
-          { to: productsDict.persona.productsPath, text: 'Persona' },
-          { to: productsDict.riff.productsPath, text: 'Riff' },
-        ],
-      },
-      {
-        title: 'Track & Manage',
-        color: 'yellow',
-        links: [
-          {
-            to: productsDict.billing.githubUrl,
-            text: 'Billing & Usage',
-            hasGithubIcon: true,
-          },
-          {
-            to: productsDict.enrolment.githubUrl,
-            text: 'Enrolment',
-            hasGithubIcon: true,
-          },
-        ],
-      },
-    ],
-  },
   documentation: {
     explore: {
       title: 'Explore our documentation',

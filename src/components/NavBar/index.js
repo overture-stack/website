@@ -8,14 +8,13 @@ import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';
 import { Button, LinkHelper as Link } from 'components';
-import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  CONTACT_US_PATH,
   COMMUNITY_PATH,
   DOCUMENTATION_PATH,
   HOME_PATH,
+  PRODUCTS_PATH,
   SERVICES_PATH,
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
@@ -53,25 +52,7 @@ class NavBar extends Component {
           </div>
           <div className={navbarMenuClass} id="navMenu">
             <div className="navbar-start items-center">
-              <MegaMenuLink
-                isActive={megaMenuType === 'products'}
-                path={path}
-                name="Products"
-                toggleMegaMenu={toggleMegaMenu}
-                type="products"
-              >
-                <div ref={(r) => (this.popoverRef = r)}>
-                  {mobileMegaCheck && (
-                    <MegaMenu
-                      className="open"
-                      closeMenus={closeMenus}
-                      megaMenuType="products"
-                      path={path}
-                    />
-                  )}
-                </div>
-              </MegaMenuLink>
-
+              <NavLink closeMenus={closeMenus} url={PRODUCTS_PATH} name="Products" />
               <MegaMenuLink
                 isActive={megaMenuType === 'documentation'}
                 name="Documentation"
