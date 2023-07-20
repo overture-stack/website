@@ -1,7 +1,7 @@
 @import '../../styles/colors';
 
 .Badge {
-  align-self: flex-start;
+  // align-self: flex-start;
   border-radius: 4px;
   border: none;
   color: $black;
@@ -41,5 +41,8 @@
 
   &.red {
     background-color: $badge-bg-red;
+  }
+  &.yellow-green {
+    background-color: $badge-bg-green;
   }
 }
