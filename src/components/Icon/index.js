@@ -2,6 +2,7 @@
 import React from 'react';
 import './styles.scss';
 
+import arrowDownNavbar from './icons/arrow_down_navbar.svg';
 import arrowDown from './icons/arrow_down.svg';
 import arrowLeftBlack from './icons/arrow-left-black.svg';
 import arrowLeftBlue from './icons/arrow-left-blue.svg';
@@ -91,6 +92,7 @@ import vennDiagram from './icons/venn_diagram.svg';
 import xGrey from './icons/x-grey.svg';
 
 const icons = {
+  arrowDownNavbar,
   arrowDown,
   arrowLeftBlack,
   arrowLeftBlue,

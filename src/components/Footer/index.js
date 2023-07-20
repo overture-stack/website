@@ -9,9 +9,11 @@ import {
   ACKNOWLEDGEMENTS_PATH,
   CASE_STUDIES_PATH,
   CONTACT_US_PATH,
+  COMMUNITY_PATH,
   DOCUMENTATION_PATH,
   PRIVACY_PATH,
   PRODUCTS_PATH,
+  SERVICES_PATH,
   TERMS_PATH,
 } from 'constants/pages';
 import {
@@ -59,10 +61,10 @@ const column = [
   ],
   [
     {
-      name: 'Team Blog',
-      link: TEAM_BLOG_LINK,
+      name: 'Services',
+      link: SERVICES_PATH,
       icon: null,
-      newTab: true,
+      newTab: false,
       className: '',
     },
     {
@@ -83,10 +85,10 @@ const column = [
     },
 
     {
-      name: 'Get Involved',
-      link: SLACK_LINK,
+      name: 'Community',
+      link: COMMUNITY_PATH,
       icon: null,
-      newTab: true,
+      newTab: false,
       className: '',
     },
   ],
