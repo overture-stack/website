@@ -16,8 +16,8 @@ export default function LinkHelper({ location = {}, onClick = undefined, to = ''
     ? urlJoin(to, { leadingSlash: true, trailingSlash: !differentPageHash })
     : to;
 
-  const hashOnClick = (e) => {
-    e.preventDefault();
+  const hashOnClick = (event) => {
+    event.preventDefault();
     const { hash = '' } = location;
     if (hash === url) {
       // navigate() won't work but
