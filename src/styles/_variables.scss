@@ -49,6 +49,10 @@ $header-height: 470px;
     @media (min-width: 1441px) {
       @content;
     }
+  } @else if $class == desktop-ultrawide {
+    @media (min-width: 2560px) {
+      @content;
+    }
   } @else {
     @warn "Breakpoint mixin supports: xs, sm, md, lg";
   }

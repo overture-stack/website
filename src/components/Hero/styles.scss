@@ -23,7 +23,7 @@
   }
 
   .image {
-    flex: 1;
+    // flex: 1;
     @media (min-width: $tablet) {
       transform: scale(0.9) translateY(0px);
     }
@@ -37,12 +37,16 @@
     background-position: right;
     background-size: contain;
     height: 470px;
-    background-position-y: 0px;
-    display: flex;
-    justify-content: center;
+    // background-position-y: 0px;
+    // display: flex;
+    // justify-content: center;
 
     @include breakpoint(desktop-wide) {
-      background-position-x: 73%;
+      background-position-x: 85%;
+    }
+
+    @include breakpoint(desktop-ultrawide) {
+      background-position-x: 65%;
     }
   }
 }
