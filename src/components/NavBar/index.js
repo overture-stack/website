@@ -60,7 +60,7 @@ class NavBar extends Component {
                 toggleMegaMenu={toggleMegaMenu}
                 type="documentation"
               >
-                <div ref={(r) => (this.popoverRef = r)}>
+                <div ref={(ref) => (this.popoverRef = ref)}>
                   {mobileMegaCheck && (
                     <MegaMenu
                       className="open"

@@ -45,11 +45,11 @@ class CaseStudiesPage extends Component {
     },
   };
 
-  _handleWaypointEnter(caseStudy, e) {
+  _handleWaypointEnter(caseStudy, event) {
     this.setState({ currentCase: caseStudy.title });
   }
 
-  _handleWaypointLeave(caseStudy, e) {
+  _handleWaypointLeave(caseStudy, event) {
     // this.setState({currentCase: caseStudy.title})
   }
 
@@ -141,7 +141,7 @@ class CaseStudiesPage extends Component {
           caseData={caseData}
           isFixed={this.state.navFixed}
           currentCase={this.state.currentCase}
-          scrollTo={(x) => this.scrollTo(x)}
+          scrollTo={(position) => this.scrollTo(position)}
         />
 
         {/* Case Study Component */}
