@@ -90,13 +90,13 @@ const columns = [
 const FooterColumns = () => {
   return (
     <div className="column-container">
-      {columns.map((item) => (
+      {columns.map(([topItem, bottomItem]) => (
         <div className="column-container__group column ">
-          <Link className="column-container__link mt1 mb1" to={item[0].link}>
-            {item[0].name}
+          <Link className="column-container__link mt1 mb1" to={topItem.link}>
+            {topItem.name}
           </Link>
-          <Link className="column-container__link mt1 mb1" to={item[1].link}>
-            {item[1].name}
+          <Link className="column-container__link mt1 mb1" to={bottomItem.link}>
+            {bottomItem.name}
           </Link>
         </div>
       ))}
