@@ -1,3 +1,4 @@
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 
 // Logos
@@ -9,8 +10,8 @@ const Navigation = ({ caseData, currentCase, isFixed, scrollTo }) => {
   return (
     <div className={`CaseStudies-Navigation ${fixedClass}`}>
       {caseData &&
-        caseData.map((d, i) => (
-          <NavigationItem scrollTo={scrollTo} currentCase={currentCase} key={i} data={d} />
+        caseData.map((data, index) => (
+          <NavigationItem scrollTo={scrollTo} currentCase={currentCase} key={index} data={data} />
         ))}
     </div>
   );
@@ -20,8 +21,8 @@ const NavigationItem = ({ data, currentCase, scrollTo }) => {
   let active = currentCase == data.title ? 'active' : '';
 
   return (
-    <div onClick={() => scrollTo(data.slug)} className={`nav-item-border ${active}`}>
-      <img alt={`${data.title} logo`} className="nav-item" src={data.logo} />
+    <div onClick={() => scrollTo(data.slug)}>
+      <img alt={`${data.title} logo`} className={`nav-item ${active}`} src={data.logo} />
     </div>
   );
 };

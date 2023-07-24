@@ -1,17 +1,7 @@
 @import '../../styles/colors';
 @import '../../styles/variables';
 
-.ContactPage {
-  p,
-  div,
-  li {
-    font-family: $font-sans-serif;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: 32px;
-    color: $navy-black;
-  }
-
+.ContactUsPage {
   .contact-hero-content {
     display: flex;
     flex: 1;
@@ -56,6 +46,15 @@
 
     @media (min-width: 1025px) and (max-width: 1216px) {
       transform: translateY(130px);
+    }
+  }
+  .contact-us-section {
+    display: flex;
+    padding: 5rem;
+    &__buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
     }
   }
 }

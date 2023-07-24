@@ -120,6 +120,10 @@
     }
   }
 
+  .slack-button {
+    margin-right: 1rem;
+  }
+
   // mobile menu
   .navbar-buttons {
     display: flex;
@@ -136,7 +140,7 @@
       justify-content: flex-start;
 
       .slack-button {
-        margin: 0.5rem 0;
+        margin: 0.5rem;
       }
     }
   }
@@ -155,5 +159,10 @@
     .navbar-brand-link {
       margin-right: 0;
     }
+  }
+
+  .documentation-down-arrow {
+    margin-top: 4px;
+    margin-left: 3px;
   }
 }

@@ -1,8 +1,8 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .Hero {
   height: 470px;
-  background: $teal;
+  background: #f3f3f3;
   display: flex;
   justify-content: center;
 
@@ -16,12 +16,14 @@
 
   .titles {
     display: flex;
-    // flex: 1;
     justify-content: center;
     flex-direction: column;
+    margin-top: 5rem;
+    max-width: 600px;
   }
+
   .image {
-    flex: 1;
+    // flex: 1;
     @media (min-width: $tablet) {
       transform: scale(0.9) translateY(0px);
     }
@@ -35,25 +37,16 @@
     background-position: right;
     background-size: contain;
     height: 470px;
-    background-position-y: 0px;
-    display: flex;
-    justify-content: center;
+    // background-position-y: 0px;
+    // display: flex;
+    // justify-content: center;
 
-    @include breakpoint(mobile) {
-      height: auto;
-      // padding: 16px;
+    @include breakpoint(desktop-wide) {
+      background-position-x: 85%;
     }
 
-    @media (min-width: 1300px) {
-      background-size: 40%;
-    }
-
-    @media (max-width: 1024px) {
-      background-image: none !important;
-    }
-
-    @media (max-width: 1000px) {
-      background-size: 50%;
+    @include breakpoint(desktop-ultrawide) {
+      background-position-x: 65%;
     }
   }
 }

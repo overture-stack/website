@@ -2,8 +2,6 @@
 @import '../../../styles/colors';
 
 .MegaMenu {
-  border-bottom: 3px solid $grey-4;
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   height: auto;
   left: 0;
@@ -11,7 +9,6 @@
   position: fixed;
   right: 0;
   transition: top ease 0.5s 0s;
-  width: 100%;
   z-index: 4;
 
   // Shrinking the slack button changes nav size; update popover top.
@@ -46,8 +43,9 @@
   .menu-items {
     border: 1px solid $grey-3;
     display: flex;
-    width: 100%;
     background: $white;
+    // border-bottom: 3px solid $grey-4;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   }
 
   // for leveling heading menu headers that don't have "core" badge
@@ -63,6 +61,12 @@
     justify-content: flex-start;
     padding: 16px 24px;
     flex: 1;
+  }
+
+  .menu-select-container {
+    padding-right: 4px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .menu-section-heading {
@@ -145,7 +149,6 @@
     position: relative;
     margin-left: 0;
     margin-top: 0;
-    min-width: auto;
     border: 0;
 
     .Badge {

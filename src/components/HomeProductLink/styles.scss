@@ -1,0 +1,24 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.ProductLink {
+  text-decoration: none;
+
+  &__top-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: $navy-black;
+    letter-spacing: 0;
+    line-height: 21px;
+  }
+}

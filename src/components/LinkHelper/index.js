@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { navigate } from '@reach/router';
 import scrollToElement from 'scroll-to-element';
 import urlJoin from 'proper-url-join';
@@ -17,8 +16,8 @@ export default function LinkHelper({ location = {}, onClick = undefined, to = ''
     ? urlJoin(to, { leadingSlash: true, trailingSlash: !differentPageHash })
     : to;
 
-  const hashOnClick = e => {
-    e.preventDefault();
+  const hashOnClick = (event) => {
+    event.preventDefault();
     const { hash = '' } = location;
     if (hash === url) {
       // navigate() won't work but

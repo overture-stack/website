@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, LinkHelper as Link } from 'components';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import './styles.scss';
 
 const btnTypes = {
@@ -40,6 +41,7 @@ const iconSizes = {
  *
  */
 export default ({
+  anchorLink,
   children,
   className = '',
   icon,
@@ -61,6 +63,11 @@ export default ({
       {IconComp()}
       {children}
     </button>
+  ) : anchorLink ? (
+    <AnchorLink className={classes} to={anchorLink}>
+      {IconComp}
+      {children}
+    </AnchorLink>
   ) : (
     <Link className={classes} to={link}>
       {IconComp()}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import productsDict from 'constants/products';
-import { DOCS_PATH } from 'constants/pages';
+import { DOCUMENTATION_PATH } from 'constants/pages';
 import {
   CanarieCredits,
   Icon,
@@ -53,7 +53,7 @@ export default function DocsWrapper({ children, data, path }) {
           }`}
         >
           <div className="docs__sidebar__sticky">
-            <Link to={DOCS_PATH} className="docs__sidebar__overview">
+            <Link to={DOCUMENTATION_PATH} className="docs__sidebar__overview">
               <Icon size={6} img="arrowLeftBlue" />
               Documentation Overview
             </Link>

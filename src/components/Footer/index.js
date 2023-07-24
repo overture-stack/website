@@ -2,167 +2,103 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
-import { Icon, LinkHelper as Link } from 'components';
-import productsDict from 'constants/products';
-import { ABOUT_US_PATH, PRIVACY_PATH, TERMS_PATH } from 'constants/pages';
+import { LinkHelper as Link } from 'components';
 import {
-  NETLIFY_LINK,
-  NETLIFY_IMAGE_LINK,
-  OICR_LINK,
-  TEAM_BLOG_LINK,
-} from 'constants/external-links';
+  ABOUT_US_PATH,
+  ACKNOWLEDGEMENTS_PATH,
+  CASE_STUDIES_PATH,
+  CONTACT_US_PATH,
+  COMMUNITY_PATH,
+  DOCUMENTATION_PATH,
+  PRIVACY_PATH,
+  PRODUCTS_PATH,
+  SERVICES_PATH,
+  TERMS_PATH,
+} from 'constants/pages';
+import { NETLIFY_LINK, NETLIFY_IMAGE_LINK, OICR_LINK } from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
 
-const columns = {
-  'Generate & Upload': [
+const columns = [
+  [
     {
-      Score: {
-        link: productsDict.score.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Song: {
-        link: productsDict.song.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
+      name: 'Products',
+      link: PRODUCTS_PATH,
+      icon: null,
+      newTab: true,
+      className: '',
+    },
+    {
+      name: 'Documentation',
+      link: DOCUMENTATION_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Access & Download': [
+  [
     {
-      Ego: {
-        link: productsDict.ego.productsPath,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Maestro: {
-        icon: null,
-        newTab: false,
-        className: '',
-        link: productsDict.maestro.productsPath,
-      },
-      Arranger: {
-        icon: null,
-        newTab: false,
-        className: '',
-        link: productsDict.arranger.productsPath,
-      },
+      name: 'About Us',
+      link: ABOUT_US_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
+    },
+    {
+      name: 'Acknowledgements',
+      link: ACKNOWLEDGEMENTS_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Analyze & Discover': [
+  [
     {
-      Jukebox: {
-        link: productsDict.jukebox.productsPath,
-        newTab: false,
-        className: '',
-      },
-      OncoJS: {
-        link: productsDict.oncojs.productsPath,
-        className: '',
-      },
+      name: 'Services',
+      link: SERVICES_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
+    },
+    {
+      name: 'Case Studies',
+      link: CASE_STUDIES_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Collaborate & Share': [
+  [
     {
-      Persona: {
-        className: '',
-        link: productsDict.persona.productsPath,
-      },
-      Riff: {
-        link: productsDict.riff.productsPath,
-        newTab: false,
-        className: '',
-      },
+      name: 'Contact Us',
+      link: CONTACT_US_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
+    },
+
+    {
+      name: 'Community',
+      link: COMMUNITY_PATH,
+      icon: null,
+      newTab: false,
+      className: '',
     },
   ],
-  'Track & Manage': [
-    {
-      'Billing & Usage': {
-        link: productsDict.billing.githubUrl,
-        icon: 'githubGrey',
-        newTab: true,
-        className: '',
-      },
-      Enrolment: {
-        link: productsDict.enrolment.githubUrl,
-        icon: 'githubGrey',
-        newTab: true,
-        className: '',
-      },
-    },
-  ],
-  Other: [
-    {
-      Documentation: {
-        link: '/documentation',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'Case Studies': {
-        link: '/case-studies',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'About Us': {
-        link: ABOUT_US_PATH,
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-    },
-    {
-      Services: {
-        link: '/services',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      Contact: {
-        link: '/contact',
-        icon: null,
-        newTab: false,
-        className: '',
-      },
-      'Team Blog': {
-        link: TEAM_BLOG_LINK,
-        icon: null,
-        newTab: true,
-        className: '',
-      },
-    },
-  ],
-};
+];
 
 const FooterColumns = () => {
   return (
-    <div className="columns is-mobile footer-links flex-auto flex-wrap">
-      {Object.keys(columns).map(columnKey => (
-        <section className="footer-column" key={columnKey}>
-          <div className="link-group-header">{columnKey}</div>
-          {columns[columnKey].map(linksObj => (
-            <ul className="list-reset" key={Object.keys(linksObj)[0]}>
-              {Object.keys(linksObj).map(linkKey => {
-                const { icon, link, newTab = false } = linksObj[linkKey];
-                const target = newTab ? '_blank' : '_self';
-
-                return (
-                  <li key={linkKey}>
-                    <Link className="link" to={link}>
-                      <span>{linkKey}</span>
-                      {icon && <Icon alt="github logo" img={icon} style={{ marginLeft: 4 }} />}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          ))}
-        </section>
+    <div className="column-container">
+      {columns.map(([topItem, bottomItem]) => (
+        <div className="column-container__group column ">
+          <Link className="column-container__link mt1 mb1" to={topItem.link}>
+            {topItem.name}
+          </Link>
+          <Link className="column-container__link mt1 mb1" to={bottomItem.link}>
+            {bottomItem.name}
+          </Link>
+        </div>
       ))}
     </div>
   );
@@ -170,29 +106,29 @@ const FooterColumns = () => {
 
 const Footer = () => {
   return (
-    <footer className="Footer site-wrapper__footer">
-      <div className="container">
-        <div className="footer-box">
-          <Link className="oicr-logo" to={OICR_LINK}>
-            <img src={logo} alt="OICR" />
+    <footer className="Footer">
+      <div className="footer-white">
+        <Link className="footer-white__oicr-logo" to={OICR_LINK}>
+          <img src={logo} alt="OICR" />
+        </Link>
+        <FooterColumns />
+        <div className="netlify-badge">
+          <Link to={NETLIFY_LINK}>
+            <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
           </Link>
-          <FooterColumns />
         </div>
       </div>
-      <div className="bg-grey px1 footer-credits">
-        <div className="footer-credits__text">
+      <div className="bg-grey px1 footer-grey">
+        <div className="footer-grey__text ">
           <div className="px1 copyright">© {new Date().getFullYear()} Overture.</div>
-          <div className="px1">
+          <div className="px2 ">
             <Link to={PRIVACY_PATH}>Privacy</Link>
             <span>|</span>
             <Link to={TERMS_PATH}>Terms & Conditions</Link>
+            <span>|</span>
+            <Link to={ACKNOWLEDGEMENTS_PATH}>Acknowledgements</Link>
           </div>
         </div>
-      </div>
-      <div className="netlify-badge">
-        <Link to={NETLIFY_LINK}>
-          <img src={NETLIFY_IMAGE_LINK} alt="Deploys by Netlify" />
-        </Link>
       </div>
     </footer>
   );
