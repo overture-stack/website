@@ -2,9 +2,24 @@ import React from 'react';
 import favicon from './img/favicon.ico';
 
 export default function HTML({ body, headComponents, postBodyComponents }) {
+  var _mtm = (window._mtm = window._mtm || []);
+
   return (
     <html lang="en" className="has-navbar-fixed-top">
       <head>
+        {/* <!-- Matomo Tag Manager --> */}
+        <script>
+          {_mtm.push({ 'mtm.startTime': new Date().getTime(), event: 'mtm.Start' })(function () {
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = 'https://webstats.oicr.on.ca/piwik/js/container_khE7TC0F.js';
+            s.parentNode.insertBefore(g, s);
+          })()}
+        </script>
+        {/* <!-- End Matomo Tag Manager --> */}
+
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         {headComponents}
