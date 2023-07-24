@@ -146,8 +146,8 @@ class CaseStudiesPage extends Component {
 
         {/* Case Study Component */}
         {caseData &&
-          caseData.map((data, idx) => {
-            let bgColor = idx % 2 === 0 ? 'none' : '#F2F3F5';
+          caseData.map((data, index) => {
+            let bgColor = index % 2 === 0 ? 'none' : '#F2F3F5';
 
             return (
               <Waypoint

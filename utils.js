@@ -21,7 +21,11 @@ export const makeURLSafeString = (str) =>
     .replace(/((?!([a-z0-9\- ])).)/gi, '')
     .trim()
     .split(' ')
+<<<<<<< HEAD
     .filter((x) => x)
+=======
+    .filter(Boolean)
+>>>>>>> develop
     .join('-')
     .substring(0, 25)
     .toLowerCase();
