@@ -2,8 +2,7 @@
  * Declarative footer. Loops over links object and spit out routes.
  */
 import React from 'react';
-import { Icon, LinkHelper as Link } from 'components';
-import productsDict from 'constants/products';
+import { LinkHelper as Link } from 'components';
 import {
   ABOUT_US_PATH,
   ACKNOWLEDGEMENTS_PATH,
@@ -16,17 +15,11 @@ import {
   SERVICES_PATH,
   TERMS_PATH,
 } from 'constants/pages';
-import {
-  NETLIFY_LINK,
-  NETLIFY_IMAGE_LINK,
-  OICR_LINK,
-  SLACK_LINK,
-  TEAM_BLOG_LINK,
-} from 'constants/external-links';
+import { NETLIFY_LINK, NETLIFY_IMAGE_LINK, OICR_LINK } from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
 
-const column = [
+const columns = [
   [
     {
       name: 'Products',
@@ -97,7 +90,7 @@ const column = [
 const FooterColumns = () => {
   return (
     <div className="column-container">
-      {column.map((item) => (
+      {columns.map((item) => (
         <div className="column-container__group column ">
           <Link className="column-container__link mt1 mb1" to={item[0].link}>
             {item[0].name}

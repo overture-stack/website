@@ -10,8 +10,8 @@ const Navigation = ({ caseData, currentCase, isFixed, scrollTo }) => {
   return (
     <div className={`CaseStudies-Navigation ${fixedClass}`}>
       {caseData &&
-        caseData.map((data, idx) => (
-          <NavigationItem scrollTo={scrollTo} currentCase={currentCase} key={idx} data={data} />
+        caseData.map((data, index) => (
+          <NavigationItem scrollTo={scrollTo} currentCase={currentCase} key={index} data={data} />
         ))}
     </div>
   );
