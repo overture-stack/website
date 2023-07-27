@@ -310,8 +310,9 @@ export default function HomePage() {
       </section>
 
       {/* floating bright teal cube */}
-
-      <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+      <div className="bg-grey">
+        <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+      </div>
     </main>
   );
 }

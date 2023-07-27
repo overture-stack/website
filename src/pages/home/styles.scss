@@ -218,11 +218,11 @@
   }
 
   .lower-grey {
+    padding-top: 6rem;
     &__container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: 180px;
     }
 
     &__text {
@@ -237,8 +237,10 @@
 
   .bright-teal-cube {
     position: relative;
+    // vertical-align: bottom;
     left: 80px;
-    bottom: 210px;
-    margin-bottom: -200px;
+    bottom: 185px;
+    margin-bottom: -250px;
+    z-index: 1;
   }
 }
