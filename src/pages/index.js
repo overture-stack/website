@@ -196,16 +196,18 @@ export default function HomePage() {
 
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'lower-white__logo-active' : '';
+            let active = idx === carouselPage ? 'lower-white__logo-container-active' : '';
             return (
-              <img
-                src={data.logo}
-                alt={data.slug}
-                onClick={() => {
-                  setCarouselPage(idx);
-                }}
-                className={`lower-white__logo ${active}`}
-              />
+              <div className={`lower-white__logo-container ${active}`}>
+                <img
+                  src={data.logo}
+                  alt={data.slug}
+                  onClick={() => {
+                    setCarouselPage(idx);
+                  }}
+                  className={`lower-white__logo`}
+                />
+              </div>
             );
           })}
         </div>

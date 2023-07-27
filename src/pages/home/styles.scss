@@ -85,6 +85,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 
     &__line {
@@ -144,7 +145,7 @@
       }
     }
 
-    &__logo-active {
+    &__logo-container-active {
       border-bottom: 2px solid;
     }
 
@@ -206,7 +207,6 @@
     float: right;
     bottom: 260px;
     margin-bottom: -200px;
-    // margin-right: -50px;
   }
 
   .chartreuse-cube {
