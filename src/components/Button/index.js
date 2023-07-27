@@ -4,8 +4,9 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import './styles.scss';
 
 const btnTypes = {
-  primary: 'is-primary', // uses bulma
-  secondary: 'is-white secondary', // bulma + custom css
+  primary: 'button is-primary', // uses bulma
+  secondary: 'button is-white secondary', // bulma + custom css
+  plain: 'plain',
 };
 
 const btnSizes = {
@@ -52,7 +53,7 @@ export default ({
   size = 'default',
   type = 'default',
 }) => {
-  const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
+  const classes = `custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
   const IconComp = () =>
     icon && (
       <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />

@@ -214,7 +214,7 @@ export default function HomePage() {
         <div className="lower-white__blue-container">
           <Button
             icon={'arrowLeftBlack'}
-            type="secondary"
+            type="plain"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleLeftArrowClick();
@@ -251,7 +251,7 @@ export default function HomePage() {
           </div>
           <Button
             icon={'arrowRightBlack'}
-            type="secondary"
+            type="plain"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleRightArrowClick();
