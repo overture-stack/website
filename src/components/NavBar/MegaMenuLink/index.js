@@ -19,7 +19,13 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
         >
           {name}
           {name === 'Documentation' ? (
-            <Icon img="arrowDownNavbar" className="documentation-down-arrow" alt="down arrow" />
+            <Icon
+              img="arrowDownNavbar"
+              className={`documentation-down-arrow ${
+                isActive ? 'documentation-arrow-rotate-up' : ''
+              }`}
+              alt="down arrow"
+            />
           ) : null}
         </div>
 
