@@ -1,4 +1,5 @@
 import React from 'react';
+import { Script } from 'gatsby';
 import favicon from './img/favicon.ico';
 
 export default function HTML({ body, headComponents, postBodyComponents }) {
@@ -17,6 +18,20 @@ export default function HTML({ body, headComponents, postBodyComponents }) {
         />
         {/*  NOTE: normally wouldn't use static folder but npm / sass imports for basscss are not working. */}
         <link href="/css/basscss.css" rel="stylesheet"></link>
+        {/* <!-- Matomo Tag Manager --> */}
+        <script
+          id="matomo-tag-manager"
+          dangerouslySetInnerHTML={{
+            __html: `var _mtm = window._mtm = window._mtm || [];
+  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+  (function() {
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://webstats.oicr.on.ca/piwik/js/container_khE7TC0F.js'; s.parentNode.insertBefore(g,s);
+  })()`,
+          }}
+        />
+
+        {/* <!-- End Matomo Tag Manager --> */}
       </head>
       <body>
         <div id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />

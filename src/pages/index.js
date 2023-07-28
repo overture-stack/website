@@ -3,6 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
+import { Script } from 'gatsby';
 import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
@@ -17,8 +18,6 @@ import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import caseData from 'data/case_studies';
-
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
