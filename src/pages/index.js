@@ -1,4 +1,3 @@
-import './home/styles.scss';
 import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
@@ -11,14 +10,13 @@ import {
   caseStudyAnchors,
 } from 'constants/pages';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
+import caseData from 'data/case_studies';
 import bodyImg from './home/assets/home_body_img.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
-import caseData from 'data/case_studies';
-
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
+import './home/styles.scss';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -199,6 +197,7 @@ export default function HomePage() {
             let active = idx === carouselPage ? 'lower-white__logo-active' : '';
             return (
               <img
+                key={data.slug}
                 src={data.logo}
                 alt={data.slug}
                 onClick={() => {
@@ -229,10 +228,8 @@ export default function HomePage() {
               <ul>
                 {caseData[carouselPage].listItems[2].map((i, idx) => {
                   return (
-                    <L1>
-                      <li className="lower-white__blue-container-list" key={idx}>
-                        {i}
-                      </li>
+                    <L1 key={i}>
+                      <li className="lower-white__blue-container-list">{i}</li>
                     </L1>
                   );
                 })}

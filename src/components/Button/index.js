@@ -65,8 +65,12 @@ export default ({
     </button>
   ) : anchorLink ? (
     <AnchorLink className={classes} to={anchorLink}>
-      {IconComp}
-      {children}
+      <>
+        {icon && (
+          <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
+        )}
+        {children}
+      </>
     </AnchorLink>
   ) : (
     <Link className={classes} to={link}>
