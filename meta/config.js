@@ -1,7 +1,5 @@
 module.exports = {
   backgroundColor: '#ffffff', // Used for setting manifest background color.
-  googleAnalyticsTrackingId: 'UA-87708930-2',
-  googleTagManagerID: '', // GTM tracking ID.
   pathPrefix: '/', // Prefixes all links. For cases when deployed to example.github.io/gatsby-starter-business/.
   siteDescription: 'Overture', // Website description used for RSS feeds/meta description tag.
   siteFBAppID: '', // FB Application ID for using app insights
