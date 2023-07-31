@@ -53,10 +53,6 @@ export default ({
   type = 'default',
 }) => {
   const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
-  const IconComp = () =>
-    icon && (
-      <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
-    );
 
   return onClick ? (
     <button className={classes} onClick={() => onClick()} type="button">

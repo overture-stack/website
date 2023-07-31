@@ -226,7 +226,7 @@ export default function HomePage() {
             <div className="lower-white__blue-container-right">
               <H3 className="lower-white__blue-container-title">{caseData[carouselPage].title}</H3>
               <ul>
-                {caseData[carouselPage].listItems[2].map((i, idx) => {
+                {caseData[carouselPage].listItems[2].map((i) => {
                   return (
                     <L1 key={i}>
                       <li className="lower-white__blue-container-list">{i}</li>
