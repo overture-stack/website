@@ -54,23 +54,28 @@ export default ({
 }) => {
   const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
 
+  const IconComp = (icon) =>
+    icon ? (
+      <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
+    ) : (
+      <></>
+    );
+
   return onClick ? (
     <button className={classes} onClick={() => onClick()} type="button">
-      {IconComp()}
+      <IconComp />
       {children}
     </button>
   ) : anchorLink ? (
     <AnchorLink className={classes} to={anchorLink}>
       <>
-        {icon && (
-          <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
-        )}
+        <IconComp />
         {children}
       </>
     </AnchorLink>
   ) : (
     <Link className={classes} to={link}>
-      {IconComp()}
+      <IconComp />
       {children}
     </Link>
   );
