@@ -1,13 +1,19 @@
 import React from 'react';
-import { navigate } from '@reach/router';
 import scrollToElement from 'scroll-to-element';
 import urlJoin from 'proper-url-join';
+import { Link, navigate } from 'gatsby';
 
 // use this instead of anchor (<a href=""></a>) tags
 
 // hash links: https://www.gatsbyjs.com/docs/gatsby-link#recommendations-for-programmatic-in-app-navigation
 
-export default function LinkHelper({ location = {}, onClick = undefined, to = '', ...props }) {
+export default function LinkHelper({
+  activeClassName = '',
+  location = {},
+  onClick = undefined,
+  to = '',
+  ...props
+}) {
   const samePageHash = to.charAt(0) === '#';
   const isExternal = to.match(/^\b(http|mailto)/);
   const isInternal = to && !isExternal && !samePageHash;
@@ -36,7 +42,12 @@ export default function LinkHelper({ location = {}, onClick = undefined, to = ''
   return isExternal ? (
     <a {...props} href={url} onClick={onClick} target="_blank" />
   ) : url ? (
-    <a {...props} href={url} onClick={samePageHash ? hashOnClick : onClick} />
+    <Link
+      {...props}
+      href={url}
+      onClick={samePageHash ? hashOnClick : onClick}
+      activeClassName={activeClassName}
+    />
   ) : (
     // probably <a name="string" />
     <a {...props} onClick={onClick} />

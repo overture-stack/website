@@ -7,7 +7,12 @@ import { LinkHelper as Link } from 'components';
 
 const NavLink = ({ url, name, closeMenus }) => {
   return (
-    <Link className="navbar-item nav-link" onClick={() => closeMenus()} to={url}>
+    <Link
+      activeClassName="active-item"
+      className="navbar-item nav-link"
+      onClick={() => closeMenus()}
+      to={url}
+    >
       {name}
     </Link>
   );
