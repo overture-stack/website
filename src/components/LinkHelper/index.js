@@ -15,7 +15,7 @@ export default function LinkHelper({
   ...props
 }) {
   const samePageHash = to.charAt(0) === '#';
-  const isExternal = to.match(/^\b(http|mailto)/);
+  const isExternal = to.match(/^\b(http|mailto)/) !== null;
   const isInternal = to && !isExternal && !samePageHash;
   const differentPageHash = isInternal && to.includes('#');
   const url = isInternal
@@ -44,7 +44,7 @@ export default function LinkHelper({
   ) : url ? (
     <Link
       {...props}
-      href={url}
+      to={url}
       onClick={samePageHash ? hashOnClick : onClick}
       activeClassName={activeClassName}
     />
