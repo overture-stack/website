@@ -31,7 +31,7 @@ class TemplateWrapper extends Component {
     });
   };
 
-  openMegaMenu = megaMenuType => {
+  openMegaMenu = (megaMenuType) => {
     // set type FIRST
     // then open the menu in a callback
     // for smoother animation
@@ -102,7 +102,7 @@ class TemplateWrapper extends Component {
     const isDocs = path.includes('/documentation/') && data.mdx;
 
     return (
-      <div>
+      <div id="page-element">
         <Helmet>
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
@@ -119,7 +119,7 @@ class TemplateWrapper extends Component {
         />
 
         {/* desktop megamenu */}
-        <div className="desktop-megamenu" ref={r => (this.popOverRef = r)}>
+        <div className="desktop-megamenu" ref={(r) => (this.popOverRef = r)}>
           {desktopMegaMenuCheck && (
             <MegaMenu
               closeMenus={this.closeMenus}

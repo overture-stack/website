@@ -1,4 +1,3 @@
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React from 'react';
 
 // Logos
