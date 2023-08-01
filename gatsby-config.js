@@ -152,14 +152,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: process.env.GATSBY_MATOMO_SITE_ID,
-        matomoUrl: process.env.GATSBY_MATOMO_MATOMO_URL,
-        siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
         offset: -300,
