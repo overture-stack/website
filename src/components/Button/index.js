@@ -75,7 +75,7 @@ export default ({
     </AnchorLink>
   ) : (
     <Link className={classes} to={link}>
-      <IconComp />
+      <IconComp icon={icon} />
       {children}
     </Link>
   );
