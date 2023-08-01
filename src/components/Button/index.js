@@ -63,7 +63,7 @@ export default ({
 
   return onClick ? (
     <button className={classes} onClick={() => onClick()} type="button">
-      <IconComp />
+      <IconComp icon={icon} />
       {children}
     </button>
   ) : anchorLink ? (
