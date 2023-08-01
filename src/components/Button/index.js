@@ -54,7 +54,7 @@ export default ({
 }) => {
   const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
 
-  const IconComp = (icon) =>
+  const IconComp = ({icon}) =>
     icon ? (
       <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
     ) : (
