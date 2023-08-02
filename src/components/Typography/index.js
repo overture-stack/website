@@ -37,7 +37,7 @@ export const P2 = ({ className, children, style }) => (
 
 //List
 export const L1 = ({ className, children, style }) => (
-  <ui style={style} className={`${className ? className : ''} t-l1`}>
+  <ul style={style} className={`${className ? className : ''} t-l1`}>
     {children}
-  </ui>
+  </ul>
 );

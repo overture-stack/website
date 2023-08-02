@@ -91,7 +91,7 @@ const FooterColumns = () => {
   return (
     <div className="column-container">
       {columns.map(([topItem, bottomItem]) => (
-        <div className="column-container__group column ">
+        <div className="column-container__group column " key={topItem.link}>
           <Link className="column-container__link mt1 mb1" to={topItem.link}>
             {topItem.name}
           </Link>
