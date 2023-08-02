@@ -34,7 +34,7 @@ export default function HomePage() {
           </P1>
         </div>
 
-        <div className="section-wrapper">
+        <div className="overture-image-section">
           <div className="image-column">
             <img className="overture-image" src={bodyImg} alt="" />
             <div style={{ float: 'clear' }}></div>

@@ -1,54 +1,74 @@
-.section-wrapper {
-  border: 3px solid #0000ff;
+.overture-image-section {
   padding: 0 10px;
   margin: 0 auto;
-  max-width: 1600px;
-  @media screen and (min-width: 1216px) {
+  max-width: 1600px; // at smaller sizes, this element bleeds off the screen
+  @media screen and (min-width: 1024px) {
     display: flex;
     align-items: center;
+  }
+  @media screen and (min-width: 1408px) {
+    max-width: 1350px;
   }
 }
 
 .image-column {
-  border: 3px solid goldenrod;
+  @media screen and (min-width: 1024px) {
+    width: 675px;
+  }
   @media screen and (min-width: 1216px) {
     width: 800px;
+  }
+  @media screen and (min-width: 1216px) {
+    width: 66.667%;
   }
 }
 
 .overture-image {
-  @media screen and (min-width: 1216px) and (max-width: 1600px) {
-    display: block;
+  max-width: 80%;
+  margin: 0 auto 20px;
+  display: block;
+  @media screen and (min-width: 1024px) {
+    margin-left: -150px;
+    max-width: 820px;
+  }
+  @media screen and (min-width: 1216px) {
     margin-left: -170px;
     max-width: 970px;
+  }
+  @media screen and (min-width: 1408px) {
+    margin-left: 0px;
+    max-width: 100%;
   }
 }
 
 .text-column {
-  border: 3px solid orange;
-  @media screen and (min-width: 1216px) {
-    flex: 1;
+  @media screen and (min-width: 1024px) {
+    flex: 1; // remainder leftover from image column
   }
 }
 
 .text-wrapper {
-  border: 3px solid green;
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 769px) {
     display: flex;
     flex-wrap: wrap;
   }
-  @media screen and (min-width: 1216px) {
+  @media screen and (min-width: 1024px) {
     display: block;
-    max-width: 350px;
+    max-width: 250px;
     margin: 0 auto;
+  }
+  @media screen and (min-width: 1216px) {
+    max-width: 350px;
   }
 }
 
 .text-item {
-  // max-width: 20em;
   text-align: center;
   margin: 0 auto 20px;
-  @media screen and (min-width: 800px) {
+  @media screen and (min-width: 769px) {
     flex: 0 0 50%;
+  }
+  @media screen and (min-width: 1024px) {
+    flex: 0 0 100%;
   }
 }
