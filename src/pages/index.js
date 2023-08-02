@@ -45,8 +45,6 @@ export default function HomePage() {
         />
       </Helmet>
 
-      {/* top hero (blue background) */}
-
       <div className="Hero">
         <div className="container">
           <section className="Hero__section">
@@ -68,8 +66,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* upper white section */}
-
       <section>
         <div>
           <H2>Scalable & Flexible</H2>
@@ -79,12 +75,9 @@ export default function HomePage() {
           </P1>
         </div>
 
-        {/* container of the image and product links */}
-
         <div className="overture-image-section">
           <div className="image-column">
             <img className="overture-image" src={bodyImg} alt="" />
-            <div style={{ float: 'clear' }}></div>
           </div>
           <div className="text-column">
             <div className="text-wrapper">
@@ -122,8 +115,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* upper grey section */}
 
       <section className=" section upper-grey bg-grey">
         <div className="upper-grey__line">
@@ -166,19 +157,13 @@ export default function HomePage() {
         </Button>
       </section>
 
-      {/* floating maroon cube */}
-
       <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
-
-      {/* lower white section */}
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
           <H2 className="lower-white__title ">Power by Overture</H2>
           <P1>Tackling diverse challenges across several projects</P1>
         </div>
-
-        {/* carousel */}
 
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
@@ -242,8 +227,6 @@ export default function HomePage() {
           />
         </div>
 
-        {/* section below carousel */}
-
         <H2 className=" lower-white__title ">Getting Started with Overture</H2>
         <div className="lower-white__yellow-buttons">
           <YellowButton
@@ -267,15 +250,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* floating blueish teal cube */}
-
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
-
-      {/* floating chartreuse cube */}
 
       <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
-      {/* lower grey section */}
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
           <h2 className="grey-section-text lower-grey__text">
@@ -291,8 +269,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* floating bright teal cube */}
 
       <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
     </main>
