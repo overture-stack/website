@@ -3,7 +3,7 @@
   padding: 0 10px;
   margin: 0 auto;
   max-width: 1600px;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1216px) {
     display: flex;
     align-items: center;
   }
@@ -11,13 +11,13 @@
 
 .image-column {
   border: 3px solid goldenrod;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1216px) {
     width: 800px;
   }
 }
 
 .overture-image {
-  @media screen and (min-width: 1200px) and (max-width: 1600px) {
+  @media screen and (min-width: 1216px) and (max-width: 1600px) {
     display: block;
     margin-left: -170px;
     max-width: 970px;
@@ -26,7 +26,7 @@
 
 .text-column {
   border: 3px solid orange;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1216px) {
     flex: 1;
   }
 }
@@ -37,7 +37,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1216px) {
     display: block;
     max-width: 350px;
     margin: 0 auto;
