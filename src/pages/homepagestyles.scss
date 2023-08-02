@@ -1,0 +1,30 @@
+.section-wrapper {
+  border: 3px solid #0000ff;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.image-column {
+  border: 3px solid goldenrod;
+}
+
+.text-column {
+  border: 3px solid orange;
+}
+
+.text-wrapper {
+  border: 3px solid green;
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.text-item {
+  // max-width: 20em;
+  text-align: center;
+  margin: 0 auto 20px;
+  @media screen and (min-width: 800px) {
+    flex: 0 0 50%;
+  }
+}

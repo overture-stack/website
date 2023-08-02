@@ -17,6 +17,7 @@ import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import './home/styles.scss';
+import './homepagestyles.scss';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -33,54 +34,26 @@ export default function HomePage() {
           </P1>
         </div>
 
-        {/* container of the image and product links */}
-
-        <div>
-          <div>
+        <div className="section-wrapper">
+          <div className="image-column">
             <img src={bodyImg} alt="" />
           </div>
-          <div>
-            <HomeProductLink
-              icon={'productSong'}
-              alt=""
-              title={'Song'}
-              textUpper={'Manages metadata submission,'}
-              textLower={'validation and tracking.'}
-              link={productsDict.song.productsPath}
-            />
-            <HomeProductLink
-              icon={'productScore'}
-              alt=""
-              title={'Score'}
-              textUpper={'Transfers file data to and'}
-              textLower={'from the cloud.'}
-              link={productsDict.score.productsPath}
-            />
-            <HomeProductLink
-              icon={'productMaestro'}
-              alt=""
-              title={'Maestro'}
-              textUpper={'Organizes dispersed'}
-              textLower={'metadata into one index.'}
-              link={productsDict.maestro.productsPath}
-            />
-            <HomeProductLink
-              icon={'productArranger'}
-              alt=""
-              title={'Arranger'}
-              textUpper={'Arranges indexed metadata into'}
-              textLower={'configurable search'}
-              textThirdLine={'portals.'}
-              link={productsDict.arranger.productsPath}
-            />
-            <HomeProductLink
-              icon={'productEgo'}
-              alt=""
-              title={'Ego'}
-              textUpper={'A stateless authorization'}
-              textLower={'and user management service.'}
-              link={productsDict.ego.productsPath}
-            />
+          <div className="text-column">
+            <div className="text-wrapper">
+              <div className="text-item">
+                Ut enim commodo in deserunt nisi laborum cillum elit proident eiusmod cupidatat
+                nulla ut.
+              </div>
+              <div className="text-item">
+                Ipsum elit anim aliquip irure mollit aute labore reprehenderit cillum.
+              </div>
+              <div className="text-item">
+                Commodo voluptate officia sunt qui fugiat duis laboris ad magna.
+              </div>
+              <div className="text-item">
+                Nostrud ipsum Lorem cillum ad laborum Lorem fugiat Lorem.
+              </div>
+            </div>
           </div>
         </div>
       </section>
