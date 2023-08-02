@@ -11,7 +11,7 @@ import {
 } from 'constants/pages';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
 import caseData from 'data/case_studies';
-import bodyImg from './home/assets/home_body_img.svg';
+import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
@@ -28,7 +28,7 @@ export default function HomePage() {
       <section>
         <div>
           <H2>Scalable & Flexible</H2>
-          <P1>
+          <P1 style={{ maxWidth: '30em', textAlign: 'center', margin: '20px auto' }}>
             Overture is a collection of modular software components that build into flexible data
             management systems.
           </P1>
@@ -36,7 +36,8 @@ export default function HomePage() {
 
         <div className="section-wrapper">
           <div className="image-column">
-            <img src={bodyImg} alt="" />
+            <img className="overture-image" src={bodyImg} alt="" />
+            <div style={{ float: 'clear' }}></div>
           </div>
           <div className="text-column">
             <div className="text-wrapper">

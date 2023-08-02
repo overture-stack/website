@@ -2,14 +2,33 @@
   border: 3px solid #0000ff;
   padding: 0 10px;
   margin: 0 auto;
+  max-width: 1600px;
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .image-column {
   border: 3px solid goldenrod;
+  @media screen and (min-width: 1200px) {
+    width: 800px;
+  }
+}
+
+.overture-image {
+  @media screen and (min-width: 1200px) and (max-width: 1600px) {
+    display: block;
+    margin-left: -170px;
+    max-width: 970px;
+  }
 }
 
 .text-column {
   border: 3px solid orange;
+  @media screen and (min-width: 1200px) {
+    flex: 1;
+  }
 }
 
 .text-wrapper {
@@ -17,6 +36,11 @@
   @media screen and (min-width: 800px) {
     display: flex;
     flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1200px) {
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
 
