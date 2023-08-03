@@ -54,7 +54,7 @@ export default function HomePage() {
             </Button>
             <H1>Genomics Data</H1>
             <P1>Filling the gaps between genomics data and scientific discovery</P1>
-            <div className="flex Hero__small-buttons">
+            <div className="Hero__small-buttons-container">
               <Button link={PRODUCTS_PATH} size="medium" type="primary">
                 Our Products
               </Button>
