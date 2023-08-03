@@ -5,28 +5,38 @@
   // for hero headers
   font-family: $font-sans-serif;
   font-weight: 900;
-  font-size: 50px;
   color: $navy-black;
   letter-spacing: 0;
-  line-height: 70px;
+  font-size: 40px;
+  line-height: 55px;
 
-  @include breakpoint(mobile) {
-    font-size: 40px;
-    line-height: 55px;
+  @include breakpoint(tablet-up) {
+    font-size: 48px;
+    line-height: 70px;
+  }
+
+  @include breakpoint(desktop-up) {
+    font-size: 50px;
+    line-height: 70px;
   }
 }
 
 .t-h2 {
   font-family: $font-sans-serif;
-  font-weight: 700;
-  font-size: 36px;
+  font-weight: 900;
+  font-size: 30px;
   color: $navy-black;
   letter-spacing: 0;
   line-height: 40px;
   text-align: center;
 
-  @include breakpoint(mobile) {
-    font-size: 24px;
+  @include breakpoint(tablet-up) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @include breakpoint(desktop-up) {
+    font-size: 36px;
     line-height: 40px;
   }
 }
@@ -48,14 +58,18 @@
 .t-p1 {
   font-family: $font-sans-serif;
   font-weight: 400;
-  font-size: 24px;
   color: $navy-black;
   letter-spacing: 0;
-  line-height: 40px;
+  font-size: 18px;
+  line-height: 28px;
 
-  @include breakpoint(mobile) {
+  @include breakpoint(tablet-up) {
     font-size: 20px;
     line-height: 30px;
+  }
+  @include breakpoint(desktop-up) {
+    font-size: 24px;
+    line-height: 40px;
   }
 }
 

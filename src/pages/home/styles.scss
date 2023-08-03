@@ -63,39 +63,130 @@
   }
 
   .upper-white {
-    &__header {
-      font-weight: 900;
-    }
-
-    &__text {
+    &__title-text {
       text-align: center;
-    }
+      max-width: 30em;
+      margin: 20px auto;
 
-    &__container-img-links {
-      display: flex;
-    }
-
-    &__img-container {
-      width: 200%;
-      height: auto;
-      margin-left: -35%;
-      margin-right: -75%;
-
-      @include breakpoint(desktop-wide) {
-        width: 1467px;
-        height: auto;
-        margin-left: -5%;
-        margin-right: 7%;
+      @include breakpoint(tablet-up) {
+        max-width: 50em;
+        padding: 0 30px;
       }
     }
 
-    &__product-links {
+    &__content {
+      padding: 0 10px;
+      margin: 0 auto;
+      max-width: 1600px; // at smaller sizes, this element bleeds off the screen
+
+      @include breakpoint(desktop-up) {
+        display: flex;
+        align-items: center;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        max-width: 1350px;
+      }
+    }
+
+    &__image-column {
+      @include breakpoint(desktop-up) {
+        width: 625px;
+      }
+      @include breakpoint(desktop-wide) {
+        width: 770px;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        width: 66.667%;
+      }
+    }
+
+    &__image {
+      width: 400px;
+      max-width: 80%;
+      margin: 0 auto 20px;
+      display: block;
+
+      @include breakpoint(tablet-up) {
+        width: 820px;
+      }
+      @include breakpoint(desktop-up) {
+        margin-left: -160px;
+        max-width: 780px;
+      }
+      @include breakpoint(desktop-wide) {
+        margin-left: -170px;
+        max-width: 970px;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        margin-left: 0px;
+        max-width: 100%;
+      }
+    }
+
+    &__text-column {
+      margin-top: 40px;
+
+      @include breakpoint(tablet-up) {
+      }
+
+      @include breakpoint(desktop-up) {
+        flex: 1; // remainder leftover from image column
+      }
+    }
+
+    &__text-wrapper {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      width: 30%;
-      min-height: 700px;
+      align-items: center;
+      gap: 55px;
+
+      @include breakpoint(tablet-up) {
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+      @include breakpoint(desktop-up) {
+        // display: block;
+        // max-width: 250px;
+        margin: 0 auto;
+      }
+      @include breakpoint(desktop-wide) {
+        // max-width: 350px;
+      }
     }
+
+    // &__header {
+    //   font-weight: 900;
+    // }
+
+    // &__text {
+    //   text-align: center;
+    // }
+
+    // &__container-img-links {
+    //   display: flex;
+    // }
+
+    // &__img-container {
+    //   width: 200%;
+    //   height: auto;
+    //   margin-left: -35%;
+    //   margin-right: -75%;
+
+    //   @include breakpoint(desktop-wide) {
+    //     width: 1467px;
+    //     height: auto;
+    //     margin-left: -5%;
+    //     margin-right: 7%;
+    //   }
+    // }
+
+    // &__product-links {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: space-between;
+    //   width: 30%;
+    //   min-height: 700px;
+    // }
   }
 
   .upper-grey {

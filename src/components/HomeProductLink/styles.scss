@@ -3,12 +3,29 @@
 
 .ProductLink {
   text-decoration: none;
+  text-align: center;
+  max-width: 260px;
+
+  @include breakpoint(tablet-up) {
+    text-align: left;
+    max-width: 275px;
+  }
+
+  @include breakpoint(desktop-up) {
+    max-width: 330px;
+  }
 
   &__top-container {
     display: flex;
     gap: 8px;
     align-items: center;
+    justify-content: center;
     margin-bottom: 5px;
+    margin-right: 10px;
+
+    @include breakpoint(tablet-up) {
+      justify-content: flex-start;
+    }
   }
 
   &__title {
@@ -16,9 +33,13 @@
     text-underline-offset: 8px;
     font-family: $font-sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     color: $navy-black;
     letter-spacing: 0;
     line-height: 21px;
+
+    @include breakpoint(tablet-up) {
+      font-size: 24px;
+    }
   }
 }

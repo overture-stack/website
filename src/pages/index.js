@@ -45,6 +45,7 @@ export default function HomePage() {
         />
       </Helmet>
 
+      {/* top hero - blue background  */}
       <div className="Hero">
         <div className="container">
           <section className="Hero__section">
@@ -66,21 +67,22 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section>
+      {/* upper white section */}
+      <section className="upper-white section">
         <div>
           <H2>Scalable & Flexible</H2>
-          <P1 style={{ maxWidth: '30em', textAlign: 'center', margin: '20px auto' }}>
+          <P1 className="upper-white__title-text">
             Overture is a collection of modular software components that build into flexible data
             management systems.
           </P1>
         </div>
 
-        <div className="overture-image-section">
-          <div className="image-column">
-            <img className="overture-image" src={bodyImg} alt="" />
+        <div className="upper-white__content">
+          <div className="upper-white__image-column">
+            <img className="upper-white__image" src={bodyImg} alt="" />
           </div>
-          <div className="text-column">
-            <div className="text-wrapper">
+          <div className="upper-white__text-column">
+            <div className="upper-white__text-wrapper">
               <HomeProductLink
                 icon={'productSong'}
                 title={'Song'}
