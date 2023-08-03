@@ -145,48 +145,9 @@
         justify-content: center;
       }
       @include breakpoint(desktop-up) {
-        // display: block;
-        // max-width: 250px;
         margin: 0 auto;
       }
-      @include breakpoint(desktop-wide) {
-        // max-width: 350px;
-      }
     }
-
-    // &__header {
-    //   font-weight: 900;
-    // }
-
-    // &__text {
-    //   text-align: center;
-    // }
-
-    // &__container-img-links {
-    //   display: flex;
-    // }
-
-    // &__img-container {
-    //   width: 200%;
-    //   height: auto;
-    //   margin-left: -35%;
-    //   margin-right: -75%;
-
-    //   @include breakpoint(desktop-wide) {
-    //     width: 1467px;
-    //     height: auto;
-    //     margin-left: -5%;
-    //     margin-right: 7%;
-    //   }
-    // }
-
-    // &__product-links {
-    //   display: flex;
-    //   flex-direction: column;
-    //   justify-content: space-between;
-    //   width: 30%;
-    //   min-height: 700px;
-    // }
   }
 
   .upper-grey {
@@ -195,35 +156,83 @@
     align-items: center;
     gap: 10px;
 
+    &__text {
+      font-family: $font-sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 36px;
+      color: $navy-black;
+      text-align: center;
+
+      @include breakpoint(tablet-up) {
+        font-size: 32px;
+        line-height: 64px;
+      }
+
+      @include breakpoint(desktop-up) {
+        font-size: 40px;
+        line-height: 70px;
+      }
+    }
+
+    &__mobile {
+      padding: 0 1em;
+
+      @include breakpoint(tablet-up) {
+        display: none;
+      }
+    }
+
+    &__not-mobile {
+      display: none;
+      padding: 0 1.6em;
+      max-width: 1147px;
+      @include breakpoint(tablet-up) {
+        display: block;
+      }
+
+      @include breakpoint(desktop-up) {
+        padding: 0 2.5em;
+      }
+    }
+
     &__line {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+
+      @include breakpoint(tablet-up) {
+      }
     }
-  }
 
-  .grey-section-text {
-    font-family: $font-sans-serif;
-    font-weight: 900;
-    font-size: 40px;
-    color: $navy-black;
-    letter-spacing: 0;
-    line-height: 70px;
-    text-align: center;
-
-    @include breakpoint(mobile) {
-      font-size: 24px;
-      line-height: 40px;
+    &__icon {
+      display: none;
+      @include breakpoint(tablet-up) {
+        display: block;
+      }
     }
   }
 
   .maroon-cube {
-    position: relative;
-    left: 140px;
-    bottom: 140px;
-    margin-bottom: -200px;
+    display: none;
+
+    @include breakpoint(tablet-up) {
+      display: block;
+      position: relative;
+      // left: 140px;
+      left: -45px;
+      bottom: 140px;
+      margin-bottom: -200px;
+    }
+    @include breakpoint(desktop-up) {
+      left: 140px;
+    }
   }
 
   .lower-white {
+    max-width: 300px;
+    overflow-x: hidden;
     &__title-container {
       display: flex;
       flex-direction: column;

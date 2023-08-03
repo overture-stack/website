@@ -17,7 +17,6 @@ import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import './home/styles.scss';
-import './homepagestyles.scss';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -118,35 +117,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className=" section upper-grey bg-grey">
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">We are OICR's team of</h2>
-          <Icon
-            alt="Software Engineers Icon"
-            img="softwareEngineers"
-            size="60px"
-            className="upper-grey__icon"
-          />
-          <h2 className="grey-section-text">software engineers,</h2>
-          <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">data</h2>
-        </div>
-
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">scientists and</h2>
-          <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">cloud infrastructure specialists developing</h2>
-        </div>
-
-        <div className="upper-grey__line">
-          <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">
-            big-data tools for those advancing the knowledge and
+      {/* upper grey section */}
+      <section className="section upper-grey bg-grey">
+        <div className="upper-grey__mobile">
+          <h2 className="upper-grey__text">
+            We are OICR's team of software engineers, data scientists and cloud infrastructure
+            specialists developing big-data tools for those advancing the knowledge and treatment of
+            cancer.
           </h2>
         </div>
 
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">treatment of cancer.</h2>
+        <div className="upper-grey__not-mobile">
+          <div className="upper-grey__line ">
+            <h2 className="upper-grey__text">We</h2>
+            <h2 className="upper-grey__text">are</h2>
+            <h2 className="upper-grey__text">OICR's</h2>
+            <h2 className="upper-grey__text">team</h2>
+            <h2 className="upper-grey__text">of</h2>
+            <Icon
+              alt="Software Engineers Icon"
+              img="softwareEngineers"
+              size="60px"
+              className="upper-grey__icon"
+            />
+            <h2 className="upper-grey__text">software</h2>
+            <h2 className="upper-grey__text">engineers,</h2>
+            <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
+            <h2 className="upper-grey__text">data</h2>
+            <h2 className="upper-grey__text">scientists</h2>
+            <h2 className="upper-grey__text">and</h2>
+            <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
+            <h2 className="upper-grey__text">cloud </h2>
+            <h2 className="upper-grey__text">infrastructure</h2>
+            <h2 className="upper-grey__text">specialists </h2>
+            <h2 className="upper-grey__text">developing</h2>
+            <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
+            <h2 className="upper-grey__text">big-data</h2>
+            <h2 className="upper-grey__text">tools</h2>
+            <h2 className="upper-grey__text">for</h2>
+            <h2 className="upper-grey__text">those</h2>
+            <h2 className="upper-grey__text">advancing</h2>
+            <h2 className="upper-grey__text">the</h2>
+            <h2 className="upper-grey__text">knowledge</h2>
+            <h2 className="upper-grey__text">and</h2>
+            <h2 className="upper-grey__text">treatment</h2>
+            <h2 className="upper-grey__text">of</h2>
+            <h2 className="upper-grey__text">cancer.</h2>
+          </div>
         </div>
 
         <Button
@@ -258,7 +275,7 @@ export default function HomePage() {
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
-          <h2 className="grey-section-text lower-grey__text">
+          <h2 className="upper-grey__text lower-grey__text">
             Improving data accessibility with flexible and<br></br> scalable software components.
           </h2>
           <div className="mt3 lower-grey__buttons">
