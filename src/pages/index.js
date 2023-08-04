@@ -17,7 +17,6 @@ import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import './home/styles.scss';
-import './homepagestyles.scss';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -184,7 +183,7 @@ export default function HomePage() {
         <div className="lower-white__blue-container">
           <Button
             icon={'arrowLeftBlack'}
-            type="plain"
+            type="default"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleLeftArrowClick();
@@ -219,7 +218,7 @@ export default function HomePage() {
           </div>
           <Button
             icon={'arrowRightBlack'}
-            type="plain"
+            type="default"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleRightArrowClick();
