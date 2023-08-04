@@ -231,8 +231,8 @@
   }
 
   .lower-white {
-    max-width: 300px;
-    overflow-x: hidden;
+    // max-width: 300px;
+    // overflow-x: hidden;
     &__title-container {
       display: flex;
       flex-direction: column;
@@ -251,6 +251,7 @@
       gap: 15px;
       justify-content: center;
       background-color: none;
+      overflow-x: auto;
     }
 
     &__logo {
@@ -274,7 +275,7 @@
       padding: 40px 30px;
       margin: 50px auto;
       background-color: $blue-block;
-      width: 1147px;
+      max-width: 1147px;
       height: 378px;
     }
 

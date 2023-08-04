@@ -210,11 +210,14 @@ export default function HomePage() {
             }}
           />
           <div className="lower-white__blue-container-content">
-            <img
-              src={caseData[carouselPage].details[0].screenshot}
-              alt="screenshot"
-              className="lower-white__blue-container-image"
-            />
+            <div>
+              <img
+                src={caseData[carouselPage].details[0].screenshot}
+                alt="screenshot"
+                className="lower-white__blue-container-image"
+              />
+            </div>
+
             <div className="lower-white__blue-container-right">
               <H3 className="lower-white__blue-container-title">{caseData[carouselPage].title}</H3>
               <ul>
@@ -246,7 +249,7 @@ export default function HomePage() {
           />
         </div>
 
-        <H2 className=" lower-white__title ">Getting Started with Overture</H2>
+        {/* <H2 className=" lower-white__title ">Getting Started with Overture</H2>
         <div className="lower-white__yellow-buttons">
           <YellowButton
             img_src="identifyNeeds"
@@ -266,7 +269,7 @@ export default function HomePage() {
             title="Join Our Community"
             text="Get help, share knowledge, and stay current."
           />
-        </div>
+        </div> */}
       </section>
 
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
