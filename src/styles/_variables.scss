@@ -25,6 +25,14 @@ $header-height: 470px;
     @media (min-width: 1024px) {
       @content;
     }
+  } @else if $class == desktop-wide {
+    @media (min-width: 1216px) {
+      @content;
+    }
+  } @else if $class == desktop-ultra-wide {
+    @media (min-width: 1408px) {
+      @content;
+    }
   } @else if $class == navmenu-below {
     @media (max-width: 1159px) {
       @content;
@@ -43,14 +51,6 @@ $header-height: 470px;
     }
   } @else if $class == wide-down {
     @media (max-width: 1200px) {
-      @content;
-    }
-  } @else if $class == desktop-wide {
-    @media (min-width: 1441px) {
-      @content;
-    }
-  } @else if $class == desktop-ultrawide {
-    @media (min-width: 2560px) {
       @content;
     }
   } @else {

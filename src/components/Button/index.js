@@ -4,8 +4,9 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import './styles.scss';
 
 const btnTypes = {
-  primary: 'is-primary', // uses bulma
-  secondary: 'is-white secondary', // bulma + custom css
+  primary: 'button is-primary', // uses bulma
+  secondary: 'button is-white secondary', // bulma + custom css
+  default: 'default',
 };
 
 const btnSizes = {

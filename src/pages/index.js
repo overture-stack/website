@@ -11,7 +11,7 @@ import {
 } from 'constants/pages';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
 import caseData from 'data/case_studies';
-import bodyImg from './home/assets/home_body_img.svg';
+import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
@@ -44,8 +44,6 @@ export default function HomePage() {
         />
       </Helmet>
 
-      {/* top hero (blue background) */}
-
       <div className="Hero">
         <div className="container">
           <section className="Hero__section">
@@ -55,7 +53,7 @@ export default function HomePage() {
             </Button>
             <H1>Genomics Data</H1>
             <P1>Filling the gaps between genomics data and scientific discovery</P1>
-            <div className="flex Hero__small-buttons">
+            <div className="Hero__small-buttons-container">
               <Button link={PRODUCTS_PATH} size="medium" type="primary">
                 Our Products
               </Button>
@@ -67,75 +65,55 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* upper white section */}
-
-      <section className="section upper-white mb4">
-        <div className="container">
-          <H2 className="upper-white__header">Scalable & Flexible</H2>
-          <P1 className="upper-white__text column is-offset-1 is-10 mt1">
-            Overture is a collection of modular software components that build into flexible data{' '}
-            <br />
+      <section>
+        <div>
+          <H2>Scalable & Flexible</H2>
+          <P1 style={{ maxWidth: '30em', textAlign: 'center', margin: '20px auto' }}>
+            Overture is a collection of modular software components that build into flexible data
             management systems.
           </P1>
         </div>
 
-        {/* container of the image and product links */}
-
-        <div className="upper-white__container-img-links mt4">
-          <div className="upper-white__img-container">
-            <img
-              className="upper-white__img"
-              src={bodyImg}
-              alt="Home Page Upper White Section Image"
-            />
+        <div className="overture-image-section">
+          <div className="image-column">
+            <img className="overture-image" src={bodyImg} alt="" />
           </div>
-          <div className="upper-white__product-links ">
-            <HomeProductLink
-              icon={'productSong'}
-              alt={'Song Icon'}
-              title={'Song'}
-              textUpper={'Manages metadata submission,'}
-              textLower={'validation and tracking.'}
-              link={productsDict.song.productsPath}
-            ></HomeProductLink>
-            <HomeProductLink
-              icon={'productScore'}
-              alt={'Score Icon'}
-              title={'Score'}
-              textUpper={'Transfers file data to and'}
-              textLower={'from the cloud.'}
-              link={productsDict.score.productsPath}
-            ></HomeProductLink>
-            <HomeProductLink
-              icon={'productMaestro'}
-              alt={'Maestro Icon'}
-              title={'Maestro'}
-              textUpper={'Organizes dispersed'}
-              textLower={'metadata into one index.'}
-              link={productsDict.maestro.productsPath}
-            ></HomeProductLink>
-            <HomeProductLink
-              icon={'productArranger'}
-              alt={'Arranger Icon'}
-              title={'Arranger'}
-              textUpper={'Arranges indexed metadata into'}
-              textLower={'configurable search'}
-              textThirdLine={'portals.'}
-              link={productsDict.arranger.productsPath}
-            ></HomeProductLink>
-            <HomeProductLink
-              icon={'productEgo'}
-              alt={'Ego Icon'}
-              title={'Ego'}
-              textUpper={'A stateless authorization'}
-              textLower={'and user management service.'}
-              link={productsDict.ego.productsPath}
-            ></HomeProductLink>
+          <div className="text-column">
+            <div className="text-wrapper">
+              <HomeProductLink
+                icon={'productSong'}
+                title={'Song'}
+                text={'Manages metadata submission, validation and tracking.'}
+                link={productsDict.song.productsPath}
+              />
+              <HomeProductLink
+                icon={'productScore'}
+                title={'Score'}
+                text={'Transfers file data to and from the cloud.'}
+                link={productsDict.score.productsPath}
+              />
+              <HomeProductLink
+                icon={'productMaestro'}
+                title={'Maestro'}
+                text={'Organizes dispersed metadata into one index.'}
+                link={productsDict.maestro.productsPath}
+              />
+              <HomeProductLink
+                icon={'productArranger'}
+                title={'Arranger'}
+                text={'Arranges indexed metadata into configurable search portals.'}
+                link={productsDict.arranger.productsPath}
+              />
+              <HomeProductLink
+                icon={'productEgo'}
+                title={'Ego'}
+                text={'A stateless authorization and user management service.'}
+                link={productsDict.ego.productsPath}
+              />
+            </div>
           </div>
         </div>
       </section>
-
-      {/* upper grey section */}
 
       <section className=" section upper-grey bg-grey">
         <div className="upper-grey__line">
@@ -178,11 +156,7 @@ export default function HomePage() {
         </Button>
       </section>
 
-      {/* floating maroon cube */}
-
       <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
-
-      {/* lower white section */}
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
@@ -190,11 +164,9 @@ export default function HomePage() {
           <P1>Tackling diverse challenges across several projects</P1>
         </div>
 
-        {/* carousel */}
-
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'lower-white__logo-active' : '';
+            let active = idx === carouselPage ? 'lower-white__logo-container-active' : '';
             return (
               <img
                 key={data.slug}
@@ -211,7 +183,7 @@ export default function HomePage() {
         <div className="lower-white__blue-container">
           <Button
             icon={'arrowLeftBlack'}
-            type="secondary"
+            type="default"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleLeftArrowClick();
@@ -246,15 +218,13 @@ export default function HomePage() {
           </div>
           <Button
             icon={'arrowRightBlack'}
-            type="secondary"
+            type="default"
             className="lower-white__blue-container-button"
             onClick={() => {
               handleRightArrowClick();
             }}
           />
         </div>
-
-        {/* section below carousel */}
 
         <H2 className=" lower-white__title ">Getting Started with Overture</H2>
         <div className="lower-white__yellow-buttons">
@@ -279,15 +249,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* floating blueish teal cube */}
-
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
-
-      {/* floating chartreuse cube */}
 
       <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
-      {/* lower grey section */}
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
           <h2 className="grey-section-text lower-grey__text">
@@ -305,8 +270,9 @@ export default function HomePage() {
       </section>
 
       {/* floating bright teal cube */}
-
-      <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+      <div className="bg-grey">
+        <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+      </div>
     </main>
   );
 }

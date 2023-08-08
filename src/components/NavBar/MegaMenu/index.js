@@ -2,9 +2,7 @@
  * Component: Display the Megamenu on mouse over / tap.
  */
 import React from 'react';
-import productsDict from 'constants/products';
-import { PRODUCTS_PATH } from 'constants/pages';
-import { Badge, ComingSoonBadge, Icon, IconCommon, LinkHelper as Link } from 'components';
+import { Badge, ComingSoonBadge, Icon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
@@ -114,7 +112,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
     <div className={`MegaMenu ${className}`}>
       <div className={`menu-items ${className}`}>
         {/* section: Text overview - Desktop only */}
-        <section className="menu-section explore-text">
+        <section className="menu-section-left explore-text">
           <div className="heading-text">{explore.title}</div>
           <div className="body-text">
             <div>{explore.text}</div>
@@ -128,14 +126,8 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
         </section>
 
         {sections.map((section) => (
-          <section className="menu-section" key={section.title}>
+          <section className="menu-section-right" key={section.title}>
             <div className="menu-section-heading">
-              {/* {megaMenuType === 'products' &&
-                (section.hasCoreIcon ? (
-                  <IconCommon.Core />
-                ) : (
-                  <span className="core-placeholder">&nbsp;</span>
-                ))} */}
               <Badge color={section.color}>{section.title}</Badge>
             </div>
             <div className="menu-select-container">

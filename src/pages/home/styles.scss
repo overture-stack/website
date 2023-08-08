@@ -2,46 +2,63 @@
 @import '../../styles/variables';
 
 .HomePage {
-  font-size: 18px;
-  line-height: 32px;
-
-  @include breakpoint(mobile) {
-    font-size: 16px;
-    line-height: 30px;
-  }
-
   .Hero {
-    height: 570px;
-    background-image: url('./assets/home_hero_img.svg');
     background-color: $blue-top;
-    display: flex;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-position: right;
-    background-position-x: 96%;
+    margin: 0 auto;
 
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/home_hero_img.svg');
+      background-repeat: no-repeat;
+      background-position: right;
+      height: fit-content;
+      padding: 2rem 0;
+    }
     @include breakpoint(desktop-wide) {
-      background-position-x: 68%;
+      background-position-x: 90%;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      background-position-x: 75%;
     }
 
     &__section {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 18px;
+
+      @include breakpoint(tablet-up) {
+        align-items: start;
+        max-width: 50%;
+        text-align: left;
+        padding-left: 25px;
+      }
+
+      @include breakpoint(desktop-up) {
+        max-width: 700px;
+        padding: 50px;
+      }
+
+      @include breakpoint(desktop-wide) {
+        max-width: none;
+        background-position: center;
+      }
     }
 
     &__large-button {
-      width: fit-content;
       height: fit-content;
-      font-size: 50px;
+      font-size: 40px;
       font-weight: 900;
       padding: 0.5rem 1rem;
     }
 
-    &__small-buttons {
+    &__small-buttons-container {
       display: flex;
       gap: 16px;
       font-weight: 700;
+      @include breakpoint(tablet-up) {
+        margin-top: 5px;
+      }
     }
   }
 
@@ -144,7 +161,7 @@
       }
     }
 
-    &__logo-active {
+    &__logo-container-active {
       border-bottom: 2px solid;
     }
 
@@ -190,6 +207,7 @@
 
     &__blue-container-button {
       background-color: $blue-block;
+      border: none;
     }
 
     &__yellow-buttons {
@@ -206,7 +224,6 @@
     float: right;
     bottom: 260px;
     margin-bottom: -200px;
-    // margin-right: -50px;
   }
 
   .chartreuse-cube {
@@ -218,11 +235,11 @@
   }
 
   .lower-grey {
+    padding-top: 6rem;
     &__container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: 180px;
     }
 
     &__text {
@@ -237,8 +254,10 @@
 
   .bright-teal-cube {
     position: relative;
+    // vertical-align: bottom;
     left: 80px;
-    bottom: 210px;
-    margin-bottom: -200px;
+    bottom: 185px;
+    margin-bottom: -250px;
+    z-index: 1;
   }
 }

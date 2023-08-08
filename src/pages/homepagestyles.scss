@@ -1,0 +1,81 @@
+.overture-image-section {
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 1600px; // at smaller sizes, this element bleeds off the screen
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+  }
+  @media screen and (min-width: 1408px) {
+    max-width: 1350px;
+  }
+}
+
+.image-column {
+  @media screen and (min-width: 1024px) {
+    width: 675px;
+  }
+  @media screen and (min-width: 1216px) {
+    width: 800px;
+  }
+  @media screen and (min-width: 1216px) {
+    width: 66.667%;
+  }
+}
+
+.overture-image {
+  width: 400px;
+  max-width: 80%;
+  margin: 0 auto 20px;
+  display: block;
+  @media screen and (min-width: 1024px) {
+    margin-left: -150px;
+    max-width: 820px;
+  }
+  @media screen and (min-width: 1216px) {
+    margin-left: -170px;
+    max-width: 970px;
+  }
+  @media screen and (min-width: 1408px) {
+    margin-left: 0px;
+    max-width: 100%;
+  }
+}
+
+.text-column {
+  @media screen and (min-width: 1024px) {
+    flex: 1; // remainder leftover from image column
+  }
+}
+
+.text-wrapper {
+  @media screen and (min-width: 769px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media screen and (min-width: 1024px) {
+    display: block;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 1216px) {
+    max-width: 350px;
+  }
+}
+
+.text-item {
+  text-align: center;
+  margin: 0 auto 20px;
+  @media screen and (min-width: 769px) {
+    flex: 0 0 50%;
+  }
+  @media screen and (min-width: 1024px) {
+    flex: 0 0 100%;
+  }
+}
+
+.lower-white {
+  // TEMP so we can work on overture section
+  max-width: 300px;
+  overflow-x: hidden;
+}
