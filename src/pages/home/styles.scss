@@ -231,13 +231,12 @@
   }
 
   .lower-white {
-    // max-width: 300px;
-    // overflow-x: hidden;
     &__title-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       font-weight: 900;
+      text-align: center;
     }
 
     &__title {
@@ -251,8 +250,9 @@
       display: flex;
       gap: 15px;
       background-color: none;
-      @include breakpoint(tablet-up) {
+      @include breakpoint(desktop-up) {
         justify-content: center;
+        overflow: unset;
       }
     }
 
@@ -264,44 +264,64 @@
       }
     }
 
-    &__logo-container-active {
+    &__logo-active {
       border-bottom: 2px solid;
     }
 
     &__blue-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      justify-content: center;
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 2em 1.5em;
       margin: 50px auto;
       background-color: $blue-block;
       max-width: 1147px;
-      height: 378px;
+
+      @include breakpoint(desktop-up) {
+        height: 378px;
+        justify-content: space-between;
+        gap: 20px;
+      }
     }
 
     &__blue-container-content {
       display: flex;
       justify-content: center;
+      @include breakpoint(tablet-up) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        gap: 2em;
+      }
     }
 
     &__blue-container-image {
       display: none;
-      width: 50%;
       height: auto;
-      margin-right: 70px;
+
+      @include breakpoint(tablet-up) {
+        display: block;
+        width: 80%;
+      }
+      @include breakpoint(desktop-up) {
+        width: 100%;
+      }
     }
 
     &__blue-container-right {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
+
       @include breakpoint(tablet-up) {
-        width: 50%;
+        width: 80%;
+        align-items: center;
+      }
+      @include breakpoint(desktop-up) {
         align-items: flex-start;
       }
     }
@@ -310,14 +330,36 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      // width: fit-content;
-      // gap: 60px;
+      @include breakpoint(tablet-up) {
+        margin-left: 14px;
+      }
+    }
+
+    &__blue-container-arrows-image-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include breakpoint(desktop-up) {
+        justify-content: center;
+        width: 50%;
+      }
     }
 
     &__blue-container-title {
-      width: fit-content;
+      text-align: center;
       @include breakpoint(tablet-up) {
         margin-left: -15px;
+      }
+      @include breakpoint(desktop-up) {
+        margin-left: 17px;
+      }
+    }
+
+    &__blue-container-lists-container {
+      width: 80%;
+      margin: 0 auto;
+      @include breakpoint(tablet-up) {
+        margin-right: 10px;
       }
     }
 
@@ -325,13 +367,42 @@
       list-style-type: disc;
     }
 
+    &__blue-container-learn-more-button {
+      width: fit-content;
+      margin: 0 auto;
+      @include breakpoint(tablet-up) {
+        margin-top: 15px;
+      }
+      @include breakpoint(desktop-up) {
+        margin: 5px 0 0 3.2em;
+      }
+    }
+
     &__blue-container-arrow {
       background-color: $blue-block;
       border: none;
     }
 
-    &__blue-container-arrow-mid {
+    &__blue-container-arrow-mobile {
+      @include breakpoint(tablet-up) {
+        display: none;
+      }
+    }
+
+    &__blue-container-arrow-tablet {
+      @include breakpoint(mobile) {
+        display: none;
+      }
+      @include breakpoint(desktop-up) {
+        display: none;
+      }
+    }
+
+    &__blue-container-arrow-desktop {
       display: none;
+      @include breakpoint(desktop-up) {
+        display: block;
+      }
     }
 
     &__yellow-buttons {
@@ -344,6 +415,7 @@
   }
 
   .teal-blue-cube {
+    display: none;
     position: relative;
     float: right;
     bottom: 260px;
@@ -351,6 +423,7 @@
   }
 
   .chartreuse-cube {
+    display: none;
     position: relative;
     float: right;
     left: 80px;

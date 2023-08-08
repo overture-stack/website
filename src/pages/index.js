@@ -180,13 +180,13 @@ export default function HomePage() {
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
-          <H2 className="lower-white__title ">Power by Overture</H2>
+          <H2 className="lower-white__title">Powered by Overture</H2>
           <P1>Tackling diverse challenges across several projects</P1>
         </div>
 
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'lower-white__logo-container-active' : '';
+            let active = idx === carouselPage ? 'lower-white__logo-active' : '';
             return (
               <img
                 key={data.slug}
@@ -204,17 +204,33 @@ export default function HomePage() {
           <Button
             icon={'arrowLeftBlack'}
             type="default"
-            className="lower-white__blue-container-arrow-mid lower-white__blue-container-arrow"
+            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
             onClick={() => {
               handleLeftArrowClick();
             }}
           />
           <div className="lower-white__blue-container-content">
-            <div>
+            <div className="lower-white__blue-container-arrows-image-container">
+              <Button
+                icon={'arrowLeftBlack'}
+                type="default"
+                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow"
+                onClick={() => {
+                  handleLeftArrowClick();
+                }}
+              />
               <img
                 src={caseData[carouselPage].details[0].screenshot}
                 alt="screenshot"
                 className="lower-white__blue-container-image"
+              />
+              <Button
+                icon={'arrowRightBlack'}
+                type="default"
+                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow ml2"
+                onClick={() => {
+                  handleRightArrowClick();
+                }}
               />
             </div>
 
@@ -223,7 +239,7 @@ export default function HomePage() {
                 <Button
                   icon={'arrowLeftBlack'}
                   type="default"
-                  className="lower-white__blue-container-arrow-top lower-white__blue-container-arrow"
+                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow"
                   onClick={() => {
                     handleLeftArrowClick();
                   }}
@@ -234,14 +250,14 @@ export default function HomePage() {
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
-                  className="lower-white__blue-container-arrow-top lower-white__blue-container-arrow"
+                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow ml2"
                   onClick={() => {
                     handleRightArrowClick();
                   }}
                 />
               </div>
 
-              <ul>
+              <ul className="lower-white__blue-container-lists-container">
                 {caseData[carouselPage].listItems[2].map((i) => {
                   return (
                     <L1 key={i}>
@@ -253,7 +269,7 @@ export default function HomePage() {
               <Button
                 type="primary"
                 size="medium"
-                className="mt3"
+                className=" lower-white__blue-container-learn-more-button"
                 anchorLink={caseStudyAnchors[caseData[carouselPage].slug]}
               >
                 Learn More
@@ -263,7 +279,7 @@ export default function HomePage() {
           <Button
             icon={'arrowRightBlack'}
             type="default"
-            className="lower-white__blue-container-arrow-mid lower-white__blue-container-arrow"
+            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
             onClick={() => {
               handleRightArrowClick();
             }}
