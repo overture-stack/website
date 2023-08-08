@@ -204,7 +204,7 @@ export default function HomePage() {
           <Button
             icon={'arrowLeftBlack'}
             type="default"
-            className="lower-white__blue-container-button"
+            className="lower-white__blue-container-arrow-mid lower-white__blue-container-arrow"
             onClick={() => {
               handleLeftArrowClick();
             }}
@@ -219,7 +219,28 @@ export default function HomePage() {
             </div>
 
             <div className="lower-white__blue-container-right">
-              <H3 className="lower-white__blue-container-title">{caseData[carouselPage].title}</H3>
+              <div className="lower-white__blue-container-arrows-title-container">
+                <Button
+                  icon={'arrowLeftBlack'}
+                  type="default"
+                  className="lower-white__blue-container-arrow-top lower-white__blue-container-arrow"
+                  onClick={() => {
+                    handleLeftArrowClick();
+                  }}
+                />
+                <H3 className="lower-white__blue-container-title">
+                  {caseData[carouselPage].title}
+                </H3>
+                <Button
+                  icon={'arrowRightBlack'}
+                  type="default"
+                  className="lower-white__blue-container-arrow-top lower-white__blue-container-arrow"
+                  onClick={() => {
+                    handleRightArrowClick();
+                  }}
+                />
+              </div>
+
               <ul>
                 {caseData[carouselPage].listItems[2].map((i) => {
                   return (
@@ -242,7 +263,7 @@ export default function HomePage() {
           <Button
             icon={'arrowRightBlack'}
             type="default"
-            className="lower-white__blue-container-button"
+            className="lower-white__blue-container-arrow-mid lower-white__blue-container-arrow"
             onClick={() => {
               handleRightArrowClick();
             }}
