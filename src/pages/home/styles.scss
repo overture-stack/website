@@ -201,9 +201,6 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
-
-      @include breakpoint(tablet-up) {
-      }
     }
 
     &__icon {
@@ -220,7 +217,6 @@
     @include breakpoint(tablet-up) {
       display: block;
       position: relative;
-      // left: 140px;
       left: -45px;
       bottom: 140px;
       margin-bottom: -200px;
@@ -461,6 +457,13 @@
 
     &__text {
       line-height: 53px;
+      max-width: 300px;
+      @include breakpoint(tablet-up) {
+        max-width: 770px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 1135px;
+      }
     }
 
     &__buttons {
@@ -475,12 +478,13 @@
     @include breakpoint(tablet-up) {
       display: block;
       position: relative;
-      left: 80px;
+      left: -75px;
       bottom: 185px;
       margin-bottom: -250px;
       z-index: 1;
     }
     @include breakpoint(desktop-up) {
+      left: 80px;
     }
   }
 }

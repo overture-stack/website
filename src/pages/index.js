@@ -128,44 +128,43 @@ export default function HomePage() {
         </div>
 
         <div className="upper-grey__not-mobile">
-          <div className="upper-grey__line ">
-            <h2 className="upper-grey__text">We</h2>
-            <h2 className="upper-grey__text">are</h2>
-            <h2 className="upper-grey__text">OICR's</h2>
-            <h2 className="upper-grey__text">team</h2>
-            <h2 className="upper-grey__text">of</h2>
+          <h2 className="upper-grey__line ">
+            <span className="upper-grey__text">We</span>
+            <span className="upper-grey__text">are</span>
+            <span className="upper-grey__text">OICR's</span>
+            <span className="upper-grey__text">team</span>
+            <span className="upper-grey__text">of</span>
             <Icon
               alt="Software Engineers Icon"
               img="softwareEngineers"
               size="60px"
               className="upper-grey__icon"
             />
-            <h2 className="upper-grey__text">software</h2>
-            <h2 className="upper-grey__text">engineers,</h2>
+            <span className="upper-grey__text">software</span>
+            <span className="upper-grey__text">engineers,</span>
             <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
-            <h2 className="upper-grey__text">data</h2>
-            <h2 className="upper-grey__text">scientists</h2>
-            <h2 className="upper-grey__text">and</h2>
+            <span className="upper-grey__text">data</span>
+            <span className="upper-grey__text">scientists</span>
+            <span className="upper-grey__text">and</span>
             <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
-            <h2 className="upper-grey__text">cloud </h2>
-            <h2 className="upper-grey__text">infrastructure</h2>
-            <h2 className="upper-grey__text">specialists </h2>
-            <h2 className="upper-grey__text">developing</h2>
+            <span className="upper-grey__text">cloud </span>
+            <span className="upper-grey__text">infrastructure</span>
+            <span className="upper-grey__text">specialists </span>
+            <span className="upper-grey__text">developing</span>
             <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
-            <h2 className="upper-grey__text">big-data</h2>
-            <h2 className="upper-grey__text">tools</h2>
-            <h2 className="upper-grey__text">for</h2>
-            <h2 className="upper-grey__text">those</h2>
-            <h2 className="upper-grey__text">advancing</h2>
-            <h2 className="upper-grey__text">the</h2>
-            <h2 className="upper-grey__text">knowledge</h2>
-            <h2 className="upper-grey__text">and</h2>
-            <h2 className="upper-grey__text">treatment</h2>
-            <h2 className="upper-grey__text">of</h2>
-            <h2 className="upper-grey__text">cancer.</h2>
-          </div>
+            <span className="upper-grey__text">big-data</span>
+            <span className="upper-grey__text">tools</span>
+            <span className="upper-grey__text">for</span>
+            <span className="upper-grey__text">those</span>
+            <span className="upper-grey__text">advancing</span>
+            <span className="upper-grey__text">the</span>
+            <span className="upper-grey__text">knowledge</span>
+            <span className="upper-grey__text">and</span>
+            <span className="upper-grey__text">treatment</span>
+            <span className="upper-grey__text">of</span>
+            <span className="upper-grey__text">cancer.</span>
+          </h2>
         </div>
-
         <Button
           link={ABOUT_US_PATH}
           size="medium"
@@ -322,7 +321,7 @@ export default function HomePage() {
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
           <h2 className="upper-grey__text lower-grey__text">
-            Improving data accessibility with flexible and<br></br> scalable software components.
+            Improving data accessibility with flexible and scalable software components.
           </h2>
           <div className="mt3 lower-grey__buttons">
             <Button type="primary" size="medium" link={DOCUMENTATION_PATH}>
