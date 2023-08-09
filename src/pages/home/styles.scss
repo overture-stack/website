@@ -63,38 +63,90 @@
   }
 
   .upper-white {
-    &__header {
-      font-weight: 900;
-    }
-
-    &__text {
+    &__title-text {
       text-align: center;
-    }
+      max-width: 30em;
+      margin: 20px auto;
 
-    &__container-img-links {
-      display: flex;
-    }
-
-    &__img-container {
-      width: 200%;
-      height: auto;
-      margin-left: -35%;
-      margin-right: -75%;
-
-      @include breakpoint(desktop-wide) {
-        width: 1467px;
-        height: auto;
-        margin-left: -5%;
-        margin-right: 7%;
+      @include breakpoint(tablet-up) {
+        max-width: 50em;
+        padding: 0 30px;
       }
     }
 
-    &__product-links {
+    &__content {
+      padding: 0 10px;
+      margin: 0 auto;
+      max-width: 1600px; // at smaller sizes, this element bleeds off the screen
+
+      @include breakpoint(desktop-up) {
+        display: flex;
+        align-items: center;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        max-width: 1350px;
+      }
+    }
+
+    &__image-column {
+      @include breakpoint(desktop-up) {
+        width: 625px;
+      }
+      @include breakpoint(desktop-wide) {
+        width: 770px;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        width: 66.667%;
+      }
+    }
+
+    &__image {
+      width: 400px;
+      max-width: 80%;
+      margin: 0 auto 20px;
+      display: block;
+
+      @include breakpoint(tablet-up) {
+        width: 820px;
+      }
+      @include breakpoint(desktop-up) {
+        margin-left: -160px;
+        max-width: 780px;
+      }
+      @include breakpoint(desktop-wide) {
+        margin-left: -170px;
+        max-width: 970px;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        margin-left: 0px;
+        max-width: 100%;
+      }
+    }
+
+    &__text-column {
+      margin-top: 40px;
+
+      @include breakpoint(tablet-up) {
+      }
+
+      @include breakpoint(desktop-up) {
+        flex: 1; // remainder leftover from image column
+      }
+    }
+
+    &__text-wrapper {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      width: 30%;
-      min-height: 700px;
+      align-items: center;
+      gap: 55px;
+
+      @include breakpoint(tablet-up) {
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+      @include breakpoint(desktop-up) {
+        margin: 0 auto;
+      }
     }
   }
 
@@ -104,32 +156,74 @@
     align-items: center;
     gap: 10px;
 
+    &__text {
+      font-family: $font-sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 36px;
+      color: $navy-black;
+      text-align: center;
+
+      @include breakpoint(tablet-up) {
+        font-size: 32px;
+        line-height: 64px;
+      }
+
+      @include breakpoint(desktop-up) {
+        font-size: 40px;
+        line-height: 70px;
+      }
+    }
+
+    &__mobile {
+      padding: 0 1em;
+
+      @include breakpoint(tablet-up) {
+        display: none;
+      }
+    }
+
+    &__not-mobile {
+      display: none;
+      padding: 0 1.6em;
+      max-width: 1147px;
+      @include breakpoint(tablet-up) {
+        display: block;
+      }
+
+      @include breakpoint(desktop-up) {
+        padding: 0 2.5em;
+      }
+    }
+
     &__line {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
     }
-  }
 
-  .grey-section-text {
-    font-family: $font-sans-serif;
-    font-weight: 900;
-    font-size: 40px;
-    color: $navy-black;
-    letter-spacing: 0;
-    line-height: 70px;
-    text-align: center;
-
-    @include breakpoint(mobile) {
-      font-size: 24px;
-      line-height: 40px;
+    &__icon {
+      display: none;
+      @include breakpoint(tablet-up) {
+        display: block;
+      }
     }
   }
 
   .maroon-cube {
-    position: relative;
-    left: 140px;
-    bottom: 140px;
-    margin-bottom: -200px;
+    display: none;
+
+    @include breakpoint(tablet-up) {
+      display: block;
+      position: relative;
+      left: -45px;
+      bottom: 140px;
+      margin-bottom: -200px;
+    }
+    @include breakpoint(desktop-up) {
+      left: 140px;
+    }
   }
 
   .lower-white {
@@ -138,6 +232,7 @@
       flex-direction: column;
       align-items: center;
       font-weight: 900;
+      text-align: center;
     }
 
     &__title {
@@ -147,10 +242,14 @@
     }
 
     &__logos {
+      overflow-x: auto;
       display: flex;
       gap: 15px;
-      justify-content: center;
       background-color: none;
+      @include breakpoint(desktop-up) {
+        justify-content: center;
+        overflow: unset;
+      }
     }
 
     &__logo {
@@ -161,65 +260,164 @@
       }
     }
 
-    &__logo-container-active {
+    &__logo-active {
       border-bottom: 2px solid;
     }
 
     &__blue-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      justify-content: center;
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 2em 1.5em;
       margin: 50px auto;
       background-color: $blue-block;
-      width: 1147px;
-      height: 378px;
+      max-width: 1147px;
+
+      @include breakpoint(desktop-up) {
+        height: 378px;
+        justify-content: space-between;
+        gap: 20px;
+      }
     }
 
     &__blue-container-content {
       display: flex;
+      justify-content: center;
+      @include breakpoint(tablet-up) {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        gap: 2em;
+      }
     }
 
     &__blue-container-image {
-      width: 50%;
+      display: none;
       height: auto;
-      margin-right: 70px;
+
+      @include breakpoint(tablet-up) {
+        display: block;
+        width: 80%;
+      }
+      @include breakpoint(desktop-up) {
+        width: 100%;
+      }
     }
 
     &__blue-container-right {
-      width: 50%;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      align-items: flex-start;
-      justify-content: center;
+
+      @include breakpoint(tablet-up) {
+        width: 80%;
+        align-items: center;
+      }
+      @include breakpoint(desktop-up) {
+        align-items: flex-start;
+      }
+    }
+
+    &__blue-container-arrows-title-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include breakpoint(tablet-up) {
+        margin-left: 14px;
+      }
+    }
+
+    &__blue-container-arrows-image-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include breakpoint(desktop-up) {
+        justify-content: center;
+        width: 50%;
+      }
     }
 
     &__blue-container-title {
-      margin-left: -15px;
+      text-align: center;
+      @include breakpoint(tablet-up) {
+        margin-left: -15px;
+      }
+      @include breakpoint(desktop-up) {
+        margin-left: 17px;
+      }
+    }
+
+    &__blue-container-lists-container {
+      width: 80%;
+      margin: 0 auto;
+      @include breakpoint(tablet-up) {
+        margin-right: 10px;
+      }
     }
 
     &__blue-container-list {
       list-style-type: disc;
     }
 
-    &__blue-container-button {
+    &__blue-container-learn-more-button {
+      width: fit-content;
+      margin: 0 auto;
+      @include breakpoint(tablet-up) {
+        margin-top: 15px;
+      }
+      @include breakpoint(desktop-up) {
+        margin: 5px 0 0 3.2em;
+      }
+    }
+
+    &__blue-container-arrow {
       background-color: $blue-block;
       border: none;
     }
 
+    &__blue-container-arrow-mobile {
+      @include breakpoint(tablet-up) {
+        display: none;
+      }
+    }
+
+    &__blue-container-arrow-tablet {
+      @include breakpoint(mobile) {
+        display: none;
+      }
+      @include breakpoint(desktop-up) {
+        display: none;
+      }
+    }
+
+    &__blue-container-arrow-desktop {
+      display: none;
+      @include breakpoint(desktop-up) {
+        display: block;
+      }
+    }
+
     &__yellow-buttons {
-      margin-top: 80px;
-      gap: 40px;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-top: 80px;
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
     }
   }
 
   .teal-blue-cube {
+    display: none;
     position: relative;
     float: right;
     bottom: 260px;
@@ -227,6 +425,7 @@
   }
 
   .chartreuse-cube {
+    display: none;
     position: relative;
     float: right;
     left: 80px;

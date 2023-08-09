@@ -44,6 +44,7 @@ export default function HomePage() {
         />
       </Helmet>
 
+      {/* top hero - blue background  */}
       <div className="Hero">
         <div className="container">
           <section className="Hero__section">
@@ -65,21 +66,22 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section>
+      {/* upper white section */}
+      <section className="upper-white section">
         <div>
           <H2>Scalable & Flexible</H2>
-          <P1 style={{ maxWidth: '30em', textAlign: 'center', margin: '20px auto' }}>
+          <P1 className="upper-white__title-text">
             Overture is a collection of modular software components that build into flexible data
             management systems.
           </P1>
         </div>
 
-        <div className="overture-image-section">
-          <div className="image-column">
-            <img className="overture-image" src={bodyImg} alt="" />
+        <div className="upper-white__content">
+          <div className="upper-white__image-column">
+            <img className="upper-white__image" src={bodyImg} alt="" />
           </div>
-          <div className="text-column">
-            <div className="text-wrapper">
+          <div className="upper-white__text-column">
+            <div className="upper-white__text-wrapper">
               <HomeProductLink
                 icon={'productSong'}
                 title={'Song'}
@@ -115,37 +117,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className=" section upper-grey bg-grey">
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">We are OICR's team of</h2>
-          <Icon
-            alt="Software Engineers Icon"
-            img="softwareEngineers"
-            size="60px"
-            className="upper-grey__icon"
-          />
-          <h2 className="grey-section-text">software engineers,</h2>
-          <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">data</h2>
-        </div>
-
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">scientists and</h2>
-          <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">cloud infrastructure specialists developing</h2>
-        </div>
-
-        <div className="upper-grey__line">
-          <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
-          <h2 className="grey-section-text">
-            big-data tools for those advancing the knowledge and
+      {/* upper grey section */}
+      <section className="section upper-grey bg-grey">
+        <div className="upper-grey__mobile">
+          <h2 className="upper-grey__text">
+            We are OICR's team of software engineers, data scientists and cloud infrastructure
+            specialists developing big-data tools for those advancing the knowledge and treatment of
+            cancer.
           </h2>
         </div>
 
-        <div className="upper-grey__line">
-          <h2 className="grey-section-text">treatment of cancer.</h2>
+        <div className="upper-grey__not-mobile">
+          <h2 className="upper-grey__line ">
+            <span className="upper-grey__text">We</span>
+            <span className="upper-grey__text">are</span>
+            <span className="upper-grey__text">OICR's</span>
+            <span className="upper-grey__text">team</span>
+            <span className="upper-grey__text">of</span>
+            <Icon
+              alt="Software Engineers Icon"
+              img="softwareEngineers"
+              size="60px"
+              className="upper-grey__icon"
+            />
+            <span className="upper-grey__text">software</span>
+            <span className="upper-grey__text">engineers,</span>
+            <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
+            <span className="upper-grey__text">data</span>
+            <span className="upper-grey__text">scientists</span>
+            <span className="upper-grey__text">and</span>
+            <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
+            <span className="upper-grey__text">cloud </span>
+            <span className="upper-grey__text">infrastructure</span>
+            <span className="upper-grey__text">specialists </span>
+            <span className="upper-grey__text">developing</span>
+            <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
+            <span className="upper-grey__text">big-data</span>
+            <span className="upper-grey__text">tools</span>
+            <span className="upper-grey__text">for</span>
+            <span className="upper-grey__text">those</span>
+            <span className="upper-grey__text">advancing</span>
+            <span className="upper-grey__text">the</span>
+            <span className="upper-grey__text">knowledge</span>
+            <span className="upper-grey__text">and</span>
+            <span className="upper-grey__text">treatment</span>
+            <span className="upper-grey__text">of</span>
+            <span className="upper-grey__text">cancer.</span>
+          </h2>
         </div>
-
         <Button
           link={ABOUT_US_PATH}
           size="medium"
@@ -160,13 +179,13 @@ export default function HomePage() {
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
-          <H2 className="lower-white__title ">Power by Overture</H2>
+          <H2 className="lower-white__title">Powered by Overture</H2>
           <P1>Tackling diverse challenges across several projects</P1>
         </div>
 
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'lower-white__logo-container-active' : '';
+            let active = idx === carouselPage ? 'lower-white__logo-active' : '';
             return (
               <img
                 key={data.slug}
@@ -184,20 +203,60 @@ export default function HomePage() {
           <Button
             icon={'arrowLeftBlack'}
             type="default"
-            className="lower-white__blue-container-button"
+            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
             onClick={() => {
               handleLeftArrowClick();
             }}
           />
           <div className="lower-white__blue-container-content">
-            <img
-              src={caseData[carouselPage].details[0].screenshot}
-              alt="screenshot"
-              className="lower-white__blue-container-image"
-            />
+            <div className="lower-white__blue-container-arrows-image-container">
+              <Button
+                icon={'arrowLeftBlack'}
+                type="default"
+                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow"
+                onClick={() => {
+                  handleLeftArrowClick();
+                }}
+              />
+              <img
+                src={caseData[carouselPage].details[0].screenshot}
+                alt="screenshot"
+                className="lower-white__blue-container-image"
+              />
+              <Button
+                icon={'arrowRightBlack'}
+                type="default"
+                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow ml2"
+                onClick={() => {
+                  handleRightArrowClick();
+                }}
+              />
+            </div>
+
             <div className="lower-white__blue-container-right">
-              <H3 className="lower-white__blue-container-title">{caseData[carouselPage].title}</H3>
-              <ul>
+              <div className="lower-white__blue-container-arrows-title-container">
+                <Button
+                  icon={'arrowLeftBlack'}
+                  type="default"
+                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow"
+                  onClick={() => {
+                    handleLeftArrowClick();
+                  }}
+                />
+                <H3 className="lower-white__blue-container-title">
+                  {caseData[carouselPage].title}
+                </H3>
+                <Button
+                  icon={'arrowRightBlack'}
+                  type="default"
+                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow ml2"
+                  onClick={() => {
+                    handleRightArrowClick();
+                  }}
+                />
+              </div>
+
+              <ul className="lower-white__blue-container-lists-container">
                 {caseData[carouselPage].listItems[2].map((i) => {
                   return (
                     <L1 key={i}>
@@ -209,7 +268,7 @@ export default function HomePage() {
               <Button
                 type="primary"
                 size="medium"
-                className="mt3"
+                className=" lower-white__blue-container-learn-more-button"
                 anchorLink={caseStudyAnchors[caseData[carouselPage].slug]}
               >
                 Learn More
@@ -219,7 +278,7 @@ export default function HomePage() {
           <Button
             icon={'arrowRightBlack'}
             type="default"
-            className="lower-white__blue-container-button"
+            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
             onClick={() => {
               handleRightArrowClick();
             }}
@@ -255,7 +314,7 @@ export default function HomePage() {
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
-          <h2 className="grey-section-text lower-grey__text">
+          <h2 className="upper-grey__text lower-grey__text">
             Improving data accessibility with flexible and<br></br> scalable software components.
           </h2>
           <div className="mt3 lower-grey__buttons">
