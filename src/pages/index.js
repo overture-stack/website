@@ -286,7 +286,7 @@ export default function HomePage() {
           />
         </div>
 
-        {/* <H2 className=" lower-white__title ">Getting Started with Overture</H2>
+        <H2 className=" lower-white__title ">Getting Started with Overture</H2>
         <div className="lower-white__yellow-buttons">
           <YellowButton
             img_src="identifyNeeds"
@@ -306,7 +306,7 @@ export default function HomePage() {
             title="Join Our Community"
             text="Get help, share knowledge, and stay current."
           />
-        </div> */}
+        </div>
       </section>
 
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
