@@ -7,6 +7,64 @@
   background: $white;
   color: $navy-dark;
 
+  .footer-white {
+    padding: 38px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+    }
+
+    &__oicr-logo {
+      width: 138px;
+      height: auto;
+      @include breakpoint(tablet-up) {
+        margin-left: -10px;
+      }
+    }
+  }
+
+  .column-container {
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    max-height: 300px;
+    min-width: 300px;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+      min-width: 1000px;
+      margin-left: 38px;
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4em;
+      @include breakpoint(tablet-up) {
+        gap: 0.7rem;
+      }
+    }
+
+    &__link {
+      text-decoration: none;
+      color: $navy-dark;
+      font-weight: 700;
+      &:hover {
+        color: $pink-darker;
+      }
+    }
+  }
+
+  .netlify-badge {
+    display: none;
+    @include breakpoint(tablet-up) {
+      display: block;
+    }
+  }
+
   .copyright {
     font-weight: 500;
   }
@@ -34,40 +92,6 @@
         align-items: center;
         justify-content: flex-start;
         font-size: 16px;
-      }
-    }
-  }
-
-  .footer-white {
-    padding: 38px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &__oicr-logo {
-      width: 138px;
-      height: auto;
-      margin-left: -10px;
-    }
-  }
-
-  .column-container {
-    display: flex;
-    min-width: 1000px;
-    margin-left: 38px;
-
-    &__group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    &__link {
-      text-decoration: none;
-      color: $navy-dark;
-      font-weight: 700;
-      &:hover {
-        color: $pink-darker;
       }
     }
   }
