@@ -15,83 +15,119 @@
     justify-content: center;
     @include breakpoint(tablet-up) {
       flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+      padding-left: 2.5em;
     }
 
     &__oicr-logo {
       width: 138px;
       height: auto;
       @include breakpoint(tablet-up) {
-        margin-left: -10px;
+        // width: auto;
+      }
+    }
+
+    &__links-holder {
+      max-height: 180px;
+      min-width: 300px;
+      @include breakpoint(tablet-up) {
+        min-width: 550px;
+      }
+      @include breakpoint(desktop-up) {
+        min-width: 660px;
       }
     }
   }
 
-  .column-container {
+  .links-container {
     display: flex;
-    justify-content: center;
     flex-flow: column wrap;
-    max-height: 300px;
-    min-width: 300px;
+    max-height: 180px;
+    gap: 1em;
+    margin: 2em 0;
 
     @include breakpoint(tablet-up) {
-      flex-direction: row;
-      min-width: 1000px;
-      margin-left: 38px;
+      max-height: 120px;
     }
 
-    &__group {
-      display: flex;
-      flex-direction: column;
-      gap: 1.4em;
-      @include breakpoint(tablet-up) {
-        gap: 0.7rem;
-      }
+    @include breakpoint(desktop-up) {
+      max-height: 90px;
+      gap: 0.7em;
     }
 
     &__link {
+      display: flex;
+      justify-content: flex-start;
       text-decoration: none;
       color: $navy-dark;
       font-weight: 700;
+      width: 180px;
       &:hover {
         color: $pink-darker;
+      }
+
+      @include breakpoint(desktop-up) {
+        width: 170px;
+        margin: 5px 0;
       }
     }
   }
 
-  .netlify-badge {
+  .netlify-badge-mobile {
+    @include breakpoint(tablet-up) {
+      display: none;
+    }
+  }
+
+  .netlify-badge-tablet {
     display: none;
     @include breakpoint(tablet-up) {
       display: block;
     }
+    @include breakpoint(desktop-up) {
+      display: none;
+    }
   }
 
-  .copyright {
-    font-weight: 500;
+  .netlify-badge-desktop {
+    display: none;
+    @include breakpoint(desktop-up) {
+      display: block;
+    }
   }
 
   .footer-grey {
     display: flex;
-    height: 65px;
+    flex-direction: column;
+    height: auto;
     font-size: 14px;
-    @media (min-width: $tablet) {
+
+    @include breakpoint(desktop-up) {
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+    }
+
+    &__top-container-mobile {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
     }
 
     &__text {
-      display: flex;
-      justify-content: center;
+      font-size: 16px;
+      font-weight: 400;
+
       span {
         padding: 0 8px;
       }
-      @media (min-width: $tablet) {
+
+      @include breakpoint(tablet-up) {
+        display: flex;
         flex-direction: row;
-      }
-      @media (min-width: $mobile) {
+        justify-content: space-between;
         align-items: center;
-        justify-content: flex-start;
-        font-size: 16px;
+        padding: 1em;
       }
     }
   }
