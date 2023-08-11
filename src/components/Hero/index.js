@@ -37,7 +37,7 @@ const Hero = ({
   return (
     <div className={wrapperClass} style={bgImageURL}>
       {/* Hero Text */}
-      <div className=" flex container">
+      <div className=" flex container holder">
         <section className={_titleClass}>
           <H1>{title}</H1>
           {subtitle && <P1 className="pt1 ">{subtitle}</P1>}

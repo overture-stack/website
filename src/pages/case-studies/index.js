@@ -134,6 +134,12 @@ class CaseStudiesPage extends Component {
           title="Case Studies"
           subtitle="See how Overture is tackling diverse challenges across multiple projects."
           bgImage="img_case_studies"
+          className="hero__not-mobile"
+        />
+        <Hero
+          title="Case Studies"
+          subtitle="See how Overture is tackling diverse challenges across multiple projects."
+          className="hero__mobile"
         />
 
         {/* Case Study Interactive NavBar */}

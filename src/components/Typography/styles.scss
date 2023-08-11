@@ -75,15 +75,15 @@
 
 .t-p2 {
   font-family: $font-sans-serif;
-  font-weight: 400;
-  font-size: 20px;
   color: $navy-black;
   letter-spacing: 0;
-  line-height: 34px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
 
-  @include breakpoint(mobile) {
-    font-size: 16px;
-    line-height: 24px;
+  @include breakpoint(tablet-up) {
+    font-size: 20px;
+    line-height: 34px;
   }
 }
 
