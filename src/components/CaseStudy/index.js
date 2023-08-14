@@ -46,8 +46,8 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
       <div className="container">
         <div className="details">
           <div className="details-left">
-            <div className=" details-left-browser-wrapper">
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+            <div className=" details-left__img-container">
+              <img src={caseData.details[currentScreenshot].screenshot} />
             </div>
           </div>
 

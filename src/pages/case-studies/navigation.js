@@ -22,14 +22,12 @@ const NavigationItem = ({ data, currentCase, scrollTo }) => {
   let active = currentCase == data.title ? 'active' : '';
 
   return (
-    // <div className="nav-item-container" }>
     <img
       alt={`${data.title} logo`}
       className={`nav-item ${active}`}
       src={data.logo}
       onClick={() => scrollTo(data.slug)}
     />
-    // </div>
   );
 };
 
