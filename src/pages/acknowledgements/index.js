@@ -20,17 +20,6 @@ export default function AcknowledgementsPage() {
       </Helmet>
 
       {/* HERO */}
-      {/* <Hero
-        className="Hero__mobile"
-        title="Acknowledgements"
-        subtitle="We want to thank the following organizations for their funding and support, without which Overture could not have been possible."
-      />
-      <Hero
-        className="Hero__not-mobile"
-        title="Acknowledgements"
-        subtitle="We want to thank the following organizations for their funding and support, without which Overture could not have been possible."
-        bgImage="img_acknowledgements"
-      /> */}
       <div className="Hero grey">
         <div className="container">
           <section className="Hero__section">

@@ -86,31 +86,31 @@ export default function HomePage() {
                 icon={'productSong'}
                 title={'Song'}
                 text={'Manages metadata submission, validation and tracking.'}
-                link={productsDict.song.productsPath}
+                // link={productsDict.song.productsPath}
               />
               <HomeProductLink
                 icon={'productScore'}
                 title={'Score'}
                 text={'Transfers file data to and from the cloud.'}
-                link={productsDict.score.productsPath}
+                // link={productsDict.score.productsPath}
               />
               <HomeProductLink
                 icon={'productMaestro'}
                 title={'Maestro'}
                 text={'Organizes dispersed metadata into one index.'}
-                link={productsDict.maestro.productsPath}
+                // link={productsDict.maestro.productsPath}
               />
               <HomeProductLink
                 icon={'productArranger'}
                 title={'Arranger'}
                 text={'Arranges indexed metadata into configurable search portals.'}
-                link={productsDict.arranger.productsPath}
+                // link={productsDict.arranger.productsPath}
               />
               <HomeProductLink
                 icon={'productEgo'}
                 title={'Ego'}
                 text={'A stateless authorization and user management service.'}
-                link={productsDict.ego.productsPath}
+                // link={productsDict.ego.productsPath}
               />
             </div>
           </div>
