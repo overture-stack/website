@@ -95,6 +95,8 @@
   color: $navy-black;
   letter-spacing: 0;
   line-height: 30px;
+  list-style-type: disc;
+  margin-left: 1.2em;
 
   @include breakpoint(tablet-up) {
     font-size: 20px;

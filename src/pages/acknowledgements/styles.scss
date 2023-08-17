@@ -7,8 +7,6 @@
   }
 
   .Hero {
-    height: fit-content;
-
     @include breakpoint(tablet-up) {
       background-image: url('./assets/img_acknowledgements.svg');
       background-repeat: no-repeat;
@@ -18,16 +16,14 @@
 
     @include breakpoint(desktop-up) {
       background-position-x: 620px;
-      background-size: 600px;
+      background-size: 570px;
     }
 
     @include breakpoint(desktop-wide) {
-      // background-position-x: 730px;
       background-position-x: 105%;
     }
 
     @include breakpoint(desktop-ultra-wide) {
-      // background-position-x: 840px;
       background-position-x: 81%;
     }
 
@@ -35,16 +31,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 330px;
       text-align: center;
       gap: 0.8em;
 
       @include breakpoint(tablet-up) {
-        align-items: flex-start;
+        align-items: start;
         text-align: left;
+      }
+    }
+
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
         max-width: 440px;
       }
-
       @include breakpoint(desktop-up) {
         max-width: 570px;
       }
@@ -53,40 +53,37 @@
 
   .container {
     padding: 80px 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
     @include breakpoint(tablet-up) {
-      padding: 80px 3.5em;
-      align-items: flex-start;
-    }
-
-    &__content {
-      display: flex;
-      flex-direction: row;
-
-      // @media (max-width: $tablet) {
-      //   padding: 0 80px;
-      //   flex-direction: column;
-      //   gap: 80px;
-      // }
-      @include breakpoint(tablet-up) {
-        flex-direction: column;
-      }
+      padding: 4.5em 3.8em;
     }
   }
 
   .header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 3.5em;
+  }
 
-    @include breakpoint(tablet-up) {
-      justify-content: center;
-      align-items: center;
+  .detail-holder {
+    display: flex;
+    gap: 2.5em;
+    flex-direction: column;
+
+    @include breakpoint(desktop-up) {
+      flex-direction: row;
+      gap: 6.5em;
     }
   }
 
-  .bullet {
-    padding-left: 0;
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+
+    @include breakpoint(desktop-up) {
+      width: 50%;
+    }
   }
 }
