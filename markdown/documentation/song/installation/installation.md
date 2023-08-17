@@ -1,94 +1,90 @@
 ---
-title: Deploying a Song Server
+title: Installing Song Via Docker 
 ---
 
-# Dependencies
-The following software dependencies are required in order to run the Song server:
+This page will walk you through installing Song using Docker. Ensure you've completed all the applicable [prerequisite steps](./prerequisites.md) before starting the installation.
 
-- Bash Shell
-- Java 11 or higher
-- Postgres database
+## Configuration Overview
+
+Before you proceed with the Song installation, be aware that there are several configurations for a Song server:
+
+| Component                                                    | Description                                | Requirement |
+|--------------------------------------------------------------|--------------------------------------------|-------------|
+| [Run Profiles](./configurations/profiles.md)                 | Define how the Song server operates.       | Required    |
+| [Score Integration](./configurations/score.md)               | Connect Song with the Score server.        | Required    | 
+| [Ego Integration](./configurations/ego.md)                   | Set up authentication and authorization.   | Required    | 
+| [ID Management](./configurations/id.md)                      | Define how to manage unique identifiers for data.        | Required    | 
+| [Schema Strictness](./configurations/schema.md)              | Define how strictly schemas should be followed. | Required | 
+| [Kafka Event Management](./configurations/kafka.md)         | Manage real-time data streaming events.    | Optional    |
 
 
-# Installation
-## Distribution 
-Official Song releases can be found on [Github](https://github.com/overture-stack/SONG/releases). Each release contains notes with a description of the bug fixes, new features or enhancements and breaking changes, as well as links to downloads and change logs. 
+For detailed information on configuration options and guidelines, see the [Configuration](/documentation/song/installation/configuration/) section.
 
-The latest distribution can be downloaded using the command: 
+## Installation Steps
+
+1. **Set Up Your Environment Variables**: 
+
+Based on your configuration, create an `.env` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env` file:
+
+
 ```bash
- curl https://artifacts.oicr.on.ca/artifactory/dcc-release/bio/overture/song-server/[RELEASE]/song-server-[RELEASE]-dist.tar.gz -Ls -o song-server-dist.tar.gz    
+# ============================
+# Ego Authentication Credentials
+# ============================
+AUTH_SERVER_URL={{ego-host-url}}/api/o/check_api_key/
+AUTH_SERVER_CLIENTID={{song-client-ID}}
+AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
+AUTH_SERVER_TOKENNAME={{API-key}}
+AUTH_SERVER_SCOPE_STUDY_PREFIX=song.
+AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
+AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/api/oauth/token/public_key
+
+# ============================
+# Score Service Credentials
+# ============================
+SCORE_URL=http://host.docker.internal:8082
+SCORE_CLIENTCREDENTIALS_ID={{adminId}}
+SCORE_CLIENTCREDENTIALS_SECRET={{adminSecret}}
+SCORE_CLIENTCREDENTIALS_TOKENURL={{ego-host-url}}/api/oauth/token
+SCORE_CLIENTCREDENTIALS_SYSTEMSCOPE=score.WRITE
+
+# ============================
+# Database Configuration
+# ============================
+# PostgreSQL JDBC connection details
+SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/song?stringtype=unspecified
+SPRING_DATASOURCE_USERNAME={{Postgres-Username}}
+SPRING_DATASOURCE_PASSWORD={{Postgres-Password}}
+
+# Flyway migration settings
+SPRING_FLYWAY_ENABLED=true
+SPRING_FLYWAY_LOCATIONS=classpath:flyway/sql,classpath:db/migration
+
+# ============================
+# Spring Configuration
+# ============================
+# Active profiles to determine app behavior & configs
+SPRING_PROFILES_ACTIVE=secure,score-client-cred,default
+
 
 ```
-This distribution contains the default configuration and jars for running the server. To unzip, run the command:
+
+2. **Docker Run:** 
+
+Start the Song container using the `docker run` command, specifying the mounted `.env` file:
+
+**For Linux (Recommended)**
+```bash
+docker run --env-file .env --network=host -d -p 8080:8080 ghcr.io/overture-stack/song-server:latest
+```
+
+**For Mac and Windows**
 
 ```bash
-tar zxvf song-server-dist.tar.gz
+docker run --env-file .env host.docker.internal -p 8080:8080 ghcr.io/overture-stack/song-server:latest
 ```
 
-Note that once unzipped, the final directory will be suffixed with the latest release number of the distribution. 
+3. **Accessing Song:** 
 
-## Feature Configuration
-There are several <span style="color:red"> required</span> components to configure for Song server.  These include: 
-- [Run Profiles](/documentation/song/installation/configuration/profiles) 
-- [Score Server Integration](/documentation/song/installation/configuration/score) 
-- [ID Management](/documentation/song/installation/configuration/id)
-- [Schema Strictness](/documentation/song/installation/configuration/schema)
-
-There are also some <span style="color:blue">optional</span> components to configure for Song server.  These include:  
-- [Event Management Integration](/documentation/song/installation/configuration/kafka)
-
-The details of each of these options are covered in the [Configuration](/documentation/song/installation/configuration/) section. 
-
-## Database Setup 
-Once you have unzipped your song-server, installed Postgres and created your database, you will need to update the configuration with your Postgres databases connections details.  
-
-In the `/conf/application.yml`, leave the other values alone and update the database values: 
-- **url:** Include the URL to your Postgres db. 
-- **username:** Include the db username.
-- **passsword:**  Include the corresponding password.
-
-For example: 
-```yaml
-spring:
-  profiles:
-    include: [dev]
-  autoconfigure.exclude: SecurityConfig.class
-  datasource:
-    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-    ## update the url, username, and password below
-    url: jdbc:tc:postgresql:9.6.12://<host>:5432/<database_name>?stringtype=unspecified
-    username: <username-here>
-    password: <password-here>
-    max-active: 10
-    max-idle: 1
-    min-idle: 1
-    hikari:
-      connection-timeout: 500
-      validation-timeout: 250
-```
-#  Running as a Service
-Although the Song server distribution could be run as a standalone application, it must be manually started or stopped by the user. For a long-running server, sudden power loss or a hard reboot would mean the standalone application would need to be restarted manually. However, if the Song server distribution is run as a service, the OS would be responsible for automatically restarting the service upon reboot. For this reason, the distribution should be configured as a service that is always started on boot.
-
-## Linux (SysV)
-Assuming the directory path of the distribution is $SONG_SERVER_HOME and [pre-requisites](/documentation/song/installation/installation/#dependencies) are correct, the following steps will register the Song server as a SysV service on any Linux host supporting SysV and configure it to start on boot.
-
-``` bash
-# Register the Song service
-sudo ln -s $SONG_SERVER_HOME/bin/song-server /etc/init.d/song-server
-
-# Start on boot (defaults)
-sudo update-rc.d song-server defaults
-```
-
-The Song server can also be manually managed using several commands:
-``` bash
-# Start the service
-sudo service song-server start
-
-# Stop the service
-sudo service song-server stop
-
-# Restart the service
-sudo service song-server restart
-
-```
+Song should now be running and accessible at `http://localhost:8080`.

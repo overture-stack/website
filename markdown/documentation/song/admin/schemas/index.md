@@ -3,21 +3,31 @@ title: Introducing Dynamic Schemas
 ---
 
 # JSON Schema
-Data is submitted to Song in JSON format.  All data uploads are validated against a data model schema. Song ensures that all submitted data meets the desired structure and allowed values.  To validate metadata at the time of submission, Song leverages [JSON Schema](https://json-schema.org/). JSON Schema provides a vocabulary for the structural validation of JSON formatted data, for example, ensuring that required fields are present, or that the contents of a field matches the desired data type or allowed values.
 
-# Analysis Schemas 
-Metadata is collected as `analysis` in Song.  An analysis is composed of the complete metadata record and the corresponding a set of data files, all grouped as an JSON object.
+Song utilizes [JSON Schema](https://json-schema.org/) to validate metadata during submission. Data is submitted to Song in JSON format and undergoes validation against the data model schema. This schema ensures the presence of required fields and validates the contents of each field, ensuring adherence to the desired data type and allowed values. This validation process preserves the integrity and quality of the metadata within Song.
 
-Analysis types, objects that contain specific sets of data related to a type of file or experiment, are defined as `schemas`.  A schema is composed of two portions: 
-- a minimal, base data model that is defined for patient data 
-- a dynamic schema uploaded by a Song administrator.  The dynamic schema is extremely flexible, in order to encode any desired business rules that submitted data must comply to. 
+# Analysis Schemas
 
-# The Song Base Schema 
-Song requires a very minimal set of data to be provided for each schema type, called the `base schema`.  This data includes basic non-identifiable primary keys of patient data including: 
-- Donor ID, Specimen ID, and Sample ID 
-- Basic cancer sample descriptors 
+In Song, metadata is captured and submitted as **analyses**. An analysis represents a complete metadata record that includes references to the corresponding data files, all grouped as a single JSON object.
 
-In JSON format, the base schema is rendered: 
+When submitting an analysis to Song, you need to specify the desired **schema** (data model) to be used for validation. This is defined in your analysis file using the `analysis type` field.
+
+The schema associated with the analysis type consists of two parts:
+
+1. A minimal, **base schema** that is defined for patient data.
+
+2. A flexible **dynamic schema** that is configured and uploaded by a Song administrator.
+
+These schema components ensure accurate and consistent metadata validation within Song.
+
+## The Song Base Schema
+
+The **base schema** is a minimal set of data needed for a schema. The base schema data includes basic non-identifiable primary keys of patient data, including:
+
+- Donor ID, Specimen ID, and Sample ID
+- Basic cancer sample descriptors
+
+The base schema can be seen in the code block shown below: 
 
 ```json
 {
@@ -44,9 +54,12 @@ In JSON format, the base schema is rendered:
   ]
 }
 ```
-This JSON, and all of the allowed values for the fields, are defined by the Song base meta-schema, which is referenced below. 
+
+The base schema and the allowed values for all fields are defined by the Song **base meta-schema**, which is referenced below.
+
 <details>
   <summary>Song base schema as JSON Schema</summary>
+  
 
 ```json
 {

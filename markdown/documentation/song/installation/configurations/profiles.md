@@ -1,19 +1,23 @@
 ---
 title: Run Profiles
 ---
-Song uses [Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) as a feature to manage the running of a Song server in different environments.  Spring profiles allow different settings to be applied to different environments, for example keeping security strict in production but less strict in test deployments. 
 
-During configuration, you will need to enable the active profiles in the `song-server-[version]/conf/application.yml` file.  The active profiles to use for a particular application can be specified using the `profiles` argument which should be added at the start of the `spring` block, for example:
+[Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) are used to configure the Song Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
+
+For Songs configuration, you will need to enable the active profiles found in Songs `application.yml` file [located here](https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/application.yml).  The active profiles to use for a particular application can be specified using the `profiles` argument added at the start of the `spring` block, an example is provided below:
 
 ```yaml
 spring:
   profiles:
     active: "prod,jwt,secure,kafka,score-client-credentials"
 ```
+
 Descriptions of the profiles available to Song are provided below.  Depending on the type of configuration, some profiles are required to run and some are optional. 
 
 # Secure 
+
 The `secure` profile: 
+
 - Enables API-key authentication for Song requests.
 - If [Ego](/documentation/ego) is used as the authentication method with Song, this profile is required.  The default URL is configured to work with Ego.
 - The scopes defined in this profile can be modified based on your needs. By default, `song.WRITE` is configured for access with Ego. 
@@ -38,6 +42,7 @@ auth:
 ```
 
 # JWT
+
 You can optionally include the `jwt` profile. When enabled, this profile allows usage of both JWT and  API-key during authentication requests. The JWT public key url is by default configured to talk with [Ego](/documentation/ego) and will need to be replaced if another authentication service is used. 
 
 ```yaml
@@ -76,6 +81,7 @@ spring.datasource:
 ```
 
 #  Score
+
 The `score` profile contains the connection details to the score-server. If this profile is enabled, the default configurations will be overwritten. 
 
 ```yaml
@@ -91,6 +97,7 @@ score:
 
 
 # Kafka 
+
 The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is optional unless Kafka is configured.
 
 ```yaml 
@@ -101,3 +108,5 @@ spring:
     template:
       default-topic: song-analysis
 ```
+
+The next section will cover how to integrate Song with it's object storage service Score.
