@@ -16,9 +16,9 @@ pages:
         pages: 
           - title: Run Profiles
             url: song/installation/configurations/profiles
-          - title: Score Server
+          - title: Ego Integration
             url: song/installation/configurations/score
-          - title: Score Server
+          - title: Score Integration
             url: song/installation/configurations/ego
           - title: ID Management 
             url: song/installation/configurations/id
