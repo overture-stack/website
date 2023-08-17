@@ -6,19 +6,72 @@
     background-color: $grey-2;
   }
 
+  .Hero {
+    height: fit-content;
+
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_acknowledgements.svg');
+      background-repeat: no-repeat;
+      background-position-x: 580px;
+      background-size: 550px;
+    }
+
+    @include breakpoint(desktop-up) {
+      background-position-x: 620px;
+      background-size: 600px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      // background-position-x: 730px;
+      background-position-x: 105%;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      // background-position-x: 840px;
+      background-position-x: 81%;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 330px;
+      text-align: center;
+      gap: 0.8em;
+
+      @include breakpoint(tablet-up) {
+        align-items: flex-start;
+        text-align: left;
+        max-width: 440px;
+      }
+
+      @include breakpoint(desktop-up) {
+        max-width: 570px;
+      }
+    }
+  }
+
   .container {
-    padding: 80px 0;
+    padding: 80px 32px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    @include breakpoint(tablet-up) {
+      padding: 80px 3.5em;
+      align-items: flex-start;
+    }
 
     &__content {
       display: flex;
       flex-direction: row;
 
-      @media (max-width: $tablet) {
-        padding: 0 80px;
+      // @media (max-width: $tablet) {
+      //   padding: 0 80px;
+      //   flex-direction: column;
+      //   gap: 80px;
+      // }
+      @include breakpoint(tablet-up) {
         flex-direction: column;
-        gap: 80px;
       }
     }
   }
@@ -27,8 +80,9 @@
     display: flex;
     justify-content: center;
 
-    @media (max-width: $tablet) {
-      padding: 0 80px;
+    @include breakpoint(tablet-up) {
+      justify-content: center;
+      align-items: center;
     }
   }
 

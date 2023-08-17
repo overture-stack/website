@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { H1, P1 } from 'components';
-import './styles.scss';
+// import './styles.scss';
 import img_services from './assets/img_services.svg';
 import img_acknowledgements from './assets/img_acknowledgements.svg';
 import img_contact_us from './assets/img_contact_us_new.svg';
