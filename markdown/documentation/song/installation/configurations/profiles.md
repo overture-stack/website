@@ -34,7 +34,7 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/o
 
 # JWT Profile
 
-When the `jwt` profile is enabled, this profile allows usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with [Ego](/documentation/ego) and must be replaced if another authentication service gets used.
+When the `jwt` profile is enabled, this profile allows usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with <a href="/documentation/ego" target="_blank">Ego installation documentation</a> and must be replaced if another authentication service gets used.
 
 ```bash
 # JWT Configuration
@@ -52,7 +52,7 @@ The prod profile is designed for production deployments. Specify your Postgres d
 # Production Database Configuration
 SPRING_PROFILES_ACTIVE=prod
 SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
-SPRING_DATASOURCE_URL=jdbc:tc:postgresql:9.6.12://<host>:5432/<database_name>?stringtype=unspecified
+SPRING_DATASOURCE_URL=jdbc:tc:postgresql:9.6.12://{{host}}:5432/{{database_name}}?stringtype=unspecified
 SPRING_DATASOURCE_USERNAME={{username-here}}
 SPRING_DATASOURCE_PASSWORD={{password-here}}
 SPRING_DATASOURCE_MAX_ACTIVE=10
@@ -65,8 +65,6 @@ SPRING_DATASOURCE_MIN_IDLE=1
 The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is only required if Kafka is configured.
 
 For help installing Kafka, please refer to <a href="https://kafka.apache.org/quickstart" target="_blank">the official Kafka documentation</a>.
-
-
 
 By default, song is configured to output to a topic called `song-analysis`. If you configure your Kafka with a different name, make sure to adjust accordingly. 
 

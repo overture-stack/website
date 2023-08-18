@@ -21,7 +21,7 @@ Analysis management in Song can be done through two main methods: the Song Clien
 
 The Swagger UI provides a user-friendly interface for interacting with the Song API, while the Song Client allows you to perform data management operations from the command line.
 
-- **Setting up the Song Client:** For detailed instructions on setting up the Song Client, please refer to the section on [Configuring submission clients](http://overture.bio/documentation/song/user/submit/#configuring-submission-clients).
+- **Setting up the Song Client:** For detailed instructions on setting up the Song Client, please refer to the section on <a href="/documentation/song/user/submit/#installing-the-song-client" target="_blank">Installing the Song and Score clients</a>.
 
 - **Accessing the Swagger UI:** To access the Swagger UI, you need to determine the URL based on your Song setup. 
 

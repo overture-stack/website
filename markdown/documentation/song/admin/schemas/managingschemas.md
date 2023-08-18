@@ -39,14 +39,6 @@ curl --location --request GET 'https://song-url.example.com/schemas/sequencing_e
 --header 'Authorization: Bearer 02ad07ea-2982-43b4-8aa3-1d64689050f0'
 ```
 
-
-
-
-
-
-
-
-
 # Versioning
 
 Newly registered schemas that represent a new `analysis_type` are by default assigned as `Version 1`. All future schemas registered under the same `analysis_type` get auto incremented during registration.  

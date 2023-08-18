@@ -44,7 +44,7 @@ ghcr.io/overture-stack/score:latest
 
 ## Step 1. Prepare a payload
 
-First, a metadata payload must be prepared. The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the [Dynamic Schemas](/documentation/song/user-guide/schema) documentation.
+First, a metadata payload must be prepared. The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank">Dynamic Schemas documentation</a>.
  
 ## Step 2. Upload the metadata payload file
 
@@ -65,7 +65,7 @@ If your payload is not formatted correctly, you will receive an error message de
 
 At this point, since the payload data has successfully been submitted and accepted by Song, it is now referred to as an analysis. By default all newly created analyses are set to an `UNPUBLISHED` state.
 
-<Warning>For more information on analysis states (published, unpublished and suppressed) see our page on [analysis managment](https://overture.bio/documentation/song/admin/analysismanagement/)</Warning>
+<Warning>For more information on analysis states (published, unpublished and suppressed) see our page on [analysis managment](/documentation/song/admin/analysismanagement/)</Warning>
 
 ## Step 3. Generate a manifest file
 
@@ -112,7 +112,7 @@ Sometimes if an upload is stuck, you can reinitiate the upload using the `--forc
 ```bash
 .bin/score-client  upload --manifest manifest.txt --force 
 ```
-For more information on Score, please see the [Score documentation page](/documentation/score).
+For more information on Score, please see the <a href="/documentation/score" target="_blank">Score documentation page</a>.
 
 ## Step 5. Publish the analysis
 

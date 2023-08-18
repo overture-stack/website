@@ -17,7 +17,9 @@ Depending on your deployment, you can access the Swagger UI from one of the foll
 
 ## The Song-Client
 
-The Song-Client is a command-line tool that can be run as a Docker image. It is particularly useful for tasks such as submitting data and managing analysis states. For more information, refer to the [Song-Client](https://github.com/overture-stack/song-client/) GitHub repository.
+The Song-Client is a command-line tool that can be run as a Docker image. It is particularly useful for tasks such as submitting data and managing analysis states. For more information, refer to the <a href="https://github.com/overture-stack/song-client/" target="_blank">Song-Client GitHub repository</a>.
+
+
 
 ## Programmatic Solutions
 

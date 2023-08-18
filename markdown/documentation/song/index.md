@@ -20,14 +20,15 @@ Song is a metadata validation and tracking tool designed to streamline the manag
 
 **Data Lifecycle Management:** Analyses uploaded to a Song repository are `UNPUBLISHED` by default. When data is ready for search and download, administrators can make it available by updating it to a `PUBLISHED` state. If data is no longer relevant, the data administrators can set it to a `SUPPRESSED` state, making it unavailable for search and download through downstream services. 
 
-<Note title="The Song Client">We created the `song-client` command line tool to streamline interactions with Songs REST API endpoints. For more information on what the `song-client` can do, see our [Song client command reference documentation](./reference/commands.md).</Note>
+<Note title="The Song Client">We created the `song-client` command line tool to streamline interactions with Songs REST API endpoints. For more information on what the `song-client` can do, see our [Song client command reference documentation](/documentation/song/reference/commands/).</Note>
 
 # Integrations
 
-As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, [Score](/documentation/score), which manages file transfers and object storage.
+As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, <a href="/documentation/score" target="_blank">Score</a>, which manages file transfers and object storage.
 
 As part of the larger Overture.bio software suite, Song can be optionally used with additional integrations, including:
 
-- **[Event Streaming](/documentation/song/installation/configuration/kafka):** Built-in support for [Apache Kafka](https://kafka.apache.org/) event streaming.  
+- **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank">Apache Kafka</a> event streaming.  
 
-- **[Maestro](/documentation/maestro/):** Song is built to natively integrate with Maestro, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
+
+- **Maestro Indexing:** Song is built to natively integrate with <a href="/documentation/maestro/" target="_blank">Maestro</a>, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
