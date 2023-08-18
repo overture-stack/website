@@ -104,7 +104,7 @@ docker run --env-file .env --network=host -d -p 8080:8080 ghcr.io/overture-stack
 **For Mac and Windows**
 
 ```bash
-docker run --env-file .env host.docker.internal -p 8080:8080 ghcr.io/overture-stack/song-server:latest
+docker run --env-file .env -p 8080:8080 ghcr.io/overture-stack/song-server:latest
 ```
 
 3. **Accessing Song:** 
