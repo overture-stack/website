@@ -2,116 +2,108 @@
 title:  ID Management
 ---
 
-Song has three modes for primary key management (Donors, Specimens, Samples, Files): 
+Song provides three modes for primary key management (Donors, Specimens, Samples, Files). They are:
+
 
 - **LOCAL:** Represents a local-to-Song ID Management that persists in internal memory and is thread safe.
-
 - **FEDERATED_DYNAMIC_AUTH:** Represents the usage of external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
-
 - **FEDERATED_STATIC_AUTH:** Represents the usage of external ID service that uses statically defined tokens for authorization.
 
-Note: You cannot mix and match local/external ID management.  Either all IDs are locally managed by Song, or all IDs are managed by external services. 
+<Warning> You cannot mix and match local/external ID management. Either all IDs are locally managed by Song, or all IDs are managed by external services. </Warning>
 
-# Local ID Management 
+# Local ID Management
 
-As you submit data, Song will create and manage all primary keys for users in UUID format. When `local` is enabled, all federated ID generation is disabled.   To enable local ID management: 
+When `local` is enabled, all federated ID generation is disabled. For Song to create and manage all primary keys in UUID format:
 
-- Set your configuration to `useLocal: true`
+Set `ID_USELOCAL` to `true` in your `.env` file.
 
-- All IDs, except for analysisId, are stateless and are computed using UUID5 hash. 
-
-- As the only exception, AnalysisID's are stateful, in order to guarantee uniqueness. The `LocalIdService` does not have to save/register an analysisId directly since `AnalysisService.create` method will take care of that. 
-
-# Local ID Configuration Example 
-
-Using the configurations file at `song-server-[version]/conf/application.yml`, set the correct values. 
-
-```yaml
-id:
-    useLocal: true
+```bash
+ID_USELOCAL=true
 ```
 
-# External ID Management 
+<Note title="Developers Note"> All IDs, except for analysisId, are stateless and are computed using UUID5 hash. AnalysisID's are stateful to guarantee uniqueness. `LocalIdService` doesn't have to save/register an analysisId directly since `AnalysisService.create` method handles that. </Note>
 
-As data is submitted, Song will refer to an `external` ID database for each entity type. If data is submitted and the entity IDs are not validated by the external database, Song will reject the data submission.  Once an ID has been validated, it will be stored in the Song database.  As an optimization, Song caches IDs it has verified.  If the ID is changed in an external database, this will need to be updated in Song. To enable external ID management: 
+# External ID Management
 
-- Set your configuration to `useLocal: false`
+When using external ID management, Song communicates with an external ID database for each entity type. If the data submission contains entity IDs not validated by this external database, Song will decline the submission. Once an ID is verified, it's stored within the Song database.
 
-- Set the configuration URI for each entity. A URI for each entity (`donor`, `specimen`, `sample`, `file`) **must** be defined during configuration.  
+## Setup
 
-## External ID Server Requirements
+To enable this external ID management:
 
-If you choose to use externally managed ID's, you **must** provide Song with the expected ID according to the specification below. 
+1. Update the `.env` file with the appropriate values.
+2. Ensure that the `ID_USELOCAL` variable is set to `false`.
+3. Provide the necessary URI configurations for each entity.
 
-- The external ID servers **must** implement GET controllers for the configured URI templates.  
+Here's a template of the `.env` configuration with descriptions for each entry:
 
-- At boot-time, SONG will validate the configured URI templates to ensure the required URI template variables are used.
+```bash
+# Determines whether local ID management is used
+ID_USELOCAL=false
 
-- All external ID servers should support one of the following authorization schemes:  `FEDERATED_STATIC_AUTH` mode (static access token) based or `FEDERATED_DYNAMIC_AUTH` mode (dynamically managed JWT).
+# URIs for the different entity types that map to their respective templates in the external ID service
+# All the urls below MUST be defined. If a required urlTemplateVariable (such as studyId and submitterId) is not defined, an error occurs.
+ID_FEDERATED_URITEMPLATE_DONOR=https://id.server.org/donor/id?projectCode={studyId}&donorSubmittedId={submitterId}&create=true
+ID_FEDERATED_URITEMPLATE_SPECIMEN=https://id.server.org/specimen/id?projectCode={studyId}&specimenSubmittedId={submitterId}&create=true
+ID_FEDERATED_URITEMPLATE_SAMPLE=https://id.server.org/sample/id?projectCode={studyId}&sampleSubmittedId={submitterId}&create=true
+ID_FEDERATED_URITEMPLATE_FILE=https://id.server.org/file/id?bundleId={analysisId}&fname={fileName}
 
-A URI template is a URI-like string that contains variables enclosed by braces `{}` which can be expanded to produce an actual URI. Since the  `IdService` method requires specific arguments for each entity ID retrieval method, URI Templates can be used to allow a custom mapping of these arguments. Song will require particular template variables to be used in each entity URI Template string. The following table describes the required template variables with some provided examples.
+# Since analysisIds cannot be reused, special care must be taken to ensure SONG does not attempt to create an analysis with an id that already exists on the id server.
+# To enforce this, the following url templates for authorized GET requests are needed.
+ID_FEDERATED_URITEMPLATE_ANALYSIS_EXISTENCE=https://id.server.org/analysis/id?submittedAnalysisId={analysisId}&create=false
+ID_FEDERATED_URITEMPLATE_ANALYSIS_GENERATE=https://id.server.org/analysis/id/generate
+ID_FEDERATED_URITEMPLATE_ANALYSIS_SAVE=https://id.server.org/analysis/id?submittedAnalysisId={submitterId}&create=true
 
-<!--Table start -->
+# Configuration for authentication with the external ID service.
+# If auth.bearer.token is defined, then FEDERATED_STATIC_AUTH mode is used.
+# If auth.bearer.credentials.* are all defined, and auth.bearer.token is not, FEDERATED_DYNAMIC_AUTH mode is used.
+ID_FEDERATED_AUTH_URL=https://auth.server.org
+ID_FEDERATED_AUTH_BEARER_TOKEN=
+ID_FEDERATED_AUTH_BEARER_CREDENTIALS_CLIENTID=authClientID
+ID_FEDERATED_AUTH_BEARER_CREDENTIALS_CLIENTSECRET=authClientSecret
+```
 
-| Entity ID Type | Description | URI Template Config Property | URI Template Required Variables | Examples | URI Request Type | URI Response Type |
-|--|--|--|--|--|--|--|
-| donor | Id Service returns a donorId that maps to the submitterId and studyId. | id.federated.uriTemplate.donor | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| specimen | ID Service returns a specimenId that maps to the submitterId and studyId. | id.federated.uriTemplate.specimen | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| sample | ID Service returns a sampleId that maps to the submitterId and studyId. | id.federated.uriTemplate.sample | studyId, submitterId | `https://id.server.example.org/sample/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| file | ID Service returns a fileId that maps to the analysisId and fileName. | id.federated.uriTemplate.file | analysisId, fileName | `https://id.server.example.org/file/id?anid={analysisId}&fname={fileName}` | `GET` | plaintext |
-| analysis.existence | ID Service returns a boolean indicating the existence of the analysisId . | id.federated.uriTemplate.analysis.existence | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | plaintext |
-| analysis.generate | ID Service returns a generated candidate analysisId without persisting it. Does not require any inputs. | id.federated.uriTemplate.analysis.generate | -- | `https://id.server.example.org/analysis/generate` | `GET` | plaintext |
-| analysis.save | ID Service persists the input analysisId and does not return anything. | id.federated.uriTemplate.analysis.save | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | -- |
-<!--Table end -->
+## Server Requirements
 
-For example, the [ICGC ARGO Data Platform](https://platform.icgc-argo.org/) is a international initiative with several distributed processing centres, this required the use of a central ID Service.  An example of a URI donor request used by this system is as follows: https://clinical.platform.icgc-argo.org/clinical/donors/id?programId=PACA-CA&submitterId=PCSI_0591
+If you choose to use externally managed ID's, you **must** provide Song with the expected ID according to the specifications below. 
 
-200 Response: 
+- External ID servers **must** implement GET controllers for the configured URI templates.
+- At boot-time, SONG validates the URI templates to ensure necessary template variables are present.
+- External ID servers should support one of these authorization schemes: `FEDERATED_STATIC_AUTH` (static access token) or `FEDERATED_DYNAMIC_AUTH` (dynamically managed JWT).
+
+A URI template is a URI-like string that contains variables enclosed by braces {}. These can be expanded to produce an actual URI. Since the `IdService` method requires specific arguments for each entity ID retrieval method, URI Templates allow custom mapping of these arguments. Song will require specific template variables in each entity URI Template string. 
+
+The table below describes the required template variables with examples.
+
+| Entity ID Type      | Description                                                       | URI Template Config Property       | Required Variables | Examples                                                                | Request Type | Response Type |
+|---------------------|-------------------------------------------------------------------|------------------------------------------|---------------------|--------------------------------------------------------------------------|--------------|---------------|
+| donor               | Id Service returns a donorId that maps to the submitterId and studyId.   | ID_FEDERATED_URITEMPLATE_DONOR          | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
+| specimen            | ID Service returns a specimenId that maps to the submitterId and studyId. | ID_FEDERATED_URITEMPLATE_SPECIMEN       | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
+| sample              | ID Service returns a sampleId that maps to the submitterId and studyId.   | ID_FEDERATED_URITEMPLATE_SAMPLE         | studyId, submitterId | `https://id.server.example.org/sample/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
+| file                | ID Service returns a fileId that maps to the analysisId and fileName.    | ID_FEDERATED_URITEMPLATE_FILE           | analysisId, fileName | `https://id.server.example.org/file/id?anid={analysisId}&fname={fileName}` | `GET` | plaintext |
+| analysis.existence  | ID Service returns a boolean indicating the existence of the analysisId. | ID_FEDERATED_URITEMPLATE_ANALYSIS_EXISTENCE | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | plaintext |
+| analysis.generate  | ID Service returns a generated candidate analysisId without persisting it. Does not require any inputs. | ID_FEDERATED_URITEMPLATE_ANALYSIS_GENERATE | -- | `https://id.server.example.org/analysis/generate` | `GET` | plaintext |
+| analysis.save       | ID Service persists the input analysisId and does not return anything. | ID_FEDERATED_URITEMPLATE_ANALYSIS_SAVE  | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | -- |
+
+## ICGC ARGO Example
+
+The <a href="https://platform.icgc-argo.org/" target="_blank">ICGC ARGO Data Platform</a> is a international initiative with several distributed processing centres, this required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
+
+https://clinical.platform.icgc-argo.org/clinical/donors/id?programId=PACA-CA&submitterId=PCSI_0591
+
+In the provided URI, a researcher is making a request to the centralized ID service to retrieve the unique identifier for a **donor** associated with the programId **PACA-CA** and the submitterID **PCSI_0591**. 
+
+### 200 Response: 
 
 ```shell
 DO224719
 ```
 
-404 Response:
+### 404 Response:
 
 ```json
 {
   "error": "Error",
   "message": "Donor not found"
 }
-```
-
-# External ID Configuration Example 
-
-Using the `application.yml` file located at `song-server/src/main/resources/application.yml`, set the correct values. An example of a fully configured ID management is provided here:
-
-```yaml
-id:
-    useLocal: false
-    federated:
-        # All the urls below MUST be defined. If a required urlTemplateVariable (such as studyId and submitterId) is not defined in the urlTemplate, an error occurs
-        uriTemplate:
-            donor: https://id.server.org/donor/id?projectCode={studyId}&donorSubmittedId={submitterId}&create=true
-            specimen: https://id.server.org/specimen/id?projectCode={studyId}&specimenSubmittedId={submitterId}&create=true
-            sample: https://id.server.org/sample/id?projectCode={studyId}&sampleSubmittedId={submitterId}&create=true
-            file: https://id.server.org/file/id?bundleId={analysisId}&fname={fileName}
-             
-            # Since analysisIds cannot be reused, special care must be taken to ensure SONG does not attempt to create an analysis with an id that already exists on the id server.
-            # To enforce this, the following url templates for authorized GET requests are needed  
-            analysis:
-                existence: https://id.server.org/analysis/id?submittedAnalysisId={analysisId}&create=false 
-                generate: https://id.server.org/analysis/id/generate
-                save: https://id.server.org/analysis/id?submittedAnalysisId={submitterId}&create=true      
-         
-        # If auth.bearer.token defined, then uses FEDERATED_STATIC_AUTH mode.
-        # If auth.bearer.credentials.* are all defined, and auth.bearer.token is not,
-        #  then uses FEDERATED_DYNAMIC_AUTH
-        auth:
-            url: https://auth.server.org
-            bearer:
-                token: 
-                credentials:
-                    clientId: authClientID
-                    clientSecret: authClientSecret
-
 ```

@@ -2,111 +2,77 @@
 title: Run Profiles
 ---
 
-[Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) are used to configure the Song Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
+ <a href="https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html" target="_blank">Spring Profiles</a> are used to configure the Song Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
 
-For Songs configuration, you will need to enable the active profiles found in Songs `application.yml` file [located here](https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/application.yml).  The active profiles to use for a particular application can be specified using the `profiles` argument added at the start of the `spring` block, an example is provided below:
+For Songs configuration, you will need to specify the active profiles within your enviroment variables file (`.env`). Descriptions of the profiles available to Song are provided here. Depending on the type of configuration, some profiles are required to run and some are optional. 
 
-```yaml
-spring:
-  profiles:
-    active: "prod,jwt,secure,kafka,score-client-credentials"
-```
+# Secure Profile
 
-Descriptions of the profiles available to Song are provided below.  Depending on the type of configuration, some profiles are required to run and some are optional. 
-
-# Secure 
+To interact with Song, an application must provide authentication and authorization. This can be done by using an API Key from an authorized user with the appropriate permissions or by enabling application-to-application authorization following the OAuth 2.0 protocol.
 
 The `secure` profile: 
 
 - Enables API-key authentication for Song requests.
-- If [Ego](/documentation/ego) is used as the authentication method with Song, this profile is required.  The default URL is configured to work with Ego.
+- If Ego is used as the authentication method with Song, this profile is required.  The default URL is configured to work with Ego.
 - The scopes defined in this profile can be modified based on your needs. By default, `song.WRITE` is configured for access with Ego. 
 
-``` yaml
-spring:
-  profiles: secure
+For help installing Ego, please refer to our <a href="/documentation/ego" target="_blank">Ego installation documentation</a>.
 
-auth:
-  server:
-    url: "http://<host>:<port>/check_token/"
-    clientId: <client id from Ego>
-    clientSecret: <client secret from ego>
-    tokenName: "token"
-    enableStrictSSL: false
-    enableHttpLogging: false
-    scope:     
-      study:
-        prefix: "song."
-        suffix: ".WRITE"
-      system: "song.WRITE"
+``` bash
+# Secure profile configuration
+SPRING_PROFILES_ACTIVE=secure
+
+AUTH_SERVER_URL={{ego-host-url}}/o/check_api_key/
+AUTH_SERVER_CLIENTID={{song-client-ID}}
+AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
+AUTH_SERVER_TOKENNAME={{API-key}}
+AUTH_SERVER_SCOPE_STUDY_PREFIX=song.
+AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
+AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/oauth/token/public_key
 ```
 
-# JWT
+# JWT Profile
 
-You can optionally include the `jwt` profile. When enabled, this profile allows usage of both JWT and  API-key during authentication requests. The JWT public key url is by default configured to talk with [Ego](/documentation/ego) and will need to be replaced if another authentication service is used. 
+When the `jwt` profile is enabled, this profile allows usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with [Ego](/documentation/ego) and must be replaced if another authentication service gets used.
 
-```yaml
-spring.profiles: jwt
-spring:
-  profiles:
-    include: [secure]
-auth:
-  jwt:
-    public-key-url: http://localhost:8084/oauth/token/public_key
+```bash
+# JWT Configuration
+SPRING_PROFILES_ACTIVE=jwt
+SPRING_PROFILES_INCLUDE=secure
 
+AUTH_JWT_PUBLIC-KEY-URL=http://localhost:8084/oauth/token/public_key
 ```
 
+# Prod Profile
 
-# Prod
+The prod profile is designed for production deployments. Specify your Postgres details for the production environment:
 
-The `prod` profile is designed to be enabled for production deployments. Specify your Postgres details for the production environment in this profile: 
-
-```yml
-spring:
-  profiles: prod
-  datasource:
-    initialization-mode: never
-
-# Datasource
-spring.datasource:
-  driver-class-name: org.postgresql.Driver
-  ## update the url, username, and password below
-  url: jdbc:tc:postgresql:9.6.12://<host>:5432/<database_name>?stringtype=unspecified
-  username: <username-here>
-  password: <password-here>
-  max-active: 10
-  max-idle: 1
-  min-idle: 1
-
+```bash
+# Production Database Configuration
+SPRING_PROFILES_ACTIVE=prod
+SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
+SPRING_DATASOURCE_URL=jdbc:tc:postgresql:9.6.12://<host>:5432/<database_name>?stringtype=unspecified
+SPRING_DATASOURCE_USERNAME={{username-here}}
+SPRING_DATASOURCE_PASSWORD={{password-here}}
+SPRING_DATASOURCE_MAX_ACTIVE=10
+SPRING_DATASOURCE_MAX_IDLE=1
+SPRING_DATASOURCE_MIN_IDLE=1
 ```
 
-#  Score
+# Kafka Event Managment Profile (optional)
 
-The `score` profile contains the connection details to the score-server. If this profile is enabled, the default configurations will be overwritten. 
+The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is only required if Kafka is configured.
 
-```yaml
-spring.profiles: score-client-cred
-score:
-  url: "http://localhost:8087"
-  clientCredentials:
-    id: <client id from Ego>
-    secret: <client secret from Ego>
-    tokenUrl: http://ego-api:8080/oauth/token
-    systemScope: "score.WRITE" # Storage scope needs to include both READ and WRITE
+For help installing Kafka, please refer to <a href="https://kafka.apache.org/quickstart" target="_blank">the official Kafka documentation</a>.
+
+
+
+By default, song is configured to output to a topic called `song-analysis`. If you configure your Kafka with a different name, make sure to adjust accordingly. 
+
+```bash
+# Kafka Configuration
+SPRING_PROFILES_ACTIVE=kafka
+SPRING_KAFKA_BOOTSTRAP-SERVERS=localhost:9092
+SPRING_KAFKA_TEMPLATE_DEFAULT-TOPIC=song-analysis
 ```
-
-
-# Kafka 
-
-The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is optional unless Kafka is configured.
-
-```yaml 
-spring:
-  profiles: kafka
-  kafka:
-    bootstrap-servers: localhost:9092
-    template:
-      default-topic: song-analysis
-```
-
-The next section will cover how to integrate Song with it's object storage service Score.

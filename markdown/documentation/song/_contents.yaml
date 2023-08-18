@@ -16,16 +16,12 @@ pages:
         pages: 
           - title: Run Profiles
             url: song/installation/configurations/profiles
-          - title: Ego Integration
-            url: song/installation/configurations/score
           - title: Score Integration
-            url: song/installation/configurations/ego
+            url: song/installation/configurations/score
           - title: ID Management 
             url: song/installation/configurations/id
           - title: Schema Strictness
             url: song/installation/configurations/schema
-          - title: Event Management
-            url: song/installation/configurations/kafka
   - title: User Guide 
     url: song/user
     isHeading: true
