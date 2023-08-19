@@ -2,7 +2,7 @@
 title: Score Integration
 ---
 
-Song requires an object storage backend to store data files. A <a href="/documentation/score/" target="_blank">Score</a> server must be configured for use with Song. Score is compatible with various S3 API compliant backends such as AWS, Azure, and MinIO.
+Song requires an object storage backend to store data files. A [Score](/documentation/score/) server must be configured for use with Song. Score is compatible with various S3 API compliant backends such as AWS, Azure, and MinIO.
 
 To enable Song's integration with the Score server, you need to specify the Score storage backend in your Song server configuration. Once your Score server is set up, you can establish the connection with your Song configuration.
 

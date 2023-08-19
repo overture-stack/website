@@ -18,7 +18,7 @@ The `config` command shows the current configuraion settings.
 
 ## Submit
 
-The `submit` command is used to submit a payload to create an analysis. For more information see our <a href="/documentation/song/user/submit/" target="_blank">documentation on submitting data with Song</a>.
+The `submit` command is used to submit a payload to create an analysis. For more information see our [documentation on submitting data with Song](/documentation/song/user/submit/).
 
 ## Ping
 
@@ -80,7 +80,7 @@ The `manifest` command is used to generate a manifest file for an analysis with 
 |`-f`, `--file`| Name and directory for outputted manifest file |
 |`-d`, `---input-dir`| Directory containing the files used for upload |
 
-For more information see our <a href="/documentation/song/user/submit/" target="_blank">documentation on submitting data with Song</a>.
+For more information see our [documentation on submitting data with Song](/documentation/song/user/submit/).
 
 ## Publish
 
@@ -90,7 +90,7 @@ The `publish` command is used to publish an analysis based on it's analysis Id:
 |`-a`, `--analysis-id`| Associated analysisId |
 |`-i`, `--ignore-undefined-md5`| If set, the publishing process will proceed even if the md5 hash of any file is not defined. |
 
- For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank">documentation on analysis managment with Song</a>.
+ For more information see our [documentation on analysis managment with Song](/documentation/song/admin/analysismanagement/).
 
 ## Unpublish
 
@@ -100,7 +100,7 @@ The `unpublish` command is used to mark data as unavailable to downstream servic
 |--|--|
 |`-a`, `--analysis-id`| Associated analysisId |
 
-For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank">documentation on analysis managment with Song</a>.
+For more information see our [documentation on analysis managment with Song](/documentation/song/admin/analysismanagement/).
 
 ## Suppress
 
@@ -110,7 +110,7 @@ The `suppress` command is used to block data from being accessed:
 |--|--|
 |`-a`, `--analysis-id`| Associated analysisId |
 
- For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank">documentation on analysis managment with Song</a>.
+ For more information see our [documentation on analysis managment with Song](/documentation/song/admin/analysismanagement/).
 
 ## Export
 

@@ -2,7 +2,7 @@
 title: Installing Song Via Docker 
 ---
 
-This page will walk you through installing Song using Docker. Ensure you've completed all the applicable <a href="/documentation/song/installation/prerequisites/" target="_blank">prerequisite steps</a> before starting the installation.
+This page will walk you through installing Song using Docker. Ensure you've completed all the applicable [prerequisite steps](/documentation/song/installation/prerequisites/) before starting the installation.
 
 ## Configuration Overview
 
@@ -10,14 +10,14 @@ Before you proceed with the Song installation, be aware that there are several c
 
 | Component                                                    | Description                                | Requirement |
 |--------------------------------------------------------------|--------------------------------------------|-------------|
-| <a href="/documentation/song/installation/configurations/profiles/" target="_blank">Run Profiles</a>                | Define how the Song server operates.       | Required    |
-| <a href="/documentation/song/installation/configurations/score/" target="_blank">Score Integration</a>              | Connect Song with the Score server.        | Required    | 
-| <a href="/documentation/song/installation/configurations/profiles/#secure-profile" target="_blank">Ego Integration (Secure Profile)</a>                   | Set up authentication and authorization.   | Required    | 
-| <a href="/documentation/song/installation/configurations/id/" target="_blank">ID Management</a>                      | Define how to manage unique identifiers for data.        | Required    | 
-| <a href="/documentation/song/installation/configurations/schema/" target="_blank">Schema Strictness</a>             | Define how strictly schemas should be followed. | Required | 
-| <a href="/documentation/song/installation/configurations/kafka/" target="_blank">Kafka Event Management</a>        | Manage real-time data streaming events.    | Optional    |
+| [Run Profiles](/documentation/song/installation/configurations/profiles/)                | Define how the Song server operates.       | Required    |
+| [Score Integration](/documentation/song/installation/configurations/score/)              | Connect Song with the Score server.        | Required    | 
+| [Ego Integration (Secure Profile)](/documentation/song/installation/configurations/profiles/#secure-profile)                   | Set up authentication and authorization.   | Required    | 
+| [ID Management](/documentation/song/installation/configurations/id/)                      | Define how to manage unique identifiers for data.        | Required    | 
+| [Schema Strictness](/documentation/song/installation/configurations/schema/)             | Define how strictly schemas should be followed. | Required | 
+| [Kafka Event Management](/documentation/song/installation/configurations/kafka/)        | Manage real-time data streaming events.    | Optional    |
 
-For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on <a href="/documentation/song/installation/configuration/" target="_blank">Configurations</a> section. 
+For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on [Configurations](/documentation/song/installation/configuration/) section. 
 
 ## Installation Steps
 

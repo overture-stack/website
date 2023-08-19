@@ -87,7 +87,7 @@ The table below describes the required template variables with examples.
 
 ## ICGC ARGO Example
 
-The <a href="https://platform.icgc-argo.org/" target="_blank">ICGC ARGO Data Platform</a> is a international initiative with several distributed processing centres, this required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
+The [ICGC ARGO Data Platform](https://platform.icgc-argo.org/) is a international initiative with several distributed processing centres, this required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
 
 https://clinical.platform.icgc-argo.org/clinical/donors/id?programId=PACA-CA&submitterId=PCSI_0591
 
