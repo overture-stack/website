@@ -26,6 +26,7 @@ const links = [
     icon: null,
     newTab: true,
     className: '',
+    key: 1,
   },
   {
     name: 'Documentation',
@@ -33,6 +34,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 2,
   },
   {
     name: 'About Us',
@@ -40,6 +42,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 3,
   },
   {
     name: 'Acknowledgements',
@@ -47,6 +50,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 4,
   },
   {
     name: 'Services',
@@ -54,6 +58,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 5,
   },
   {
     name: 'Case Studies',
@@ -61,6 +66,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 6,
   },
   {
     name: 'Contact Us',
@@ -68,6 +74,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 7,
   },
 
   {
@@ -76,6 +83,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
+    key: 8,
   },
 ];
 
@@ -83,7 +91,7 @@ const FooterLinks = () => {
   return (
     <div className="links-container">
       {links.map((link) => (
-        <Link className="links-container__link" to={link.url}>
+        <Link className="links-container__link" to={link.url} key={link.key}>
           {link.name}
         </Link>
       ))}

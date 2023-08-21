@@ -45,6 +45,7 @@ export default function LinkHelper({
     <Link
       {...props}
       to={url}
+      key={activeClassName}
       onClick={samePageHash ? hashOnClick : onClick}
       activeClassName={activeClassName}
     />
