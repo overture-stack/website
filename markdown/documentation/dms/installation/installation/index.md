@@ -62,7 +62,9 @@ Once you have [decided your deployment mode](#decide-local-or-server-deployment)
 The DMS currently supports deployment to platforms running these operating systems:
 
 - Linux
-- MacOS
+- MacOS (Intel Based)
+
+<Note title="Apple Silicon Updates">Our software is currently only compatible with Intel-based Macs, not Apple Silicon devices. We are actively working on updates to support Apple silicon. Thank you for your understanding.</Note>
 
 ## Recommended System Requirements
 
