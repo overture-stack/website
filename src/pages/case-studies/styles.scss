@@ -184,6 +184,9 @@ $cs-break: 1000px;
     gap: 20px;
 
     @include breakpoint(desktop-up) {
+      justify-content: flex-start;
+    }
+    @include breakpoint(desktop-wide) {
       justify-content: center;
     }
   }
