@@ -26,4 +26,18 @@
     width: 320px;
     text-align: center;
   }
+
+  &__product-page-link {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: column;
+    }
+  }
+
+  &__product-page-text {
+    min-width: 350px;
+  }
 }

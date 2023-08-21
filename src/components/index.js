@@ -24,6 +24,7 @@ export { default as NavLink } from './NavBar/NavLink';
 export { default as NoteBox } from './NoteBox';
 export { ProductFeature, ProductFeatureRow } from './ProductFeature';
 export { default as ProductHero } from './ProductHero';
+export { default as ProductPageSection } from './ProductsPageSection';
 export { default as ProgressBar } from './ProgressBar';
 export { default as Search } from './Search';
 export { default as SectionTableOfContents } from './SectionTableOfContents';
