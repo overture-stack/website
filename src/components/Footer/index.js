@@ -82,8 +82,8 @@ const links = [
 const FooterLinks = () => {
   return (
     <div className="links-container">
-      {links.map((link) => (
-        <Link className="links-container__link" to={link.url}>
+      {links.map((link, index) => (
+        <Link className="links-container__link" to={link.url} key={index}>
           {link.name}
         </Link>
       ))}
