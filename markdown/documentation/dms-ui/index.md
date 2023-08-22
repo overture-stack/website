@@ -7,7 +7,7 @@ The DMS-UI is a React-based user interface designed to prop up browser-accessibl
 ## Features
 
 - URL parametrisation support
-- Extensible layout, with a primary and seconday menus
+- Extensible layout, with a primary and secondary menus
 - Reusable UI components
 - Theme customisation
 

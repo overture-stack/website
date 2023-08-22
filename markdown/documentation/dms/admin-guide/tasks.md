@@ -10,7 +10,7 @@ The DMS Installer currently does not support configuring or updating specific in
 
 The cluster can be stopped without destroying the data volumes, allowing you to deploy a new configuration without deleting the existing data (see [Stopping Your Cluster](#stopping-your-cluster)).
 
-The Overture roadmap includes a future feature enhancement to allow updates to specific service configurations.  However, until such time, this is the update process that is supoprted.  It is **NOT** recommended for an administrator manually edit the `~/.dms/config.yaml`, because not all values can be modified and updated this way and may cause the cluster to be unrecoverable.
+The Overture roadmap includes a future feature enhancement to allow updates to specific service configurations.  However, until such time, this is the update process that is supported.  It is **NOT** recommended for an administrator manually edit the `~/.dms/config.yaml`, because not all values can be modified and updated this way and may cause the cluster to be unrecoverable.
 
 To update a configuration:
 

@@ -4,33 +4,46 @@
 .t-h1 {
   // for hero headers
   font-family: $font-sans-serif;
-  font-weight: 700;
-  font-size: 50px;
+  font-weight: 900;
   color: $navy-black;
   letter-spacing: 0;
-  line-height: 70px;
+  font-size: 40px;
+  line-height: 55px;
 
-  @include breakpoint(mobile) {
-    font-size: 30px;
-    line-height: 40px;
+  @include breakpoint(tablet-up) {
+    font-size: 48px;
+    line-height: 70px;
+  }
+
+  @include breakpoint(desktop-up) {
+    font-size: 50px;
+    line-height: 70px;
   }
 }
 
 .t-h2 {
   font-family: $font-sans-serif;
+  font-weight: 900;
   font-size: 30px;
-  color: #004773;
+  color: $navy-black;
   letter-spacing: 0;
-  line-height: 37px;
+  line-height: 40px;
+  text-align: center;
 
-  @include breakpoint(mobile) {
-    font-size: 24px;
+  @include breakpoint(tablet-up) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  @include breakpoint(desktop-up) {
+    font-size: 36px;
     line-height: 40px;
   }
 }
 
-.t-h4 {
+.t-h3 {
   font-family: $font-sans-serif;
+  font-weight: 900;
   font-size: 24px;
   color: $navy-black;
   letter-spacing: 0;
@@ -39,5 +52,52 @@
   @include breakpoint(mobile) {
     font-size: 20px;
     line-height: 30px;
+  }
+}
+
+.t-p1 {
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  color: $navy-black;
+  letter-spacing: 0;
+  font-size: 18px;
+  line-height: 28px;
+
+  @include breakpoint(tablet-up) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  @include breakpoint(desktop-up) {
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
+
+.t-p2 {
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: $navy-black;
+  letter-spacing: 0;
+  line-height: 34px;
+
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.t-l1 {
+  padding-left: 0;
+  font-family: $font-sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: $navy-black;
+  letter-spacing: 0;
+  line-height: 30px;
+
+  @include breakpoint(tablet-up) {
+    font-size: 20px;
+    line-height: 34px;
   }
 }
