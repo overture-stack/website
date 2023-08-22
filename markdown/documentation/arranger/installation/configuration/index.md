@@ -2,8 +2,15 @@
 title: Configuration
 ---
 
-After completing installation, a few configuration tasks are required before an administrator can fully use Arranger:
+When configuring Arranger, there are three primary requirements to consider:
 
-* [Configuring Elasticsearch](/documentation/arranger/installation/configuration/es)
-* [Adding a Project to Arranger](/documentation/arranger/installation/configuration/project)
-* [Integrating Your UI Application](/documentation/arranger/installation/configuration/app)
+1. [Supply an Index Mapping to Elasticsearch](/documentation/arranger/installation/configuration/es): This step involves configuring Elasticsearch according to your specific requirements.
+
+2. [Supply Metadata configuration files to Arranger Server](/documentation/arranger/installation/configuration/metadata/): Here, you need to provide the necessary metadata configuration files to Arranger Server.
+
+3. [Integrate Arranger with a UI Application](/documentation/arranger/installation/configuration/app): This step involves integrating Arranger with your UI application.
+
+We have provided detailed instructions on how to fulfill each configuration step in the following sections.
+
+
+
