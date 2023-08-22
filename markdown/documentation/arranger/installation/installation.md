@@ -2,7 +2,8 @@
 title: Installation
 ---
 
-Before installing Arranger, please ensure that you have Docker installed on your system. You can find dockers official download and installation instructions [here](https://docs.docker.com/engine/install/).
+Before installing Arranger, please ensure that you have Docker installed on your system. You can find dockers official download and installation instructions <a href="https://docs.docker.com/engine/install/" target="_blank">here</a>
+.
 
 ## Docker Installation
 
@@ -31,9 +32,11 @@ The `make start` command deploys the following services:
 
   - **Arranger-server:** The server-side application
 
-  - **Elasticsearch:** Configured with default username `elastic` and password `myelasticpassword`. For more details on modifying these values prior to deployment, refer to our documentation on [configuring Elasticsearch](/documentation/arranger/installation/authentication).
+  - **Elasticsearch:** Configured with default username `elastic` and password `myelasticpassword`. For more details on modifying these values prior to deployment, refer to our documentation on <a href="/documentation/arranger/installation/authentication" target="_blank">configuring Elasticsearch</a>
+.
 
-  - [**Kibana**](https://www.elastic.co/kibana): Elastic's tool for visualizing indices
+  - <a href="https://www.elastic.co/kibana" target="_blank">Kibana</a>
+: Elastic's tool for visualizing indices
 
 If the installation is successful, you should see the following message:
 

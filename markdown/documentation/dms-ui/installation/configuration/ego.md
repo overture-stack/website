@@ -2,7 +2,8 @@
 title: Integrating Ego
 ---
 
-Before integrating Ego with the DMS-UI make sure you have Ego running and configured with an identity provider. For instructions on setting up and configuring Ego see our [Ego documentation here](https://overture.bio/documentation/ego).
+Before integrating Ego with the DMS-UI make sure you have Ego running and configured with an identity provider. For instructions on setting up and configuring Ego see our <a href="https://overture.bio/documentation/ego" target="_blank">Ego documentation here</a>
+.
 
 To add Ego to the DMS UI:
 

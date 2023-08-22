@@ -15,7 +15,8 @@ Arranger metadata files are JSON files that describe the available fields in the
 | extended.json | Provides extended (extra) configurations for your Elasticsearch index mapping. |
 | matchbox-state.json | Configures the quick search settings for specified fields in the data portal. |
 
-You can refer to the [sample JSON files](https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata) created for the default `file_centric_1.0` index mapping.
+You can refer to the <a href="https://github.com/overture-stack/dms/tree/develop/example-data/arranger_metadata" target="_blank">sample JSON files</a>
+ created for the default `file_centric_1.0` index mapping.
 
 <!--Elaboration would be nice here-->
 
