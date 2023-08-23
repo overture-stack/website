@@ -50,7 +50,7 @@ const data = {
               text: 'Ego',
             },
             {
-              to: 'documentation/dms-ui',
+              to: 'documentation/dms',
               text: 'DMS-UI',
             },
           ],
