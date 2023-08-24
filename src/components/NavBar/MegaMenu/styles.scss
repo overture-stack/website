@@ -95,7 +95,7 @@
     flex-flow: column wrap;
     align-items: flex-start;
     gap: 10px;
-    margin-left: 44px;
+    margin-left: 62px;
 
     @include breakpoint(tablet-up) {
       margin-left: 88px;
@@ -178,6 +178,7 @@
 
     .documentation-link {
       padding-top: 6px;
+      margin-left: 20px;
       a {
         text-decoration: none;
         color: $navy-black;
