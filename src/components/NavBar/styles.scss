@@ -72,6 +72,7 @@
     align-self: stretch;
     justify-content: space-between;
     cursor: pointer;
+    margin-left: 1.4em;
 
     &:hover {
       background-color: $grey-1;
@@ -80,13 +81,12 @@
 
   .megamenu-link-open,
   .megamenu-link-highlight {
-    // background: $grey-1;
-    // color: #9d005d;
     justify-content: space-between;
   }
 
   .nav-link {
     text-decoration: none;
+    margin-left: 1.4em;
     @include breakpoint(navmenu-up) {
       margin-right: 8px;
       display: flex;
