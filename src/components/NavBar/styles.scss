@@ -33,6 +33,7 @@
 
   .navbar-menu {
     padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   // override some bulma burger button settings
@@ -61,7 +62,7 @@
       flex-direction: column;
       margin-right: 0;
       justify-content: center;
-      border-top: 1px solid lightgrey;
+      border-top: 1px solid #f2f3f5;
     }
   }
 
@@ -79,8 +80,8 @@
 
   .megamenu-link-open,
   .megamenu-link-highlight {
-    background: $grey-1;
-    color: #9d005d;
+    // background: $grey-1;
+    // color: #9d005d;
     justify-content: space-between;
   }
 
@@ -122,14 +123,19 @@
 
   .slack-button {
     margin-right: 1rem;
+    background: $grey-2;
+
+    @include breakpoint(desktop-up) {
+      background: white;
+    }
   }
 
   // mobile menu
   .navbar-buttons {
     display: flex;
     flex-grow: 1;
-    justify-content: space-between;
-
+    justify-content: center;
+    gap: 3em;
     .slack-button {
       font-size: 1rem;
       font-weight: 500;
@@ -138,11 +144,46 @@
     @media (max-width: 400px) {
       flex-direction: column;
       justify-content: flex-start;
+      gap: 0;
 
       .slack-button {
         margin: 0.5rem;
       }
     }
+  }
+
+  .navbar-mid {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(desktop-up) {
+      display: none;
+    }
+  }
+
+  .navbar-mid.is-active {
+    display: none;
+  }
+
+  .teal-blue-cube {
+    position: relative;
+    float: right;
+  }
+
+  .chartreuse-cube {
+    position: relative;
+    float: right;
+    top: 200px;
+    left: 120px;
+  }
+
+  .bright-teal-cube {
+    position: relative;
+    right: 55px;
+  }
+
+  .navbar-end {
+    background: $grey-2;
   }
 
   .custom-button.button.is-medium {

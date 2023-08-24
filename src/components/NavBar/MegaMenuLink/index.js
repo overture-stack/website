@@ -28,14 +28,6 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
             />
           ) : null}
         </div>
-
-        <div className={'flex'} onClick={() => toggleMegaMenu(type)}>
-          <Icon
-            className={`megamenu-arrow ${isActive ? 'open' : 'closed'} pl1`}
-            style={{ width: '32px', height: '100%' }}
-            img={isActive ? 'arrowDown' : 'arrowRight'}
-          />
-        </div>
       </div>
       {isActive && children}
     </div>
