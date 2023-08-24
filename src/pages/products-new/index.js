@@ -35,7 +35,9 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* Sections */}
+      {/* Sections - There are five of these of each product, Song, Score, Ego, Maestro, Arranger. See the component, ProductPageSection and YellowButton */}
+
+      {/* Song section - white background */}
       <ProductPageSection
         src={imgSong}
         title="Song"
@@ -53,6 +55,8 @@ export default function ProductsPage() {
         yellowButtonText3="Control the publication status of data with configurable data states"
         isGrey={false}
       />
+
+      {/* Score section - grey background */}
       <ProductPageSection
         src={imgScore}
         title="Score"
@@ -67,6 +71,8 @@ export default function ProductsPage() {
         yellowButtonTitle3="Support for AWS S3, Azure Storage, Google Cloud and more"
         isGrey={true}
       />
+
+      {/* Maestro section - white background */}
       <ProductPageSection
         src={imgMaestro}
         title="Maestro"
@@ -84,6 +90,8 @@ export default function ProductsPage() {
         yellowButtonText3="Send notifications through a Slack webhook integration"
         isGrey={false}
       />
+
+      {/* Arranger section - grey background */}
       <ProductPageSection
         src={imgArranger}
         title="Arranger"
@@ -100,6 +108,8 @@ export default function ProductsPage() {
         yellowButtonText3="Enabling the customization of the search API and UI components"
         isGrey={true}
       />
+
+      {/* Ego section - white background */}
       <ProductPageSection
         src={imgEgo}
         title="Ego"

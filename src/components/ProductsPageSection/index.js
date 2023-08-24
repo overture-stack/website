@@ -24,26 +24,37 @@ export default function ProductPageSection({
     <section className={`ProductsSection ${isGrey && `grey`}`} id={`ProductPageSection_${title}`}>
       <div className={`container `}>
         <div className="holder">
+          {/* image/logo container */}
           <div className="image-holder">
             <img alt={`${title} logo`} src={src} />
           </div>
-          <div className="title-holder">
-            <H2>{title}</H2>
+
+          {/* container of text and button */}
+          <div className="text-content-holder">
+            {/* title text */}
+            <div className="title-holder">
+              <H2>{title}</H2>
+            </div>
+            {/* subtitle text */}
+            <div className="subtitle-holder">
+              <H3>{subtitle}</H3>
+            </div>
+            {/* description text */}
+            <div className="description-holder">
+              <P1 className="description">{description}</P1>
+            </div>
+            {/* contianer of the two blue coloured buttons */}
+            <div className="buttons-holder">
+              <Button type="primary" size="medium">
+                GitHub
+              </Button>
+              <Button type="primary" size="medium">
+                User Docs
+              </Button>
+            </div>
           </div>
-          <div className="subtitle-holder">
-            <H3>{subtitle}</H3>
-          </div>
-          <div className="description-holder">
-            <P1>{description}</P1>
-          </div>
-          <div className="buttons-holder">
-            <Button type="primary" size="medium">
-              GitHub
-            </Button>
-            <Button type="primary" size="medium">
-              User Docs
-            </Button>
-          </div>
+
+          {/* container of the three yellow buttons */}
           <div className="yellow-buttons-holder">
             <YellowButton
               img_src={yellowButtonIcon1}

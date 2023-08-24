@@ -39,9 +39,9 @@
     }
   }
   &__product-page-img {
-    width: 20%;
-    margin-right: 0.4em;
-    @include breakpoint(tablet-up) {
+    @include breakpoint(mobile) {
+      width: 20%;
+      margin-right: 0.4em;
     }
   }
 
@@ -53,5 +53,9 @@
   &__product-page-text {
     min-width: 350px;
     text-align: left;
+    @include breakpoint(tablet-up) {
+      min-width: 320px;
+      text-align: center;
+    }
   }
 }
