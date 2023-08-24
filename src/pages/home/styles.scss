@@ -254,6 +254,7 @@
 
     &__logo {
       filter: brightness(1.1);
+      image-rendering: auto;
       &:hover {
         cursor: pointer;
         transform: scale(1.15);
@@ -464,6 +465,7 @@
       max-width: 300px;
       @include breakpoint(tablet-up) {
         max-width: 770px;
+        line-height: 54px;
       }
       @include breakpoint(desktop-up) {
         max-width: 1135px;
