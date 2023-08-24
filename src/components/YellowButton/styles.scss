@@ -28,16 +28,30 @@
   }
 
   &__product-page-link {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 10px;
+    margin-top: 1.6em;
 
     @include breakpoint(tablet-up) {
       flex-direction: column;
     }
   }
+  &__product-page-img {
+    width: 20%;
+    margin-right: 0.4em;
+    @include breakpoint(tablet-up) {
+    }
+  }
+
+  &__product-page-title {
+    max-width: 260px;
+    text-align: left;
+  }
 
   &__product-page-text {
     min-width: 350px;
+    text-align: left;
   }
 }

@@ -9,8 +9,16 @@ export default function YellowButton({ link, title, img_src, alt, text, isProduc
         className={`yellow-button__link ${isProductPage && 'yellow-button__product-page-link'}`}
         to={link}
       >
-        <Icon className="yellow-button__img" img={img_src} alt={alt} />
-        <h1 className="yellow-button__title">{title}</h1>
+        <Icon
+          className={`yellow-button__img ${isProductPage && 'yellow-button__product-page-img'}`}
+          img={img_src}
+          alt={alt}
+        />
+        <h1
+          className={`yellow-button__title ${isProductPage && 'yellow-button__product-page-title'}`}
+        >
+          {title}
+        </h1>
         <P2
           className={`yellow-button__text ${isProductPage && 'yellow-button__product-page-text'}`}
         >

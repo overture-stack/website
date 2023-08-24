@@ -16,7 +16,8 @@
   }
 
   .image-holder {
-    width: 170px;
+    width: 232px;
+    height: auto;
     margin-bottom: 0.7em;
   }
 
@@ -29,10 +30,13 @@
     width: 100%;
   }
 
-  .yellow-button {
-    &__link {
-      // display: flex;
-      flex: row;
+  .buttons-holder {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+      width: 45%;
     }
   }
 }

@@ -21,7 +21,7 @@ export default function ProductPageSection({
   isGrey,
 }) {
   return (
-    <section className={`ProductsSection ${isGrey && `grey`}`}>
+    <section className={`ProductsSection ${isGrey && `grey`}`} id={`ProductPageSection_${title}`}>
       <div className={`container `}>
         <div className="holder">
           <div className="image-holder">
