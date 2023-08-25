@@ -1,12 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { ProductPageSection, H1, H2, H3, P1, P2, L1 } from 'components';
+import { ProductPageSection, H1, H2, H3, P1, P2, L1, Button } from 'components';
 import './styles.scss';
 import imgSong from './assets/img_products_song.svg';
 import imgScore from './assets/img_products_score.svg';
 import imgMaestro from './assets/img_products_maestro.svg';
 import imgArranger from './assets/img_products_arranger.svg';
 import imgEgo from './assets/img_products_ego.svg';
+import imgDMS from './assets/img_DMS.svg';
 
 export default function ProductsPage() {
   return (
@@ -127,6 +128,46 @@ export default function ProductsPage() {
         yellowButtonText3="No limits to the number of applications you can govern Ego with"
         isGrey={false}
       />
+
+      {/* lower blue section */}
+      <section className="lower-blue-section">
+        <div className="lower-blue-section__container container">
+          <div className="lower-blue-section__holder">
+            <div className="lower-blue-section__title-holder">
+              <H2>The Overture Data Management System (DMS)</H2>
+            </div>
+            {/* div with the blue background */}
+            <div className="lower-blue-section__content-holder">
+              <div className="lower-blue-section__img-holder">
+                <img src={imgDMS} alt="DMS screenshot" className="lower-blue-section__img" />
+              </div>
+              <div className="lower-blue-section__text-button-holder">
+                <div className="lower-blue-section__text-holder">
+                  <P1 className="lower-blue-section__text">
+                    <span>
+                      Built from our core collection of microservices, the DMS offers turnkey
+                      installation, configuration, and deployment of the Overture software.
+                    </span>
+                    <br />
+                    <br />
+                    <br />
+                    <span>
+                      While a custom solution will offer greater scalability, the DMS is an ideal
+                      starting point for anyone looking to explore Overture and experience how our
+                      microservices work in concert to create comprehensive data management systems.
+                    </span>
+                  </P1>
+                </div>
+                <div className="lower-blue-section__button-holder">
+                  <Button type="primary" size="medium" className="lower-blue-section__button">
+                    Installation Instructions
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

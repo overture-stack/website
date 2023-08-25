@@ -62,4 +62,45 @@
       padding: 4.5em 3.8em;
     }
   }
+
+  .lower-blue-section {
+    &__holder {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    &__content-holder {
+      background-color: $blue-block;
+      // min-height: 640px;
+      height: fit-content;
+      margin-top: 70px;
+    }
+
+    &__img-holder {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__img {
+      position: relative;
+      image-rendering: crisp-edges;
+      width: 80%;
+      bottom: 70px;
+    }
+
+    &__text-button-holder {
+      position: relative;
+      bottom: 70px;
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.6em;
+    }
+
+    &__text-holder {
+      width: 80%;
+    }
+  }
 }
