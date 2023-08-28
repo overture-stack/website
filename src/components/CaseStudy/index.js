@@ -26,7 +26,7 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
             {React.cloneElement(descriptionEl, { className: 'case-description' })}
           </div>
 
-          <div className="column is-offset-0 ml4">
+          <div className="column is-offset-0 top-bullets">
             <ul>
               {caseData.listItems[0].map((i, idx) => {
                 return (
@@ -46,8 +46,8 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
       <div className="container">
         <div className="details">
           <div className="details-left">
-            <div className=" details-left-browser-wrapper">
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+            <div className=" details-left__img-container">
+              <img src={caseData.details[currentScreenshot].screenshot} />
             </div>
           </div>
 
