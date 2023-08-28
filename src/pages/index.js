@@ -315,7 +315,7 @@ export default function HomePage() {
 
       {/* floating blue teal cube */}
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
-      {/* floating yelloish cube */}
+      {/* floating yellowish cube */}
       <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
       <section className="lower-grey section bg-grey">

@@ -158,6 +158,12 @@ $cs-break: 1000px;
     @include breakpoint(tablet-up) {
       align-items: center;
     }
+
+    @include breakpoint(desktop-up) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 36px;
+    }
   }
 }
 
@@ -166,7 +172,7 @@ $cs-break: 1000px;
   width: 100%;
   background: $white;
   border-top: 1px solid $white;
-  padding: 18px;
+  padding: 18px 0;
   top: 60px;
 
   &__scroll-container {
@@ -178,6 +184,9 @@ $cs-break: 1000px;
     gap: 20px;
 
     @include breakpoint(desktop-up) {
+      justify-content: flex-start;
+    }
+    @include breakpoint(desktop-wide) {
       justify-content: center;
     }
   }
@@ -204,6 +213,7 @@ $cs-break: 1000px;
     margin: 8px 18px;
     background-color: $bg-color;
     border-radius: 15px;
+    image-rendering: -webkit-optimize-contrast;
 
     &:hover {
       box-shadow: 1px 4px 5px grey;
