@@ -127,7 +127,6 @@ const createMarkdownPages = async ({ actions, graphql }) => {
     .filter((node) => ENABLE_DRAFTS || !node.fields.draft)
     .forEach((node) => {
       const { id, sectionSlug, slug } = node.fields;
-      console.log(node.fields);
 
       // documentation section
 
