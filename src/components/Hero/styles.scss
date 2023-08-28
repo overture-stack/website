@@ -20,10 +20,6 @@
     @include breakpoint(tablet-up) {
       justify-content: flex-start;
     }
-
-    @include breakpoint(desktop-up) {
-      // justify-content: center;
-    }
   }
 
   .titles {

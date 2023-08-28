@@ -7,22 +7,26 @@
   }
 
   .Hero {
-    height: fit-content;
+    // height: fit-content;
 
     @include breakpoint(tablet-up) {
-      background-image: url('./assets/img_hero_acknowledgements.svg');
+      background-image: url('./assets/img_hero_acknowledgements_full.svg');
       background-repeat: no-repeat;
-      background-position-x: 580px;
-      background-size: 550px;
+      background-position-y: -280px;
+      background-position-x: 560px;
+      background-size: 500px;
     }
 
     @include breakpoint(desktop-up) {
-      background-position-x: 620px;
+      background-position-y: -340px;
+      background-position-x: 640px;
       background-size: 570px;
     }
 
     @include breakpoint(desktop-wide) {
       background-position-x: 105%;
+      background-position-y: -360px;
+      background-size: 600px;
     }
 
     @include breakpoint(desktop-ultra-wide) {
@@ -58,6 +62,9 @@
 
     @include breakpoint(tablet-up) {
       padding: 4.5em 3.8em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 
