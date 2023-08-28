@@ -2,8 +2,6 @@
 title: Configuration
 ---
 
-# Configuration
-
 Now that Ego has been successfully installed and you have configured the first user and application, it's time to configure other settings in Ego. This may involve adding policies to govern application permissions, including groups and users who will utilize your application, or even registering new applications.
 
 <Note title="tip">While the API REST endpoints can handle all Ego operations, we highly recommend administrators to use the Ego UI whenever possible. The Ego UI offers a user-friendly and centralized environment to manage your applications, policies, groups, and users.</Note>

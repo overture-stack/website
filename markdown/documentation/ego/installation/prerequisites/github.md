@@ -2,11 +2,11 @@
 title: Github OAuth Setup
 ---
 
-For full details on setting up OAUTH 2.0 for an application to work with GitHub, [see here](https://docs.github.com/en/developers/apps/building-oauth-apps).
+For full details on setting up OAUTH 2.0 for an application to work with GitHub, <a href="https://docs.github.com/en/developers/apps/building-oauth-apps" target="_blank">see here</a>.
 
 For your convenience, we provide summary steps below:
 
-1. **Login or setup an account with [GitHub](https://github.com/)**: If you are an individual working alone with the Overture suite, you may wish to use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should be using. Please consult your IT department if required.
+1. **Login or setup an account with <a href="https://github.com/" target="_blank">GitHub</a>**: If you are an individual working alone with the Overture suite, you may wish to use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should be using. Please consult your IT department if required.
 
 2. **Access Developer Settings:** Click on your profile icon in the top right corner, then go to **Settings**. From the links on the left, navigate to **Developer Settings**.
 
@@ -41,4 +41,4 @@ You can always view the **Client ID** and manage the **Client Secrets** for your
 
 <Warning> **Note:** GitHub only displays the **Client Secret** when initially created. If you do not copy it immediately, you will not be able to see it again. If you lose or forget the secret later on, you will need to generate a new secret and delete the old one.</Warning>
 
-9. **Use Client ID and Client Secret:** During [Ego installation](/documentation/ego/installation/installation), provide the **Client ID** and **Client Secret** when prompted.
+9. **Use Client ID and Client Secret:** During <a href="/documentation/ego/installation/installation" target="_blank">Ego installation</a>, provide the **Client ID** and **Client Secret** when prompted.

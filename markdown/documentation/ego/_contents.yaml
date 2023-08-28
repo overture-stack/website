@@ -3,6 +3,8 @@ sectionTitle: Ego
 pages:
   - title: Introduction
     url: ego
+  - title: Technical Details
+    url: ego/technical
   - title: Installation Guide
     url: ego/installation
     isHeading: true

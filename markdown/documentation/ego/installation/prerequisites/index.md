@@ -2,19 +2,26 @@
 title: Setup Prerequisites
 ---
 
-Before installing Ego, make sure the following are installed and configured on the platform of your choice (we recommend Linux):
+Before installing Ego, ensure that the following tools and services are installed and properly configured. While you can choose any platform, we recommend Linux for optimal performance and compatibility.
 
-1. PostgreSQL
-    - Official download & installation instructions [here](https://www.postgresql.org/download/)
-    - You must have your database setup before installing Ego
-    - Make sure there is a user account you can use to apply database migrations to the Ego database and create extensions.
+1. **PostgreSQL**
+
+    - PostgreSQL is a powerful, open-source relational database system.
+    - [Official PostgreSQL download & installation instructions](https://www.postgresql.org/download/)
+    - Ensure your database is set up before proceeding with Ego's installation.
 
 
-2. Docker Engine
-    - Official download & installation instructions [here](https://docs.docker.com/engine/install/)
-    
+2. **Docker Engine**
 
-3. A `Client ID` and `Client Secret` for at minimum one OAuth 2.0 identity provider (more information below)
+    - Docker Engine enables developers to define and manage their applications with containerization.
+    - [Official Docker Engine download & installation instructions](https://docs.docker.com/engine/install/)
+
+
+3. **Setup Identity Provider Secrets**
+
+    - A `Client ID` and `Client Secret` for at minimum one OAuth 2.0 identity provider (more information below)
+
+# Setting up Identity Provider Secrets
 
 To properly use the identity providers with Ego, OAuth credentials must be setup with each provider you want to use, specifically a client ID and client secret.
 

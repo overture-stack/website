@@ -2,24 +2,24 @@
 title: Using the API
 ---
 
-In addition to using the Ego Admin UI you may also interact with Ego via the following methods
+In addition to using the Ego Admin UI, you may also interact with Ego using the following methods:
 
 - Using **cURL commands** in the command line
 
 - Using the **Swagger UI**
-  - Swagger UIs are ideal for exploration and simple use cases. It will contain detailed descriptions of all the available endpoints, expected inputs, and error responses.
-  - Depending on your deployment you can access the Swagger UI from one of the following links:
+  - The Swagger UI is ideal for exploration and simple use cases. It will contain detailed descriptions of all the available endpoints, expected inputs, and error responses.
+  - Depending on your deployment, you can access the Swagger UI from one of the following links:
 
 |Mode|URL|
 |--|--|
 |**Local**| `http://localhost:8080/swagger-ui.html` |
 |**Server**| `https://<YOUR-URL>/ego-api/swagger-ui.html#` |
 
-In both these scenarios, the user or application must first authenticate with the Ego API. The sections below describe how to authenticate with and use the Ego API.  
+In both of these scenarios, the user or application must first authenticate with the Ego API. The sections below describe how to authenticate with and use the Ego API.  
 
 # Retrieving Your Ego JWT
 
-To make valid requests to the Ego API, you will need to obtain an Ego JWT with administrative privileges 
+To make valid requests to the Ego API, you will need to obtain an Ego JWT with administrative privileges.
 
 To retrieve your Ego Admin JWT:
 
@@ -35,13 +35,13 @@ To retrieve your Ego Admin JWT:
 
 ![Entity](../assets/user-admin2.png 'Admin Role')
 
-3. From the **Network** tab in your browser's developer tools search for a request with the suffix `ego-token?client_id=ego-ui`. Click on that request, and then navigate to the **Response** tab. Here, you will be able to view your Ego JWT.
+3. From the **Network** tab in your browser's developer tools, search for a request with the suffix `ego-token?client_id=ego-ui`. Click on that request, and then navigate to the **Response** tab. Here, you will be able to view your Ego JWT.
 
 ![Entity](../assets/ego-jwt.png 'Ego JWT')
 
 Alternatively, you can follow these steps:
 
-- Click the Application tab in your browser's developer tools.
+- Click the **Application** tab in your browser's developer tools.
 - On the left-hand side, navigate to **Local Storage** and select the Ego Admin UI URL.
 - Locate the `user-token value`, which contains your Ego JWT.
 
@@ -59,11 +59,11 @@ Next, we will use the Ego API to generate an API Key for another user, so that t
 
 ![Entity](../assets/copy-id.png 'Copy ID')
 
-2. Click **Applications** from the lefthand menu and make sure the required applications you want the API Key to be generated for have been configured.  For our example, we want to provide access to the Song and Score applications. For more information on configuring applications within Ego see our page on [managing applications](/documentation/ego/user-guide/admin-ui/applications).
+2. Click **Applications** from the left-hand menu and ensure the required applications, for which you want the API Key generated, have been configured.  For our example, we want to provide access to the Song and Score applications. For more information on configuring applications within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/applications" target="_blank">managing applications</a>.
 
 ![Entity](../assets/applications.png 'Apps')
 
-3. Select **Policies** from the lefthand menu and make sure the required policies you want the API Key to be generated for have been configured. In this  example, we want to have policies for the Song and Score applications. For more information on configuring policies within Ego see our page on [managing policies](/documentation/ego/user-guide/admin-ui/policies).
+3. Select **Policies** from the lefthand menu and make sure the required policies you want the API Key to be generated for have been configured. In this  example, we want policies for the Song and Score applications. For more information on configuring policies within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/policies" target="_blank">managing policies</a>.
 
 
 ![Entity](../assets/policies.png 'Policies')
@@ -72,13 +72,13 @@ Next, we will use the Ego API to generate an API Key for another user, so that t
 
 ![Entity](../assets/scopes.png 'Scopes')
 
-<Note title="Tip">The example we provide here is applicable to all Ego API endpionts.  Using other endpoints follows a similar process, where you must first authorize with the API, then supply the necessary input parameters to the desired endpoint.  Both Swagger UI and cURL are available to make requests to the API.</Note>
+<Note title="Tip">The example we provide here is applicable to all Ego API endpoints.  Using other endpoints follows a similar process, where you must first authorize with the API, then supply the necessary input parameters to the desired endpoint.  Both Swagger UI and cURL are available to make requests to the API.</Note>
 
 ## Using Swagger UI
 
-To generate an API Key via the Swagger UI:
+To generate an API Key using the Swagger UI:
 
-1. Go to the swagger UI for your installation at `<url>/ego-api/swagger-ui.html`, where `<url>` is the base URL you have deployed Ego.
+1. Go to the swagger UI for your installation at `<url>/ego-api/swagger-ui.html`, where `<url>` is the base URL where Ego is deployed.
 
 2. In the top right, click the **Authorize** button (open lock icon):
 

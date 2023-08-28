@@ -4,13 +4,13 @@ title: Policies
 
 # Managing Policies
 
-A policy is a scope or context for which an application may grant `READ/WRITE/DENY` permissions to a user or group. The available permissions are:
+A policy defines a scope or context within which an application may grant `READ/WRITE/DENY` permissions to a user or group. The available permissions are:
 
 - `READ`: Grants read-only access to a resource.
 - `WRITE`: Grants read and write access to a resource.
 - `DENY`: Denies access to a resource.
 
-Policies offer flexibility in configuration, allowing administrators to determine the permissions granted by a policy and to whom (users or groups).
+Policies provide flexibility in configuration, enabling administrators to specify the permissions a policy grants and to which entities (users or groups).
 
 ## Permission Inheritance
 
@@ -23,9 +23,9 @@ Note that a user can have permissions assigned directly to their profile (user I
 - User ID `abc123` is directly assigned `SONG.WRITE` permission.
 - User `abc123` also belongs to group `TestGroup`, which is assigned `SONG.DENY` permission.
 
-In this case, the more restrictive permission `SONG.DENY` assigned to `TestGroup` takes precedence over the `SONG.WRITE` permission assigned to the user `abc123`.
+Here, the more restrictive `SONG.DENY` permission from `TestGroup` overrides the `SONG.WRITE` permission directly assigned to user `abc123`.
 
-It is important to note that the Ego API provides two separate endpoints to retrieve user-level permissions:
+Note that the Ego API offers two distinct endpoints for retrieving user-level permissions:
 
 - `users/{id}/permissions`: Returns permissions directly assigned to the user.
 - `users/{id}/groups/permissions`: Returns the resolved permissions, taking into account both direct permissions and group permissions.
@@ -56,7 +56,7 @@ To edit a policy:
 
 1. Click **Policies** from the left-hand menu, then click the policy you want to edit from the policies table.
 
-2. The policy's details pane is displayed on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in [Creating a Policy](/documentation/ego/user-guide/admin-ui#creating-a-policy).
+2. The policy's details pane is displayed on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-a-policy" target="_blank">Creating a Policy</a>.
 
 ## Deleting a Policy
 

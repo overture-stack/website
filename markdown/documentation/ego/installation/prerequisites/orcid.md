@@ -2,11 +2,11 @@
 title: ORCiD OAuth Setup
 ---
 
-All steps below are for setting up Ego with ORCiDs free, public API (not the paid membership API). For full details on setting up OAuth 2.0 with ORCiD, refer to the [Official ORCiD Documentation](https://support.orcid.org/hc/en-us/articles/360006897174-Register-a-public-API-client-application).
+All steps below are for setting up Ego with ORCiDs free, public API (not the paid membership API). For full details on setting up OAuth 2.0 with ORCiD, refer to the <a href="https://support.orcid.org/hc/en-us/articles/360006897174-Register-a-public-API-client-application" target="_blank">Official ORCiD Documentation</a>.
 
 For your convenience, we provide summary steps here:
 
-1. **Create an account with ORCid:**  If you don't already have one, set up an account on [ORCiD](https://orcid.org/). If you are an individual working alone with the Overture suite, you may use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should use. Please consult your IT department if necessary.
+1. **Create an account with ORCid:**  If you don't already have one, set up an account on <a href="https://orcid.org/" target="_blank">ORCiD</a>. If you are an individual working alone with the Overture suite, you may use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should use. Please consult your IT department if necessary.
 
 
 2. **Log into ORCiD:** Sign in to your ORCiD account.
@@ -60,7 +60,7 @@ Replace `<url>` with the base URL where you have deployed Ego. For example:
 
 ![Entity](../../assets/orcid-secret.png 'ORCiD Secret')
 
-12. **Provide Client ID and Client Secret:** During [Ego installation](/documentation/ego/installation/installation), provide the Client ID and Client Secret when prompted.
+12. **Provide Client ID and Client Secret:** During <a href="/documentation/ego/installation/installation" target="_blank">Ego installation</a>, provide the Client ID and Client Secret when prompted.
 
 # Make User Emails Publicly Accessible
 
@@ -74,7 +74,7 @@ Some users will want to retain their privacy and not share their e-mail publicly
 
 ## ORCiD
 
-To make your ORCiD e-mail publicly accessible, see the instructions [here](https://support.orcid.org/hc/en-us/articles/360006971213-Account-email-addresses), or follow these summary steps:
+To make your ORCiD e-mail publicly accessible, see the instructions <a href="https://support.orcid.org/hc/en-us/articles/360006971213-Account-email-addresses" target="_blank">here</a>, or follow these summary steps:
 
 1. **Log into ORCiD:** Sign in to your ORCiD account.
 
