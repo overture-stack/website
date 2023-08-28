@@ -1,13 +1,13 @@
 import React from 'react';
+import { Button, H1, H2, P1, ProductPageSection } from 'components';
 import Helmet from 'react-helmet';
-import { ProductPageSection, H1, H2, H3, P1, P2, L1, Button } from 'components';
-import './styles.scss';
-import imgSong from './assets/img_products_song.svg';
-import imgScore from './assets/img_products_score.svg';
-import imgMaestro from './assets/img_products_maestro.svg';
+import imgDMS from './assets/img_DMS.svg';
 import imgArranger from './assets/img_products_arranger.svg';
 import imgEgo from './assets/img_products_ego.svg';
-import imgDMS from './assets/img_DMS.svg';
+import imgMaestro from './assets/img_products_maestro.svg';
+import imgScore from './assets/img_products_score.svg';
+import imgSong from './assets/img_products_song.svg';
+import './styles.scss';
 
 export default function ProductsPage() {
   return (

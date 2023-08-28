@@ -1,6 +1,5 @@
 import React from 'react';
-import './styles.scss';
-import { H2, H3, P1, Button, YellowButton } from 'components';
+import { Button, H2, H3, P1, YellowButton } from 'components';
 import './styles.scss';
 
 export default function ProductPageSection({
