@@ -5,7 +5,8 @@ const getMatomoTagManager = () => {
 
   const matomoUrl = process.env.GATSBY_MATOMO_URL || '';
 
-  return `var _mtm = (window._mtm = window._mtm || []);
+  return matomoUrl
+    ? `var _mtm = (window._mtm = window._mtm || []);
         _mtm.push({ 'mtm.startTime': new Date().getTime(), event: 'mtm.Start' });
         (function () {
           var d = document,
@@ -14,7 +15,8 @@ const getMatomoTagManager = () => {
           g.async = true;
           g.src = '${matomoUrl}';
           s.parentNode.insertBefore(g, s);
-        })();`;
+        })();`
+    : '';
 };
 
 export default getMatomoTagManager;
