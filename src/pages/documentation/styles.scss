@@ -1,157 +1,65 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
-.DocumentationLandingPage {
-  h2,
-  h3,
-  p,
-  li {
-    color: $navy-black;
+.GettingStartedPage {
+  .grey {
+    background-color: $grey-2;
   }
-  h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 18px;
+
+  .container {
+    padding: 50px 32px;
   }
-  .hero {
-    background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
-    height: 310px;
-    text-align: center;
-    flex-direction: row;
-    h1 {
-      font-size: 32px;
-      color: $white;
-      font-weight: bold;
-    }
-    .container {
-      display: flex;
-      align-items: center;
-    }
-    .search__container {
-      align-items: center;
+
+  .upper-grey-section {
+    &__holder {
       display: flex;
       flex-direction: column;
-      flex: 1 0 475px;
-      justify-content: center;
-      padding: 0 20px;
-      @media (max-width: 1024px) {
-        flex-basis: auto;
-      }
+      align-items: center;
+      gap: 2em;
     }
-    .image {
-      flex: 0 1 auto;
-      &-consulting {
-        align-self: start;
-      }
-      @media (max-width: 1024px) {
-        display: none;
-      }
+    &__titles-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      text-align: center;
+      max-width: 330px;
     }
-  }
 
-  .documentation {
-    &-section {
-      padding: 42px 0;
-      h2 {
-        margin-bottom: 24px;
-      }
-      p,
-      li,
-      span {
-        font-size: 18px;
-        line-height: 30px;
-      }
-      ul {
-        list-style-type: disc;
-        padding-left: 18px;
-      }
-      p {
-        margin-bottom: 8px;
-      }
-      span {
-        font-weight: bold;
-        margin-left: 12px;
-        display: inline-block;
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-      .button.is-primary.is-medium {
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 1;
-        margin-bottom: 8px;
-        padding: 8px 18px;
-      }
-      .dms-row {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 10px;
-        .Icon {
-          max-height: 40px;
-        }
-        &__text {
-          margin-left: 8px;
-        }
-      }
+    &__search-bar-holder {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      margin-bottom: 0.5em;
     }
-  }
-  .product {
-    &-section {
-      padding: 30px 0 24px;
+
+    &__doc-holder {
+      display: flex;
+      flex-direction: column;
+      // justify-content: center;
+      align-items: center;
     }
-    &-column {
-      .Badge {
-        font-size: 12px;
-        margin-bottom: 16px;
-        display: block;
-        text-align: center;
-        line-height: 16px;
-      }
-      a {
-        display: block;
-        text-decoration: none;
-      }
+
+    &__doc-title {
+      margin-bottom: 1.2em;
     }
-    &-card {
-      border-radius: 5px;
-      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
-      background-color: $white;
-      padding: 8px 16px 16px;
-      margin-bottom: 16px;
-      position: relative;
-      &:hover {
-        background-color: $grey-1;
-        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-      }
-      .chevron-link {
-        color: $pink-darker !important;
-        font-weight: 700;
-        font-size: 14px;
-        display: flex;
-        line-height: 1;
-        img[style] {
-          padding: 2px 0 0 1px;
-          height: 13px !important;
-        }
-      }
-      &__title {
-        display: flex;
-        align-items: center;
-        margin-bottom: 4px;
-        .Icon {
-          max-height: 32px;
-        }
-        h3 {
-          font-size: 18px;
-          font-weight: bold;
-          margin-left: 8px;
-        }
-      }
-      p {
-        font-size: 13px;
-        margin-bottom: 8px;
-      }
+
+    ul {
+      list-style-type: disc;
+      text-decoration: underline;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__doc-columns-holder {
+      display: flex;
+      flex-direction: row;
+      gap: 6em;
+    }
+
+    &__doc-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
     }
   }
 }
