@@ -65,10 +65,10 @@
       background-position-x: 340px;
     }
     @include breakpoint(desktop-wide) {
-      background-position-x: 465px;
+      background-position-x: 470px;
     }
     @include breakpoint(desktop-ultra-wide) {
-      background-position-x: 600px;
+      background-position-x: 650px;
     }
   }
 }
