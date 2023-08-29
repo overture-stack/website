@@ -31,9 +31,7 @@ export default function AcknowledgementsPage() {
         <div className="container">
           {/* header */}
           <div className="header">
-            <div>
-              <H2>Canarie</H2>
-            </div>
+            <H2>Canarie</H2>
           </div>
 
           <div className="detail-holder">
@@ -74,12 +72,10 @@ export default function AcknowledgementsPage() {
         <div className="container">
           {/* header */}
           <div className="header">
-            <div>
-              <H2>
-                The National Cancer Institutes Informatics Technology for Cancer Research Program
-                (NCI ITCR)
-              </H2>
-            </div>
+            <H2>
+              The National Cancer Institutes Informatics Technology for Cancer Research Program (NCI
+              ITCR)
+            </H2>
           </div>
 
           <div className="detail-holder">
