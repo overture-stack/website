@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { H1, H2, H3, P1, P2, L1 } from 'components';
+import { H1, H2, H3, P1, P2, L1, Hero } from 'components';
 import './styles.scss';
 
 export default function AcknowledgementsPage() {
@@ -20,7 +20,7 @@ export default function AcknowledgementsPage() {
       </Helmet>
 
       {/* HERO */}
-      <div className="Hero grey">
+      {/* <div className="Hero grey">
         <div className="container">
           <section className="Hero__section">
             <H1>Acknowledgements</H1>
@@ -30,7 +30,12 @@ export default function AcknowledgementsPage() {
             </P1>
           </section>
         </div>
-      </div>
+      </div> */}
+      <Hero
+        title="Acknowledgements"
+        subtitle="We want to thank the following organizations for their funding and support, without
+              which Overture could not have been possible."
+      ></Hero>
 
       {/* Canarie  */}
       <section>
@@ -76,7 +81,7 @@ export default function AcknowledgementsPage() {
       </section>
 
       {/* NCI ITCR */}
-      <section className="grey">
+      <section className="grey-bg">
         <div className="container">
           {/* header */}
           <div className="header">
