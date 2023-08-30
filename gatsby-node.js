@@ -52,7 +52,7 @@ const onCreateNode = ({ actions, getNode, node }) => {
         startCase(
           relativeDirectory
             .split('/')
-            .filter(x => x)
+            .filter((x) => x)
             .pop()
         )) ||
       '';
@@ -65,7 +65,7 @@ const onCreateNode = ({ actions, getNode, node }) => {
 
     const sectionSlug = relativeDirectory
       .split('/')
-      .filter(x => x)
+      .filter((x) => x)
       .shift();
     actions.createNodeField({
       name: 'sectionSlug',
@@ -83,7 +83,7 @@ const onCreateNode = ({ actions, getNode, node }) => {
   }
 };
 
-const createPages = async params => {
+const createPages = async (params) => {
   // use promise.all to build different page types concurrently.
   // required when using external APIs for content.
   await Promise.all([createMarkdownPages(params)]);
@@ -124,22 +124,21 @@ const createMarkdownPages = async ({ actions, graphql }) => {
   `);
 
   data.allMdx.nodes
-    .filter(node => ENABLE_DRAFTS || !node.fields.draft)
-    .forEach(node => {
+    .filter((node) => ENABLE_DRAFTS || !node.fields.draft)
+    .forEach((node) => {
       const { id, sectionSlug, slug } = node.fields;
 
       // documentation section
-      if (slug.match(/^\/documentation/)) {
-        actions.createPage({
-          path: slug,
-          component: path.resolve('src/templates/documentation/index.js'),
-          context: {
-            // use for graphQL query in template
-            id,
-            sectionSlug,
-          },
-        });
-      }
+
+      actions.createPage({
+        path: slug,
+        component: path.resolve('src/templates/documentation/index.js'),
+        context: {
+          // use for graphQL query in template
+          id,
+          sectionSlug,
+        },
+      });
     });
 };
 

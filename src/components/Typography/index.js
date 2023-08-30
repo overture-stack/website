@@ -35,6 +35,12 @@ export const P2 = ({ className, children, style }) => (
   </p>
 );
 
+export const P3 = ({ className, children, style }) => (
+  <p style={style} className={`${className ? className : ''} t-p3`}>
+    {children}
+  </p>
+);
+
 //List
 export const L1 = ({ className, children, style }) => (
   <ul style={style} className={`${className ? className : ''} t-l1`}>
