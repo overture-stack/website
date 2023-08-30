@@ -4,7 +4,7 @@ title: Installing Song Via Docker
 
 This page will walk you through installing Song using Docker. Ensure you've completed all the applicable [prerequisite steps](/documentation/song/installation/prerequisites/) before starting the installation.
 
-## Configuration Overview
+# Configuration Overview
 
 Before you proceed with the Song installation, be aware that there are several configurations for a Song server:
 
@@ -19,11 +19,11 @@ Before you proceed with the Song installation, be aware that there are several c
 
 For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on [Configurations](/documentation/song/installation/configuration/) section. 
 
-## Installation Steps
+# Installation Steps
 
 1. **Setting Up Your Environment Variables**: 
 
-Based on your configuration, create an `.env` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env` file:
+Based on your configuration, create an `.env.song` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env.song` file:
 
 ```bash
 
@@ -92,7 +92,7 @@ SCHEMAS_ENFORCELATEST=true
 
 ```
 
-2. **Docker Run:** 
+2. **Run Docker:** 
 
 Start the Song container using the `docker run` command, specifying the mounted `.env` file:
 
