@@ -1,31 +1,52 @@
 ---
 title: Downloading Data
 ---
+# The Score-Client Download Command
 
-To download files from your configured object storage with the Score client, use the [`download` command](/documentation/score/user-guide/commands#download).
+File downloads can be run using the Score Client's `download` command.
 
-The command provides different methods to download files:
+The `download` command offers various methods for downloading file data. The main methods are as follows:
 
-* `--analysis-id` option : Download files for a specific [Song](/documentation/song) analysis ID. 
-* `--manifest` option: Download specific files based on a manifest file ID, manifest file URL, or path to the manifest file.
-* `--object-id` option: Download a specific file object ID.
-* `--program-id` option: Download files for a specific [Song](/documentation/song) program ID.
-* `--study-id` option: Download files for a specific [Song](/documentation/song) study ID.
+- `--analysis-id`: Downloads files for a specific <a href="/documentation/song" target="_blank">Song</a> analysis ID. 
+- `--manifest`: Downloads specific files based on a manifest file ID, manifest file URL, or path to the manifest file.
+- `--object-id`: Downloads a specific file object ID.
+- `--program-id`: Downloads files for a specific <a href="/documentation/song" target="_blank">Song</a> program ID.
+- `--study-id`: Downloads files for a specific <a href="/documentation/song" target="_blank">Song</a> study ID.
 
-The command has additional options that can be used, see [here](/documentation/score/user-guide/commands#download) for details.
+The table below details the options available when using the Score-Client `download` command:
+
+| Option | Description |
+| -------| ------------|
+| `--analysis-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> analysis ID. |
+| `--force` | Re-download the file if it already exists locally (overrides local file). |
+| `--index` | If available, also download the file index. |
+| `--length` | Restrict the download size to this number of bytes. By default, the whole file is downloaded unless this option is specified. |
+| `--manifest` | Download specific files based on a manifest file ID, URL, or its path. |
+| `--object-id` | Download a specific file object ID. |
+| `--offset` | Byte position in the source file from where the download begins. By default, the whole file is downloaded unless this option is specified. |
+| `--output-dir` | Path to the output directory where files will be downloaded to. |
+| `--output-layout` | Layout of the output directory, one of: |
+| | * `bundle` : Saved according to the filename under the Song bundle ID directory. |
+| | * `filename` : Saved according to the filename in the output directory. |
+| | * `id` : Saved according to the object ID in the output directory. |
+| `--program-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> program ID. |
+| `--study-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> study ID. |
+| `--validate` | If available, validate the file using the MD5 checksum. |
+| `--verify-connection` | First verify the connection to the object storage repository. |
 
 # Download Example
 
 Here is an example of downloading files using a previously-generated manifest file from Song.
 
-Switch to your home directory and from there, initiate a download by executing the Score client:
+Execute the following command from your home directory:
 
 ```shell
-$ ./score-client-<latest-release-number>/bin/score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>
+./score-client-<latest-release-number>/bin/score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>
 ```
-Where:
 
-* `<manifestDirectory>` is the location of the previously-generated manifest file
-* `<outputDirectory>` is the location where you want the files to be downloaded
+-  `<manifestDirectory>` represents the location of the earlier generated manifest file
+- `<outputDirectory>` specifies where you intend to download the files
 
-If successful, each file in the manifest will be 100% downloaded, and the Score client will indicate the download has completed.
+<Note title="What is a Manifest?">To understand more about key terms in Overture's data submission workflow, check this guide on <a href="/documentation/song/user/submit/" target="_blank">data submission using Song and Score.</a></Note>
+
+If successful the Score Client will indicate the upload has completed.

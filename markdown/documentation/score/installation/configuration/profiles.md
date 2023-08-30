@@ -1,105 +1,112 @@
 ---
-title: Run Profiles
+title: Spring Profiles
 ---
 
-Score uses [Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) as a feature to manage the running of a Score server in different environments or when integrating with different services.  For example, spring profiles allows different configuration settings to be applied depending on the type of object storage service being used.
+[Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html)are used to configure the Score Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
 
-During configuration, you will need to enable the active profiles in the `score-server-[version]/conf/application.properties` file.  The active profiles to use for a particular configuration can be specified using the `spring.profiles.active` property which should be added at the start of the properties file, for example:
+For Scores configuration, you will need to specify the active profiles within your enviroment variables file (`.env.score`). Descriptions of the profiles available to Score are provided here. Depending on the type of configuration, some profiles are required to run and some are optional.
 
-```shell
-spring.profiles.active="default,prod,secure,jwt"
-
-```
-Descriptions of the profiles available to Score are provided below.  Depending on the type of configuration, some profiles are required to run and some are optional.
+The profiles described on this page are summarized in the table below:
 
 | Profile | Requirement | Description |
 |---------|-------------|-------------|
-| default | Required if using [AWS](https://aws.amazon.com/s3/), [Ceph](https://ceph.io/), or [Minio](https://min.io/) storage | You must use the default profile to configure your object storage if using AWS, Ceph, or Minio. |
-| azure | Required if using [Azure](https://azure.microsoft.com/en-ca/services/storage/) storage | You must use the Azure profile to configure your object storage if using Microsoft Azure. |
-| prod | Required | Used for production deployments and to specify the Song metadata server that Score must interact with. |
-| secure | Required if using Ego | If the [Overture](https://overture.bio) product [Ego](/documentation/ego) is used as the authentication service for Score, this profile is required.  It enables authentication for requests to the Score API using API keys issued by Ego. |
-| jwt | Optional | Optionally, you can use this profile to support both JWT ([JSON Web Tokens](https://jwt.io/)) and API Key authentication for requests to Score. |             
+| [default](#default) | Required if using <a href="https://aws.amazon.com/s3/" target="_blank">AWS</a>, <a href="https://ceph.io/" target="_blank">Ceph</a>, or <a href="https://min.io/" target="_blank">Minio</a> storage | You must use the default profile to configure your object storage if using AWS, Ceph, or Minio. |
+| [azure](#azure) | Required if using <a href="https://azure.microsoft.com/en-ca/services/storage/" target="_blank">Azure</a> storage | You must use the Azure profile to configure your object storage if using Microsoft Azure. |
+| [prod](#prod) | Required | Used for production deployments and to specify the Song metadata server that Score must interact with. |
+| [secure](#secure) | Required if using Ego | If the <a href="https://overture.bio" target="_blank">Overture</a> product <a href="/documentation/ego" target="_blank">Ego</a> is used as the authentication service for Score, this profile is required.  It enables authentication for requests to the Score API using API keys issued by Ego. |
+| [jwt](#jwt) | Optional | Optionally, you can use this profile to support both JWT (<a href="https://jwt.io/" target="_blank">JSON Web Tokens</a>) and API Key authentication for requests to Score. |             
 
-# Default
+# Run Profiles
+## Default
 
-The `default` profile is required if using AWS, Ceph, or Minio as your object storage.  It contains configuration settings that are common to these service providers.  For detailed steps on configuring your object storage, see [Object Storage Integration](/documentation/score/installation/configuration/object-storage).
+The `default` profile is required if using AWS, Ceph, or Minio as your object storage.  It contains configuration settings that are common to these service providers. For detailed steps on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank">Object Storage Integration</a>.
 
-For example:
+```bash
+# Default profile configuration
+SPRING_PROFILES_ACTIVE=default
 
-```shell
-s3.endpoint="http://localhost:9000"
-s3.accessKey="abc123"
-s3.secretKey="abc123"
-s3.sigV4Enabled="true"
+S3_ENDPOINT="http://localhost:9000"
+S3_ACCESS_KEY="{{access_key}}"
+S3_SECRET_KEY="{{secret_key}}"
+S3_SIGV4_ENABLED="true"
 
-bucket.name.object="test_object_bucket"
-bucket.name.state="test_state_bucket"
-bucket.size.pool=0
-bucket.size.key=2
+BUCKET_NAME_OBJECT="{{object_bucket_name}}"
+BUCKET_NAME_STATE="{{state_bucket_name}}"
+BUCKET_SIZE_POOL=0
+BUCKET_SIZE_KEY=2
 
-upload.partsize=1048576
-upload.retry.limit=10
-upload.connection.timeout=60000
-upload.clean.cron="0 0 0 * * ?"
-upload.clean.enabled="true"
+UPLOAD_PARTSIZE=1048576
+UPLOAD_RETRY_LIMIT=10
+UPLOAD_CONNECTION_TIMEOUT=60000
+UPLOAD_CLEAN_CRON="0 0 0 * * ?"
+UPLOAD_CLEAN_ENABLED="true"
 
-object.sentinel="heliograph" # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
+OBJECT_SENTINEL="heliograph" # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
 ```
 
-# Azure
+## Azure
 
-The `azure` profile is required if using Microsoft Azure storage as your object storage.  It contains configuration settings specific for Azure.  For details on configuring your object storage, see [Object Storage Integration](/documentation/score/installation/configuration/object-storage).
+The `azure` profile is required if using Microsoft Azure storage as your object storage.  It contains configuration settings specific for Azure.  For details on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank">Object Storage Integration</a>.
 
-For example:
+```bash
+# Azure profile configuration
+SPRING_PROFILES_ACTIVE=azure
 
-```shell
-azure.endpointProtocol="https"
-azure.accountName="<storage_account_name>"
-azure.accountKey="<storage_account_secret_key>"
+AZURE_ENDPOINT_PROTOCOL="https"
+AZURE_ACCOUNT_NAME="{{storage_account_name}}"
+AZURE_ACCOUNT_KEY="{{storage_account_secret_key}}"
 
-bucket.name.object="<object_bucket>" # Name of the bucket or container that will store the object data
-bucket.policy.upload="<write_policy>" # Name of the access policy to use for write/add/modify operations
-bucket.policy.download="<read_policy>" # Name of the access policy for the read/list operations
+BUCKET_NAME_OBJECT="{{object_bucket}}" # Name of the bucket or container that will store the object data
+BUCKET_POLICY_UPLOAD="{{write_policy}}" # Name of the access policy to use for write/add/modify operations
+BUCKET_POLICY_DOWNLOAD="{{read_policy}}" # Name of the access policy for the read/list operations
 
-object.sentinel="heliograph" # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
+OBJECT_SENTINEL="heliograph" # Score requires a sample object/file to exist in the object storage for `ping` operations; default is `heliograph`
 ```
 
-# Prod
+## Prod
 
-The `prod` profile is used to enable production deployments and most importantly requires you to specify the Song metadata server that Score must interact with.  For details on integrating with the Song server, see [Song Server Integration](/documentation/score/installation/configuration/song).
+The `prod` profile is used to enable production deployments and most importantly requires you to specify the Song metadata server that Score must interact with.  For details on integrating with the Song server, see <a href="/documentation/score/installation/configuration/song" target="_blank">Song Server Integration</a>.
 
 For example:
 
-```shell
-metadata.url="http://localhost:8089/"
-metadata.ssl.enabled="false"
+```bash
+# Prod profile configuration
+SPRING_PROFILES_ACTIVE=prod
+
+METADATA_URL="{{metadata_url}}" ## ex. http://localhost:8089/
+METADATA_SSL_ENABLED="{{ssl_enabled}}" ## True or False
 ```
 
-# Secure 
+## Secure 
 
-The `secure` profile is required if the [Overture](https://overture.bio) product [Ego](/documentation/ego) is used as the authentication service for Score.  It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see [Authentication](documentation/score/installation/authentication).
+The `secure` profile is required if <a href="/documentation/ego" target="_blank">Ego</a> is used as the authentication service for Score. It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank">Authentication</a>.
 
 For example:
 
-```shell
-auth.server.url="https://localhost:8081/oauth/check_token"
-auth.server.tokenName="token"
-auth.server.clientId="score"
-auth.server.clientSecret="scoresecret"
-auth.server.scope.download.system="score.READ:"
-auth.server.scope.download.study.prefix="score."
-auth.server.scope.download.study.suffix=".READ"
-auth.server.scope.upload.system="score.WRITE"
-auth.server.scope.upload.study.prefix="score."
-auth.server.scope.upload.study.suffix=".WRITE"
+```bash
+# Secure profile configuration
+SPRING_PROFILES_ACTIVE=secure
+
+AUTH_SERVER_URL="{{auth_server_url}}"
+AUTH_SERVER_TOKEN_NAME="{{token_name}}"
+AUTH_SERVER_CLIENT_ID="{{client_id}}"
+AUTH_SERVER_CLIENT_SECRET="{{client_secret}}"
+AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM="{{download_system_scope}}"
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX="{{download_study_prefix}}"
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX="{{download_study_suffix}}"
+AUTH_SERVER_SCOPE_UPLOAD_SYSTEM="{{upload_system_scope}}"
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX="{{upload_study_prefix}}"
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX="{{upload_study_suffix}}"
 ```
+## JWT
 
-# JWT
-
-The `jwt` profile can be optionally used if you want to support both JWT and API Key authentication for requests to Score.  Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see [Authentication](documentation/score/installation/authentication).
+The `jwt` profile can be used if you want to support both JWT and API Key authentication for requests to Score. Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank">Authentication</a>.
 
 For example:
 
-```shell
-auth.jwt.publicKeyUrl="https://localhost:8443/oauth/token/public_key"
+```bash
+# Secure profile configuration
+SPRING_PROFILES_ACTIVE=jwt
+
+AUTH_JWT_PUBLIC_KEY_URL="{{public_key_url}}" # ex. https://localhost:8443/oauth/token/public_key
 ```

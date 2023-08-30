@@ -1,37 +1,43 @@
-sectionSlug: score
-sectionTitle: Score
-pages:
-- title: Introduction
-  url: score
-- title: Installation Guide
-  url: score/installation
-  isHeading: true
+- sectionSlug: score
+  sectionTitle: Score
   pages:
-  - title: Installation
-    url: score/installation/installation
-  - title: Configuration
-    url: score/installation/configuration
-    isHeading: true
-    pages:
-    - title: Run Profiles
-      url: score/installation/configuration/profiles
-    - title: Song Server Integration
-      url: score/installation/configuration/song
-    - title: Object Storage Integration
-      url: score/installation/configuration/object-storage
-    - title: Other Bootstrap Properties
-      url: score/installation/configuration/bootstrap
-  - title: Authentication
-    url: score/installation/authentication
-- title: User Guide
-  url: score/user-guide
-  isHeading: true
-  pages:
-  - title: Setting Up the Score Client
-    url: score/user-guide/client-setup
-  - title: Uploading Data
-    url: score/user-guide/upload
-  - title: Downloading Data
-    url: score/user-guide/download
-  - title: Command Reference
-    url: score/user-guide/commands
+    - title: Introduction
+      url: score
+    - title: Installation Guide
+      url: score/installation
+      isHeading: true
+      pages:
+        - title: Prerequisites
+          url: score/installation/prereq
+        - title: Installation
+          url: score/installation/installation
+        - title: Configuration
+          url: score/installation/configuration
+          isHeading: true
+          pages:
+            - title: Run Profiles
+              url: score/installation/configuration/profiles
+            - title: Song Server
+              url: score/installation/configuration/song
+            - title: Object Storage
+              url: score/installation/configuration/object-storage
+            - title: Authentication
+              url: score/installation/configuration/authentication
+            - title: Other Bootstrap Properties
+              url: score/installation/configuration/bootstrap
+    - title: User Guide
+      url: score/user-guide
+      isHeading: true
+      pages:
+        - title: Setting Up the Score Client
+          url: score/user-guide/client-setup
+        - title: Uploading Data
+          url: score/user-guide/upload
+        - title: Downloading Data
+          url: score/user-guide/download
+    - title: Reference
+      url: score/reference
+      isHeading: true
+      pages:
+        - title: Command Reference
+          url: score/reference/commands
