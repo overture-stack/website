@@ -12,18 +12,18 @@ export const SERVICES_PATH = '/services/';
 export const TERMS_PATH = '/terms-conditions/';
 export const HOME_PATH = '/';
 
-// export const productsAnchors = {
-//   access: internalUrlJoin([PRODUCTS_PATH, '#access-download']),
-//   analyze: internalUrlJoin([PRODUCTS_PATH, '#analyze-discover']),
-//   collaborate: internalUrlJoin([PRODUCTS_PATH, '#collaborate-share']),
-//   generate: internalUrlJoin([PRODUCTS_PATH, '#generate-upload']),
-//   track: internalUrlJoin([PRODUCTS_PATH, '#track-manage']),
-// };
-
 export const caseStudyAnchors = {
   icgcargo: internalUrlJoin([CASE_STUDIES_PATH, '#icgcargo']),
   virusseq: internalUrlJoin([CASE_STUDIES_PATH, '#virusseq']),
   kidsFirst: internalUrlJoin([CASE_STUDIES_PATH, '#kidsFirst']),
   ihcc: internalUrlJoin([CASE_STUDIES_PATH, '#ihcc']),
   humanCancerModels: internalUrlJoin([CASE_STUDIES_PATH, '#humanCancerModels']),
+};
+
+export const productsAnchors = {
+  song: internalUrlJoin([PRODUCTS_PATH, '#song']),
+  score: internalUrlJoin([PRODUCTS_PATH, '#score']),
+  maestro: internalUrlJoin([PRODUCTS_PATH, '#maestro']),
+  arranger: internalUrlJoin([PRODUCTS_PATH, '#arranger']),
+  ego: internalUrlJoin([PRODUCTS_PATH, '#ego']),
 };

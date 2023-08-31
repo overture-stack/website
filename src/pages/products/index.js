@@ -25,7 +25,8 @@ export default function ProductsPage() {
       </Helmet>
 
       {/* HERO */}
-      <div className="Hero grey">
+      {/* check src/styles/main.scss for the grey-bg class */}
+      <div className="Hero grey-bg">
         <div className="container">
           <section className="Hero__section">
             <H1>Our Products</H1>

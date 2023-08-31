@@ -2,10 +2,6 @@
 @import '../../styles/variables';
 
 .ProductsPage {
-  .grey {
-    background-color: $grey-2;
-  }
-
   .Hero {
     height: fit-content;
 
@@ -58,8 +54,11 @@
   .container {
     padding: 80px 32px;
 
-    @include breakpoint(tablet-up) {
-      padding: 4.5em 3.8em;
+    @include breakpoint(desktop-up) {
+      padding: 5.2em 3.8em;
+    }
+    @include breakpoint(desktop-wide) {
+      padding: 4.7em 3.8em;
     }
   }
 

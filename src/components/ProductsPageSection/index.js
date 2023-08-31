@@ -19,9 +19,19 @@ export default function ProductPageSection({
   yellowButtonText3,
   isGrey,
 }) {
+  // To line up the AnchorLink scroll, we need to place id={`${title.toLowerCase()}`} at the correct height of the section at different screen width.
+  // see the gatsby anchor link plugin for more detail. current offset value is -300 to line up with sections in the  CaseStudies page, which has a nav bar
+
+  let width = window.innerWidth;
+  const mobileViewPort = width <= 767;
+  const tabletViewPort = 767 < width && width <= 1023;
+  const desktopViewPort = 1023 < width && width <= 1215;
+  const desktopWideViewPort = 1215 < width && width <= 1407;
+  const desktopUltraWideViewPort = 1408 < width;
+
   return (
-    <section className={`ProductsSection ${isGrey && `grey`}`} id={`ProductPageSection_${title}`}>
-      <div className={`container `}>
+    <section className={`ProductsSection ${isGrey && `grey-bg`}`}>
+      <div className={`container`}>
         <div className="holder">
           {/* image/logo container */}
           <div className="image-holder">
@@ -31,7 +41,7 @@ export default function ProductPageSection({
           {/* container of text and button */}
           <div className="text-content-holder">
             {/* title text */}
-            <div className="title-holder">
+            <div className="title-holder" id={`${mobileViewPort && title.toLowerCase()}`}>
               <H2>{title}</H2>
             </div>
             {/* subtitle text */}
@@ -39,7 +49,16 @@ export default function ProductPageSection({
               <H3>{subtitle}</H3>
             </div>
             {/* description text */}
-            <div className="description-holder">
+            <div
+              className="description-holder"
+              id={`${
+                (desktopUltraWideViewPort ||
+                  desktopWideViewPort ||
+                  desktopViewPort ||
+                  tabletViewPort) &&
+                title.toLowerCase()
+              }`}
+            >
               <P1 className="description">{description}</P1>
             </div>
             {/* contianer of the two blue coloured buttons */}
