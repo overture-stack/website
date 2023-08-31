@@ -254,6 +254,7 @@
 
     &__logo {
       filter: brightness(1.1);
+      image-rendering: auto;
       &:hover {
         cursor: pointer;
         transform: scale(1.15);
@@ -298,6 +299,7 @@
     &__blue-container-image {
       display: none;
       height: auto;
+      image-rendering: auto;
 
       @include breakpoint(tablet-up) {
         display: block;
@@ -357,6 +359,9 @@
       @include breakpoint(tablet-up) {
         margin-right: 10px;
       }
+      @include breakpoint(desktop-up) {
+        margin-right: 40px;
+      }
     }
 
     &__blue-container-list {
@@ -370,7 +375,7 @@
         margin-top: 15px;
       }
       @include breakpoint(desktop-up) {
-        margin: 5px 0 0 3.2em;
+        margin: 5px 0 0 36px;
       }
     }
 
@@ -456,10 +461,11 @@
     }
 
     &__text {
-      line-height: 53px;
+      line-height: 36px;
       max-width: 300px;
       @include breakpoint(tablet-up) {
         max-width: 770px;
+        line-height: 54px;
       }
       @include breakpoint(desktop-up) {
         max-width: 1135px;

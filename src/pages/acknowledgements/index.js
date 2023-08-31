@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { H1, H2, H3, P1, P2, L1 } from 'components';
+import { H2, H3, P2, L1, Hero } from 'components';
 import './styles.scss';
 
 export default function AcknowledgementsPage() {
@@ -20,26 +20,18 @@ export default function AcknowledgementsPage() {
       </Helmet>
 
       {/* HERO */}
-      <div className="Hero grey">
-        <div className="container">
-          <section className="Hero__section">
-            <H1>Acknowledgements</H1>
-            <P1 className="Hero__subtitle">
-              We want to thank the following organizations for their funding and support, without
-              which Overture could not have been possible
-            </P1>
-          </section>
-        </div>
-      </div>
+      <Hero
+        title="Acknowledgements"
+        subtitle="We want to thank the following organizations for their funding and support, without
+              which Overture could not have been possible."
+      ></Hero>
 
       {/* Canarie  */}
       <section>
         <div className="container">
           {/* header */}
           <div className="header">
-            <div>
-              <H2>Canarie</H2>
-            </div>
+            <H2>Canarie</H2>
           </div>
 
           <div className="detail-holder">
@@ -76,16 +68,14 @@ export default function AcknowledgementsPage() {
       </section>
 
       {/* NCI ITCR */}
-      <section className="grey">
+      <section className="grey-bg">
         <div className="container">
           {/* header */}
           <div className="header">
-            <div>
-              <H2>
-                The National Cancer Institutes Informatics Technology for Cancer Research Program
-                (NCI ITCR)
-              </H2>
-            </div>
+            <H2>
+              The National Cancer Institutes Informatics Technology for Cancer Research Program (NCI
+              ITCR)
+            </H2>
           </div>
 
           <div className="detail-holder">

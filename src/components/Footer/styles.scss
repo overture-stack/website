@@ -23,9 +23,6 @@
     &__oicr-logo {
       width: 138px;
       height: auto;
-      @include breakpoint(tablet-up) {
-        // width: auto;
-      }
     }
 
     &__links-holder {
