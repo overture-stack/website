@@ -23,7 +23,7 @@ export default function ProductPageSection({
   // see the gatsby anchor link plugin for more detail. current offset value is -300 to line up with sections in the  CaseStudies page, which has a nav bar
 
   let isBrowser = typeof window !== 'undefined';
-  let width = window.innerWidth;
+  let width = isBrowser && window.innerWidth;
   const mobileViewPort = isBrowser && width <= 767;
   const tabletViewPort = isBrowser && 767 < width && width <= 1023;
   const desktopViewPort = isBrowser && 1023 < width && width <= 1215;
