@@ -2,7 +2,6 @@ import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
-// import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
   DOCUMENTATION_PATH,

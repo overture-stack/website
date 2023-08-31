@@ -22,12 +22,13 @@ export default function ProductPageSection({
   // To line up the AnchorLink scroll, we need to place id={`${title.toLowerCase()}`} at the correct height of the section at different screen width.
   // see the gatsby anchor link plugin for more detail. current offset value is -300 to line up with sections in the  CaseStudies page, which has a nav bar
 
+  let isBrowser = typeof window !== 'undefined';
   let width = window.innerWidth;
-  const mobileViewPort = width <= 767;
-  const tabletViewPort = 767 < width && width <= 1023;
-  const desktopViewPort = 1023 < width && width <= 1215;
-  const desktopWideViewPort = 1215 < width && width <= 1407;
-  const desktopUltraWideViewPort = 1408 < width;
+  const mobileViewPort = isBrowser && width <= 767;
+  const tabletViewPort = isBrowser && 767 < width && width <= 1023;
+  const desktopViewPort = isBrowser && 1023 < width && width <= 1215;
+  const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
+  const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
   return (
     <section className={`ProductsSection ${isGrey && `grey-bg`}`}>
