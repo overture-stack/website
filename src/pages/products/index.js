@@ -150,7 +150,7 @@ export default function ProductsPage() {
                       installation, configuration, and deployment of the Overture software.
                     </span>
                     <br />
-                    <br />
+
                     <br />
                     <span>
                       While a custom solution will offer greater scalability, the DMS is an ideal

@@ -63,10 +63,15 @@
   }
 
   .lower-blue-section {
+    margin-bottom: -83px;
     &__holder {
       display: flex;
       flex-direction: column;
       gap: 2em;
+    }
+
+    &__title-holder {
+      margin-bottom: 2.6em;
     }
 
     &__content-holder {
