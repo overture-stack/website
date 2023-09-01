@@ -22,58 +22,71 @@ export default function GettingStartedPage() {
 
       {/* upper grey section */}
 
-      <section className="upper-grey-section">
-        <div className="container upper-grey-section__holder grey">
-          <div className="upper-grey-section__titles-holder">
-            <H1>Explore Our Documentation</H1>
-            <P1 className="Hero__subtitle">
-              Overture is about flexible solutions that meet the diverse needs of the scientific
-              community. Here's how you can get started with our software.
-            </P1>
-          </div>
-          <div className="upper-grey-section__search-bar-holder">
-            <Search indices={searchIndices} />
-          </div>
+      <section className="upper-grey-section grey-bg">
+        <div className="container">
+          <div className="upper-grey-section__holder">
+            {/* top left floating hexagons */}
+            <div className="upper-grey-section__titles-holder">
+              <H1>Explore Our Documentation</H1>
+              <P1 className="upper-grey-section__subtitle">
+                Overture is about flexible solutions that meet the diverse needs of the scientific
+                community. Here's how you can get started with our software.
+              </P1>
+            </div>
+            <div className="upper-grey-section__search-bar-holder">
+              <Search indices={searchIndices} />
+            </div>
 
-          {/* User Documentation Section */}
-          <div className="upper-grey-section__doc-holder">
-            <div className="upper-grey-section__doc-title">
-              <H3>User Documentation</H3>
-            </div>
-            <div className="upper-grey-section__doc-columns-holder">
-              {/* User Documentation bullets left */}
-              <ul className="upper-grey-section__doc-column">
-                <li className="upper-grey-section__bullets-item">DMS</li>
-                <li className="upper-grey-section__bullets-item">Song</li>
-                <li className="upper-grey-section__bullets-item">Score</li>
-              </ul>
-              {/* User Documentation bullets right */}
-              <ul className="upper-grey-section__doc-column">
-                <li className="upper-grey-section__bullets-item">DMS</li>
-                <li className="upper-grey-section__bullets-item">Song</li>
-                <li className="upper-grey-section__bullets-item">Score</li>
-              </ul>
-            </div>
-          </div>
+            {/* User Documentation Section */}
+            <div className="upper-grey-section__docs-holder">
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>User Documentation</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* User Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">DMS</li>
+                      <li className="upper-grey-section__bullets-item">Song</li>
+                      <li className="upper-grey-section__bullets-item">Score</li>
+                    </ul>
+                  </div>
+                  {/* User Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">DMS</li>
+                      <li className="upper-grey-section__bullets-item">Song</li>
+                      <li className="upper-grey-section__bullets-item">Score</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-          {/* Developer Documentation Section */}
-          <div className="upper-grey-section__doc-holder">
-            <div className="upper-grey-section__doc-title">
-              <H3>Developer Documentation</H3>
-            </div>
-            <div className="upper-grey-section__doc-columns-holder">
-              {/* Developer Documentation bullets left */}
-              <ul className="upper-grey-section__doc-column">
-                <li className="upper-grey-section__bullets-item">Overture Stack</li>
-                <li className="upper-grey-section__bullets-item">Song</li>
-                <li className="upper-grey-section__bullets-item">Score</li>
-              </ul>
-              {/* Developer Documentation bullets right */}
-              <ul className="upper-grey-section__doc-column">
-                <li className="upper-grey-section__bullets-item">Overture Stack</li>
-                <li className="upper-grey-section__bullets-item">Song</li>
-                <li className="upper-grey-section__bullets-item">Score</li>
-              </ul>
+              {/* Developer Documentation Section */}
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>Developer Documentation</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* Developer Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">Overture Stack</li>
+                      <li className="upper-grey-section__bullets-item">Song</li>
+                      <li className="upper-grey-section__bullets-item">Score</li>
+                    </ul>
+                  </div>
+                  {/* Developer Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">Overture Stack</li>
+                      <li className="upper-grey-section__bullets-item">Song</li>
+                      <li className="upper-grey-section__bullets-item">Score</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

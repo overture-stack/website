@@ -2,64 +2,127 @@
 @import '../../styles/variables';
 
 .GettingStartedPage {
-  .grey {
-    background-color: $grey-2;
-  }
-
   .container {
     padding: 50px 32px;
   }
 
   .upper-grey-section {
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hexagon_top_left.svg'),
+        url('./assets/img_hexagon_top_right.svg'), url('./assets/img_hexagon_bottom_left.svg');
+      background-repeat: no-repeat;
+      background-position-x: -45px, 130%, -130px;
+      background-position-y: -50px, 180px, 500px;
+      background-size: 280px, 380px, 400px;
+    }
+
+    @include breakpoint(desktop-up) {
+      max-width: auto;
+      background-position-x: -45px, 127%, -165px;
+      background-position-y: -125px, -170px, 230px;
+      background-size: 350px, 500px, 550px;
+    }
     &__holder {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 2em;
     }
+
     &__titles-holder {
       display: flex;
       flex-direction: column;
       gap: 2em;
       text-align: center;
       max-width: 330px;
+
+      @include breakpoint(tablet-up) {
+        margin-top: 2em;
+        max-width: 680px;
+      }
+
+      @include breakpoint(desktop-up) {
+        max-width: 840px;
+      }
     }
 
     &__search-bar-holder {
       display: flex;
       justify-content: center;
-      width: 80%;
+      width: 350px;
       margin-bottom: 0.5em;
+
+      @include breakpoint(tablet-up) {
+        width: 640px;
+      }
+
+      @include breakpoint(desktop-up) {
+        width: 760px;
+      }
+    }
+
+    &__docs-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+
+      @include breakpoint(tablet-up) {
+        margin-bottom: 2em;
+      }
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        gap: 3.5em;
+        // margin-bottom: 2em;
+      }
     }
 
     &__doc-holder {
       display: flex;
       flex-direction: column;
-      // justify-content: center;
       align-items: center;
+      width: 350px;
     }
 
     &__doc-title {
-      margin-bottom: 1.2em;
-    }
-
-    ul {
-      list-style-type: disc;
-      text-decoration: underline;
-      display: flex;
-      flex-direction: column;
+      margin-bottom: 1.4em;
     }
 
     &__doc-columns-holder {
       display: flex;
       flex-direction: row;
-      gap: 6em;
+      justify-content: center;
+      gap: 9em;
+      margin-right: 2.6em;
+
+      @include breakpoint(tablet-up) {
+        gap: 7em;
+        margin-right: 0;
+        margin-left: 4em;
+      }
     }
 
     &__doc-column {
+      list-style-type: disc;
+      text-decoration: underline;
       display: flex;
       flex-direction: column;
       gap: 1em;
     }
+
+    &__bullets-item {
+      width: 20px;
+
+      @include breakpoint(tablet-up) {
+        width: 110px;
+      }
+    }
   }
+
+  // .hexagon {
+  //   &__top-left {
+  //     position: relative;
+  //     z-index: -1;
+  //     right: 10px;
+  //   }
+  // }
 }
