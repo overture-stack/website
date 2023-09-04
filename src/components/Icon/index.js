@@ -35,6 +35,7 @@ import githubGrey from './icons/github_grey.svg';
 import githubMagenta from './icons/github_magenta.svg';
 import githubWhite from './icons/github_white.svg';
 import githubYellow from './icons/github_yellow.svg';
+import githubFindUs from './icons/github-find-us.svg';
 import graphCycle from './icons/graph_cycle.svg';
 import gridGlass from './icons/grid_magnifying_glass.svg';
 import history from './icons/history.svg';
@@ -140,6 +141,7 @@ const icons = {
   githubMagenta,
   githubWhite,
   githubYellow,
+  githubFindUs,
   graphCycle,
   gridGlass,
   history,
