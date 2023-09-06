@@ -31,10 +31,6 @@ export default function GettingStartedPage() {
             {/* top left floating hexagons */}
             <div className="upper-grey-section__titles-holder">
               <H1>Explore Our Documentation</H1>
-              <P1 className="upper-grey-section__subtitle">
-                Overture is about flexible solutions that meet the diverse needs of the scientific
-                community. Here's how you can get started with our software.
-              </P1>
             </div>
             <div className="upper-grey-section__search-bar-holder">
               <Search indices={searchIndices} />
@@ -50,7 +46,7 @@ export default function GettingStartedPage() {
                   {/* User Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">DMS</li>
+                      <li className="upper-grey-section__bullets-item">Ego</li>
                       <li className="upper-grey-section__bullets-item">Song</li>
                       <li className="upper-grey-section__bullets-item">Score</li>
                     </ul>
@@ -58,9 +54,9 @@ export default function GettingStartedPage() {
                   {/* User Documentation bullets right */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">DMS</li>
-                      <li className="upper-grey-section__bullets-item">Song</li>
-                      <li className="upper-grey-section__bullets-item">Score</li>
+                      <li className="upper-grey-section__bullets-item">Maestro</li>
+                      <li className="upper-grey-section__bullets-item">Arranger</li>
+                      <li className="upper-grey-section__bullets-item">DMS-UI</li>
                     </ul>
                   </div>
                 </div>
@@ -75,7 +71,7 @@ export default function GettingStartedPage() {
                   {/* Developer Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Overture Stack</li>
+                      <li className="upper-grey-section__bullets-item">Ego</li>
                       <li className="upper-grey-section__bullets-item">Song</li>
                       <li className="upper-grey-section__bullets-item">Score</li>
                     </ul>
@@ -83,9 +79,9 @@ export default function GettingStartedPage() {
                   {/* Developer Documentation bullets right */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Overture Stack</li>
-                      <li className="upper-grey-section__bullets-item">Song</li>
-                      <li className="upper-grey-section__bullets-item">Score</li>
+                      <li className="upper-grey-section__bullets-item">Maestro</li>
+                      <li className="upper-grey-section__bullets-item">Arranger</li>
+                      <li className="upper-grey-section__bullets-item">DMS-UI</li>
                     </ul>
                   </div>
                 </div>
@@ -195,7 +191,7 @@ export default function GettingStartedPage() {
         <div className="lower-blue-section__text-holder">
           <H3 className="lower-blue-section__text">
             Do you have a suggestion? Are we missing anything?
-            <LinkHelper to={GITHUB_ISSUES_LINK}>Let Us Know</LinkHelper>
+            <LinkHelper to={GITHUB_ISSUES_LINK}>Let us know</LinkHelper>
           </H3>
         </div>
       </section>

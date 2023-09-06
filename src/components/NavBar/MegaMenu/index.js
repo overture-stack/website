@@ -47,7 +47,7 @@ const data = {
             text: 'Ego',
           },
           {
-            to: 'documentation/dms',
+            to: 'documentation/dms-ui',
             text: 'DMS-UI',
           },
         ],
