@@ -58,4 +58,8 @@
       text-align: center;
     }
   }
+
+  &__disable-hover-event {
+    pointer-events: none;
+  }
 }
