@@ -69,9 +69,12 @@ export default function ProductsPage() {
         yellowButtonIcon1="productHighTransfer"
         yellowButtonIcon2="productSamtools"
         yellowButtonIcon3="productCloudSupport"
-        yellowButtonTitle1="High-performance transfers with multipart uploads and downloads"
-        yellowButtonTitle2="Built-in Samtools functionality, including BAM and CRAM file slicing"
-        yellowButtonTitle3="Support for AWS S3, Azure Storage, Google Cloud and more"
+        yellowButtonTitle1="Multi-Platform Support"
+        yellowButtonTitle2="Built-in SamTools"
+        yellowButtonTitle3="Robust File Transfers"
+        yellowButtonText1="Support for AWS S3, Azure Storage, Google Cloud and more"
+        yellowButtonText2="Including BAM and CRAM file slicing"
+        yellowButtonText3="Resumable multipart uploads and downloads"
         isGrey={true}
       />
 
@@ -85,7 +88,7 @@ export default function ProductsPage() {
         yellowButtonIcon1="productMultipleSongsIndex"
         yellowButtonIcon2="productMultipleIndexLevels"
         yellowButtonIcon3="productSlackIntegration"
-        yellowButtonTitle1="Multiple “Songs” Index"
+        yellowButtonTitle1="Multi “Song” Indexing"
         yellowButtonTitle2="Multiple Indexing Levels"
         yellowButtonTitle3="Slack Integration"
         yellowButtonText1="Connect to one or multiple Song servers and produce a single Elasticsearch index"
@@ -103,12 +106,12 @@ export default function ProductsPage() {
         yellowButtonIcon1="productSearchAPI"
         yellowButtonIcon2="productBuiltInUIComponents"
         yellowButtonIcon3="productAdministrativeUI"
-        yellowButtonTitle1="Search API"
+        yellowButtonTitle1="Search API Generation"
         yellowButtonTitle2="Built-In UI Components"
-        yellowButtonTitle3="Administrative UI"
-        yellowButtonText1="A GraphQL API layered aboce an Elasticsearch Index "
-        yellowButtonText2="Configured to speak to the search API"
-        yellowButtonText3="Enabling the customization of the search API and UI components"
+        yellowButtonTitle3="Highly Configurable"
+        yellowButtonText1="Generate a GraphQL API from any Elasticsearch Index"
+        yellowButtonText2="Prop up a front end web portal for users to filter and query your data"
+        yellowButtonText3="Helping you create a customized discovery portal"
         isGrey={true}
       />
 
