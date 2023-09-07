@@ -4,7 +4,7 @@ import './styles.scss';
 
 export default function YellowButton({ link, title, img_src, alt, text, isProductPage }) {
   return (
-    <div className="yellow-button">
+    <div className={`yellow-button ${!link && `yellow-button__disable-hover-event`}`}>
       <Link
         className={`yellow-button__link ${isProductPage && 'yellow-button__product-page-link'}`}
         to={link}
