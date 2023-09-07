@@ -7,7 +7,6 @@ export default function ProductPageSection({
   title,
   subtitle,
   description,
-  links,
   yellowButtonIcon1,
   yellowButtonIcon2,
   yellowButtonIcon3,

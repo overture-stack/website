@@ -46,7 +46,6 @@ export default function ProductsPage() {
         title="Song"
         subtitle="Metadata Submission, Tracking & Validation"
         description="Song governs the submission, validation and tracking of genomic metadata across multiple cloud storage systems. With minimal human intervention, multiple contributors can create structured metadata repositories full of accessible, interoperable, and reusable data."
-        links={null}
         yellowButtonIcon1="productMetadataValidation"
         yellowButtonIcon2="productMetadataTracking"
         yellowButtonIcon3="productStateControls"
@@ -65,7 +64,6 @@ export default function ProductsPage() {
         title="Score"
         subtitle="File transfer and Object Storage"
         description="Score simplifies data transfer and storage to and from the cloud. File bundling and resumable download features make it easy to transfer large data sets, while BAM and CRAM slicing enables users to segment large genomic files into manageable portions."
-        links={null}
         yellowButtonIcon1="productHighTransfer"
         yellowButtonIcon2="productSamtools"
         yellowButtonIcon3="productCloudSupport"
@@ -84,7 +82,6 @@ export default function ProductsPage() {
         title="Maestro"
         subtitle="Indexing of Distributed Data"
         description="Unifies genomic metadata dispersed across numerous Song repositories into a single, searchable Elasticsearch index."
-        links={null}
         yellowButtonIcon1="productMultipleSongsIndex"
         yellowButtonIcon2="productMultipleIndexLevels"
         yellowButtonIcon3="productSlackIntegration"
@@ -121,7 +118,6 @@ export default function ProductsPage() {
         title="Ego"
         subtitle="Authorization and User Management"
         description="Ego safeguards data with a secure protocol for authenticating users and authorizing the information and applications those users can access. Ego provides a secure permission management system and an administrative UI, making administrative tasks accessible to all collaborators."
-        links={null}
         yellowButtonIcon1="productSingleSignOn"
         yellowButtonIcon2="productStateless"
         yellowButtonIcon3="productScalable"
