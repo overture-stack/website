@@ -30,6 +30,9 @@ export default function ProductPageSection({
   const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
   const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
+  const userDocsLink = `/documentation/${title.toLowerCase()}`;
+  const gitHubLink = `https://github.com/overture-stack/${title}/wiki`;
+
   return (
     <section className={`ProductsSection ${isGrey && `grey-bg`}`}>
       <div className={`container`}>
@@ -64,10 +67,10 @@ export default function ProductPageSection({
             </div>
             {/* contianer of the two blue coloured buttons */}
             <div className="buttons-holder">
-              <Button type="primary" size="medium">
+              <Button link={gitHubLink} type="primary" size="medium">
                 GitHub
               </Button>
-              <Button type="primary" size="medium">
+              <Button link={userDocsLink} type="primary" size="medium">
                 User Docs
               </Button>
             </div>
