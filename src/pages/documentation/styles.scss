@@ -105,7 +105,6 @@
 
     &__doc-column {
       list-style-type: disc;
-      text-decoration: underline;
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -113,6 +112,9 @@
 
     &__bullets-item {
       width: 20px;
+      a {
+        color: $navy-black;
+      }
 
       @include breakpoint(tablet-up) {
         width: 110px;

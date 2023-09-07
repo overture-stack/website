@@ -114,7 +114,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
           <div className="documentation-link">
             <Link to={explore.link.to} onClick={() => closeMenus()}>
               {explore.link.text}
-              {/* <Icon size={12} img="arrowRightMagenta" /> */}
+              <Icon size={12} img="arrowRightMagenta" className="red-arrow" />
             </Link>
           </div>
         </section>

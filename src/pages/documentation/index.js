@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper } from 'components';
+import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link } from 'components';
 import imgScreenshotDMS from './assets/img_DMS_screenshot.png';
 import { OVERTURE_GITHUB_LINK, GITHUB_ISSUES_LINK, SLACK_LINK } from 'constants/external-links';
 import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
@@ -46,17 +46,31 @@ export default function GettingStartedPage() {
                   {/* User Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Ego</li>
-                      <li className="upper-grey-section__bullets-item">Song</li>
-                      <li className="upper-grey-section__bullets-item">Score</li>
+                      <li className="upper-grey-section__bullets-item menu-selection-link">
+                        <Link className="menu-selection-link" to="/documentation/ego">
+                          Ego
+                        </Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/song">Song</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/score">Score</Link>
+                      </li>
                     </ul>
                   </div>
                   {/* User Documentation bullets right */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Maestro</li>
-                      <li className="upper-grey-section__bullets-item">Arranger</li>
-                      <li className="upper-grey-section__bullets-item">DMS-UI</li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/maestro">Maestro</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/arranger">Arranger</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/dms-ui">DMS-UI</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -71,17 +85,29 @@ export default function GettingStartedPage() {
                   {/* Developer Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Ego</li>
-                      <li className="upper-grey-section__bullets-item">Song</li>
-                      <li className="upper-grey-section__bullets-item">Score</li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/EGO/wiki">Ego</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/SONG/wiki">Song</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/SCORE/wiki">Score</Link>
+                      </li>
                     </ul>
                   </div>
                   {/* Developer Documentation bullets right */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">Maestro</li>
-                      <li className="upper-grey-section__bullets-item">Arranger</li>
-                      <li className="upper-grey-section__bullets-item">DMS-UI</li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/MAESTRO/wiki">Maestro</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/ARRANGER/wiki">Arranger</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="https://github.com/overture-stack/DMS-UI/wiki">DMS-UI</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -191,7 +217,7 @@ export default function GettingStartedPage() {
         <div className="lower-blue-section__text-holder">
           <H3 className="lower-blue-section__text">
             Do you have a suggestion? Are we missing anything?
-            <LinkHelper to={GITHUB_ISSUES_LINK}>Let us know</LinkHelper>
+            <Link to={GITHUB_ISSUES_LINK}>Let us know</Link>
           </H3>
         </div>
       </section>
