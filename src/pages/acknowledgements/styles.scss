@@ -60,6 +60,24 @@
       flex-direction: column;
       justify-content: center;
     }
+
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
+        max-width: 440px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 570px;
+      }
+    }
+  }
+
+  .container {
+    padding: 80px 32px;
+
+    @include breakpoint(tablet-up) {
+      padding: 4.5em 3.8em;
+    }
   }
 
   .header {

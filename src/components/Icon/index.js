@@ -50,30 +50,45 @@ import pageWhite from './icons/page_white.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
 import power from './icons/power.svg';
+import productAdministrativeUI from './icons/productAdministrativeUI.svg';
 import productArranger from './icons/productArranger.svg';
 import productArrangerWhite from './icons/productArrangerWhite.svg';
 import productBilling from './icons/productBilling.svg';
 import productBillingWhite from './icons/productBillingWhite.svg';
+import productBuiltInUIComponents from './icons/productBuiltInUIComponents.svg';
+import productCloudSupport from './icons/productCloudSupport.svg';
 import productDMS from './icons/productDMS.svg';
 import productDMSWhite from './icons/productDMSWhite.svg';
 import productEgo from './icons/productEgo.svg';
 import productEgoWhite from './icons/productEgoWhite.svg';
 import productEnrolment from './icons/productEnrolment.svg';
 import productEnrolmentWhite from './icons/productEnrolmentWhite.svg';
+import productHighTransfer from './icons/productHighTransfer.svg';
 import productJukebox from './icons/productJukebox.svg';
 import productJukeboxWhite from './icons/productJukeboxWhite.svg';
 import productMaestro from './icons/productMaestro.svg';
 import productMaestroWhite from './icons/productMaestroWhite.svg';
+import productMetadataTracking from './icons/productMetadataTracking.svg';
+import productMetadataValidation from './icons/productMetadataValidation.svg';
+import productMultipleIndexLevels from './icons/productMultipleIndexLevels.svg';
+import productMultipleSongsIndex from './icons/productMultipleSongsIndex.svg';
 import productOnco from './icons/productOnco.svg';
 import productOncoWhite from './icons/productOncoWhite.svg';
 import productPersona from './icons/productPersona.svg';
 import productPersonaWhite from './icons/productPersonaWhite.svg';
 import productRiff from './icons/productRiff.svg';
 import productRiffWhite from './icons/productRiffWhite.svg';
+import productSamtools from './icons/productSamtools.svg';
+import productScalable from './icons/productScalable.svg';
 import productScore from './icons/productScore.svg';
 import productScoreWhite from './icons/productScoreWhite.svg';
+import productSearchAPI from './icons/productSearchAPI.svg';
+import productSingleSignOn from './icons/productSingleSignOn.svg';
+import productSlackIntegration from './icons/productSlackIntegration.svg';
 import productSong from './icons/productSong.svg';
 import productSongWhite from './icons/productSongWhite.svg';
+import productStateControls from './icons/productStateControls.svg';
+import productStateless from './icons/productStateless.svg';
 import rocketWhite from './icons/rocket_white.svg';
 import search from './icons/search.svg';
 import searchBar from './icons/searchBar.svg';
@@ -140,32 +155,45 @@ const icons = {
   palette,
   play,
   power,
+  productAdministrativeUI,
   productArranger,
   productArrangerWhite,
   productBilling,
   productBillingWhite,
+  productBuiltInUIComponents,
+  productCloudSupport,
   productDMS,
   productDMSWhite,
   productEgo,
   productEgoWhite,
   productEnrolment,
   productEnrolmentWhite,
+  productHighTransfer,
   productJukebox,
   productJukeboxWhite,
   productMaestro,
-  productMaestro,
   productMaestroWhite,
-  productMaestroWhite,
+  productMetadataTracking,
+  productMetadataValidation,
+  productMultipleIndexLevels,
+  productMultipleSongsIndex,
   productOnco,
   productOncoWhite,
   productPersona,
   productPersonaWhite,
   productRiff,
   productRiffWhite,
+  productSamtools,
+  productScalable,
   productScore,
   productScoreWhite,
+  productSearchAPI,
+  productSingleSignOn,
+  productSlackIntegration,
   productSong,
   productSongWhite,
+  productStateControls,
+  productStateless,
   rocketWhite,
   search,
   searchBar,
