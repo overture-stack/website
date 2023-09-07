@@ -49,10 +49,12 @@
 
     @include breakpoint(desktop-up) {
       max-width: 620px;
+      gap: 2.6em;
     }
 
     @include breakpoint(desktop-wide) {
       max-width: 690px;
+      gap: 2.5em;
     }
 
     .title-holder {

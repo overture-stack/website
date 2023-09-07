@@ -2,12 +2,12 @@ import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
-import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
   DOCUMENTATION_PATH,
   PRODUCTS_PATH,
   caseStudyAnchors,
+  productsAnchors,
 } from 'constants/pages';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
 import caseData from 'data/case_studies';
@@ -86,31 +86,31 @@ export default function HomePage() {
                 icon={'productSong'}
                 title={'Song'}
                 text={'Manages metadata submission, validation and tracking.'}
-                link={productsDict.song.productsPath}
+                link={productsAnchors.song}
               />
               <HomeProductLink
                 icon={'productScore'}
                 title={'Score'}
                 text={'Transfers file data to and from the cloud.'}
-                link={productsDict.score.productsPath}
+                link={productsAnchors.score}
               />
               <HomeProductLink
                 icon={'productMaestro'}
                 title={'Maestro'}
                 text={'Organizes dispersed metadata into one index.'}
-                link={productsDict.maestro.productsPath}
+                link={productsAnchors.maestro}
               />
               <HomeProductLink
                 icon={'productArranger'}
                 title={'Arranger'}
                 text={'Arranges indexed metadata into configurable search portals.'}
-                link={productsDict.arranger.productsPath}
+                link={productsAnchors.arranger}
               />
               <HomeProductLink
                 icon={'productEgo'}
                 title={'Ego'}
                 text={'A stateless authorization and user management service.'}
-                link={productsDict.ego.productsPath}
+                link={productsAnchors.ego}
               />
             </div>
           </div>
