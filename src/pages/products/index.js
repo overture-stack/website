@@ -88,7 +88,7 @@ export default function ProductsPage() {
         yellowButtonIcon1="productMultipleSongsIndex"
         yellowButtonIcon2="productMultipleIndexLevels"
         yellowButtonIcon3="productSlackIntegration"
-        yellowButtonTitle1="Multi “Song” Indexing"
+        yellowButtonTitle1={`Multi "Song" Indexing`}
         yellowButtonTitle2="Multiple Indexing Levels"
         yellowButtonTitle3="Slack Integration"
         yellowButtonText1="Connect to one or multiple Song servers and produce a single Elasticsearch index"
