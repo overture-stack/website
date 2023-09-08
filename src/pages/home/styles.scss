@@ -107,9 +107,7 @@
     &__image {
       width: 400px;
       max-width: 80%;
-      padding-top: 55px;
-      padding-bottom: 55px;
-      margin: 0 auto 20px;
+      margin: 55px auto;
       display: block;
 
       @include breakpoint(tablet-up) {
