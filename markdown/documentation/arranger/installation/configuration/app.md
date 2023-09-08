@@ -10,4 +10,4 @@ Arrangers browser-side package, Arranger Components, is what provides the pre-co
 As mentioned earlier, we also provide a pre-built React UI called DMS-UI, which facilitates the integration of Ego and Arranger in a web browser. You can find more information in our [DMS-UI documentation](https://overture.bio/documentation/dms-ui).
 </Note>
 
-If you want to see Arranger components implemented within a live enviorment checkout out <a href="https://virusseq-dataportal.ca/explorer" target="_blank" rel="noopener noreferrer">the CanCOGen VirusSeq Data Portal</a>. 
+If you want to see Arranger components implemented within a live enviorment checkout out the <a href="https://virusseq-dataportal.ca/explorer" target="_blank" rel="noopener noreferrer">VirusSeq Data Portal</a>. 
