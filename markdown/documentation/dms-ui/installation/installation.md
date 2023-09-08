@@ -4,7 +4,6 @@ title: Installation
 
 To install the DMS-UI follow these steps.
 
-
 1. Clone the repository to your machine
 
 ```bash

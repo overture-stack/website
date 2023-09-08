@@ -51,7 +51,7 @@ All filters applied in the facetted search panel get displayed in the SQON viewe
 
 ![Entity](../assets/sqon_query.jpg 'Sqon Viewer')
 
-The selection of filters above is recorded in SQON as follows. Note all date values are [Unix timestamps](https://www.unixtimestamp.com/).
+The selection of filters above is recorded in SQON as follows. Note all date values are <a href="https://www.unixtimestamp.com/" target="_blank" rel="noopener noreferrer">Unix timestamps</a>.
 
 ```SQON
   {
