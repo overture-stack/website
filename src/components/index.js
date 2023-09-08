@@ -28,6 +28,7 @@ export { default as ProductPageSection } from './ProductsPageSection';
 export { default as ProgressBar } from './ProgressBar';
 export { default as Search } from './Search';
 export { default as SectionTableOfContents } from './SectionTableOfContents';
+export { default as ServicesPageSection } from './ServicesPageSection';
 export { Terminal, UrlBar, TrafficLights } from './Terminal';
 export { H1, H2, H3, P1, P2, P3, L1 } from './Typography';
 export { default as WarningBox } from './WarningBox';

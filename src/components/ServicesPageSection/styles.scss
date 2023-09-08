@@ -1,0 +1,43 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.ServicesPageSection {
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 2em;
+  }
+
+  &__no-list {
+    display: none;
+  }
+
+  &__holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+    }
+  }
+
+  &__flexbox-order {
+    @include breakpoint(tablet-up) {
+      order: 1;
+    }
+  }
+
+  &__text-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 2em;
+    max-width: 570px;
+
+    @include breakpoint(tablet-up) {
+      max-width: 50%;
+    }
+  }
+}
