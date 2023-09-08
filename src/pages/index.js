@@ -229,7 +229,7 @@ export default function HomePage() {
           About Us
         </Button>
 
-        <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
+        {/* <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" /> */}
       </section>
 
       {/* upper white Product section */}
@@ -311,30 +311,15 @@ export default function HomePage() {
             />
             <span className="upper-grey__text">documented</span>
             <span className="upper-grey__text">actively</span>
-            <Icon
-              alt="support Icon"
-              img="support"
-              size="60px"
-              className="upper-grey__icon"
-            />
+            <Icon alt="support Icon" img="support" size="60px" className="upper-grey__icon" />
             <span className="upper-grey__text">supported,</span>
             <span className="upper-grey__text">and</span>
-            <Icon
-              alt="feedback Icon"
-              img="feedback"
-              size="60px"
-              className="upper-grey__icon"
-            />
+            <Icon alt="feedback Icon" img="feedback" size="60px" className="upper-grey__icon" />
             <span className="upper-grey__text">welcome</span>
             <span className="upper-grey__text">external feedback</span>
             <span className="upper-grey__text">and contributions.</span>
             <span className="upper-grey__text">If you need</span>
-            <Icon
-              alt="assistance Icon"
-              img="assistance"
-              size="60px"
-              className="upper-grey__icon"
-            />
+            <Icon alt="assistance Icon" img="assistance" size="60px" className="upper-grey__icon" />
             <span className="upper-grey__text">assistance,</span>
             <span className="upper-grey__text">we also offer</span>
             <span className="upper-grey__text">consulting, support,</span>
@@ -361,7 +346,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
+      {/* <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" /> */}
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
@@ -390,9 +375,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
+      {/* <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" /> */}
 
-      <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
+      {/* <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" /> */}
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
@@ -411,9 +396,9 @@ export default function HomePage() {
       </section>
 
       {/* floating bright teal cube */}
-      <div className="bg-grey">
+      {/* <div className="bg-grey">
         <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
-      </div>
+      </div> */}
     </main>
   );
 }

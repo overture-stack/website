@@ -4,14 +4,18 @@
 .HomePage {
   .Hero {
     background-color: $blue-top;
-    margin: 0 auto;
 
     @include breakpoint(tablet-up) {
       background-image: url('./assets/home_hero_img.svg');
       background-repeat: no-repeat;
-      background-position: right;
+      background-position-x: 96%;
+      background-size: 420px;
       height: fit-content;
-      padding: 2rem 0;
+      min-height: 440px;
+      padding: 3.8em 0;
+    }
+    @include breakpoint(desktop-up) {
+      background-size: 480px;
     }
     @include breakpoint(desktop-wide) {
       background-position-x: 90%;
@@ -29,7 +33,7 @@
 
       @include breakpoint(tablet-up) {
         align-items: start;
-        max-width: 50%;
+        max-width: 63%;
         text-align: left;
         padding-left: 25px;
       }
@@ -41,7 +45,6 @@
 
       @include breakpoint(desktop-wide) {
         max-width: none;
-        background-position: center;
       }
     }
 
@@ -58,6 +61,13 @@
       font-weight: 700;
       @include breakpoint(tablet-up) {
         margin-top: 5px;
+      }
+    }
+
+    .container {
+      @include breakpoint(tablet-up) {
+        display: flex;
+        align-items: center;
       }
     }
   }
@@ -234,17 +244,17 @@
     display: none;
 
     @include breakpoint(tablet-up) {
-        display: block;
-        position: relative; 
-        left: 1000px; 
-        bottom: 30px;
-        margin-bottom: -200px;
+      display: block;
+      position: relative;
+      left: 1000px;
+      bottom: 30px;
+      margin-bottom: -200px;
     }
 
     @include breakpoint(desktop-up) {
-        left: 600px;
+      left: 600px;
     }
-}
+  }
 
   .lower-white {
     &__title-container {
