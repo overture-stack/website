@@ -4,26 +4,29 @@
  **/
 
 import React from 'react';
-import { H1, H2 } from 'components';
+import { H1, P1 } from 'components';
 import './styles.scss';
 import img_services from './assets/img_services.svg';
+import img_acknowledgements from './assets/img_acknowledgements.svg';
+import img_contact_us from './assets/img_contact_us_new.svg';
+import img_case_studies from './assets/img_case-studies(2).svg';
 
-// some images
-const imgs = { img_services };
+// add svg to this object and use the bgImage prop to use the image in the Hero
+const imgs = { img_services, img_acknowledgements, img_contact_us, img_case_studies };
 
 const Hero = ({
   title,
   titleClass,
   subtitle,
   children,
-  bgImage,
+  bgImage, // this prop will auto-adjust the image inside the Hero
   bgImageStyles = {},
-  ImgComponent,
+  ImgComponent, // this prop will not auto-adjust
   className,
 }) => {
   // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
   let wrapperClass = ` Hero ${className && className} ${bgImage && 'bg-image'}`;
-  let _titleClass = `titles column is-half-desktop ${titleClass && titleClass}`;
+  let _titleClass = `titles column  is-half-desktop ${titleClass && titleClass}`;
 
   // Add background image + styles if hero needs one.
   let bgImageURL = {
@@ -34,10 +37,10 @@ const Hero = ({
   return (
     <div className={wrapperClass} style={bgImageURL}>
       {/* Hero Text */}
-      <div className=" flex container">
+      <div className=" flex container holder">
         <section className={_titleClass}>
           <H1>{title}</H1>
-          {subtitle && <H2 className="pt3 t-h4">{subtitle}</H2>}
+          {subtitle && <P1 className="pt1 ">{subtitle}</P1>}
           {children}
         </section>
 

@@ -1,0 +1,29 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.yellow-button {
+  width: fit-content;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__title {
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: $navy-black;
+    letter-spacing: 0;
+    line-height: 34px;
+    text-align: center;
+  }
+
+  &__text {
+    width: 320px;
+    text-align: center;
+  }
+}
