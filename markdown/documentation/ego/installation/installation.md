@@ -2,7 +2,7 @@
 title: Installing Ego
 ---
 
-Ensure you have completed all the necessary <a href="/documentation/ego/installation/prerequisites/" target="_blank">prerequisite steps</a> before installing Ego.
+Ensure you have completed all the necessary <a href="/documentation/ego/installation/prerequisites/" target="_blank" rel="noopener noreferrer">prerequisite steps</a> before installing Ego.
 
 # Installing Ego Via Docker
 

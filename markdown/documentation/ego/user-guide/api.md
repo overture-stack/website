@@ -59,11 +59,11 @@ Next, we will use the Ego API to generate an API Key for another user, so that t
 
 ![Entity](../assets/copy-id.png 'Copy ID')
 
-2. Click **Applications** from the left-hand menu and ensure the required applications, for which you want the API Key generated, have been configured.  For our example, we want to provide access to the Song and Score applications. For more information on configuring applications within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/applications" target="_blank">managing applications</a>.
+2. Click **Applications** from the left-hand menu and ensure the required applications, for which you want the API Key generated, have been configured.  For our example, we want to provide access to the Song and Score applications. For more information on configuring applications within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/applications" target="_blank" rel="noopener noreferrer">managing applications</a>.
 
 ![Entity](../assets/applications.png 'Apps')
 
-3. Select **Policies** from the lefthand menu and make sure the required policies you want the API Key to be generated for have been configured. In this  example, we want policies for the Song and Score applications. For more information on configuring policies within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/policies" target="_blank">managing policies</a>.
+3. Select **Policies** from the lefthand menu and make sure the required policies you want the API Key to be generated for have been configured. In this  example, we want policies for the Song and Score applications. For more information on configuring policies within Ego see our page on <a href="/documentation/ego/user-guide/admin-ui/policies" target="_blank" rel="noopener noreferrer">managing policies</a>.
 
 
 ![Entity](../assets/policies.png 'Policies')

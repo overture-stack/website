@@ -30,7 +30,7 @@ To edit an existing user:
 | Groups | Use the `+ Add` button to add existing groups that you want this user to belong to. Once you add a group, the user will automatically inherit any permissions (but **NOT** applications) assigned to the group.  Alternatively, to remove a group, click `X` to the right of the group. |
 | Applications | Use the `+ Add` button to add existing applications that this user has access to.  Alternatively, to remove an application, click `X` to the right of the application. |
 | Permissions | List of policies (permission sets) assigned to this user and the specific `READ/WRITE/DENY` access granted for each policy. This list is read-only and cannot be modified. To assign a user to a policy, either edit the desired policy and add the user directly to it, or add the user to a group that already has that policy. |
-| API Keys | Lists the user's API keys, if any. Only one API Key can have an `ACTIVE` status at a time. All historical `REVOKED` and `EXPIRED` keys will also be be displayed. If required, you can manually `REVOKE` an active key from this screen.  However, you cannot issue a new API Key (this can only be done via the API, see <a href="/documentation/ego/user-guide/api#generating-an-api-key" target="_blank">here</a>). |
+| API Keys | Lists the user's API keys, if any. Only one API Key can have an `ACTIVE` status at a time. All historical `REVOKED` and `EXPIRED` keys will also be be displayed. If required, you can manually `REVOKE` an active key from this screen.  However, you cannot issue a new API Key (this can only be done via the API, see <a href="/documentation/ego/user-guide/api#generating-an-api-key" target="_blank" rel="noopener noreferrer">here</a>). |
 
 ![Entity](../../assets/edit-user2.png 'Edit User')
 

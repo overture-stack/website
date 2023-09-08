@@ -33,7 +33,7 @@ To edit a group:
 
 1. Click **Groups** from the left-hand menu, then click the group you want to edit from the groups table.
 
-2. The group's details pane will display on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-a-group" target="_blank">Creating a Group</a>.
+2. The group's details pane will display on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-a-group" target="_blank" rel="noopener noreferrer">Creating a Group</a>.
 
 ## Deleting a Group
 

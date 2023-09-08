@@ -36,7 +36,7 @@ To edit an application, follow these steps:
 
 1. Click **Applications** in the left-hand menu, then click the application you want to edit from the applications table.
 
-2. The application's details pane will display on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-an-application" target="_blank">Creating an Application</a>.
+2. The application's details pane will display on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-an-application" target="_blank" rel="noopener noreferrer">Creating an Application</a>.
 
 ## Deleting an Application
 

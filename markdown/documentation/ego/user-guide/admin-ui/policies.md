@@ -56,7 +56,7 @@ To edit a policy:
 
 1. Click **Policies** from the left-hand menu, then click the policy you want to edit from the policies table.
 
-2. The policy's details pane is displayed on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-a-policy" target="_blank">Creating a Policy</a>.
+2. The policy's details pane is displayed on the right. Click **Edit** and modify the fields as required. The fields are the same as described earlier in <a href="/documentation/ego/user-guide/admin-ui#creating-a-policy" target="_blank" rel="noopener noreferrer">Creating a Policy</a>.
 
 ## Deleting a Policy
 

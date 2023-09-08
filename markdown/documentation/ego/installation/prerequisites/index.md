@@ -7,14 +7,14 @@ Before installing Ego, ensure that the following tools and services are installe
 1. **PostgreSQL**
 
     - PostgreSQL is a powerful, open-source relational database system.
-    - [Official PostgreSQL download & installation instructions](https://www.postgresql.org/download/)
+    - <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener noreferrer">Official PostgreSQL download & installation instructions</a>
     - Ensure your database is set up before proceeding with Ego's installation.
 
 
 2. **Docker Engine**
 
     - Docker Engine enables developers to define and manage their applications with containerization.
-    - [Official Docker Engine download & installation instructions](https://docs.docker.com/engine/install/)
+    - <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer">Official Docker Engine download & installation instructions</a>
 
 
 3. **Setup Identity Provider Secrets**

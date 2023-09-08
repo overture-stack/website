@@ -26,7 +26,7 @@ To log into the Ego admin UI, follow these steps:
 
 ![No Primary Email](../../assets/no-email.png)
 
-If your identity provider allows adjusting this setting, you should make your email accessible. Refer to the <a href="../../../../installation/configuration/prereq/emails" target="_blank">instructions here</a> for guidance. Alternatively, you can log in using a different provider that either doesn't have such a setting or doesn't necessitate making your email public.
+If your identity provider allows adjusting this setting, you should make your email accessible. Refer to the <a href="../../../../installation/configuration/prereq/emails" target="_blank" rel="noopener noreferrer">instructions here</a> for guidance. Alternatively, you can log in using a different provider that either doesn't have such a setting or doesn't necessitate making your email public.
 
 5. Once logged in successfully, the default view displays the list of users registered in Ego.
 

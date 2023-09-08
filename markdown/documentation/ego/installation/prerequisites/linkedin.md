@@ -2,11 +2,11 @@
 title: Linkedin OAuth Setup
 ---
 
-For full details on setting up OAuth 2.0 for an application to work with LinkedIn, refer to the <a href="https://docs.wpwebelite.com/social-network-integration/linkedin/#:~:text=To%20create%20a%20LinkedIn%20App,.com%2Fsecure%2Fdeveloper.&text=On%20that%20page%20click%20on,which%20do%20contain%20a%20star." target="_blank">Official LinkedIn documentation</a>.
+For full details on setting up OAuth 2.0 for an application to work with LinkedIn, refer to the <a href="https://docs.wpwebelite.com/social-network-integration/linkedin/#:~:text=To%20create%20a%20LinkedIn%20App,.com%2Fsecure%2Fdeveloper.&text=On%20that%20page%20click%20on,which%20do%20contain%20a%20star." target="_blank" rel="noopener noreferrer">Official LinkedIn documentation</a>.
 
 For your convenience, we provide summary steps below:
 
-1. **Setup an account with LinkedIn Developers:** If you don't already have one, create an account on <a href="https://developer.linkedin.com/" target="_blank">LinkedIn Developers</a>. If you are an individual working alone with the Overture suite, you may wish to use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should be using. Please consult your IT department if required.
+1. **Setup an account with LinkedIn Developers:** If you don't already have one, create an account on <a href="https://developer.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn Developers</a>. If you are an individual working alone with the Overture suite, you may wish to use a personal account. However, if you work for a larger organization or institution, they may already have a designated account that you can or should be using. Please consult your IT department if required.
 
 
 2. **Log into LinkedIn Developers:** Sign in to your LinkedIn Developers account.
