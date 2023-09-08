@@ -67,7 +67,7 @@ const AboutUsPage = () => {
                 title="Reusable"
                 img_src="aboutUsReusable"
                 alt="Reusable Icon"
-                text="The components should be designed to be expandable and customizable to meet the specific needs of researchers."
+                text="The components should be designed for use in different contexts and with minimal modifications."
               />
             </div>
           </div>

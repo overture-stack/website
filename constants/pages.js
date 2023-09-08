@@ -19,3 +19,11 @@ export const caseStudyAnchors = {
   ihcc: internalUrlJoin([CASE_STUDIES_PATH, '#ihcc']),
   humanCancerModels: internalUrlJoin([CASE_STUDIES_PATH, '#humanCancerModels']),
 };
+
+export const productsAnchors = {
+  song: internalUrlJoin([PRODUCTS_PATH, '#song']),
+  score: internalUrlJoin([PRODUCTS_PATH, '#score']),
+  maestro: internalUrlJoin([PRODUCTS_PATH, '#maestro']),
+  arranger: internalUrlJoin([PRODUCTS_PATH, '#arranger']),
+  ego: internalUrlJoin([PRODUCTS_PATH, '#ego']),
+};
