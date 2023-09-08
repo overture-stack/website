@@ -26,4 +26,40 @@
     width: 320px;
     text-align: center;
   }
+
+  &__product-page-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.6em;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: column;
+    }
+  }
+  &__product-page-img {
+    @include breakpoint(mobile) {
+      width: 20%;
+      margin-right: 0.4em;
+    }
+  }
+
+  &__product-page-title {
+    max-width: 260px;
+    text-align: left;
+  }
+
+  &__product-page-text {
+    min-width: 350px;
+    text-align: left;
+    @include breakpoint(tablet-up) {
+      min-width: 320px;
+      text-align: center;
+    }
+  }
+
+  &__disable-hover-event {
+    pointer-events: none;
+  }
 }

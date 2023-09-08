@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Hero, H2, H3, P2, L1 } from 'components';
+import { H2, H3, P2, L1, Hero } from 'components';
 import './styles.scss';
 
 export default function AcknowledgementsPage() {
@@ -22,24 +22,22 @@ export default function AcknowledgementsPage() {
       {/* HERO */}
       <Hero
         title="Acknowledgements"
-        subtitle="We want to thank the following organizations for their funding and support, without which Overture could not have been possible."
-        bgImage="img_acknowledgements"
-      />
+        subtitle="We want to thank the following organizations for their funding and support, without
+              which Overture could not have been possible."
+      ></Hero>
 
       {/* Canarie  */}
       <section>
         <div className="container">
           {/* header */}
-          <div className="header mb4">
-            <div>
-              <H2>Canarie</H2>
-            </div>
+          <div className="header">
+            <H2>Canarie</H2>
           </div>
 
-          <div className="container__content">
+          <div className="detail-holder">
             {/* left column */}
-            <div className="column is-offset-0">
-              <H3 className="mb3">2020 to 2023</H3>
+            <div className="detail">
+              <H3>2020 to 2023</H3>
               <P2>
                 Under the CANARIE research grant, we were given the opportunity to create the
                 Overture Data Management system, which simplifies the Overture setup and removes
@@ -50,8 +48,8 @@ export default function AcknowledgementsPage() {
             </div>
 
             {/* right column */}
-            <div className="column is-offset-1">
-              <H3 className="mb3">Canarie Funded the development of the following:</H3>
+            <div className="detail">
+              <H3>Canarie funded the development of the following:</H3>
               <L1>
                 <li>Packaging the core components together with all software and dependencies.</li>
                 <li>
@@ -70,22 +68,20 @@ export default function AcknowledgementsPage() {
       </section>
 
       {/* NCI ITCR */}
-      <section className="grey">
+      <section className="grey-bg">
         <div className="container">
           {/* header */}
-          <div className="header column mb3">
-            <div>
-              <H2>
-                The National Cancer Institutes Informatics Technology for Cancer Research Program
-                (NCI ITCR)
-              </H2>
-            </div>
+          <div className="header">
+            <H2>
+              The National Cancer Institutes Informatics Technology for Cancer Research Program (NCI
+              ITCR)
+            </H2>
           </div>
 
-          <div className="container__content">
+          <div className="detail-holder">
             {/* left column */}
-            <div className="column is-offset-0">
-              <H3 className="mb3">2021 to 2026.</H3>
+            <div className="detail">
+              <H3>2021 to 2026.</H3>
               <P2>
                 The National Cancer Institutes Informatics Technology for Cancer Research Program
                 (NCI ITCR) supports investigator-initiated, research-driven informatics technology
@@ -97,8 +93,8 @@ export default function AcknowledgementsPage() {
             </div>
 
             {/* right column */}
-            <div className="column is-offset-1">
-              <H3 className="mb3">ITCR is currently funding the development of the following:</H3>
+            <div className="detail">
+              <H3>ITCR is currently funding the development of the following:</H3>
               <L1>
                 <li>A multi-scale Overture DMS</li>
                 <li>A framework for visualization and analysis tools to plug into the DMS</li>

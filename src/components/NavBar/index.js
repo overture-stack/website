@@ -3,7 +3,6 @@
  * subcomponents: MegaMenu and NavLink
  */
 import React, { Component } from 'react';
-import './styles.scss';
 import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';

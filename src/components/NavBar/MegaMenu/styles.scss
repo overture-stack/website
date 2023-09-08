@@ -126,7 +126,6 @@
 
   .menu-section-links {
     list-style: disc;
-    // width: 140px;
 
     @include breakpoint(navmenu-up) {
       color: $navy-black;
@@ -181,7 +180,12 @@
       margin-left: 20px;
       a {
         text-decoration: none;
-        color: $navy-black;
+        color: $title-pink;
+        // color: $navy-black;
+      }
+
+      .red-arrow {
+        margin-left: 5px;
       }
 
       @include breakpoint(tablet-up) {
