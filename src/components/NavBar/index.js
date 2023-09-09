@@ -10,7 +10,7 @@ import { Button, LinkHelper as Link } from 'components';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  COMMUNITY_PATH,
+/*COMMUNITY_PATH,*/
   DOCUMENTATION_PATH,
   HOME_PATH,
   PRODUCTS_PATH,
@@ -73,7 +73,7 @@ class NavBar extends Component {
                 </div>
               </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-              <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" />
+              {/* <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" /> */}
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
             </div>

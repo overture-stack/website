@@ -7,13 +7,18 @@ import {
   ABOUT_US_PATH,
   DOCUMENTATION_PATH,
   PRODUCTS_PATH,
+  SERVICES_PATH,
   caseStudyAnchors,
 } from 'constants/pages';
-import { OVERTURE_GITHUB_LINK } from '../../constants/external-links.js';
-import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton } from 'components';
+import { 
+  OVERTURE_GITHUB_LINK,
+  SLACK_LINK,
+ } from '../../constants/external-links.js';
+import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
 import caseData from 'data/case_studies';
 import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
+import cubeBrightTealInverted from './home/assets/cube_bright_teal_inverted.svg'
 import cubeYellow from './home/assets/cube_yellow.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
@@ -108,11 +113,13 @@ export default function HomePage() {
                   handleLeftArrowClick();
                 }}
               />
+              <a href={caseData[carouselPage].portalLink} target="_blank" rel="noopener noreferrer">
               <img
                 src={caseData[carouselPage].details[0].screenshot}
                 alt="screenshot"
                 className="lower-white__blue-container-image"
               />
+              </a>
               <Button
                 icon={'arrowRightBlack'}
                 type="default"
@@ -149,9 +156,9 @@ export default function HomePage() {
               <div>
                 {caseData[carouselPage].listItems[2].map((i) => {
                   return (
-                    <L1 key={i}>
+                    <P2 key={i}>
                       <p1>{i}</p1>
-                    </L1>
+                    </P2>
                   );
                 })}
               </div>
@@ -175,6 +182,8 @@ export default function HomePage() {
           />
         </div>
       </section>
+
+      <img src={cubeBrightTealInverted} alt="Top Floating Bright Teal Inverted Cube" className="bright-teal-cube-top" />
 
       {/* upper grey section */}
       <section className="section upper-grey bg-grey">
@@ -229,7 +238,8 @@ export default function HomePage() {
           About Us
         </Button>
 
-        {/* <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" /> */}
+      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
+
       </section>
 
       {/* upper white Product section */}
@@ -328,7 +338,7 @@ export default function HomePage() {
         </div>
         <div className="mt3 lower-grey__buttons">
           <Button
-            link={ABOUT_US_PATH}
+            link={SERVICES_PATH}
             size="medium"
             type="primary"
             className="upper-grey__button mt2"
@@ -346,7 +356,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" /> */}
+     <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
@@ -359,25 +369,28 @@ export default function HomePage() {
             alt="identifyNeeds Icon"
             title="See Our Products"
             text="Learn about our core components and how they work."
+            link="/products/"
           />
           <YellowButton
             img_src="exploreDocs"
             alt="exploreDocs Icon"
             title="Explore Our Docs"
             text="See how to deploy, configure and use our software."
+            link="/documentation/"
           />
           <YellowButton
             img_src="joinCommunity"
             alt="joinCommunity Icon"
             title="Join Our Community"
             text="Get help, share knowledge, and stay current."
+            link={SLACK_LINK}
           />
         </div>
       </section>
 
-      {/* <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" /> */}
+      <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
 
-      {/* <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" /> */}
+      <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
@@ -396,9 +409,9 @@ export default function HomePage() {
       </section>
 
       {/* floating bright teal cube */}
-      {/* <div className="bg-grey">
+      <div className="bg-grey">
         <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
-      </div> */}
+      </div>
     </main>
   );
 }

@@ -5,10 +5,15 @@ import React from 'react';
 import { P2, LinkHelper as Link } from 'components';
 import {
   ICGC_ARGO_LINK,
+  ICGC_ARGO_PORTAL_LINK,
   VIRUSSEQ_LINK,
+  VIRUSSEQ_PORTAL_LINK,
   KIDS_FIRST_LINK,
+  KIDS_FIRST_PORTAL_LINK,
   IHCC_LINK,
+  IHCC_PORTAL_LINK,
   HCMIS_LINK,
+  HCMIS_PORTAL_LINK,
 } from 'constants/external-links';
 
 //ICGC ARGO Assets
@@ -35,6 +40,7 @@ export default [
   {
     title: 'ICGC ARGO',
     slug: 'icgcargo',
+    portalLink: ICGC_ARGO_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={ICGC_ARGO_LINK}>ICGC ARGO Data Platform platform</Link> builds on the legacy
@@ -72,6 +78,7 @@ export default [
   {
     title: 'VirusSeq',
     slug: 'virusseq',
+    portalLink: VIRUSSEQ_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={VIRUSSEQ_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
@@ -109,6 +116,7 @@ export default [
   {
     title: 'Kids First Data Portal',
     slug: 'kidsFirst',
+    portalLink: KIDS_FIRST_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={KIDS_FIRST_LINK}>Kids First Data Resource Center</Link> brings together
@@ -149,6 +157,7 @@ export default [
   {
     title: 'IHCC',
     slug: 'ihcc',
+    portalLink: IHCC_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={IHCC_LINK}>International HundredK+ Cohorts Consortium (IHCC)</Link> is
@@ -161,7 +170,7 @@ export default [
     ),
     logo: ihcc_logo,
     listItems: [
-      ['There are a total of 70 cohorts participating in the study', 'These cohorts come from 39 different countries around the world', 'Each cohort provides data across 39 distinct metadata fields.'],
+      ['There are a total of 70 cohorts participating in the study', 'These cohorts come from 39 different countries around the world', 'Each cohort provides data across 39 distinct metadata fields'],
       [
         {
           'Arranger:':
@@ -185,6 +194,7 @@ export default [
     title: 'Human Cancer Models Initiative',
     slug: 'humanCancerModels',
     logo: hcmis_logo,
+    portalLink: HCMIS_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={HCMIS_LINK}>Human Cancer Models Initiative (HCMI)</Link> is a catalogue of
