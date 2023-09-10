@@ -14,6 +14,7 @@ import {
   Icon,
   LinkHelper as Link,
   NoteBox,
+  SupportFooter,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
@@ -90,43 +91,41 @@ export default function DocumentationPage({ data, location, path }) {
 
   return (
     <React.Fragment>
-      {/* MAIN CONTENT */}
-      <div className="docs__main">
-        <div className="docs__main-container">
-          {/* GITHUB BUTTON */}
-          <div className="docs__github-btn">
-            <Button
-              icon="githubWhite"
-              link={productsDict[sectionSlug].githubUrl}
-              size="navGithub"
-              type="primary"
-            >
-              {sectionTitle} Github
-            </Button>
-          </div>
-          <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
-          {!redirectDest && (
-            <React.Fragment>
-              <MDXProvider
-                components={{
-                  ...replacedComponents,
-                  ...shortcodes,
-                  a: props => <Link {...props} location={location} />,
-                  // the page title is h1
-                  // so demote markdown headings by one level
-                  h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                  h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                  h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                  h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                  h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                  h6: props => <AnchorHeading location={location} size="h6" {...props} />,
-                }}
+        {/* MAIN CONTENT */}
+        <div className="docs__main">
+          <div className="docs__main-container">
+            {/* GITHUB BUTTON */}
+            <div className="docs__github-btn">
+              <Button
+                icon="githubWhite"
+                link={productsDict[sectionSlug].githubUrl}
+                size="navGithub"
+                type="primary"
               >
-                <MDXRenderer>{body}</MDXRenderer>
-              </MDXProvider>
+                {sectionTitle} Github
+              </Button>
+            </div>
+            <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
+            {!redirectDest && (
+              <React.Fragment>
+                <MDXProvider
+                  components={{
+                    ...replacedComponents,
+                    ...shortcodes,
+                    a: props => <Link {...props} location={location} />,
+                    h1: props => <AnchorHeading location={location} size="h2" {...props} />,
+                    h2: props => <AnchorHeading location={location} size="h3" {...props} />,
+                    h3: props => <AnchorHeading location={location} size="h4" {...props} />,
+                    h4: props => <AnchorHeading location={location} size="h5" {...props} />,
+                    h5: props => <AnchorHeading location={location} size="h6" {...props} />,
+                    h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  }}
+                >
+                  <MDXRenderer>{body}</MDXRenderer>
+                </MDXProvider>
 
-              {/* PREV/NEXT BUTTONS */}
-              <div className="docs__main-pagination">
+                {/* PREV/NEXT BUTTONS */}
+                <div className="docs__main-pagination">
                 <div>
                   {prevPage && (
                     <div className="chevron-link">
@@ -153,9 +152,11 @@ export default function DocumentationPage({ data, location, path }) {
               </div>
             </React.Fragment>
           )}
+          {/* SUPPORT FOOTER */}
+          <SupportFooter />
         </div>
-      </div>
-      {/* PAGE/HEADINGS TABLE OF CONTENTS */}
+        </div>
+{/* PAGE/HEADINGS TABLE OF CONTENTS */}
       <div className="docs__toc-headings">
         {/* GITHUB BUTTON */}
         <Button
