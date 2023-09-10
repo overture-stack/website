@@ -63,8 +63,9 @@
   }
 
   .lower-blue-section {
-    margin-bottom: -83px;
-    margin-top: -20px;
+    margin: 0px -20px;
+
+
     &__holder {
       display: flex;
       flex-direction: column;
@@ -89,7 +90,7 @@
     &__img {
       position: relative;
       image-rendering: crisp-edges;
-      width: 80%;
+      width: 70%;
       bottom: 70px;
     }
 
@@ -104,7 +105,7 @@
     }
 
     &__text-holder {
-      width: 80%;
+      width: 70%;
     }
   }
 }
