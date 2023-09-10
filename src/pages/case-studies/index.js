@@ -99,7 +99,7 @@ class CaseStudiesPage extends Component {
   }
 
   handleScroll = () => {
-    if (window.pageYOffset > 254) {
+    if (window.scrollY > 254) {
       this.setState({ navFixed: true });
     } else {
       this.setState({ navFixed: false });
@@ -122,7 +122,7 @@ class CaseStudiesPage extends Component {
           <title>Overture Case Studies</title>
           <meta
             name="description"
-            content="See how Overture is tackling diverse challenges across multiple projects."
+            content="See how Overture is being used to tackle challenges across multiple projects."
           />
           <meta
             name="keywords"
@@ -154,7 +154,7 @@ class CaseStudiesPage extends Component {
                 key={data.slug}
                 onEnter={(event) => this._handleWaypointEnter(data, event)}
                 onLeave={(event) => this._handleWaypointLeave(data, event)}
-                threshold={-2.0}
+                threshold={0}
               >
                 <div ref={this[data.slug]} style={{ backgroundColor: bgColor }}>
                   <CaseStudy
