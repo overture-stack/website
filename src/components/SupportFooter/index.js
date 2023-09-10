@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { P1 } from 'components';
-import { Link } from 'gatsby';
+import { P1, LinkHelper as Link, } from 'components';
 import {
   SLACK_LINK
 }
@@ -17,17 +16,21 @@ function SupportFooter() {
         <div>
           <p className="support-footer__sub-title">Did this page help you?</p>
           <div className="feedback-icons">
-            <img src={smileyFace} alt="Positive Feedback" className="icon"/>
-            <img src={unsmileyFace} alt="Negative Feedback" className="icon"/>
+            <img id="postive-feedback" src={smileyFace} alt="Positive Feedback" className="icon"/>
+            <img id="postive-feedback" src={unsmileyFace} alt="Negative Feedback" className="icon"/>
           </div>
         </div>
         <div>
           <p className="support-footer__sub-title">Help make our docs better</p>
-          <p>Like Overture our documentation is open source. If you have any feedback or ideas <a>submit an issue or feature request.</a></p>
+            <ul>
+            <li><a href="https://github.com/overture-stack/website/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=BUG+-+" target="_blank" rel="noopener noreferrer">Submit an issue</a></li>
+            <li><a href="https://github.com/overture-stack/website/issues/new?assignees=&labels=new-feature&projects=&template=Feature_Request.md&title=Feature+Request+" target="_blank" rel="noopener noreferrer">Submit a feature request,</a></li>
+            <li><a href="https://github.com/overture-stack/website/blob/develop/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Submit a pull request.</a></li>
+            </ul>
         </div>
         <div>
           <p className="support-footer__sub-title">Still need help?</p>
-          <p><a href="https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw" target="_blank" rel="noopener noreferrer">Ask us on Slack</a>.</p>
+          <Link to={SLACK_LINK}>Ask us on Slack</Link>
         </div>
       </div>
     </div>
