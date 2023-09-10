@@ -1,5 +1,8 @@
 import React from 'react';
-import { CONTACT_US_PATH } from 'constants/pages';
+import { 
+  SLACK_LINK,
+  EMAIL_LINK,
+} from '../../../constants/external-links';
 import { Button, P1, H2 } from 'components';
 import './styles.scss';
 
@@ -45,7 +48,7 @@ const ServicesPageSection = ({
             </div>
             <div className="ServicesPageSection__button-holder">
               <Button
-                link={CONTACT_US_PATH}
+                link={EMAIL_LINK}
                 type="primary"
                 size="medium"
                 className="ServicesPageSection__button"

@@ -24,7 +24,8 @@ const ServicesPage = () => {
       </Helmet>
 
       {/* hero */}
-      <Hero title="Services"></Hero>
+      <Hero title="Services" subtitle="We believe in the collective power of expertise and shared resources. If you want to collaborate here's how you can connect.">
+      </Hero>
 
       {/* top white section */}
       <ServicesPageSection
@@ -35,7 +36,7 @@ const ServicesPage = () => {
         list1="Technical audits"
         list2="Step-by-step guidance"
         list3="Troubleshooting"
-        buttonText="Contact Us On Slack"
+        buttonText="Request Technical Support"
       />
       {/* grey section */}
       <ServicesPageSection
