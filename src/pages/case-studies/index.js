@@ -7,7 +7,7 @@
  * the UI based on a data structure in ./data.js
  * This component is a Class component because
  * a) each case study has a "slider" for displaying screenshots
- * b) for indicating the currently selected logo in the navigation.
+ * b) for indicating the currently selected logo in the navigation
  */
 
 import { CaseStudy, Hero } from 'components';
