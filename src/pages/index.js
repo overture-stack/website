@@ -2,14 +2,15 @@ import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
-import productsDict from 'constants/products';
 import {
   ABOUT_US_PATH,
   DOCUMENTATION_PATH,
   PRODUCTS_PATH,
   SERVICES_PATH,
   caseStudyAnchors,
+  productsAnchors,
 } from 'constants/pages';
+import productsDict from 'constants/products';
 import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
 import caseData from 'data/case_studies';
@@ -266,37 +267,37 @@ export default function HomePage() {
               icon={'productSong'}
               title={'Song'}
               text={'Manage and store metadata with custom validations.'}
-              link={productsDict.song.productsPath}
+              link={productsAnchors.song}
             />
             <HomeProductLink
               icon={'productScore'}
               title={'Score'}
               text={'Securely transfer file data to and from the cloud.'}
-              link={productsDict.score.productsPath}
+              link={productsAnchors.score}
             />
             <HomeProductLink
               icon={'productMaestro'}
               title={'Maestro'}
               text={'Organize scattered metadata into one index.'}
-              link={productsDict.maestro.productsPath}
+              link={productsAnchors.maestro}
             />
             <HomeProductLink
               icon={'productArranger'}
               title={'Arranger'}
               text={'Generate search APIs and portal UIs from indexed data.'}
-              link={productsDict.arranger.productsPath}
+              link={productsAnchors.arranger}
             />
             <HomeProductLink
               icon={'productEgo'}
               title={'Ego'}
               text={'Authorize and Authenticate users and applications.'}
-              link={productsDict.ego.productsPath}
+              link={productsAnchors.ego}
             />
             <HomeProductLink
               icon={'productDMS'}
-              title={productsDict['dms-ui'].title}
+              title={'DMS-UI'}
               text={'Rapidly integrate overture into a React-based web portal.'}
-              link={productsDict['dms-ui'].productsPath}
+              link={'documentation/dms-ui'}
             />
           </div>
         </div>
