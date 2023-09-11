@@ -143,7 +143,7 @@ $cs-break: 1000px;
   }
 
   &.nav-fixed {
-    position: fixed;
+    position: sticky;
     border-bottom: 1px solid #dbdbdb;
     z-index: 2;
     top: 60px;

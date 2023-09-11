@@ -48,12 +48,8 @@ export default function ProductPageSection({
               <H2>{title}</H2>
             </div>
             {/* subtitle text */}
-            <div className="subtitle-holder">
-              <H3>{subtitle}</H3>
-            </div>
-            {/* description text */}
             <div
-              className="description-holder"
+              className="subtitle-holder"
               id={`${
                 (desktopUltraWideViewPort ||
                   desktopWideViewPort ||
@@ -62,6 +58,10 @@ export default function ProductPageSection({
                 title.toLowerCase()
               }`}
             >
+              <H3>{subtitle}</H3>
+            </div>
+            {/* description text */}
+            <div className="description-holder">
               <P1 className="description">{description}</P1>
             </div>
             {/* contianer of the two blue coloured buttons */}
