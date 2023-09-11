@@ -61,7 +61,7 @@ export default function HomePage() {
               <Button link={PRODUCTS_PATH} size="medium" type="primary">
                 See Our Products
               </Button>
-              <Button size="medium" type="primary">
+              <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
                 Explore Our Docs
               </Button>
             </div>
