@@ -6,21 +6,21 @@
     @include breakpoint(tablet-up) {
       background-image: url('./assets/img_hero_acknowledgements_full.svg');
       background-repeat: no-repeat;
-      background-position-y: -280px;
+      background-position-y: 0px;
       background-position-x: 560px;
-      background-size: 500px;
+      background-size: 425px;
     }
 
     @include breakpoint(desktop-up) {
-      background-position-y: -340px;
+      background-position-y: 0px;
       background-position-x: 640px;
-      background-size: 570px;
+      background-size: 456px;
     }
 
     @include breakpoint(desktop-wide) {
       background-position-x: 105%;
-      background-position-y: -360px;
-      background-size: 600px;
+      background-position-y: 0px;
+      background-size: 480px;
     }
 
     @include breakpoint(desktop-ultra-wide) {
