@@ -31,9 +31,7 @@ export default function ProductsPage() {
         <div className="container">
           <section className="Hero__section">
             <H1>Our Products</H1>
-            <P1 className="Hero__subtitle">
-              Linking the gaps between data and discovery.
-            </P1>
+            <P1 className="Hero__subtitle">Linking the gaps between data and discovery.</P1>
           </section>
         </div>
       </div>
@@ -132,7 +130,7 @@ export default function ProductsPage() {
 
       {/* lower blue section */}
       <section className="lower-blue-section">
-        <div className="lower-blue-section__container">
+        <div className="container lower-blue-section__container">
           <div className="lower-blue-section__holder">
             <div className="lower-blue-section__title-holder">
               <H2>The Overture Data Management System (DMS)</H2>
