@@ -10,15 +10,12 @@ import {
   SERVICES_PATH,
   caseStudyAnchors,
 } from 'constants/pages';
-import { 
-  OVERTURE_GITHUB_LINK,
-  SLACK_LINK,
- } from '../../constants/external-links.js';
+import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
 import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
 import caseData from 'data/case_studies';
 import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
-import cubeBrightTealInverted from './home/assets/cube_bright_teal_inverted.svg'
+import cubeBrightTealInverted from './home/assets/cube_bright_teal_inverted.svg';
 import cubeYellow from './home/assets/cube_yellow.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
@@ -72,15 +69,17 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section className="section lower-white">
-        <div className="lower-white__title-container">
-          <H2 className="lower-white__title">Powering big-data at scale</H2>
+      {/* top white section - titled powering big-data at scale */}
+      <section className="section top-white">
+        <div className="top-white__title-container">
+          <H2 className="top-white__title">Powering big-data at scale</H2>
           <P1>Overture has been deployed within various large-scale projects.</P1>
         </div>
 
-        <div className="lower-white__logos">
+        {/* logos scroll bar  */}
+        <div className="top-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'lower-white__logo-active' : '';
+            let active = idx === carouselPage ? 'top-white__logo-active' : '';
             return (
               <img
                 key={data.slug}
@@ -89,64 +88,64 @@ export default function HomePage() {
                 onClick={() => {
                   setCarouselPage(idx);
                 }}
-                className={`lower-white__logo ${active}`}
+                className={`top-white__logo ${active}`}
               />
             );
           })}
         </div>
-        <div className="lower-white__blue-container">
+
+        {/* blue container - carasoul */}
+        <div className="top-white__blue-container">
           <Button
             icon={'arrowLeftBlack'}
             type="default"
-            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
+            className="top-white__blue-container-arrow-desktop top-white__blue-container-arrow"
             onClick={() => {
               handleLeftArrowClick();
             }}
           />
-          <div className="lower-white__blue-container-content">
-            <div className="lower-white__blue-container-arrows-image-container">
+          <div className="top-white__blue-container-content">
+            <div className="top-white__blue-container-arrows-image-container">
               <Button
                 icon={'arrowLeftBlack'}
                 type="default"
-                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow"
+                className="top-white__blue-container-arrow-tablet top-white__blue-container-arrow"
                 onClick={() => {
                   handleLeftArrowClick();
                 }}
               />
               <a href={caseData[carouselPage].portalLink} target="_blank" rel="noopener noreferrer">
-              <img
-                src={caseData[carouselPage].details[0].screenshot}
-                alt="screenshot"
-                className="lower-white__blue-container-image"
-              />
+                <img
+                  src={caseData[carouselPage].details[0].screenshot}
+                  alt="screenshot"
+                  className="top-white__blue-container-image"
+                />
               </a>
               <Button
                 icon={'arrowRightBlack'}
                 type="default"
-                className="lower-white__blue-container-arrow-tablet lower-white__blue-container-arrow ml2"
+                className="top-white__blue-container-arrow-tablet top-white__blue-container-arrow ml2"
                 onClick={() => {
                   handleRightArrowClick();
                 }}
               />
             </div>
 
-            <div className="lower-white__blue-container-right">
-              <div className="lower-white__blue-container-arrows-title-container">
+            <div className="top-white__blue-container-right">
+              <div className="top-white__blue-container-arrows-title-container">
                 <Button
                   icon={'arrowLeftBlack'}
                   type="default"
-                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow"
+                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow"
                   onClick={() => {
                     handleLeftArrowClick();
                   }}
                 />
-                <H3 className="lower-white__blue-container-title">
-                  {caseData[carouselPage].title}
-                </H3>
+                <H3 className="top-white__blue-container-title">{caseData[carouselPage].title}</H3>
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
-                  className="lower-white__blue-container-arrow-mobile lower-white__blue-container-arrow ml2"
+                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow ml2"
                   onClick={() => {
                     handleRightArrowClick();
                   }}
@@ -165,7 +164,7 @@ export default function HomePage() {
               <Button
                 type="primary"
                 size="medium"
-                className="lower-white__blue-container-learn-more-button"
+                className="top-white__blue-container-learn-more-button"
                 anchorLink={caseStudyAnchors[caseData[carouselPage].slug]}
               >
                 Learn More
@@ -175,7 +174,7 @@ export default function HomePage() {
           <Button
             icon={'arrowRightBlack'}
             type="default"
-            className="lower-white__blue-container-arrow-desktop lower-white__blue-container-arrow"
+            className="top-white__blue-container-arrow-desktop top-white__blue-container-arrow"
             onClick={() => {
               handleRightArrowClick();
             }}
@@ -183,7 +182,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <img src={cubeBrightTealInverted} alt="Top Floating Bright Teal Inverted Cube" className="bright-teal-cube-top" />
+      {/* top floating teal cube */}
+      <img
+        src={cubeBrightTealInverted}
+        alt="Top Floating Bright Teal Inverted Cube"
+        className="bright-teal-cube-top"
+      />
 
       {/* upper grey section */}
       <section className="section upper-grey bg-grey">
@@ -237,27 +241,27 @@ export default function HomePage() {
         >
           About Us
         </Button>
-
-      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
-
       </section>
 
-      {/* upper white Product section */}
-      <section className="upper-white section">
+      {/* floating yellow cube */}
+      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
+
+      {/* middle white section - titled our products */}
+      <section className="middle-white section">
         <div>
           <H2>Our Products</H2>
-          <P1 className="upper-white__title-text">
+          <P1 className="middle-white__title-text">
             Built to be reusable and scalable, Overture was created to share our data science
             components with the community. Our ecosystem of research software tools reduces
             redundant efforts and enables the creation of robust genomics data applications.
           </P1>
         </div>
-        <div className="upper-white__content">
-          <div className="upper-white__image-column">
-            <img className="upper-white__image" src={bodyImg} alt="" />
+        <div className="middle-white__content">
+          <div className="middle-white__image-column">
+            <img className="middle-white__image" src={bodyImg} alt="" />
           </div>
 
-          <div className="upper-white__text-wrapper">
+          <div className="middle-white__text-wrapper">
             <HomeProductLink
               icon={'productSong'}
               title={'Song'}
@@ -356,7 +360,8 @@ export default function HomePage() {
         </div>
       </section>
 
-     <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
+      {/* floating marron cuve */}
+      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
