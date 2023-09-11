@@ -29,18 +29,6 @@ module.exports = {
     'gatsby-plugin-react-helmet', // adds meta tags
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
     // Google Analytics
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: config.googleAnalyticsTrackingId,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        anonymize: true, // optional
-        respectDNT: true, // optional
-        // Avoids sending pageview hits from custom paths
-        exclude: [],
-      },
-    },
 
     {
       resolve: 'gatsby-source-filesystem',
@@ -128,14 +116,6 @@ module.exports = {
         showSpinner: false,
       },
     },
-    // {
-    // TODO: get a google tag manager ID if we're using it
-    //   resolve: `gatsby-plugin-google-tagmanager`,
-    //   options: {
-    //     id: config.googleTagManagerID,
-    //     includeInDevelopment: false,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -172,11 +152,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-matomo',
+      resolve: 'gatsby-plugin-anchor-links',
       options: {
-        siteId: process.env.GATSBY_MATOMO_SITE_ID,
-        matomoUrl: process.env.GATSBY_MATOMO_MATOMO_URL,
-        siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
+        offset: -300,
       },
     },
   ],

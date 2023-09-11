@@ -1,12 +1,8 @@
-import React from 'react';
 import scrollToElement from 'scroll-to-element';
-import { Layout } from 'components';
 
-export function wrapPageElement({ element, props }) {
-  return <Layout {...props}>{element}</Layout>;
-}
+export { wrapPageElement, wrapRootElement } from './gatsby-shared';
 
-const scrollToHash = prevLocation => {
+const scrollToHash = (prevLocation) => {
   const { hash } = prevLocation;
   if (hash) {
     scrollToElement(hash, {

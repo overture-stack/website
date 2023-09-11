@@ -4,6 +4,10 @@ title: Common Problems
 
 This section describes some common problems and known issues currently present in the DMS platform, and suggestions on how to troubleshoot and/or work around them.
 
+# DMS not running on Apple Silicon
+
+Our software is currently only compatible with Intel-based Macs, not Apple Silicon devices. We are actively working on updates to support Apple silicon. Thank you for your understanding.
+
 # Arranger UI URL Inconsistency
 
 **Problem:**

@@ -18,6 +18,15 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
           onClick={() => toggleMegaMenu(type)}
         >
           {name}
+          {name === 'Documentation' ? (
+            <Icon
+              img="arrowDownNavbar"
+              className={`documentation-down-arrow ${
+                isActive ? 'documentation-arrow-rotate-up' : ''
+              }`}
+              alt="down arrow"
+            />
+          ) : null}
         </div>
 
         <div className={'flex'} onClick={() => toggleMegaMenu(type)}>

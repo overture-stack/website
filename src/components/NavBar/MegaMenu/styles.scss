@@ -2,16 +2,14 @@
 @import '../../../styles/colors';
 
 .MegaMenu {
-  border-bottom: 3px solid $grey-4;
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   display: flex;
   height: auto;
+  width: auto;
   left: 0;
   margin: 0 auto;
   position: fixed;
   right: 0;
   transition: top ease 0.5s 0s;
-  width: 100%;
   z-index: 4;
 
   // Shrinking the slack button changes nav size; update popover top.
@@ -46,8 +44,11 @@
   .menu-items {
     border: 1px solid $grey-3;
     display: flex;
-    width: 100%;
+    justify-content: flex-start;
+    gap: 20px;
     background: $white;
+    width: 100%;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
   }
 
   // for leveling heading menu headers that don't have "core" badge
@@ -57,12 +58,24 @@
   }
 
   // custom styles to override / build on top of bulma's nav link
-  .menu-section {
+  .menu-section-left {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     padding: 16px 24px;
-    flex: 1;
+    max-width: 810px;
+  }
+
+  .menu-section-right {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    min-width: 450px;
+  }
+
+  .menu-select-container {
+    padding-right: 4px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .menu-section-heading {
@@ -145,7 +158,6 @@
     position: relative;
     margin-left: 0;
     margin-top: 0;
-    min-width: auto;
     border: 0;
 
     .Badge {

@@ -9,26 +9,10 @@ $cs-break: 1000px;
   font-size: 18px;
   line-height: 30px;
 
-  .case-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 265px;
-    background-color: $teal;
-    &.nav-fixed {
-      height: 340px;
-    }
-  }
-
-  .case-heading {
-    margin-bottom: 32px;
-  }
-
-  .case-hero-content {
-    max-width: 900px;
-    text-align: center;
-    padding: 24px;
+  .image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 96%;
   }
 }
 
@@ -45,25 +29,13 @@ $cs-break: 1000px;
     padding: 32px;
   }
 
-  .yellow-bar {
-    width: 105px;
-    margin: 32px 0 16px;
-    height: 4px;
-    background-color: $yellow;
-  }
-
   .case-heading {
-    display: flex;
     text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 
   .client-list-item {
     list-style-type: disc;
-    margin-left: 24px;
-    line-height: 38px;
+    margin-left: 20px;
   }
 
   .client-logo {
@@ -79,6 +51,9 @@ $cs-break: 1000px;
       margin: 0 auto;
       padding-bottom: 48px;
     }
+    .overture-list-item {
+      padding-left: 10px;
+    }
   }
 
   /* Contains all details of the case study - broken into left and right sections.*/
@@ -91,43 +66,37 @@ $cs-break: 1000px;
     }
   }
 
-  .details-left {
+  .details-right {
     flex: 1;
-    background-image: $gradient-bg;
-    border-radius: 8px;
-    padding: 32px 48px;
-    padding-right: 72px;
     display: flex;
-    font-family: $font-sans-serif;
     flex-direction: column;
-    justify-content: center;
     @media (max-width: $cs-break) {
       order: 2;
     }
   }
 
-  .details-left-item {
+  .details-right-item {
     display: flex;
     padding: 16px 0;
     align-items: baseline;
     cursor: pointer;
 
     &:hover {
-      .details-left-title,
-      .details-left-description {
+      .details-right-title,
+      .details-right-description {
         color: $navy-black;
       }
     }
 
     &.active {
-      .details-left-title,
-      .details-left-description {
+      .details-right-title,
+      .details-right-description {
         color: $navy-black;
       }
     }
   }
 
-  .details-left-title {
+  .details-right-title {
     min-width: 120px;
     font-weight: 700;
     font-size: 20px;
@@ -141,14 +110,14 @@ $cs-break: 1000px;
     }
   }
 
-  .details-left-description {
+  .details-right-description {
     color: #b9e3f6;
     padding-left: 8px;
     font-size: 18px;
     letter-spacing: 0;
   }
 
-  .details-right {
+  .details-left {
     flex: 1.3;
     display: flex;
     align-items: flex-start;
@@ -162,7 +131,7 @@ $cs-break: 1000px;
     }
   }
 
-  .screenshot-arrow-left {
+  .screenshot-arrow-right {
     left: -50px;
     top: 50%;
     position: absolute;
@@ -174,7 +143,7 @@ $cs-break: 1000px;
     }
   }
 
-  .screenshot-arrow-right {
+  .screenshot-arrow-left {
     top: 50%;
     position: absolute;
     z-index: 1;
@@ -182,14 +151,7 @@ $cs-break: 1000px;
     cursor: pointer;
   }
 
-  .details-right-browser-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
-    border: 2px solid $white;
-    border-radius: 2px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
-    margin-left: -32px;
+  .details-left-browser-wrapper {
     margin-top: 32px;
     @media (max-width: $cs-break) {
       margin-left: 0px;
@@ -200,8 +162,9 @@ $cs-break: 1000px;
 // Component: ./navigation.js styles
 .CaseStudies-Navigation {
   width: 100%;
-  background: $bg-color;
+  background: $white;
   border-top: 1px solid $white;
+  padding: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,26 +181,24 @@ $cs-break: 1000px;
     }
   }
 
-  .nav-item-border {
-    border-left: 1px solid $white;
-    border-right: 1px solid $white;
-    &:first-child {
-      border-left: none;
-    }
-    &:last-child {
-      border-right: none;
-    }
-    &.active {
-      background: $white;
-    }
-  }
-
   .nav-item {
-    width: 200px;
+    width: 180px;
     cursor: pointer;
-    height: 72px;
-    padding: 8px;
+    height: 80px;
+    margin: 8px 18px;
     background-repeat: no-repeat;
-    background-position: center;
+    background-color: $bg-color;
+    border-radius: 15px;
+
+    // the active classname is important when we work on highlighted section later on
+    // &.active {
+    //   transform: scale(1.05);
+    //   border-style: solid;
+    //   border-width: 2px;
+    // }
+
+    &:hover {
+      box-shadow: 1px 4px 5px grey;
+    }
   }
 }

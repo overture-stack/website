@@ -12,7 +12,7 @@ export default function HTML({ body, headComponents, postBodyComponents }) {
         <link rel="shortcut icon" href={favicon} />
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
         <link
-          href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+          href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap"
           rel="stylesheet"
         />
         {/*  NOTE: normally wouldn't use static folder but npm / sass imports for basscss are not working. */}
