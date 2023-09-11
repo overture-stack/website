@@ -30,7 +30,7 @@ export default function ProductPageSection({
   const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
   const userDocsLink = `/documentation/${title.toLowerCase()}`;
-  const gitHubLink = `https://github.com/overture-stack/${title}/wiki`;
+  const gitHubLink = `https://github.com/overture-stack/${title}`;
 
   return (
     <section className={`ProductsSection ${isGrey && `grey-bg`}`}>
