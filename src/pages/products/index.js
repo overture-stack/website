@@ -130,7 +130,7 @@ export default function ProductsPage() {
 
       {/* lower blue section */}
       <section className="lower-blue-section">
-        <div className="container lower-blue-section__container">
+        <div className="lower-blue-section__container">
           <div className="lower-blue-section__holder">
             <div className="lower-blue-section__title-holder">
               <H2>The Overture Data Management System (DMS)</H2>
