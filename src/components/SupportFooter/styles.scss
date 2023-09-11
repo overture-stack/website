@@ -29,7 +29,7 @@
   }
 
   &__sub-title {
-    font-size: 14px;
+    font-size: 1em;
     line-height: 24px;
     font-weight: 700;
     margin-bottom: 1em;
@@ -55,14 +55,13 @@
   gap: 10px;
 
   .icon {
-    width: 24px;
-    height: 24px;
-    transition: filter 0.3s; // Smooth transition for the invert effect
-
-    &:hover {
-      filter: invert(100%);
-    }
+    width: 30px;
+    height: 30px;
   }
+}
+
+.icon-inverted {
+  filter: brightness(110%);
 }
 
 p {
@@ -72,3 +71,4 @@ p {
   line-height: 22px;
   margin: 0;
 }
+
