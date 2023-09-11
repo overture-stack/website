@@ -48,12 +48,8 @@ export default function ProductPageSection({
               <H2>{title}</H2>
             </div>
             {/* subtitle text */}
-            <div className="subtitle-holder">
-              <H3>{subtitle}</H3>
-            </div>
-            {/* description text */}
             <div
-              className="description-holder"
+              className="subtitle-holder"
               id={`${
                 (desktopUltraWideViewPort ||
                   desktopWideViewPort ||
@@ -61,6 +57,19 @@ export default function ProductPageSection({
                   tabletViewPort) &&
                 title.toLowerCase()
               }`}
+            >
+              <H3>{subtitle}</H3>
+            </div>
+            {/* description text */}
+            <div
+              className="description-holder"
+              // id={`${
+              //   (desktopUltraWideViewPort ||
+              //     desktopWideViewPort ||
+              //     desktopViewPort ||
+              //     tabletViewPort) &&
+              //   title.toLowerCase()
+              // }`}
             >
               <P1 className="description">{description}</P1>
             </div>
