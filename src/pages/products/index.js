@@ -36,8 +36,6 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {/* Sections - There are five of these of each product, Song, Score, Ego, Maestro, Arranger. See the component, ProductPageSection and YellowButton */}
-
       {/* Song section - white background */}
       <ProductPageSection
         src={imgSong}
