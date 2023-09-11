@@ -4,49 +4,40 @@ title: Configuring Slack Notifications
 
 Maestro can be integrated with Slack to send notifications about errors and progress throughout the indexing process. Please note you will have to restart Maestro for any modifications to take effect.
 
-To set this up, you need:
+**To set this up, you need:**
 
-- A Slack integration token for the slack organization you will be sending messages to. For more information see [Slacks Official Documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens)
-- The channel name you want Maestro to update
+- A Slack integration token for the slack organization you will be sending messages to. For more information see [Slacks Official Documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens).
+- The channel name you want Maestro to update.
 
-<!--Where is this env file?-->
+Update the following properties in the `.env.maestro` file to manage the Slack connection:
 
-Update the following properties in the Maestro env file to manage the slack connection:
+```bash
+# Slack notifications configuration for Maestro
 
-| Property | Description |
-|--|--|
-| `MAESTRO_NOTIFICATIONS_SLACK_ENABLED` | Set to `true` to enable Slack integration |
-| `MAESTRO_NOTIFICATIONS_SLACK_URL` | The URL to your Slack authentication token. For details see [Slacks Official Documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens). |
-| `MAESTRO_NOTIFICATIONS_SLACK_URL` | Name of the Slack channel where you want notifications to be sent | 
+# Enable or disable Slack integration
+NOTIFICATIONS_SLACK_ENABLED=true
 
+# Types of notifications to trigger for this channel
+# (For more details, see NotificationName.java)
+NOTIFICATIONS_SLACK_NOTIFIEDON=ALL
 
-All Maestro configurations for Slack integration are controlled from the `application.yml` file [located here](https://github.com/overture-stack/maestro/edit/master/maestro-app/src/main/resources/config/application.yml).
+# URL for the Slack webhook (replace with your actual Slack webhook URL)
+NOTIFICATIONS_SLACK_URL={{https://hooks.slack.com/services/YOUR_SECRET_TOKEN}}
 
-Locate the following section of your `application.yml` file:
+# Name of the Slack channel where you want notifications to be sent
+NOTIFICATIONS_SLACK_CHANNEL={{maestro-alerts}}
 
-```yaml
-  notifications:
-    slack:
-      enabled: false
-      # the types to trigger a notification to this channel (see NotificationName.java)
-      notifiedOn:
-        - ALL
-      url: https://hooks.slack.com/services/SECRET_TOKEN
-      channel: maestro-alerts
-      username: maestro
-      maxDataLength: 1000
-      # notifications has two parameters (TYPE [string], DATA[map])
-      templates:
-        error: ':bangbang: Error : ##TYPE##, Error Info: ```##DATA##```'
-        warning: ':warning: ##TYPE## ```##DATA##```'
-        info: ':information_source: ##TYPE## ```##DATA##```'
+# Username to use for sending notifications to Slack
+NOTIFICATIONS_SLACK_USERNAME={{maestro}}
+
+# Maximum length of data for the notification message
+NOTIFICATIONS_SLACK_MAXDATALENGTH=1000
+
+# Templates for different types of notifications
+# Replace ##TYPE## and ##DATA## in the templates with appropriate values as needed
+NOTIFICATIONS_SLACK_TEMPLATE_ERROR=':bangbang: Error : ##TYPE##, Error Info: ```##DATA##```'
+NOTIFICATIONS_SLACK_TEMPLATE_WARNING=':warning: ##TYPE## ```##DATA##```'
+NOTIFICATIONS_SLACK_TEMPLATE_INFO=':information_source: ##TYPE## ```##DATA##```'
 ```
 
-A summary of the properties referenced above is outlined in the table below:
-
-| Property | Description |
-|--|--|
-| `enabled` | Set to `true` to enable Slack integration |
-| `url` | The URL of your Slack authentication token.  For details see the [official Slack documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens). |
-| `channel` | The name of the Slack channel where you want notifications to be sent |
-| `username` | The username required to access the channel |
+Please note you will have to restart Maestro for any modifications to take effect.

@@ -7,6 +7,8 @@
       url: maestro/installation
       isHeading: true
       pages:
+        - title: Prerequisites
+          url: maestro/installation/prerequisites
         - title: Installation
           url: maestro/installation/installation
         - title: Configuration

@@ -2,11 +2,9 @@
 title: Configuring Maestro
 ---
 
-The following sections describe the following optional configurations:
+The sections below cover the essential components for configuring Maestro:
 
-1. [Configuring Elasticsearch](/documentation/score/installation/configuration/profiles) 
-2. [Configuring Kafka Topics](/documentation/score/installation/configuration/song) 
-3. [Integrating Slack Notifications](/documentation/score/installation/configuration/object-storage)
-4. [Configuring Exclusion Rules](/documentation/score/installation/configuration/object-storage)
-
-All configurations are managed within the same **application.yml** file, located in the following directory: **maestro/maestro-app/src/main/resources/config/application.yml**.
+- [Elasticsearch](/documentation/score/installation/configuration/profiles): 	Set the index mapping and configure connection parameters and error handling mechanisms.
+- [Kafka Topics](/documentation/score/installation/configuration/song): Specify the location where you've deployed the Kafka broker.
+- [Slack Notifications](/documentation/score/installation/configuration/object-storage): Send notifications through a Slack webhook integration.
+- [Exclusion Rules](/documentation/score/installation/configuration/object-storage): 	Omit specific analyses from being indexed.
