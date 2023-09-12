@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { LinkHelper as Link, Icon, P2 } from 'components';
-import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import './styles.scss';
 
 export default function YellowButton({ link, title, img_src, alt, text, isProductPage }) {
   return (
     <div className={`yellow-button ${!link && `yellow-button__disable-hover-event`}`}>
-      <AnchorLink
+      <Link
         className={`yellow-button__link ${isProductPage && 'yellow-button__product-page-link'}`}
         to={link}
       >
@@ -16,7 +15,9 @@ export default function YellowButton({ link, title, img_src, alt, text, isProduc
           alt={alt}
         />
         <h1
-          className={`yellow-button__title ${isProductPage && 'yellow-button__product-page-title'}`}
+          className={`yellow-button__title ${
+            isProductPage && 'yellow-button__product-page-title'
+          } ${!link && `yellow-button__remove-underline-css`}`}
         >
           {title}
         </h1>
@@ -25,7 +26,7 @@ export default function YellowButton({ link, title, img_src, alt, text, isProduc
         >
           {text}
         </P2>
-      </AnchorLink>
+      </Link>
     </div>
   );
 }

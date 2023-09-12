@@ -31,14 +31,10 @@ export default function ProductsPage() {
         <div className="container">
           <section className="Hero__section">
             <H1>Our Products</H1>
-            <P1 className="Hero__subtitle">
-              Modular software components for scalable data management systems
-            </P1>
+            <P1 className="Hero__subtitle">Linking the gaps between data and discovery.</P1>
           </section>
         </div>
       </div>
-
-      {/* Sections - There are five of these of each product, Song, Score, Ego, Maestro, Arranger. See the component, ProductPageSection and YellowButton */}
 
       {/* Song section - white background */}
       <ProductPageSection
@@ -98,8 +94,8 @@ export default function ProductsPage() {
       <ProductPageSection
         src={imgArranger}
         title="Arranger"
-        subtitle="Configurable Search Portals"
-        description="A search API built alongside a collection of reusable UI components. Arranger allows admins to configure functional data portals for users to query data, build cohorts, and export filtered data for further analysis and interpretation."
+        subtitle="Data Portal API and UI component generation"
+        description="A data-agnostic search API built alongside a collection of reusable UI components. Arranger allows admins to configure functional data portals from any Elasticsearch index, enabling users to query data, build cohorts, and export filtered data for further analysis and interpretation."
         yellowButtonIcon1="productSearchAPI"
         yellowButtonIcon2="productBuiltInUIComponents"
         yellowButtonIcon3="productAdministrativeUI"
@@ -132,7 +128,7 @@ export default function ProductsPage() {
 
       {/* lower blue section */}
       <section className="lower-blue-section">
-        <div className="lower-blue-section__container container">
+        <div className="lower-blue-section__container">
           <div className="lower-blue-section__holder">
             <div className="lower-blue-section__title-holder">
               <H2>The Overture Data Management System (DMS)</H2>
