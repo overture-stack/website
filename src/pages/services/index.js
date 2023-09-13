@@ -5,7 +5,6 @@ import { CONTACT_US_PATH } from 'constants/pages';
 import imgTechnicalSupport from './assets/img_top_white_section.svg';
 import imgConsulting from './assets/img_grey_section.svg';
 import imgAcademicCollaborations from './assets/img_bottom_white_section.svg';
-
 import './styles.scss';
 
 const ServicesPage = () => {
