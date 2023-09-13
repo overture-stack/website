@@ -5,7 +5,6 @@ import { CONTACT_US_PATH } from 'constants/pages';
 import imgTechnicalSupport from './assets/img_top_white_section.svg';
 import imgConsulting from './assets/img_grey_section.svg';
 import imgAcademicCollaborations from './assets/img_bottom_white_section.svg';
-
 import './styles.scss';
 
 const ServicesPage = () => {
@@ -24,7 +23,10 @@ const ServicesPage = () => {
       </Helmet>
 
       {/* hero */}
-      <Hero title="Services"></Hero>
+      <Hero
+        title="Services"
+        subtitle="We believe in the collective power of expertise and shared resources. If you want to collaborate here's how you can connect."
+      ></Hero>
 
       {/* top white section */}
       <ServicesPageSection
@@ -35,7 +37,8 @@ const ServicesPage = () => {
         list1="Technical audits"
         list2="Step-by-step guidance"
         list3="Troubleshooting"
-        buttonText="Contact Us On Slack"
+        buttonText="Contact us on Slack"
+        contactMessage="or email us at contact@overture.bio"
       />
       {/* grey section */}
       <ServicesPageSection
@@ -49,8 +52,8 @@ const ServicesPage = () => {
         list2="Migration & software integration"
         list3="Custom development"
         list4="Scalability"
-        buttonText="Request Consulting"
         isGrey={true}
+        contactMessage="Email us at contact@overture.bio"
       />
 
       {/* bottom white section */}
@@ -59,8 +62,8 @@ const ServicesPage = () => {
         alt="Academic Collaborations Image"
         title="Academic Collaborations"
         subtitle=" We welcome collaborations in the academic domain. We have extensive experience and can team up with you as a co-applicant for your grant proposals. Our team’s extensive knowledge can help deliver high-profile projects by deploying or modifying Overture and building custom solutions for joint projects."
-        buttonText="Request a Collaboration"
         isNoList={true}
+        contactMessage="Email us at contact@overture.bio"
       />
     </main>
   );
