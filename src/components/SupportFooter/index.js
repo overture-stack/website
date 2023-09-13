@@ -17,7 +17,7 @@ function SupportFooter({ location }) {
 
   //contribution url is the github prefix + current pathname - "/" + ".md" except for two edge cases
   //case 1: when pathname ends with a product name which is also when the pathname is short and only has three "/"
-  //case 2: when parth name contains ("arranger" OR "dmi-ui") AND must ends with "configuration/"
+  //case 2: when pathname contains ("arranger" OR "dmi-ui") AND must ends with "configuration/"
   //for both of these edge cases, the contribution url is github prefix + current pathname + "index.md"
   function getContributionURL() {
     const githubPrefix = 'https://github.com/overture-stack/website/tree/develop/markdown';
