@@ -41,7 +41,7 @@ const shortcodes = {
 };
 
 const replacedComponents = {
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
     if (props) {
@@ -51,7 +51,7 @@ const replacedComponents = {
       return <pre {...preProps} />;
     }
   },
-  wrapper: props => <div className="docs__mdx" {...props} />,
+  wrapper: (props) => <div className="docs__mdx" {...props} />,
 };
 
 export default function DocumentationPage({ data, location, path }) {
@@ -91,41 +91,41 @@ export default function DocumentationPage({ data, location, path }) {
 
   return (
     <React.Fragment>
-        {/* MAIN CONTENT */}
-        <div className="docs__main">
-          <div className="docs__main-container">
-            {/* GITHUB BUTTON */}
-            <div className="docs__github-btn">
-              <Button
-                icon="githubWhite"
-                link={productsDict[sectionSlug].githubUrl}
-                size="navGithub"
-                type="primary"
+      {/* MAIN CONTENT */}
+      <div className="docs__main">
+        <div className="docs__main-container">
+          {/* GITHUB BUTTON */}
+          <div className="docs__github-btn">
+            <Button
+              icon="githubWhite"
+              link={productsDict[sectionSlug].githubUrl}
+              size="navGithub"
+              type="primary"
+            >
+              {sectionTitle} Github
+            </Button>
+          </div>
+          <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
+          {!redirectDest && (
+            <React.Fragment>
+              <MDXProvider
+                components={{
+                  ...replacedComponents,
+                  ...shortcodes,
+                  a: (props) => <Link {...props} location={location} />,
+                  h1: (props) => <AnchorHeading location={location} size="h2" {...props} />,
+                  h2: (props) => <AnchorHeading location={location} size="h3" {...props} />,
+                  h3: (props) => <AnchorHeading location={location} size="h4" {...props} />,
+                  h4: (props) => <AnchorHeading location={location} size="h5" {...props} />,
+                  h5: (props) => <AnchorHeading location={location} size="h6" {...props} />,
+                  h6: (props) => <AnchorHeading location={location} size="h6" {...props} />,
+                }}
               >
-                {sectionTitle} Github
-              </Button>
-            </div>
-            <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
-            {!redirectDest && (
-              <React.Fragment>
-                <MDXProvider
-                  components={{
-                    ...replacedComponents,
-                    ...shortcodes,
-                    a: props => <Link {...props} location={location} />,
-                    h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                    h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                    h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                    h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                    h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                    h6: props => <AnchorHeading location={location} size="h6" {...props} />,
-                  }}
-                >
-                  <MDXRenderer>{body}</MDXRenderer>
-                </MDXProvider>
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
 
-                {/* PREV/NEXT BUTTONS */}
-                <div className="docs__main-pagination">
+              {/* PREV/NEXT BUTTONS */}
+              <div className="docs__main-pagination">
                 <div>
                   {prevPage && (
                     <div className="chevron-link">
@@ -153,10 +153,10 @@ export default function DocumentationPage({ data, location, path }) {
             </React.Fragment>
           )}
           {/* SUPPORT FOOTER */}
-          <SupportFooter />
+          <SupportFooter location={location} />
         </div>
-        </div>
-{/* PAGE/HEADINGS TABLE OF CONTENTS */}
+      </div>
+      {/* PAGE/HEADINGS TABLE OF CONTENTS */}
       <div className="docs__toc-headings">
         {/* GITHUB BUTTON */}
         <Button
@@ -175,7 +175,7 @@ export default function DocumentationPage({ data, location, path }) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $sectionSlug: String!) {
+  query ($id: String!, $sectionSlug: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id
