@@ -35,8 +35,6 @@ pages:
     url: dms/installation/deploy
   - title: Post-Deployment Verification & Configuration
     url: dms/installation/verify
-  - title: Testing Data Upload
-    url: dms/installation/test-upload
   - title: Demonstration Videos
     url: dms/installation/demos
 - title: Admin Guide
@@ -55,3 +53,10 @@ pages:
   pages:
   - title: Using the Data Portal
     url: dms/user-guide/data-portal
+  - title: Data Upload
+    url: dms/user-guide/data-upload
+    pages:
+      - title: Prerequisites
+        url: dms/user-guide/data-upload/prerequisites
+      - title: Uploading Data
+        url: dms/user-guide/data-upload/data-upload
