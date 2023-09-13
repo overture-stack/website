@@ -1,0 +1,52 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.ServicesPageSection {
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-top: 2em;
+  }
+
+  &__no-list {
+    display: none;
+  }
+
+  &__holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+    }
+  }
+
+  &__flexbox-order {
+    @include breakpoint(tablet-up) {
+      order: 1;
+    }
+  }
+
+  &__text-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 2em;
+    max-width: 570px;
+
+    @include breakpoint(tablet-up) {
+      max-width: 50%;
+    }
+  }
+
+  &__contact {
+    font-family: $font-sans-serif;
+    font-weight: 700;
+    color: $navy-black;
+    font-size: 20px;
+    line-height: 34px;
+    font-style: italic;
+  }
+}

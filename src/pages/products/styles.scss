@@ -1,0 +1,111 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.ProductsPage {
+  .Hero {
+    height: fit-content;
+
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hero_products.svg');
+      background-repeat: no-repeat;
+      background-position-x: 82px;
+      background-position-y: 92px;
+      background-size: 860px;
+      height: 470px;
+    }
+
+    @include breakpoint(desktop-up) {
+      background-position-y: 0px;
+      background-size: 1070px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      background-position-x: 105%;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      background-position-x: 81%;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.8em;
+
+      @include breakpoint(tablet-up) {
+        align-items: start;
+        text-align: left;
+      }
+    }
+
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
+        max-width: 440px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 570px;
+      }
+    }
+  }
+
+  .container {
+    padding: 80px 32px;
+
+    @include breakpoint(desktop-up) {
+      padding: 5.2em 3.8em;
+    }
+    @include breakpoint(desktop-wide) {
+      padding: 4.7em 3.8em;
+    }
+  }
+
+  .lower-blue-section {
+    margin: 0px -20px;
+
+    &__holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+    }
+
+    &__title-holder {
+      margin-bottom: 2.6em;
+    }
+
+    &__content-holder {
+      background-color: $blue-block;
+      height: fit-content;
+      margin-top: 70px;
+    }
+
+    &__img-holder {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__img {
+      position: relative;
+      image-rendering: crisp-edges;
+      width: 70%;
+      bottom: 70px;
+    }
+
+    &__text-button-holder {
+      position: relative;
+      bottom: 70px;
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.6em;
+    }
+
+    &__text-holder {
+      width: 70%;
+    }
+  }
+}

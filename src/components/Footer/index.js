@@ -7,8 +7,6 @@ import {
   ABOUT_US_PATH,
   ACKNOWLEDGEMENTS_PATH,
   CASE_STUDIES_PATH,
-  CONTACT_US_PATH,
-  COMMUNITY_PATH,
   DOCUMENTATION_PATH,
   PRIVACY_PATH,
   PRODUCTS_PATH,
@@ -67,23 +65,6 @@ const links = [
     newTab: false,
     className: '',
     key: 6,
-  },
-  {
-    name: 'Contact Us',
-    url: CONTACT_US_PATH,
-    icon: null,
-    newTab: false,
-    className: '',
-    key: 7,
-  },
-
-  {
-    name: 'Community',
-    url: COMMUNITY_PATH,
-    icon: null,
-    newTab: false,
-    className: '',
-    key: 8,
   },
 ];
 
