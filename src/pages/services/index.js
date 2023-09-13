@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Button, P1, H2, Hero, ServicesPageSection } from 'components';
-import { CONTACT_US_PATH } from 'constants/pages';
+import { Hero, ServicesPageSection } from 'components';
+import { SLACK_LINK } from '../../../constants/external-links';
 import imgTechnicalSupport from './assets/img_top_white_section.svg';
 import imgConsulting from './assets/img_grey_section.svg';
 import imgAcademicCollaborations from './assets/img_bottom_white_section.svg';
@@ -39,6 +39,7 @@ const ServicesPage = () => {
         list2="Step-by-step guidance"
         list3="Troubleshooting"
         buttonText="Contact us on Slack"
+        link={SLACK_LINK}
         contactMessage="or email us at contact@overture.bio"
       />
       {/* grey section */}

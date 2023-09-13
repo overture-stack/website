@@ -13,6 +13,7 @@ const ServicesPageSection = ({
   list3,
   list4,
   buttonText,
+  link,
   contactMessage,
   isGrey, ////setting customized css for section with grey background
   isNoList, //setting customized css for section with no lists
@@ -47,7 +48,7 @@ const ServicesPageSection = ({
             {buttonText && (
               <div className="ServicesPageSection__button-holder">
                 <Button
-                  link={EMAIL_LINK}
+                  link={link}
                   type="primary"
                   size="medium"
                   className="ServicesPageSection__button"
