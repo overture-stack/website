@@ -26,11 +26,11 @@ This template can be used to start your dynamic schema:
 
 Here are some resources to help with the creation of new schemas for your projects:
 
-- [Understanding JSON Schema guide](https://json-schema.org/understanding-json-schema/index.html): This guide provides detailed information on JSON Schema formatting, offering a comprehensive resource for understanding and working with JSON schemas.
+- <a href="https://json-schema.org/understanding-json-schema/index.html" target="_blank" rel="noopener noreferrer">Understanding JSON Schema guide</a>: This guide provides detailed information on JSON Schema formatting, offering a comprehensive resource for understanding and working with JSON schemas.
 
-- [Example schema](https://raw.githubusercontent.com/cancogen-virus-seq/metadata-schemas/main/schemas/consensus_sequence.json): If you're looking for a sample schema, you can refer to this example schema used for the CanCOGeN's VirusSeq Portal. It can serve as a reference or starting point for creating your own schemas.
+- <a href="https://raw.githubusercontent.com/cancogen-virus-seq/metadata-schemas/main/schemas/consensus_sequence.json" target="_blank" rel="noopener noreferrer">Example schema</a>: If you're looking for a sample schema, you can refer to this example schema used for the CanCOGeN's VirusSeq Portal. It can serve as a reference or starting point for creating your own schemas.
 
-- [Base schema reference](https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/schemas/analysis/analysisBase.json): Song utilizes a base schema that is combined with all user schemas. When creating your schemas, it's important to reference the base schema to avoid specifying conflicting properties and ensure compatibility with Song's schema structure.
+- <a href="https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/schemas/analysis/analysisBase.json" target="_blank" rel="noopener noreferrer">Base schema reference</a>: Song utilizes a base schema that is combined with all user schemas. When creating your schemas, it's important to reference the base schema to avoid specifying conflicting properties and ensure compatibility with Song's schema structure.
 
 These resources aim to provide guidance and references for schema creation, ensuring the consistency and compatibility of your schemas within the Song metadata framework.
 

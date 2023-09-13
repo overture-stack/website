@@ -2,7 +2,7 @@
 title: Run Profiles
 ---
 
- [Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) are used to configure the Song Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
+ <a href="https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html" target="_blank" rel="noopener noreferrer">Spring Profiles</a> are used to configure the Song Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
 
 For Songs configuration, you will need to specify the active profiles within your enviroment variables file (`.env`). Descriptions of the profiles available to Song are provided here. Depending on the type of configuration, some profiles are required to run and some are optional. 
 
@@ -16,7 +16,7 @@ The `secure` profile:
 - If Ego is used as the authentication method with Song, this profile is required.  The default URL is configured to work with Ego.
 - The scopes defined in this profile can be modified based on your needs. By default, `song.WRITE` is configured for access with Ego. 
 
-For help installing Ego, please refer to our [Ego installation documentation](/documentation/ego).
+For help installing Ego, please refer to our <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a>.
 
 ``` bash
 # Secure profile configuration
@@ -34,7 +34,7 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/o
 
 # JWT Profile
 
-When the `jwt` profile is enabled, this profile allows usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with [Ego installation documentation](/documentation/ego) and must be replaced if another authentication service gets used.
+When the `jwt` profile is enabled, this profile allows usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a> and must be replaced if another authentication service gets used.
 
 ```bash
 # JWT Configuration
@@ -64,7 +64,7 @@ SPRING_DATASOURCE_MIN_IDLE=1
 
 The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is only required if Kafka is configured.
 
-For help installing Kafka, please refer to [the official Kafka documentation](https://kafka.apache.org/quickstart).
+For help installing Kafka, please refer to <a href="https://kafka.apache.org/quickstart" target="_blank" rel="noopener noreferrer">the official Kafka documentation</a>.
 
 By default, song is configured to output to a topic called `song-analysis`. If you configure your Kafka with a different name, make sure to adjust accordingly. 
 

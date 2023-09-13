@@ -44,7 +44,7 @@ ghcr.io/overture-stack/score:latest
 
 ## Step 1. Prepare a payload
 
-First, a metadata payload must be prepared. The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the [Dynamic Schemas documentation](/documentation/song/user-guide/schema).
+First, a metadata payload must be prepared. The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
  
 ## Step 2. Upload the metadata payload file
 
@@ -112,7 +112,7 @@ Sometimes if an upload is stuck, you can reinitiate the upload using the `--forc
 ```bash
 .bin/score-client  upload --manifest manifest.txt --force 
 ```
-For more information on Score, please see the [Score documentation page](/documentation/score).
+For more information on Score, please see the <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score documentation page</a>.
 
 ## Step 5. Publish the analysis
 

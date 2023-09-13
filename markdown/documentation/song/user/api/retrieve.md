@@ -29,7 +29,7 @@ Expected responses as well as response codes and descriptions are conveniently d
 
 # Programmatic Queries
 
-Here we provide some examples of how to programmatically retrieve analyses using the Song API. If you have any questions or require technical support for your specific use case please reach out to us on our [slack channel](https://overture-bio.slack.com/).
+Here we provide some examples of how to programmatically retrieve analyses using the Song API. If you have any questions or require technical support for your specific use case please reach out to us on our slack channel.
 
 ## Example 1: Sample ID query
 

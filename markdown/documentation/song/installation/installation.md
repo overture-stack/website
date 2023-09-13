@@ -17,7 +17,7 @@ Before you proceed with the Song installation, be aware that there are several c
 | [Schema Strictness](/documentation/song/installation/configurations/schema/)             | Define how strictly schemas should be followed. | Required | 
 | [Kafka Event Management](/documentation/song/installation/configurations/kafka/)        | Manage real-time data streaming events.    | Optional    |
 
-For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on [Configurations](/documentation/song/installation/configuration/) section. 
+For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on <a href="/documentation/song/installation/configuration/" target="_blank" rel="noopener noreferrer">Configurations</a> section. 
 
 # Installation Steps
 

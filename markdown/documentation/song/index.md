@@ -24,11 +24,11 @@ Song is a metadata validation and tracking tool designed to streamline the manag
 
 # Integrations
 
-As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, [Score](/documentation/score), which manages file transfers and object storage.
+As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score</a>, which manages file transfers and object storage.
 
 As part of the larger Overture.bio software suite, Song can be optionally used with additional integrations, including:
 
-- **Event Streaming:** Built-in support for [Apache Kafka](https://kafka.apache.org/) event streaming.  
+- **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> event streaming.  
 
 
-- **Maestro Indexing:** Song is built to natively integrate with [Maestro](/documentation/maestro/), which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
+- **Maestro Indexing:** Song is built to natively integrate with <a href="/documentation/maestro/" target="_blank" rel="noopener noreferrer">Maestro</a>, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
