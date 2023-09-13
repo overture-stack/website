@@ -2,176 +2,102 @@
 title: Common Problems
 ---
 
-This section describes some common problems and known issues currently present in the DMS platform, and suggestions on how to troubleshoot and/or work around them.
+This section outlines common problems and known issues in the DMS platform, along with troubleshooting steps or workarounds.
 
-# DMS not running on Apple Silicon
+- [I can't run DMS on my Apple Silicon device](##dms-not-running-on-apple-silicon)
+- [I get an HTTP 404 error when trying to access the Arranger UI without a trailing slash](##arranger-ui-url-inconsistency)
+- [I encountered a Docker Daemon error while running the DMS installer](##docker-daemon-error-when-running-dms-installer)
+- [I see a generic error page instead of the OAUTH error page](##oauth-error-pages-not-displaying)
+- [I'm authenticated in Swagger UI but still get a 'Forbidden Access' error](##omitting-bearer-prefix-when-using-swagger-ui)
+- [I can't generate an API token from my profile page in the Data Portal](##user-has-no-permissions-to-generate-an-api-token)
+## DMS not running on Apple Silicon
 
-Our software is currently only compatible with Intel-based Macs, not Apple Silicon devices. We are actively working on updates to support Apple silicon. Thank you for your understanding.
+Currently, our software supports only Intel-based Macs and not Apple Silicon devices. We are actively working on updates for Apple Silicon compatibility. We appreciate your patience.
 
-# Arranger UI URL Inconsistency
+## Arranger UI URL Inconsistency
 
-**Problem:**
+**Problem:**  
+The URL required to access the Arranger UI needs a trailing slash `\` in the final sub-path (e.g., `\arranger-ui\`). Without it, an `HTTP 404 Not Found` error is encountered. This is different from other services where a trailing slash is **NOT** necessary (e.g., `\ego-ui`).
 
-When accessing the Arranger UI, the URL that must be entered requires a trailing slash `\` in the final sub-path (e.g. `\arranger-ui\`), otherwise an `HTTP 404 Not Found` error is encountered and the URL cannot be resolved.
+**Cause:**  
+This is a [known issue](https://github.com/overture-stack/arranger/issues/655) to be addressed in an upcoming DMS release.
 
-This is inconsistent from other services, where a trailing slash is **NOT** required (e.g. `\ego-ui`).
+**Solution:**  
+Always add the trailing slash when accessing the Arranger UI.
+## Docker Daemon Error When Running DMS Installer
 
-**Cause:**
-
-This is a [known issue](https://github.com/overture-stack/arranger/issues/655) to be addressed in a future DMS release.
-
-**Solution:**
-
-Currently, the trailing slash must be added to the URL to access the Arranger UI.
-
-# Docker Daemon Error When Running DMS Installer
-
-**Problem:**
-
-When trying to run the DMS installer, a Docker Daemon error may occur, indicating a failure to attach to the network.  The DMS crashes and exits:
-
+**Problem:**  
+When trying to run the DMS installer, a Docker Daemon error may occur, indicating a failure to attach to the network. The DMS crashes and exits:
 ```shell
 $ dms -h
 
 Status: Downloaded newer image for overture/dms:0.12.1
 docker: Error response from daemon: attaching to network failed, make sure your network options are correct and check manager logs: context deadline exceeded.
 ```
+**Cause:**  
+The error might arise if Docker was installed in a non-standard manner or if the official installation instructions from the [Docker documentation site](https://docs.docker.com/engine/install/) weren't followed.
 
-sudo groupadd docker
-sudo usermod -aG docker $USER
-sudo reboot
-curl https://raw.githubusercontent.com/overture-stack/dms/0.15.1/src/main/bin/dms-docker > dms
-chmod +x dms
-docker swarm init
-dms -h
-Got the error:
-Status: Downloaded newer image for overture/dms:0.15.1 docker: Error response from daemon: attaching to network failed, make sure your network options are correct and check manager logs: context deadline exceeded.
+**Solution:**  
+Ensure Docker is installed following the instructions directly from the [Docker documentation site](https://docs.docker.com/engine/install/).
 
-**Cause:**
+## OAUTH Error Pages Not Displaying
 
-This may be caused by installing Docker in a non-standard way, not following the official installation instructions from the [Docker documentation site](https://docs.docker.com/engine/install/).
-
-For example, this installation using the `snapd` package manager, instead of the Docker site itself, causes the issue:
-
-```shell
-$ sudo groupadd docker
-$ sudo usermod -aG docker $USER
-$ sudo reboot
-$ curl https://raw.githubusercontent.com/overture-stack/dms/1.0.0/src/main/bin/dms-docker > dms
-$ chmod +x dms
-$ docker swarm init
-$ dms -h
-
-Status: Downloaded newer image for overture/dms:0.15.1 docker: Error response from daemon: attaching to network failed, make sure your network options are correct and check manager logs: context deadline exceeded.
-```
-
-**Solution:**
-
-Make sure to install Docker using installation instructions directly from the [Docker documentation site](https://docs.docker.com/engine/install/).
-
-# OAUTH Error Pages Not Displaying
-
-**Problem:**
-
-When an OAUTH authentication error occurs, a generic HTTP error page (e.g. 403) is shown, instead of the proper descriptive error page.  For example, when a user's email address is not found, when a user has denied Ego access to their profile, etc.  The generic error page is not informative and is not the correct one to display:
+**Problem:**  
+When an OAUTH authentication error occurs, a generic HTTP error page (e.g. 403) is shown, instead of the proper descriptive error page. The generic error page is not informative and is not the correct one to display:
 
 ![Entity](../assets/generic-error.png 'Generic Error')
 
-The correct error message should be stylized and include the type of error that occurred, a description of why it occurred, and a suggestion on how it can be rectified.  For example:
-
-![Entity](../assets/no-email.png 'No Primary Email')
-
-**Cause:**
-
+**Cause:**  
 The `dms` application's **ERROR REDIRECT URI** has not been configured in Ego UI.
 
-**Solution:**
+**Solution:**  
+Configure the **ERROR REDIRECT URI** in the `dms` application in Ego UI. Steps include:
 
-Add the correct **ERROR REDIRECT URI** to the `dms` application in Ego UI.
-
-1.  Log into Ego UI by going to:
-
-| Mode               | URI |
-| --------------------| ------------|
-| Local   | http://localhost:`<port>`/ego-ui |
-| Server  | https://`<myDomain>`/ego-ui |
-
-Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
-- `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
-
-2. From the left navigation, click **Applications** and verify that the `dms` application has been created.
-
-
-3.  Click **Edit** on the `dms` application and in the **ERROR REDIRECT URI** field, enter:
-
-| Mode               | URI |
-| --------------------| ------------|
-| Local   | http://localhost:`<port>`/dms-ui/403 |
-| Server  | https://`<myDomain>`:443/dms-ui/403 |
-
-Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
-- `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
-
-This ensures that when OAUTH errors occurs, the DMS UI (Data Portal) is routed to the correct error page to display to the end user.
-
-4.  Click **Save**.  Here is an example of the resulting application changes:
+1. Log into Ego UI.
+2. Navigate to **Applications** and verify that the `dms` application exists.
+3. Edit the `dms` application.
+4. Enter the appropriate **ERROR REDIRECT URI**.
+5. Save your changes.
 
 ![Entity](../assets/dms-app.png 'DMS App Error Redirect URI')
+## Omitting Bearer Prefix When Using Swagger UI
 
-# Omitting Bearer Prefix When Using Swagger UI
-
-**Problem:**
-
-Even after authenticating with the Swagger UI for a given API service (e.g. Ego API, Song API, etc.), using the endpoints always results in a `Forbidden Access` error.  For example:
+**Problem:**  
+Even after authenticating with the Swagger UI for a given API service, using the endpoints results in a `Forbidden Access` error.
 
 ![Entity](../assets/swagger-error.png 'Swagger Access Error')
 
-**Cause:**
+**Cause:**  
+Authentication in Swagger UI might not have the `Bearer` prefix before the token or API key.
 
-Make sure that, when authenticating with the Swagger UI, you have prefixed your credential (e.g. JWT, API Key, whichever applies in the given context) with the term `Bearer` and a whitespace. This is a common human/user error that occurs.
-
-For example: `Bearer abc123DEF456ghi789`
-
-**Solution:**
-
-Make sure the `Bearer` prefix is added before your credential (e.g. JWT, API Key, whichever applies) when authenticating with the API. For example:
+**Solution:**  
+Always include the `Bearer` prefix followed by a space when authenticating in Swagger UI.
 
 ![Entity](../assets/bearer2.png 'Bearer Prefix')
 
-# User Has No Permissions to Generate an API Token
+## User Has No Permissions to Generate an API Token
 
-**Problem:**
-
-After logging into the Data Portal and trying to generate an API token from their profile page, an end user receives an error indicating they do not have permissions to generate an API token.  For example:
+**Problem:**  
+End users might encounter an error when trying to generate an API token from their profile page in the Data Portal.
 
 ![Entity](../assets/no-permissions.png 'No Permissions')
 
-**Cause:**
+**Cause:**  
+The user might not have the necessary permissions in Ego UI.
 
-The user has not been assigned the correct permissions, or any permission at all, in Ego UI.  For example, note that this user's profile Ego UI has empty **Groups** and empty **Permissions**:
+**Solution:**  
+Ensure the user has the appropriate permissions in Ego UI.
 
-![Entity](../assets/empty-permissions.png 'Empty Permissions')
-
-**Solution:**
-
-Make sure the user's permissions are not empty in Ego UI and assign then the correct permissions.
-
-1.  Log into Ego UI by going to:
+1. Log into Ego UI.
 
 | Mode               | URI |
 | --------------------| ------------|
 | Local   | http://localhost:`<port>`/ego-ui |
 | Server  | https://`<myDomain>`/ego-ui |
 
-Where:
-- `<port>` is the port on which you will deploy the DMS Gateway in local mode
-- `<myDomain>` is the registered [domain you configured](../configuration/prereq/domain) for the DMS Gateway (e.g. `dms.test.cancercollaboratory.org`)
-
-2. From the left navigation, click **Users** and click **Edit** for the user in question.
 
 
-3. Under **Groups**, make sure the user is assigned a group with the correct permissions, OR under **Permissions** directly assign the necessary permissions.  The permissions needed for their API key depends on functions or use cases the user needs to fulfill.  For example, if the user needs to submit analyses via Song, then upload the data via score, they will need the `SONG.WRITE` and `SCORE.WRITE` permissions, respectively:
+2. Navigate to **Users**.
 
-![Entity](../assets/correct-permissions2.png 'Correct Permissions')
+
+3. Edit the user's permissions or group assignments as needed.
