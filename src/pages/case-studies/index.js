@@ -10,11 +10,12 @@
  * b) for indicating the currently selected logo in the navigation.
  */
 
-import React, { Component } from 'react';
+import { CaseStudy, Hero } from 'components';
+import React from 'react';
+import caseData from 'data/case_studies';
+import { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Waypoint } from 'react-waypoint';
-import { CaseStudy, Hero } from 'components';
-import caseData from 'data/case_studies';
 import Navigation from './navigation';
 import './styles.scss';
 
@@ -133,7 +134,6 @@ class CaseStudiesPage extends Component {
         <Hero
           title="Case Studies"
           subtitle="See how Overture is tackling diverse challenges across multiple projects."
-          bgImage="img_case_studies"
         />
 
         {/* Case Study Interactive NavBar */}

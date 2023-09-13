@@ -2,51 +2,13 @@
 
 .Hero {
   height: 470px;
-  background: #f3f3f3;
   display: flex;
   justify-content: center;
 
   @include breakpoint(mobile) {
-    display: flex;
     justify-content: center;
     min-height: 150px;
     height: auto;
-    padding: 32px 0px;
-  }
-
-  .titles {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 5rem;
-    max-width: 600px;
-  }
-
-  .image {
-    // flex: 1;
-    @media (min-width: $tablet) {
-      transform: scale(0.9) translateY(0px);
-    }
-    @media (max-width: $tablet) {
-      display: none;
-    }
-  }
-
-  &.bg-image {
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    height: 470px;
-    // background-position-y: 0px;
-    // display: flex;
-    // justify-content: center;
-
-    @include breakpoint(desktop-wide) {
-      background-position-x: 85%;
-    }
-
-    @include breakpoint(desktop-ultrawide) {
-      background-position-x: 65%;
-    }
+    padding: 50px 0px;
   }
 }

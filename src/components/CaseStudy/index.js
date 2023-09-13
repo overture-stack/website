@@ -16,60 +16,61 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
 
   return (
     <section className="Case-Study" id={caseData.slug}>
-      {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
-      <div className="container top-segment">
-        <div className="case-heading">
-          <H2 className="mb4">{caseData.title}</H2>
-        </div>
-        <div className="columns">
-          <div className="column is-6">
-            {React.cloneElement(descriptionEl, { className: 'case-description' })}
-          </div>
-
-          <div className="column is-offset-0 ml4">
-            <ul>
-              {caseData.listItems[0].map((i, idx) => {
-                return (
-                  <L1>
-                    <li className="client-list-item" key={idx}>
-                      {i}
-                    </li>
-                  </L1>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Lower Container: Screenshots */}
       <div className="container">
-        <div className="details">
-          <div className="details-left">
-            <div className=" details-left-browser-wrapper">
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+        <div className="case-heading">
+          <H2>{caseData.title}</H2>
+        </div>
+        {/* top segment */}
+        <div className=" top-segment">
+          <div className="columns">
+            {/* left paragraph */}
+            <div className="column is-6">
+              {React.cloneElement(descriptionEl, { className: 'case-description' })}
             </div>
-          </div>
-
-          <div className="details-right column is-offset-0 mt2">
-            <div>
-              <H3 className="mb2">How was Overture used?</H3>
+            {/* right list */}
+            <div className="column is-offset-0 top-bullets">
               <ul>
-                {caseData.listItems[1].map((i, idx) => {
+                {caseData.listItems[0].map((i, idx) => {
                   return (
                     <L1>
-                      <li className="client-list-item" key={idx}>
-                        <b>{Object.keys(i)}</b> {Object.values(i)}
+                      <li className="client-list-item indent-group" key={idx}>
+                        {i}
                       </li>
                     </L1>
                   );
                 })}
               </ul>
             </div>
-            <div>
-              <Button className="mt3" type="primary" size="medium" link={caseData.clientLink}>
-                Check it out!
-              </Button>
+          </div>
+        </div>
+
+        {/* Lower Container */}
+        <div className="bottom-segment">
+          <div className="columns">
+            <div className="column is-6 img-holder">
+              <img src={caseData.details[currentScreenshot].screenshot} />
+            </div>
+
+            <div className="column is-offset-0 ">
+              <div className="lower-title-holder indent-group">
+                <H3>How was Overture used?</H3>
+              </div>
+              <ul>
+                {caseData.listItems[1].map((i, idx) => {
+                  return (
+                    <L1>
+                      <li className="client-list-item indent-group" key={idx}>
+                        <b>{Object.keys(i)}</b> {Object.values(i)}
+                      </li>
+                    </L1>
+                  );
+                })}
+              </ul>
+              <div className="button-holder indent-group">
+                <Button type="primary" size="medium" link={caseData.clientLink}>
+                  Check it out!
+                </Button>
+              </div>
             </div>
           </div>
         </div>

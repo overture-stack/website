@@ -175,14 +175,17 @@ export default function HomePage() {
         </Button>
       </section>
 
+      {/* floating maroon cube */}
       <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
 
+      {/* lower white section */}
       <section className="section lower-white">
+        {/* title */}
         <div className="lower-white__title-container">
           <H2 className="lower-white__title">Powered by Overture</H2>
           <P1>Tackling diverse challenges across several projects</P1>
         </div>
-
+        {/* 5 logo links */}
         <div className="lower-white__logos">
           {caseData.map((data, idx) => {
             let active = idx === carouselPage ? 'lower-white__logo-active' : '';
@@ -199,6 +202,7 @@ export default function HomePage() {
             );
           })}
         </div>
+        {/* carousel (blue background) */}
         <div className="lower-white__blue-container">
           <Button
             icon={'arrowLeftBlack'}
@@ -285,6 +289,7 @@ export default function HomePage() {
           />
         </div>
 
+        {/* three yellow icons section (last portion of lower white section)*/}
         <H2 className=" lower-white__title ">Getting Started with Overture</H2>
         <div className="lower-white__yellow-buttons">
           <YellowButton
@@ -308,14 +313,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* floating blue teal cube */}
       <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
-
+      {/* floating yellowish cube */}
       <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
           <h2 className="upper-grey__text lower-grey__text">
-            Improving data accessibility with flexible and<br></br> scalable software components.
+            Improving data accessibility with flexible and scalable software components.
           </h2>
           <div className="mt3 lower-grey__buttons">
             <Button type="primary" size="medium" link={DOCUMENTATION_PATH}>
@@ -328,7 +334,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* floating bright teal cube */}
+      {/* floating bright green teal cube */}
       <div className="bg-grey">
         <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
       </div>
