@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './styles.scss';
-import { P1, Button, LinkHelper as Link } from 'components';
+import { LinkHelper as Link } from 'components';
 import { SLACK_LINK } from '../../../constants/external-links';
+import urlJoin from 'proper-url-join';
 import smileyFace from './assets/smileyFace.svg';
 import unsmileyFace from './assets/unsmileyFace.svg';
 
@@ -23,14 +24,19 @@ function SupportFooter({ location }) {
     const githubPrefix = 'https://github.com/overture-stack/website/tree/develop/markdown';
     const url = location.pathname && location.pathname;
     if (url.replace(/[^/]/g, '').length === 3) {
-      return githubPrefix + url + 'index.md';
+      return urlJoin(githubPrefix, url, 'index.md');
     } else if (
-      (url.includes('arranger') || url.includes('dms-ui')) &&
-      url.slice(url.length - 14, url.length) === 'configuration/'
+      (url.includes('arranger') ||
+        url.includes('dms-ui') ||
+        url.includes('song') ||
+        url.includes('score')) &&
+      url.endsWith('configuration/')
     ) {
-      return githubPrefix + url + 'index.md';
+      return urlJoin(githubPrefix, url, 'index.md');
+    } else if (url.includes('song') && (url.endsWith('schema/') || url.endsWith('analysis/'))) {
+      return urlJoin(githubPrefix, url, 'index.md');
     } else {
-      return githubPrefix + url.slice(0, url.length - 1) + '.md';
+      return urlJoin(githubPrefix, url.slice(0, url.length - 1) + '.md');
     }
   }
 
