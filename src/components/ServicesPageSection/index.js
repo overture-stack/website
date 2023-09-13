@@ -56,8 +56,8 @@ const ServicesPageSection = ({
                 </Button>
               </div>
             )}
-            <div className="ServicesPageSection__contact">
-              <p>{contactMessage}</p>
+            <div>
+              <p className="ServicesPageSection__contact">{contactMessage}</p>
             </div>
           </div>
         </div>

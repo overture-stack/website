@@ -39,6 +39,12 @@
       }
     }
 
+    &__subtitle {
+      @include breakpoint(tablet-up) {
+        width: 45%;
+      }
+    }
+
     .container {
       @include breakpoint(tablet-up) {
         display: flex;

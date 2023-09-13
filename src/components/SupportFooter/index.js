@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './styles.scss';
-import { P1, LinkHelper as Link } from 'components';
+import { P1, Button, LinkHelper as Link } from 'components';
 import { SLACK_LINK } from '../../../constants/external-links';
-import smileyFace from './svgs/smileyFace.svg';
-import unsmileyFace from './svgs/unsmileyFace.svg';
 
 function SupportFooter({ location }) {
   const [feedback, setFeedback] = useState(null);
@@ -43,17 +41,17 @@ function SupportFooter({ location }) {
         <div>
           <p className="support-footer__sub-title">Did this page help you?</p>
           <div className="feedback-icons">
-            <img
+            <Button
               onClick={() => handleFeedbackClick(true)}
-              src={smileyFace}
-              alt="Positive Feedback"
+              aria-label="X Feedback"
+              icon="smileyFace"
               className={`icon ${feedback === true ? 'icon-inverted' : ''}`}
               id="postive-feedback"
             />
-            <img
+            <Button
               onClick={() => handleFeedbackClick(false)}
-              src={unsmileyFace}
-              alt="Negative Feedback"
+              aria-label="X Feedback"
+              icon="unsmileyFace"
               className={`icon ${feedback === false ? 'icon-inverted' : ''}`}
               id="negative-feedback"
             />
