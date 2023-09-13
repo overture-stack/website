@@ -78,13 +78,18 @@
   }
 }
 
-.feedback-icons {
+.feedback-buttons-holder {
   display: flex;
   gap: 10px;
 
-  .icon {
-    width: 30px;
-    height: 30px;
+  .feedback-button {
+    width: 50px;
+    height: 50px;
+    border-width: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    border-style: hidden;
+    background-color: $blue-block;
   }
 }
 
