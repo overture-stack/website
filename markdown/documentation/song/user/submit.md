@@ -10,7 +10,7 @@ Submitted data consists of data files (e.g. sequencing reads or VCFs), as well a
 
 **Running the song-client docker image** 
 
-You will be required to supply environment variables for the `CLIENT_STUDY_IDL`, the `CLIENT_SERVER_URL` and your `ACCESSTOKEN`. The access token is supplied from Ego or from your profile page within the DMS-UI.
+You will be required to supply environment variables for the `CLIENT_STUDY_ID`, the `CLIENT_SERVER_URL` and your `ACCESSTOKEN`. The access token is supplied from Ego or from your profile page within the DMS-UI.
 
 ```bash
 docker run -d -it --name song-client \
