@@ -55,7 +55,7 @@ function SupportFooter({ location }) {
               aria-label="Positive feedback"
               id="postive-feedback"
             >
-              <img src={smileyFace} className="feedback-img" />
+              <img src={smileyFace} alt="" className="feedback-img" />
             </button>
             <button
               onClick={() => handleFeedbackClick(false)}
@@ -63,7 +63,7 @@ function SupportFooter({ location }) {
               aria-label="Negative feedback"
               id="negative-feedback"
             >
-              <img src={unsmileyFace} className="feedback-img" />
+              <img src={unsmileyFace} alt="" className="feedback-img" />
             </button>
           </div>
         </div>
