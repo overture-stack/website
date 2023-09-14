@@ -22,7 +22,7 @@ function SupportFooter({ location }) {
   //for both of these edge cases, the contribution url is github prefix + current pathname + "index.md"
   function getContributionURL() {
     const githubPrefix = 'https://github.com/overture-stack/website/tree/develop/markdown';
-    const url = location.pathname && location.pathname;
+    const url = location.pathname;
     if (url.replace(/[^/]/g, '').length === 3) {
       return urlJoin(githubPrefix, url, 'index.md');
     } else if (
