@@ -8,7 +8,7 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
   const megaMenuActive = path.startsWith(`/${type}`);
 
   return (
-    <div className="megamenu-link-box" key={key}>
+    <div className="megamenu-link-box" key={key} activeClassName="active-item">
       <div style={{ flex: '1', display: 'flex' }}>
         <div
           className={`megamenu-link navbar-item ${isActive ? 'megamenu-link-open' : ''} ${

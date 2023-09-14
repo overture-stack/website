@@ -204,10 +204,8 @@
 
     &__blue-container-learn-more-button {
       width: fit-content;
-      margin: 0 auto;
-      @include breakpoint(tablet-up) {
-        margin-top: 15px;
-      }
+      margin: 15px auto 0;
+
       @include breakpoint(desktop-up) {
         margin: 5px 36px 0 0;
       }

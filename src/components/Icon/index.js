@@ -104,12 +104,14 @@ import share from './icons/share.svg';
 import shield from './icons/shield.svg';
 import slack from './icons/icon_slack.svg';
 import slackJoin from './icons/slack-join.svg';
+import smileyFace from './icons/smileyFace.svg';
 import slackNew from './icons/icon_slack_new.svg';
 import softwareEngineers from './icons/software-engineers.svg';
 import spiral from './icons/spiral.svg';
 import star from './icons/star.svg';
 import support from './icons/icon_support.svg';
 import target from './icons/target.svg';
+import unsmileyFace from './icons/unsmileyFace.svg';
 import user from './icons/user.svg';
 import vennDiagram from './icons/venn_diagram.svg';
 import xGrey from './icons/x-grey.svg';
@@ -218,11 +220,13 @@ const icons = {
   slack,
   slackJoin,
   slackNew,
+  smileyFace,
   softwareEngineers,
   spiral,
   star,
   support,
   target,
+  unsmileyFace,
   user,
   vennDiagram,
   xGrey,

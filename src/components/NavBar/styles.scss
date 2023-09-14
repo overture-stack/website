@@ -73,8 +73,8 @@
     justify-content: space-between;
     cursor: pointer;
 
-    @include breakpoint(navmenu-below) {
-      margin-left: 1.4em;
+    &:hover {
+      background-color: $grey-1;
     }
   }
 
@@ -91,7 +91,6 @@
       align-self: stretch;
     }
     @include breakpoint(navmenu-below) {
-      margin-left: 1.4em;
       border-top: 1px solid $grey-2;
     }
   }
@@ -103,6 +102,7 @@
     padding: 0.75rem;
     @media (max-width: 1260px) {
       padding: 0.5rem;
+      padding-left: 1.4em;
     }
   }
 

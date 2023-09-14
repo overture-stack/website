@@ -14,6 +14,7 @@ import {
   Icon,
   LinkHelper as Link,
   NoteBox,
+  SupportFooter,
   WarningBox,
 } from 'components';
 import { useScrollToHash } from 'hooks';
@@ -40,7 +41,7 @@ const shortcodes = {
 };
 
 const replacedComponents = {
-  pre: preProps => {
+  pre: (preProps) => {
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
     if (props) {
@@ -50,7 +51,7 @@ const replacedComponents = {
       return <pre {...preProps} />;
     }
   },
-  wrapper: props => <div className="docs__mdx" {...props} />,
+  wrapper: (props) => <div className="docs__mdx" {...props} />,
 };
 
 export default function DocumentationPage({ data, location, path }) {
@@ -111,15 +112,13 @@ export default function DocumentationPage({ data, location, path }) {
                 components={{
                   ...replacedComponents,
                   ...shortcodes,
-                  a: props => <Link {...props} location={location} />,
-                  // the page title is h1
-                  // so demote markdown headings by one level
-                  h1: props => <AnchorHeading location={location} size="h2" {...props} />,
-                  h2: props => <AnchorHeading location={location} size="h3" {...props} />,
-                  h3: props => <AnchorHeading location={location} size="h4" {...props} />,
-                  h4: props => <AnchorHeading location={location} size="h5" {...props} />,
-                  h5: props => <AnchorHeading location={location} size="h6" {...props} />,
-                  h6: props => <AnchorHeading location={location} size="h6" {...props} />,
+                  a: (props) => <Link {...props} location={location} />,
+                  h1: (props) => <AnchorHeading location={location} size="h2" {...props} />,
+                  h2: (props) => <AnchorHeading location={location} size="h3" {...props} />,
+                  h3: (props) => <AnchorHeading location={location} size="h4" {...props} />,
+                  h4: (props) => <AnchorHeading location={location} size="h5" {...props} />,
+                  h5: (props) => <AnchorHeading location={location} size="h6" {...props} />,
+                  h6: (props) => <AnchorHeading location={location} size="h6" {...props} />,
                 }}
               >
                 <MDXRenderer>{body}</MDXRenderer>
@@ -153,6 +152,8 @@ export default function DocumentationPage({ data, location, path }) {
               </div>
             </React.Fragment>
           )}
+          {/* SUPPORT FOOTER */}
+          <SupportFooter location={location} />
         </div>
       </div>
       {/* PAGE/HEADINGS TABLE OF CONTENTS */}
@@ -174,7 +175,7 @@ export default function DocumentationPage({ data, location, path }) {
 }
 
 export const pageQuery = graphql`
-  query($id: String!, $sectionSlug: String!) {
+  query ($id: String!, $sectionSlug: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id

@@ -10,9 +10,8 @@ import {
   caseStudyAnchors,
   productsAnchors,
 } from 'constants/pages';
-import productsDict from 'constants/products';
 import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
-import { Button, H1, H2, H3, P1, L1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
+import { Button, H1, H2, H3, P1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
 import caseData from 'data/case_studies';
 import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
@@ -152,15 +151,8 @@ export default function HomePage() {
                   }}
                 />
               </div>
-
               <div>
-                {caseData[carouselPage].listItems[2].map((i) => {
-                  return (
-                    <P2 key={i}>
-                      <p1>{i}</p1>
-                    </P2>
-                  );
-                })}
+                <P2> {caseData[carouselPage].listItems[2][0]}</P2>
               </div>
               <Button
                 type="primary"
