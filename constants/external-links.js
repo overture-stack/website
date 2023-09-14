@@ -5,6 +5,10 @@ export const FAQ_LINK = 'https://oicr.on.ca/information-practices-frequently-ask
 export const GDC_LINK = 'https://portal.gdc.cancer.gov/';
 export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
 export const GITHUB_ISSUES_LINK = `${OVERTURE_GITHUB_LINK}roadmap/issues`;
+export const GITHUB_SUBMIT_ISSUES_LINK =
+  'https://github.com/overture-stack/website/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=BUG+-+';
+export const GITHUB_REQUEST_FEATURES_LINK =
+  'https://github.com/overture-stack/website/issues/new?assignees=&labels=new-feature&projects=&template=Feature_Request.md&title=Feature+Request+';
 export const HCMIS_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const HCMIS_PORTAL_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const ICGC_LINK = 'https://dcc.icgc.org/';

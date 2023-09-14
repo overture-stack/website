@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './styles.scss';
 import { LinkHelper as Link } from 'components';
-import { SLACK_LINK } from '../../../constants/external-links';
+import {
+  GITHUB_REQUEST_FEATURES_LINK,
+  GITHUB_SUBMIT_ISSUES_LINK,
+  SLACK_LINK,
+} from '../../../constants/external-links';
 import urlJoin from 'proper-url-join';
 import smileyFace from './assets/smileyFace.svg';
 import unsmileyFace from './assets/unsmileyFace.svg';
@@ -43,61 +47,58 @@ function SupportFooter({ location }) {
   const contributionURL = getContributionURL();
 
   return (
-    <div className="support-footer__container">
-      <p className="support-footer__title">Help and Support</p>
-      <div className="support-footer__columns">
-        <div>
-          <p className="support-footer__sub-title">Did this page help you?</p>
-          <div className="feedback-buttons-holder">
-            <button
-              onClick={() => handleFeedbackClick(true)}
-              className={`feedback-button ${feedback === true && 'icon-inverted'}`}
-              aria-label="Positive feedback"
-              id="postive-feedback"
-            >
-              <img src={smileyFace} alt="" className="feedback-img" />
-            </button>
-            <button
-              onClick={() => handleFeedbackClick(false)}
-              className={`feedback-button ${feedback === false && 'icon-inverted'}`}
-              aria-label="Negative feedback"
-              id="negative-feedback"
-            >
-              <img src={unsmileyFace} alt="" className="feedback-img" />
-            </button>
+    <div className="support-footer">
+      <div className="support-footer__container">
+        <p className="support-footer__title">Help and Support</p>
+        <div className="support-footer__columns">
+          {/* first column - smiley/unsmiley faces */}
+          <div className="support-footer__first-column">
+            <p className="support-footer__sub-title">Did this page help you?</p>
+            <div className="feedback-buttons-holder">
+              <button
+                onClick={() => handleFeedbackClick(true)}
+                className={`feedback-button ${feedback === true && 'icon-inverted'}`}
+                aria-label="Positive feedback"
+                id="postive-feedback"
+              >
+                <img src={smileyFace} alt="" className="feedback-img" />
+              </button>
+              <button
+                onClick={() => handleFeedbackClick(false)}
+                className={`feedback-button ${feedback === false && 'icon-inverted'}`}
+                aria-label="Negative feedback"
+                id="negative-feedback"
+              >
+                <img src={unsmileyFace} alt="" className="feedback-img" />
+              </button>
+            </div>
           </div>
-        </div>
-        <div>
-          <p className="support-footer__sub-title">Help make our docs better</p>
-          <ul>
-            <li>
-              <a
-                href="https://github.com/overture-stack/website/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=BUG+-+"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Submit an issue
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/overture-stack/website/issues/new?assignees=&labels=new-feature&projects=&template=Feature_Request.md&title=Feature+Request+"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Submit a feature request
-              </a>
-            </li>
-            <li>
-              <a href={contributionURL} target="_blank" rel="noopener noreferrer">
-                Make a contribution
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p className="support-footer__sub-title">Still need help?</p>
-          <Link to={SLACK_LINK}>Ask us on Slack</Link>
+          {/* second column - submit issues and make contribution */}
+          <div className="support-footer__second-column">
+            <p className="support-footer__sub-title">Help make our docs better</p>
+            <ul>
+              <li>
+                <a href={GITHUB_SUBMIT_ISSUES_LINK} target="_blank" rel="noopener noreferrer">
+                  Submit an issue
+                </a>
+              </li>
+              <li>
+                <a href={GITHUB_REQUEST_FEATURES_LINK} target="_blank" rel="noopener noreferrer">
+                  Submit a feature request
+                </a>
+              </li>
+              <li>
+                <a href={contributionURL} target="_blank" rel="noopener noreferrer">
+                  Make a contribution
+                </a>
+              </li>
+            </ul>
+          </div>
+          {/* third column - slack link */}
+          <div className="support-footer__third-column">
+            <p className="support-footer__sub-title">Still need help?</p>
+            <Link to={SLACK_LINK}>Ask us on Slack</Link>
+          </div>
         </div>
       </div>
     </div>

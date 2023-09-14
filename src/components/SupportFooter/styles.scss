@@ -76,6 +76,10 @@
       box-sizing: border-box;
     }
   }
+
+  .icon-inverted {
+    filter: brightness(110%);
+  }
 }
 
 .feedback-buttons-holder {
@@ -91,16 +95,4 @@
     border-style: hidden;
     background-color: $blue-block;
   }
-}
-
-.icon-inverted {
-  filter: brightness(110%);
-}
-
-p {
-  padding-top: 10px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
-  margin: 0;
 }
