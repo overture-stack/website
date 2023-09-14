@@ -2,23 +2,23 @@
 title: Deploying Your Cluster
 ---
 
-After your [configuration is complete](../configuration/configure-dms) and saved to file, you can deploy all services to your cluster:
+Once your [configuration is complete](../configuration/configure-dms) and the details are saved to a file, you're ready to deploy all the necessary services to your cluster. Here's a step-by-step guide:
 
-1. Open a separate terminal window to monitor the services that will be deployed to Docker. This command refreshes every 2 seconds, but feel free to adjust the interval:
+1. **Monitor Services with Docker:** Begin by opening a separate terminal window. This will allow you to actively monitor the services that Docker is deploying. The following command will refresh every 2 seconds, but you can adjust the interval as you see fit:
 
-```shell
+```bash
 watch -n 2 docker service ls
 ```
 
-2. To deploy your saved configuration, execute:
+2. **Deploy Configuration:** To deploy the configuration you saved earlier, run:
 
-```shell
+```bash
 dms cluster start
 ```
 
-3. Status messages will display during deployment for each service:
+3. **Monitor Deployment Status:** As deployment progresses, you'll see status messages for each service:
 
-```shell
+```bash
 Starting deployment...
 
 🏁️ Deployment for service minio-api finished successfully
@@ -31,30 +31,28 @@ Starting deployment...
 <...and so on...>
 ```
 
-4. The deployment might take a while due to multiple services being deployed. If you face timeouts, adjust the timeout period and retries in the `~/.dms/config.yaml`:
+4. **Adjusting for Longer Deployments:** The deployment process might be time-consuming due to the multiple services involved. In case you run into timeout issues, you can adjust both the timeout period and the number of retries in the `~/.dms/config.yaml`:
 
-```shell
+```bash
 healthCheck:
   retries: 15
   delaySec: 10
 ```
 
-Upon completion, you'll see:
+Once everything is deployed, you should see a confirmation message:
 
-```shell
+```bash
 Deployment completed successfully
 
 *****************************************************************************************************
 !!! NOTE !!!
 
-    Before using the DMS platform, please complete post-deployment verification
-    and configuration steps required to check the health of your deployment.  For
-    instructions, see:
-    https://overture.bio/documentation/dms/installation/verify/
+Before using the DMS platform, ensure to complete the post-deployment verification and configuration steps. This will help check the health of your deployment. For detailed instructions, visit: 
+https://overture.bio/documentation/dms/installation/verify/
 
 *****************************************************************************************************
 ```
 
-<Warning>**NOTE:** The DMS platform doesn't support automatic backup of data volumes. Administrators should handle data backup strategies.</Warning>
+<Warning>**NOTE:** The DMS platform does not offer automatic data volume backup. It's crucial for administrators to establish and manage data backup strategies.</Warning>
 
-<Warning>**NOTE:** DMS currently supports deployment to a single cluster, As such it is intended for single node systems.</Warning>
+<Warning>**NOTE:** At present, DMS only supports deployment to a singular cluster. Hence, it's tailored for single-node systems.</Warning>

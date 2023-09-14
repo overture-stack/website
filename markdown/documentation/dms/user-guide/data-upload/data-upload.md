@@ -4,7 +4,16 @@ title: Data Upload
 
 This guide walks you through an end-to-end data upload. We will use demo data to submit, index, configure for display, and finally explore that data in the Data Portal.
 
-# Create a Study in Song
+**Data upload Overview**
+
+1. [Create a Study](#create-a-study): Set up a study in Song to group related data.
+2. [Create and Submit an Analysis File](#create-and-submit-an-analysis-file): Submit data files and their metadata as an Analysis in Song.
+3. [Generate a Manifest](#generate-a-manifest): Produce a manifest for data file uploads to object storage.
+4. [Upload your Data](#upload-your-data): Use the manifest to upload raw data files using Score.
+5. [Publish the Analysis](#publish-the-analysis): Make the analysis accessible for further services like Elasticsearch.
+6. [Index the Study](#index-the-study): Input the study's data into Elasticsearch using Maestro.
+7. [Check your Data in the Portal](#check-your-data-in-the-portal): Verify the uploaded data in the Data Portal's UI.
+# Create a Study
 
 To upload data, we will need to create a study in Song. A study in Song acts as a grouping mechanism for data that's related, allowing data to be submitted and indexed together. For demonstration purposes, we'll use sample data from a fictional test study with the ID `ABC123`.
 
@@ -49,16 +58,18 @@ If you prefer a GUI approach:
 
 ![Entity](../../assets/create-study.png 'Create Study')
 
-# Submit the Analysis to Song
+# Create and submit an Analysis file
 
-In Song, submitted data encompasses both data files (such as sequencing reads or VCFs) and their associated metadata. When you combine this metadata and data files, the result is what we term a Song `Analysis`. It represents a cohesive unit that keeps file metadata and the data itself tightly coupled, serving as the primary entity within the Song database.
+In Song, submitted data includes both data files (e.g., sequencing reads or VCFs) and their associated metadata. When combined, this metadata and the data files form what's termed a `Song Analysis`. This analysis represents a cohesive unit that tightly couples file metadata with refernece to the raw data being stored in object storage. An analysis is the primary entity in the Song database.
 
-Song administrators describe Analysis types. They have the flexibility to model the data encapsulated within an analysis type using <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas</a>. This means an analysis type can include a diverse array of information relevant to a file type, all formatted in `JSON`.
+Song administrators define `Analysis types`. An analysis type is a dynamic schemas that outlines the data model structure and vocabulary. Analysis types allow for a diverse array of information relevant to a file type, all formatted in JSON.
 
 For most Song users, interactions typically revolve around two main activities: 
 
 - Submitting metadata in alignment with a pre-established analysis type schema.
 - Downloading file sets associated with an analysis (for instance, multiple files combined into a single analysis).
+
+In this example we will upload a sample analysis file built inline with the [VariantCall analysis type](https://github.com/overture-stack/dms/blob/develop/example-data/variant_calling_sample_schema.json) as defined on lines 3 and for within the [sample analysis file](https://github.com/overture-stack/dms/blob/develop/example-data/exampleVariantCall.json)
 
 1. **Download the following sample data files**:
    - [Sample Analysis file](https://github.com/overture-stack/dms/blob/develop/example-data/exampleVariantCall.json)
@@ -84,7 +95,7 @@ Where `<directory>` is the location you stored the sample Analysis file.
 }
 ```
 
-# Create a Manifest for Score
+# Generate a Manifest
 
 With the analysis submitted, create a manifest to upload the data files to your object storage via Score.
 
@@ -114,7 +125,7 @@ a7612d76-37ec-57ad-92d9-51fb44a70e07    /home/ubuntu/song/input-files/example.vc
 ec619aaf-0150-5b5e-b5ec-b6fc9c7f1769    /home/ubuntu/song/input-files/example.vcf.gz    9a793e90d0d1e11301ea8da996446e59
 ```
 
-# Upload Data via Score
+# Upload your Data
 
 After generating the manifest, you'll use it to upload your raw data files using Score.
 
@@ -156,7 +167,7 @@ On success, you'll receive a confirmation message:
 }
 ```
 
-# Index the Study via Maestro
+# Index the Study
 
 Now that the study is published it can be indexed into Elasticsearch. This indexing is facilitated by Maestro.
 
@@ -193,11 +204,7 @@ Set `<studyID>` to `ABC123`
 5. For `repositoryCode`, input `song.overture`.
 
 
-6. Click **Execute**.
-
-## Verification
-
-After successful indexing, both cURL and Swagger UI should return:
+6. Click **Execute**. After successful indexing, both cURL and Swagger UI should return:
 
 ```bash
 [

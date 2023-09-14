@@ -13,8 +13,6 @@ After successfully [deploying all services to your cluster](../deploy), you must
 7. [Add project to Arranger UI](#add-project-to-arranger-ui)
 8. [Check Data Portal is running](#check-data-portal-is-running)
 
-The following sections below describe these tasks in detail.
-
 # Check Docker Services are Running
 
 Although the Installer script indicates the deployment completed successfully, as a sanity check, make sure all Overture services have replicas running using this command:
