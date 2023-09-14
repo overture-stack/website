@@ -12,29 +12,44 @@ pages:
   - title: Configuration
     url: dms/installation/configuration
     pages: 
-    - title: Setup Pre-Requisites
+    - title: Deployment Pre-Requisites
       url: dms/installation/configuration/prereq
       pages:
-      - title: Setup Identity Provider Secrets
+      - title: Identity Provider Setup
         url: dms/installation/configuration/prereq/secrets
-      - title: Make User E-mails Publicly Accessible
+      - title: Configure User E-mails
         url: dms/installation/configuration/prereq/emails
-      - title: Setup Data Storage Buckets
+      - title: Data Storage Buckets
         url: dms/installation/configuration/prereq/buckets
-      - title: Configure Arranger Metadata Files
+      - title: Arranger Metadata Files
         url: dms/installation/configuration/prereq/arranger
-      - title: Copy Logo to Assets Folder
+      - title: Add Logo
         url: dms/installation/configuration/prereq/logo
-      - title: Setup a Domain Name (Server Mode Only)
+      - title: Domain Name (Server Mode Only)
         url: dms/installation/configuration/prereq/domain
-      - title: Install an SSL Certificate (Server Mode Only)
+      - title: SSL Certificate (Server Mode Only)
         url: dms/installation/configuration/prereq/sslcert
-    - title: Configure the DMS
+    - title: Pre-deployment Configurations
       url: dms/installation/configuration/configure-dms
   - title: Deploying Your Cluster
     url: dms/installation/deploy
-  - title: Post-Deployment Verification & Configuration
+  - title: Post-Deployment
     url: dms/installation/verify
+    pages:
+    - title: Ego Verification
+      url: dms/installation/verify/ego
+    - title: Song Verification
+      url: dms/installation/verify/song
+    - title: MinIo Verification
+      url: dms/installation/verify/minio
+    - title: Maestro Verification
+      url: dms/installation/verify/maestro
+    - title: Elasticsearch Verification
+      url: dms/installation/verify/elasticsearch
+    - title: Arranger Configuration
+      url: dms/installation/verify/arranger
+    - title: Viewing the Data Portal
+      url: dms/installation/verify/dataportal
   - title: Demonstration Videos
     url: dms/installation/demos
 - title: Admin Guide
