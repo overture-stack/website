@@ -52,7 +52,7 @@ function SupportFooter({ location }) {
             <button
               onClick={() => handleFeedbackClick(true)}
               className={`feedback-button ${feedback === true && 'icon-inverted'}`}
-              aria-label="X Feedback"
+              aria-label="Positive feedback"
               id="postive-feedback"
             >
               <img src={smileyFace} className="feedback-img" />
@@ -60,7 +60,7 @@ function SupportFooter({ location }) {
             <button
               onClick={() => handleFeedbackClick(false)}
               className={`feedback-button ${feedback === false && 'icon-inverted'}`}
-              aria-label="X Feedback"
+              aria-label="Negative feedback"
               id="negative-feedback"
             >
               <img src={unsmileyFace} className="feedback-img" />
