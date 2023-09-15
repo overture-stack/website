@@ -40,13 +40,8 @@ For your convenience, we provide summary steps here:
 
 8. **Add Redirect URIs:** Under **Redirect URIs**, enter the URI where ORCiD will redirect users once they have authenticated with the provider, redirecting them back to Ego upon successful login:
 
-`<url>/ego-api/oauth/login/orcid`
-
-Replace `<url>` with the base URL where you have deployed Ego. For example:
-
-- `https://ego.overture.bio/ego-api/oauth/login/orcid`
-- `https://dms.test.cancercollaboratory.org/ego-api/- oauth/login/orcid`
-- `http://localhost:80/ego-api/oauth/login/orcid`
+  - **Local:** http://localhost:`<port>`/ego-api/oauth/login/orcid
+  - **Server:**  https://`<myDomain>`/ego-api/oauth/login/orcid
 
 <Warning>**NOTE:** ORCiD may give a warning that "**Only https redirect URIs are accepted**", but can still enter an HTTP URI as indicated above. The application will still save and the Client ID and Secret will still be generated.</Warning>
 
