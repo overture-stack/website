@@ -2,14 +2,14 @@
 title: Configure Arranger Metadata Files
 ---
 
-The [Arranger service](../../../../../arranger) allows a DMS Administrator to configure which fields (and their associated data) indexed in [Elasticsearch](https://www.elastic.co/) will be displayed in the Data Portal.
+The [Arranger service](../../../../../arranger) empowers a DMS Administrator to determine which fields (and their associated data) indexed in [Elasticsearch](https://www.elastic.co/) are displayed in the Data Portal.
 
-The DMS Admin can also configure certain display settings for these fields, such as their display name and their display order.  These configurations can be done via a web UI.
+Administrators can also customize display settings for these fields, such as their display name and order. While these configurations are primarily made via a web UI, initializing a project in Arranger that permits such configurations requires the DMS Admin to import a default set of metadata files. These files detail specific fields indexed into Elasticsearch.
 
-However, to initially create a project in Arranger that can be configured this way, the DMS Admin must import a default set of metadata files containing the specific fields that were indexed into Elasticsearch.
+In many scenarios, metadata files from a previous project or Arranger deployment can be repurposed and adjusted. However, for fresh DMS installations without available pre-existing metadata, these files must be created manually.
 
-Often, existing metadata files from another project or previous Arranger deployment can be imported for re-use and modification.  However, in the case of a fresh DMS installation, this may not be available, and hence these files need to be manually created in advance.
+For a comprehensive guide on creating the Arranger metadata files manually, refer to our specific Arranger documentation [here](../../../../../arranger).
 
-For details on how to manually create the Arranger metadata files, see our specific Arranger documentation [here](../../../../../arranger).
-
-<Note title="Adding a Project">**NOTE**: Instructions on how to add and import a new project once these metadata files are created are described in the DMS post-deployment configuration section [here](../../../verify#add-project-to-arranger-ui). </Note>
+<Note title="Adding a Project">
+**NOTE**: Steps on how to add and import a new project, once these metadata files have been established, can be found in the DMS post-deployment configuration section [here](../../../verify/arranger).
+</Note> 

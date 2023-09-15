@@ -89,9 +89,9 @@ Specifically, make sure of the following:
 3. **You have administrator `sudo` level permissions on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
 
 
-4.  **You have Bash shell 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash shell.
+4.  **You have Bash bash 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash bash.
 
-If you do not have SSH access, `sudo` capability, or Bash shell installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.
+If you do not have SSH access, `sudo` capability, or Bash bash installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.
 
 # Install Docker
 
@@ -115,13 +115,13 @@ After successfully installing Docker, you must initialize the [Docker Swarm netw
 
 To initialize the docker swarm network, from your command-line, enter: 
 
-```shell
-$ docker swarm init
+```bash
+docker swarm init
 ```
 
 If successful, a message is displayed indicating the swarm was initialized and your current node is now a swarm manager:
 
-```shell
+```bash
 Swarm initialized: current node (dxn1zf6l61qsb1josjja83ngz) is now a manager.
 ```
 
@@ -153,32 +153,32 @@ The final installation step is to actually download and install the DMS executab
 
 2. Download the [latest version](https://github.com/overture-stack/dms/releases) of the DMS installer executable, where `<x.y.z>` is the version number:
 
-```shell
-$ curl https://raw.githubusercontent.com/overture-stack/dms/<x.y.z>/src/main/bin/dms-docker > dms
+```bash
+ curl https://raw.githubusercontent.com/overture-stack/dms/<x.y.z>/src/main/bin/dms-docker > dms
 ```
 
 3. Make the file executable:
 
-```shell
-$ chmod +x dms
+```bash
+ chmod +x dms
 ```
 
 4. Make the file usable from anywhere in your system:
 
-```shell
-$ sudo mv dms /usr/local/bin/
+```bash
+ sudo mv dms /usr/local/bin/
 ```
 
 5. Test that the executable works.  This step serves two purposes: (1) To verify that the executable runs correctly and is not corrupted, and (2) To automatically generate the default `~/.dms` directory which is used to store some default configuration files.  Type this command:
 
-```shell
-$ dms -h
+```bash
+ dms -h
 ```
 
 This command simply lists the help menu for the DMS installer.  If successful, the commands are listed:
 
-```shell
-$ dms -h
+```bash
+ dms -h
 
     ____     __  ___   _____
    / __ \   /  |/  /  / ___/
@@ -205,9 +205,9 @@ Commands:
 
 6. Check that the `~/.dms` directory was created by trying to switch to it:
 
-```shell
-ubuntu@sample-dms:~$ cd ~/.dms
-ubuntu@sample-dms:~/.dms$
+```bash
+ubuntu@sample-dms:~ cd ~/.dms
+ubuntu@sample-dms:~/.dms
 ```
 
 If successful, the directory exists and you are able to switch to it.
@@ -222,26 +222,26 @@ Optionally, you can generate a bash completion file, which improves usability of
 
 1. Generate the bash completion file:
 
-```shell
-$ dms bash-completion -n dms > ~/dms.bash_completion
+```bash
+ dms bash-completion -n dms > ~/dms.bash_completion
 ```
 
 2. Load the bash completion file manually:
 
-```shell
-$ source ~/dms.bash_completion
+```bash
+ source ~/dms.bash_completion
 ```
 
 <Warning>**NOTE:** Currently, the bash completion file must be loaded manually.  Hence, whenever you open a new terminal session to use the DMS, you will need to manually source the bash completion file again.  However, you are free to automate this by adding the source command to your `.bashrc` file.</Warning>
 
 3. Test the automcomplete functionality:
 
-```shell
-$ dms <press tab twice>
+```bash
+ dms <press tab twice>
 ```
 
 This displays a list of available top-level commands and their shortforms, if supported (e.g. "_config_" and "_co_"):
 
-```shell
+```bash
 bash-completion  cl  cluster  co  config
 ```

@@ -2,55 +2,53 @@
 title: Install an SSL Certificate (Server Mode Only)
 ---
 
-DMS services exposed to external users in server mode must be exposed over HTTPS and have SSL certificates installed.  Because traffic is exposed over a single port by the DMS Gateway, only one certificate is required.
+DMS services exposed to external users in server mode must be exposed over HTTPS and have SSL certificates installed. Because traffic is exposed over a single port by the DMS Gateway, only one certificate is required.
 
-DMS currently requires and uses [Certbot](https://certbot.eff.org/) for certificate generation (this is a free and open source resource).
+DMS currently requires and uses [Certbot](https://certbot.eff.org/) for certificate generation (this is a free and open-source resource).
 
-Follow these steps to install Certbot and setup your certificate:
+Follow these steps to install Certbot and set up your certificate:
 
 # Install Certbot
 
 1. Go to the [Certbot](https://certbot.eff.org/) website.
 
-
 2. In the **My HTTP website is running `<software>` on `<system>`** section, select the following:
 
-| Input              | Selection |
-| --------------------| ------------|
-| Software           | Set to `None of the above` |
+| Input | Selection |
+| -------- | -------- |
+| Software | Set to `None of the above` |
 | System | From the drop-down, select the operating system your server is running |
 
-In the example below we are using a VM running Ubuntu 20.04:
+In the example below, we are using a VM running Ubuntu 20.04:
 
 ![Entity](../../../assets/certbot-system.png 'Certbot Select System')
 
-3. Read over and make sure your system meets the remaining Certbot requirements:
+3. Read over and ensure your system meets the remaining Certbot requirements:
 - You are comfortable interacting with a command-line interface
 - You have your [domain name](../domain) registered
-- Port 80 is open on your server (Certbot certificate generation needs to use this port)
+- Port 80 is open on your server (Certbot certificate generation needs this port)
 - You can access your server via SSH (to execute commands)
-- You have the ability to `sudo` on your server (you are able to run operations or programs by assuming the security privileges as another user, e.g. as an administrator)
-
+- You have the ability to `sudo` on your server 
 
 4. Click the **default** tab and **follow the instructions from Certbot, but note these specifics for the DMS**:
 - SSH into your server
 - Install **snapd**
 - Ensure your version of **snapd** is up-to-date
-- Remove previous **cert auto-bot** and any **Certbot OS** packages (if you are starting with a fresh system or VM this should not be required)
+- Remove previous **cert auto-bot** and any **Certbot OS** packages (if not necessary on a fresh system or VM)
 - Install Certbot
 - Prepare the Certbot command
-- Choose how you want to run Certbot - Typically, if you are starting with a fresh system or VM, **standalone** should be chosen
-- When you run Certbot, the certificate installation process begins - For detailed steps, see the following section
+- Choose how to run Certbot - for fresh systems or VMs, **standalone** should be chosen
+- Running Certbot begins the certificate installation process. For detailed steps, see the next section
 
 ![Entity](../../../assets/certbot-default-steps.png 'Certbot Default Steps')
 
 # Generate Certificate
 
-When you run Certbot in **standalone** mode, you will be taken through a series of prompts before the certificate can be installed:
+When running Certbot in **standalone** mode, follow these prompts to install the certificate:
 
-1. Enter an e-mail address used to contact you for urgent certificate renewal and security notices:
+1. Provide an e-mail address for urgent certificate renewal and security notices:
 
-```shell
+```bash
 ubuntu@test-dms:~$ sudo certbot certonly --standalone
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator standalone, Installer None
@@ -60,39 +58,17 @@ Enter email address (used for urgent renewal and security notices)
 
 2. Read and agree to the **Terms of Service**:
 
-```shell
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Please read the Terms of Service at
-https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
-agree in order to register with the ACME server. Do you agree?
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(Y)es/(N)o: y
+3. Decide if you want to share your e-mail with Certbot's founding partner for news updates:
+
+4. Enter the [domain name](../domain) for which the certificate is being generated:
+
+```bash
+Please enter in your domain name(s) (comma and/or space separated): dms.test.cancercollaboratory.org
 ```
 
-3. Optionally decide if you wish to share your e-mail address with Certbot's founding partner and be notified of additional news and updates:
+5. Once the certificate is generated, Certbot will show the locations of the certificate chain and keyfile. **Keep these locations secure for future reference.**
 
-```shell
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Would you be willing, once your first certificate is successfully issued, to
-share your email address with the Electronic Frontier Foundation, a founding
-partner of the Let's Encrypt project and the non-profit organization that
-develops Certbot? We'd like to send you email about our work encrypting the web,
-EFF news, campaigns, and ways to support digital freedom.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(Y)es/(N)o: n
-```
-
-4. Enter the [domain name](../domain) for which you are generating the certificate (this will the domain you registered previously as a pre-requisite):
-
-```shell
-Account registered.
-Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c'
-to cancel): dms.test.cancercollaboratory.org
-```
-
-5. The certificate will be generated and Certbot will inform you of the location of the certificate chain and keyfile.  **Record and keep these secure for later use.**
-
-```shell
+```bash
 Requesting a certificate for dms.brandon.cancercollaboratory.org
 Performing the following challenges:
 http-01 challenge for dms.brandon.cancercollaboratory.org
@@ -114,51 +90,25 @@ IMPORTANT NOTES:
    Donating to EFF:                    https://eff.org/donate-le
 ```
 
-In the example above:
+For clarity:
 
 - **certificate chain** = `/etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem`
-
 - **certificate keyfile** = `/etc/letsencrypt/live/dms.test.cancercollaboratory.org/privkey.pem`
 
-
-6. The certificate is now generated, installed, and ready to be used as an input to the DMS interactive configuration questionnaire.
+6. The certificate is now ready for use in the DMS interactive configuration questionnaire.
 
 # Test Certificate Renewal
 
-After generating and installing your certificate, you can optionally test Certbot's automatic certificate renewal. The Certbot pacakges come wiht a `cron` job or `systemd` timer that renews your certificate automatically before they expire.  To test certificate renewal:
+After installing your certificate, you can test Certbot's automatic renewal. Certbot packages include a `cron` job or `systemd` timer for automatic renewals. To test run:
 
-```shell
-ubuntu@test-dms:~$ sudo certbot renew --dry-run
-Saving debug log to /var/log/letsencrypt/letsencrypt.log
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Processing /etc/letsencrypt/renewal/dms.test.cancercollaboratory.org.conf
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Cert not due for renewal, but simulating renewal for dry run
-Plugins selected: Authenticator standalone, Installer None
-Simulating renewal of an existing certificate for dms.brandon.cancercollaboratory.org
-Performing the following challenges:
-http-01 challenge for dms.brandon.cancercollaboratory.org
-Waiting for verification...
-Cleaning up challenges
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-new certificate deployed without reload, fullchain is
-/etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Congratulations, all simulated renewals succeeded:
-  /etc/letsencrypt/live/dms.test.cancercollaboratory.org/fullchain.pem (success)
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```bash
+sudo certbot renew --dry-run
 ```
 
-If the dry run test is successful, the script will indicate so, per the example above.
-
-For future reference, the command to renew certbot is installed in one of the following locations:
+For future reference, the command to renew certbot is installed in one of the following locations: command for Certbot is located in:
 
 - `/etc/crontab/`
 - `/etc/cron.*/*`
 - `systemctl list-timers`
 
-<Warning>**NOTE:** It is the DMS administrator's responsibility to ensure certificate renewal will trigger and at the desired interval. Although Certbot sets the renewal process up for your automatically, the administrator just still check and ensure it runs on time, and make any adjustments as required. Renewal should occur no later than every 90 days. If assistance is required, please reach out to Certbot support.</Warning>
+<Warning>**NOTE:** DMS administrators must ensure certificates renew on schedule. Even though Certbot automates the renewal, it's essential to verify timely renewals and adjust as needed. Renew at least every 90 days. If you need help, contact Certbot support.</Warning>

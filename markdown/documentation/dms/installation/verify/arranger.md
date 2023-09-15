@@ -50,3 +50,13 @@ This screenshot shows how the Arranger UI fields map to the inputs in the DMS in
 10. You can click the **Project ID** to browse its configurations and make sure they match the metadata files you uploaded above:
 
 ![Entity](../../assets/arranger-config.png 'Arranger Config')
+
+# Check Data Portal is Running
+
+Access the data portal:
+- **Local:** http://localhost:`<port>`/ 
+- **Server** https://`<myDomain>`/
+
+Your browser should now display the DMS data portal.
+
+Once all post-deployment checks are completed, and any necessary configurations are done, your DMS platform is fully operational. Please refer to our [User Guides](../user-guides) for detailed user instructions.

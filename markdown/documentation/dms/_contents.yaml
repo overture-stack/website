@@ -9,12 +9,16 @@ pages:
   pages:
   - title: Installation
     url: dms/installation/installation
-  - title: Configuration
+  - title: Pre-Deployment
     url: dms/installation/configuration
     pages: 
-    - title: Deployment Pre-Requisites
+    - title: Prerequisites
       url: dms/installation/configuration/prereq
       pages:
+      - title: Domain Name (Server Mode)
+        url: dms/installation/configuration/prereq/domain
+      - title: SSL Certificate (Server Mode)
+        url: dms/installation/configuration/prereq/sslcert
       - title: Identity Provider Setup
         url: dms/installation/configuration/prereq/secrets
       - title: Configure User E-mails
@@ -25,15 +29,11 @@ pages:
         url: dms/installation/configuration/prereq/arranger
       - title: Add Logo
         url: dms/installation/configuration/prereq/logo
-      - title: Domain Name (Server Mode Only)
-        url: dms/installation/configuration/prereq/domain
-      - title: SSL Certificate (Server Mode Only)
-        url: dms/installation/configuration/prereq/sslcert
-    - title: Pre-deployment Configurations
+    - title: Configuration Questionnaire
       url: dms/installation/configuration/configure-dms
   - title: Deploying Your Cluster
     url: dms/installation/deploy
-  - title: Post-Deployment
+  - title: Post Deployment
     url: dms/installation/verify
     pages:
     - title: Ego Verification
@@ -45,13 +45,9 @@ pages:
     - title: Maestro Verification
       url: dms/installation/verify/maestro
     - title: Elasticsearch Verification
-      url: dms/installation/verify/elasticsearch
+      url: dms/installation/verify/elastic
     - title: Arranger Configuration
       url: dms/installation/verify/arranger
-    - title: Viewing the Data Portal
-      url: dms/installation/verify/dataportal
-  - title: Demonstration Videos
-    url: dms/installation/demos
 - title: Admin Guide
   url: dms/admin-guide
   isHeading: true
@@ -60,8 +56,6 @@ pages:
     url: dms/admin-guide/tasks
   - title: Common Problems
     url: dms/admin-guide/common-problems
-  - title: Command Reference
-    url: dms/admin-guide/commands
 - title: User Guide
   url: dms/user-guide
   isHeading: true
@@ -75,3 +69,11 @@ pages:
         url: dms/user-guide/data-upload/prerequisites
       - title: Uploading Data
         url: dms/user-guide/data-upload/data-upload
+- title: Reference
+  url: dms/reference
+  isHeading: true
+  pages:
+  - title: Command Reference
+    url: dms/reference/commands
+  - title: Demonstration Videos
+    url: dms/reference/demos
