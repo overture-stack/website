@@ -17,7 +17,9 @@ For your convenience, we provide summary steps below:
 4. **Enter Application Details:** Provide the following information for your app:
 
 - **Application Name:** Enter a descriptive name for your app.
-- **Homepage URL:** Enter the URL to your app's homepage. You can simply enter the following:
+- **Homepage URL:** Enter the URL to your app's homepage. Depending on your deployment enter the following:
+  - **Local:** http://localhost:`<port>`/ego-api/oauth/login/google
+  - **Server:** https://`<myDomain>`/ego-api/oauth/login/google
 
 6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Use the following format:
 
