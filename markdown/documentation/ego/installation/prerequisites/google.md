@@ -67,9 +67,7 @@ Replace `<url>` with the base URL where you have deployed Ego. For example:
 
 ![Entity](../../assets/google-create-creds2.png 'Google Create Credentials 2')
 
-13. **Copy Client ID and Client Secret:** The credentials for your app will be created and the **Client ID** and **Client Secret** will be displayed to you so you can copy them for use later.  Keep these safe and secure.  You can always access & view these values in **Google Developer Console** by viewing your **Oauth Client ID** details; the **Client ID** and **Client Secret** will be listed on the righthand side:
-
-The credentials for your app will be created, and the **Client ID** and **Client Secret** will be displayed. Make sure to copy and securely store these values. You can always access and view these values in the Google Developer Console by viewing your OAuth Client ID details.
+13. **Copy Client ID and Client Secret:** The credentials for your app will be created, and the **Client ID** and **Client Secret** will be displayed. Make sure to copy and securely store these values. You can always access and view these values in the Google Developer Console by viewing your OAuth Client ID details.
 
 <Warning> **Note:** For full details on setting up OAUTH 2.0 for an application to work with Google, [see here](https://support.google.com/cloud/answer/6158849?hl=en).</Warning>
 
