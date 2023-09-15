@@ -21,7 +21,7 @@ For your convenience, we provide summary steps below:
   - **Local:** http://localhost:`<port>`/ego-api/oauth/login/google
   - **Server:** https://`<myDomain>`/ego-api/oauth/login/google
 
-6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Use the following format:
+6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs** field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Use the following format:
 
 `<url>/ego-api/oauth/login/github`
 
