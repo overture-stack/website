@@ -17,25 +17,20 @@ For your convenience, we provide summary steps below:
 4. **Enter Application Details:** Provide the following information for your app:
 
 - **Application Name:** Enter a descriptive name for your app.
-- **Homepage URL:** Enter the URL to your app's homepage. Depending on your deployment enter the following:
-  - **Local:** http://localhost:`<port>`/ego-api/oauth/login/google
-  - **Server:** https://`<myDomain>`/ego-api/oauth/login/google
+- **Homepage URL:** Enter the URL to your app's homepage. Depending on your deployment, enter the following:
+  - **Local:** http://localhost:`<port>`/ego-api
+  - **Server:** https://`<myDomain>`/ego-api
 
-6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs** field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Use the following format:
+6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs** field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Depending on your deployment, enter the following:
 
-`<url>/ego-api/oauth/login/github`
-
-Replace `<url>` with the base URL where you have deployed Ego. For example, it could be a specific domain name, server address, or even localhost if running locally. Here are some examples:
-
-- `https://ego.overture.bio/ego-api/oauth/login/github`
-- `https://dms.test.cancercollaboratory.org/ego-api/oauth/login/github`
-- `http://localhost:80/ego-api/oauth/login/github`
+ - **Local:** http://localhost:`<port>`/ego-api/oauth/login/github
+  - **Server:** https://`<myDomain>`/ego-api/oauth/login/github
 
 7. **Register the Application:** Click on **Register application.**
 
 ![Entity](../../assets/github-register-app.png 'GitHub Register App')
 
-8. **Copy Client ID and Client Secret:** After the app is registered, you will see the Client ID and Client Secret displayed. Make sure to copy and securely store these for later use.
+8. **Copy Client ID and Client Secret:** After registering the app, you will see the Client ID and Client Secret displayed. Make sure to copy and securely store these for later use.
 
 You can always view the **Client ID** and manage the **Client Secrets** for your app by going back to **Developer Settings > OAuth Apps > General** section in the app's left-hand navigation bar:
 
