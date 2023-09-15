@@ -6,30 +6,12 @@ Before the interactive DMS installer can be used to configure and deploy the DMS
 
 1. [Decide local vs server deployment](#decide-local-or-server-deployment)
 2. [Check system requirements](#check-system-requirements)
-3. [Check other requirements](#check-other-requirements)
-4. [Install Docker](#install-docker)
-5. [Install DMS executable](#install-the-dms-executable)
+3. [Install Docker](#install-docker)
+4. [Install the DMS executable](#install-the-dms-executable)
 
 The sections below describe these tasks in detail.
 
-# Release Information
-
-The table below lists the specific Overture service versions bundled with the current release of the DMS platform, including links to their release pages where you can download the latest versions and view their release notes:
-
-| Service          | Release # | Link to Releases & Notes |
-| --------------------| ------------|--------------------|
-| DMS Installer | 1.0.0 | [DMS Installer](https://github.com/overture-stack/dms/releases) |
-| Ego | Ego API 4.4.0 <br /> Ego UI 4.2.0 | [Ego API](https://github.com/overture-stack/ego/releases) <br /> [Ego UI](https://github.com/overture-stack/ego-ui/releases) |
-| Song | 4.5.0 | [Song](https://github.com/overture-stack/song/releases) |
-| Score | 5.3.0 | [Score](https://github.com/overture-stack/score/releases) |
-| Elasticsearch | 7.6.0 | [Elasticsearch](https://www.elastic.co/downloads/past-releases/#elasticsearch) |
-| Maestro | 3.8.0 | [Maestro](https://github.com/overture-stack/maestro/releases) |
-| Arranger | 2.12.3 | [Arranger](https://github.com/overture-stack/arranger/releases) |
-| DMS UI (Data Portal) | 1.0.1 | [DMS UI](https://github.com/overture-stack/dms-ui/releases) |
-
-<Note title="Finding the Latest Release on GitHub">When viewing the GitHub release pages, multiple releases may be listed.  If the list is large, the GitHub site may sometimes collapse the list. To make sure you can see the latest release, click `Show X newer tags`. This ensures the list is fully expanded and you can see the latest release.</Note>
-
-# Decide Local or Server Deployment
+# Local vs Server Deployment
 
 Before you perform any installation steps, you must first decide whether you want to deploy the DMS in local mode or server mode.
 
@@ -51,9 +33,9 @@ Your decision will depend on the following factors and you may need to consult w
 
 <Warning>**NOTE:** Once the DMS has been deployed in a specific mode, it cannot be switched dynamically to use a different mode on-the-fly.  For example, you cannot switch from local mode to server mode by simply updating your configuration.  To re-deploy with a different mode, you must destroy your DMS cluster and restart fresh.  For instructions on destroying  your cluster, see [here](../../admin-guide/tasks#destroying-your-cluster).</Warning>
 
-<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and does not currently support high availaibility.</Warning>
+<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and does not currently support high availability.</Warning>
 
-# Check System Requirements
+# System Requirements
 
 Once you have [decided your deployment mode](#decide-local-or-server-deployment), check that the environment you will be deploying to meets the recommended system requirements.
 
@@ -74,46 +56,31 @@ The DMS currently supports deployment to platforms running these operating syste
 
 If your system does not meet the recommended requirements, you may need to upgrade to deploy the DMS.  If you are part of an institution, you may need to consult with your IT department about acquiring the additional resources.
 
-# Check Other Requirements
+## Other Requirements
 
 After [checking your system requirements](#check-system-requirements), next you must also check that certain additional, ancillary requirements are also met.
 
 Specifically, make sure of the following:
 
-1. **You are comfortable and familiar using a command-line interface** - Installation and configuration of the DMS and supporting software is largely done via command-line.
+1. **You are comfortable and familiar using a command-line interface** - The installation and configuration of the DMS and supporting software will be largely done via command-line.
+2. **You have SSH access to the environment you are deploying to** - This is especially important for deployments to remote servers, as you will need SSH to perform certain operations.
+3. **You have administrator (`sudo`) level permissions on the environment you are deploying to** - Certain operations will require elevated privileges.
+4. **You have Bash 5.0.0 or up installed on your environment** - The DMS Installer commands will be run in Bash.
 
+# Docker Install and Configuration
 
-2. **You have SSH access to the environment you are deploying to** - Specifically for deployments to remote servers, you will need to remotely access the server via SSH to perform certain operations.
+To deploy the DMS platform, you will need Docker installed on your system.
 
-
-3. **You have administrator `sudo` level permissions on the environment you are deploying to** - Certain operations or programs may need to be run with you assuming the security privileges of another user (e.g. as an administrator).
-
-
-4.  **You have Bash bash 5.0.0 or up installed in your environment** - DMS Installer commands are run in a Bash bash.
-
-If you do not have SSH access, `sudo` capability, or Bash bash installed, you will need to acquire them. If you are part of an institution, you may need to consult with your IT department for support with these items.
-
-# Install Docker
-
-Now that you have verified that your system meets all requirements, the next step is to install [Docker](https://www.docker.com) to your environment.
-
-All of the Overture services are packaged as docker images to be deployed and run as containers on the Docker platform.  Hence, Docker installation is a mandatory requirement to use the DMS platform.
+- [Install Docker on MacOS](https://docs.docker.com/desktop/mac/install/)
+- [Install Docker on Linux](https://docs.docker.com/engine/install/ubuntu/)
 
 <Warning>**NOTE:** For the DMS to function correctly on Docker, the Docker installation must be completed as instructed using the steps from the [Docker documentation site](https://docs.docker.com) itself.  **The DMS requires at minimum Docker Engine version 19.03.12 or up**.  See [here](https://docs.docker.com/release-notes/) for Docker versions and release notes.</Warning>
 
-## Install Docker from Docker Docs
+## Initialize Docker Swarm Network
 
-Log into your environment as an administrator and follow the instructions to install docker from the Docker documentation site [here](https://docs.docker.com/engine/install/).
+After successfully installing Docker, you must initialize the [Docker Swarm network](https://docs.docker.com/engine/swarm/). The DMS platform uses Docker Swarm as a container orchestration tool and allows each container in the swarm to be accessed by Docker nodes within the same cluster.
 
-- If you are running MacOS, follow the [Docker Desktop for Mac instructions](https://docs.docker.com/docker-for-mac/install/)
-
-- If you are running Linux, select the instructions for your specific distribution from the Linux distribution table
-
-## Initialize the Docker Swarm Network
-
-After successfully installing Docker, you must initialize the [Docker Swarm network](https://docs.docker.com/engine/swarm/).  The DMS platform uses Docker Swarm as a container orchestration tool and allows each container in the swarm to be accessed by Docker nodes within the same cluster.
-
-To initialize the docker swarm network, from your command-line, enter: 
+**Initialize Docker Swarm:** From your command-line, enter:
 
 ```bash
 docker swarm init
@@ -125,57 +92,49 @@ If successful, a message is displayed indicating the swarm was initialized and y
 Swarm initialized: current node (dxn1zf6l61qsb1josjja83ngz) is now a manager.
 ```
 
-## Adjust Docker Desktop Resource Settings (MacOS)
+## Docker Resource Settings (MacOS)
 
-If you are running on MacOS, you need to check your Docker Desktop resource settings to ensure they are enabled for the [recommended system requirements](#check-system-requirements) specified earlier.
+If you are running on MacOS, ensure your Docker Desktop resource settings are enabled for the [recommended system requirements](#check-system-requirements).
 
-1. Open Docker Desktop and click ** Preferences**.
+1. **Open Docker Preferences:** Open Docker Desktop and click **Preferences**.
 
+2. **Navigate to Advanced Resources:** Go to **Resources > Advanced**.
 
-2. Go to **Resources > Advanced**.
+3. **Adjust Resources:** Set the number of **CPUs** and the amount of **Memory** to the [recommended requirements](#check-system-requirements).
 
-
-3. Adjust the number of **CPUs** and the amount of **Memory** to meet the [recommended requirements](#check-system-requirements).
-
-
-4. Click **Apply & Restart**.
+4. **Apply Changes:** Click **Apply & Restart**.
 
 ![Entity](../../assets/docker-desktop-resourcesv2.png 'Docker Desktop Resources')
 
 # Install the DMS Executable
 
-The final installation step is to actually download and install the DMS executable.
+1. **Open Command-Line Terminal:** Log into your environment.
 
-## Required Steps
-
-1. Log into your environment and open the command-line terminal.
-
-
-2. Download the [latest version](https://github.com/overture-stack/dms/releases) of the DMS installer executable, where `<x.y.z>` is the version number:
+2. **Download DMS Executable:** Fetch the [latest version](https://github.com/overture-stack/dms/releases) with `<x.y.z>` being the version number:
 
 ```bash
- curl https://raw.githubusercontent.com/overture-stack/dms/<x.y.z>/src/main/bin/dms-docker > dms
+curl https://raw.githubusercontent.com/overture-stack/dms/<x.y.z>/src/main/bin/dms-docker > dms
 ```
 
-3. Make the file executable:
+3. **Make File Executable:** From your command-line, enter: 
 
 ```bash
- chmod +x dms
+chmod +x dms
 ```
 
-4. Make the file usable from anywhere in your system:
+4. **Move File for Systemwide Access:** From your command-line, enter: 
 
 ```bash
- sudo mv dms /usr/local/bin/
+sudo mv dms /usr/local/bin/
 ```
 
-5. Test that the executable works.  This step serves two purposes: (1) To verify that the executable runs correctly and is not corrupted, and (2) To automatically generate the default `~/.dms` directory which is used to store some default configuration files.  Type this command:
+5. **Test the DMS Executable:** Ensure it works correctly and generates the `~/.dms` directory:
 
 ```bash
- dms -h
+dms -h
 ```
 
-This command simply lists the help menu for the DMS installer.  If successful, the commands are listed:
+Expected output:
 
 ```bash
  dms -h
@@ -203,45 +162,37 @@ Commands:
     destroy      Destroy the cluster and ALL the data.
 ```
 
-6. Check that the `~/.dms` directory was created by trying to switch to it:
+6. **Check the `~/.dms` Directory Creation:** 
 
 ```bash
 ubuntu@sample-dms:~ cd ~/.dms
 ubuntu@sample-dms:~/.dms
 ```
 
-If successful, the directory exists and you are able to switch to it.
+After successfully installing the executable, [configure and deploy the DMS platform](../configuration).
 
-Once the DMS executable is installed, you can now proceed to [configure and deploy the DMS platform](../configuration).
+## Generate Bash Completion File (optional)
 
-## Optional Steps
+Enhance DMS command usability with bash autocompletion.
 
-### Generate Bash Completion File
-
-Optionally, you can generate a bash completion file, which improves usability of the DMS commands by allowing a user to autocomplete certain commands while typing.
-
-1. Generate the bash completion file:
+1. **Generate Bash Completion File:** Enter the following command
 
 ```bash
- dms bash-completion -n dms > ~/dms.bash_completion
+dms bash-completion -n dms > ~/dms.bash_completion
 ```
 
-2. Load the bash completion file manually:
+2. **Load the Bash Completion Manually:** Enter the following command
 
 ```bash
- source ~/dms.bash_completion
+source ~/dms.bash_completion
 ```
 
-<Warning>**NOTE:** Currently, the bash completion file must be loaded manually.  Hence, whenever you open a new terminal session to use the DMS, you will need to manually source the bash completion file again.  However, you are free to automate this by adding the source command to your `.bashrc` file.</Warning>
+<Warning>**Note:** You must load the bash completion file manually for each session. Add the `source` command to `.bashrc` for automation.</Warning>
 
-3. Test the automcomplete functionality:
+3. **Test Autocomplete:** Verify functionality with the DMS command:
 
 ```bash
- dms <press tab twice>
+dms <press tab twice>
 ```
 
-This displays a list of available top-level commands and their shortforms, if supported (e.g. "_config_" and "_co_"):
-
-```bash
-bash-completion  cl  cluster  co  config
-```
+You should see available commands like "config" and "co".

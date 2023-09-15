@@ -73,6 +73,8 @@ pages:
   url: dms/reference
   isHeading: true
   pages:
+  - title: Release Information
+    url: dms/reference/release
   - title: Command Reference
     url: dms/reference/commands
   - title: Demonstration Videos
