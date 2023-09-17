@@ -2,93 +2,64 @@
 title: Introduction
 ---
 
-Overture is a collection of open-source, extendable solutions for big-data genomic science that research institutions and individual researchers can use to support their work.
+Overture is a comprehensive suite of open-source, extendable solutions tailored for genomic big-data science. It caters to research institutions and individual researchers, enhancing their capacity to manage and share large genomic datasets.
 
-The rapid advancement and clinical potential of next-generation genomic sequencing has resulted in a proliferation of genomic data, as well as intense research efforts focused on analyzing genomes to diagnose patients and offer a personalized medicine experience.  With this data boom, there are growing needs for:
+Built from our core collection of microservices, the DMS offers turnkey installation, configuration, and deployment of the Overture software. Ideal for smaller scale projects the DMS has all of Overtures core functionalities without the added installation and maintenance required.
 
-1. Secure transfer, tracking and management of large-scale genomic datasets which are increasingly being stored
-in compute clouds;
-2. Fast search capabilities over extremely large and rich datasets, some of
-which are geographically distributed;
-3. Responsible sharing and management of datasets by research groups with varying levels of information technology expertise.
-
-The Overture software suite addresses these challenges, promoting FAIR (Findable, Accessible, Interoperable, Resuable) data sharing by overcoming the major bottlenecks in storing and distributing genome-scale datasets and providing an intuitive data portal for data browsing and
-querying. Overture is composed of highly customizable components that facilitate genome projects to stand up a data sharing portal with extendibility.
-
-The development of Overture has been driven primarily by biomedical disciplines in genomics, bioinformatics and computational biology generating large amount of genomics data.  However, recognizing the immense value and applicability of the platform to other big-data disciplines, the Overture team has now bundled the software suite into an easily-deployable, easily-configurable Data Management System (DMS) bundle.  The DMS bundle provides turnkey installation, configuration, and deployment of the Overture software suite.  By vastly lowering the techncal barrier in deploying Overture, we aim to increase adoption by users in other scientific domains and disciplines.
-
-# System Overview
+## System Overview
 
 ![Entity](./assets/system-diagram.png 'System Overview')
 
-Illustrated above are the five core Overture components:
+Below are the five core components found within the DMS:
 
 | Component          | Purpose |
 | --------------------| ------------|
 | [Score](/documentation/score) | Manages cloud-based data object storage and transfer. |
-| [Song](/documentation/song) | Manages the metadata associated with the data objects. |
-| [Maestro](/documentation/maestro) | Indexes the metadata in Song into [Elasticsearch](https://www.elastic.co/). |
-| [Arranger](/documentation/arranger) | Generates an easily-configurable web portal interface with faceted search against the Elasticsearch index. |
-| [Ego](/documentation/ego)     | Manages user identity for authentication, authorization and data security. |
+| [Song](/documentation/song) | Manages metadata linked with data objects. |
+| [Maestro](/documentation/maestro) | Indexes metadata in Song into [Elasticsearch](https://www.elastic.co/). |
+| [Arranger](/documentation/arranger) | Produces a configurable web portal interface with faceted search against the Elasticsearch index. |
+| [Ego](/documentation/ego) | Manages user identity for authentication, authorization, and data security. |
 
-The core components described above are currently available as individual containers where the software code and its dependencies are packaged together. However, the DMS platform simplifies their setup and removes technical barriers by bundling the core components together and making it easy for both large and small projects to install, configure, and deploy these services, ultimately standing up a data sharing portal at the end of the process.
+While these components are available as separate containers, the DMS platform amalgamates them, simplifying the setup process. This allows projects of all scales to seamlessly deploy these services and ultimately establish a data-sharing portal.
 
-## The Data Management Lifecycle
+### The Data Management Lifecycle
 
-All the core components work together to support an end-to-end data management lifecycle, as described below:
+The core components jointly support a holistic data management lifecycle:
 
-1. The data management lifecycle starts with storing generated data files and the associated metadata. Working together, Song and Score enable secure and distributed data management. Score works with object-based storage (including [Amazon Web Services S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), and [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/)) to enable file upload and download that can be parallelized into multiple parts and easily resumed with high integrity for a fault-tolerant data transfer. Song stores the associated file metadata that describes key features of the data like file names, locations, sizes; and descriptive details such as the project generating the data or the experimental protocol used. Song has been built with flexibility in mind by leveraging a dynamic schema to store the metadata. Research groups can define and register their own schema to capture the metadata details that meet their specific requirements. For example, a genomic research group would register metadata schemas relating to sequencing reads and variant calls, whereas a medical imaging group would register metadata schemas related to radiology images along with annotations.
-
-
-2. Once data is securely stored, it needs to be searchable through an easily-accessible and
-speedy web interface that allows for targeted querying of specific attributes. The Maestro component indexes metadata that has been submitted to Song into a search index powered by [Elasticsearch](https://www.elastic.co/). Maestro is capable of indexing the metadata in multiple
-geographically-distributed Song servers into one centralized index. By extracting the metadata from the source systems into a dedicated search index, multiple types of user-friendly search styles can be made availble to users, including structured (eg. facet-based search like consumer shopping site Amazon) and unstructured (eg. Google-style free text search). Once an index is prepared, the Arranger component generates an easily-configurable web interface with faceted search using a [GraphQL](https://graphql.org/) Application Programming Interface (API) against the Elasticsearch index.
+1. **Data Storage**: The lifecycle commences with data and metadata storage. Song and Score collaborate to ensure secure and distributed data management. Score integrates with object-based storage services, enabling robust and fault-tolerant data transfers. Song captures metadata detailing file characteristics and descriptors, like the originating project or the experimental protocol used. Its dynamic schema ensures flexibility, allowing research groups to customize their metadata storage.
 
 
-3. Overarching the data management lifecycle is the important need for data access to be secured behind appropriate protocols for authentication
-and authorization, especially when datasets from multiple research groups are combined into a single interface. The final major component of the Overture DMS, Ego, addresses this by managing user identity for authorization, authentication, and data security. Ego leverages the [OAuth 2.0](https://oauth.net/2/) standard to manage user identity through established identity providers including Google, Github, LinkedIn, and ORCiD. Once a user’s identity is verified, granular
-access to different datasets can be managed by administrators assigning permissions to users.  This flexible approach means that data access can be controlled at multiple levels, as well as through multiple different mechanisms, thus meeting the data access requirements of different groups.
+2. **Data Discovery**: Stored data should be quickly and easily searchable. Maestro indexes Song-submitted metadata into an [Elasticsearch](https://www.elastic.co/) index. It can amalgamate metadata from distributed Song servers into a centralized index. This extraction enables diverse search styles, and Arranger subsequently develops a faceted search interface using a [GraphQL](https://graphql.org/) API against the Elasticsearch index.
 
 
-# Features
+3. **Data Security**: Data security is paramount, especially when consolidating datasets from multiple sources. Ego addresses this, overseeing user identity, authentication, and authorization. Using [OAuth 2.0](https://oauth.net/2/), Ego integrates with established identity providers like Google, Github, and LinkedIn. This ensures fine-grained data access control, catering to varied group requirements.
 
-The first general availability release of the DMS bundle includes the following features.
+## Features
 
-## Interactive Configuration Questionnaire
+The first general release of the DMS bundle boasts several features:
 
-To facilitate rapid, turnkey deployment of the Overture software suite, the DMS providers administrators with an easy-to-use, interactive configuration questionnaire.  This script is executed via the command-line, walking the administrator step-by-step through all configuration inputs needed to stand up the platform.  Recommended defaults and links to detailed documentation are provided along the way to further guide them through the process.
+- **Interactive Configuration Questionnaire:** To expedite Overture's deployment, the DMS offers an intuitive configuration questionnaire. Admins are guided through configuration steps, with default suggestions and documentation links available for additional clarity. Post-configuration, all inputs are saved for deployment.
 
-After all configuration inputs are supplied, they are saved to a file.  The configuration file is then used to deploy the Overture services to a single node or cluster, using similarly easy-to-use commands.
 
-## Saved Configuration
+- **Saved Configuration:** Configurations are saved and retrievable, allowing verification before deployment.
 
-All configurations are saved to a file and can be retrieved and viewed at any time via the command-line interface.  This allows administrators to verify the configuration values were captured correctly before attemping to deploy to their cluster.
 
-## Cluster Deployment Modes
+- **Cluster Deployment Modes:**
 
-The current DMS release supports deployment to a single-cluster environment, using one of two available deployment modes:
+The DMS bundle supports single-cluster deployment in two modes:
 
-| Mode | Use Case | Access | Application Layer Security |
-| -----| ---------| -------| ---------------------------|
-| Local | The purpose of local mode is to deploy and host the DMS only on a local machine's resources.  For example, deploying to an individual user's laptop, or a private VM in the cloud.  Local mode is typically used for solo users or small teams with shared access to a laptop or private VM. | Local host only | HTTP only |
-| Server | The purpose of server mode is to deploy and host the DMS system using resources available on separate or external infrastructure from your local machine.   For example, deploying to a VM on a cloud infrastructure, or your organization's internal IT infrastructure, etc.  The intention of server mode is to make the DMS system available to external users, by exposing them via a configured domain name and securely over HTTPS. | Externally via custom domain name | HTTPS over TLS/SSL |
+| Mode | Use Case | Access | Security |
+| -----| ---------| -------| ----------|
+| Local | Ideal for solo users or small teams on local machines or private cloud VMs. | Local host only | HTTP only |
+| Server | Targets larger infrastructures, offering external access over secure connections. | Domain-specific | HTTPS over TLS/SSL |
 
-## Comprehensive User Documentation
+- **Bundling & Integration with 3rd Party Software** 
 
-A detailed [documentation site](https://overture.bio/documentation) is available to help administrators with the configuration and installation process, and to help end users understand the data sharing web portal.
-
-While running the interactive configuration questionnaire, documentation links are also provided each step of the way, to further guide administrators through the process.
-
-## Bundling & Integration with 3rd Party Software Providers
-
-The DMS platform bundles together, or in other cases integrates with, robust, quality 3rd party software providers to support critical parts of the data management lifecycle or specific use cases.
-
-Currently, these 3rd party software providers work in conjunction with the DMS:
+The DMS platform uses the following 3rd party software providers:
 
 | Provider          | Purpose |
 | --------------------| ------------|
-| OAUTH 2.0 Providers | Secure authentication & authorization (e.g. Google, GitHub, LinkedIn, ORCiD) |
-| Object Storage Services | Secure object storage for data transfer (e.g. [Amazon S3](https://aws.amazon.com/s3/), [MS Azure](https://azure.microsoft.com/en-ca/services/storage/), [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/), [MinIo](https://min.io/)) |
-| [Elasticsearch](https://www.elastic.co/) | Efficient, optimized data search & indexing capabilities |
-| [Certbot](https://certbot.eff.org/) | Security certificate generation for exposing services over HTTPS |
-
+| OAUTH 2.0 Providers | Secure Authentication & authorization (e.g., Google, GitHub, LinkedIn, ORCiD) |
+| Object Storage Services | Robust data transfer (e.g., [Amazon S3](https://aws.amazon.com/s3/), [MS Azure](https://azure.microsoft.com/en-ca/services/storage/), [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/), [MinIo](https://min.io/)) |
+| [Elasticsearch](https://www.elastic.co/) | Search & indexing |
+| [Certbot](https://certbot.eff.org/) | HTTPS security certification |
