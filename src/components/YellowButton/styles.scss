@@ -41,6 +41,7 @@
     }
   }
   &__product-page-img {
+    margin-bottom: 20px;
     @include breakpoint(mobile) {
       width: 20%;
       margin-right: 0.4em;

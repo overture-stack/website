@@ -134,6 +134,7 @@ export default function ProductsPage() {
               <H2>The Overture Data Management System (DMS)</H2>
             </div>
             {/* div with the blue background */}
+            <div className="lower-blue-section__top-gradient"></div>
             <div className="lower-blue-section__content-holder">
               <div className="lower-blue-section__img-holder">
                 <img src={imgDMS} alt="DMS screenshot" className="lower-blue-section__img" />

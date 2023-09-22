@@ -72,14 +72,17 @@
       gap: 2em;
     }
 
-    &__title-holder {
-      margin-bottom: 2.6em;
+    &__top-gradient {
+      height: 100px;
+      width: 100%;
+      margin-bottom: -2em;
+      background-image: (linear-gradient(#ffffff, #f9f9f9));
     }
 
     &__content-holder {
       background-color: $blue-block;
       height: fit-content;
-      margin-top: 70px;
+      // margin-top: 70px;
     }
 
     &__img-holder {

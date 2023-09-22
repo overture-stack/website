@@ -46,6 +46,7 @@ export default function HomePage() {
           name="keywords"
           content="Overture, data science software, bioinformatics software, open-source software, cancer research, genomic data, big data, data portals, Ontario Institute for Cancer Research, OICR"
         />
+        {/* <meta name="viewport" content="width=device-width"></meta> */}
       </Helmet>
 
       {/* top hero - blue background  */}
@@ -145,13 +146,13 @@ export default function HomePage() {
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
-                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow ml2"
+                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow "
                   onClick={() => {
                     handleRightArrowClick();
                   }}
                 />
               </div>
-              <div>
+              <div className="top-white__blue-container-text">
                 <P2> {caseData[carouselPage].listItems[2][0]}</P2>
               </div>
               <Button
