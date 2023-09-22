@@ -63,7 +63,7 @@
   }
 
   .lower-blue-section {
-    margin: 0px -20px;
+    margin: 2.6em -20px 0 -20px;
 
     &__holder {
       display: flex;
@@ -82,7 +82,6 @@
     &__content-holder {
       background-color: $blue-block;
       height: fit-content;
-      // margin-top: 70px;
     }
 
     &__img-holder {

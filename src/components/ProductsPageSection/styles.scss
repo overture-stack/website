@@ -32,12 +32,15 @@
     }
     @include breakpoint(desktop-up) {
       width: 270px;
+      margin-left: 0.8em;
     }
     @include breakpoint(desktop-wide) {
       width: 320px;
+      margin-left: 0.4em;
     }
     @include breakpoint(desktop-ultra-wide) {
       width: 400px;
+      margin-left: 2em;
     }
   }
 
