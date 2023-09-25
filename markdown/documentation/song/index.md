@@ -2,21 +2,21 @@
 title: Introduction
 ---
 
-Song is a metadata validation and tracking tool designed to streamline the management of genomics data across multiple cloud storage systems. With Song, users can create high-quality and reliable metadata repositories with minimal human intervention.
+Song is a metadata validation and tracking tool designed to streamline the management of genomics data across multiple cloud storage systems. With Song, users can create high-quality and reliable metadata repositories with minimal human intervention. As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score</a>, which manages file transfers and object storage.
 
 ![Entity](./assets/song_arch.png 'Song Architecture')
 
 # Data Submission
 
-**Analysis Files:** An Analysis file contains the metadata in a structured JSON format. Metadata gets submitted to Song as an Analysis File. 
+**Analysis Files:** An analysis is a description of a set of one or more files plus the metadata describing that collection of files.
 
-**Metadata Validation:** Analysis files get validated against the administrator's Dynamic Schema. That defines the vocabulary and structure of the Analysis File. 
+**Metadata Validation:** Analyses get validated against the administrator's Dynamic Schema. That defines the vocabulary and structure of the analysis document. 
 
-**Tracking of Metadata to File Data:** Once passed validation the analysis file is submitted to the Song repository given an automated analysis ID. The analysis ID is then used when uploading all associated file data through Score. Analysis IDs associate the metadata stored in Song with the file data being transfered by score and stored in the cloud.
+**Tracking of Metadata to File Data:** Once validated, the analysis document is stored in the Song repository and given an automated analysis ID. The analysis ID is then used when uploading all associated file data through Score. Analysis IDs associate the metadata stored in Song with the file data being transferred by score and stored in the cloud.
 
 # Data Administration
 
-**Dynamic Schemas:** The data administrator creates the Dynamic Schema, which again, provides the vocabulary for the structural validation of JSON formatted data (Analysis Files), for example, ensuring that required fields are present or that the contents of a field match the desired data type or allowed values.
+**Dynamic Schemas:** The data administrator creates the Dynamic Schema, which again, provides the vocabulary for the structural validation of JSON formatted data (Analysis documents), for example, ensuring that required fields are present or that the contents of a field match the desired data type or allowed values.
 
 **Data Lifecycle Management:** Analyses uploaded to a Song repository are `UNPUBLISHED` by default. When data is ready for search and download, administrators can make it available by updating it to a `PUBLISHED` state. If data is no longer relevant, the data administrators can set it to a `SUPPRESSED` state, making it unavailable for search and download through downstream services. 
 
@@ -24,11 +24,9 @@ Song is a metadata validation and tracking tool designed to streamline the manag
 
 # Integrations
 
-As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score</a>, which manages file transfers and object storage.
-
 As part of the larger Overture.bio software suite, Song can be optionally used with additional integrations, including:
 
-- **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> event streaming.  
+- **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> event streaming allows other services to respond when analyses are registered and published.
 
 
 - **Maestro Indexing:** Song is built to natively integrate with <a href="/documentation/maestro/" target="_blank" rel="noopener noreferrer">Maestro</a>, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
