@@ -2,9 +2,9 @@
 title: Score Integration
 ---
 
-Song requires an object storage backend to store data files. A <a href="/documentation/score/" target="_blank" rel="noopener noreferrer">Score</a> server must be configured for use with Song. Score is compatible with various S3 API compliant backends such as AWS, Azure, and MinIO.
+Song requires an object storage backend to store data files. A <a href="/documentation/score/" target="_blank" rel="noopener noreferrer">Score</a> server must be configured for use with Song. Score is compatible with various S3 API-compliant backends such as AWS, Azure, and MinIO.
 
-To enable Song's integration with the Score server, you need to specify the Score storage backend in your Song server configuration. Once your Score server is set up, you can establish the connection with your Song configuration.
+To enable Song's integration with the Score server, specify the Score storage backend in your Song server configuration. Once your Score server is set up, you can establish the connection with your Song configuration.
 
 To configure Score, modify your `.env` as follows:
 
@@ -13,7 +13,7 @@ To configure Score, modify your `.env` as follows:
 SCORE_ACCESS_TOKEN=ad83ebde-a55c-11e7-abc4-cec278b6b50a
 SCORE_URL=http://localhost:8087
 ```
-The `score` section shown above is required and contains the connection details to the score-server. Input your score-server URL and an API Key that has both upload and download permission scopes. An API Key is owned by a user and has an expiry, so will need to be updated regularly.
+The `score` section above is required and contains the connection details to the score-server. Input your score-server URL and an API Key that has both upload and download permission scopes. An API Key is owned by a user and has an expiry, so it must be updated regularly.
 
 ### Score Client Credentials
 
