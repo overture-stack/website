@@ -8,7 +8,7 @@ The Swagger UI is ideal for exploration and simple use cases. It will contain de
 
 1. **Locate your endpoint of interest**
 
-Any `GET` endpoint can be used to retrieve data from Song, for example under the **Analysis** dropdown you can find the `GET` **GetAnalysesForStudy** endpoint. 
+Any `GET` endpoint can be used to retrieve data from Song. For example, under the **Analysis** dropdown, you can find the `GET` **GetAnalysesForStudy** endpoint. 
 
 
 ![Entity](../../assets/swagger_endpoint.png 'GetAnalysesForStudy')
@@ -23,17 +23,17 @@ GetAnalysesForStudy takes in a studyID and analysis state and will return all as
 
 3. **Select Execute** 
 
-Expected responses as well as response codes and descriptions are conveniently documented within Swagger-UI.
+Expected responses, as well as response codes and descriptions, are conveniently documented within Swagger-UI.
 
 ![Entity](../../assets/swagger_responses.png 'Responses')
 
 # Programmatic Queries
 
-Here we provide some examples of how to programmatically retrieve analyses using the Song API. If you have any questions or require technical support for your specific use case please reach out to us on our slack channel.
+Here, we provide some examples of how to retrieve analyses using the Song API programmatically. If you have any questions or require technical support for your specific use case, please contact us on our Slack channel.
 
 ## Example 1: Sample ID query
 
-The following python script performs a search for associated analyses based on a specific sample ID:
+The following Python script performs a search for associated analyses based on a specific sample ID:
 
 ```python
 url="https://song.virusseq-dataportal.ca"
@@ -47,9 +47,9 @@ print(response.json()[0])
 
 ## Example 2: Bulk analysis query
 
-Analyses can be retrieved in bulk by using the `GetAnalysesForStudy` endpoint. This endpoint is only available in the most recent versions of Song and currently is not available within the DMS. 
+Analyses can be retrieved in bulk by using the `GetAnalysesForStudy` endpoint. This endpoint is only available in the most recent versions of Song and is currently unavailable within the DMS. 
 
-The following python script demonstrates how to retrieve an aggregated list of published analyses and then create a filtered list of analyses associated to a series of `submitterIDs`.
+The following Python script demonstrates how to retrieve an aggregated list of published analyses and then create a filtered list of analyses associated to a series of `submitterIDs`.
 
 ```python
 import requests
