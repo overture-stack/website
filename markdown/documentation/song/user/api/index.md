@@ -2,11 +2,11 @@
 title: API Usage
 ---
 
-Song provides a RESTful API that allows you to interact with its database management functionalities. Depending on your use case, there are various methods available to interact with the Song API.
+Song provides a RESTful API that allows you to interact with its database management functionalities. Depending on your use case, various methods are available to interact with the Song API.
 
 ## The Swagger UI
 
-The Swagger UI is a helpful tool for exploration and simple use cases. It provides detailed descriptions of all the available endpoints, expected inputs, and error responses.
+The Swagger UI is a helpful tool for exploration and simple use cases. It describes all the available endpoints, expected inputs, and error responses.
 
 Depending on your deployment, you can access the Swagger UI from one of the following links:
 
@@ -17,7 +17,7 @@ Depending on your deployment, you can access the Swagger UI from one of the foll
 
 ## The Song-Client
 
-The Song-Client is a command-line tool that can be run as a Docker image. It is particularly useful for tasks such as submitting data and managing analysis states. For more information, refer to the <a href="https://github.com/overture-stack/song-client/" target="_blank" rel="noopener noreferrer">Song-Client GitHub repository</a>.
+The Song-Client is a command-line tool that can be run as a Docker image. It is particularly useful for submitting data and managing analysis states. For more information, refer to the <a href="https://github.com/overture-stack/song-client/" target="_blank" rel="noopener noreferrer">Song-Client GitHub repository</a>.
 
 
 
