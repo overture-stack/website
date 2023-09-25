@@ -8,15 +8,15 @@ Song uses <a href="https://json-schema.org/" target="_blank" rel="noopener noref
 
 # Analysis Schemas
 
-In Song, metadata is captured and submitted as **analyses**. An analysis represents a complete metadata record referencing the corresponding data files, all grouped as JSON objects.
+In Song, metadata is captured and submitted as **analyses**. An analysis represents a collection of one or more files and includes a complete metadata record describing those files.
 
-When submitting an analysis to Song, you need to specify the desired **schema** (data model) to be used for validation. This is defined in your analysis file using the `analysis type` field.
+When you submit an analysis to Song, you'll choose an 'analysis type' to dictate the data model used for validation. This is defined in your analysis file using the `analysis type` field.
 
 The schema associated with the analysis type consists of two parts:
 
-1. A minimal, **base schema** defined for patient data.
+1. A minimal, **base schema** containing the essential fields for all analyses, including basic patient data, submitter IDs, and file details.
 
-2. A flexible **dynamic schema** that is configured and uploaded by a Song administrator.
+2. A flexible **dynamic schema** that the Song administrator can configure and upload to define specific analysis types.
 
 These schema components ensure accurate and consistent metadata validation within Song.
 
