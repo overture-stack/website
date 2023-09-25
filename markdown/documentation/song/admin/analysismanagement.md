@@ -4,18 +4,15 @@ title: Analysis Management
 
 # Introduction
 
-Administrators can control the availablility of analyses to downstream services (typically our indexing service Maestro) across three states.
+Administrators control analysis availability to downstream services like Maestro across three states:
 
-- **Unpublished:** Data initially submitted to a Song repository is by default in an unpublished state and therefore unavailable to downstream services 
+- **Unpublished:** By default, new data in a Song repository is in this state, awaiting file upload. Custom configurations can allow Maestro to index this data, making it available to users to see the pending analysis.
 
+- **Published:** Files are downloadable from storage. Only analyses with file data uploaded to storage can be published. Maestro indexes publish analyses by default.
 
-- **Published:** The data and analysis are recognized by other downstream processes such as Maestro for metadata and file data indexing. In reverse, going from PUBLISHED to UNPUBLISHED will remove the specified analyses from the index. 
+- **Suppressed:** Data shouldn't be used and is blocked from use. Though not downloadable by default, custom setups can let Maestro index these and allow users to see what analyses have been made unavailable. Please be cognizant and use this state with care. Analyses in this state cannot be reverted.
 
-
-- **Suppressed:** Suppressed is a state that indicates the analysis and associated data should not be used and permanently blocked from usage. Please be cognizant and use this state with care, analyses in this state cannot be reverted.
-
-
-<Note title="Removing Indexed Data"> To ensure safe removal of indexed data the suggested state transition for suppression is: Published → Unpublished → Suppressed.</Note>
+<Note title="Removing Indexed Data"> To ensure the safe removal of indexed data, the suggested state transition for suppression is: Published → Unpublished → Suppressed.</Note>
 
 Analysis management in Song can be done through two main methods: the Song Client command line tool and the Swagger UI. 
 
@@ -66,7 +63,7 @@ From the analysis dropdown you can find the `PUT` endpoints for publishing, unpu
 
 2. **Input the Anlysis ID and Credientials** 
 
-Input your authorization token and the analysis ID and study ID corresponding to the data you want ot supress.
+Input your authorization token and the analysis ID and study ID corresponding to the data you want to suppress.
 
 ![Entity](../assets/swagger-publishid.png 'publish endpoint')
 
