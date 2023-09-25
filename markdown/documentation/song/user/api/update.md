@@ -17,7 +17,7 @@ The **PatchUpdateAnalysis** endpoint requires the following inputs:
 
 # Programmatic Updates
 
-Here we provide some examples of how to programmatically update analyses using the Song API. If you have any questions or require technical support for your specific use case please reach out to us on our slack channel.
+Here, we provide some examples of updating analyses using the Song API programmatically. If you have any questions or require technical support for your specific use case, please contact us on our Slack channel.
 
 ## Updating an analysis
 
