@@ -2,12 +2,12 @@
 title:  ID Management
 ---
 
-Song provides three modes for primary key management (Donors, Specimens, Samples, Files). They are:
+Song provides three modes for primary key management (Donors, Specimens, Samples, and Files). They are:
 
 
-- **LOCAL:** Represents a local-to-Song ID Management that persists in internal memory and is thread safe.
-- **FEDERATED_DYNAMIC_AUTH:** Represents the usage of external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
-- **FEDERATED_STATIC_AUTH:** Represents the usage of external ID service that uses statically defined tokens for authorization.
+- **LOCAL:** Represents a local-to-Song ID Management that persists in internal memory and is thread-safe.
+- **FEDERATED_DYNAMIC_AUTH:** Represents the usage of an external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
+- **FEDERATED_STATIC_AUTH:** Represents the usage of an external ID service that uses statically defined tokens for authorization.
 
 <Warning> You cannot mix and match local/external ID management. Either all IDs are locally managed by Song, or all IDs are managed by external services. </Warning>
 
@@ -32,7 +32,7 @@ When using external ID management, Song communicates with an external ID databas
 To enable this external ID management:
 
 1. Update the `.env` file with the appropriate values.
-2. Ensure that the `ID_USELOCAL` variable is set to `false`.
+2. Ensure the `ID_USELOCAL` variable is set to `false`.
 3. Provide the necessary URI configurations for each entity.
 
 Here's a template of the `.env` configuration with descriptions for each entry:
@@ -87,7 +87,7 @@ The table below describes the required template variables with examples.
 
 ## ICGC ARGO Example
 
-The <a href="https://platform.icgc-argo.org/" target="_blank" rel="noopener noreferrer">ICGC ARGO Data Platform</a> is a international initiative with several distributed processing centres, this required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
+The <a href="https://platform.icgc-argo.org/" target="_blank" rel="noopener noreferrer">ICGC ARGO Data Platform</a> is an international initiative with several distributed processing centres. This required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
 
 https://clinical.platform.icgc-argo.org/clinical/donors/id?programId=PACA-CA&submitterId=PCSI_0591
 
