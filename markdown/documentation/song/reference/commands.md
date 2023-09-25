@@ -4,7 +4,7 @@ title: Command Reference
 
 To invoke a command, run the `song-client` executable and append any options required after the command with the necessary input values.
 
-For information on the available commands use the following:
+For information on the available commands, use the following:
 
 ```shell
 song-client-5.0.2/bin/sing --help
@@ -18,11 +18,11 @@ The `config` command shows the current configuraion settings.
 
 ## Submit
 
-The `submit` command is used to submit a payload to create an analysis. For more information see our <a href="/documentation/song/user/submit/" target="_blank" rel="noopener noreferrer">documentation on submitting data with Song</a>.
+The `submit` command is used to submit a payload to create an analysis. For more information, see our <a href="/documentation/song/user/submit/" target="_blank" rel="noopener noreferrer">documentation on submitting data with Song</a>.
 
 ## Ping
 
-The `ping` command can be used to ping (test) the Song server.
+The `ping` command can ping (test) the Song server.
 
 ## Get-Analysis-Type
 
@@ -51,7 +51,7 @@ The `list-analysis-types` command is used to list all analysis types with filter
 
 ## Register-Analysis-Type
 
-The `register-analysis-type` command is used to register a new analysis type schema based on the provided file:
+The `register-analysis-type` command is used to register a new analysis-type schema based on the provided file:
 
 | Option | Description |
 |--|--|
@@ -59,7 +59,7 @@ The `register-analysis-type` command is used to register a new analysis type sch
 
 ## Search
 
-The `search` command is used to search for analysis objects based off various input parameters. Unless specified by one of the following options the `search` command will search for analysis within the current studyId.
+The `search` command searches for analysis objects based on various input parameters. Unless specified by one of the following options, the `search` command will search for analysis within the current studyId.
 
 | Option | Description |
 |--|--|
@@ -72,7 +72,7 @@ The `search` command is used to search for analysis objects based off various in
 
 ## Manifest
 
-The `manifest` command is used to generate a manifest file for an analysis with an associated analysisId.
+The `manifest` command generates a manifest file for an analysis with an associated analysisId.
 
 | Option | Description |
 |--|--|
@@ -80,7 +80,7 @@ The `manifest` command is used to generate a manifest file for an analysis with 
 |`-f`, `--file`| Name and directory for outputted manifest file |
 |`-d`, `---input-dir`| Directory containing the files used for upload |
 
-For more information see our <a href="/documentation/song/user/submit/" target="_blank" rel="noopener noreferrer">documentation on submitting data with Song</a>.
+For more information, see our <a href="/documentation/song/user/submit/" target="_blank" rel="noopener noreferrer">documentation on submitting data with Song</a>.
 
 ## Publish
 
@@ -90,7 +90,7 @@ The `publish` command is used to publish an analysis based on it's analysis Id:
 |`-a`, `--analysis-id`| Associated analysisId |
 |`-i`, `--ignore-undefined-md5`| If set, the publishing process will proceed even if the md5 hash of any file is not defined. |
 
- For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis managment with Song</a>.
+ For more information, see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis management with Song</a>.
 
 ## Unpublish
 
@@ -100,7 +100,7 @@ The `unpublish` command is used to mark data as unavailable to downstream servic
 |--|--|
 |`-a`, `--analysis-id`| Associated analysisId |
 
-For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis managment with Song</a>.
+For more information, see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis management with Song</a>.
 
 ## Suppress
 
@@ -110,7 +110,7 @@ The `suppress` command is used to block data from being accessed:
 |--|--|
 |`-a`, `--analysis-id`| Associated analysisId |
 
- For more information see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis managment with Song</a>.
+ For more information, see our <a href="/documentation/song/admin/analysismanagement/" target="_blank" rel="noopener noreferrer">documentation on analysis management with Song</a>.
 
 ## Export
 
