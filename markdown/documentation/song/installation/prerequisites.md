@@ -2,7 +2,7 @@
 title: Prerequisites 
 ---
 
-Before installing Song, ensure that the following tools and services are installed and properly configured. While you can choose any platform, we recommend Linux for optimal performance and compatibility.
+Before installing Song, ensure the following tools and services are installed and configured. While you can choose any platform, we recommend Linux for optimal performance and compatibility.
 
 1. **PostgreSQL**
 
