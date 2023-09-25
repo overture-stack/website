@@ -10,7 +10,7 @@ Submitted data consists of data files (e.g. sequencing reads or VCFs), as well a
 
 **Running the song-client docker image** 
 
-You will be required to supply environment variables for the `CLIENT_STUDY_ID`, the `CLIENT_SERVER_URL` and your `ACCESSTOKEN`. The access token is supplied from Ego or from your profile page within the DMS-UI.
+You must supply environment variables for the `CLIENT_STUDY_ID`, the `CLIENT_SERVER_URL` and your `ACCESSTOKEN`. The access token is supplied from Ego or your profile page within the DMS-UI.
 
 ```bash
 docker run -d -it --name song-client \
@@ -44,7 +44,7 @@ ghcr.io/overture-stack/score:latest
 
 ## Step 1. Prepare a payload
 
-First, a metadata payload must be prepared. The payload must conform to an `analysis_type` that has been registered as a schema.  For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
+First, a metadata payload must be prepared. The payload must conform to an `analysis_type` registered as a schema.  For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
  
 ## Step 2. Upload the metadata payload file
 
@@ -63,7 +63,7 @@ If your payload is not formatted correctly, you will receive an error message de
 }
 ```
 
-At this point, since the payload data has successfully been submitted and accepted by Song, it is now referred to as an analysis. By default all newly created analyses are set to an `UNPUBLISHED` state.
+At this point, since the payload data has successfully been submitted and accepted by Song, it is now referred to as an analysis. By default, all newly created analyses are set to an `UNPUBLISHED` state.
 
 <Warning>For more information on analysis states (published, unpublished and suppressed) see our page on [analysis managment](/documentation/song/admin/analysismanagement/)</Warning>
 
@@ -91,23 +91,23 @@ Here is the expected response:
 Wrote manifest file 'manifest.txt' for analysisId 'a4142a01-1274-45b4-942a-01127465b422'
 ```
 
-The `manifest.txt` file will be written out to defined output file path. If the output directory does not exist, it will be automatically created.
+The `manifest.txt` file will be written out to a defined output file path. If the output directory does not exist, it will be automatically created.
 
 ## Step 4. Upload your data files to cloud storage
 
-Upload all the files associated to the analysis using the score-client `upload` command:
+Upload all the files associated with the analysis using the score-client `upload` command:
 
 ```bash
 .bin/score-client  upload --manifest manifest.txt
 ```
 
-Once the file(s) successfully upload you will receive an `Upload completed` message.
+Once the file(s) successfully upload, you will receive an `Upload completed` message.
 
 ### Troubleshooting Upload 
 
 - If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly. 
 
-Sometimes if an upload is stuck, you can reinitiate the upload using the `--force` command. 
+Sometimes, if an upload is stuck, you can reinitiate the upload using the `--force` command. 
 
 ```bash
 .bin/score-client  upload --manifest manifest.txt --force 
