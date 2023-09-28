@@ -82,6 +82,7 @@
     &__content-holder {
       background-color: $blue-block;
       height: fit-content;
+      width: 100%;
     }
 
     &__img-holder {
@@ -92,6 +93,7 @@
     &__img {
       position: relative;
       image-rendering: crisp-edges;
+      max-width: 1000px;
       width: 70%;
       bottom: 70px;
     }
@@ -108,6 +110,7 @@
 
     &__text-holder {
       width: 70%;
+      max-width: 1000px;
     }
   }
 }

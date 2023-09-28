@@ -68,10 +68,12 @@ const data = {
           {
             to: '/documentation/dms/admin-guide/',
             text: 'For Administrators',
+            isFlexGrowTwo: true, //use this to set a class that set flex-grow to 2. These items will line up as the three column grid
           },
           {
             to: '/documentation/dms/user-guide/',
             text: 'For Users',
+            isFlexGrowTwo: true,
           },
         ],
       },
@@ -129,7 +131,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
                 <ul
                   className={`menu-section-links ${
                     verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
-                  }`}
+                  } ${link.isFlexGrowTwo ? `is-flex-grow-2` : `is-flex-grow-1`}`}
                 >
                   <li key={link.text}>{MenuItem(link)}</li>
                 </ul>

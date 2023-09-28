@@ -142,7 +142,7 @@ export default [
         },
       ],
       [
-        "Overture's modular architecture enabled us to integrate three microservices into the portal infrastructure. Overture manages data transfer, validation, and tracking on the back end, while supporting the portal's search API and core user interface.",
+        "Overture's modular architecture enabled us to integrate three microservices into the portal infrastructure. It manages data transfer, validation, and tracking on the back end, while supporting the portal's search API and core user interface.",
       ],
     ],
     clientLink: KIDS_FIRST_LINK,

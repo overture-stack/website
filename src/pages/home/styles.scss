@@ -25,6 +25,7 @@
     }
 
     &__section {
+      max-width: 430px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,15 +60,21 @@
       display: flex;
       gap: 16px;
       font-weight: 700;
+      @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+      }
       @include breakpoint(tablet-up) {
         margin-top: 5px;
       }
     }
 
     .container {
+      display: flex;
+      justify-content: center;
       @include breakpoint(tablet-up) {
-        display: flex;
         align-items: center;
+        justify-content: flex-start;
       }
     }
   }
@@ -103,7 +110,6 @@
       image-rendering: auto;
       &:hover {
         cursor: pointer;
-        transform: scale(1.15);
       }
     }
 
@@ -155,6 +161,7 @@
       @include breakpoint(desktop-up) {
         width: 100%;
         max-width: none;
+        min-height: 275px;
       }
     }
 
@@ -170,10 +177,6 @@
       @include breakpoint(desktop-up) {
         align-items: flex-start;
         gap: 12px;
-      }
-      @include breakpoint(desktop-wide) {
-        align-items: flex-start;
-        gap: 20px;
       }
     }
 
@@ -203,8 +206,17 @@
       max-width: 470px;
 
       @include breakpoint(tablet-up) {
-        max-width: 470px;
         text-align: left;
+      }
+      @include breakpoint(desktop-up) {
+        p {
+          font-size: 18px !important;
+        }
+      }
+      @include breakpoint(desktop-wide) {
+        p {
+          font-size: 20px !important;
+        }
       }
     }
 
@@ -311,6 +323,14 @@
   }
 
   .middle-white {
+    &__titles-holder {
+      margin-top: 1.4em;
+
+      @include breakpoint(desktop-up) {
+        margin-top: 1.8em;
+      }
+    }
+
     &__title-text {
       text-align: center;
       max-width: 30em;
@@ -324,7 +344,7 @@
 
     &__content {
       padding: 0 10px;
-      margin: 0 auto;
+      margin: 0 auto 4em;
       max-width: 1600px; // at smaller sizes, this element bleeds off the screen
       display: flex;
       flex-direction: column;
@@ -465,7 +485,6 @@
       display: block;
       position: relative;
       float: right;
-      right: -60px;
       bottom: 80px;
       margin-bottom: -200px;
     }
