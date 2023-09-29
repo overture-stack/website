@@ -5,6 +5,7 @@ import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
 import 'styles/main.scss';
 import DocsWrapper from './DocsWrapper';
+import getMatomoTagManager from '../../utils/getMatomoTagManager';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class TemplateWrapper extends Component {
     });
   };
 
-  openMegaMenu = megaMenuType => {
+  openMegaMenu = (megaMenuType) => {
     // set type FIRST
     // then open the menu in a callback
     // for smoother animation
@@ -100,12 +101,16 @@ class TemplateWrapper extends Component {
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
     const isDocs = path.includes('/documentation/') && data.mdx;
+    const matomoTagManager = getMatomoTagManager();
 
     return (
       <div>
         <Helmet>
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
+          <script type="text/javascript" id="matomo-tag-manager">
+            {matomoTagManager}
+          </script>
         </Helmet>
         <NavBar
           closeMenus={this.closeMenus}
@@ -119,7 +124,7 @@ class TemplateWrapper extends Component {
         />
 
         {/* desktop megamenu */}
-        <div className="desktop-megamenu" ref={r => (this.popOverRef = r)}>
+        <div className="desktop-megamenu" ref={(r) => (this.popOverRef = r)}>
           {desktopMegaMenuCheck && (
             <MegaMenu
               closeMenus={this.closeMenus}
