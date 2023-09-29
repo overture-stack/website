@@ -4,6 +4,11 @@
 .NavHeader {
   background: $white;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
+
+  .is-active {
+    @include breakpoint(navmenu-below) {
+    }
+  }
   .nav-container {
     margin: 0 auto;
     width: 100%;
@@ -11,6 +16,13 @@
 
     @include breakpoint(navmenu-up) {
       display: flex;
+    }
+  }
+
+  .nav-container.is-active {
+    @include breakpoint(navmenu-below) {
+      height: 100vh;
+      bottom: 0;
     }
   }
 
@@ -33,6 +45,14 @@
   .navbar-menu {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .navbar-menu.is-active {
+    @include breakpoint(navmenu-below) {
+      height: calc(100vh - 52px);
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   // override some bulma burger button settings
@@ -156,14 +176,25 @@
   .navbar-mid {
     display: flex;
     flex-direction: column;
+    background-image: url('../../pages/home/assets/cube_bright_teal.svg'),
+      url('../../pages/home/assets/cube_chartreuse.svg'),
+      url('../../pages/home/assets/cube_teal_blue.svg');
+    background-repeat: no-repeat;
+    background-position-x: -6%, 98%, 100%;
+    background-position-y: 75%, 55%, 0;
 
+    @include breakpoint(navmenu-below) {
+      flex-grow: 1;
+    }
     @include breakpoint(navmenu-up) {
       display: none;
     }
   }
 
   .navbar-mid.is-active {
-    display: none;
+    // display: none;
+    // flex-grow: 0;
+    background-image: none;
   }
 
   .teal-blue-cube {

@@ -43,10 +43,6 @@
         max-width: 700px;
         padding: 50px;
       }
-
-      @include breakpoint(desktop-wide) {
-        max-width: none;
-      }
     }
 
     &__large-button {

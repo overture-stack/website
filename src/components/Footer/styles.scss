@@ -6,6 +6,8 @@
   position: relative;
   background: $white;
   color: $navy-dark;
+  // min-width: fit-content;
+  // width: 100%;
 
   .footer-white {
     padding: 38px 12px;
@@ -104,6 +106,7 @@
     flex-direction: column;
     height: auto;
     font-size: 14px;
+    min-width: 350px;
 
     @include breakpoint(desktop-up) {
       align-items: center;
