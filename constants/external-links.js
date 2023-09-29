@@ -38,14 +38,17 @@ export const ARRANGER_GETTING_STARTED_LINK =
   'https://www.overture.bio/documentation/arranger/installation/installation/';
 export const ARRANGER_LOCAL_LINK = 'https://localhost:8080';
 export const ARRANGER_UPDATES_LINK = 'https://www.overture.bio/documentation/arranger/';
+export const ARRANGER_GITHUB_LINK = 'https://github.com/overture-stack/ARRANGER';
 
 // DMS
 export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
 export const CANARIE_LINK = 'https://www.canarie.ca/';
+export const DMS_UI_GITHUB_LINK = 'https://github.com/overture-stack/DMS-UI';
 
 // ego
 export const EGO_SQL_LINK = `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;
 export const EGO_UPDATES_LINK = 'https://www.overture.bio/documentation/ego/';
+export const EGO_GITHUB_LINK = 'https://github.com/overture-stack/EGO';
 
 // jukebox
 export const JUKEBOX_BLOG_POST_LINK =
@@ -65,6 +68,7 @@ export const ONCOJS_GITHUB_LINK = 'https://github.com/oncojs';
 
 // maestro
 export const MAESTRO_UPDATES_LINK = 'https://www.overture.bio/documentation/maestro/';
+export const MAESTRO_GITHUB_LINK = 'https://github.com/overture-stack/MAESTRO';
 
 // persona
 export const PERSONA_LOCAL_LINK = 'http://localhost:3232/graphql';
@@ -74,3 +78,7 @@ export const PERSONA_ENV_SCHEMA_LINK = `${OVERTURE_GITHUB_LINK}persona/blob/mast
 export const SONG_DOCS_LINK = 'https://www.overture.bio/documentation/song/';
 export const SONG_BLOG_POST_LINK =
   'https://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/';
+export const SONG_GITHUB_LINK = 'https://github.com/overture-stack/SONG';
+
+//score
+export const SCORE_GITHUB_LINK = 'https://github.com/overture-stack/SCORE';

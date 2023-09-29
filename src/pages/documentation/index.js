@@ -2,7 +2,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link } from 'components';
 import imgScreenshotDMS from './assets/img_DMS_screenshot.png';
-import { OVERTURE_GITHUB_LINK, GITHUB_ISSUES_LINK, SLACK_LINK } from 'constants/external-links';
+import {
+  OVERTURE_GITHUB_LINK,
+  GITHUB_ISSUES_LINK,
+  SLACK_LINK,
+  EGO_GITHUB_LINK,
+  SONG_GITHUB_LINK,
+  MAESTRO_GITHUB_LINK,
+  ARRANGER_GITHUB_LINK,
+  SCORE_GITHUB_LINK,
+  DMS_UI_GITHUB_LINK,
+} from 'constants/external-links';
 import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import './styles.scss';
 
@@ -86,13 +96,13 @@ export default function GettingStartedPage() {
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/EGO/wiki">Ego</Link>
+                        <Link to={EGO_GITHUB_LINK}>Ego</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/SONG/wiki">Song</Link>
+                        <Link to={SONG_GITHUB_LINK}>Song</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/SCORE/wiki">Score</Link>
+                        <Link to={SCORE_GITHUB_LINK}>Score</Link>
                       </li>
                     </ul>
                   </div>
@@ -100,13 +110,13 @@ export default function GettingStartedPage() {
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/MAESTRO/wiki">Maestro</Link>
+                        <Link to={MAESTRO_GITHUB_LINK}>Maestro</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/ARRANGER/wiki">Arranger</Link>
+                        <Link to={ARRANGER_GITHUB_LINK}>Arranger</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="https://github.com/overture-stack/DMS-UI/wiki">DMS-UI</Link>
+                        <Link to={DMS_UI_GITHUB_LINK}>DMS-UI</Link>
                       </li>
                     </ul>
                   </div>

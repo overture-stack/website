@@ -68,7 +68,10 @@ a.navbar-item.active-item {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%;
+
+  @media (max-width: 440px) {
+    width: fit-content;
+  }
 
   &__content {
     flex: 1 0 auto;
