@@ -116,7 +116,6 @@
     flex-direction: column;
     height: auto;
     font-size: 14px;
-    // min-width: 350px;
 
     @include breakpoint(desktop-up) {
       align-items: center;

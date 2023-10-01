@@ -25,16 +25,6 @@ export default function ProductsPage() {
         />
       </Helmet>
 
-      {/* HERO */}
-      {/* check src/styles/main.scss for the grey-bg class */}
-      {/* <div className="Hero grey-bg">
-        <div className="container">
-          <section className="Hero__section">
-            <H1>Our Products</H1>
-            <P1 className="Hero__subtitle">Linking the gaps between data and discovery.</P1>
-          </section>
-        </div>
-      </div> */}
       <Hero title="Our Products" subtitle="Linking the gaps between data and discovery." />
 
       {/* Song section - white background */}

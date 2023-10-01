@@ -46,7 +46,6 @@ export default function HomePage() {
           name="keywords"
           content="Overture, data science software, bioinformatics software, open-source software, cancer research, genomic data, big data, data portals, Ontario Institute for Cancer Research, OICR"
         />
-        {/* <meta name="viewport" content="width=device-width"></meta> */}
       </Helmet>
 
       {/* top hero - blue background  */}
