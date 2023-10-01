@@ -15,6 +15,7 @@
     }
 
     @include breakpoint(desktop-up) {
+      background-position-x: 120px;
       background-position-y: 0px;
       background-size: 1070px;
     }
@@ -47,6 +48,21 @@
       }
       @include breakpoint(desktop-up) {
         max-width: 570px;
+      }
+    }
+
+    .container {
+      @include breakpoint(tablet-up) {
+        padding: 5.2em 4.8em;
+      }
+      @include breakpoint(desktop-up) {
+        padding: 5.2em 4.2em;
+      }
+      @include breakpoint(desktop-wide) {
+        padding: 4.7em 4.6em;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        padding: 4.7em 6.2em;
       }
     }
   }

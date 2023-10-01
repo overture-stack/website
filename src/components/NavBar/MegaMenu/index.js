@@ -68,12 +68,10 @@ const data = {
           {
             to: '/documentation/dms/admin-guide/',
             text: 'For Administrators',
-            isFlexGrowTwo: true, //use this to set a class that set flex-grow to 2. These items will line up as the three column grid
           },
           {
             to: '/documentation/dms/user-guide/',
             text: 'For Users',
-            isFlexGrowTwo: true,
           },
         ],
       },
@@ -126,17 +124,16 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
             <div className="menu-section-heading">
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <div className={`menu-select-container ${section.color}-section`}>
+
+            <ul
+              className={`menu-section-links ${section.color}-section ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
               {section.links.map((link) => (
-                <ul
-                  className={`menu-section-links ${
-                    verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
-                  } ${link.isFlexGrowTwo ? `is-flex-grow-2` : `is-flex-grow-1`}`}
-                >
-                  <li key={link.text}>{MenuItem(link)}</li>
-                </ul>
+                <li key={link.text}>{MenuItem(link)}</li>
               ))}
-            </div>
+            </ul>
           </section>
         ))}
       </div>

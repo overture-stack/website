@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { H3, L1, Button, Hero, LinkHelper as Link, YellowButton } from 'components';
+import { H3, L1, Hero, LinkHelper as Link, YellowButton } from 'components';
 import { EMAIL_LINK, SLACK_LINK } from 'constants/external-links';
 import './styles.scss';
 
@@ -49,8 +49,6 @@ export default function ContactUsPage() {
           <YellowButton link={EMAIL_LINK} img_src="emailUs" alt="Email Us" title="Email Us" />
         </div>
       </section>
-
-      {/* Contact / slack button. */}
     </main>
   );
 }

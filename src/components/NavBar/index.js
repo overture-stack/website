@@ -18,9 +18,6 @@ import {
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
-import cubeChartreuse from '../../pages/home/assets/cube_chartreuse.svg';
-import cubeTealBlue from '../../pages/home/assets/cube_teal_blue.svg';
-import cubeBrightTeal from '../../pages/home/assets/cube_bright_teal.svg';
 import './styles.scss';
 
 class NavBar extends Component {
@@ -85,30 +82,7 @@ class NavBar extends Component {
               className={`navbar-mid bg-grey ${
                 megaMenuType === 'documentation' ? 'is-active' : ''
               }`}
-            >
-              {/* <div className="teal-blue-chartreuse-cubes-holder"> */}
-              {/* floating blue teal cube */}
-              {/* <img
-                  src={cubeTealBlue}
-                  alt="Floating Blueish Teal Cube"
-                  className="teal-blue-cube"
-                /> */}
-              {/* floating yellowish cube */}
-              {/* <img
-                  src={cubeChartreuse}
-                  alt="Floating Yellowish Green Cube"
-                  className="chartreuse-cube"
-                />
-              </div> */}
-              {/* floating bright green teal cube */}
-              {/* <div className="bright-teal-cube-holder">
-                <img
-                  src={cubeBrightTeal}
-                  alt="Floating Bright Teal Cube"
-                  className="bright-teal-cube"
-                />
-              </div> */}
-            </div>
+            ></div>
             <div className="navbar-end ">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button

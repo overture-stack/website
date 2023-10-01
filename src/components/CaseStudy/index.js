@@ -32,10 +32,8 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
               <ul>
                 {caseData.listItems[0].map((i, idx) => {
                   return (
-                    <L1>
-                      <li className="client-list-item indent-group" key={idx}>
-                        {i}
-                      </li>
+                    <L1 key={idx}>
+                      <li className="client-list-item indent-group">{i}</li>
                     </L1>
                   );
                 })}
@@ -58,8 +56,8 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
               <ul>
                 {caseData.listItems[1].map((i, idx) => {
                   return (
-                    <L1>
-                      <li className="client-list-item indent-group" key={idx}>
+                    <L1 key={idx}>
+                      <li className="client-list-item indent-group">
                         <b>{Object.keys(i)}</b> {Object.values(i)}
                       </li>
                     </L1>
