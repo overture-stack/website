@@ -81,7 +81,7 @@ export default function HomePage() {
           {caseData.map((data, idx) => {
             let active = idx === carouselPage ? 'top-white__logo-container-active' : '';
             return (
-              <div className={`top-white__log-container ${active}`} key={data.slug}>
+              <div className={`top-white__logo-container ${active}`} key={data.slug}>
                 <img
                   src={data.logo}
                   alt={data.slug}

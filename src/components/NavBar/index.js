@@ -10,7 +10,6 @@ import { Button, LinkHelper as Link } from 'components';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  /*COMMUNITY_PATH,*/
   DOCUMENTATION_PATH,
   HOME_PATH,
   PRODUCTS_PATH,
