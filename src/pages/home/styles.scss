@@ -106,10 +106,11 @@
       image-rendering: auto;
       &:hover {
         cursor: pointer;
+        transform: scale(1.15);
       }
     }
 
-    &__logo-active {
+    &__logo-container-active {
       border-bottom: 2px solid;
     }
 

@@ -79,17 +79,18 @@ export default function HomePage() {
         {/* logos scroll bar  */}
         <div className="top-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'top-white__logo-active' : '';
+            let active = idx === carouselPage ? 'top-white__logo-container-active' : '';
             return (
-              <img
-                key={data.slug}
-                src={data.logo}
-                alt={data.slug}
-                onClick={() => {
-                  setCarouselPage(idx);
-                }}
-                className={`top-white__logo ${active}`}
-              />
+              <div className={`top-white__log-container ${active}`} key={data.slug}>
+                <img
+                  src={data.logo}
+                  alt={data.slug}
+                  onClick={() => {
+                    setCarouselPage(idx);
+                  }}
+                  className={`top-white__logo`}
+                />
+              </div>
             );
           })}
         </div>
