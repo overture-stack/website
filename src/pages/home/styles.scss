@@ -94,7 +94,6 @@
     &__logos {
       overflow-x: scroll;
       display: flex;
-
       gap: 15px;
       background-color: none;
       @include breakpoint(desktop-up) {
@@ -114,7 +113,6 @@
 
     &__logo {
       filter: brightness(1.1);
-      // image-rendering: auto;
       &:hover {
         cursor: pointer;
         transform: scale(1.15);
