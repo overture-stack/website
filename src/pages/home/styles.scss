@@ -2,6 +2,7 @@
 @import '../../styles/variables';
 
 .HomePage {
+  max-width: 100%;
   .Hero {
     background-color: $blue-top;
 
@@ -91,7 +92,7 @@
     }
 
     &__logos {
-      overflow-x: auto;
+      overflow-x: scroll;
       display: flex;
       gap: 15px;
       background-color: none;
@@ -101,13 +102,17 @@
       }
     }
 
+    &__logo-container {
+      min-width: 180px;
+      overflow-x: hidden;
+    }
+
     &__logo-container-active {
       border-bottom: 2px solid;
     }
 
     &__logo {
       filter: brightness(1.1);
-      image-rendering: auto;
       &:hover {
         cursor: pointer;
         transform: scale(1.15);
