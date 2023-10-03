@@ -2,6 +2,7 @@
 @import '../../styles/variables';
 
 .HomePage {
+  max-width: 100%;
   .Hero {
     background-color: $blue-top;
 
@@ -91,7 +92,7 @@
     }
 
     &__logos {
-      overflow-x: hidden;
+      overflow-x: scroll;
       display: flex;
 
       gap: 15px;
