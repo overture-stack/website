@@ -90,7 +90,6 @@ $cs-break: 1000px;
     justify-content: center;
     @include breakpoint(desktop-up) {
       justify-content: flex-start;
-      // align-items: center;
       align-items: flex-start;
     }
   }
