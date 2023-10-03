@@ -68,7 +68,7 @@ export default [
         { 'Ego:': 'Provides stateless authentication and authorization' },
       ],
       [
-        'Overture is the backbone for ICGC ARGO\'s infrastructure. Through the portal, users can search for and access both genomic and clinical data collected from 26 internationally distributed projects.'
+        "Overture is the backbone for ICGC ARGO's infrastructure. Through the portal, users can search for and access both genomic and clinical data collected from 26 internationally distributed projects.",
       ],
     ],
     clientLink: ICGC_ARGO_LINK,
@@ -107,7 +107,7 @@ export default [
         { 'Ego:': 'Governed the authorization of applications' },
       ],
       [
-        'Using Overture, the VirusSeq portal was rapidly developed in 4 weeks. Initially designed to store 150,000 viral sequences by 2023, with Overture\'s scalable indexing, it has expanded to host 500,000 genomes.'      
+        "Using Overture, the VirusSeq portal was rapidly developed in 4 weeks. Initially designed to store 150,000 viral sequences by 2023, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
       ],
     ],
     clientLink: VIRUSSEQ_LINK,
@@ -138,11 +138,11 @@ export default [
         { 'Score:': 'Managed file transfers and object storage' },
         {
           'Arranger:':
-            'With the faceted search and customizable data table, arranger enabled users to filter and query this large dataset efficiently'
+            'With the faceted search and customizable data table, arranger enabled users to filter and query this large dataset efficiently',
         },
       ],
       [
-        'Overture\'s modular architecture enabled us to integrate three microservices into the portal infrastructure. Overture manages data transfer, validation, and tracking on the back end, while supporting the portal\'s search API and core user interface.'
+        "Overture's modular architecture enabled us to integrate three microservices into the portal infrastructure. It manages data transfer, validation, and tracking on the back end, while supporting the portal's search API and core user interface.",
       ],
     ],
     clientLink: KIDS_FIRST_LINK,
@@ -170,7 +170,11 @@ export default [
     ),
     logo: ihcc_logo,
     listItems: [
-      ['There are a total of 70 cohorts participating in the study', 'These cohorts come from 39 different countries around the world', 'Each cohort provides data across 39 distinct metadata fields'],
+      [
+        'There are a total of 70 cohorts participating in the study',
+        'These cohorts come from 39 different countries around the world',
+        'Each cohort provides data across 39 distinct metadata fields',
+      ],
       [
         {
           'Arranger:':
@@ -178,7 +182,7 @@ export default [
         },
       ],
       [
-        `IHCC, a global platform hosting genetic disease data from large cohorts (100k+), leverages the Overture microservice Arranger to generate its GraphQL  API and front-end portal UI.`
+        `IHCC, a global platform hosting genetic disease data from large cohorts (100k+), leverages the Overture microservice Arranger to generate its GraphQL  API and front-end portal UI.`,
       ],
     ],
     clientLink: IHCC_LINK,
@@ -218,7 +222,7 @@ export default [
         },
       ],
       [
-        'HCMI provides researchers with a catalogue of unique cancer models and protocols. It uses Overture\'s Arranger microservice for its GraphQL API and front-end portal UI.'
+        "HCMI provides researchers with a catalogue of unique cancer models and protocols. It uses Overture's Arranger microservice for its GraphQL API and front-end portal UI.",
       ],
     ],
     clientLink: HCMIS_LINK,

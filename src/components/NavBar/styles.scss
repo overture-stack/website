@@ -15,6 +15,13 @@
     }
   }
 
+  .nav-container.is-active {
+    @include breakpoint(navmenu-below) {
+      height: 100vh;
+      bottom: 0;
+    }
+  }
+
   .active-item {
     color: $pink-darker;
     background-color: '$grey';
@@ -34,6 +41,14 @@
   .navbar-menu {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .navbar-menu.is-active {
+    @include breakpoint(navmenu-below) {
+      height: calc(100vh - 52px);
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   // override some bulma burger button settings
@@ -101,8 +116,7 @@
     letter-spacing: 0;
     padding: 0.75rem;
     @media (max-width: 1260px) {
-      padding: 0.5rem;
-      padding-left: 1.4em;
+      padding: 0.5rem 1em;
     }
   }
 
@@ -157,14 +171,22 @@
   .navbar-mid {
     display: flex;
     flex-direction: column;
+    background-image: url('./assets/cube_bright_teal.svg'), url('./assets/cube_chartreuse.svg'),
+      url('./assets/cube_teal_blue.svg');
+    background-repeat: no-repeat;
+    background-position-x: -6%, 98%, 100%;
+    background-position-y: 75%, 55%, 0;
 
+    @include breakpoint(navmenu-below) {
+      flex-grow: 1;
+    }
     @include breakpoint(navmenu-up) {
       display: none;
     }
   }
 
   .navbar-mid.is-active {
-    display: none;
+    background-image: none;
   }
 
   .teal-blue-cube {

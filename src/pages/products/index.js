@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, H1, H2, P1, ProductPageSection } from 'components';
+import { Button, H1, H2, P1, ProductPageSection, Hero } from 'components';
 import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import Helmet from 'react-helmet';
 import imgDMS from './assets/img_DMS.svg';
@@ -25,16 +25,7 @@ export default function ProductsPage() {
         />
       </Helmet>
 
-      {/* HERO */}
-      {/* check src/styles/main.scss for the grey-bg class */}
-      <div className="Hero grey-bg">
-        <div className="container">
-          <section className="Hero__section">
-            <H1>Our Products</H1>
-            <P1 className="Hero__subtitle">Linking the gaps between data and discovery.</P1>
-          </section>
-        </div>
-      </div>
+      <Hero title="Our Products" subtitle="Linking the gaps between data and discovery." />
 
       {/* Song section - white background */}
       <ProductPageSection
@@ -134,6 +125,7 @@ export default function ProductsPage() {
               <H2>The Overture Data Management System (DMS)</H2>
             </div>
             {/* div with the blue background */}
+            <div className="lower-blue-section__top-gradient"></div>
             <div className="lower-blue-section__content-holder">
               <div className="lower-blue-section__img-holder">
                 <img src={imgDMS} alt="DMS screenshot" className="lower-blue-section__img" />

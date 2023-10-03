@@ -54,8 +54,8 @@ export default function HomePage() {
           <section className="Hero__section">
             <H1>Build. Deploy. Discover.</H1>
             <P1>
-              Overture is a collection of open-source software <br></br> made to create platforms
-              for researchers <br></br> to manage, access and share genomics data.
+              Overture is a collection of open-source software made to create platforms for
+              researchers to manage, access and share genomics data.
             </P1>
             <div className="Hero__small-buttons-container">
               <Button link={PRODUCTS_PATH} size="medium" type="primary">
@@ -79,17 +79,18 @@ export default function HomePage() {
         {/* logos scroll bar  */}
         <div className="top-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'top-white__logo-active' : '';
+            let active = idx === carouselPage ? 'top-white__logo-container-active' : '';
             return (
-              <img
-                key={data.slug}
-                src={data.logo}
-                alt={data.slug}
-                onClick={() => {
-                  setCarouselPage(idx);
-                }}
-                className={`top-white__logo ${active}`}
-              />
+              <div className={`top-white__logo-container ${active}`} key={data.slug}>
+                <img
+                  src={data.logo}
+                  alt={data.slug}
+                  onClick={() => {
+                    setCarouselPage(idx);
+                  }}
+                  className={`top-white__logo`}
+                />
+              </div>
             );
           })}
         </div>
@@ -145,13 +146,13 @@ export default function HomePage() {
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
-                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow ml2"
+                  className="top-white__blue-container-arrow-mobile top-white__blue-container-arrow "
                   onClick={() => {
                     handleRightArrowClick();
                   }}
                 />
               </div>
-              <div>
+              <div className="top-white__blue-container-text">
                 <P2> {caseData[carouselPage].listItems[2][0]}</P2>
               </div>
               <Button
@@ -241,7 +242,7 @@ export default function HomePage() {
 
       {/* middle white section - titled our products */}
       <section className="middle-white section">
-        <div>
+        <div className="middle-white__titles-holder">
           <H2>Our Products</H2>
           <P1 className="middle-white__title-text">
             Built to be reusable and scalable, Overture was created to share our data science

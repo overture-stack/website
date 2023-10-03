@@ -31,13 +31,16 @@
       order: 1; //at tablet size, the text and button container (order: 0) need to preceed the image/logo and the yellowbutton container for layout purpose. Note-default order is 0
     }
     @include breakpoint(desktop-up) {
-      width: 265px;
+      width: 270px;
+      margin-left: 0.8em;
     }
     @include breakpoint(desktop-wide) {
       width: 320px;
+      margin-left: 0.4em;
     }
     @include breakpoint(desktop-ultra-wide) {
       width: 400px;
+      margin-left: 2em;
     }
   }
 
@@ -54,7 +57,7 @@
 
     @include breakpoint(desktop-wide) {
       max-width: 690px;
-      gap: 2.5em;
+      gap: 1.6em;
     }
 
     .title-holder {

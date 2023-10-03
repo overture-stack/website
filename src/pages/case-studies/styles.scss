@@ -90,7 +90,7 @@ $cs-break: 1000px;
     justify-content: center;
     @include breakpoint(desktop-up) {
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start;
     }
   }
 
@@ -161,7 +161,7 @@ $cs-break: 1000px;
     width: 180px;
     cursor: pointer;
     height: 80px;
-    margin: 8px 18px;
+    margin: 8px 10px;
     background-color: $bg-color;
     border-radius: 15px;
     image-rendering: -webkit-optimize-contrast;

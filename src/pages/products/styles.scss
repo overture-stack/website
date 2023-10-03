@@ -15,6 +15,7 @@
     }
 
     @include breakpoint(desktop-up) {
+      background-position-x: 120px;
       background-position-y: 0px;
       background-size: 1070px;
     }
@@ -49,6 +50,21 @@
         max-width: 570px;
       }
     }
+
+    .container {
+      @include breakpoint(tablet-up) {
+        padding: 5.2em 4.8em;
+      }
+      @include breakpoint(desktop-up) {
+        padding: 5.2em 4.2em;
+      }
+      @include breakpoint(desktop-wide) {
+        padding: 4.7em 4.6em;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        padding: 4.7em 6.2em;
+      }
+    }
   }
 
   .container {
@@ -63,7 +79,7 @@
   }
 
   .lower-blue-section {
-    margin: 0px -20px;
+    margin-top: 2.6em;
 
     &__holder {
       display: flex;
@@ -72,14 +88,17 @@
       gap: 2em;
     }
 
-    &__title-holder {
-      margin-bottom: 2.6em;
+    &__top-gradient {
+      height: 100px;
+      width: 100%;
+      margin-bottom: -2em;
+      background-image: (linear-gradient(#ffffff, #f9f9f9));
     }
 
     &__content-holder {
       background-color: $blue-block;
       height: fit-content;
-      margin-top: 70px;
+      width: 100%;
     }
 
     &__img-holder {
@@ -90,6 +109,7 @@
     &__img {
       position: relative;
       image-rendering: crisp-edges;
+      max-width: 1000px;
       width: 70%;
       bottom: 70px;
     }
@@ -106,6 +126,7 @@
 
     &__text-holder {
       width: 70%;
+      max-width: 1000px;
     }
   }
 }

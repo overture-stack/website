@@ -82,7 +82,7 @@ const FooterLinks = () => {
 
 const Footer = () => {
   return (
-    <footer className="Footer">
+    <footer className="Footer site-wrapper__footer">
       <div className="footer-white">
         <Link className="footer-white__oicr-logo" to={OICR_LINK}>
           <img src={logo} alt="OICR" />

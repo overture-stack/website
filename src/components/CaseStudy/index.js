@@ -30,12 +30,10 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
             {/* right list */}
             <div className="column is-offset-0 top-bullets">
               <ul>
-                {caseData.listItems[0].map((i, idx) => {
+                {caseData.listItems[0].map((listItem) => {
                   return (
-                    <L1>
-                      <li className="client-list-item indent-group" key={idx}>
-                        {i}
-                      </li>
+                    <L1 key={listItem}>
+                      <li className="client-list-item indent-group">{listItem}</li>
                     </L1>
                   );
                 })}
@@ -56,11 +54,11 @@ const CaseStudy = ({ caseData, currentScreenshot }) => {
                 <H3>How was Overture used?</H3>
               </div>
               <ul>
-                {caseData.listItems[1].map((i, idx) => {
+                {caseData.listItems[1].map((listItem) => {
                   return (
-                    <L1>
-                      <li className="client-list-item indent-group" key={idx}>
-                        <b>{Object.keys(i)}</b> {Object.values(i)}
+                    <L1 key={Object.keys(listItem)}>
+                      <li className="client-list-item indent-group">
+                        <b>{Object.keys(listItem)}</b> {Object.values(listItem)}
                       </li>
                     </L1>
                   );
