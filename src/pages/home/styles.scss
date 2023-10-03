@@ -91,9 +91,8 @@
     }
 
     &__logos {
-      overflow-x: hidden;
+      overflow-x: auto;
       display: flex;
-
       gap: 15px;
       background-color: none;
       @include breakpoint(desktop-up) {
@@ -102,18 +101,13 @@
       }
     }
 
-    &__logo-container {
-      min-width: 180px;
-      overflow-x: hidden;
-    }
-
     &__logo-container-active {
       border-bottom: 2px solid;
     }
 
     &__logo {
       filter: brightness(1.1);
-      // image-rendering: auto;
+      image-rendering: auto;
       &:hover {
         cursor: pointer;
         transform: scale(1.15);
