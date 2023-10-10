@@ -1,4 +1,4 @@
-import { H3, Button, Icon, TrafficLights, ImageCrossfade } from '..';
+import { H2, H3, L1, Button, ImageCrossfade } from '..';
 import React from 'react';
 
 /**
@@ -6,10 +6,7 @@ import React from 'react';
  * title, description, logo, list items, url, and a set of details and corresponding screenshots.
  * @param {*} p: all the data represent a single case study (as found in ./data.js)
  */
-const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, currentScreenshot }) => {
-  const _handleDetailChange = idx => {
-    handleDetailChange({ section: caseData.slug, screenNumber: idx });
-  };
+const CaseStudy = ({ caseData, currentScreenshot }) => {
   const descriptionEl =
     typeof caseData.description === 'string' ? (
       <div>{caseData.description}</div>
@@ -18,85 +15,60 @@ const CaseStudy = ({ caseData, handleDetailChange, handlePageScreenshot, current
     );
 
   return (
-    <section className="Case-Study">
-      {/* Top Container - client overview: title, desc / Logo, list desc, button. */}
-      <div className="container top-segment">
-        <div className="case-heading">
-          <H3>{caseData.title}</H3>
-          <div className="yellow-bar" />
-        </div>
-        <div className="columns">
-          <div className="column is-6">
-            <img alt={`${caseData.title} logo`} className="client-logo" src={caseData.logo} />
-            {React.cloneElement(descriptionEl, { className: 'case-description' })}
-          </div>
-
-          <div className="column is-offset-1 is-5">
-            <ul>
-              {caseData.listItems.map((i, idx) => {
-                return (
-                  <li className="client-list-item" key={idx}>
-                    {i}
-                  </li>
-                );
-              })}
-            </ul>
-            <Button className="my2" type="primary" size="medium" link={caseData.clientLink}>
-              Check it out!
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Lower Container: Screenshots */}
+    <section className="Case-Study" id={caseData.slug}>
       <div className="container">
-        <div className="details">
-          <div className="details-left">
-            {caseData.details.map((detail, idx) => {
-              const activeClass = currentScreenshot === idx ? 'active' : '';
-              return (
-                <div
-                  className={`details-left-item ${activeClass}`}
-                  onClick={() => _handleDetailChange(idx)}
-                  key={detail.title + idx}
-                >
-                  <div className={`details-left-title ${activeClass}`}>{detail.title}</div>
-                  <div className="details-left-description">{detail.description}</div>
-                </div>
-              );
-            })}
+        <div className="case-heading">
+          <H2>{caseData.title}</H2>
+        </div>
+        {/* top segment */}
+        <div className=" top-segment">
+          <div className="columns">
+            {/* left paragraph */}
+            <div className="column is-6">
+              {React.cloneElement(descriptionEl, { className: 'case-description' })}
+            </div>
+            {/* right list */}
+            <div className="column is-offset-0 top-bullets">
+              <ul>
+                {caseData.listItems[0].map((listItem) => {
+                  return (
+                    <L1 key={listItem}>
+                      <li className="client-list-item indent-group">{listItem}</li>
+                    </L1>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
+        </div>
 
-          <div className="details-right">
-            <div
-              onClick={() =>
-                handlePageScreenshot({
-                  section: caseData.slug,
-                  max: caseData.details.length,
-                  dir: 'inc',
-                })
-              }
-              className="screenshot-arrow-right"
-            >
-              <Icon img="arrowRightRound" />
+        {/* Lower Container */}
+        <div className="bottom-segment">
+          <div className="columns">
+            <div className="column is-6 img-holder">
+              <img src={caseData.details[currentScreenshot].screenshot} />
             </div>
 
-            <div
-              onClick={() =>
-                handlePageScreenshot({
-                  section: caseData.slug,
-                  max: caseData.details.length,
-                  dir: 'dec',
-                })
-              }
-              className="screenshot-arrow-left"
-            >
-              <Icon img="arrowLeftRound" />
-            </div>
-
-            <div className="Browser details-right-browser-wrapper">
-              <TrafficLights style={{ marginLeft: 0, paddingBottom: '16px' }} />
-              <ImageCrossfade src={caseData.details[currentScreenshot].screenshot} />
+            <div className="column is-offset-0 ">
+              <div className="lower-title-holder indent-group">
+                <H3>How was Overture used?</H3>
+              </div>
+              <ul>
+                {caseData.listItems[1].map((listItem) => {
+                  return (
+                    <L1 key={Object.keys(listItem)}>
+                      <li className="client-list-item indent-group">
+                        <b>{Object.keys(listItem)}</b> {Object.values(listItem)}
+                      </li>
+                    </L1>
+                  );
+                })}
+              </ul>
+              <div className="button-holder indent-group">
+                <Button type="primary" size="medium" link={caseData.clientLink}>
+                  Check it out!
+                </Button>
+              </div>
             </div>
           </div>
         </div>

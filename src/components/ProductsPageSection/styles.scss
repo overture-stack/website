@@ -1,0 +1,123 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.ProductsSection {
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    @include breakpoint(tablet-up) {
+      flex-flow: row wrap;
+      justify-content: center;
+      gap: 3.5em;
+    }
+    @include breakpoint(desktop-up) {
+      gap: 12px;
+    }
+  }
+
+  .image-holder {
+    width: 232px;
+    height: auto;
+    margin-bottom: 0.7em;
+
+    @include breakpoint(tablet-up) {
+      order: 1; //at tablet size, the text and button container (order: 0) need to preceed the image/logo and the yellowbutton container for layout purpose. Note-default order is 0
+    }
+    @include breakpoint(desktop-up) {
+      width: 270px;
+      margin-left: 0.8em;
+    }
+    @include breakpoint(desktop-wide) {
+      width: 320px;
+      margin-left: 0.4em;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      width: 400px;
+      margin-left: 2em;
+    }
+  }
+
+  .text-content-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    max-width: 350px;
+
+    @include breakpoint(desktop-up) {
+      max-width: 620px;
+      gap: 2.6em;
+    }
+
+    @include breakpoint(desktop-wide) {
+      max-width: 690px;
+      gap: 1.6em;
+    }
+
+    .title-holder {
+      width: 100%;
+      display: flex;
+    }
+
+    .subtitle-holder {
+      width: 100%;
+    }
+
+    .description {
+      @include breakpoint(desktop-up) {
+        font-size: 20px;
+        line-height: 32px;
+      }
+      @include breakpoint(desktop-up) {
+        font-size: 24px;
+        line-height: 40px;
+      }
+    }
+
+    .buttons-holder {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+
+      @include breakpoint(desktop-up) {
+        justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .button {
+        width: 45%;
+        @include breakpoint(desktop-up) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  // see the sytles.scss for YellowButton component for all css related to yellowbuttons. Over there, a separate css is used for the yellowbuttons on the Product Page.
+  // YellowButton is standard throughout the website except on the Product Page.
+  .yellow-buttons-holder {
+    max-width: 350px;
+    @include breakpoint(tablet-up) {
+      order: 1;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      max-width: 800px;
+      gap: 12px;
+    }
+    @include breakpoint(desktop-up) {
+      max-width: none;
+      margin-top: 2.2em;
+      gap: 2em;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      gap: 3em;
+    }
+  }
+}

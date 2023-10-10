@@ -2,247 +2,235 @@
 // We iterate over the cases, and render their content.
 
 import React from 'react';
-import { LinkHelper as Link } from 'components';
+import { P2, LinkHelper as Link } from 'components';
 import {
-  CGC_LINK,
-  GDC_LINK,
-  HCMIS_LINK,
-  ICGC_LINK,
+  ICGC_ARGO_LINK,
+  ICGC_ARGO_PORTAL_LINK,
+  VIRUSSEQ_LINK,
+  VIRUSSEQ_PORTAL_LINK,
   KIDS_FIRST_LINK,
+  KIDS_FIRST_PORTAL_LINK,
+  IHCC_LINK,
+  IHCC_PORTAL_LINK,
+  HCMIS_LINK,
+  HCMIS_PORTAL_LINK,
 } from 'constants/external-links';
 
-// GDC Assets
-import gdc_sapien from './assets/gdc/sapien.png';
-import gdc_oncogrid from './assets/gdc/oncogrid.png';
-import gdc_survival from './assets/gdc/survival.png';
-import gdc_logo from './assets/gdc/logo.svg';
+//ICGC ARGO Assets
+import icgcargo_logo from './assets/icgcargo/logo.svg';
+import icgcargo_chart from './assets/icgcargo/chart.png';
+
+// VirusSeq Assets
+import virusseq_logo from './assets/virusseq/logo.svg';
+import virusseq_chart from './assets/virusseq/chart.png';
 
 // Kids First Assets
-import kf_arranger from './assets/kidsfirst/arranger.png';
-import kf_ego from './assets/kidsfirst/ego.png';
-import kf_persona from './assets/kidsfirst/persona.png';
-import kf_riff from './assets/kidsfirst/riff.png';
+import kf_chart from './assets/kidsfirst/chart.png';
 import kf_logo from './assets/kidsfirst/logo.svg';
 
-// ICGC Assets -- TODO Pending 2 Screenshots (Song / Score)
-import icgc_onco from './assets/icgc/onco.png';
-import icgc_song from './assets/icgc/song.png';
-import icgc_score from './assets/icgc/score.png';
-import icgc_jukebox from './assets/icgc/jukebox.png';
-import icgc_ego from './assets/icgc/ego.png';
-import icgc_logo from './assets/icgc/logo.svg';
-
-import cgc_logo from './assets/cgc/logo.svg';
-import cgc_billing from './assets/cgc/billing.png';
-import cgc_enrolment from './assets/cgc/enrolment.png';
+//IHCC Assets
+import ihcc_logo from './assets/ihcc/logo.svg';
+import ihcc_chart from './assets/ihcc/chart.png';
 
 // HCMIS
 import hcmis_logo from './assets/hcmis/logo.svg';
-import hcmis_arranger from './assets/hcmis/arranger.png';
-import hcmis_cms from './assets/hcmis/cms.png';
-import hcmis_riff from './assets/hcmis/riff.png';
+import hcmis_chart from './assets/hcmis/chart.png';
 
 export default [
   {
-    title: 'Kids First Data Resource Center',
-    slug: 'kidsFirst',
+    title: 'ICGC-ARGO',
+    slug: 'icgcargo',
+    portalLink: ICGC_ARGO_PORTAL_LINK,
     description: (
-      <div>
+      <P2>
+        The <Link to={ICGC_ARGO_LINK}>ICGC ARGO Data Platform platform</Link> builds on the legacy
+        of the ICGC 25K Data Portal by harmonizing molecular and high-quality clinical data from
+        global genomics efforts into a collective and unified knowledge base. ICGC ARGO will improve
+        patient outcomes by enabling discovery through the responsible sharing of this curated data
+        set with researchers worldwide.
+      </P2>
+    ),
+    logo: icgcargo_logo,
+    listItems: [
+      [
+        '63,116 committed donors, 26 programs representing 13 countries and 20 tumour types',
+        'ICGC ARGO aims to analyze specimens from 100,000 cancer patients',
+        'IGGC DACO governs the responsible sharing of this data for use in research',
+      ],
+      [
+        { 'Song:': 'Validates all submitted sequence meta(data) against a custom data model' },
+        {
+          'Score:':
+            'Manages file transfers and object storage with added SamTools functionalities to help handle large WGS files',
+        },
+        { 'Maestro:': 'Indexes multiple song repositories into one elastic search instance' },
+        { 'Arranger:': 'Facilitates filtering and querying' },
+        { 'Ego:': 'Provides stateless authentication and authorization' },
+      ],
+      [
+        "ICGC-ARGO is collecting genomic and clinical data from 100k cancer patients. With Overture as the backbone for ICGC ARGO's infrastructure, researchers can search and gain authorized access to genomic and clinical data collected from 26 international projects.",
+      ],
+    ],
+    clientLink: ICGC_ARGO_LINK,
+    details: [{ title: 'Chart', description: 'ICGC', screenshot: icgcargo_chart }],
+  },
+
+  {
+    title: 'VirusSeq',
+    slug: 'virusseq',
+    portalLink: VIRUSSEQ_PORTAL_LINK,
+    description: (
+      <P2>
+        The <Link to={VIRUSSEQ_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
+        open-access data portal for all Canadian SARS-CoV-2 sequences and associated non-personal
+        contextual data. VirusSeq harmonizes, validates, and automates submission to international
+        databases, providing critical information for public health and policy decisions, testing
+        and tracing strategies, virus detection and surveillance methods, vaccine and drug
+        development, and understanding susceptibility, disease severity, and clinical outcomes.
+      </P2>
+    ),
+    logo: virusseq_logo,
+    listItems: [
+      [
+        'Built-in 4 weeks with Overture',
+        'Hosts 474,215 viral genomes, surpassing the projection of 150K',
+        'Horizontally scaled with replica Score, Song, and Maestro instances',
+      ],
+      [
+        { 'Score:': 'Managed file transfers and object storage' },
+        { 'Song:': 'Modified for the validation and tracking of viral sequencing metadata' },
+        { 'Maestro:': 'Indexed sample data for downstream search' },
+        {
+          'Arranger:':
+            'Responsible for all search capabilities, including faceted search and data tables',
+        },
+        { 'Ego:': 'Governed the authorization of applications' },
+      ],
+      [
+        "The VirusSeq Data Portal is an open-access data portal for all Canadian SARS-CoV-2 sequences. Using Overture, the portal was created within a 4 week timeframe. Initially intented to store 150,000 viral sequences, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
+      ],
+    ],
+    clientLink: VIRUSSEQ_LINK,
+    details: [{ title: 'Chart', description: 'Virus Seq Chart', screenshot: virusseq_chart }],
+  },
+  {
+    title: 'Kids First Data Portal',
+    slug: 'kidsFirst',
+    portalLink: KIDS_FIRST_PORTAL_LINK,
+    description: (
+      <P2>
         The <Link to={KIDS_FIRST_LINK}>Kids First Data Resource Center</Link> brings together
         clinical and genetic data from pediatric cancer and structural birth defect cohorts into a
         centralized, cloud-based discovery portal. We created a collaborative, community focused
         portal that brings together researchers, health professionals, and patients to accelerate
         discoveries that improve the lives of pediatric patients and their families.
-      </div>
+      </P2>
     ),
     logo: kf_logo,
     listItems: [
-      'Integration with the cloud workflow resource, Cavatica',
-      'Customizable user profiles',
-      'Innovative data searching and visualization',
-      'Interactive cohort builder allowing query combinations',
+      [
+        'Data collected across distributed 32 projects',
+        '1.7 Petabytes, 30.5k Participants, 28k families, 94.9k samples, 187.4k Files',
+        'Query and Filter 72 data types with 16 clinical fields',
+      ],
+      [
+        { 'Song:': 'Validation and tracking of genomic metadata' },
+        { 'Score:': 'Managed file transfers and object storage' },
+        {
+          'Arranger:':
+            'With the faceted search and customizable data table, arranger enabled users to filter and query this large dataset efficiently',
+        },
+      ],
+      [
+        "Overture's modular architecture enabled us to integrate three microservices into the portal infrastructure. It manages data transfer, validation, and tracking on the back end, while supporting the portal's search API and core user interface.",
+      ],
     ],
     clientLink: KIDS_FIRST_LINK,
     details: [
       {
-        title: 'Arranger',
-        description: 'Customizable data access made easy.',
-        screenshot: kf_arranger,
-      },
-      {
-        title: 'Ego',
-        description: 'Authentication and authorization to deliver secure data access.',
-        screenshot: kf_ego,
-      },
-      {
-        title: 'Persona',
-        description: 'Facilitate collaboration and group science by creating a user profile.',
-        screenshot: kf_persona,
-      },
-      {
-        title: 'Riff',
-        description: 'Social sharing to spread awareness and build the community.',
-        screenshot: kf_riff,
+        title: 'Chart',
+        description: 'Kids First Chart',
+        screenshot: kf_chart,
       },
     ],
   },
   {
-    title: 'ICGC Data Portal',
-    slug: 'icgcDataPortal',
+    title: 'IHCC',
+    slug: 'ihcc',
+    portalLink: IHCC_PORTAL_LINK,
     description: (
-      <div>
-        The <Link to={ICGC_LINK}>International Cancer Genome Consortium (ICGC)</Link> is a global
-        initiative to build a comprehensive catalog of mutations in the major tumor types. The
-        portal currently contains data from 86 worldwide cancer projects, collectively representing
-        about molecular data from over 22,000 donors with more than 80 million somatic mutations
-        accessible to researchers.
-      </div>
+      <P2>
+        The <Link to={IHCC_LINK}>International HundredK+ Cohorts Consortium (IHCC)</Link> is
+        improving clinical care and population health by aggregating large genomic data cohorts to
+        help translational researchers uncover the biological and genetic factors of disease. With
+        exception to underrepresented cohorts & populations, all hosted member cohorts are
+        disease-agnostic and have available biospecimens and longitudinal follow-up activities. Most
+        notably, hosted member cohorts comprise one hundred thousand participants or more.
+      </P2>
     ),
-    logo: icgc_logo,
+    logo: ihcc_logo,
     listItems: [
-      'Interoperability with distributed data repositories including AWS S3 and Cancer Genome Collaboratory',
-      'Beautiful and informative genomic visualizations',
-      'In-browser analysis on cancer genomic data',
+      [
+        'There are a total of 70 cohorts participating in the study',
+        'These cohorts come from 39 different countries around the world',
+        'Each cohort provides data across 39 distinct metadata fields',
+      ],
+      [
+        {
+          'Arranger:':
+            'With Arranger, users are able to filter and query the database through an intuitive UI with a customizable table and faceted search',
+        },
+      ],
+      [
+        `IHCC is a global platform hosting genomics data from large cohorts (100k+). The platform leverages the Overtures' Arranger microservice to generate its GraphQL API and front-end portal UI.`,
+      ],
     ],
-    clientLink: ICGC_LINK,
+    clientLink: IHCC_LINK,
     details: [
       {
-        title: 'OncoJS',
-        description: 'OncoGrid visualizes genomic data to identify trends and patterns.',
-        screenshot: icgc_onco,
-      },
-      {
-        title: 'Score',
-        description:
-          'Fast file transfer with file bundling, resumable multi-part downloads, and BAM/CRAM slicing',
-        screenshot: icgc_score,
-      },
-
-      {
-        title: 'Song',
-        description: 'Distributed file management through secure metadata storage.',
-        screenshot: icgc_song,
-      },
-
-      {
-        title: 'Ego',
-        description: 'Authentication and authorization to deliver secure data access.',
-        screenshot: icgc_ego,
-      },
-      {
-        title: 'Jukebox',
-        description:
-          'Automated deployment of JupyterHub to analyze ICGC data on Jupyter Notebooks.',
-        screenshot: icgc_jukebox,
+        title: 'IHCC',
+        description: 'IHCC chart',
+        screenshot: ihcc_chart,
       },
     ],
   },
-  {
-    title: 'NCI GDC Data Portal',
-    slug: 'nciGdc',
-    logo: gdc_logo,
-    description: (
-      <div>
-        The <Link to={GDC_LINK}>National Cancer Institute’s Genomic Data Commons Data Portal</Link>{' '}
-        has harmonized genomic data from over 33,000 cancer patients from programs such as The
-        Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective
-        Treatments (TARGET) and Foundation Medicine.
-      </div>
-    ),
-    listItems: [
-      'Explore genomic and clinical data from cancer patients',
-      'Create virtual cohort by search across all patients for specific clinical attributes and genomic mutations',
-    ],
-    clientLink: GDC_LINK,
-    details: [
-      {
-        title: 'Sapien',
-        description: 'Correlates donors to primary sites of the human body',
-        screenshot: gdc_sapien,
-      },
-      {
-        title: 'OncoGrid',
-        description: 'OncoGrid visualizes genomic data to identify trends and patterns.',
-        screenshot: gdc_oncogrid,
-      },
-      {
-        title: 'Survivalplot',
-        description: 'Visualizes datasets to determine probable health outcomes.',
-        screenshot: gdc_survival,
-      },
-    ],
-  },
-  {
-    title: 'Cancer Genome Collaboratory',
-    slug: 'cgc',
-    description: (
-      <div>
-        The <Link to={CGC_LINK}>Cancer Genome Collaboratory</Link> is an academic compute cloud
-        resource that allows researchers to run complex analysis operations across large ICGC cancer
-        genome datasets as well as their own data. One petabyte of ICGC data is co-located with
-        elastic compute enabling researchers to bring analysis tools to the data for faster
-        discovery.
-      </div>
-    ),
-    logo: cgc_logo,
-    listItems: [
-      'Self-service cloud computing made affordable',
-      'Convenient usage tracking for Openstack',
-      'Accelerate research by bringing analysis to the data',
-    ],
-    clientLink: CGC_LINK,
-    details: [
-      {
-        title: 'Billing & Usage',
-        description:
-          'Track and manage compute usage on an Openstack tenant to streamline customer billing operations.',
-        screenshot: cgc_billing,
-      },
-
-      {
-        title: 'Enrolment',
-        description:
-          'Automatically manage user enrolment to a project, as well as supporting user self-registration.',
-        screenshot: cgc_enrolment,
-      },
-    ],
-  },
-
   {
     title: 'Human Cancer Models Initiative',
     slug: 'humanCancerModels',
-    description: (
-      <div>
-        The <Link to={HCMIS_LINK}>Human Cancer Models Initiative Searchable Catalog</Link> is an
-        interactive catalog of purchasable next-generation, tumor-derived organoids and cell lines.
-        The catalog is supported by a custom content management system for entry and validation of
-        clinical and genomic data. Investigate individual model pages for licensing requirements,
-        molecular features, culturing requirements and purchasing details.
-      </div>
-    ),
     logo: hcmis_logo,
+    portalLink: HCMIS_PORTAL_LINK,
+    description: (
+      <P2>
+        The <Link to={HCMIS_LINK}>Human Cancer Models Initiative (HCMI)</Link> is a catalogue of
+        unique cancer models alongside clinical, biospecimen, and molecular data. It also includes
+        protocols, consent templates, and clinical data forms, making it a comprehensive resource
+        for researchers determining which cancer models to use within their studies. The ultimate
+        goal of the HCMI is to support translational cancer research and improve personalized
+        patient treatment plans.
+      </P2>
+    ),
     listItems: [
-      'Customized “shopping” experience for researchers to browse innovative cancer models',
-      'Models annotated with genomic and clinical data',
+      [
+        '275 unique cancer models across 25 Primary sites',
+        'All models are annotated with genomic and clinical data',
+        'Enabling researchers to browse and shop for innovative cancer models',
+      ],
+      [
+        {
+          'Arranger:':
+            'Enables search by filtering and querying the database through an intuitive UI',
+        },
+      ],
+      [
+        "HCMI provides researchers with a catalogue of unique cancer models and protocols. It uses Overture's Arranger microservice for its GraphQL API and front-end portal UI.",
+      ],
     ],
     clientLink: HCMIS_LINK,
     details: [
       {
-        title: 'Arranger',
-        description: 'Customizable data access made easy.',
-        screenshot: hcmis_arranger,
-      },
-
-      {
-        title: 'Riff',
-        description: 'Social sharing to spread awareness and build the community.',
-        screenshot: hcmis_riff,
-      },
-
-      {
-        title: 'CMS',
-        description: 'Entry and validation of clinical and genomic data.',
-        screenshot: hcmis_cms,
+        title: 'HCMIS',
+        description: 'HCMIS chart',
+        screenshot: hcmis_chart,
       },
     ],
   },

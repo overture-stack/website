@@ -7,25 +7,27 @@
  * the UI based on a data structure in ./data.js
  * This component is a Class component because
  * a) each case study has a "slider" for displaying screenshots
- * b) for indicating the currently selected logo in the navigation.
+ * b) for indicating the currently selected logo in the navigation
  */
 
-import React, { Component } from 'react';
-import { Waypoint } from 'react-waypoint';
-import { CaseStudy, H1, H2 } from 'components';
+import { CaseStudy, Hero } from 'components';
+import React from 'react';
 import caseData from 'data/case_studies';
+import { Component } from 'react';
+import Helmet from 'react-helmet';
+import { Waypoint } from 'react-waypoint';
 import Navigation from './navigation';
 import './styles.scss';
 
 class CaseStudiesPage extends Component {
   constructor(props) {
     super(props);
+
     // Refs for scroll to navigation
+    this.icgcargo = React.createRef();
+    this.virusseq = React.createRef();
     this.kidsFirst = React.createRef();
-    this.icgcDataPortal = React.createRef();
-    this.nciGdc = React.createRef();
-    this.cgc = React.createRef();
-    this.kidsFirst = React.createRef();
+    this.ihcc = React.createRef();
     this.humanCancerModels = React.createRef();
   }
 
@@ -36,19 +38,19 @@ class CaseStudiesPage extends Component {
     caseStudyScrollPoints: [],
     // Use slugs as keys for easy changing.
     currentScreenshots: {
+      icgcargo: 0,
+      virusseq: 0,
       kidsFirst: 0,
-      icgcDataPortal: 0,
-      nciGdc: 0,
-      cgc: 0,
+      ihcc: 0,
       humanCancerModels: 0,
     },
   };
 
-  _handleWaypointEnter(caseStudy, e) {
+  _handleWaypointEnter(caseStudy, event) {
     this.setState({ currentCase: caseStudy.title });
   }
 
-  _handleWaypointLeave(caseStudy, e) {
+  _handleWaypointLeave(caseStudy, event) {
     // this.setState({currentCase: caseStudy.title})
   }
 
@@ -97,14 +99,14 @@ class CaseStudiesPage extends Component {
   }
 
   handleScroll = () => {
-    if (window.pageYOffset > 254) {
+    if (window.scrollY > 254) {
       this.setState({ navFixed: true });
     } else {
       this.setState({ navFixed: false });
     }
   };
 
-  scrollTo = slugName => {
+  scrollTo = (slugName) => {
     let node = this[slugName];
     let rect = node.current.getBoundingClientRect();
     let top = rect.top + window.scrollY - 190;
@@ -113,44 +115,51 @@ class CaseStudiesPage extends Component {
 
   render() {
     let fixedClass = this.state.navFixed ? 'nav-fixed' : '';
-
     return (
       <main className="CaseStudiesPage">
+        {/* Metadata */}
+        <Helmet>
+          <title>Overture Case Studies</title>
+          <meta
+            name="description"
+            content="See how Overture is being used to tackle challenges across multiple projects."
+          />
+          <meta
+            name="keywords"
+            content="Overture, data science software, bioinformatics software, open-source software, cancer research, academic collaborations, grant co-applicant, software consulting, project architecture, migration, custom development, scalability, technical support, troubleshooting, Ontario Institute for Cancer Research, OICR, Canarie, DMS Command Line Interface, The National Cancer Institutes Informatics Technology for Cancer Research Program, NCI ITCR, Overture DMS, GA4GH passport system"
+          />
+        </Helmet>
+
         {/* HERO */}
-        <section className={`case-hero ${fixedClass}`}>
-          <div className="case-hero-content">
-            <H1 className="case-heading">Case Studies</H1>
-            <H2 className="t-h4">
-              We’ve participated in projects from small to large. We welcome the chance to
-              collaborate with you and bring your data into the future with the Overture stack!
-            </H2>
-          </div>
-        </section>
+        <Hero
+          title="Case Studies"
+          subtitle="See how Overture is tackling diverse challenges across multiple projects."
+        />
 
         {/* Case Study Interactive NavBar */}
         <Navigation
           caseData={caseData}
           isFixed={this.state.navFixed}
           currentCase={this.state.currentCase}
-          scrollTo={x => this.scrollTo(x)}
+          scrollTo={(position) => this.scrollTo(position)}
         />
 
         {/* Case Study Component */}
         {caseData &&
-          caseData.map((d, i) => {
-            let bgColor = i % 2 === 0 ? 'none' : '#F2F3F5';
+          caseData.map((data, index) => {
+            let bgColor = index % 2 === 0 ? 'none' : '#F2F3F5';
 
             return (
               <Waypoint
-                key={d.slug}
-                onEnter={e => this._handleWaypointEnter(d, e)}
-                onLeave={e => this._handleWaypointLeave(d, e)}
-                threshold={-2.0}
+                key={data.slug}
+                onEnter={(event) => this._handleWaypointEnter(data, event)}
+                onLeave={(event) => this._handleWaypointLeave(data, event)}
+                threshold={0}
               >
-                <div ref={this[d.slug]} style={{ backgroundColor: bgColor }}>
+                <div ref={this[data.slug]} style={{ backgroundColor: bgColor }}>
                   <CaseStudy
-                    caseData={d}
-                    currentScreenshot={this.state.currentScreenshots[d.slug]}
+                    caseData={data}
+                    currentScreenshot={this.state.currentScreenshots[data.slug]}
                     handleDetailChange={this._handleDetailChange}
                     handlePageScreenshot={this._handlePageScreenshot}
                   />

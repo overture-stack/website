@@ -6,7 +6,7 @@ export function wrapPageElement({ element, props }) {
   return <Layout {...props}>{element}</Layout>;
 }
 
-const scrollToHash = prevLocation => {
+const scrollToHash = (prevLocation) => {
   const { hash } = prevLocation;
   if (hash) {
     scrollToElement(hash, {

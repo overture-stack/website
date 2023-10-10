@@ -1,157 +1,383 @@
 @import '../../styles/colors';
+@import '../../styles/variables';
 
-.DocumentationLandingPage {
-  h2,
-  h3,
-  p,
-  li {
-    color: $navy-black;
-  }
-  h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 18px;
-  }
-  .hero {
-    background-image: linear-gradient(to right, #45a0d4 0%, #6ed0c2 100%);
-    height: 310px;
-    text-align: center;
-    flex-direction: row;
-    h1 {
-      font-size: 32px;
-      color: $white;
-      font-weight: bold;
+.GettingStartedPage {
+  .container {
+    padding: 50px 42px;
+    @include breakpoint(desktop-up) {
+      padding: 50px 60px;
     }
-    .container {
-      display: flex;
-      align-items: center;
+  }
+
+  .upper-grey-section {
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hexagon_top_left.svg'),
+        url('./assets/img_hexagon_top_right.svg'), url('./assets/img_hexagon_bottom_left.svg');
+      background-repeat: no-repeat;
+      background-position-x: -45px, 130%, -130px;
+      background-position-y: -50px, 180px, 500px;
+      background-size: 280px, 380px, 400px;
     }
-    .search__container {
-      align-items: center;
+
+    @include breakpoint(desktop-up) {
+      max-width: auto;
+      background-position-x: -45px, 127%, -165px;
+      background-position-y: -125px, -170px, 230px;
+      background-size: 350px, 500px, 550px;
+    }
+    &__holder {
       display: flex;
       flex-direction: column;
-      flex: 1 0 475px;
-      justify-content: center;
-      padding: 0 20px;
-      @media (max-width: 1024px) {
-        flex-basis: auto;
+      align-items: center;
+      gap: 2em;
+    }
+
+    &__titles-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      text-align: center;
+      max-width: 330px;
+
+      @include breakpoint(tablet-up) {
+        margin-top: 2em;
+        max-width: 680px;
+      }
+
+      @include breakpoint(desktop-up) {
+        max-width: 840px;
       }
     }
-    .image {
-      flex: 0 1 auto;
-      &-consulting {
-        align-self: start;
+
+    &__search-bar-holder {
+      display: flex;
+      justify-content: center;
+      width: 350px;
+      margin-bottom: 0.5em;
+
+      @include breakpoint(tablet-up) {
+        width: 640px;
       }
-      @media (max-width: 1024px) {
+
+      @include breakpoint(desktop-up) {
+        width: 760px;
+      }
+    }
+
+    &__docs-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+
+      @include breakpoint(tablet-up) {
+        margin-bottom: 2em;
+      }
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        gap: 3.5em;
+      }
+    }
+
+    &__doc-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 350px;
+    }
+
+    &__doc-title {
+      margin-bottom: 1.4em;
+    }
+
+    &__doc-columns-holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 9em;
+      margin-right: 2.6em;
+
+      @include breakpoint(tablet-up) {
+        gap: 7em;
+        margin-right: 0;
+        margin-left: 4em;
+      }
+    }
+
+    &__doc-column {
+      list-style-type: disc;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    &__bullets-item {
+      width: 20px;
+      a {
+        color: $navy-black;
+      }
+
+      @include breakpoint(tablet-up) {
+        width: 110px;
+      }
+    }
+  }
+
+  .mid-white-section {
+    @include breakpoint(tablet-up) {
+      overflow-x: hidden;
+    }
+
+    &__holder {
+      margin: 1em auto;
+
+      @include breakpoint(desktop-up) {
+        display: flex;
+      }
+    }
+
+    &__non-img-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8em;
+
+      @include breakpoint(desktop-up) {
+        align-items: flex-start;
+        width: 50%;
+        margin-right: -2em;
+        max-width: 450px;
+      }
+
+      @include breakpoint(desktop-wide) {
+        max-width: none;
+        margin-right: 0.4em;
+        margin-top: 0.6em;
+      }
+    }
+
+    &__subtitle-holder {
+      max-width: 350px;
+      text-align: center;
+
+      @include breakpoint(tablet-up) {
+        max-width: none;
+      }
+      @include breakpoint(desktop-up) {
+        text-align: left;
+        margin-top: 1em;
+      }
+    }
+
+    &__img-holder {
+      background-image: url('./assets/img_circle_blue.png');
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      padding: 28px;
+      margin: 1em auto;
+    }
+
+    &__mobile-tablet-img-holder {
+      @include breakpoint(tablet-up) {
+        background-position: left;
+        width: 200%;
+        margin-right: -3em;
+      }
+      @include breakpoint(desktop-up) {
         display: none;
       }
     }
+
+    &__desktop-img-holder {
+      display: none;
+
+      @include breakpoint(desktop-up) {
+        display: flex;
+        align-items: center;
+        width: 64%;
+        padding: 30px;
+        margin-right: -5em;
+        background-position: left;
+      }
+
+      @include breakpoint(desktop-wide) {
+        padding: 68px;
+        margin: -3.5em;
+        background-position: left;
+        margin-right: -5.5em;
+      }
+    }
+
+    &__img {
+      @include breakpoint(tablet-up) {
+        position: relative;
+        left: 130px;
+        min-width: auto;
+        max-width: 190%;
+        max-height: 415px;
+      }
+      @include breakpoint(desktop-up) {
+        left: 300px;
+        max-width: 200%;
+        max-height: 660px;
+      }
+
+      @include breakpoint(desktop-wide) {
+        left: 360px;
+        max-width: 220%;
+        max-height: 710px;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        left: 300px;
+      }
+    }
+
+    &__content-holder {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint(tablet-up) {
+        flex-direction: row;
+      }
+    }
+
+    &__text-button-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+
+      @include breakpoint(tablet-up) {
+        order: -1;
+        align-items: flex-start;
+        margin-top: 40px;
+      }
+      @include breakpoint(desktop-up) {
+        gap: 2.6em;
+      }
+      @include breakpoint(desktop-wide) {
+        gap: 3.4em;
+      }
+      @include breakpoint(desktop-ultra-wide) {
+        gap: 3.6em;
+      }
+    }
+
+    &__text-holder {
+      width: 88%;
+    }
   }
 
-  .documentation {
-    &-section {
-      padding: 42px 0;
-      h2 {
-        margin-bottom: 24px;
+  .lower-grey-section {
+    background-image: url('./assets/img_cloud.svg'), url('./assets/img_cloud.svg');
+    background-repeat: no-repeat;
+    background-position-x: -40px, 107%;
+    background-position-y: 100px, 580px;
+
+    @include breakpoint(tablet-up) {
+      background-position-x: -40px, 107%;
+      background-position-y: 100px, 380px;
+    }
+
+    @include breakpoint(desktop-up) {
+      background-position-x: 20px, 103%;
+      background-position-y: 30px, 220px;
+    }
+
+    &__holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3em;
+
+      @include breakpoint(desktop-up) {
+        flex-direction: row;
+        margin-top: 1em;
+        max-width: 100%;
       }
-      p,
-      li,
-      span {
-        font-size: 18px;
-        line-height: 30px;
+    }
+
+    &__titles-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4em;
+      text-align: center;
+      max-width: 360px;
+
+      @include breakpoint(tablet-up) {
+        max-width: none;
       }
-      ul {
-        list-style-type: disc;
-        padding-left: 18px;
+    }
+
+    &__title {
+      font-family: $font-sans-serif;
+      font-weight: 900;
+      color: $navy-black;
+      letter-spacing: 0;
+      font-size: 40px;
+      line-height: 55px;
+
+      @include breakpoint(tablet-up) {
+        font-size: 48px;
+        line-height: 70px;
       }
-      p {
-        margin-bottom: 8px;
+
+      @include breakpoint(desktop-up) {
+        font-size: 36px;
+        line-height: 48px;
       }
-      span {
-        font-weight: bold;
-        margin-left: 12px;
-        display: inline-block;
-        &:first-child {
-          margin-left: 0;
-        }
+    }
+
+    &__subtitle-mobile-tablet {
+      @include breakpoint(desktop-up) {
+        display: none;
       }
-      .button.is-primary.is-medium {
-        font-size: 18px;
-        font-weight: bold;
-        line-height: 1;
-        margin-bottom: 8px;
-        padding: 8px 18px;
+    }
+
+    &__subtitle-desktop {
+      display: none;
+      @include breakpoint(desktop-up) {
+        display: block;
       }
-      .dms-row {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        margin-bottom: 10px;
-        .Icon {
-          max-height: 40px;
-        }
-        &__text {
-          margin-left: 8px;
-        }
+    }
+
+    .yellow-button {
+      @include breakpoint(desktop-up) {
+        max-width: 290px;
+      }
+      &__img {
+        width: 37%;
+      }
+      &__title {
+        font-size: 20px;
+      }
+    }
+
+    &__yellow-buttons-holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include breakpoint(tablet-up) {
+        flex-direction: row;
       }
     }
   }
-  .product {
-    &-section {
-      padding: 30px 0 24px;
+
+  .lower-blue-section {
+    display: none;
+    @include breakpoint(desktop-up) {
+      display: block;
+      padding: 1.6em;
     }
-    &-column {
-      .Badge {
-        font-size: 12px;
-        margin-bottom: 16px;
-        display: block;
-        text-align: center;
-        line-height: 16px;
-      }
-      a {
-        display: block;
-        text-decoration: none;
-      }
-    }
-    &-card {
-      border-radius: 5px;
-      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.08);
-      background-color: $white;
-      padding: 8px 16px 16px;
-      margin-bottom: 16px;
-      position: relative;
-      &:hover {
-        background-color: $grey-1;
-        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-      }
-      .chevron-link {
-        color: $pink-darker !important;
-        font-weight: 700;
-        font-size: 14px;
-        display: flex;
-        line-height: 1;
-        img[style] {
-          padding: 2px 0 0 1px;
-          height: 13px !important;
-        }
-      }
-      &__title {
-        display: flex;
-        align-items: center;
-        margin-bottom: 4px;
-        .Icon {
-          max-height: 32px;
-        }
-        h3 {
-          font-size: 18px;
-          font-weight: bold;
-          margin-left: 8px;
-        }
-      }
-      p {
-        font-size: 13px;
-        margin-bottom: 8px;
-      }
+
+    &__text {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
     }
   }
 }

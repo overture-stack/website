@@ -4,48 +4,17 @@
  **/
 
 import React from 'react';
-import { H1, H2 } from 'components';
+import { H1, P3 } from 'components';
 import './styles.scss';
-import img_services from './assets/img_services.svg';
 
-// some images
-const imgs = { img_services };
-
-const Hero = ({
-  title,
-  titleClass,
-  subtitle,
-  children,
-  bgImage,
-  bgImageStyles = {},
-  ImgComponent,
-  className,
-}) => {
-  // Wrapper class is at least a Hero class, + possible custom className override and backgroundImage
-  let wrapperClass = ` Hero ${className && className} ${bgImage && 'bg-image'}`;
-  let _titleClass = `titles column is-half-desktop ${titleClass && titleClass}`;
-
-  // Add background image + styles if hero needs one.
-  let bgImageURL = {
-    backgroundImage: `url(${imgs[bgImage]})`,
-    ...bgImageStyles,
-  };
-
+const Hero = ({ title, subtitle }) => {
   return (
-    <div className={wrapperClass} style={bgImageURL}>
-      {/* Hero Text */}
-      <div className=" flex container">
-        <section className={_titleClass}>
+    <div className="Hero grey-bg">
+      <div className="container">
+        <section className="Hero__section">
           <H1>{title}</H1>
-          {subtitle && <H2 className="pt3 t-h4">{subtitle}</H2>}
-          {children}
+          <P3 className="Hero__subtitle">{subtitle}</P3>
         </section>
-
-        {/* Only show this if we pass a component image in. */}
-        <section className="image">{ImgComponent && <ImgComponent />}</section>
-
-        {/* otherwise, we are probably using the background image: */}
-        {!ImgComponent && <div className="image" />}
       </div>
     </div>
   );

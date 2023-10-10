@@ -1,10 +1,12 @@
 import React from 'react';
 import { Icon, LinkHelper as Link } from 'components';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import './styles.scss';
 
 const btnTypes = {
-  primary: 'is-primary', // uses bulma
-  secondary: 'is-white secondary', // bulma + custom css
+  primary: 'button is-primary', // uses bulma
+  secondary: 'button is-white secondary', // bulma + custom css
+  default: 'default',
 };
 
 const btnSizes = {
@@ -40,6 +42,7 @@ const iconSizes = {
  *
  */
 export default ({
+  anchorLink,
   children,
   className = '',
   icon,
@@ -51,19 +54,29 @@ export default ({
   type = 'default',
 }) => {
   const classes = `button custom-button ${btnTypes[type]} ${btnSizes[size]} ${className}`;
-  const IconComp = () =>
-    icon && (
+
+  const IconComp = ({ icon }) =>
+    icon ? (
       <Icon alt={iconAlt} className="mr2" style={iconStyle} size={iconSizes[size]} img={icon} />
+    ) : (
+      <></>
     );
 
   return onClick ? (
     <button className={classes} onClick={() => onClick()} type="button">
-      {IconComp()}
+      <IconComp icon={icon} />
       {children}
     </button>
+  ) : anchorLink ? (
+    <AnchorLink className={classes} to={anchorLink}>
+      <>
+        <IconComp icon={icon} />
+        {children}
+      </>
+    </AnchorLink>
   ) : (
     <Link className={classes} to={link}>
-      {IconComp()}
+      <IconComp icon={icon} />
       {children}
     </Link>
   );
