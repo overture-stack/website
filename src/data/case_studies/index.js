@@ -38,7 +38,7 @@ import hcmis_chart from './assets/hcmis/chart.png';
 
 export default [
   {
-    title: 'ICGC ARGO',
+    title: 'ICGC-ARGO',
     slug: 'icgcargo',
     portalLink: ICGC_ARGO_PORTAL_LINK,
     description: (
@@ -68,7 +68,7 @@ export default [
         { 'Ego:': 'Provides stateless authentication and authorization' },
       ],
       [
-        "Overture is the backbone for ICGC ARGO's infrastructure. Through the portal, users can search for and access both genomic and clinical data collected from 26 internationally distributed projects.",
+        "ICGC-ARGO is collecting genomic and clinical data from 100k cancer patients. With Overture as the backbone for ICGC ARGO's infrastructure, researchers can search and gain authorized access to genomic and clinical data collected from 26 international projects.",
       ],
     ],
     clientLink: ICGC_ARGO_LINK,
@@ -107,7 +107,7 @@ export default [
         { 'Ego:': 'Governed the authorization of applications' },
       ],
       [
-        "Using Overture, the VirusSeq portal was rapidly developed in 4 weeks. Initially designed to store 150,000 viral sequences by 2023, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
+        "The VirusSeq Data Portal is an open-access data portal for all Canadian SARS-CoV-2 sequences. Using Overture, the portal was created within a 4 week timeframe. Initially intented to store 150,000 viral sequences, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
       ],
     ],
     clientLink: VIRUSSEQ_LINK,
@@ -182,7 +182,7 @@ export default [
         },
       ],
       [
-        `IHCC, a global platform hosting genetic disease data from large cohorts (100k+), leverages the Overture microservice Arranger to generate its GraphQL  API and front-end portal UI.`,
+        `IHCC is a global platform hosting genomics data from large cohorts (100k+). The platform leverages the Overtures' Arranger microservice to generate its GraphQL API and front-end portal UI.`,
       ],
     ],
     clientLink: IHCC_LINK,
