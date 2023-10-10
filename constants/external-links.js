@@ -23,8 +23,12 @@ export const OICR_LINK = 'https://oicr.on.ca';
 export const OVERTURE_YOUTUBE_LINK = 'https://www.youtube.com/embed/NrgL8vpFm5s';
 export const POLICIES_LINK = 'https://oicr.on.ca/oicr-policies-and-procedures/';
 export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
+<<<<<<< HEAD
 export const SLACK_LINK =
   'https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw';
+=======
+export const SLACK_LINK = 'https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw';
+>>>>>>> master
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
 export const VIRUSSEQ_LINK = 'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
