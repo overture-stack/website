@@ -30,7 +30,7 @@ export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
 export const VIRUSSEQ_LINK = 'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
 export const VIRUSSEQ_PORTAL_LINK = 'https://virusseq-dataportal.ca/explorer';
 export const EMAIL_LINK = 'mailto:contact@overture.bio';
-export const GI_PROGRAM_LINK = 'https://oicr.on.ca/programs/genome-informatics/'
+export const GI_PROGRAM_LINK = 'https://oicr.on.ca/programs/genome-informatics/';
 
 // PRODUCTS LINKS
 
