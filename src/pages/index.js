@@ -54,8 +54,8 @@ export default function HomePage() {
           <section className="Hero__section">
             <H1>Build. Deploy. Discover.</H1>
             <P1>
-              Overture is a collection of open-source software used to create discovery platforms for
-              researchers to manage, share and access genomics data.
+              Overture is a collection of open-source software used to create discovery platforms where
+              researchers manage, share and access genomics data.
             </P1>
             <div className="Hero__small-buttons-container">
               <Button link={PRODUCTS_PATH} size="medium" type="primary">
@@ -73,7 +73,7 @@ export default function HomePage() {
       <section className="section top-white">
         <div className="top-white__title-container">
           <H2 className="top-white__title">Powering big-data at scale</H2>
-          <P1>Our development team has successfully deployed Overture in a diversity of large-scale projects.</P1>
+          <P1>Overture has been successfully deployed in a diversity of large-scale projects.</P1>
         </div>
 
         {/* logos scroll bar  */}
