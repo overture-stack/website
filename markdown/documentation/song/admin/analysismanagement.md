@@ -4,7 +4,7 @@ title: Analysis Management
 
 # Introduction
 
-Administrators control analysis availability to downstream services like Maestro across three states:
+Administrators control analysis availability to downstream services like <a href="https://www.overture.bio/documentation/maestro/" target="_blank" rel="noopener noreferrer">Maestro</a> across three states:
 
 - **Unpublished:** By default, new data in a Song repository is in this state, awaiting file upload. Custom configurations can allow Maestro to index this data, making it available to users to see the pending analysis.
 
@@ -52,8 +52,8 @@ Use the following command with the desired analysis ID:
 ```bash
 docker exec song-client sh -c "sing suppress -a <insert-analysis-id>"
 ```
-
-# Using the Swagger API
+ 
+# Using the Swagger API 
 
 1. **Locate your endpoint of interest**
 
@@ -61,15 +61,13 @@ From the analysis dropdown you can find the `PUT` endpoints for publishing, unpu
 
 ![Entity](../assets/swagger_analysis_endpoints.png 'analysis endpoints')
 
-2. **Input the Anlysis ID and Credientials** 
+2. **Input the Analysis ID and Credentials** 
 
-Input your authorization token and the analysis ID and study ID corresponding to the data you want to suppress.
+Input your authorization token  and the analysis ID and study ID corresponding to the data you want to suppress.
 
 ![Entity](../assets/swagger-publishid.png 'publish endpoint')
 
 3. **Execute** 
 
 Click Execute. The Swagger UI will provide your response and detailed descriptions of all potential response codes.
-
-
 

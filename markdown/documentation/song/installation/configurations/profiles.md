@@ -8,7 +8,7 @@ For Songs configuration, specify the active profiles within your environment var
 
 # Secure Profile
 
-To interact with Song, an application must provide authentication and authorization. This can be done using an API Key from an authorized user with the appropriate permissions or by enabling application-to-application authorization following the OAuth 2.0 protocol.
+To interact with Song, an application must provide authentication and authorization. This can be done by using an API Key or JWT access token from a user or application authorized with Ego.
 
 The `secure` profile: 
 
@@ -22,6 +22,7 @@ For help installing Ego, please refer to our <a href="/documentation/ego" target
 # Secure profile configuration
 SPRING_PROFILES_ACTIVE=secure
 
+AUTH_JWT_PUBLIC-KEY-URL=http://localhost:8084/oauth/token/public_key
 AUTH_SERVER_URL={{ego-host-url}}/o/check_api_key/
 AUTH_SERVER_CLIENTID={{song-client-ID}}
 AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
@@ -31,19 +32,6 @@ AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
 AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
 SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/oauth/token/public_key
 ```
-
-# JWT Profile
-
-When the `jwt` profile is enabled, this profile allows the usage of both JWT and API keys during authentication requests. BY DEFAULT, the JWT public key URL is configured to talk with <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a> and must be replaced if another authentication service gets used.
-
-```bash
-# JWT Configuration
-SPRING_PROFILES_ACTIVE=jwt
-SPRING_PROFILES_INCLUDE=secure
-
-AUTH_JWT_PUBLIC-KEY-URL=http://localhost:8084/oauth/token/public_key
-```
-
 # Prod Profile
 
 The prod profile is designed for production deployments. Specify your Postgres details for the production environment:
@@ -62,7 +50,9 @@ SPRING_DATASOURCE_MIN_IDLE=1
 
 # Kafka Event Managment Profile (optional)
 
-The `kafka` profile contains the connection details to a deployed Kafka instance. This profile is only required if Kafka is configured.
+The `kafka` profile contains the connection details to a deployed Kafka instance. When this profile is enabled, Song will send messages to Kafka whenever an analysis is created or updated, including notices following analysis publishing, unpublishing and suppression.  
+
+This profile is only required if Kafka is configured.
 
 For help installing Kafka, please refer to <a href="https://kafka.apache.org/quickstart" target="_blank" rel="noopener noreferrer">the official Kafka documentation</a>.
 

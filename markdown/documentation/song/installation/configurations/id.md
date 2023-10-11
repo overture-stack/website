@@ -6,8 +6,7 @@ Song provides three modes for primary key management (Donors, Specimens, Samples
 
 
 - **LOCAL:** Represents a local-to-Song ID Management that persists in internal memory and is thread-safe.
-- **FEDERATED_DYNAMIC_AUTH:** Represents the usage of an external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
-- **FEDERATED_STATIC_AUTH:** Represents the usage of an external ID service that uses statically defined tokens for authorization.
+- **FEDERATED:** Represents a external ID service using either dynamic JWT tokens or statically defined keys for authorization.
 
 <Warning> You cannot mix and match local/external ID management. Either all IDs are locally managed by Song, or all IDs are managed by external services. </Warning>
 
@@ -25,7 +24,14 @@ ID_USELOCAL=true
 
 # External ID Management
 
-When using external ID management, Song communicates with an external ID database for each entity type. If the data submission contains entity IDs not validated by this external database, Song will decline the submission. Once an ID is verified, it's stored within the Song database.
+When using external ID management, Song communicates with an external ID database for each entity type. If the data submission contains entity IDs not validated by this external database, Song will decline the submission. Once an ID is verified, it's stored within the Song database. 
+
+The two types of external ID management are: 
+
+- **FEDERATED_DYNAMIC_AUTH:** Represents the usage of external ID service that uses dynamically managed authorization tokens (e.g. JWTs).
+- **FEDERATED_STATIC_AUTH:** Represents the usage of external ID service that uses statically defined tokens for authorization.
+
+
 
 ## Setup
 
