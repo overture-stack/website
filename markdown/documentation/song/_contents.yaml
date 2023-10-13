@@ -7,41 +7,52 @@ pages:
     url: song/installation
     isHeading: true
     pages:
+      - title: Setup Prerequisites
+        url: song/installation/prerequisites
       - title: Installation
         url: song/installation/installation
-      - title: Configuration
-        url: song/installation/configuration
+      - title: Configurations
+        url: song/installation/configurations
         pages: 
           - title: Run Profiles
-            url: song/installation/configuration/profiles
-          - title: Score Server
-            url: song/installation/configuration/score
+            url: song/installation/configurations/profiles
+          - title: Score Integration
+            url: song/installation/configurations/score
           - title: ID Management 
-            url: song/installation/configuration/id
+            url: song/installation/configurations/id
           - title: Schema Strictness
-            url: song/installation/configuration/schema
-          - title: Event Management
-            url: song/installation/configuration/kafka
-      - title: Authentication 
-        url: song/installation/auth-config
+            url: song/installation/configurations/schema
   - title: User Guide 
-    url: song/user-guide
+    url: song/user
     isHeading: true
     pages:
-      - title: Dynamic Schemas 
-        url: song/user-guide/schema
+      - title: API Usage
+        url: song/user/api
         pages: 
+          - title: Retrieving Metadata
+            url: song/user/api/retrieve
+          - title: Updating Metadata
+            url: song/user/api/update
+      - title: Submitting Data 
+        url: song/user/submit
+  - title: Admin Guide 
+    url: song/admin
+    isHeading: true
+    pages:
+      - title: Dynamic Schemas
+        url: song/admin/schemas
+        pages: 
+          - title: Making Schemas
+            url: song/admin/schemas/makingschemas
+          - title: Registering Schemas
+            url: song/admin/schemas/registeringschemas
           - title: Managing Schemas
-            url: song/user-guide/schema/manage-schema
-      - title: Analysis Management 
-        url: song/user-guide/analysis
-        pages: 
-          - title: Submitting Data 
-            url: song/user-guide/analysis/submit
-          #- title: Managing Data 
-          #  url: song/user-guide/analysis/update
-          #- title: Searching Data 
-          #  url: song/user-guide/analysis/search
-
-
-
+            url: song/admin/schemas/managingschemas
+      - title: Analysis Management
+        url: song/admin/analysismanagement
+  - title: Reference
+    url: song/reference
+    isHeading: true
+    pages:
+      - title: Command Reference
+        url: song/reference/commands
