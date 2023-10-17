@@ -7,7 +7,7 @@ The Score command-line client tool facilitates user interactions with Score endp
 
 **Running the score-client docker image**
 
-You will be required to supply enviormentment variables for the STORAGE_URL, the METADATA_URL and your ACCESSTOKEN.
+You must supply environment variables for the STORAGE_URL, the METADATA_URL and your ACCESSTOKEN.
 
 ```bash
 docker run -d -it \
