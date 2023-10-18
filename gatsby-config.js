@@ -164,7 +164,7 @@ module.exports = {
         matomoUrl: process.env.GATSBY_MATOMO_URL,
         siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
         // set variable dev to true when testing in dev
-        dev: true,
+        dev: process.env.NODE_ENV === 'development',
       },
     },
   ],
