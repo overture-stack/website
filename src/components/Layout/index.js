@@ -5,7 +5,6 @@ import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
 import 'styles/main.scss';
 import DocsWrapper from './DocsWrapper';
-import getMatomoTagManager from '../../utils/getMatomoTagManager';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -101,7 +100,6 @@ class TemplateWrapper extends Component {
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
     const isDocs = path.includes('/documentation/') && data.mdx;
-    const matomoTagManager = getMatomoTagManager();
 
     return (
       <div id="page-element">
@@ -110,9 +108,6 @@ class TemplateWrapper extends Component {
           <meta name="description" content={config.siteDescription} />
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {/* <script type="text/javascript" id="matomo-tag-manager">
-            {matomoTagManager}
-          </script> */}
         </Helmet>
         <NavBar
           closeMenus={this.closeMenus}
