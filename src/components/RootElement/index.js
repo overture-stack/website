@@ -7,7 +7,7 @@ const RootElement = ({ children }) => {
   return (
     <div id="root-element">
       {children}
-      {matomoUrl && (
+      {/* {matomoUrl && (
         <Script id="matomo-tag-manager">
           {`
             var _mtm = (window._mtm = window._mtm || []);
@@ -22,7 +22,7 @@ const RootElement = ({ children }) => {
             })();
           `}
         </Script>
-      )}
+      )} */}
     </div>
   );
 };
