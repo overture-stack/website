@@ -35,3 +35,4 @@ export { H1, H2, H3, P1, P2, P3, L1 } from './Typography';
 export { default as WarningBox } from './WarningBox';
 export { default as WindowGui } from './WindowGui';
 export { default as YellowButton } from './YellowButton';
+export { default as RootElement } from './RootElement';
