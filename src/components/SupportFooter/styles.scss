@@ -12,8 +12,7 @@
     margin: 54px auto;
     background-color: $blue-block;
     box-sizing: border-box;
-    max-width: 350px;
-
+    max-width: 100%;
     @include breakpoint(tablet-up) {
       align-items: flex-start;
       max-width: 1147px;
