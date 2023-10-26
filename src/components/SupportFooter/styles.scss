@@ -25,7 +25,7 @@
       gap: 20px;
     }
 
-    @include breakpoint(navmenu-up) {
+    @media (min-width: 1161px) {
       align-items: center;
       max-width: 100%;
     }
@@ -61,7 +61,7 @@
       align-items: flex-start;
     }
 
-    @include breakpoint(navmenu-up) {
+    @media (min-width: 1161px) {
       justify-content: center;
       max-width: 100%;
     }
@@ -82,7 +82,7 @@
 
   &__second-column,
   &__third-column {
-    @include breakpoint(navmenu-up) {
+    @media (min-width: 1161px) {
       display: none;
     }
     @include breakpoint(desktop-ultra-wide) {
@@ -92,7 +92,7 @@
 
   &__joint-second-third-column {
     display: none;
-    @include breakpoint(navmenu-up) {
+    @media (min-width: 1161px) {
       display: flex;
       flex-direction: column;
       gap: 1.6em;
