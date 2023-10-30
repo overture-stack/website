@@ -46,7 +46,7 @@ The table below summarizes the variables you need to set:
 | `UPLOAD_CLEAN_ENABLED` | Optional | Set to `true` if you want to run a cron job that cleans up old upload jobs between Score and the object storage.  If `true`, the cron schedule can be set with the `CLEAN_CRON` parameter.  Else set this value `false` if you do not want any cleanup. |
 | `OBJECT_SENTINEL` | Required | The name of the sample object/file that must exist in object storage for Score to perform `ping` operations.  Default is `heliograph.` |
 
-## Azure Profile Example
+## Azure
 
 To link Score to Azure storage, modify your `.env.score` file as follows:
 
@@ -82,3 +82,19 @@ The table below summarizes the variables you need to set:
 | `DOWNLOAD_PARTSIZE` | Required | Size, expressed in bytes, of each part or chunk to download at once from the object storage. You can use this parameter to adjust for your desired speed and performance. |
 | `OBJECT_SENTINEL` | Required | The name of the sample object/file that must exist in object storage for Score to perform `ping` operations. Default is `heliograph.` |
 
+### Access Policy Configuration
+
+If using Azure, you must define a storage access policy for your container. 
+
+1. **Access the Azure dashboard:** from the lefthand menu, select containers
+
+
+2. **Locate the container of interest:** from the dropdown menu, select `Access Policy`
+
+![azure-dash](../../assets/azure-dash.png)
+
+3. **Create the following** `write` and `readonly` access policies for the container:
+
+![azure-policies](../../assets/azure-policies.png)
+
+<Note title="Azure storage access policies">For more information on Azure storage access policies, see [the official Azure storage services documentation](https://learn.microsoft.com/en-us/rest/api/storageservices/define-stored-access-policy#create-or-modify-a-stored-access-policy")</Note>
