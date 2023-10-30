@@ -47,7 +47,7 @@ const data = {
             text: 'Ego',
           },
           {
-            to: 'documentation/dms',
+            to: 'documentation/dms-ui',
             text: 'DMS-UI',
           },
         ],
@@ -114,7 +114,7 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
           <div className="documentation-link">
             <Link to={explore.link.to} onClick={() => closeMenus()}>
               {explore.link.text}
-              {/* <Icon size={12} img="arrowRightMagenta" /> */}
+              <Icon size={12} img="arrowRightMagenta" className="red-arrow" />
             </Link>
           </div>
         </section>
@@ -124,17 +124,16 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
             <div className="menu-section-heading">
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <div className={`menu-select-container ${section.color}-section`}>
+
+            <ul
+              className={`menu-section-links ${section.color}-section ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
               {section.links.map((link) => (
-                <ul
-                  className={`menu-section-links ${
-                    verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
-                  }`}
-                >
-                  <li key={link.text}>{MenuItem(link)}</li>
-                </ul>
+                <li key={link.text}>{MenuItem(link)}</li>
               ))}
-            </div>
+            </ul>
           </section>
         ))}
       </div>

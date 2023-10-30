@@ -3,7 +3,6 @@
  * subcomponents: MegaMenu and NavLink
  */
 import React, { Component } from 'react';
-import './styles.scss';
 import MegaMenu from './MegaMenu';
 import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';
@@ -11,7 +10,6 @@ import { Button, LinkHelper as Link } from 'components';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  COMMUNITY_PATH,
   DOCUMENTATION_PATH,
   HOME_PATH,
   PRODUCTS_PATH,
@@ -19,9 +17,6 @@ import {
 } from 'constants/pages';
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
-import cubeChartreuse from '../../pages/home/assets/cube_chartreuse.svg';
-import cubeTealBlue from '../../pages/home/assets/cube_teal_blue.svg';
-import cubeBrightTeal from '../../pages/home/assets/cube_bright_teal.svg';
 import './styles.scss';
 
 class NavBar extends Component {
@@ -36,8 +31,11 @@ class NavBar extends Component {
       typeof window !== 'undefined' && mobileMenuOpen && window.innerWidth < 1216;
 
     return (
-      <nav className="NavHeader navbar is-fixed-top" aria-label="main navigation">
-        <div className="nav-container">
+      <nav
+        className={`NavHeader ${mobileMenuClass} navbar is-fixed-top `}
+        aria-label="main navigation"
+      >
+        <div className={`nav-container ${mobileMenuClass}`}>
           <div className="navbar-brand">
             <Link
               to={HOME_PATH}
@@ -74,7 +72,7 @@ class NavBar extends Component {
                 </div>
               </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-              <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" />
+              {/* <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" /> */}
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
             </div>
@@ -83,30 +81,7 @@ class NavBar extends Component {
               className={`navbar-mid bg-grey ${
                 megaMenuType === 'documentation' ? 'is-active' : ''
               }`}
-            >
-              <div className="teal-blue-chartreuse-cubes-holder">
-                {/* floating blue teal cube */}
-                <img
-                  src={cubeTealBlue}
-                  alt="Floating Blueish Teal Cube"
-                  className="teal-blue-cube"
-                />
-                {/* floating yellowish cube */}
-                <img
-                  src={cubeChartreuse}
-                  alt="Floating Yellowish Green Cube"
-                  className="chartreuse-cube"
-                />
-              </div>
-              {/* floating bright green teal cube */}
-              <div className="bright-teal-cube-holder">
-                <img
-                  src={cubeBrightTeal}
-                  alt="Floating Bright Teal Cube"
-                  className="bright-teal-cube"
-                />
-              </div>
-            </div>
+            ></div>
             <div className="navbar-end ">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button

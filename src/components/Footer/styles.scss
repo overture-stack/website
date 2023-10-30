@@ -8,7 +8,7 @@
   color: $navy-dark;
 
   .footer-white {
-    padding: 38px 0;
+    padding: 38px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,13 +26,19 @@
     }
 
     &__links-holder {
-      max-height: 180px;
-      min-width: 300px;
+      max-height: 240px;
+      min-width: 320px;
+
+      @media (max-width: 440px) {
+        max-height: fit-content;
+      }
+
       @include breakpoint(tablet-up) {
         min-width: 550px;
+        max-height: 400px;
       }
       @include breakpoint(desktop-up) {
-        min-width: 660px;
+        min-width: 640px;
       }
     }
   }
@@ -41,16 +47,28 @@
     display: flex;
     flex-flow: column wrap;
     max-height: 180px;
-    gap: 1em;
+    row-gap: 2.2em;
+    column-gap: 6em;
     margin: 2em 0;
+
+    @media (max-width: 440px) {
+      flex-wrap: nowrap;
+      max-height: fit-content;
+      justify-content: center;
+      align-items: center;
+    }
 
     @include breakpoint(tablet-up) {
       max-height: 120px;
+      margin-left: 2.6em;
+      row-gap: 1.4em;
+      column-gap: 5em;
     }
 
     @include breakpoint(desktop-up) {
       max-height: 90px;
-      gap: 0.7em;
+      row-gap: 1.2em;
+      column-gap: 4em;
     }
 
     &__link {
@@ -59,7 +77,6 @@
       text-decoration: none;
       color: $navy-dark;
       font-weight: 700;
-      width: 180px;
       &:hover {
         color: $pink-darker;
       }

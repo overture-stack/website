@@ -79,58 +79,60 @@
     padding-top: 16px;
 
     @include breakpoint(desktop-up) {
-      min-width: 400px;
+      min-width: 392px;
+      padding: 16px 10px 0 10px;
     }
     @include breakpoint(desktop-wide) {
-      min-width: 450px;
+      min-width: 400px;
     }
     @include breakpoint(desktop-ultra-wide) {
       padding-bottom: 36px;
     }
   }
 
-  .menu-select-container {
+  .dark-blue-section {
+    max-width: 700px;
+
+    @include breakpoint(navmenu-up) {
+      max-height: 70px;
+      max-width: 400px;
+    }
+  }
+
+  .yellow-green-section {
+    max-width: 500px;
+
+    @include breakpoint(navmenu-up) {
+      max-height: 70px;
+    }
+  }
+
+  .menu-section-links {
+    list-style: disc;
     padding-right: 4px;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     align-items: flex-start;
-    gap: 10px;
+    column-gap: 110px;
+    row-gap: 10px;
     margin-left: 62px;
+
+    li {
+      display: inline list-item;
+    }
 
     @include breakpoint(tablet-up) {
       margin-left: 88px;
     }
 
     @include breakpoint(navmenu-up) {
+      color: $navy-black;
+      padding-left: 1.5rem;
+      flex-direction: column;
       margin-left: 0;
       justify-content: space-between;
-    }
-  }
-
-  .dark-blue-section {
-    max-height: 100px;
-    @include breakpoint(tablet-up) {
-      max-height: 90px;
-    }
-  }
-
-  .yellow-green-section {
-    max-height: 140px;
-    @include breakpoint(tablet-up) {
-      max-height: 70px;
-    }
-    @include breakpoint(navmenu-up) {
-      max-height: 100px;
-    }
-  }
-
-  .menu-section-links {
-    list-style: disc;
-
-    @include breakpoint(navmenu-up) {
-      color: $navy-black;
-      padding: 0.5rem 0 0 1.5rem;
-      flex-direction: column;
+      column-gap: 2px;
+      row-gap: 5px;
     }
   }
 
@@ -139,6 +141,7 @@
     display: flex;
     font-size: 1rem;
     text-decoration: none;
+    width: 140px;
     &:hover,
     &.active {
       color: $pink-darker;
@@ -180,7 +183,12 @@
       margin-left: 20px;
       a {
         text-decoration: none;
-        color: $navy-black;
+        color: $title-pink;
+        // color: $navy-black;
+      }
+
+      .red-arrow {
+        margin-left: 5px;
       }
 
       @include breakpoint(tablet-up) {

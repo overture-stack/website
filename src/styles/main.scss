@@ -68,6 +68,7 @@ a.navbar-item.active-item {
   display: flex;
   flex-direction: column;
   height: 100%;
+
   &__content {
     flex: 1 0 auto;
     display: flex;
@@ -75,7 +76,7 @@ a.navbar-item.active-item {
       flex: 1;
     }
   }
-  .footer {
+  &__footer {
     margin-top: auto;
     flex-shrink: 0;
   }
@@ -131,4 +132,8 @@ a.column {
 
 .grey-bg {
   background-color: $grey-2;
+}
+
+.blue-bg {
+  background-color: $blue-block;
 }
