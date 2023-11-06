@@ -99,6 +99,34 @@ function SupportFooter({ location }) {
             <p className="support-footer__sub-title">Still need help?</p>
             <Link to={SLACK_LINK}>Ask us on Slack</Link>
           </div>
+          {/* joint column - second and third column*/}
+          <div className="support-footer__joint-second-third-column">
+            <div className="support-footer__joint-second-column">
+              <p className="support-footer__sub-title">Help make our docs better</p>
+              <ul>
+                <li>
+                  <a href={GITHUB_SUBMIT_ISSUES_LINK} target="_blank" rel="noopener noreferrer">
+                    Submit an issue
+                  </a>
+                </li>
+                <li>
+                  <a href={GITHUB_REQUEST_FEATURES_LINK} target="_blank" rel="noopener noreferrer">
+                    Submit a feature request
+                  </a>
+                </li>
+                <li>
+                  <a href={contributionURL} target="_blank" rel="noopener noreferrer">
+                    Make a contribution
+                  </a>
+                </li>
+              </ul>
+            </div>
+            {/* third column - slack link */}
+            <div className="support-footer__joint-third-column">
+              <p className="support-footer__sub-title">Still need help?</p>
+              <Link to={SLACK_LINK}>Ask us on Slack</Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
