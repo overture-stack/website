@@ -5,10 +5,15 @@ import React from 'react';
 import { P2, LinkHelper as Link } from 'components';
 import {
   ICGC_ARGO_LINK,
+  ICGC_ARGO_PORTAL_LINK,
   VIRUSSEQ_LINK,
+  VIRUSSEQ_PORTAL_LINK,
   KIDS_FIRST_LINK,
+  KIDS_FIRST_PORTAL_LINK,
   IHCC_LINK,
+  IHCC_PORTAL_LINK,
   HCMIS_LINK,
+  HCMIS_PORTAL_LINK,
 } from 'constants/external-links';
 
 //ICGC ARGO Assets
@@ -33,8 +38,9 @@ import hcmis_chart from './assets/hcmis/chart.png';
 
 export default [
   {
-    title: 'ICGC ARGO',
+    title: 'ICGC-ARGO',
     slug: 'icgcargo',
+    portalLink: ICGC_ARGO_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={ICGC_ARGO_LINK}>ICGC ARGO Data Platform platform</Link> builds on the legacy
@@ -62,8 +68,7 @@ export default [
         { 'Ego:': 'Provides stateless authentication and authorization' },
       ],
       [
-        'Harmonizing molecular and high-quality clinical data from global genomics efforts',
-        'Built using Overture micro-services',
+        "ICGC-ARGO is collecting genomic and clinical data from 100k cancer patients. With Overture as the backbone for ICGC ARGO's infrastructure, researchers can search and gain authorized access to genomic and clinical data collected from 26 international projects.",
       ],
     ],
     clientLink: ICGC_ARGO_LINK,
@@ -71,8 +76,9 @@ export default [
   },
 
   {
-    title: 'CaNCOGeN VirusSeq',
+    title: 'VirusSeq',
     slug: 'virusseq',
+    portalLink: VIRUSSEQ_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={VIRUSSEQ_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
@@ -101,8 +107,7 @@ export default [
         { 'Ego:': 'Governed the authorization of applications' },
       ],
       [
-        'Lorem ipsum dolor sit VirusSeq, consectetur adipiscing elit. Integer nec odio.',
-        'Lorem ipsum VirusSeq.',
+        "The VirusSeq Data Portal is an open-access data portal for all Canadian SARS-CoV-2 sequences. Using Overture, the portal was created within a 4 week timeframe. Initially intented to store 150,000 viral sequences, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
       ],
     ],
     clientLink: VIRUSSEQ_LINK,
@@ -111,6 +116,7 @@ export default [
   {
     title: 'Kids First Data Portal',
     slug: 'kidsFirst',
+    portalLink: KIDS_FIRST_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={KIDS_FIRST_LINK}>Kids First Data Resource Center</Link> brings together
@@ -123,8 +129,8 @@ export default [
     logo: kf_logo,
     listItems: [
       [
-        'Data collected across 32 projects',
-        '1700 Terra-Bytes, 30.5k Participants, 28k families, 94.9k samples, 187.4k Files',
+        'Data collected across distributed 32 projects',
+        '1.7 Petabytes, 30.5k Participants, 28k families, 94.9k samples, 187.4k Files',
         'Query and Filter 72 data types with 16 clinical fields',
       ],
       [
@@ -136,8 +142,7 @@ export default [
         },
       ],
       [
-        'Lorem ipsum dolor Kids First, consectetur adipiscing elit. Integer nec odio.',
-        'Lorem ipsum Kids First.',
+        "Overture's modular architecture enabled us to integrate three microservices into the portal infrastructure. It manages data transfer, validation, and tracking on the back end, while supporting the portal's search API and core user interface.",
       ],
     ],
     clientLink: KIDS_FIRST_LINK,
@@ -152,6 +157,7 @@ export default [
   {
     title: 'IHCC',
     slug: 'ihcc',
+    portalLink: IHCC_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={IHCC_LINK}>International HundredK+ Cohorts Consortium (IHCC)</Link> is
@@ -164,7 +170,11 @@ export default [
     ),
     logo: ihcc_logo,
     listItems: [
-      ['70 Cohorts', '39 countries', '39 metadata fields'],
+      [
+        'There are a total of 70 cohorts participating in the study',
+        'These cohorts come from 39 different countries around the world',
+        'Each cohort provides data across 39 distinct metadata fields',
+      ],
       [
         {
           'Arranger:':
@@ -172,8 +182,7 @@ export default [
         },
       ],
       [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+        `IHCC is a global platform hosting genomics data from large cohorts (100k+). The platform leverages the Overtures' Arranger microservice to generate its GraphQL API and front-end portal UI.`,
       ],
     ],
     clientLink: IHCC_LINK,
@@ -189,6 +198,7 @@ export default [
     title: 'Human Cancer Models Initiative',
     slug: 'humanCancerModels',
     logo: hcmis_logo,
+    portalLink: HCMIS_PORTAL_LINK,
     description: (
       <P2>
         The <Link to={HCMIS_LINK}>Human Cancer Models Initiative (HCMI)</Link> is a catalogue of
@@ -212,8 +222,7 @@ export default [
         },
       ],
       [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.',
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+        "HCMI provides researchers with a catalogue of unique cancer models and protocols. It uses Overture's Arranger microservice for its GraphQL API and front-end portal UI.",
       ],
     ],
     clientLink: HCMIS_LINK,

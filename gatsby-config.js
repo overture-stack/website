@@ -154,7 +154,17 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
-        offset: -300,
+        offset: -200,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: process.env.GATSBY_MATOMO_SITE_ID,
+        matomoUrl: process.env.GATSBY_MATOMO_URL,
+        siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
+        // set variable dev to true when testing in dev
+        dev: process.env.NODE_ENV === 'development',
       },
     },
   ],

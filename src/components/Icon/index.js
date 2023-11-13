@@ -16,6 +16,7 @@ import arrowRightBlack from './icons/arrow-right-black.svg';
 import arrowRightMagenta from './icons/arrow_right_magenta.svg';
 import arrowRightRound from './icons/arrow_right_round.svg';
 import arrowsRight from './icons/arrows_right.svg';
+import assistance from './icons/icon_assistance.svg';
 import barGraph from './icons/bar_graph.svg';
 import bigData from './icons/big-data.svg';
 import cardStack from './icons/card_stack.svg';
@@ -34,6 +35,7 @@ import download from './icons/download.svg';
 import emailUs from './icons/email-us.svg';
 import exploreDocs from './icons/explore-docs.svg';
 import extensible from './icons/extensible.svg';
+import feedback from './icons/icon_feedback.svg';
 import fingerSnap from './icons/finger_snap.svg';
 import githubGrey from './icons/github_grey.svg';
 import githubMagenta from './icons/github_magenta.svg';
@@ -102,11 +104,14 @@ import share from './icons/share.svg';
 import shield from './icons/shield.svg';
 import slack from './icons/icon_slack.svg';
 import slackJoin from './icons/slack-join.svg';
+import smileyFace from './icons/smileyFace.svg';
 import slackNew from './icons/icon_slack_new.svg';
 import softwareEngineers from './icons/software-engineers.svg';
 import spiral from './icons/spiral.svg';
 import star from './icons/star.svg';
+import support from './icons/icon_support.svg';
 import target from './icons/target.svg';
+import unsmileyFace from './icons/unsmileyFace.svg';
 import user from './icons/user.svg';
 import vennDiagram from './icons/venn_diagram.svg';
 import xGrey from './icons/x-grey.svg';
@@ -126,6 +131,7 @@ const icons = {
   arrowRightMagenta,
   arrowRightRound,
   arrowsRight,
+  assistance,
   barGraph,
   bigData,
   cardStack,
@@ -144,6 +150,7 @@ const icons = {
   exploreDocs,
   extensible,
   emailUs,
+  feedback,
   fingerSnap,
   githubGrey,
   githubMagenta,
@@ -213,10 +220,13 @@ const icons = {
   slack,
   slackJoin,
   slackNew,
+  smileyFace,
   softwareEngineers,
   spiral,
   star,
+  support,
   target,
+  unsmileyFace,
   user,
   vennDiagram,
   xGrey,
