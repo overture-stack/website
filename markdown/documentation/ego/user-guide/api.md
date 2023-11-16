@@ -43,7 +43,7 @@ Alternatively, you can follow these steps:
 
 - Click the **Application** tab in your browser's developer tools.
 - On the left-hand side, navigate to **Local Storage** and select the Ego Admin UI URL.
-- Locate the `user-token value`, which contains your Ego JWT.
+- Locate the `user-token`, which contains your Ego JWT.
 
 ![Entity](../assets/local-storage.png 'Local Storage')
 

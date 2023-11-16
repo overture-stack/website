@@ -21,9 +21,10 @@ Additionally, Ego uses the OpenID Connect (OIDC) layer on top of OAuth 2.0 to ve
 
 Once users are authenticated, they are granted <a href="/documentation/ego/technical/#ego-tokens" target="_blank" rel="noopener noreferrer">tokens</a> that encode permissions for accessing resources. Ego supports the following types of authorization tokens:
 
-- **Application JWTs:** For authorizing individual applications.
 - **User JWTs:** For authorizing individual users.
 - **User API Key:** For users to interact with applications registered in Ego using the level of authority defined by the key.
+- **Application JWTs:** For authorizing individual applications.
+- **Basic Auth:** Using client IDs and client secrets to authenticate applications.
 
 Secured applications can create, manage, and use authorization tokens to interact with third-party applications registered in Ego. For detailed information on how tokens are used in Ego, refer to the <a href="/documentation/ego/technical/#ego-tokens" target="_blank" rel="noopener noreferrer">Tokens</a> section below.
 

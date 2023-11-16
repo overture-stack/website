@@ -78,7 +78,7 @@ REACT_APP_EGO_CLIENT_ID=ego-ui
 Start the Ego-UI container using the `docker run` command, specifying the mounted `.env.egoui` file:
 
 ```bash
-docker run --env-file .env -p 3501:8080 ghcr.io/overture-stack/ego-ui:edge
+docker run --env-file .env.egoui -p 3501:8080 ghcr.io/overture-stack/ego-ui:edge
 ```
 
 3. **Accessing Ego-UI:**
