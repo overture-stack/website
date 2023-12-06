@@ -2,9 +2,9 @@
 title: Spring Profiles
 ---
 
-[Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html)are used to configure the Score Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
+[Spring Profiles](https://docs.spring.io/spring-boot/docs/1.2.0.M1/reference/html/boot-features-profiles.html) are used to configure the Score Server for running in various environments. With Spring profiles, you can customize settings based on your specific deployment scenario. For instance, you can enforce strict security measures in production while relaxing them in test deployments.
 
-For Scores configuration, you will need to specify the active profiles within your enviroment variables file (`.env.score`). Descriptions of the profiles available to Score are provided here. Depending on the type of configuration, some profiles are required to run and some are optional.
+For Scores configuration, you will need to specify the active profiles within your environment variables file (`.env.score`). Descriptions of the profiles available to Score are provided here. Depending on the type of configuration, some profiles are required to run and some are optional.
 
 The profiles described on this page are summarized in the table below:
 
@@ -80,7 +80,7 @@ METADATA_SSL_ENABLED="{{ssl_enabled}}" ## True or False
 
 ## Secure 
 
-The `secure` profile is required if <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> is used as the authentication service for Score. It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
+The `secure` profile is required if <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> is used as the authentication service for Score. It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see <a href="/documentation/score/installation/configuration/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
 
 For example:
 
@@ -101,7 +101,7 @@ AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX="{{upload_study_suffix}}"
 ```
 ## JWT
 
-The `jwt` profile can be used if you want to support both JWT and API Key authentication for requests to Score. Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
+The `jwt` profile can be used if you want to support both JWT and API Key authentication for requests to Score. Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see <a href="/documentation/score/installation/configuration/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
 
 For example:
 

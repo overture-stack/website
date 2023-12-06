@@ -3,6 +3,7 @@ title: Setting Up the Score Client
 ---
 
 The Score command-line client tool facilitates user interactions with Score endpoints. The following instructions guide users through installing the client. Subsequent sections will cover how to use the client to perform various tasks. 
+
 # Installing the Score-Client
 
 **Running the score-client docker image**
