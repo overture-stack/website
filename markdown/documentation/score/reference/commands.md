@@ -22,7 +22,7 @@ Retrieve file object(s) from the remote storage repository.
 
 | Option | Description |
 | -------| ------------|
-| `--analysis-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> analysis ID. |
+| `--analysis-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> analysis ID. |
 | `--force` | Force a re-download of the file if it already exists locally (overrides local file). |
 | `--index` | If available, also download the file index. |
 | `--length` | Limit the number of bytes to download to this value.  By default, if this option is not specified, all of the file will be downloaded. |
@@ -34,8 +34,8 @@ Retrieve file object(s) from the remote storage repository.
 | | * `bundle` : Saved according to the filename under the Song bundle ID directory. |
 | | * `filename` : Saved according to the filename in the output directory. |
 | | * `id` : Saved according to the object ID in the output directory. |
-| `--program-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> program ID. |
-| `--study-id` | Download files for a specific <a href="/documentation/song" target="_blank">Song</a> study ID. |
+| `--program-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> program ID. |
+| `--study-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> study ID. |
 | `--validate` | If available, perform validation on file MD5 checksum. |
 | `--verify-connection` | First verify the connection to the object storage repository. |
 
@@ -61,7 +61,7 @@ Show the entries of a specific Score manifest file.
 
 ## Mount
 
-Mount a read-only <a href="https://github.com/libfuse/" target="_blank">FUSE</a> filesystem view of the object storage repository in use by Score.
+Mount a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noopener noreferrer">FUSE</a> filesystem view of the object storage repository in use by Score.
 
 | Option | Description |
 | -------| ------------|
@@ -104,11 +104,11 @@ Provide the current version details of the Score client.
 
 ## View
 
-Store locally and showcase parts or the entirety of a <a href="https://samtools.github.io/hts-specs/SAMv1.pdf" target="_blank">SAM or BAM</a> file.
+Store locally and showcase parts or the entirety of a <a href="https://samtools.github.io/hts-specs/SAMv1.pdf" target="_blank" rel="noopener noreferrer">SAM or BAM</a> file.
 
 | Option | Description |
 | -------| ------------|
-| `--bed-query` | You can optionally specify a file in <a href="https://m.ensembl.org/info/website/upload/bed.html" target="_blank">BED</a> format containing specific ranges to query.  This option overrides the `--query` option. |
+| `--bed-query` | You can optionally specify a file in <a href="https://m.ensembl.org/info/website/upload/bed.html" target="_blank" rel="noopener noreferrer">BED</a> format containing specific ranges to query.  This option overrides the `--query` option. |
 | `--contained` | Only output sequence alignments completely contained in a specific region.  If this option is not used, then by default any alignment that intersects with a specified region will be returned. |
 | `--header-only` | Only output the header of the SAM or BAM file. |
 | `--input-file` | Local path to the BAM file being queried.  This option supercedes the `--object-id` option. |
@@ -122,7 +122,7 @@ Store locally and showcase parts or the entirety of a <a href="https://samtools.
 | `--output-original-header` | Output the original header in its entirety. |
 | `--output-type` | Structure of the output file containing query results. One of: `CROSS`, `MERGED`, or `TRIMMED`.  Only used with the `--manifest` option. |
 | `--query` | Query used to define what contents to extract from a BAM file. You must use coordinate format (`sequence:start-end`).  Note that multiple ranges must be separate by a space. |
-| `--reference-file` | Local path to the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp" target="_blank">FASTA</a> file that a <a href="https://samtools.github.io/hts-specs/CRAMv3.pdf" target="_blank">CRAM</a> file was encoded with. |
+| `--reference-file` | Local path to the <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=BlastHelp" target="_blank" rel="noopener noreferrer">FASTA</a> file that a <a href="https://samtools.github.io/hts-specs/CRAMv3.pdf" target="_blank" rel="noopener noreferrer">CRAM</a> file was encoded with. |
 | `--stdout` | Indicates whether to send output to `stdout` instead of a file.  Only used with the `--object-id` option and output will always be forced to SAM format. |
 | `--verify-connection` | First verify the connection to the object storage repository. |
 

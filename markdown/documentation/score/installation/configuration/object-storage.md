@@ -36,7 +36,7 @@ The table below summarizes the variables you need to set:
 | `S3_ENDPOINT` | Required | The URL of the storage service's API endpoint. Score will send requests to this URL when interacting with the service's API. |
 | `S3_ACCESSKEY` | Required | The access key required to access the buckets in your object storage. This should have been recorded during your prerequisite setup. |
 | `S3_SECRETKEY` | Required | The secret key required to access the buckets in your object storage. This should have been recorded during your prerequisite setup. |
-| `S3_SIGV4ENABLED` | Required | If your storage service uses the AWS S3 <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html" target="_blank">Signature Version 4</a> signing process for authentication, set this to `true`.  Else set this to `false`. |
+| `S3_SIGV4ENABLED` | Required | If your storage service uses the AWS S3 <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html" target="_blank" rel="noopener noreferrer">Signature Version 4</a> signing process for authentication, set this to `true`.  Else set this to `false`. |
 | `BUCKET_NAME_OBJECT` | Required | The ID of the bucket used to store object data for Score. This should have been recorded during your prerequisite setup. |
 | `BUCKET_NAME_STATE` | Required | The ID of the bucket used to store and maintain state information for Score. This should have been recorded during your prerequisite setup. |
 | `UPLOAD_PARTSIZE` | Required | The size, expressed in bytes, of each part or chunk to upload at once to the object storage.  You can use this parameter to adjust for your desired speed and performance. |

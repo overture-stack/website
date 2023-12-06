@@ -10,20 +10,21 @@ The profiles described on this page are summarized in the table below:
 
 | Profile | Requirement | Description |
 |---------|-------------|-------------|
-| [default](#default) | Required if using <a href="https://aws.amazon.com/s3/" target="_blank">AWS</a>, <a href="https://ceph.io/" target="_blank">Ceph</a>, or <a href="https://min.io/" target="_blank">Minio</a> storage | You must use the default profile to configure your object storage if using AWS, Ceph, or Minio. |
-| [azure](#azure) | Required if using <a href="https://azure.microsoft.com/en-ca/services/storage/" target="_blank">Azure</a> storage | You must use the Azure profile to configure your object storage if using Microsoft Azure. |
-| [prod](#prod) | Required | Used for production deployments and to specify the Song metadata server that Score must interact with. |
-| [secure](#secure) | Required if using Ego | If the <a href="https://overture.bio" target="_blank">Overture</a> product <a href="/documentation/ego" target="_blank">Ego</a> is used as the authentication service for Score, this profile is required.  It enables authentication for requests to the Score API using API keys issued by Ego. |
-| [jwt](#jwt) | Optional | Optionally, you can use this profile to support both JWT (<a href="https://jwt.io/" target="_blank">JSON Web Tokens</a>) and API Key authentication for requests to Score. |             
+| [aws](#aws) | Required for <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener noreferrer">AWS</a>, <a href="https://ceph.io/" target="_blank" rel="noopener noreferrer">Ceph</a>, or <a href="https://min.io/" target="_blank" rel="noopener noreferrer">Minio</a> storage | You must use the `aws` profile to configure your object storage if using AWS, Ceph, or Minio. |
+| [azure](#azure) | Required for <a href="https://azure.microsoft.com/en-ca/services/storage/" target="_blank" rel="noopener noreferrer">Azure</a> storage | You must use the Azure profile to configure your object storage if using Microsoft Azure. |
+| [prod](#prod) | Required | Used for production deployments and to specify the Song metadata server that Score must interact with. The `prod` profile also **requires the `aws` or `azure` profile.** |
+| [secure](#secure) | Required with Ego | For protected downloads and uploads, all requests will require an API key. |
+| [jwt](#jwt) | Optional | An extension to the secure profile, the `jwt` profile allows Ego JWT access tokens as authorization Bearer Tokens. Requires secure profile to function. |             
 
 # Run Profiles
-## Default
 
-The `default` profile is required if using AWS, Ceph, or Minio as your object storage.  It contains configuration settings that are common to these service providers. For detailed steps on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank">Object Storage Integration</a>.
+## AWS
+
+The `aws` profile is required if using AWS, Ceph, or Minio as your object storage.  It contains configuration settings that are common to these service providers. For detailed steps on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank" rel="noopener noreferrer">Object Storage Integration</a>.
 
 ```bash
 # Default profile configuration
-SPRING_PROFILES_ACTIVE=default
+SPRING_PROFILES_ACTIVE=aws
 
 S3_ENDPOINT="http://localhost:9000"
 S3_ACCESS_KEY="{{access_key}}"
@@ -46,7 +47,7 @@ OBJECT_SENTINEL="heliograph" # Score requires a sample object/file to exist in t
 
 ## Azure
 
-The `azure` profile is required if using Microsoft Azure storage as your object storage.  It contains configuration settings specific for Azure.  For details on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank">Object Storage Integration</a>.
+The `azure` profile is required if using Microsoft Azure storage as your object storage.  It contains configuration settings specific for Azure.  For details on configuring your object storage, see <a href="/documentation/score/installation/configuration/object-storage" target="_blank" rel="noopener noreferrer">Object Storage Integration</a>.
 
 ```bash
 # Azure profile configuration
@@ -65,7 +66,7 @@ OBJECT_SENTINEL="heliograph" # Score requires a sample object/file to exist in t
 
 ## Prod
 
-The `prod` profile is used to enable production deployments and most importantly requires you to specify the Song metadata server that Score must interact with.  For details on integrating with the Song server, see <a href="/documentation/score/installation/configuration/song" target="_blank">Song Server Integration</a>.
+The `prod` profile is used to enable production deployments and most importantly requires you to specify the Song metadata server that Score must interact with.  For details on integrating with the Song server, see <a href="/documentation/score/installation/configuration/song" target="_blank" rel="noopener noreferrer">Song Server Integration</a>.
 
 For example:
 
@@ -79,7 +80,7 @@ METADATA_SSL_ENABLED="{{ssl_enabled}}" ## True or False
 
 ## Secure 
 
-The `secure` profile is required if <a href="/documentation/ego" target="_blank">Ego</a> is used as the authentication service for Score. It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank">Authentication</a>.
+The `secure` profile is required if <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> is used as the authentication service for Score. It enables authentication for requests to the Score API using API keys issued by Ego.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
 
 For example:
 
@@ -100,7 +101,7 @@ AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX="{{upload_study_suffix}}"
 ```
 ## JWT
 
-The `jwt` profile can be used if you want to support both JWT and API Key authentication for requests to Score. Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank">Authentication</a>.
+The `jwt` profile can be used if you want to support both JWT and API Key authentication for requests to Score. Note that JWT authentication cannot be configured standalone, it still requires the aforementioned API key authentication to be setup first.  For details on configuring authentication, see <a href="documentation/score/installation/authentication" target="_blank" rel="noopener noreferrer">Authentication</a>.
 
 For example:
 

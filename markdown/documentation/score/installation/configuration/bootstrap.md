@@ -2,7 +2,7 @@
 title: HashiCorp Vault
 ---
 
-To configure Score with <a href="https://www.vaultproject.io/" target="_blank">HashiCorp's Vault</a> , modify your `.env.score` file as follows:
+To configure Score with <a href="https://www.vaultproject.io/" target="_blank" rel="noopener noreferrer">HashiCorp's Vault</a> , modify your `.env.score` file as follows:
 
 ```bash
 SPRING_CLOUD_VAULT_ENABLED="true"

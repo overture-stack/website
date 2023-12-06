@@ -3,22 +3,22 @@ title: Authentication
 ---
 # Application Authentication & Authorization
 
-Authentication and authorization are crucial to ensuring that unauthorized users don't access Score's API endpoints. To access Score services, users need a valid API key with the appropriate scopes (permissions). For application-to-application authorization, follow the [OAuth 2.0 protocol](https://oauth.net/2/).
+To access Score services, users need a valid API key with the appropriate scopes (permissions).  
 
 <Warning>Setting up authentication and authorization, while technically optional, is **strongly advised**, especially in production environments.</Warning>  
 
-Specify the active profiles associated with authentication & authorization in your environment variables file, `.env.score.` This page describes the available profiles to Score. Some profiles are mandatory, while others are optional, based on your configuration.
+Authentication and authorization can be configured using different runtime profiles. You can specify the active profiles in your environment variables file, `.env.score.` This page describes the available profiles.
 
 Relevant configuration profiles are summarized below:
 
 | Profile | Requirement | Description |
 |---------|-------------|-------------|
-| [secure](#secure-profile-example) | Required if using Ego | If you are using <a href="/documentation/ego" target="_blank">Ego</a> this profile is a must. It enables authentication of requests to the Score API using API keys issued by Ego. |
-| [jwt](#jwt-profile-example) | Optional | Optionally, you can use this profile to support both JWT (<a href="https://jwt.io/" target="_blank">JSON Web Tokens</a>
-) and API Key authentication for Score requests. |     
+| [secure](#secure-profile-example) | Required if using Ego | If you are using <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> this profile is a must. It enables authentication of requests to the Score API using API keys issued by Ego. |
+| [jwt](#jwt-profile-example) | Optional | Optionally, you can use this profile to support both JWT (<a href="https://jwt.io/" target="_blank" rel="noopener noreferrer">JSON Web Tokens</a>) and API Key authentication for Score requests. |     
+
 ## Secure Profile Example 
 
-If you're using <a href="/documentation/ego" target="_blank">Ego</a> the `secure` profile is essential. It enables authentication for requests to the Score API via API keys issued by Ego. To set up your Score server with the `secure` profile modify your `.env.score` file as follows:
+If you're using <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> the `secure` profile is essential. It enables authentication for requests to the Score API via API keys issued by Ego. To set up your Score server with the `secure` profile modify your `.env.score` file as follows:
 
 ```bash
 # Secure profile configuration
@@ -28,12 +28,12 @@ AUTH_SERVER_URL="{{auth_server_url}}"
 AUTH_SERVER_TOKEN_NAME="{{token_name}}"
 AUTH_SERVER_CLIENT_ID="{{client_id}}"
 AUTH_SERVER_CLIENT_SECRET="{{client_secret}}"
-AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM="{{download_system_scope}}"
-AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX="{{download_study_prefix}}"
-AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX="{{download_study_suffix}}"
-AUTH_SERVER_SCOPE_UPLOAD_SYSTEM="{{upload_system_scope}}"
-AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX="{{upload_study_prefix}}"
-AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX="{{upload_study_suffix}}"
+AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM="{{download_system_scope}}" # e.g., score.WRITE'
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX="{{download_study_prefix}}" # e.g., 'score.'
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX="{{download_study_suffix}}" # e.g., '.WRITE'
+AUTH_SERVER_SCOPE_UPLOAD_SYSTEM="{{upload_system_scope}}" # e.g., 'score.READ'
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX="{{upload_study_prefix}}" # e.g., 'score.
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX="{{upload_study_suffix}}" # e.g., '.WRITE'
 ```
 
 The table below summarizes the variables you need to set:
@@ -54,12 +54,11 @@ The table below summarizes the variables you need to set:
 
 ## JWT Profile Example
 
-To support both JWT and API Key authentication, use the `jwt` profile. Note that you can't configure JWT as your sole authentication method since Score initially requires an API key. For the `jwt` profile setup on your Score server, update your `.env.score` file as follows:
+To support both JWT and API Key authentication, use the `jwt` profile. Note that you can't configure JWT as your sole authentication method since Score initially requires an API key. Therefore, `jwt` profile requires the `secure` profile to be active. To set up the `jwt` profile for your Score server, update your `.env.score` file as follows:
 
 ```bash
 # Secure profile configuration
-SPRING_PROFILES_ACTIVE=jwt
-
+SPRING_PROFILES_ACTIVE=secure,jwt
 AUTH_JWT_PUBLIC_KEY_URL="{{public_key_url}}" # e.g., https://localhost:8443/oauth/token/public_key
 ```
 
