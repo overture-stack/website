@@ -9,12 +9,12 @@ To link Score to AWS, Ceph, or Minio storage, modify your `.env.score` file as f
 
 ```bash
 # Prod profile configuration
-SPRING_PROFILES_ACTIVE=prod
+SPRING_PROFILES_ACTIVE=prod,aws
 
 S3_ENDPOINT="http://localhost:9000"
 S3_ACCESS_KEY="abc123"
-S3_SECRET_KEY="abc123"
-S3_SIGV4_ENABLED="true"
+S3_SECRETKEY="abc123"
+S3_SIGV4ENABLED="true"
 
 BUCKET_NAME_OBJECT="test_object_bucket"
 BUCKET_NAME_STATE="test_state_bucket"
@@ -52,7 +52,7 @@ To link Score to Azure storage, modify your `.env.score` file as follows:
 
 ```shell
 # Azure profile configuration
-SPRING_PROFILES_ACTIVE=azure
+SPRING_PROFILES_ACTIVE=prod,azure
 
 AZURE_ENDPOINT_PROTOCOL="https"
 AZURE_ACCOUNT_NAME="{{storage_account_name}}"

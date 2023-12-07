@@ -25,9 +25,9 @@ If you're using <a href="/documentation/ego" target="_blank" rel="noopener noref
 SPRING_PROFILES_ACTIVE=secure
 
 AUTH_SERVER_URL="{{auth_server_url}}"
-AUTH_SERVER_TOKEN_NAME="{{token_name}}"
-AUTH_SERVER_CLIENT_ID="{{client_id}}"
-AUTH_SERVER_CLIENT_SECRET="{{client_secret}}"
+AUTH_SERVER_TOKENNAME="{{token_name}}"
+AUTH_SERVER_CLIENTID="{{client_id}}"
+AUTH_SERVER_CLIENTSECRET="{{client_secret}}"
 AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM="{{download_system_scope}}" # e.g., score.WRITE'
 AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX="{{download_study_prefix}}" # e.g., 'score.'
 AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX="{{download_study_suffix}}" # e.g., '.WRITE'
@@ -41,9 +41,9 @@ The table below summarizes the variables you need to set:
 | Setting                                          | Requirement | Description |
 |--------------------------------------------------|-------------|-------------|
 | `AUTH_SERVER_URL`                                | Required    | URL for the Ego API endpoint authenticating a user's API key. Specify the endpoint's host and port. Use `/oauth/check_token`. |
-| `AUTH_SERVER_TOKEN_NAME`                         | Required    | Name identifying a token. Typically, keep the default value, `token`. |
-| `AUTH_SERVER_CLIENT_ID`                          | Required    | The client ID for the Score application configured in Ego. |
-| `AUTH_SERVER_CLIENT_SECRET`                      | Required    | The client secret for the Score application configured in Ego. |
+| `AUTH_SERVER_TOKENNAME`                         | Required    | Name identifying a token. Typically, keep the default value, `apiKey`. |
+| `AUTH_SERVER_CLIENTID`                          | Required    | The client ID for the Score application configured in Ego. |
+| `AUTH_SERVER_CLIENTSECRET`                      | Required    | The client secret for the Score application configured in Ego. |
 | `AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM`              | Required    | Scope (permission) for system-level downloads from Score using an API key. Default: `score.READ` |
 | `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX`        | Required    | Prefix before the Song study name when assigning study-level download scopes for Score. Default: `score.` |
 | `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX`        | Required    | Suffix after the Song study name when assigning study-level download scopes for Score. Default: `.READ` |
