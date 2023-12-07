@@ -9,36 +9,45 @@ pages:
   pages:
   - title: Installation
     url: dms/installation/installation
-  - title: Configuration
+  - title: Pre-Deployment
     url: dms/installation/configuration
     pages: 
-    - title: Setup Pre-Requisites
+    - title: Prerequisites
       url: dms/installation/configuration/prereq
       pages:
-      - title: Setup Identity Provider Secrets
-        url: dms/installation/configuration/prereq/secrets
-      - title: Make User E-mails Publicly Accessible
-        url: dms/installation/configuration/prereq/emails
-      - title: Setup Data Storage Buckets
-        url: dms/installation/configuration/prereq/buckets
-      - title: Configure Arranger Metadata Files
-        url: dms/installation/configuration/prereq/arranger
-      - title: Copy Logo to Assets Folder
-        url: dms/installation/configuration/prereq/logo
-      - title: Setup a Domain Name (Server Mode Only)
+      - title: Domain Name (Server Mode)
         url: dms/installation/configuration/prereq/domain
-      - title: Install an SSL Certificate (Server Mode Only)
+      - title: SSL Certificate (Server Mode)
         url: dms/installation/configuration/prereq/sslcert
-    - title: Configure the DMS
+      - title: Identity Provider Setup
+        url: dms/installation/configuration/prereq/secrets
+      - title: Configure User E-mails
+        url: dms/installation/configuration/prereq/emails
+      - title: Data Storage Buckets
+        url: dms/installation/configuration/prereq/buckets
+      - title: Arranger Metadata Files
+        url: dms/installation/configuration/prereq/arranger
+      - title: Add Logo
+        url: dms/installation/configuration/prereq/logo
+    - title: Configuration Questionnaire
       url: dms/installation/configuration/configure-dms
   - title: Deploying Your Cluster
     url: dms/installation/deploy
-  - title: Post-Deployment Verification & Configuration
+  - title: Post Deployment
     url: dms/installation/verify
-  - title: Testing Data Upload
-    url: dms/installation/test-upload
-  - title: Demonstration Videos
-    url: dms/installation/demos
+    pages:
+    - title: Ego Verification
+      url: dms/installation/verify/ego
+    - title: Song Verification
+      url: dms/installation/verify/song
+    - title: MinIo Verification
+      url: dms/installation/verify/minio
+    - title: Maestro Verification
+      url: dms/installation/verify/maestro
+    - title: Elasticsearch Verification
+      url: dms/installation/verify/elastic
+    - title: Arranger Configuration
+      url: dms/installation/verify/arranger
 - title: Admin Guide
   url: dms/admin-guide
   isHeading: true
@@ -47,11 +56,26 @@ pages:
     url: dms/admin-guide/tasks
   - title: Common Problems
     url: dms/admin-guide/common-problems
-  - title: Command Reference
-    url: dms/admin-guide/commands
 - title: User Guide
   url: dms/user-guide
   isHeading: true
   pages:
   - title: Using the Data Portal
     url: dms/user-guide/data-portal
+  - title: Data Upload
+    url: dms/user-guide/data-upload
+    pages:
+      - title: Prerequisites
+        url: dms/user-guide/data-upload/prerequisites
+      - title: Uploading Data
+        url: dms/user-guide/data-upload/data-upload
+- title: Reference
+  url: dms/reference
+  isHeading: true
+  pages:
+  - title: Release Information
+    url: dms/reference/release
+  - title: Command Reference
+    url: dms/reference/commands
+  - title: Demonstration Videos
+    url: dms/reference/demos

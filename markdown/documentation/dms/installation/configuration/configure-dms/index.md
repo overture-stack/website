@@ -1,26 +1,21 @@
 ---
-title: Configure the DMS
+title: Interactive Questionnaire
 ---
+Prior to starting the interactive configuration questionnaire, consider these operational aspects:
 
-After completing your [prerequisite setup](../prereq), follow the steps in the below sub-sections to configure the DMS platform before deployment.
-
-# Before You Start
-
-Before starting the interactive configuration questionnaire, here are some important things to note about its operation:
-
-1. The following sub-sections describe how to configure all the Overture services prior to deploying them to a single cluster.  Although each sub-section describes the configuration of an individual service, this breakdown is only for reader convenience.  **In reality, the configuration questionnaire runs in one shot and all questions must completed for all services**.
+- **Understanding the Configuration Process:** The sections below outline how to set up all Overture services before deploying them to a single cluster. While each section focuses on an individual service for clarity, the configuration questionnaire encompasses all services and should be completed in its entirety.
 
 
-2. At the end of the configuration process, a single configuration file (`~/.dms/config.yaml`) is created to record all of your inputs (all questions answered for all services).  The file can then be used to deploy the services to the cluster.
+- **Configuration File Overview:** Upon finishing the configuration, a single configuration file (`~/.dms/config.yaml`) records all inputs. This file can then facilitate the deployment of the services to the cluster.
 
-<Warning>**NOTE:** The DMS Installer currently does not support configuring or updating specific inputs (fields/questions) or specific services.  When the configuration is built, the entire questionnaire must be completed, for all services.  Hence to do an update, the entire configuration must be built and deployed again.  The cluster can be stopped without destroying the data volumes, allowing you to deploy a new configuration without deleting the existing data (see [Stopping Your Cluster](../../../admin-guide/tasks#stopping-your-cluster)).  The Overture roadmap includes a future feature enhancement to allow updates to specific service configurations.  However, until such time, this is the update process that is currently supported.  It is **NOT** recommended for an administrator manually edit the `~/.dms/config.yaml`, because not all values can be modified and updated this way and may cause the cluster to be unrecoverable.</Warning>
+<Warning>**NOTE:** The DMS Installer does not support updates for specific inputs or services. The entire questionnaire must be filled out each time. To update, you must rebuild and redeploy the entire configuration. You can stop the cluster without erasing data volumes, allowing for a new configuration deployment without data loss. See [Stopping Your Cluster](../../../admin-guide/tasks#stopping-your-cluster). Although the Overture roadmap plans to improve this process, manual edits to the `~/.dms/config.yaml` are **NOT** recommended due to potential unrecoverability.</Warning>
 
-3. **About default values:** Some input questions suggest a recommended default value at the end of the question, displayed in square brackets `[ ]`.  A user can simply accept and use the recommended default by pressing `Enter`.  However, they can of course, enter their own custom value and override the default.  In the example below, the recommended default values for the the first four questions (30 days, 3 hours, 3 hours, 12 hours, respectively) have all been accepted by the user by pressing `Enter` for each input:
+- **About Default Values:** Some questions suggest default values shown in square brackets `[ ]`. Press `Enter` to accept, or provide a custom value to override. In the example below, default values for the initial four questions have been accepted:
 
-```shell
-===============
+```bash
+---
 EGO
-===============
+---
 Guide: https://overture.bio/documentation/dms/installation/configuration/configure-dms#configure-ego
 How many days should API keys be valid for? [30]:
 How many hours should user-level JWTs be valid for? [3]:
@@ -34,55 +29,38 @@ Which OAuth identity providers would you like to enable? e.g: 1,4
 Enter your choices as comma-separated values: 1,2,3,4
 ```
 
-4. The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.
+- **Data Volume Backup:** The DMS platform does **NOT** automatically backup data volumes. Though future releases might incorporate this, administrators currently need to devise their backup strategies.
 
+- **Deployment Limitations:** DMS only supports deployment to one cluster, aiming for single-node system use and not high availability.
 
-5. The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.
+# Starting the Interactive Questionnaire
 
-# Check the DMS Executable and Version
+1. **Check the DMS Executable and Version:** Verify you're using the latest DMS version and that the executable runs correctly:
 
-Before running the interactive configuration, make sure you are running the latest DMS version.  This also serves as a check that the executable can run properly:
-
-```shell
-$ dms version
+```bash
+dms version
 ```
 
-The latest version displays successfully (where `x.y.z` is the latest version):
+The output should display the latest version, `x.y.z`:
 
-```shell
+```bash
 x.y.z
 ```
 
-# Start the Interactive Questionnaire
+2. **Start the Configuration Process:** Initiate the configuration process with:
 
-Start the interactive configuration questionnaire with this command:
-
-```shell
-$ dms config build
-
-*****************************************************************************************************
-!!! NOTE !!!
-
-   Before starting, make sure you have completed all prerequisite setup steps here:
-   https://overture.bio/documentation/dms/installation/configuration/prereq/
-
-*****************************************************************************************************
-
-
-Starting interactive configuration...
+```bash
+dms config build
 ```
 
-Prior to the configuration questions, a small message appears reminding you to verify you have completed all prerequisite setup steps, with a link to the installation documentation if you have not.
+A brief message will remind you to ensure all prerequisite steps have been completed.
 
-# Select the Cluster Deployment Mode
+3. **Choose the Cluster Deployment Mode:** Select the cluster deployment mode consistent with your [earlier decision](../../installation#decide-local-or-server-deployment).
 
-First select the cluster deployment mode, which you should have thought through and [decided earlier in the installation pre-requisites](../../installation#decide-local-or-server-deployment).
 
-<Warning>**NOTE:** You must choose the same deployment mode you decided earlier, since all of your prerequisite setup would have been based on that decision.</Warning>
+4. **Configuring the DMS Gateway:** The DMS Gateway serves as an ingress controller, handling all incoming traffic via a single port. This centralized approach aids in efficiently directing requests to the appropriate Overture service.
 
-For example:
-
-```shell:
+```bash
 ===============
 CLUSTER MODE & GATEWAY
 ===============
@@ -93,57 +71,45 @@ Select the cluster mode to configure and deploy:
 Enter your choice: 1
 ```
 
-# Configure the DMS Gateway
+**For Local Mode:** define the port for the DMS Gateway. By default, it's Port 80:
 
-The DMS Gateway acts as an ingress controller where all incoming traffic and requests are received via a single port.
-
-This simplifies communication and allows the Gateway to easily route requests to the correct underlying Overture service via convenient sub-paths (e.g. `locahost:80/ego-ui` or `dms.test.cancercollaboratory.org/ego-ui`).
-
-## Local Mode
-
-If deploying in local mode, specify the port on which the DMS Gateway will be exposed.  Port 80 is used by default:
-
-```shell
+```bash
 What port will the gateway be exposed on? [80]:
 ```
 
-## Server Mode
+**For Server Mode:** Provide the [domain name](../prereq/domain) and [SSL certificate](../prereq/sslcert) configured previously.
 
-If deploying in server mode, specify the [domain name](../prereq/domain) and [SSL certificate](../prereq/sslcert) you setup in the earlier pre-requisites.
+- Input the base gateway URL using the established domain:
 
-1. Enter the base gateway URL using the configured domain:
-
-```shell
+```bash
 What is the base DMS Gateway URL (example: https://dms.cancercollaboratory.org)? https://dms.test.cancercollaboratory.org
-
 ```
 
-2. Enter the **absolute** path to the SSL certificate you installed earlier with Certbot.  For typically Certbot installs, this path should be `/etc/letsencrypt`:
+- Specify the **absolute** path to your SSL certificate installed earlier with Certbot. Generally, for Certbot installs, the path is `/etc/letsencrypt`:
 
-```shell
-What is the absolute path for the SSL certificate ? /etc/letsencrypt
+```bash
+What is the absolute path for the SSL certificate? /etc/letsencrypt
 ```
 
-# Configure Ego
+# Ego Configurations
 
-[Ego](../../../../ego) is responsible for user management and authentication, allowing users to login and authenticate themselves over the OAuth 2.0 protocol via supported Identity Providers.
-
-Configure the following for Ego:
+[Ego](../../../../ego) manages user authentication, leveraging OAuth 2.0 with various Identity Providers.
+The following Ego configuration parameters are covered in the questionnaire:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| API Key Validity Period | Number of days after a user's API key is issued before it expires and can no longer be used.  A new key would need to be requested at that point. Must be an integer value greater than 0. | 30 days |
-| User JWT Validity Period | Number of hours after a user's JSON Web Token (JWT) is issued before it expires and can no longer be used.  A new JWT would need to be requested at that point. Must be an integer value greater than 0. | 3 hours |
-| Application JWT Validity Period | Number of hours after a user's JSON Web Token (JWT) is issued before it expires and can no longer be used.  A new JWT would need to be requested at that point. Must be an integer value greater than 0. | 3 hours |
-| Refresh Token Validity Period | Number of hours after a refresh token is issued before it expires and can no longer be used.  A new refresh token would need to be requested at that point. Must be an integer value greater than 0. | 12 hours |
-| Enabled SSO Providers | A comma-separated list of the OAUTH 2.0 single-sign on (SSO) identity providers you plan to enable and use in your deployment. Enter the numeric ID representing each provider you want (1 = Google, 2 = LinkedIn, 3 = GitHub, 4 = ORCiD). | None |
-| `<Provider>` Client ID | The client ID generated by your `<Provider>` when you generated your app's OAUTH credentials with them. You must repeat this for each identity provider you have chosen to enable. For details, see [here](../prereq/secrets). | None |
-| `<Provider>` Client Secret | The client secret generated by your `<Provider>` when you generated your app's OAUTH credentials with them. You must repeat this for each identity provider you have chosen to enable. For details, see [here](../prereq/secrets). | None |
-| Ego Database Password | Password used by an administrator to access the Ego PostgresSQL database. | None |
+| API Key Validity | Duration (in days) before a user's API key expires. Once expired, a new key is needed. Integer > 0. | 30 days |
+| User JWT Validity | Duration (in hours) before a user's JWT expires. Once expired, a new JWT is required. Integer > 0. | 3 hours |
+| Application JWT Validity | Duration (in hours) before an application's JWT expires. A new JWT will be required post-expiration. Integer > 0. | 3 hours |
+| Refresh Token Validity | Duration (in hours) before a refresh token expires. Post expiration, a new token is needed. Integer > 0. | 12 hours |
+| Enabled SSO Providers | Comma-separated list of OAUTH 2.0 SSO identity providers for deployment. Use the numeric ID for each provider (1 = Google, 2 = LinkedIn, 3 = GitHub, 4 = ORCiD). | None |
+| `<Provider>` Client ID | Client ID from `<Provider>`, generated during OAUTH credential setup. Repeat for each enabled identity provider. See [prerequisites](../prereq/secrets) for more. | None |
+| `<Provider>` Client Secret | Client secret from `<Provider>`, generated during OAUTH credential setup. Repeat for each enabled identity provider. Reference [prerequisites](../prereq/secrets). | None |
+| Ego Database Password | Password to access the Ego PostgreSQL database. | None |
 
-For example:
+**Example Configuration Input:**
 
-```shell
+```bash
 ===============
 EGO
 ===============
@@ -169,19 +135,19 @@ What is the ORCID client secret? abc123
 What should the EGO db password be? ******
 ```
 
-# Configure Song
+# Song Configurations
 
-[Song](../../../../song) provides a metadata management and storage system to easily track and manage files in a secure and validated environment, against your established data model.
+[Song](../../../../song) provides a metadata management and storage system to track and manage files in a secure and validated environment, against your established data model.
 
-Configure the following for Song:
+### Song Configuration Parameters:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| Song Database Password | Password used by an administrator to access the Song PostgresSQL database. | None |
+| Song Database Password | Administrator password for accessing the Song PostgreSQL database. | None |
 
-For example:
+### Example Configuration Input:
 
-```shell
+```bash
 ===============
 SONG
 ===============
@@ -189,28 +155,30 @@ Guide: https://overture.bio/documenation/dms/installation/configuration/configur
 What should the SONG database password be? ******
 ```
 
-# Configure Score
+# Score Configurations
 
-[Score](../../../../score) manages data transfer to (upload) and from (download) cloud object storage.  As such, a storage service is required for Score to interact with.  The DMS allows either the use of MinIo](https://min.io/) pre-bundled with the DMS platform, or an external service such as [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/).
+[Score](../../../../score) handles data transfers, both uploads and downloads from cloud object storage. This necessitates an interface with a storage service. [MinIo](https://min.io/) is available by default with the DMS, but external services like [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/) can also be integrated.
 
-Configure the following for Score:
+### Score Configuration Parameters:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| Use Existing S3 Object Storage Service? | Select whether you have an existing S3 object storage service such as Amazon S3, Microsoft Azure, or Openstack with Ceph that you wish to use with Score.  If you have an S3 service, enter `Y`.  If not, enter `N`.  If you enter `N`, then MinIo is used as the storage service by default (comes bundled with the DMS). | None |
-| Automatically Create MinIo Credentials? | This input only appears if you do not have an existing S3 object storage service and must use the MinIo service.  Select whether you want the DMS to automatically create credentials for accessing MinIo.  To auto-generate credentials, enter `Y`.  To enter your own custom credentials, enter `N`. | None |
-| MinIo Access Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the access key required to authenticate with MinIo. **NOTE:** If you choose to auto-generate credentials, the auto-generated value can be viewed using the `dms config get` command or viewing the `~/.dms/config.yaml` file. | None |
-| MinIo Secret Key | This input only appears if you are using MinIo and have chosen **NOT** to auto-generate credentials.  This is the secret key required to authenticate with MinIo. **NOTE:** If you choose to auto-generate credentials, the auto-generated value can be viewed using the `dms config get` command or viewing the `~/.dms/config.yaml` file. | None |
-| Will You Use AWS S3? | This input only appears if you are using an existing S3 object storage service.  Select whether you are specifically using Amazon S3, or another S3 service.  If using Amazon, enter `Y`.  If not, enter `N`. | None |
-| Amazon S3 Region | This input only appears if you are using Amazon S3 as your object storage service.  Enter the geographic region where you have configured your Amazon S3 service to store the buckets. These values are predefined for you to select during your Amazon S3 service configuration.  For example, `CA_Central` is the region for Amazon servers located in Canada. | None |
-| S3 Access Key | This input only appears if you are using an existing S3 object storage service. This is the access key required to access the buckets with your service. You should have recorded this as part of your [prequisite setup](../prereq/buckets). | None |
-| S3 Secret Key | This input only appears if you are using an existing S3 object storage service. This is the secret key required to access the buckets with your service. You should have recorded this as part of your [prequisite setup](../prereq/buckets). | None |
-| Object Bucket ID | ID of the bucket used to store object data for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.object` if using MinIo |
-| State Bucket ID | ID of the bucket used to store and maintain state information for Score. If you are using your own S3 storage service, this must the same ID that you setup in your prequisite steps.  For details, see [here](../prereq/buckets). Else if you are using MinIo, a default value is provided, although you can enter your own. | `dms.state` if using MinIo |
+| Use Existing S3 Object Storage? | Indicate if you're using services like Amazon S3, Microsoft Azure, or Openstack with Ceph. Choose `Y` for yes, or `N` for no. MinIo is the default option if `N` is selected. | None |
+| Auto-Generate MinIo Credentials? | Appears if you're using MinIo. Choose `Y` for the DMS to create MinIo credentials, or `N` to input manually. | None |
+| MinIo Access Key | Appears if MinIo is selected without auto-generation. It's the access key for MinIo authentication. The auto-generated value can be found using the `dms config get` command or in the `~/.dms/config.yaml` file. | None |
+| MinIo Secret Key | Similar to above, for the secret key of MinIo. | None |
+| Use AWS S3? | Appears for existing S3 storage users. Choose `Y` if using Amazon S3, or `N` otherwise. | None |
+| Amazon S3 Region | For Amazon S3 users, indicate the region, e.g., `CA_Central` for Canada. | None |
+| S3 Access Key | For existing S3 storage users. The key to access your S3 storage, noted during your [pre-setup](../prereq/buckets). | None |
+| S3 Secret Key | The secret counterpart of the above. | None |
+| Object Bucket ID | The ID for the Score storage bucket. If using your own S3 service, this should match your [pre-setup](../prereq/buckets). For MinIo users, a default is provided, but it can be customized. | `dms.object` for MinIo |
+| State Bucket ID | The ID for the Score state data. Similar conditions apply as above. | `dms.state` for MinIo |
 
-## MinIo Example
+### Example Configurations:
 
-```shell
+**MinIo Setup:**
+
+```bash
 ===============
 SCORE
 ===============
@@ -223,9 +191,9 @@ What is the name of the OBJECT bucket used for SCORE? [dms.object]:
 What is the name of the STATE bucket used for SCORE? [dms.state]:
 ```
 
-## Non-Amazon S3 Example
+**Non-Amazon S3 Setup:**
 
-```shell
+```bash
 ===============
 SCORE
 ===============
@@ -238,10 +206,9 @@ What is the S3 secret key? abc123
 What is the name of the OBJECT bucket used for SCORE? [dms.object]: dms_object_bucket
 What is the name of the STATE bucket used for SCORE? [dms.state]: dms_state_bucket
 ```
+**Amazon S3 Setup:**
 
-## Amazon S3 Example
-
-```shell
+```bash
 ===============
 SCORE
 ===============
@@ -255,19 +222,19 @@ What is the name of the OBJECT bucket used for SCORE? [dms.object]: dms_object_b
 What is the name of the STATE bucket used for SCORE? [dms.state]: dms_state_bucket
 ```
 
-# Configure Elasticsearch
+# Elasticsearch Configuration
 
-The DMS platform indexes its data into [Elasticsearch](https://www.elastic.co/).  Elasticsearch provides a flexible and highly-optimized mechanism for indexing and searching data.  [Arranger](../../../../arranger) interfaces with Elasticsearch to interpret the index structure and allow DMS administrators to configure which data fields can be exposed to end users in the Data Portal for their consumption.
+The DMS platform indexes its data into [Elasticsearch](https://www.elastic.co/). Elasticsearch delivers a flexible, highly-optimized method for data indexing and searching. [Arranger](../../../../arranger) works in conjunction with Elasticsearch to comprehend the index structure, enabling DMS administrators to determine which data fields are available to end users via the Data Portal.
 
-Configure the following for Elasticsearch:
+### Elasticsearch Configuration Parameters:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| Superuser Password | Password used by the superuser to gain administrative access to Elasticsearch. By default, the superuser's username is `elastic`; this value, along with the password you enter here, must be used when logging into Elasticsearch. | None |
+| Superuser Password | This is the password for the superuser to access Elasticsearch. Typically, the superuser's username is `elastic`. Combine this default username with the password you input here to log into Elasticsearch. | None |
 
-For example:
+### Example Configuration:
 
-```shell
+```bash
 ===============
 ELASTICSEARCH
 ===============
@@ -275,20 +242,20 @@ Guide: https://overture.bio/documenation/dms/installation/configuration/configur
 Elasticsearch provides a superuser with default username 'elastic'. What should the superuser's password be? ******
 ```
 
-# Configure Maestro
+# Maestro Configurations
 
-The [Maestro service](../../../../maestro) provides the ability to automate the building of search indexes in Elasticsearch.  This vastly reduces the time and complexity a DMS administrator would need to deal with Elasticsearch directly themselves.
+The [Maestro service](../../../../maestro) streamlines the process of automatically constructing search indexes within Elasticsearch. This significantly minimizes the time and complexity associated with manual index creation by DMS administrators.
 
-Configure the following for Maestro:
+### Maestro Configuration Parameters:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| Elasticsearch Index Alias | The alias used to represent the Elasticsearch index that Maestro will build. **This must be different from the actual index name.** Typically, it is recommended to simply use the system default, `file_centric`. | `file_centric` |
-| Elasticsearch Index Name | The actual name of the Elasticsearch index that Maestro will build. **This must be different from the alias.** Typically, it is recommended to simply use the system default, `file_centric_1`. | `file_centric_1` |
+| Elasticsearch Index Alias | This represents the alias for the Elasticsearch index that Maestro creates. It should differ from the actual index name. The system default, `file_centric`, is typically recommended. | `file_centric` |
+| Elasticsearch Index Name | This is the actual name of the Elasticsearch index built by Maestro. It should differ from the alias. Using the system default, `file_centric_1`, is generally advised. | `file_centric_1` |
 
-For example:
+### Example Configuration:
 
-```shell
+```bash
 ===============
 MAESTRO
 ===============
@@ -297,21 +264,23 @@ What is the alias of the Elasticsearch index that Maestro will build (must be di
 What is the index name of the Elasticsearch index that Maestro will build (must be different from the alias)? [file_centric_1]:
 ```
 
-# Configure DMS UI
+# DMS UI Configurations
 
-The DMS UI is the user-facing Data Portal where users can search, explore, and download the data you have uploaded to the DMS platform.
+The DMS UI serves as the public Data Portal, enabling users to search, navigate, and download the data you've uploaded to the DMS platform.
+
+### DMS UI Configuration Parameters:
 
 | Input | Description | Default |
 | ------| ------------| --------| 
-| Contact Email | This is the email that you wish your Data Portal users to contact for support (for example, the DMS Administrator's email). This email will appear, for example, in error messages directing users to contact support. This may be more useful or applicable to institutions deploying the Portal for groups of users than for an individual deploying the DMS for personal research use. This value must be in proper email format. | None |
-| Data Portal Name | Optionally enter a custom name for the Data Portal to be displayed in the header beside the logo. For example, you may wish to display your institution or lab name. The logo must be customized separately (see [here](../prereq/logo)) | `Data Management System` |
-| Arranger Project ID | ID of the project that you will confiigure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger. The Data Portal references this value and if they do not match, an error will occur. | `file` |
-| Arranger Project Name | Name of the project that you will confiigure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger. The Data Portal references this value and if they do not match, an error will occur. | `file` |
-| Arranger Elasticsearch Alias Name | Name of the alias for the Elasticsearch index that you will configure in Arranger after deployment. The value you enter here **MUST** match the value you configure later in Arranger **AND** it must also match the alias name previously [supplied for Maestro](#configure-maestro). The Data Portal references this value and if they do not match, an error will occur. | `file_centric` |
+| Contact Email | The preferred contact email for Data Portal users seeking support, such as the DMS Administrator's email. It appears in contexts like error messages guiding users to contact support. Particularly useful for institutions deploying the Portal for user groups rather than individuals using DMS for personal research. The email should be in the standard format. | None |
+| Data Portal Name | An optional name for the Data Portal, shown next to the logo in the header. For instance, you might want to showcase your institution or lab's name. The logo needs a separate customization; details are [here](../prereq/logo). | `Data Management System` |
+| Arranger Project ID | The ID for the project set up in Arranger post-deployment. Ensure the ID here matches the one in Arranger, as the Data Portal refers to this. Mismatch leads to errors. | `file` |
+| Arranger Project Name | The name of the project set up in Arranger post-deployment. Ensure this name matches Arranger's; the Data Portal uses it. Discrepancies can cause errors. | `file` |
+| Arranger Elasticsearch Alias Name | The alias name for the Elasticsearch index set in Arranger post-deployment. It needs to correspond with both Arranger's value and the previously [defined alias in Maestro](#configure-maestro). Errors arise from inconsistencies. | `file_centric` |
 
-For example:
+### Example Configuration:
 
-```shell
+```bash
 ===============
 DMS UI
 ===============
@@ -335,34 +304,32 @@ What is the Project Name you will configure in Arranger (to be referenced by DMS
 What is the Elasticsearch alias name you will configure in Arranger (to be referenced by DMS UI and ALSO must match the alias name previously supplied for Maestro) be?  [file_centric]:
 ```
 
-## Arranger-Specific Fields
+**Key Information on Arranger Fields:** The Arranger-specific fields (`Project ID`, `Project Name`, `Elasticsearch Alias Name`) you provide should align with the configurations you'll establish in Arranger post-deployment. Further details are in [Add Project to Arranger UI](../../verify#add-project-to-arranger-ui).
 
-As indicated, the Arranger-specific fields (`Project ID`, `Project Name`, `Elasticsearch Alias Name`) that you supply here **MUST** match the values configured later in Arranger after deployment.  For details, see [Add Project to Arranger UI](../../verify#add-project-to-arranger-ui).
-
-This screenshot shows how the Arranger UI fields map to the inputs in the DMS installation script:
+Below is a visual guide mapping the Arranger UI fields to DMS installation script inputs:
 
 ![Entity](../../../assets/arranger-project-fields.png 'Arranger Project Fields')
 
-# Check Configuration File
+# Verification
 
-After completing the configuration for all services, the values are saved successfully to the configuration YAML file (`~/.dms/config.yaml`):
+Once you've configured all services, they are stored in the configuration YAML file (`~/.dms/config.yaml`):
 
-```shell
+```bash
 Your configuration file was successfully saved to: /root/.dms/config.yaml
 
 You may now deploy your configuration to your cluster. For instructions, see:
 https://overture.bio/documentation/dms/installation/deploy/
 ```
 
-View and verify that your configuration values were captured correctly in the YAML file with this command:
+You can confirm the accuracy of your configuration details in the YAML file with the following command:
 
-```shell
-$ dms config get
+```bash
+dms config get
 ```
 
-The contents of the saved config file will be displayed.  Here is a sample extract:
+The saved configuration will appear on the screen. Here's a a sample extract:
 
-```shell
+```bash
 ---
 gateway:
   pathBased: true
@@ -410,11 +377,3 @@ ego:
 
 <...and so on...>
 ```
-
-# A Note About Arranger Configuration
-
-[Arranger]((../../../../arranger)) is a key service in Overture, allowing administrators to configure what data to expose in their data portal based on the deployed Elasticsearch index.
-
-Although Arranger does not have any configurations required in the DMS configuration questionnaire, it has mandatory configuration tasks after a successful cluster deployment.
-
-For details of these tasks, see [Add Project to Arranger-UI](../../verify#add-project-to-arranger-ui) later on.

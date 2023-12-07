@@ -2,19 +2,19 @@
 title: Common Tasks
 ---
 
-This section describes common tasks the DMS Administrator may need to perform as part of installation, configuration, deployment, or maintenace.
+This section outlines common tasks a DMS Administrator might undertake during installation, configuration, deployment, or maintenance.
 
 # Updating a Configuration
 
-The DMS Installer currently does not support configuring or updating specific inputs (fields/questions) or specific services.  When the configuration is built, the entire questionnaire must be completed, for all services.  Hence to do an update, the entire configuration must be built and deployed again.  
+The DMS Installer doesn't allow configuration or updates to specific inputs or services at the moment. Every time you want to configure, you need to complete the questionnaire for all services. Thus, for any update, you'll have to rebuild and redeploy the entire configuration.
 
-The cluster can be stopped without destroying the data volumes, allowing you to deploy a new configuration without deleting the existing data (see [Stopping Your Cluster](#stopping-your-cluster)).
+You can halt the cluster without deleting data volumes, enabling you to deploy a fresh configuration without eliminating existing data (refer to [Stopping Your Cluster](#stopping-your-cluster)).
 
-The Overture roadmap includes a future feature enhancement to allow updates to specific service configurations.  However, until such time, this is the update process that is supported.  It is **NOT** recommended for an administrator manually edit the `~/.dms/config.yaml`, because not all values can be modified and updated this way and may cause the cluster to be unrecoverable.
+While Overture's roadmap includes a feature to update specific service configurations in the future, for now, you'll need to follow the current update process. Manually editing the `~/.dms/config.yaml` file is **NOT** advised because not all values can be modified this way, and it might make the cluster irrecoverable.
 
 To update a configuration:
 
-1. Stop your cluster without destroying the data volumes:
+1. Stop your cluster without removing data volumes:
 
 ```shell
 $ dms cluster stop
@@ -24,7 +24,7 @@ Stopping cluster..
 Finished stopping cluster
 ```
 
-2. Run the configuration questionnaire fresh and complete all sections and inputs like before (see [here](/documentation/dms/installation/configuration/configure-dms)):
+2. Restart the configuration questionnaire and complete all sections like before (more details [here](/documentation/dms/installation/configuration/configure-dms)):
 
 ```shell
 $ dms config build
@@ -40,19 +40,19 @@ $ dms cluster start
 <...and so on...>
 ```
 
-4. Verify that the changes have been reflected.
+4. Verify that the changes have taken effect.
 
 # Starting Your Cluster
 
-Starting your cluster is equivalent to deploying your configurations from your current `~/.dms/config.yaml` file to your cluster.
+Starting your cluster essentially means deploying configurations from your `~/.dms/config.yaml` file to the cluster.
 
-For details, see [Deploying Your Cluster](/documentation/dms/installation/deploy).
+For a detailed guide, visit [Deploying Your Cluster](/documentation/dms/installation/deploy).
 
 # Stopping Your Cluster
 
-In some scenarios you may need to stop your cluster and its services without deleting the data volumes. For example, to build and deploy an [updated configuration](#updating-a-configuration)
+You might occasionally need to halt your cluster and its associated services without erasing data volumes, like when you need to deploy an [updated configuration](#updating-a-configuration).
 
-To stop your cluster without deleting volumes:
+To halt your cluster without erasing volumes:
 
 ```shell
 $ dms cluster stop
@@ -64,22 +64,22 @@ Finished stopping cluster
 
 # Destroying Your Cluster
 
-In some scenarios you may need to entirely destroy your cluster, its services, and all the data volumes. For example, to deploy the DMS platform from scratch with a new configuration and completely fresh data.
+Sometimes, you may need to wipe out your cluster entirely, along with its services and all associated data volumes. For instance, if you're setting up the DMS platform from scratch with a new configuration and fresh data.
 
-<Warning>**NOTE:** The DMS platform does **NOT** currently support automatic backup of the data volumes are deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.</Warning>
+<Warning>**NOTE:** The current DMS platform **DOES NOT** support automatic backups post deployment. Although a backup feature might be added in future DMS releases, for now, DMS administrators must determine and implement the best backup strategy as needed.</Warning>
 
-1. To destroy your cluster with a confirmation requested as a precaution:
+1. To delete your cluster (with a confirmation prompt for safety):
 
 ```shell
 $ dms cluster destroy
 
 Starting cluster destruction: force=false
-Are you sure you want to destroy the volumes for all services, all data will be lost and This is IRREVERSIBLE ?  (Y/N) [N]:
+Are you sure you want to destroy the volumes for all services? This will erase all data and CANNOT be undone. (Y/N) [N]:
 ```
 
-To proceed, answer `Y`.
+To continue, type `Y`.
 
-2. However, to destroy your cluster forcefully **without any** confirmation requested:
+2. However, to forcefully wipe your cluster **without any** confirmation:
 
 ```shell
 $ dms cluster destroy -f
@@ -87,7 +87,7 @@ $ dms cluster destroy -f
 Starting cluster destruction: force=true
 ```
 
-3. In both scenarios, if cluster destruction proceeds and is successful, the following is displayed:
+3. In both cases, if the cluster is successfully destroyed, you'll see:
 
 ```shell
 Forcefully destroying all volumes!
@@ -95,25 +95,22 @@ Forcefully destroying all volumes!
 Finished cluster destruction
 ```
 
-4. You can verify that all services and volumes have been removed by checking that the docker service list is completely blank:
+4. Confirm that all services and volumes have been deleted by ensuring the docker service list is empty:
 
 ```shell
 $ docker service ls
 
 ID        NAME      MODE      REPLICAS   IMAGE     PORTS
-
-
-
 ```
 
-# Customizing the Look of the Data Portal
+# Customizing the Data Portal Appearance
 
-Currently, only these parts of the Data Portal's look-and-feel can be customized:
+You can modify the following aspects of the Data Portal's appearance:
 
-- The logo image displayed in the header of the Data Portal, beside the portal name
-- The name of the Data Portal displayed in the header, beside the logo
+- The logo image in the header, next to the portal name
+- The portal's name displayed beside the logo
 
-These items can only be customized as part of building a configuration via the interactive questionnaire.  Customizing the logo is actually a prerequisite step to running the questionnaire, while customizing the portal name is done during the questionnaire itself.  For details on how to perform these tasks, see these sections:
+Both can be adjusted during the configuration process via the interactive questionnaire. Customizing the logo is a prerequisite to running the questionnaire, while adjusting the portal name occurs during the questionnaire itself. For detailed instructions, refer to:
 
 - [Copy Logo File to Assets Folder](../../installation/configuration/prereq/logo)
 - [Configure DMS UI](../../installation/configuration/configure-dms#configure-dms-ui)

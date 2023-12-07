@@ -2,28 +2,25 @@
 title: Setup Data Storage Buckets
 ---
 
-The [Score service](/documentation/score) manages data transfer to (upload) and from (download) cloud object storage.  As such, Score requires two specific buckets to get setup in advance in your storage service.  These buckets are supplied as inputs to the DMS interactive configuration questionnaire later on.
+[Score service](/documentation/score) manages data transfers to and from cloud object storage. Before using Score, you'll need to establish two specific storage buckets. These bucket details will be required during the DMS interactive configuration questionnaire.
 
-Score requires two buckets to be setup in your storage:
+To set up your storage buckets, follow the steps below:
 
-1. A bucket to store object data
-
-
-2. A bucket to store and maintain state information
-
-If you plan to use the free [MinIo](https://min.io/) service packaged with the DMS, then these buckets will be created by default for you.
-
-However, if you plan to use an external service such as [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) with [Ceph](https://ceph.io/), you must ensure the buckets are created in your service as follows:
-
-1. Create an object bucket and a state bucket and remember both their IDs, as they will be required as input during DMS configuration.
+1. **Choose a Storage Service:** Decide if you want to use the included [MinIo](https://min.io/) service with DMS or an external provider like [Amazon S3](https://aws.amazon.com/s3/), [Microsoft Azure Storage](https://azure.microsoft.com/en-ca/services/storage/), or [OpenStack](https://www.openstack.org/) in conjunction with [Ceph](https://ceph.io/). 
+   - If using MinIo, the required buckets will be automatically created.
+   - For external services, continue with the following steps.
 
 
-2. For certain storage services, a `/data` sub-folder must be created in advance in each bucket.  Please check with your service provider's configuration requirements.  Currently, Openstack with Ceph requires this sub-folder when used by Score, while Amazon and MinIo do not.
+2. **Create Buckets:** Manually set up an `object bucket` and a `state bucket` in your chosen storage service. Ensure you note down the IDs of both buckets for DMS configuration.
 
 
-3. Make sure to note the **URL**, **access key**, and **secret key** used to access your external service, as these are also required as input during DMS configuration.  **Keep these values safe and secure**.
+3. **Setup `/data` Sub-folder (if required):** Depending on the provider, you may need to create a `/data` sub-folder in each bucket. OpenStack users working with Ceph must do this, while Amazon and MinIo users can skip this step.
 
 
-4. If specifically using Amazon S3, makes ure to note the geographic **Region** where you have configured your buckets to be stored, as this is also required as an input during DMS configuration.
+4. **Record Essential Credentials:** Write down the **URL**, **access key**, and **secret key** for your storage service. You will need these during DMS configuration. Ensure these details are kept confidential and secure.
 
-If assistance is required, please consult your IT department if you are part of an institution, or contact support with your specific storage provider.
+
+5. **Amazon S3 Specifics:** If you're an Amazon S3 user, also note the **Region** where your buckets reside. This information will be prompted for during DMS configuration.
+
+
+Should you need further assistance, consider reaching out to your organization's IT department or the support team of your chosen storage service provider.

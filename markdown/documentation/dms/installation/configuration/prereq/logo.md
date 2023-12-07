@@ -2,34 +2,42 @@
 title: Copy Logo File to Assets Folder
 ---
 
-By default, the DMS UI (Data Portal) displays the Overture logo in the header. However, an individual or institution may optionally wish to brand the portal with their own logo and portal name:
+The DMS UI (Data Portal) displays the Overture logo in the header by default. However, users or institutions may prefer to use their own logo:
 
 ![Entity](../../../assets/logo-example.png 'Logo Example')
 
-While the portal name is configured during the interactive questionnaire (see [here](../../configure-dms#configure-dms-ui)), **the logo image must be copied into the correct assets folder before configuration and deployment are run**.
+The portal name can be set during the interactive questionnaire ([details here](../../configure-dms#configure-dms-ui)). **Ensure the logo image is placed in the proper assets folder before starting the configuration and deployment process**.
 
-To copy your logo file to the assets folder:
+Follow these steps to copy your logo file to the assets folder:
 
-1. Make sure you have a logo file specifically named `dms_logo.<format>`, where `<format>` must be one of the supported image formats: JPG, PNG, SVG.  The file must be stored somewhere on the environment hosting the DMS.
+### 1. Prepare Your Logo
 
+Have your logo file named as `dms_logo.<format>`, where `<format>` is one of the supported image formats: JPG, PNG, SVG. This file should be located on the DMS hosting environment.
 
-2. Switch to the `~/.dms/assets` folder:
+### 2. Navigate to the Assets Directory
 
-```shell
-$ cd ~/.dms/assets
+Change to the `~/.dms/assets` directory:
+
+```bash
+cd ~/.dms/assets
 ```
 
-<Warning>**NOTE:** The `~/.dms` folder and its sub-folders are created when you first run the DMS executable.  This should have already been generated during your installation steps (see [here](../../../installation#install-the-dms-executable)).  However, if the folder does not exist, then simply run `dms -h` to do so.</Warning>
+<Warning>**NOTE:** The `~/.dms` directory and its sub-directories are created the first time the DMS executable is run. You should have encountered this directory during the installation ([see installation steps](../../../installation#install-the-dms-executable)). If the directory is missing, run `dms -h` to generate it.</Warning>
 
-3. Copy or move your logo file from your `<sourceFolder>` to the `~/.dms/assets` folder:
+### 3. Transfer Your Logo
 
-```shell
-$ cp <sourceFolder>/dms_logo.png dms_logo.png 
+Copy your logo from its current location (`<sourceFolder>`) to the `~/.dms/assets` directory:
+
+```bash
+cp <sourceFolder>/dms_logo.png dms_logo.png 
 ```
 
-4. List the folder contents to make sure the file has been copied or moved:
+### 4. Verify the Transfer
 
-```shell
+List the contents of the directory to ensure your logo file is present:
+
+```bash
 $ ls
 dms_logo.png
 ```
+

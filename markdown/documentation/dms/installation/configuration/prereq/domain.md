@@ -2,10 +2,13 @@
 title: Setup a Domain Name (Server Mode Only)
 ---
 
-If you are [deploying in server mode](../../../installation#decice-local-or-server-deployment), then you must first acquire and setup a domain name through which the DMS services can be externally accessible.
+When deploying in server mode, it's crucial to obtain and configure a domain name. This allows the DMS services to be accessible externally.
 
-The purpose of server mode is to make the DMS system easily available to external users via a custom domain name and secured over HTTPS.
+Deploying in server mode primarily ensures that the DMS system is easily accessible to external users through a custom domain, all while being secured over HTTPS.
 
-Your domain name must be provided during installation of the SSL certificate and as input into the DMS interactive configuration questionnaire.
+You'll need to specify this domain name during two key processes:
 
-If you are part of an institution or organization, please contact your IT department for help setting this up.  Alternatively, if you are an individual user without organizational infrastructure support, you can acquire your own domain name via the many legitimate providers available over the internet.
+1. The SSL certificate installation.
+2. Input into the DMS interactive configuration questionnaire.
+
+If you belong to an institution or organization, it's recommended to liaise with your IT department for domain setup. On the other hand, if you're an independent user without the backing of an organizational IT structure, you can acquire a domain name through numerous reputable online providers.

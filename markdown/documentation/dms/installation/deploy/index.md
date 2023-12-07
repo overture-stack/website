@@ -2,69 +2,57 @@
 title: Deploying Your Cluster
 ---
 
-After your [configuration is complete](../configuration/configure-dms) and saved to file, you can deploy all services to your cluster:
+Once your [configuration is complete](../configuration/configure-dms) and the details are saved to a file, you're ready to deploy all the necessary services to your cluster. Here's a step-by-step guide:
 
-1. Before starting, you can optionally open a separate terminal window to monitor services as they deploy to Docker.  The command below refreshes every 2 seconds, but you can adjust the interval to your needs:
+1. **Monitor Services with Docker:** Begin by opening a separate terminal window. This will allow you to actively monitor the services that Docker is deploying. The following command will refresh every 2 seconds, but you can adjust the interval as you see fit:
 
-```shell
-$ watch -n 2 docker service ls
+```bash
+watch -n 2 docker service ls
 ```
 
-2. Execute the following command to deploy your saved configuration:
+2. **Deploy Configuration:** To deploy the configuration you saved earlier, run:
 
-```shell
-$ dms cluster start
+```bash
+dms cluster start
 ```
 
-3. As the deployment executes, status messages will appear as each service is spun up.  Here is a sample extract:
+3. **Monitor Deployment Status:** As deployment progresses, you'll see status messages for each service:
 
-```shell
+```bash
 Starting deployment...
 
 🏁️ Deployment for service minio-api finished successfully
-
-
 🏁️ Deployment for service song-db finished successfully
-
-
 🏁️ Deployment for service gateway finished successfully
-
-
 🏁️ Deployment for 'ego-db' finished
-
-
 ⏳ Waiting for 'elasticsearch' service to be healthy..
-
-
 ⏳ Waiting for 'ego-api' service to be healthy..
 
 <...and so on...>
 ```
 
-4. It may take some time for the deployment to exit successfully, as multiple services need to be deployed and the relatively larger services may take some time to complete (e.g. Ego API, Elasticsearch).  Depending on your system resources, if the process takes too long and you encounter timeouts, there is a configurable timeout period (in seconds) and # of retries in the `~/.dms/config.yaml` file, which you can adjust and retry deployment if necessary:
+4. **Adjusting for Longer Deployments:** The deployment process might be time-consuming due to the multiple services involved. In case you run into timeout issues, you can adjust both the timeout period and the number of retries in the `~/.dms/config.yaml`:
 
-```shell
+```bash
 healthCheck:
   retries: 15
   delaySec: 10
 ```
 
-Once complete, a success message appears, including a note (with a link to documentation) reminding you to perform necessary [post-deployment verification and configuration tasks](../verify) to make sure the DMS platform is up and running healthily:
+Once everything is deployed, you should see a confirmation message:
 
-```shell
+```bash
 Deployment completed successfully
 
 *****************************************************************************************************
 !!! NOTE !!!
 
-    Before using the DMS platform, please complete post-deployment verification
-    and configuration steps required to check the health of your deployment.  For
-    instructions, see:
-    https://overture.bio/documentation/dms/installation/verify/
+Before using the DMS platform, ensure to complete the post-deployment verification and configuration steps. This will help check the health of your deployment. For detailed instructions, visit: 
+https://overture.bio/documentation/dms/installation/verify/
 
 *****************************************************************************************************
 ```
 
-<Warning>**NOTE:** The DMS platform does **NOT** currently support automatic backup of the data volumes in a deployment. Although such a facility may be considered for DMS future releases, DMS administrators are currently responsible for determining and executing the most appropriate data backup strategy, as required.</Warning>
+<Warning>**NOTE:** The DMS platform does not offer automatic data volume backup. It's crucial for administrators to establish and manage data backup strategies.</Warning>
 
-<Warning>**NOTE:** The DMS currently only supports deployment to a single cluster. It is intended for use as a single node system and is not currently meant to be highly available.</Warning>
+<Warning>**NOTE:** At present, DMS only supports deployment to a singular cluster. Hence, it's tailored for single-node systems.</Warning>
