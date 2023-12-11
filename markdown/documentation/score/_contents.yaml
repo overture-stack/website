@@ -22,7 +22,7 @@ pages:
     - title: Other Bootstrap Properties
       url: score/installation/configuration/bootstrap
   - title: Authentication
-    url: score/installation/authentication
+    url: score/installation/configuration/authentication
 - title: User Guide
   url: score/user-guide
   isHeading: true
