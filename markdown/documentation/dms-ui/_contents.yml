@@ -3,15 +3,12 @@ sectionTitle: dms-ui
 pages:
 - title: Introduction
   url: dms-ui
-- title: Installation Guide
+- title: Installation
+  url: dms-ui/installation/installation
+- title: Integrations
   url: dms-ui/installation
   isHeading: true
   pages:
-  - title: Installation
-    url: dms-ui/installation/installation
-  - title: Configuration
-    url: dms-ui/installation/configuration
-    pages: 
     - title: Integrating Arranger
       url: dms-ui/installation/configuration/arranger
     - title: Integrating Ego

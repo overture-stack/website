@@ -3,8 +3,6 @@ sectionTitle: Ego
 pages:
   - title: Introduction
     url: ego
-  - title: Technical Details
-    url: ego/technical
   - title: Installation Guide
     url: ego/installation
     isHeading: true
@@ -30,6 +28,8 @@ pages:
     url: ego/user-guide
     isHeading: true
     pages:
+      - title: Technical Details
+        url: ego/technical
       - title: Using the Admin UI
         url: ego/user-guide/admin-ui
         pages:

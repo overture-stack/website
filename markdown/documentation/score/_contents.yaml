@@ -33,5 +33,5 @@ pages:
     url: score/user-guide/upload
   - title: Downloading Data
     url: score/user-guide/download
-  - title: Command Reference
+  - title: Score-Client Commands
     url: score/user-guide/commands
