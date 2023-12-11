@@ -56,6 +56,12 @@ docker run --env-file .env.ego -p 8081:8081 ghcr.io/overture-stack/ego:edge
 
 3. **Accessing Ego:**
 
+If successful you should see the following message:
+
+```bash
+[main] INFO  b.o.e.AuthorizationServiceMain - Started AuthorizationServiceMain in ... seconds (JVM running for ...)
+```
+
 Ego's Swagger UI should now be running and accessible at `http://localhost:8081/swagger-ui.html`
 
 # Admin-UI setup

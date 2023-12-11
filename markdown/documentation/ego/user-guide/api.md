@@ -19,35 +19,9 @@ In both of these scenarios, the user or application must first authenticate with
 
 # Retrieving Your Ego JWT
 
-To make valid requests to the Ego API, you will need to obtain an Ego JWT with administrative privileges.
+Log into the Ego-UI, and from the profile menu found in on the bottom of the left-hand panel select, **Copy My JWT**.
 
-To retrieve your Ego Admin JWT:
-
-1. Open your web browser and access the developer tools by clicking on the **Network tab**. Keep this tab open as we will need to extract our JWT after logging into the Ego Admin UI. The method to access the developer tools may vary depending on the browser you are using. For detailed instructions, please consult your browser's official documentation. For instance, in Google Chrome, you can open the menu located at the top right (click the three vertical dots ...), then navigate to **More Tools** > **Developer Tools**, and finally select the **Network tab**.
-
-![Entity](../assets/network-tab.png 'Network Tab')
-
-2. To confirm your administrative privileges from the Ego Admin UI, follow these steps:
-
- - Click on **Users** in the left-hand menu of the Ego Admin UI.
-
- - Select your user profile from the list that appears and confirm your user type is set to `ADMIN`
-
-![Entity](../assets/user-admin2.png 'Admin Role')
-
-3. From the **Network** tab in your browser's developer tools, search for a request with the suffix `ego-token?client_id=ego-ui`. Click on that request, and then navigate to the **Response** tab. Here, you will be able to view your Ego JWT.
-
-![Entity](../assets/ego-jwt.png 'Ego JWT')
-
-Alternatively, you can follow these steps:
-
-- Click the **Application** tab in your browser's developer tools.
-- On the left-hand side, navigate to **Local Storage** and select the Ego Admin UI URL.
-- Locate the `user-token`, which contains your Ego JWT.
-
-![Entity](../assets/local-storage.png 'Local Storage')
-
-4. Copy and record your JWT, and keep it secure and safe. Your JWT contains sensitive authorization information, and it should only be accessible to you. We will use this JWT for authorization with the Ego API.
+![Entity](../assets/copy-jwt.png)
 
 # Generating an API Key for a User
 

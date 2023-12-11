@@ -39,19 +39,15 @@ pages:
     url: dms/installation/test-upload
   - title: Demonstration Videos
     url: dms/installation/demos
-- title: Admin Guide
+- title: User Guide
   url: dms/admin-guide
   isHeading: true
   pages:
+  - title: Using the Data Portal
+    url: dms/user-guide/data-portal
   - title: Admin Tasks
     url: dms/admin-guide/tasks
   - title: Common Problems
     url: dms/admin-guide/common-problems
   - title: Command Reference
     url: dms/admin-guide/commands
-- title: User Guide
-  url: dms/user-guide
-  isHeading: true
-  pages:
-  - title: Using the Data Portal
-    url: dms/user-guide/data-portal
