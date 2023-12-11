@@ -12,8 +12,7 @@
     margin: 54px auto;
     background-color: $blue-block;
     box-sizing: border-box;
-    max-width: 350px;
-
+    max-width: 100%;
     @include breakpoint(tablet-up) {
       align-items: flex-start;
       max-width: 1147px;
@@ -25,12 +24,12 @@
       gap: 20px;
     }
 
-    @include breakpoint(navmenu-up) {
-      align-items: center;
-      max-width: 350px;
+    @media (min-width: 1161px) {
+      max-width: 100%;
     }
 
     @include breakpoint(desktop-ultra-wide) {
+      align-items: flex-start;
       max-width: 1147px;
     }
   }
@@ -60,20 +59,44 @@
       align-items: flex-start;
     }
 
-    @include breakpoint(navmenu-up) {
-      flex-direction: column;
-      max-width: 75%;
+    @media (min-width: 1161px) {
+      justify-content: center;
+      max-width: 100%;
     }
 
     @include breakpoint(desktop-ultra-wide) {
       max-width: none;
       flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
     > div {
       flex: 1;
       padding: 20px;
       box-sizing: border-box;
+    }
+  }
+
+  &__second-column,
+  &__third-column {
+    @media (min-width: 1161px) {
+      display: none;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      display: block;
+    }
+  }
+
+  &__joint-second-third-column {
+    display: none;
+    @media (min-width: 1161px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      display: none;
     }
   }
 

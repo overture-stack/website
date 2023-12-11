@@ -22,7 +22,7 @@ pages:
     - title: Other Bootstrap Properties
       url: score/installation/configuration/bootstrap
   - title: Authentication
-    url: score/installation/authentication
+    url: score/installation/configuration/authentication
 - title: User Guide
   url: score/user-guide
   isHeading: true
@@ -33,5 +33,5 @@ pages:
     url: score/user-guide/upload
   - title: Downloading Data
     url: score/user-guide/download
-  - title: Command Reference
+  - title: Score-Client Commands
     url: score/user-guide/commands

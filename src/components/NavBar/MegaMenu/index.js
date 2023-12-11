@@ -66,11 +66,11 @@ const data = {
           },
 
           {
-            to: '/documentation/dms/admin-guide/',
+            to: '/documentation/dms/admin-guide/tasks',
             text: 'For Administrators',
           },
           {
-            to: '/documentation/dms/user-guide/',
+            to: '/documentation/dms/user-guide/data-portal',
             text: 'For Users',
           },
         ],

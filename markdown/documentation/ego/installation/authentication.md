@@ -2,10 +2,10 @@
 title: Authentication
 ---
 
-Only a user with administrative privileges (i.e. role set to `ADMIN`) can log into the Ego [Admin UI](/documentation/ego/user-guide/admin-ui) and perform all admin operations without needing to interact directly with the API.
+Only users granted the `ADMIN` role have the privilege to access the Ego UI and perform administrative tasks without directly interfacing with the API. 
 
-However, there may often be cases where a user needs or wants to interact with the API endpoints directly over a command line interface (by issuing cURL commands) or using the Swagger UI.  In these scenarios, the user will need to first authenticate with the Ego API before using the endpoints.
+If you're looking for a comprehensive guide on how to navigate and use the Ego UI, please refer to our [guide on using the Ego UI](/documentation/ego/user-guide/admin-ui).
 
-Although an administrative user will typically use the Ego [Admin UI](/documentation/ego/user-guide/admin-ui) to perform operations, there may be scenarios where they wish to interact with the endpoints directly over a command line interface (by issuing cURL commands) or using the Swagger UI.  Applications may also need to programmatically interact with the Ego API.  In these scenarios, the user or application must first authenticate with the Ego API.
+While the Ego UI caters to most administrative tasks, there are instances where users or applications might prefer or need to interact directly with the API. This could be via a command line interface using cURL commands, through the Swagger UI, or for programmatic interactions by applications. Before leveraging these endpoints, it's essential to first authenticate with the Ego API.
 
-For a step-by-step example of how a user can authenticate with and use the Ego API, see [here](/documentation/ego/user-guide/api).
+For a detailed walkthrough on how users and applications can authenticate and interface with the Ego API, see our [guide on using the Ego API](/documentation/ego/user-guide/api).

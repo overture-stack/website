@@ -35,11 +35,7 @@ pages:
             url: song/user/api/update
       - title: Submitting Data 
         url: song/user/submit
-  - title: Admin Guide 
-    url: song/admin
-    isHeading: true
-    pages:
-      - title: Dynamic Schemas
+      - title: Schema Management
         url: song/admin/schemas
         pages: 
           - title: Making Schemas
@@ -50,9 +46,5 @@ pages:
             url: song/admin/schemas/managingschemas
       - title: Analysis Management
         url: song/admin/analysismanagement
-  - title: Reference
-    url: song/reference
-    isHeading: true
-    pages:
-      - title: Command Reference
+      - title: Song-Client Commands
         url: song/reference/commands
