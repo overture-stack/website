@@ -2,13 +2,18 @@
 title: Configuration
 ---
 
-Now that Ego has been successfully [installed](/documentation/ego/installation/installation) and the first user and first application have been configured, you are free to configure the other entities in Ego you need to meet your requirements.  This may include adding policies that govern permissions to your application, adding groups and users who will use your application, or even registering new applications.
+Now that Ego has been successfully installed and you have configured the first user and application, it's time to configure other settings in Ego. This may involve adding policies to govern application permissions, including groups and users who will utilize your application, or even registering new applications.
 
-Although the [API](/documentation/ego/user-guide/api) REST endpoints can be used for any Ego operations, it is highly recommended that administrators use the Admin UI where practical.  The web interface provides an easy-to-use, central place to manage all your applications, policies, groups, and users.
+<Note title="tip">While the API REST endpoints can handle all Ego operations, we highly recommend administrators to use the Ego UI whenever possible. The Ego UI offers a user-friendly and centralized environment to manage your applications, policies, groups, and users.</Note>
 
-For instructions on performing these tasks, see the relevant sections in the User Guide:
+Here we summarize relevant sections to check out within our user guide:
 
-* [Managing Applications](/documentation/ego/user-guide/admin-ui#managing-applications)
-* [Managing Policies](/documentation/ego/user-guide/admin-ui#managing-policies)
-* [Managing Groups](/documentation/ego/user-guide/admin-ui#managing-groups)
-* [Managing Users](/documentation/ego/user-guide/admin-ui#managing-users)
+- [Managing Applications](/documentation/ego/user-guide/admin-ui/applications): For step-by-step instructions to add, modify, or delete applications.
+
+- [Managing Policies](/documentation/ego/user-guide/admin-ui/policies): Information and guidelines for creating, modifying, and removing policies.
+
+- [Managing Groups](/documentation/ego/user-guide/admin-ui/groups): Information and guidelines for creating, modifying, and removing Groups.
+
+- [Managing Users](/documentation/ego/user-guide/admin-ui/users): Add, edit, or remove users and ensure proper access control within your applications.
+
+
