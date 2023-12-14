@@ -2,27 +2,31 @@
 title: Introduction
 ---
 
-With great data, comes great data responsibility.  Genomic data files are being generated at a fast pace and more and more laboratory groups are required a method to manage this fast growing pile of data. Song provides a metadata management and storage system to easily track and manage files in a secure and validated environment, against your established data model.  Some features are particularly tailored towards genomic files, but Song supports any data type! 
+Song is a metadata validation and tracking tool designed to streamline the management of genomics data across multiple cloud storage systems. With Song, users can create high-quality and reliable metadata repositories with minimal human intervention. As a metadata management system, Song does not handle file transfer and object storage. Song interacts with a required companion application, <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score</a>, which manages file transfers and object storage.
 
-# Features
-## Metadata to File Validation
-In conjunction with the data upload tool [Score](/documentation/score), Song provides:
-- Validation of file, clinical and administrative metadata associated with a file
-- Assignment of global identifiers for data management, managed by Song or an external ID database.
-- Assignment of access control permissions for open (public) versus controlled (authentication required) access to files by users who want to download data.
+![Entity](./assets/song_arch.png 'Song Architecture')
 
-## Data Lifecycle Management 
-Song manages a lifecycle of data publication from initial upload, to publication, and even eventual removal of data. 
-- Data administrators or applications can upload metadata and files, which remains in an `UNPUBLISHED` state. 
-- When data is ready for search and download, Data administrators or applications can make it available by updating to a `PUBLISHED` state.
-- If data is no longer relevant, the data administrators can update to a `SUPPRESSED` state, making it unavailable for search and download. 
+# Data Submission
 
-## Flexible Data Model 
-We recognize that there are a multitude of use cases for how different institutions may collect data elements.  With that in mind, Song is ultimately built to be flexible for any type of data model.  There is a small "base" data model that all Song deployments follow to track basic patient identifiers (in the context of genomic data), but beyond that any desired business rules can be encoded within Song's [Dynamic Schemas](/documentation/song/user-guide/schema), which are based on JSON Schema. 
+**Analysis Files:** An analysis is a description of a set of one or more files plus the metadata describing that collection of files.
+
+**Metadata Validation:** Analyses get validated against the administrator's Dynamic Schema. That defines the vocabulary and structure of the analysis document. 
+
+**Tracking of Metadata to File Data:** Once validated, the analysis document is stored in the Song repository and given an automated analysis ID. The analysis ID is then used when uploading all associated file data through Score. Analysis IDs associate the metadata stored in Song with the file data being transferred by score and stored in the cloud.
+
+# Data Administration
+
+**Dynamic Schemas:** The data administrator creates the Dynamic Schema, which again, provides the vocabulary for the structural validation of JSON formatted data (Analysis documents), for example, ensuring that required fields are present or that the contents of a field match the desired data type or allowed values.
+
+**Data Lifecycle Management:** Analyses uploaded to a Song repository are `UNPUBLISHED` by default. When data is ready for search and download, administrators can make it available by updating it to a `PUBLISHED` state. If data is no longer relevant, the data administrators can set it to a `SUPPRESSED` state, making it unavailable for search and download through downstream services. 
+
+<Note title="The Song Client">We created the `song-client` command line tool to streamline interactions with Songs REST API endpoints. For more information on what the `song-client` can do, see our [Song client command reference documentation](/documentation/song/reference/commands/).</Note>
 
 # Integrations
-As a metadata management system, Song does not handle the complexities of cloud file upload. To handle this, Song is built to interact with a required companion application, [Score](/documentation/score), which manages secure and fast file upload & download, as well as standard genomic file applications, for example   viewing with  `samtools` to view or download portions of genomic files with `BAM Slicing`. 
 
 As part of the larger Overture.bio software suite, Song can be optionally used with additional integrations, including:
-- **[Event Streaming](/documentation/song/installation/configuration/kafka):** Built-in support for [Apache Kafka](https://kafka.apache.org/) event streaming.  
-- **[Maestro](/documentation/maestro/):** Song is built to natively integrate with Maestro, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 
+
+- **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> event streaming allows other services to respond when analyses are registered and published.
+
+
+- **Maestro Indexing:** Song is built to natively integrate with <a href="/documentation/maestro/" target="_blank" rel="noopener noreferrer">Maestro</a>, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 

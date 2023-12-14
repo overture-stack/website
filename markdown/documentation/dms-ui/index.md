@@ -2,7 +2,7 @@
 title: Introduction
 ---
 
-The DMS-UI is a React-based user interface designed to prop up browser-accessible data portals. Although the DMS-UI can be used for any web application, it is designed to integrate with Overtures [Ego](/documentation/ego) and [Arranger](/documentation/arranger) microservices.
+The DMS-UI is a React-based user interface designed to prop up browser-accessible data portals. Although the DMS-UI can be used for any web application, it is designed to integrate with Overtures <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> and <a href="/documentation/arranger" target="_blank" rel="noopener noreferrer">Arranger</a> microservices.
 
 ## Features
 

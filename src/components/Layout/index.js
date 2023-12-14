@@ -106,6 +106,8 @@ class TemplateWrapper extends Component {
         <Helmet>
           <title>{config.siteTitle}</title>
           <meta name="description" content={config.siteDescription} />
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Helmet>
         <NavBar
           closeMenus={this.closeMenus}

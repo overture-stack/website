@@ -7,67 +7,141 @@
   background: $white;
   color: $navy-dark;
 
-  .copyright {
-    font-weight: 500;
-  }
-
-  .footer-grey {
-    display: flex;
-    height: 65px;
-    font-size: 14px;
-    @media (min-width: $tablet) {
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    &__text {
-      display: flex;
-      justify-content: center;
-      span {
-        padding: 0 8px;
-      }
-      @media (min-width: $tablet) {
-        flex-direction: row;
-      }
-      @media (min-width: $mobile) {
-        align-items: center;
-        justify-content: flex-start;
-        font-size: 16px;
-      }
-    }
-  }
-
   .footer-white {
-    padding: 38px 0;
+    padding: 38px 12px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 40px;
+      padding-left: 2.5em;
+    }
 
     &__oicr-logo {
       width: 138px;
       height: auto;
-      margin-left: -10px;
+    }
+
+    &__links-holder {
+      max-height: 240px;
+      min-width: 320px;
+
+      @media (max-width: 440px) {
+        max-height: fit-content;
+      }
+
+      @include breakpoint(tablet-up) {
+        min-width: 550px;
+        max-height: 400px;
+      }
+      @include breakpoint(desktop-up) {
+        min-width: 640px;
+      }
     }
   }
 
-  .column-container {
+  .links-container {
     display: flex;
-    min-width: 1000px;
-    margin-left: 38px;
+    flex-flow: column wrap;
+    max-height: 180px;
+    row-gap: 2.2em;
+    column-gap: 6em;
+    margin: 2em 0;
 
-    &__group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
+    @media (max-width: 440px) {
+      flex-wrap: nowrap;
+      max-height: fit-content;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include breakpoint(tablet-up) {
+      max-height: 120px;
+      margin-left: 2.6em;
+      row-gap: 1.4em;
+      column-gap: 5em;
+    }
+
+    @include breakpoint(desktop-up) {
+      max-height: 90px;
+      row-gap: 1.2em;
+      column-gap: 4em;
     }
 
     &__link {
+      display: flex;
+      justify-content: flex-start;
       text-decoration: none;
       color: $navy-dark;
       font-weight: 700;
       &:hover {
         color: $pink-darker;
+      }
+
+      @include breakpoint(desktop-up) {
+        width: 170px;
+        margin: 5px 0;
+      }
+    }
+  }
+
+  .netlify-badge-mobile {
+    @include breakpoint(tablet-up) {
+      display: none;
+    }
+  }
+
+  .netlify-badge-tablet {
+    display: none;
+    @include breakpoint(tablet-up) {
+      display: block;
+    }
+    @include breakpoint(desktop-up) {
+      display: none;
+    }
+  }
+
+  .netlify-badge-desktop {
+    display: none;
+    @include breakpoint(desktop-up) {
+      display: block;
+    }
+  }
+
+  .footer-grey {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    font-size: 14px;
+
+    @include breakpoint(desktop-up) {
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__top-container-mobile {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+    }
+
+    &__text {
+      font-size: 16px;
+      font-weight: 400;
+
+      span {
+        padding: 0 8px;
+      }
+
+      @include breakpoint(tablet-up) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
       }
     }
   }

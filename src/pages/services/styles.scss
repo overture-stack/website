@@ -2,74 +2,62 @@
 @import '../../styles/variables';
 
 .ServicesPage {
-  p,
-  li {
-    font-family: $font-sans-serif;
-    font-size: 18px;
-    letter-spacing: 0;
-    line-height: 30px;
-    color: $navy-black;
-  }
+  .Hero {
+    height: fit-content;
 
-  .services-top-hero {
-    background-image: url('./assets/hero_img.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
-    height: 600px;
-    background-position-y: 0px;
-    display: flex;
-    justify-content: center;
-
-    @include breakpoint(mobile) {
-      height: auto;
-      padding: 16px;
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hero_services.svg');
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 0;
+      background-size: 460px;
+      height: 430px;
     }
 
-    @media (min-width: 1300px) {
-      background-size: 50%;
+    @include breakpoint(desktop-up) {
+      background-size: 600px;
     }
 
-    @media (max-width: 768px) {
-      background-image: none;
+    @include breakpoint(desktop-wide) {
+      background-position-x: 105%;
     }
 
-    @media (max-width: 1000px) {
-      background-size: 50%;
+    @include breakpoint(desktop-ultra-wide) {
+      background-position-x: 81%;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.8em;
+
+      @include breakpoint(tablet-up) {
+        align-items: start;
+        text-align: left;
+      }
+    }
+
+    &__subtitle {
+      @include breakpoint(tablet-up) {
+        width: 45%;
+      }
+    }
+
+    .container {
+      @include breakpoint(tablet-up) {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
-  .consulting-hero {
-    background-image: url('./assets/consulting.svg');
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: contain;
-    background-position-x: 20%;
-    height: 600px;
-  }
+  .container {
+    padding: 80px 32px;
 
-  .hero-subheader {
-    font-family: $font-sans-serif;
-    font-size: 24px;
-    color: $navy-black;
-    letter-spacing: 0;
-    line-height: 40px;
-  }
-
-  .bottom-hero {
-    margin-top: 64px;
-    padding: 64px 0 128px 0;
-    background-image: url('./assets/footer_img.svg');
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-position-x: 400px;
-  }
-
-  .bottom-header {
-    font-family: $font-sans-serif;
-    font-size: 40px;
-    color: $navy-black;
-    letter-spacing: 0;
-    line-height: 68px;
+    @include breakpoint(tablet-up) {
+      padding: 4em 4.4em;
+    }
   }
 }

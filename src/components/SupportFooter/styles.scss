@@ -1,0 +1,121 @@
+@import '../../styles/colors';
+@import '../../styles/variables';
+
+.support-footer {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 2em 1.5em;
+    margin: 54px auto;
+    background-color: $blue-block;
+    box-sizing: border-box;
+    max-width: 100%;
+    @include breakpoint(tablet-up) {
+      align-items: flex-start;
+      max-width: 1147px;
+    }
+
+    @include breakpoint(desktop-up) {
+      height: auto;
+      justify-content: space-evenly;
+      gap: 20px;
+    }
+
+    @media (min-width: 1161px) {
+      max-width: 100%;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      align-items: flex-start;
+      max-width: 1147px;
+    }
+  }
+
+  &__title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 36px;
+    padding: 0 20px;
+  }
+
+  &__sub-title {
+    font-size: 1em;
+    line-height: 24px;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(tablet-up) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 1161px) {
+      justify-content: center;
+      max-width: 100%;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      max-width: none;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    > div {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__second-column,
+  &__third-column {
+    @media (min-width: 1161px) {
+      display: none;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      display: block;
+    }
+  }
+
+  &__joint-second-third-column {
+    display: none;
+    @media (min-width: 1161px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      display: none;
+    }
+  }
+
+  .icon-inverted {
+    filter: brightness(110%);
+  }
+}
+
+.feedback-buttons-holder {
+  display: flex;
+  gap: 10px;
+
+  .feedback-button {
+    width: 50px;
+    height: 50px;
+    border-width: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    border-style: hidden;
+    background-color: $blue-block;
+  }
+}

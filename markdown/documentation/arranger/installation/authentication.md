@@ -26,4 +26,4 @@ ES_BASIC_AUTH := $(shell printf "$(ES_USER):$(ES_PASS)" | base64)
 
 2. Modify the `ES_USER` and `ES_PASS` to the credentials of your choice.
 
-3. Run the installation as normal. Our Installation guide can be [found here](/documentation/arranger/installation/installation).
+3. Run the installation as normal. Our Installation guide can be <a href="/documentation/arranger/installation/installation" target="_blank" rel="noopener noreferrer">found here</a>.

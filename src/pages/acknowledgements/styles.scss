@@ -2,23 +2,73 @@
 @import '../../styles/variables';
 
 .AcknowlegementsPage {
-  .grey {
-    background-color: $grey-2;
+  .Hero {
+    padding: 0;
+
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hero_acknowledgements_full.svg');
+      background-repeat: no-repeat;
+      background-position-y: -360px;
+      background-position-x: 560px;
+      background-size: 580px;
+    }
+
+    @include breakpoint(desktop-up) {
+      background-position-y: -360px;
+      background-position-x: 640px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      background-position-y: -480px;
+      background-position-x: 108%;
+      background-size: 680px;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      background-position-x: 81%;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.8em;
+
+      @include breakpoint(tablet-up) {
+        align-items: start;
+        text-align: left;
+      }
+    }
+
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
+        max-width: 440px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 580px;
+      }
+    }
   }
 
   .container {
-    padding: 80px 0;
-    display: flex;
-    flex-direction: column;
+    padding: 50px 32px;
 
-    &__content {
+    @include breakpoint(tablet-up) {
+      padding: 3.8em 3.8em;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-      @media (max-width: $tablet) {
-        padding: 0 80px;
-        flex-direction: column;
-        gap: 80px;
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
+        max-width: 440px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 570px;
       }
     }
   }
@@ -26,13 +76,28 @@
   .header {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 3.5em;
+  }
 
-    @media (max-width: $tablet) {
-      padding: 0 80px;
+  .detail-holder {
+    display: flex;
+    gap: 2.5em;
+    flex-direction: column;
+
+    @include breakpoint(desktop-up) {
+      flex-direction: row;
+      gap: 6.5em;
     }
   }
 
-  .bullet {
-    padding-left: 0;
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+
+    @include breakpoint(desktop-up) {
+      width: 50%;
+    }
   }
 }

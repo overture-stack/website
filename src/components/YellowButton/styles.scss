@@ -9,11 +9,13 @@
     flex-direction: column;
     text-decoration: none;
     align-items: center;
-    gap: 2rem;
+    gap: 0.8em;
   }
 
   &__title {
     font-family: $font-sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 8px;
     font-weight: 700;
     font-size: 24px;
     color: $navy-black;
@@ -25,5 +27,50 @@
   &__text {
     width: 320px;
     text-align: center;
+  }
+
+  &__product-page-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1.6em;
+    @include breakpoint(mobile) {
+      margin-top: 1.8em;
+      gap: 0px;
+      column-gap: 10px;
+    }
+
+    @include breakpoint(tablet-up) {
+      flex-direction: column;
+    }
+  }
+  &__product-page-img {
+    margin-bottom: 20px;
+    @include breakpoint(mobile) {
+      width: 50px;
+      margin-right: 0.4em;
+    }
+  }
+
+  &__product-page-title {
+    max-width: 260px;
+    text-align: left;
+  }
+
+  &__product-page-text {
+    min-width: 350px;
+    text-align: left;
+    @include breakpoint(tablet-up) {
+      min-width: 320px;
+      text-align: center;
+    }
+  }
+
+  &__disable-hover-event {
+    pointer-events: none;
+  }
+
+  &__remove-underline-css {
+    text-decoration: none;
   }
 }

@@ -1,220 +1,236 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link } from 'components';
+import imgScreenshotDMS from './assets/img_DMS_screenshot.png';
 import {
-  Badge,
-  CanarieCredits,
-  ComingSoonBadge,
-  Button,
-  Icon,
-  LinkHelper as Link,
-  Search,
-} from 'components';
-import {
-  DOCS_DMS_ADMIN_CUSTOMIZE_LINK,
-  DOCS_DMS_INSTALL_LINK,
-  DOCS_DMS_INSTALL_DEMO,
-} from 'constants/docs';
-import { DMS_RELEASE_NOTES, OVERTURE_GITHUB_LINK } from 'constants/external-links';
-import consultingSvg from './assets/consulting.svg';
-import techSupportSvg from './assets/techSupport.svg';
+  OVERTURE_GITHUB_LINK,
+  GITHUB_ISSUES_LINK,
+  SLACK_LINK,
+  EGO_GITHUB_LINK,
+  SONG_GITHUB_LINK,
+  MAESTRO_GITHUB_LINK,
+  ARRANGER_GITHUB_LINK,
+  SCORE_GITHUB_LINK,
+  DMS_UI_GITHUB_LINK,
+} from 'constants/external-links';
+import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import './styles.scss';
 
-const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
-
-const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
-
-const productSections = [
-  {
-    title: 'Generate & Upload',
-    color: 'pink',
-    cards: [
-      {
-        icon: 'productScore',
-        link: '/documentation/score/',
-        text: 'Facilitates the transfer and storage of data seamlessly for cloud-based products.',
-        title: 'Score',
-      },
-      {
-        icon: 'productSong',
-        link: '/documentation/song/',
-        text: 'Tracks genomic data scattered across multiple cloud storage systems.',
-        title: 'Song',
-      },
-    ],
-  },
-  {
-    title: 'Access & Download',
-    color: 'blue',
-    cards: [
-      {
-        icon: 'productEgo',
-        link: '/documentation/ego/',
-        text: 'Authorization services for identity providers such as Google and Facebook.',
-        title: 'Ego',
-      },
-      {
-        icon: 'productMaestro',
-        link: '/documentation/maestro/',
-        text: 'Manages geographically distributed data with a single, configurable index.',
-        title: 'Maestro',
-      },
-      {
-        icon: 'productArranger',
-        link: '/documentation/arranger/',
-        text: 'Provides the power to organize your data into an intuitive search interface.',
-        title: 'Arranger',
-      },
-    ],
-  },
-  {
-    title: 'Analyze & Discover',
-    color: 'red',
-    cards: [
-      {
-        comingSoon: true,
-        icon: 'productJukebox',
-        link: '/documentation/jukebox/',
-        text: 'Automates set-up and deployment of JupyterHub.',
-        title: 'Jukebox',
-      },
-      {
-        comingSoon: true,
-        icon: 'productOnco',
-        link: '/documentation/oncojs/',
-        text: 'Brings data to life with stunning visualizations and real-time analysis.',
-        title: 'OncoJS',
-      },
-    ],
-  },
-  {
-    title: 'Collaborate & Share',
-    color: 'green',
-    cards: [
-      {
-        comingSoon: true,
-        icon: 'productPersona',
-        link: '/documentation/persona/',
-        text: 'Provides an easy-to-use solution for storing profile information.',
-        title: 'Persona',
-      },
-      {
-        comingSoon: true,
-        icon: 'productRiff',
-        link: '/documentation/riff/',
-        text: 'Allows you to save user queries and states and share them through short URLs.',
-        title: 'Riff',
-      },
-    ],
-  },
-];
-
-export default function DocumentationPage() {
+export default function GettingStartedPage() {
+  const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
+  const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
   return (
-    <main className="DocumentationLandingPage">
-      {/* HERO */}
-      <div className="hero">
+    <main className="GettingStartedPage">
+      <Helmet>
+        <title>Overture Getting Started</title>
+        <meta
+          name="description"
+          content="Overture is about flexible solutions that meet the diverse needs of the scientific community. Here's how you can get started with our software."
+        />
+        <meta
+          name="keywords"
+          content="Overture, data science software, bioinformatics software, open-source software, cancer research, academic collaborations, grant co-applicant, software consulting, project architecture, migration, custom development, scalability, technical support, troubleshooting, Ontario Institute for Cancer Research, OICR, Canarie, DMS Command Line Interface, The National Cancer Institutes Informatics Technology for Cancer Research Program, NCI ITCR, Overture DMS, GA4GH passport system"
+        />
+      </Helmet>
+
+      {/* upper grey section */}
+
+      <section className="upper-grey-section grey-bg">
         <div className="container">
-          <div className="image image-consulting">
-            <img alt="" src={consultingSvg} />
-          </div>
-          <div className="search__container">
-            <h1>How can we help?</h1>
-            <Search indices={searchIndices} />
-          </div>
-          <div className="image image-techsupport">
-            <img alt="" src={techSupportSvg} />
-          </div>
-        </div>
-      </div>
-      {/* DMS & HELP BY TOPIC */}
-      <div className="documentation-section">
-        <section className="container">
-          <div className="columns">
-            <div className="column">
-              <h2>Data Management System (DMS)</h2>
-              <p>
-                The DMS is an Overture product bundle that allows users to easily install a data
-                portal for their own data with a few simple configurations.
-              </p>
-              <div className="dms-row">
-                <Icon img="productDMS" size={40} />
-                <div className="dms-row__text">
-                  {'DMS = Score + Song + Ego + Maestro + Arranger'.split(' ').map((word, i) => (
-                    <span key={`${word}${i}`}>{word}</span>
-                  ))}
+          <div className="upper-grey-section__holder">
+            {/* top left floating hexagons */}
+            <div className="upper-grey-section__titles-holder">
+              <H1>Explore Our Documentation</H1>
+            </div>
+            <div className="upper-grey-section__search-bar-holder">
+              <Search indices={searchIndices} />
+            </div>
+
+            {/* User Documentation Section */}
+            <div className="upper-grey-section__docs-holder">
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>User Documentation</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* User Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item menu-selection-link">
+                        <Link className="menu-selection-link" to="/documentation/ego">
+                          Ego
+                        </Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/song">Song</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/score">Score</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* User Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/maestro">Maestro</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/arranger">Arranger</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/dms-ui">DMS-UI</Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-              <Button type="primary" size="medium" link={DOCS_DMS_INSTALL_LINK}>
-                Installation Instructions
-              </Button>
-              <CanarieCredits wide />
-            </div>
-            <div className="column">
-              <h2>Help by Topic</h2>
-              <ul>
-                {/* <li>
-                  How can I <Link to="">extend the DMS system</Link> to include other
-                  Overture products?
-                </li> */}
-                <li>
-                  How do I{' '}
-                  <Link to={DOCS_DMS_ADMIN_CUSTOMIZE_LINK}>customize the look of my DMS</Link>?
-                </li>
-                <li>
-                  Where can I find the <Link to={DMS_RELEASE_NOTES}>release notes</Link> for the DMS
-                  and each product?
-                </li>
-                <li>
-                  How can I <Link to={OVERTURE_GITHUB_LINK}>get involved</Link> with this open
-                  source project?
-                </li>
-                <li>
-                  Where can I <Link to={DOCS_DMS_INSTALL_DEMO}>see these products in action</Link>?
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
-      {/* PRODUCT DOCUMENTATION SECTION */}
-      <div className="product-section bg-grey">
-        <section className="container">
-          <h2>Product Documentation</h2>
-          <div className="columns">
-            {productSections.map(section => (
-              <div className="product-column column" key={section.title}>
-                <Badge color={section.color}>{section.title}</Badge>
-                {section.cards.map(card => {
-                  const SectionCard = () => (
-                    <div className="product-card">
-                      <div className="product-card__title">
-                        <Icon size={32} img={card.icon} />
-                        <h3>{card.title}</h3>
-                        {card.comingSoon && !ENABLE_DRAFTS && (
-                          <ComingSoonBadge style={{ position: 'absolute', right: 10, top: 10 }} />
-                        )}
-                      </div>
-                      <p>{card.text}</p>
-                      {(!card.comingSoon || ENABLE_DRAFTS) && (
-                        <div className="chevron-link">
-                          <span>Docs</span> <Icon size={12} img="arrowRightMagenta" />
-                        </div>
-                      )}
-                    </div>
-                  );
-                  return card.comingSoon && !ENABLE_DRAFTS ? (
-                    <SectionCard key={card.title} />
-                  ) : (
-                    <Link to={card.link} key={card.title}>
-                      <SectionCard />
-                    </Link>
-                  );
-                })}
+
+              {/* Developer Documentation Section */}
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>Developer Documentation</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* Developer Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Ego</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={SONG_GITHUB_LINK}>Song</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={SCORE_GITHUB_LINK}>Score</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Developer Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={MAESTRO_GITHUB_LINK}>Maestro</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={ARRANGER_GITHUB_LINK}>Arranger</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={DMS_UI_GITHUB_LINK}>DMS-UI</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* middle white background section */}
+      <section className="mid-white-section">
+        <div className="container">
+          <div className="mid-white-section__holder">
+            {/* div that holds non-image */}
+            <div className="mid-white-section__non-img-holder">
+              <div className="mid-white-section__title-holder">
+                <H2>Getting Started</H2>
+              </div>
+              <div className="mid-white-section__subtitle-holder">
+                <H3>The Overture Data Management System (DMS)</H3>
+              </div>
+
+              <div className="mid-white-section__content-holder">
+                {/* this img holding div only display in mobile/tablet view. This is for grouping and for the order of divs that appear on the page */}
+                <div className="mid-white-section__mobile-tablet-img-holder mid-white-section__img-holder">
+                  <img
+                    alt="DMS screenshot"
+                    src={imgScreenshotDMS}
+                    className="mid-white-section__img"
+                  />
+                </div>
+                <div className="mid-white-section__text-button-holder">
+                  <div className="mid-white-section__text-holder">
+                    <P1>
+                      <span>
+                        Built from our core collection of microservices, the DMS offers turnkey
+                        installation, configuration, and deployment of the Overture software.
+                      </span>
+                      <br />
+                      <br />
+                      <span>
+                        While a custom solution will offer greater scalability, the DMS is an ideal
+                        starting point for anyone looking to explore Overture and experience how our
+                        microservices work in concert to create comprehensive data management
+                        systems.
+                      </span>
+                    </P1>
+                  </div>
+                  <div className="mid-white-section__button-holder">
+                    <Button
+                      type="primary"
+                      size="medium"
+                      className="mid-white-section__button"
+                      link={DOCS_DMS_INSTALL_LINK}
+                    >
+                      Installation Instructions
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* this img holding div is for desktop and larger view */}
+            <div className="mid-white-section__desktop-img-holder mid-white-section__img-holder">
+              <img alt="DMS screenshot" src={imgScreenshotDMS} className="mid-white-section__img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* lower grey section */}
+      <section className="lower-grey-section grey-bg">
+        <div className="container">
+          <div className="lower-grey-section__holder">
+            <div className="lower-grey-section__titles-holder">
+              <div className="lower-grey-section__title-holder">
+                <h1 className="lower-grey-section__title">Connect with Our Community</h1>
+              </div>
+              <div className="lower-grey-seciton__subtitle-holder">
+                <P3 className="lower-grey-section__subtitle-mobile-tablet">
+                  Join us in contributing software tools that accelerate scientific discovery.
+                </P3>
+                <P3 className="lower-grey-section__subtitle-desktop">
+                  Get help, share knowledge, and stay current.
+                </P3>
+              </div>
+            </div>
+            <div className="lower-grey-section__yellow-buttons-holder">
+              <YellowButton
+                link={SLACK_LINK}
+                img_src="slackJoin"
+                alt="Join Us on Slack"
+                title="Join Us on Slack"
+              />
+              <YellowButton
+                link={OVERTURE_GITHUB_LINK}
+                img_src="githubFindUs"
+                alt="Find Us on Github"
+                title="Find Us on Github"
+              ></YellowButton>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* lower blue section - only shows in desktop viewport */}
+      <section className="lower-blue-section blue-bg">
+        <div className="lower-blue-section__text-holder">
+          <H3 className="lower-blue-section__text">
+            Do you have a suggestion? Are we missing anything?
+            <Link to={GITHUB_ISSUES_LINK}>Let us know</Link>
+          </H3>
+        </div>
+      </section>
     </main>
   );
 }

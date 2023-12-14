@@ -6,155 +6,114 @@ $cs-break: 1000px;
 
 // -- Styles for the parent component : index.js -------------------------------
 .CaseStudiesPage {
-  font-size: 18px;
-  line-height: 30px;
+  .Hero {
+    @include breakpoint(tablet-up) {
+      background-image: url('./assets/img_hero_case_studies.svg');
+      background-repeat: no-repeat;
+      background-position-y: -110px;
+      background-position-x: 400px;
+      background-size: 600px;
+    }
 
-  .image {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position: 96%;
+    @include breakpoint(desktop-up) {
+      background-position-y: -140px;
+      background-position-x: 500px;
+      background-size: 700px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      background-position-x: 105%;
+    }
+
+    @include breakpoint(desktop-ultra-wide) {
+      background-position-x: 79%;
+    }
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.8em;
+
+      @include breakpoint(tablet-up) {
+        align-items: start;
+        text-align: left;
+      }
+    }
+
+    &__subtitle {
+      max-width: 330px;
+      @include breakpoint(tablet-up) {
+        max-width: 360px;
+      }
+      @include breakpoint(desktop-up) {
+        max-width: 560px;
+      }
+    }
+  }
+
+  .container {
+    padding: 60px 32px;
+    @include breakpoint(tablet-up) {
+      padding: 3.5em 2.8em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }
 
 // -- Component: case-study.js styles ------------------------------------------
 .Case-Study {
-  padding: 64px 0;
-  @media (max-width: $cs-break) {
-    padding-top: 16px;
-    padding-bottom: 0;
-  }
-
   .top-segment {
-    margin-bottom: 32px;
-    padding: 32px;
+    margin-bottom: 2em;
+  }
+  .case-heading {
+    margin-bottom: 2em;
+    @include breakpoint(tablet-up) {
+      margin-bottom: 4.2em;
+      margin-top: 0.8em;
+    }
   }
 
-  .case-heading {
-    text-align: center;
+  .columns {
+    gap: 30px;
+  }
+
+  .top-bullets {
+    margin-bottom: 2em;
+  }
+
+  .img-holder {
+    display: flex;
+    justify-content: center;
+    @include breakpoint(desktop-up) {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   }
 
   .client-list-item {
     list-style-type: disc;
-    margin-left: 20px;
   }
 
-  .client-logo {
-    padding: 8px 16px 8px 0;
-    float: left;
-    margin-bottom: 16px;
-    max-width: 240px;
-
-    @media (max-width: $cs-break) {
-      float: none;
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-      padding-bottom: 48px;
-    }
-    .overture-list-item {
-      padding-left: 10px;
-    }
+  .lower-title-holder {
+    margin-bottom: 20px;
   }
-
-  /* Contains all details of the case study - broken into left and right sections.*/
-  /* This is the section where you can click through different screenshots of the study.*/
-  .details {
+  .button-holder {
+    margin-top: 48px;
     display: flex;
-    @media (max-width: $cs-break) {
-      flex-direction: column;
-      padding: 32px 0;
+    justify-content: center;
+    @include breakpoint(tablet-up) {
+      justify-content: flex-start;
+      margin-top: 20px;
     }
   }
 
-  .details-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    @media (max-width: $cs-break) {
-      order: 2;
-    }
-  }
-
-  .details-right-item {
-    display: flex;
-    padding: 16px 0;
-    align-items: baseline;
-    cursor: pointer;
-
-    &:hover {
-      .details-right-title,
-      .details-right-description {
-        color: $navy-black;
-      }
-    }
-
-    &.active {
-      .details-right-title,
-      .details-right-description {
-        color: $navy-black;
-      }
-    }
-  }
-
-  .details-right-title {
-    min-width: 120px;
-    font-weight: 700;
-    font-size: 20px;
-    color: #b9e3f6;
-    letter-spacing: 0;
-    padding-left: 12px;
-
-    &.active {
-      border-left: 3px solid $yellow;
-      padding-left: 9px;
-    }
-  }
-
-  .details-right-description {
-    color: #b9e3f6;
-    padding-left: 8px;
-    font-size: 18px;
-    letter-spacing: 0;
-  }
-
-  .details-left {
-    flex: 1.3;
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-
-    @media (max-width: $cs-break) {
-      padding: 0;
-      margin-top: -128px;
-      margin: -96px 0 32px;
-      flex-direction: column;
-    }
-  }
-
-  .screenshot-arrow-right {
-    left: -50px;
-    top: 50%;
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-
-    @media (max-width: 1000px) {
-      left: -20px;
-    }
-  }
-
-  .screenshot-arrow-left {
-    top: 50%;
-    position: absolute;
-    z-index: 1;
-    right: -20px;
-    cursor: pointer;
-  }
-
-  .details-left-browser-wrapper {
-    margin-top: 32px;
-    @media (max-width: $cs-break) {
-      margin-left: 0px;
+  .indent-group {
+    @include breakpoint(desktop-up) {
+      margin-left: 20px;
     }
   }
 }
@@ -164,15 +123,27 @@ $cs-break: 1000px;
   width: 100%;
   background: $white;
   border-top: 1px solid $white;
-  padding: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease;
+  padding: 18px 0;
   top: 60px;
 
+  &__scroll-container {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+
+    @include breakpoint(desktop-up) {
+      justify-content: flex-start;
+    }
+    @include breakpoint(desktop-wide) {
+      justify-content: center;
+    }
+  }
+
   &.nav-fixed {
-    position: fixed;
+    position: sticky;
     border-bottom: 1px solid #dbdbdb;
     z-index: 2;
     top: 60px;
@@ -181,21 +152,19 @@ $cs-break: 1000px;
     }
   }
 
+  .nav-item-container {
+    display: inline;
+    min-width: 160px;
+  }
+
   .nav-item {
     width: 180px;
     cursor: pointer;
     height: 80px;
-    margin: 8px 18px;
-    background-repeat: no-repeat;
+    margin: 8px 10px;
     background-color: $bg-color;
     border-radius: 15px;
-
-    // the active classname is important when we work on highlighted section later on
-    // &.active {
-    //   transform: scale(1.05);
-    //   border-style: solid;
-    //   border-width: 2px;
-    // }
+    image-rendering: -webkit-optimize-contrast;
 
     &:hover {
       box-shadow: 1px 4px 5px grey;

@@ -24,62 +24,55 @@ const data = {
         title: 'Products',
         color: 'dark-blue',
         links: [
-          [
-            {
-              to: 'documentation/song',
-              text: 'Song',
-            },
-            {
-              to: 'documentation/score',
-              text: 'Score',
-            },
-          ],
-          [
-            {
-              to: 'documentation/maestro',
-              text: 'Maestro',
-            },
-            {
-              to: 'documentation/arranger',
-              text: 'Arranger',
-            },
-          ],
-          [
-            {
-              to: 'documentation/ego',
-              text: 'Ego',
-            },
-            {
-              to: 'documentation/dms',
-              text: 'DMS-UI',
-            },
-          ],
+          {
+            to: 'documentation/song',
+            text: 'Song',
+          },
+          {
+            to: 'documentation/score',
+            text: 'Score',
+          },
+
+          {
+            to: 'documentation/maestro',
+            text: 'Maestro',
+          },
+          {
+            to: 'documentation/arranger',
+            text: 'Arranger',
+          },
+
+          {
+            to: 'documentation/ego',
+            text: 'Ego',
+          },
+          {
+            to: 'documentation/dms-ui',
+            text: 'DMS-UI',
+          },
         ],
       },
       {
         title: 'dms bundle',
         color: 'yellow-green',
         links: [
-          [
-            {
-              to: '/documentation/dms/',
-              text: 'Introduction',
-            },
-            {
-              to: '/documentation/dms/installation/installation',
-              text: 'How to Install',
-            },
-          ],
-          [
-            {
-              to: '/documentation/dms/admin-guide/',
-              text: 'For Administrators',
-            },
-            {
-              to: '/documentation/dms/user-guide/',
-              text: 'For Users',
-            },
-          ],
+          {
+            to: '/documentation/dms/',
+            text: 'Introduction',
+          },
+          {
+            to: '/documentation/dms/installation/installation',
+            text: 'How to Install',
+          },
+
+          {
+            to: '/documentation/dms/admin-guide/tasks',
+            text: 'For Administrators',
+          },
+          {
+            to: '/documentation/dms/user-guide/data-portal',
+            text: 'For Users',
+          },
         ],
       },
     ],
@@ -118,9 +111,10 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
             <div>{explore.text}</div>
           </div>
 
-          <div className="chevron-link">
+          <div className="documentation-link">
             <Link to={explore.link.to} onClick={() => closeMenus()}>
-              {explore.link.text} <Icon size={12} img="arrowRightMagenta" />
+              {explore.link.text}
+              <Icon size={12} img="arrowRightMagenta" className="red-arrow" />
             </Link>
           </div>
         </section>
@@ -130,18 +124,16 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
             <div className="menu-section-heading">
               <Badge color={section.color}>{section.title}</Badge>
             </div>
-            <div className="menu-select-container">
+
+            <ul
+              className={`menu-section-links ${section.color}-section ${
+                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+              }`}
+            >
               {section.links.map((link) => (
-                <ul
-                  className={`menu-section-links ${
-                    verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
-                  }`}
-                >
-                  <li key={link[0].text}>{MenuItem(link[0])}</li>
-                  <li key={link[1].text}>{MenuItem(link[1])}</li>
-                </ul>
+                <li key={link.text}>{MenuItem(link)}</li>
               ))}
-            </div>
+            </ul>
           </section>
         ))}
       </div>

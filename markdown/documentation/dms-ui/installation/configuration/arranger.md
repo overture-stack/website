@@ -2,7 +2,7 @@
 title: Integrating Arranger
 ---
 
-Before integrating, make sure to have Arranger Server running correctly and connected to an Elasticsearch instance. For instructions on setting that up, see our [Arranger documentation here](https://overture.bio/documentation/arranger)
+Before integrating, make sure to have Arranger Server running correctly and connected to an Elasticsearch instance. For instructions on setting that up, see our <a href="https://overture.bio/documentation/arranger" target="_blank" rel="noopener noreferrer">Arranger documentation here</a>
 
 1. Copy or rename the `.env.schema` file as `.env.local`.
 
@@ -13,7 +13,7 @@ Before integrating, make sure to have Arranger Server running correctly and conn
 ######### Arranger
 NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE=file 
 NEXT_PUBLIC_ARRANGER_INDEX=file_centric_1.0
-NEXT_PUBLIC_ARRANGER_API_URL=http://localhost:5000/
+NEXT_PUBLIC_ARRANGER_API_URL=http://localhost:5050/
 # Columns are field names separated by commas, with or without quotes
 # this is where you'd provide here the fields you want to use for manifest downloads
 # NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=fieldName, "fieldName", 'fieldName'
