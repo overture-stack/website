@@ -26,6 +26,8 @@
       url: maestro/
       isHeading: true
       pages:
+        - title: Managing Index Mappings
+          url: maestro/admin-guide/mappings
         - title: Indexing Data
           url: maestro/user-guide
           pages:
@@ -35,9 +37,3 @@
               url: maestro/user-guide/study
             - title: Analysis Indexing
               url: maestro/user-guide/analysis
-    - title: Admin Guide
-      url: maestro/admin-guide
-      isHeading: true
-      pages:
-        - title: Managing Index Mappings
-          url: maestro/admin-guide/mappings
