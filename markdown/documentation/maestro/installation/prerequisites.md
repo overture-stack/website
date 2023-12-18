@@ -9,8 +9,9 @@ Before installing Maestro, ensure that the following software services are insta
     - [Official Docker Engine download & installation instructions](https://docs.docker.com/engine/install/)
 
 
-2. **Elasticsearch & Apache Kafak**
-    - Instructions below
+2. **Elasticsearch & Apache Kafka**
+    - Elasticsearch is a search and analytics engine, and Apache Kafka is a distributed streaming platform. Both are essential for processing and indexing data in Maestro.
+    - Instructions for setup are provided below.
 
 
 4. **Song**
@@ -19,7 +20,7 @@ Before installing Maestro, ensure that the following software services are insta
 
 ## Setting up Elasticsearch and Kafka
 
-[Explaination of why this is required]
+Maestro uses Kafka for efficient data processing from incoming Song servers and Elasticsearch for indexing this data. Follow these steps to set up both services:
 
 1. **Create a docker-compose file**
 
@@ -62,5 +63,9 @@ services:
 
 2. **Run the docker-compose**
 
-Save the file and run the command `docker-compose up`
+After saving the docker-compose.yml file, execute the following command in the same directory:
+
+```bash
+docker-compose up
+```
 

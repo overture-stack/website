@@ -25,9 +25,9 @@ curl -X POST \
 
 ## Supports Song's Dynamic Schemas
 
-Song utilizes a core data model along with a flexible, user-defined dynamic schema, allowing administrators to define their data model rules. Maestro only requires the base schema fields to index data but also supports the indexing of additional fields found within the dynamic schema.
-
-<Note title="Index Mapping Migrations">When changes are introduced to the dynamic schema, administrators must take responsibility to update and migrate to the new index mapping.</Note>
+Song utilizes a core data model along with a flexible, user-defined dynamic schema, allowing administrators to define their data model rules. Maestro will require the base schema fields to index data but also supports the indexing of additional fields found within the dynamic schema.
+ 
+<Note title="Index Mapping Migrations">When changes are introduced to the dynamic schema, the administrator(s) must update and migrate the new index mapping.</Note>
 
 ## Exclusion Rules
 
