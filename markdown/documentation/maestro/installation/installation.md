@@ -7,7 +7,7 @@ This page will walk you through installing Maestro using Docker. Ensure you've c
 
 1. **Setting Up Your Environment Variables:**
 
-Based on your configuration, create an `.env.maestro` file with the necessary environment variables. Here's an example of a completed `.env.maestro` file:
+Based on your configuration, create a `.env.maestro` file with the necessary environment variables. Here's an example of a completed `.env.maestro` file:
 
 ```bash
 # ============================

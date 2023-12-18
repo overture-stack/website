@@ -30,7 +30,7 @@ The default mappings can be found in the Maestro GitHub repository here:
 
 # Configuring the Elasticsearch Client
 
-Maestro uses the `elasticsearch-rest-high-level-client` provided by Elastic. For in-depth details about this client, you can refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html" target="_blank" rel="noopener noreferrer">official JAVA high-level REST client documentation by Elastic.</a>.
+Maestro uses the `elasticsearch-rest-high-level-client` provided by Elastic. For in-depth details about this client, you can refer to the <a href="https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html" target="_blank" rel="noopener noreferrer">official JAVA high-level REST client documentation by Elastic. </a>.
 
 The table below breaks down the client configurations illustrated in the code section that follows:
 
@@ -40,7 +40,7 @@ The table below breaks down the client configurations illustrated in the code se
 | `basicAuth` -> `user` | The username that the Elasticsearch client will use to authenticate with the server. Only used if  `basicAuth` -> `enabled` is set to `true`.|
 | `trustSelfSignedCert` | 	Dictates if the client should trust self-signed certificates. Useful for testing and development environments. |
 
-The following configurations are specifically designed to optimize indexing performance, establish connection parameters, and ensure robust error handling mechanisms:
+The following configurations are specifically designed to optimize indexing performance, establish connection parameters, and ensure robust error-handling mechanisms:
 
 ```bash
 # ---------------------------

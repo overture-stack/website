@@ -2,7 +2,7 @@
 title: Configuring Kafka Topics
 ---
 
-If you have set up Maestro to integrate with Kafka, you must configure specific Kafka topics for Maestro to listen to, in order to trigger indexing operations. All Maestro configurations for Kafka topics can be made within the `env.maestro` file. 
+If you set up Maestro to integrate with Kafka, to trigger indexing operations you must configure specific Kafka topics for Maestro to listen to. All Maestro configurations for Kafka topics can be made within the `env.maestro` file. 
 
 To configure the Kafka topics, open your `env.maestro` file and add the following configurations. Ensure you replace the placeholders `{{}}` with the appropriate values specific to your setup.
 

@@ -6,7 +6,7 @@ Maestro can be integrated with Slack to send notifications about errors and prog
 
 **To set this up, you need:**
 
-- A Slack integration token for the slack organization you will be sending messages to. For more information see [Slacks Official Documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens).
+- A Slack integration token for the Slack organization you will be sending messages to. For more information see [Slacks Official Documentation](https://slack.com/intl/en-ca/help/articles/215770388-Create-and-regenerate-API-tokens).
 - The channel name you want Maestro to update.
 
 Update the following properties in the `.env.maestro` file to manage the Slack connection:
