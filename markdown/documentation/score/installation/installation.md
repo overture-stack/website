@@ -2,30 +2,29 @@
 title: Installing Score Via Docker
 ---
 
-This page will walk you through installing Score using Docker. Ensure you've completed all the applicable prerequisite steps before starting the installation.
+This guide details the steps to install Score using Docker. Before beginning, ensure you have completed all relevant prerequisite steps.
 
-# Configuration Overview
+## Configuration Overview
 
-Before you proceed with the Score installation, be aware that there are several configurations for a Score server:
+Prior to installing Score, it's important to understand the different configuration aspects required for a Score server:
 
 | Component          | Description                                                | Requirement |
 |--------------------|------------------------------------------------------------|-------------|
-| [Run Profiles](/documentation/score/installation/configuration/profiles)       | Define how your Score server operates.                     | Required    |
-| [Song](/documentation/score/installation/configuration/song)              | Connect Score with your Song server.                       | Required    |
-| OAuth Provider           | Score can be setup with Keycloak or Ego as the OAuth provider                    | Required    |
-| [Object Storage](/documentation/score/installation/configuration/object-storage)     | Integrate your object storage provider with Score.         | Required    |
-| [HashiCorp's Vault](/documentation/score/installation/configuration/bootstrap)  | Configure HashiCorp Vault to manage and protect your keys. | Optional    |
+| [Song Server](/documentation/score/installation/configuration/song)              | Links Score with your Song server.                        | Required    |
+| [Object Storage](/documentation/score/installation/configuration/object-storage)     | Integrates your object storage provider with Score.       | Required    |
+| [OAuth Provider](/documentation/score/installation/configuration/authentication)       | Define your Authentication and Authorization service (Ego or Keycloak)             | Required    |
+| [HashiCorp's Vault](/documentation/score/installation/configuration/bootstrap)  | Manage and secure keys using HashiCorp Vault.            | Optional    |
 
-Detailed information on [configuration](/documentation/score/installation/configuration/) options and guidelines, including setting up your environment variables file are found in the following Configurations section.
+For comprehensive details on configuration options and setup guidelines, including environment variable file creation, refer to the subsequent [Configurations section](/documentation/score/installation/configuration/).
 
-# Installation Steps
+## Installation Steps
 
 1. **Setting up your environment variables:**
 
-Based on your configuration, create an `.env.score` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env.score` file:
+   Create an `.env.score` file with required environment variables based on your configuration. Replace placeholders with actual values. Example `.env.score` file structure:
 
-<Warning>**Note:** This environment variable file is subject to change depending on your deployment scenario, details on setting this up for your deployment can be found within [the configuration section](/documentation/score/installation/configuration/)</Warning>
 
+   <Warning>**Note:** The environment variable file may vary based on your deployment scenario. For more details, visit the [configuration section](/documentation/score/installation/configuration/).</Warning>
 
 ```bash
 # ============================
@@ -38,11 +37,6 @@ SPRING_PROFILES_ACTIVE=collaboratory,prod,secure
 # Server configuration
 SERVER_PORT=8087
 SERVER_SSL_ENABLED=false
-
-# Logging
-LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB=INFO
-LOGGING_LEVEL_BIO_OVERTURE_SCORE_SERVER=INFO
-LOGGING_LEVEL_ROOT=INFO
 
 # ============================
 # Server Authentication integration (Required)
@@ -80,9 +74,10 @@ COLLABORATORY_DATA_DIRECTORY=data
 UPLOAD_PARTSIZE=1073741824
 UPLOAD_CONNECTION_TIMEOUT=1200000
 ```
+
 2. **Run Docker:**
 
-Following the [configuration](/documentation/score/installation/configuration/) of your environment variables, start the Score container using the `docker run` command, specifying your mounted `.env.score` file:
+After configuring your environment variables, initiate the Score container using `docker run` and mount the `.env.score file`:
 
 **For Linux (Recommended)**
 
@@ -96,15 +91,7 @@ docker run --env-file .env.score --network=host -d -p 8087:8087  ghcr.io/overtur
 docker run --env-file .env.score -d -p 8087:8087  ghcr.io/overture-stack/score-server:latest
 ```
 
-***If running with Keycloak***
-
-```bash
-## Linux
-docker run --env-file .env.score --network=host -d -p 8087:8087  ghcr.io/overture-stack/score-server:47f006ce
-
-## Mac and Windows
-docker run --env-file .env.score -d -p 8087:8087  ghcr.io/overture-stack/score-server:47f006ce
-```
+<Note title="Running with Keycloak">If you are running Score with Keycloak you will need to use the `docker run` command with the following container `ghcr.io/overture-stack/score-server:47f006ce`</Note>
 
 3. **Accessing Score:**
 
