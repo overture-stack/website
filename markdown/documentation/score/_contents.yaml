@@ -13,16 +13,14 @@ pages:
     url: score/installation/configuration
     isHeading: true
     pages:
-    - title: Run Profiles
-      url: score/installation/configuration/profiles
     - title: Song Server Integration
       url: score/installation/configuration/song
     - title: Object Storage Integration
       url: score/installation/configuration/object-storage
-    - title: Other Bootstrap Properties
+    - title: OAuth Provider  
+      url: score/installation/configuration/authentication
+    - title: HashiCorp Vault (optional)
       url: score/installation/configuration/bootstrap
-  - title: Authentication
-    url: score/installation/configuration/authentication
 - title: User Guide
   url: score/user-guide
   isHeading: true

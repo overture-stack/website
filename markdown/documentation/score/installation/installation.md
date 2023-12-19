@@ -12,10 +12,11 @@ Before you proceed with the Score installation, be aware that there are several 
 |--------------------|------------------------------------------------------------|-------------|
 | [Run Profiles](/documentation/score/installation/configuration/profiles)       | Define how your Score server operates.                     | Required    |
 | [Song](/documentation/score/installation/configuration/song)              | Connect Score with your Song server.                       | Required    |
+| OAuth Provider           | Score can be setup with Keycloak or Ego as the OAuth provider                    | Required    |
 | [Object Storage](/documentation/score/installation/configuration/object-storage)     | Integrate your object storage provider with Score.         | Required    |
 | [HashiCorp's Vault](/documentation/score/installation/configuration/bootstrap)  | Configure HashiCorp Vault to manage and protect your keys. | Optional    |
 
-For detailed information on [configuration](/documentation/score/installation/configuration/) options and guidelines, including setting up your environment variables file, see our section on Configurations section.
+Detailed information on [configuration](/documentation/score/installation/configuration/) options and guidelines, including setting up your environment variables file are found in the following Configurations section.
 
 # Installation Steps
 
@@ -23,13 +24,16 @@ For detailed information on [configuration](/documentation/score/installation/co
 
 Based on your configuration, create an `.env.score` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env.score` file:
 
+<Warning>**Note:** This environment variable file is subject to change depending on your deployment scenario, details on setting this up for your deployment can be found within [the configuration section](/documentation/score/installation/configuration/)</Warning>
+
+
 ```bash
 # ============================
 # Spring Run Profiles (Required)
 # ============================
 
-# Active profiles to determine app behavior & configs
-SPRING_PROFILES_ACTIVE=prod,aws,secure
+# Active profiles to determine app behaviour & configs
+SPRING_PROFILES_ACTIVE=collaboratory,prod,secure
 
 # Server configuration
 SERVER_PORT=8087
@@ -43,23 +47,24 @@ LOGGING_LEVEL_ROOT=INFO
 # ============================
 # Server Authentication integration (Required)
 # ============================
-AUTH_SERVER_URL=http://host.docker.internal:9082/o/check_api_key/
-AUTH_SERVER_TOKENNAME={{API-Key}}
+AUTH_SERVER_URL=http://localhost/realms/myrealm/apikey/check_api_key/
+AUTH_SERVER_TOKENNAME=apiKey
 AUTH_SERVER_CLIENTID=score
-AUTH_SERVER_CLIENTSECRET=abc123
+AUTH_SERVER_CLIENTSECRET=scoresecret
+AUTH_SERVER_PROVIDER=keycloak
+AUTH_SERVER_KEYCLOAK_HOST=http://localhost
+AUTH_SERVER_KEYCLOAK_REALM=myrealm
 AUTH_SERVER_SCOPE_STUDY_PREFIX=score.
 AUTH_SERVER_SCOPE_UPLOAD_SUFFIX=.WRITE
 AUTH_SERVER_SCOPE_DOWNLOAD_SUFFIX=.READ
-AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM=score.READ
-AUTH_SERVER_SCOPE_UPLOAD_SYSTEM=score.WRITE
-
+AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM=score.WRITE
+AUTH_SERVER_SCOPE_UPLOAD_SYSTEM=score.READ
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI=http://localhost/realms/myrealm/protocol/openid-connect/certs
 
 # ============================
 # Song Integration (Required)
 # ============================
 METADATA_URL=http://host.docker.internal:8080
-
-
 
 # ============================
 # Storage Integration (Required)
@@ -75,9 +80,6 @@ COLLABORATORY_DATA_DIRECTORY=data
 UPLOAD_PARTSIZE=1073741824
 UPLOAD_CONNECTION_TIMEOUT=1200000
 ```
-
-<Warning>This environment variable file is subject to change depending on your deployment scenario, details can be found within [the configuration section](/documentation/score/installation/configuration/)</Warning>
-
 2. **Run Docker:**
 
 Following the [configuration](/documentation/score/installation/configuration/) of your environment variables, start the Score container using the `docker run` command, specifying your mounted `.env.score` file:
@@ -92,6 +94,16 @@ docker run --env-file .env.score --network=host -d -p 8087:8087  ghcr.io/overtur
 
 ```bash
 docker run --env-file .env.score -d -p 8087:8087  ghcr.io/overture-stack/score-server:latest
+```
+
+***If running with Keycloak***
+
+```bash
+## Linux
+docker run --env-file .env.score --network=host -d -p 8087:8087  ghcr.io/overture-stack/score-server:47f006ce
+
+## Mac and Windows
+docker run --env-file .env.score -d -p 8087:8087  ghcr.io/overture-stack/score-server:47f006ce
 ```
 
 3. **Accessing Score:**
