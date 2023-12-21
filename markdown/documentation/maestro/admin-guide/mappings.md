@@ -6,7 +6,7 @@ By default, Maestro builds the Elasticsearch index based on a pre-defined defaul
 
 While this mapping is not configurable in runtime, there may be cases where an administrator will need to change the mapping.
 
-For example, when updating Songs' <a href="/documentation/song/user-guide/schema/" target="_blank" rel="noopener noreferrer">dynamic schemas</a> the administrator must also update Maestros' index mapping.
+For example, when updating Songs' [dynamic schemas](/documentation/song/admin/schemas/) the administrator must also update Maestros' index mapping.
 
 **Guidelines for index migration are outlined here:**
 

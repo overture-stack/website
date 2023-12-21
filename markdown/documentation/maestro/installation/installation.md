@@ -86,4 +86,4 @@ Before you proceed with the Maestro installation, be aware that there are severa
 | [Slack Integration](/documentation/maestro/installation/configuration/slack/) | Send notifications through a Slack webhook integration.	| Optional |
 | [Exclusion Rules](/documentation/maestro/installation/configuration/exclusion/) | Omit specific analyses from being indexed	| Optional |
 
-For detailed information on configuration options and guidelines, including setting up your environment variables file, refer to our <a href="./configuration/" target="_blank" rel="noopener noreferrer">Configurations section</a>.
+For detailed information on configuration options and guidelines, including setting up your environment variables file, refer to our [configuration section](/documentation/maestro/installation/configuration/),

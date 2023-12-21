@@ -10,7 +10,7 @@ Maestro's primary function is to organize data from multiple Song repositories i
 
 ## Multi Repo Management
 
-Maestro offers built-in conflict detection and resolution. For instance, if multiple Song repositories identify the same file, Maestro detects this and aggregates the data from all sources into a the same Elasticsearch index document.
+Maestro offers built-in conflict detection and resolution. For instance, if multiple Song repositories identify the same file, Maestro detects this and aggregates the data from all sources into the Elasticsearch index.
 
 ## Multiple Indexing Levels
 
@@ -68,4 +68,4 @@ Maestro integrates with the following software services:
 | <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> | Default | Maestro natively integrates with Song to index Song metadata into a single index. |
 | <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer">Elasticsearch</a> | Default | Maestro is designed to integrate with and build Elasticsearch indices by default. |
 | <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> | Optional |  Event-based indexing using the Kafka messaging queues. Maestro can also listen for and trigger indexing operations from specific Kafka topics |
-| <a href="https://slack.com/" target="_blank" rel="noopener noreferrer">Slack</a> | Optional | Slack notifications for index monitoring |
+| <a href="https://slack.com/" target="_blank" rel="noopener noreferrer">Slack</a> | Default | Slack notifications for index monitoring |

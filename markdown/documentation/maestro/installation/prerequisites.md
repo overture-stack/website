@@ -11,14 +11,14 @@ Before installing Maestro, ensure that the following software services are insta
 
 2. **Elasticsearch & Apache Kafka**
     - Elasticsearch is a search and analytics engine, and Apache Kafka is a distributed streaming platform. Both are essential for processing and indexing data in Maestro.
-    - Instructions for setup are provided below.
+    - Instructions for a quick setup are provided below.
 
 
 4. **Song**
     - [See Song's installation instructions for more details](/documentation/song/installation)
 
 
-## Setting up Elasticsearch and Kafka
+## Elasticsearch and Kafka Quickstart
 
 Maestro uses Kafka for efficient data processing from incoming Song servers and Elasticsearch for indexing this data. Follow these steps to set up both services:
 
