@@ -174,6 +174,9 @@ export default function GettingStartedPage() {
                       <li className="upper-grey-section__bullets-item">
                         <Link to={MAESTRO_GITHUB_LINK}>Programatic data submission</Link>
                       </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={MAESTRO_GITHUB_LINK}>Data Migration</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>
