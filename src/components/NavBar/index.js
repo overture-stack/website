@@ -91,7 +91,24 @@ class NavBar extends Component {
                 </div>
               </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-              <NavLink closeMenus={closeMenus} url={DOCUMENTATION_PATH} name={<><Construction style={{ marginRight: '8px' }} />Community</>} />
+              <MegaMenuLink
+                isActive={megaMenuType === 'community'}
+                name={<><Construction style={{ marginRight: '8px' }}/>Community</>}
+                path={path}
+                toggleMegaMenu={toggleMegaMenu}
+                type="community"
+              >
+                <div ref={(ref) => (this.popoverRef = ref)}>
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="community"
+                      path={path}
+                    />
+                  )}
+                </div>
+              </MegaMenuLink>             
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
             </div>

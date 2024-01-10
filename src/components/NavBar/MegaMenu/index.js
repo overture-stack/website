@@ -136,7 +136,57 @@ const data = {
       },
     ],
   },
+  community: {
+    explore: {
+      title: 'Check out our Community Information',
+      text: 'Connect with our community resources covering feature requests, deployment showcases, events, office hours and scholarly contributions.      ',
+      link: {
+        to: '',
+        text: '',
+      },
+    },
+    sections: [
+      {
+        title: '',
+        color: 'blue',
+        links: [
+          {
+            text: 'Feature Requests'
+          },
+          {
+            text: 'How to Contribute'
+          },
+          {
+            text: 'Public Roadmap'
+          },
+          {
+            text: 'Deployment List'
+          },
+        ],
+      },
+      {
+        title: '',
+        color: 'dark-blue',
+        links: [
+          {
+            text: 'Events'
+          },
+          {
+            text: 'Office Hours'
+          },
+          {
+            text: 'Publications '
+          },
+          {
+            text: 'How to Cite Us '
+          },
+
+        ],
+      },
+    ],
+  },
 };
+
 
 const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
   if (!megaMenuType) {
