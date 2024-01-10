@@ -74,7 +74,7 @@ class NavBar extends Component {
               </MegaMenuLink>
               <MegaMenuLink
                 isActive={megaMenuType === 'tutorials'}
-                name="Tutorials"
+                name={<><Construction style={{ marginRight: '8px' }}/>Tutorials</>}
                 path={path}
                 toggleMegaMenu={toggleMegaMenu}
                 type="tutorials"

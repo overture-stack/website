@@ -7,7 +7,6 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
 
   const megaMenuActive = path.startsWith(`/${type}`);
 
-  // Function to determine if the arrow should be displayed
   const shouldDisplayArrow = (name) => {
     return name === 'Documentation' || name === 'Tutorials';
   };
