@@ -21,7 +21,39 @@ const data = {
     },
     sections: [
       {
-        title: 'Products',
+        title: 'User Docs',
+        color: 'blue',
+        links: [
+          {
+            to: 'documentation/song',
+            text: 'Song',
+          },
+          {
+            to: 'documentation/score',
+            text: 'Score',
+          },
+
+          {
+            to: 'documentation/maestro',
+            text: 'Maestro',
+          },
+          {
+            to: 'documentation/arranger',
+            text: 'Arranger',
+          },
+
+          {
+            to: 'documentation/ego',
+            text: 'Ego',
+          },
+          {
+            to: 'documentation/dms-ui',
+            text: 'DMS-UI',
+          },
+        ],
+      },
+      {
+        title: 'Developer Docs',
         color: 'dark-blue',
         links: [
           {
@@ -53,25 +85,20 @@ const data = {
         ],
       },
       {
-        title: 'dms bundle',
-        color: 'yellow-green',
+        title: 'System Admin Docs',
+        color: 'yellow',
         links: [
           {
-            to: '/documentation/dms/',
-            text: 'Introduction',
+            to: 'documentation/song',
+            text: 'Deployment Procedures',
           },
           {
-            to: '/documentation/dms/installation/installation',
-            text: 'How to Install',
-          },
-
-          {
-            to: '/documentation/dms/admin-guide/tasks',
-            text: 'For Administrators',
+            to: 'documentation/score',
+            text: 'Load Balancing & Scaling',
           },
           {
-            to: '/documentation/dms/user-guide/data-portal',
-            text: 'For Users',
+            to: 'documentation/ego',
+            text: 'Monitoring & Logging',
           },
         ],
       },

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 import Helmet from 'react-helmet';
 import Modal from 'react-modal';
+import imgScreenshotDMS from './home/assets/img_DMS_screenshot.png';
 import {
   ABOUT_US_PATH,
   DOCUMENTATION_PATH,
@@ -9,11 +10,13 @@ import {
   SERVICES_PATH,
   caseStudyAnchors,
   productsAnchors,
+  DOCS_DMS_INSTALL_LINK,
+  EGO_UPDATES_LINK,
 } from 'constants/pages';
-import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
-import { Button, H1, H2, H3, P1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
+import { EGO_SQL_LINK, OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
+import { Button, H1, H2, H3, P1, Icon, HomeProductLink, YellowButton, P2, Terminal, GettingStarted } from 'components';
 import caseData from 'data/case_studies';
-import bodyImg from './home/assets/overture_illustration.svg';
+import bodyImg from './home/assets/img_DMS_screenshot.png';
 import cubeMaroon from './home/assets/cube_maroon.svg';
 import cubeBrightTealInverted from './home/assets/cube_bright_teal_inverted.svg';
 import cubeYellow from './home/assets/cube_yellow.svg';
@@ -21,6 +24,9 @@ import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import './home/styles.scss';
+import './documentation/styles.scss'
+import { Link } from 'gatsby';
+import { Construction, Space } from 'lucide-react';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -58,22 +64,120 @@ export default function HomePage() {
               researchers manage, share and access genomics data.
             </P1>
             <div className="Hero__small-buttons-container">
-              <Button link={PRODUCTS_PATH} size="medium" type="primary">
-                See Our Products
+              <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
+                Get Started
               </Button>
               <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
-                Explore Our Docs
+              <Construction style={{ marginRight: '8px' }}/>View Our Demo Portal
               </Button>
             </div>
           </section>
         </div>
       </div>
 
-      {/* top white section - titled powering big-data at scale */}
-      <section className="section top-white">
+
+      {/* middle white section - titled our products */}
+      <section className="middle-white section bg-white">
+        <div className="middle-white__titles-holder">
+          <H2>Craft tomorrow's genomics data application, today.</H2>
+        </div>
+
+          <div className="middle-white__image-column">
+  
+            <img className="middle-white__image" src={bodyImg} alt="" />
+          </div>
+          <div className="middle-white__image-column">
+          <Construction/>1 Minute Explainer Video<Construction/>
+          </div>
+         
+          
+          <div className='middle-white__image-column' style={{ display: 'flex', gap: '20px', fontWeight: '400' }}>
+            <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
+            <Construction style={{ marginRight: '8px' }}/>View our Demo Portal
+            </Button>
+          <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
+          <Construction style={{ marginRight: '8px' }}/>Request a Demo
+            </Button>
+            </div>
+      </section>
+
+      <section className="section upper-grey bg-grey">
+      <div className="middle-white__content">
+          <H2>Our Products</H2>
+    <br></br>    
+
+    <br></br>
+    <div className="middle-white__text-wrapper">
+    <br></br>
+    <P1 className="middle-white__text-wrapper">
+    Open-source and free-to-use our modular software works in concert to build and deploy scalable genomics data platforms 
+    </P1>
+    <br></br>    
+    <Construction/>Informative Diagram/Illustration<Construction/>
+    <br></br>
+    </div>
+        </div>
+
+
+   
+        <div className="middle-white__content" >
+    
+          <div className="middle-white__text-wrapper">
+            <HomeProductLink
+              icon={'productSong'}
+              title={'Song'}
+              text={'Manages and stores metadata with custom validations.'}
+              link={productsAnchors.song}
+            />
+            <HomeProductLink
+              icon={'productScore'}
+              title={'Score'}
+              text={'Securely transfers file data to and from the cloud.'}
+              link={productsAnchors.score}
+            />
+            <HomeProductLink
+              icon={'productMaestro'}
+              title={'Maestro'}
+              text={'Organizes scattered metadata into one index.'}
+              link={productsAnchors.maestro}
+            />
+            <HomeProductLink
+              icon={'productArranger'}
+              title={'Arranger'}
+              text={'Generates search APIs and portal UIs from indexed data.'}
+              link={productsAnchors.arranger}
+            />
+            <HomeProductLink
+              icon={'productEgo'}
+              title={'Ego'}
+              text={'Authorizes and Authenticates users and applications.'}
+              link={productsAnchors.ego}
+            />
+            <HomeProductLink
+              icon={'productDMS'}
+              title={'DMS-UI'}
+              text={'Rapidly integrates overture into a React-based web portal.'}
+              link={'documentation/dms-ui'}
+            />
+          </div>
+        </div>
+
+        <Button link={PRODUCTS_PATH} size="medium" type="primary">
+                Learn More
+            </Button>
+
+
+        
+       
+      </section>
+
+            {/* top white section - titled powering big-data at scale */}
+      <section className="section top-white bg-white">
         <div className="top-white__title-container">
           <H2 className="top-white__title">Powering big-data at scale</H2>
+          <br></br>
           <P1>Overture has been successfully deployed in a diversity of large-scale projects.</P1>
+          <br></br>
         </div>
 
         {/* logos scroll bar  */}
@@ -156,7 +260,7 @@ export default function HomePage() {
                 <P2> {caseData[carouselPage].listItems[2][0]}</P2>
               </div>
               <Button
-                type="primary"
+                type="secondary"
                 size="medium"
                 className="top-white__blue-container-learn-more-button"
                 anchorLink={caseStudyAnchors[caseData[carouselPage].slug]}
@@ -176,15 +280,90 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* top floating teal cube */}
-      <img
-        src={cubeBrightTealInverted}
-        alt="Top Floating Bright Teal Inverted Cube"
-        className="bright-teal-cube-top"
-      />
+         {/* middle white background section */}
+    <section className="middle-white section bg-grey">
+          <GettingStarted>
+              {/* Getting Started: Step 1 */}
+              <div className="top-white__title-container">
+              <Construction/>
+              <br></br>
+              <P2>To get up and running quickly, we provide a turnkey installation of Overtures Data Management Suite (DMS) using Docker. </P2>
+              <br></br>
+              </div>
+              <div className="columns Step">
+        <div className="column is-3">
+          <div>
+            <H3>1. Clone and open the repo</H3>
+            <ul className="step-text">
+              <li className="bullet">You will need Docker is installed </li>
+            </ul>
+          </div>
+          <div className="yellow-bar" />
+        </div>
+                <div className="column is-8 is-offset-1 self-center">
+                  <Terminal
+                    prompts={['git clone https://github.com/overture-stack/overture-docker-compose.git', 'cd overture-docker-compose']}
+                  />
+                </div>
+              </div>
 
-      {/* upper grey section */}
-      <section className="section upper-grey bg-grey">
+           {/* Getting Started: Step 2 */}
+        <div className="columns Step">
+        <div className="column is-3">
+          <div>
+            <H3>2. Run our quickstart configuration script</H3>
+            <ul className="step-text">
+              <li className="bullet">This automates the data and configurations needed to get up and running quickly.</li>
+            </ul>
+          </div>
+          <div className="yellow-bar" />
+        </div>
+                <div className="column is-8 is-offset-1 self-center">
+                  <Terminal
+                    prompts={['./init.sh']}
+                  />
+                </div>
+              </div>
+
+
+           {/* Getting Started: Step 2 */}
+        <div className="columns Step">
+        <div className="column is-3">
+          <div>
+            <H3>3. Start Docker</H3>
+            <ul className="step-text">
+              <li className="bullet">Your Portal will be accessible from your <code>localhost:8000</code></li>
+            </ul>
+          </div>
+          <div className="yellow-bar" />
+        </div>
+                <div className="column is-8 is-offset-1 self-center">
+                  <Terminal
+                    prompts={['docker compose up']}
+                  />
+                </div>
+              </div>
+            <div className='top-white__title-container'>
+              <div className='upper-grey-section__non-img-holder' style={{ display: 'flex', gap: '20px', fontWeight: '400' }}>
+              <Button link={DOCUMENTATION_PATH} size="medium" type="secondary">
+              <Construction style={{ marginRight: '8px' }}/>Detailed Quick Start Instructions
+              </Button>
+              <Button link={DOCUMENTATION_PATH} size="medium" type="secondary">
+              <Construction style={{ marginRight: '8px' }}/>Configuring your DMS
+              </Button>
+            </div>
+            </div>
+          </GettingStarted>
+      </section>
+      
+      {/* floating marron cuve */}
+      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
+
+      {/* upper grey about us section */}
+      <section className="section upper-grey bg-white">
+      <div className="top-white__title-container">
+          <H2 className="top-white__title">About Us</H2>
+        </div>
         <div className="upper-grey__mobile">
           <h2 className="upper-grey__text">
             We are a team of software engineers, data scientists, and cloud infrastructure
@@ -203,22 +382,22 @@ export default function HomePage() {
             <Icon
               alt="Software Engineers Icon"
               img="softwareEngineers"
-              size="60px"
+              size="40px"
               className="upper-grey__icon"
             />
             <span className="upper-grey__text">software</span>
             <span className="upper-grey__text">engineers,</span>
-            <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
+            <Icon alt="Data Icon" img="data" size="40px" className="upper-grey__icon" />
             <span className="upper-grey__text">data</span>
             <span className="upper-grey__text">scientists</span>
             <span className="upper-grey__text">and</span>
-            <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
+            <Icon alt="Cloud Icon" img="cloudWeather" size="40px" className="upper-grey__icon" />
             <span className="upper-grey__text">cloud </span>
             <span className="upper-grey__text">infrastructure</span>
             <span className="upper-grey__text">specialists </span>
             <span className="upper-grey__text">creating</span>
             <span className="upper-grey__text">applications</span>
-            <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
+            <Icon alt="Big Data Icon" img="bigData" size="40px" className="upper-grey__icon" />
             <span className="upper-grey__text">to</span>
             <span className="upper-grey__text">store,</span>
             <span className="upper-grey__text">manage,</span>
@@ -227,6 +406,8 @@ export default function HomePage() {
             <span className="upper-grey__text">massive genomic datasets.</span>
           </h2>
         </div>
+
+        <div className="mt3 lower-grey__buttons">
         <Button
           link={ABOUT_US_PATH}
           size="medium"
@@ -235,148 +416,38 @@ export default function HomePage() {
         >
           About Us
         </Button>
-      </section>
-
-      {/* floating yellow cube */}
-      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
-
-      {/* middle white section - titled our products */}
-      <section className="middle-white section">
-        <div className="middle-white__titles-holder">
-          <H2>Our Products</H2>
-          <P1 className="middle-white__title-text">
-            Built to be reusable and scalable, Overture was created to share our data science
-            components with the community. Our ecosystem of research software tools reduces
-            redundant efforts and enables the creation of robust genomics data applications.
-          </P1>
-        </div>
-        <div className="middle-white__content">
-          <div className="middle-white__image-column">
-            <img className="middle-white__image" src={bodyImg} alt="" />
-          </div>
-
-          <div className="middle-white__text-wrapper">
-            <HomeProductLink
-              icon={'productSong'}
-              title={'Song'}
-              text={'Manage and store metadata with custom validations.'}
-              link={productsAnchors.song}
-            />
-            <HomeProductLink
-              icon={'productScore'}
-              title={'Score'}
-              text={'Securely transfer file data to and from the cloud.'}
-              link={productsAnchors.score}
-            />
-            <HomeProductLink
-              icon={'productMaestro'}
-              title={'Maestro'}
-              text={'Organize scattered metadata into one index.'}
-              link={productsAnchors.maestro}
-            />
-            <HomeProductLink
-              icon={'productArranger'}
-              title={'Arranger'}
-              text={'Generate search APIs and portal UIs from indexed data.'}
-              link={productsAnchors.arranger}
-            />
-            <HomeProductLink
-              icon={'productEgo'}
-              title={'Ego'}
-              text={'Authorize and Authenticate users and applications.'}
-              link={productsAnchors.ego}
-            />
-            <HomeProductLink
-              icon={'productDMS'}
-              title={'DMS-UI'}
-              text={'Rapidly integrate overture into a React-based web portal.'}
-              link={'documentation/dms-ui'}
-            />
-          </div>
+        <Button
+          link={SERVICES_PATH}
+          size="medium"
+          type="primary"
+          className="upper-grey__button mt2"
+        >
+          Our Services
+        </Button>
         </div>
       </section>
 
-      {/* upper grey section */}
-      <section className="section upper-grey bg-grey">
-        <div className="upper-grey__mobile">
-          <h2 className="upper-grey__text">
-            Our components are well documented, actively supported, and welcome external feedback
-            and contributions. If you need assistance, we also offer consulting, support, and
-            collaborative services.
-          </h2>
-        </div>
-
-        <div className="upper-grey__not-mobile">
-          <h2 className="upper-grey__line ">
-            <span className="upper-grey__text">Overture’s components</span>
-            <span className="upper-grey__text">are</span>
-            <span className="upper-grey__text">well</span>
-            <Icon
-              alt="exploreDocs Icon"
-              img="exploreDocs"
-              size="60px"
-              className="upper-grey__icon"
-            />
-            <span className="upper-grey__text">documented</span>
-            <span className="upper-grey__text">actively</span>
-            <Icon alt="support Icon" img="support" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">supported,</span>
-            <span className="upper-grey__text">and</span>
-            <Icon alt="feedback Icon" img="feedback" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">welcome</span>
-            <span className="upper-grey__text">external feedback</span>
-            <span className="upper-grey__text">and contributions.</span>
-            <span className="upper-grey__text">If you need</span>
-            <Icon alt="assistance Icon" img="assistance" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">assistance,</span>
-            <span className="upper-grey__text">we also offer</span>
-            <span className="upper-grey__text">consulting, support,</span>
-            <span className="upper-grey__text">and collaborative services.</span>
-          </h2>
-        </div>
-        <div className="mt3 lower-grey__buttons">
-          <Button
-            link={SERVICES_PATH}
-            size="medium"
-            type="primary"
-            className="upper-grey__button mt2"
-          >
-            Our Services
-          </Button>
-          <Button
-            link={OVERTURE_GITHUB_LINK}
-            size="medium"
-            type="primary"
-            className="upper-grey__button mt2"
-          >
-            Our GitHub
-          </Button>
-        </div>
-      </section>
-
-      {/* floating marron cuve */}
-      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
-
-      <section className="section lower-white">
+      <section className="section lower-white bg-grey">
         <div className="lower-white__title-container">
-          <H2 className=" lower-white__title ">Getting Started</H2>
+          <H2 className=" lower-white__title ">Here to Help</H2>
           <P1>Ready to jump in? We've got some resources to help.</P1>
         </div>
         <div className="lower-white__yellow-buttons">
-          <YellowButton
-            img_src="identifyNeeds"
-            alt="identifyNeeds Icon"
-            title="See Our Products"
-            text="Learn about our core components and how they work."
-            link="/products/"
-          />
-          <YellowButton
+        <YellowButton
             img_src="exploreDocs"
             alt="exploreDocs Icon"
-            title="Explore Our Docs"
+            title="Explore our Docs"
             text="See how to deploy, configure and use our software."
             link="/documentation/"
           />
+          <YellowButton
+            img_src="identifyNeeds"
+            alt="identifyNeeds Icon"
+            title="Checkout our Tutorials"
+            text="Learn about our core components and how they work."
+            link="http://localhost:8000/documentation/#:~:text=Search%20all%20documentation...-,Guides%20%26%20Tutorials,-Covering%20a%20range"
+          />
+
           <YellowButton
             img_src="joinCommunity"
             alt="joinCommunity Icon"
@@ -391,7 +462,7 @@ export default function HomePage() {
 
       <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
 
-      <section className="lower-grey section bg-grey">
+      <section className="lower-grey section">
         <div className="lower-grey__container">
           <h2 className="upper-grey__text lower-grey__text">
             Build. Deploy. Discover. <br></br>Craft tomorrow's data solution, today.
@@ -401,7 +472,7 @@ export default function HomePage() {
               Get Started
             </Button>
             <Button type="primary" size="medium" link={PRODUCTS_PATH}>
-              Learn More
+            <Construction style={{ marginRight: '8px' }}/>Request a Demo
             </Button>
           </div>
         </div>

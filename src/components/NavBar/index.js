@@ -18,6 +18,7 @@ import {
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
+import { Construction } from 'lucide-react';
 
 class NavBar extends Component {
   render() {
@@ -72,7 +73,7 @@ class NavBar extends Component {
                 </div>
               </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-              {/* <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" /> */}
+              <NavLink closeMenus={closeMenus} url={DOCUMENTATION_PATH} name={<><Construction style={{ marginRight: '8px' }} />Community</>} />
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
             </div>

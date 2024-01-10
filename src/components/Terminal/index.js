@@ -19,7 +19,6 @@ export const Terminal = ({ prompts }) => (
     <div className="Terminal-inner">
       {prompts.map(p => (
         <div key={p} className="Terminal-text">
-          <span className="pr2">$</span>
           {p}
         </div>
       ))}

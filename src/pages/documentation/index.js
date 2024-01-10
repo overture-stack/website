@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link } from 'components';
+import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link, Terminal, P2 } from 'components';
 import imgScreenshotDMS from './assets/img_DMS_screenshot.png';
 import {
   OVERTURE_GITHUB_LINK,
@@ -15,6 +15,7 @@ import {
 } from 'constants/external-links';
 import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import './styles.scss';
+import { Construction } from 'lucide-react';
 
 export default function GettingStartedPage() {
   const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
@@ -33,24 +34,201 @@ export default function GettingStartedPage() {
         />
       </Helmet>
 
-      {/* upper grey section */}
-
-      <section className="upper-grey-section grey-bg">
+            {/* middle white background geting started section */}
+        <section className="mid-white-section grey-bg">
         <div className="container">
-          <div className="upper-grey-section__holder">
+          <div className="mid-white-section__holder">
+            {/* div that holds non-image */}
+            <div className="mid-white-section__non-img-holder">
+              <div className="mid-white-section__title-holder">
+                <H2>Getting Started</H2>
+              </div>
+              <div className="mid-white-section__content-holder">          
+                {/* this img holding div only display in mobile/tablet view. This is for grouping and for the order of divs that appear on the page */}
+            
+                <div className="mid-white-section__mobile-tablet-img-holder mid-white-section__img-holder">
+                  <img
+                    alt="DMS screenshot"
+                    src={imgScreenshotDMS}
+                    className="mid-white-section__img"
+                  />
+                </div>
+                
+                <div className="mid-white-section__text-button-holder">
+
+                <div className="mid-white-section__text-holder">
+                    <P2>
+                      <span>
+                        Composed from our core collection of microservices, the Overture DMS offers turnkey
+                        installation, configuration, and deployment of Overture software.
+                      </span>
+                    </P2>
+                  </div>
+
+                  <div className="relative">
+                        <Terminal prompts={['## Clone the Repo and go to the root directory.','git clone https://github.com/over-stack/overture-docker-compose.git', 'cd overture-docker-compose.git', '## Initialize quick start data and configs.', './init.sh', '## Run docker!', 'docker compose up']} />
+                        <p>
+                      <span>
+                        Your DMS Portal will now be accessible from your: <code>localhost:8000</code>
+                      </span>
+                    </p>
+                    
+                </div>
+                <div className='upper-grey-section__non-img-holder' style={{ display: 'flex', gap: '20px' }}>
+              <Button link={DMS_UI_GITHUB_LINK} size="medium" type="secondary">
+              <Construction style={{ marginRight: '8px' }}/>Detailed Quick Start Instructions
+              </Button>
+              <Button link={DMS_UI_GITHUB_LINK} size="medium" type="secondary">
+              <Construction style={{ marginRight: '8px' }}/>Configuring your DMS
+              </Button>
+            </div>
+                </div>
+              </div>
+            </div>
+            {/* this img holding div is for desktop and larger view */}
+            <div className="mid-white-section__desktop-img-holder mid-white-section__img-holder">
+              <img alt="DMS screenshot" src={imgScreenshotDMS} className="mid-white-section__img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="upper-grey-section white-bg">
+        
+        <div className="container">
+
+        <div className="upper-grey-section__holder">
             {/* top left floating hexagons */}
             <div className="upper-grey-section__titles-holder">
-              <H1>Explore Our Documentation</H1>
+              <H1>Explore Our Resources</H1>
             </div>
             <div className="upper-grey-section__search-bar-holder">
               <Search indices={searchIndices} />
+            </div>
+
+            {/* top left floating hexagons */}
+            <div className="upper-grey-section_-holder">
+            <H2 className="left">
+            <span>
+            <Construction style={{ marginRight: '8px' }}/>Guides & Tutorials
+            </span>
+            </H2> 
+
+             <P2 className="left">  
+             <br/>
+             <span>
+              Covering a range of topics for data consumers, providers, and administrators, these step-by-step tutorials provide practical insight and hands-on experience.
+            </span>
+             </P2>
             </div>
 
             {/* User Documentation Section */}
             <div className="upper-grey-section__docs-holder">
               <div className="upper-grey-section__doc-holder">
                 <div className="upper-grey-section__doc-title">
-                  <H3>User Documentation</H3>
+                  <H3>Data Consumers</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* User Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/arranger">Navigating the exploration page</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* User Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item menu-selection-link">
+                        <Link className="menu-selection-link" to="/documentation/ego">
+                          Downloading data
+                        </Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to="/documentation/maestro"> Visualization with JBrowse2</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Developer Documentation Section */}
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>Data Providers</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* Developer Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>CLI data submission</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Developer Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={MAESTRO_GITHUB_LINK}>Programatic data submission</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+    
+
+              {/* Developer Documentation Section */}
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>Data Administrators</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* Developer Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={SONG_GITHUB_LINK}>Schema generation and management</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Creating a data dictionary</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Developer Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={MAESTRO_GITHUB_LINK}>Customizing your search interface</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={ARRANGER_GITHUB_LINK}>Managing user permissions</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="upper-grey-section_-holder">
+            <H2 className="left">
+            <span>
+              Documentation
+            </span>
+            </H2> 
+             <P2 className="left">  
+             <br/>
+              Documentation for users, developers, and system administrators. Lorem ispsum dimsum Lorem ispsum dimsum Lorem ispsum dimsum          
+             </P2>
+            </div>
+                        {/* User Documentation Section */}
+                        <div className="upper-grey-section__docs-holder">
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                  <H3>User Docs</H3>
                 </div>
                 <div className="upper-grey-section__doc-columns-holder">
                   {/* User Documentation bullets left */}
@@ -86,10 +264,10 @@ export default function GettingStartedPage() {
                 </div>
               </div>
 
-              {/* Developer Documentation Section */}
-              <div className="upper-grey-section__doc-holder">
+            {/* Developer Documentation Section */}
+            <div className="upper-grey-section__doc-holder">
                 <div className="upper-grey-section__doc-title">
-                  <H3>Developer Documentation</H3>
+                  <H3><Construction style={{ marginRight: '8px' }}/>Developer Docs</H3>
                 </div>
                 <div className="upper-grey-section__doc-columns-holder">
                   {/* Developer Documentation bullets left */}
@@ -122,68 +300,39 @@ export default function GettingStartedPage() {
                   </div>
                 </div>
               </div>
-            </div>
+
+              {/* Developer Documentation Section */}
+              <div className="upper-grey-section__doc-holder">
+                <div className="upper-grey-section__doc-title">
+                <H3><Construction style={{ marginRight: '8px' }}/>System Admin Docs</H3>
+                </div>
+                <div className="upper-grey-section__doc-columns-holder">
+                  {/* Developer Documentation bullets left */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Deployment procedures</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Backup and Recovery</Link>
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Developer Documentation bullets right */}
+                  <div>
+                    <ul className="upper-grey-section__doc-column">
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={ARRANGER_GITHUB_LINK}>Load balancing and scaling</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={ARRANGER_GITHUB_LINK}>Monitoring and logging</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
-      </section>
-
-      {/* middle white background section */}
-      <section className="mid-white-section">
-        <div className="container">
-          <div className="mid-white-section__holder">
-            {/* div that holds non-image */}
-            <div className="mid-white-section__non-img-holder">
-              <div className="mid-white-section__title-holder">
-                <H2>Getting Started</H2>
-              </div>
-              <div className="mid-white-section__subtitle-holder">
-                <H3>The Overture Data Management System (DMS)</H3>
-              </div>
-
-              <div className="mid-white-section__content-holder">
-                {/* this img holding div only display in mobile/tablet view. This is for grouping and for the order of divs that appear on the page */}
-                <div className="mid-white-section__mobile-tablet-img-holder mid-white-section__img-holder">
-                  <img
-                    alt="DMS screenshot"
-                    src={imgScreenshotDMS}
-                    className="mid-white-section__img"
-                  />
-                </div>
-                <div className="mid-white-section__text-button-holder">
-                  <div className="mid-white-section__text-holder">
-                    <P1>
-                      <span>
-                        Built from our core collection of microservices, the DMS offers turnkey
-                        installation, configuration, and deployment of the Overture software.
-                      </span>
-                      <br />
-                      <br />
-                      <span>
-                        While a custom solution will offer greater scalability, the DMS is an ideal
-                        starting point for anyone looking to explore Overture and experience how our
-                        microservices work in concert to create comprehensive data management
-                        systems.
-                      </span>
-                    </P1>
-                  </div>
-                  <div className="mid-white-section__button-holder">
-                    <Button
-                      type="primary"
-                      size="medium"
-                      className="mid-white-section__button"
-                      link={DOCS_DMS_INSTALL_LINK}
-                    >
-                      Installation Instructions
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* this img holding div is for desktop and larger view */}
-            <div className="mid-white-section__desktop-img-holder mid-white-section__img-holder">
-              <img alt="DMS screenshot" src={imgScreenshotDMS} className="mid-white-section__img" />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -234,3 +383,4 @@ export default function GettingStartedPage() {
     </main>
   );
 }
+
