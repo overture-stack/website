@@ -2,63 +2,70 @@
 title: Introduction
 ---
 
-Maestro's driving principle is to help organize and manage your geographically-distributed genomic data into a single, searchable index.
+Maestro's primary function is to organize data from multiple Song repositories into a single Elasticsearch index. By collecting data into a single index, Maestro allows upstream services, such as <a href="/documentation/arranger" target="_blank" rel="noopener noreferrer">Arranger</a>, to consume the data and expose it to end users for search and exploration.
 
-With the rapid increase and proliferation of genomic data due to modern scientific technologies, methodologies, and discoveries, the data is invariably becoming more distributed, originating and being stored in many sources.
-
-In the Overture product suite, [Song](/documentation/song) provides such a distributed metadata management and storage system, where multiple, geographically-distributed Song servers can exist.
-
-Recognizing this, the Overture team designed Maestro to seamlessly connect to multiple Song servers, listen for changes, and automatically generate a single [Elasticsearch](https://www.elastic.co/) index.
-
-By orchestrating and consolidating data into a single index, Maestro allows upstream services to easily consume the data and expose it to end users for search and exploration.  In Overture, [Arranger](/documentation/arranger) is one such consumer, able to quickly generate a data portal for end users from the index built by Maestro.
+![Entity](./assets/MaestroArchitecture.jpg 'Maestro Architecture')
 
 # Features
 
-## Multiple Repository Management
+## Multi Repo Management
 
-Maestro natively supports indexing data from multiple Song metadata repositories. Maestro connects to each Song server and will index all files from the repositories into a single Elasticsearch index.  Conflict resolution is built-in as part of the indexing process.  For example, if the same file was identified in multiple Song repositories, Maestro is able to detect this and aggregate the information from all repositories into the same Elasticsearch index document.
+Maestro offers built-in conflict detection and resolution. For instance, if multiple Song repositories identify the same file, Maestro detects this and aggregates the data from all sources into the Elasticsearch index.
 
 ## Multiple Indexing Levels
 
-In the Song data model, data can be grouped by different entities in a specific hierarchy: `Repository --> Study --> Individual Analysis` with Repository being at the highest level.  Maestro is flexible in that it can index data for a specific level, depending on the request.  For example, if indexing is requested for a specific study, then all data for that study (including all analyses under that study) would be indexed.
+Song repositories have a standard hierarchy: **Repository > Study > Analysis**. Maestro can index at each level. For example, if you want to index all analyses within a specific study, you can supply Maestro with the following command:
 
-## Support for Song Dynamic Schemas
+```bash
+curl -X POST \
+    http://localhost:11235/index/repository/`<repositoryCode>`/study/`<studyId>` \
+    -H 'Content-Type: application/json' \
+    -H 'cache-control: no-cache' \
+```
 
-Song supports a base data model ([schema](/documentation/song/user-guide/schema/)) with basic required fields that need to exist for an analysis.  However, it also supports a flexible dynamic schema which administrators can use to encode additional business rules that their data must comply with.  Maestro by default only needs the base schema fields to exist to index the data.  However, it is also capable of supporting indexing the additional fields found in the dynamic schema.  Note however, that it is the administrator's responsibility to manage the mapping and migration of one index to another should it change due to additional dynamic fields.
+## Supports Song's Dynamic Schemas
+
+Song utilizes a core data model along with a flexible, user-defined dynamic schema, allowing administrators to define their data model rules. Maestro will require the base schema fields to index data but also supports the indexing of additional fields found within the dynamic schema.
+ 
+<Note title="Index Mapping Migrations">When changes are introduced to the dynamic schema, the administrator(s) must update and migrate the new index mapping.</Note>
 
 ## Exclusion Rules
 
-In certain use cases, specific data records may need to excluded from indexing.  For example, prior to a major data release, some records may need to be excluded for business, data integrity, legal reasons, etc.  In the context of Song, Maestro supports this by providing configurable exclusion rules that omit specific analyses from being indexed based on metadata tags found in Song.  Specific analyses can be excluded by these identifiers:
+Specific data records may need to be excluded from indexing, for example, before a major data release, where records might need omission due to data integrity or legal concerns.
 
-* Study ID
-* Analysis ID
-* File ID
-* Sample ID
-* Specimen ID
-* Donor ID
+Maestro supports data publication controls by providing configurable exclusion rules to omit specific analyses from being indexed based on metadata tags assigned by Song. Study, Analysis, File, Sample, Specimen and Donor IDs can be used to exclude specific analyses.
 
-## Event-Based Indexing
+```yaml
+  # exclusion rules configs
+  exclusionRules:
+    byId:
+      studyId:
+        - TEST-STUDY
+#      analysis:
+#        - 531had59-235f-315j-3918-gjaea93ga90j
+#      file:
+#        - 41ba4fb3-9428-50b5-af6c-d779cd59b04d
+#      sample:
+#        - a6381313-gaj3-eaif-95jd-nahnba9gn112
+#      specimen:
+#        - j928shgh-bme9-gka7-vac8-ga239sdaig98
+#      donor:
+#        - DO232991
+```
 
-Maestro can optionally integrate with [Apache Kafka](https://kafka.apache.org/) to support configurable, event-based indexing using the Kafka messaging queue.  Maestro can be setup to listen for and trigger indexing operations from specific Kafka topics.
+Each property is a comma-separated list of the IDs you want to exclude from indexing. For more information see our instructions on <a href="/documentation/maestro/installation/configuration/exclusion/" target="_blank" rel="noopener noreferrer">configuring Maestro exclusion rules</a>.
 
-## Different Indexing APIs
+## HTTP or Kafka Indexing APIs
 
-Maestro can receive indexing requests through different interfaces.  The following are currently supported:
-
-* Event-driven indexing via integration with [Apache Kafka](https://kafka.apache.org/)
-* JSON Web API (HTTP)
-
-## Slack Integration
-
-To help monitor your indexing service, Maestro can be configured to integrate with [Slack](https://slack.com/) to send you notifications in case of errors during the indexing process.
+Maestro can process indexing requests via <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> or through a standard JSON Web API (HTTP).
 
 # Integrations
 
-Maestro integrates with the following Overture and third party software services:
+Maestro integrates with the following software services:
 
 | Service | Integration Type | Description |
-|---------|------------------|-------------|
-| [Song](/documentation/song) | Default | Maestro natively integrates with Song to index Song metadata into a single index. |
-| [Elasticsearch](https://www.elastic.co/) | Default | Maestro is designed by default to integrate with and build Elasticsearch indices. |
-| [Apache Kafka](https://kafka.apache.org/) | Optional | Maestro can optionally integrate with Kafka to listen for and trigger indexing operations from Kafka topics. |
-| [Slack](https://slack.com/) | Optional | Maestro can optionally integrate with Slack to send notifications about errors during the indexing process. |
+|--|--|--|
+| <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> | Default | Maestro natively integrates with Song to index Song metadata into a single index. |
+| <a href="https://www.elastic.co/" target="_blank" rel="noopener noreferrer">Elasticsearch</a> | Default | Maestro is designed to integrate with and build Elasticsearch indices by default. |
+| <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> | Optional |  Event-based indexing using the Kafka messaging queues. Maestro can also listen for and trigger indexing operations from specific Kafka topics |
+| <a href="https://slack.com/" target="_blank" rel="noopener noreferrer">Slack</a> | Default | Slack notifications for index monitoring |

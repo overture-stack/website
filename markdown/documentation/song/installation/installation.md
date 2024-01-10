@@ -109,4 +109,4 @@ docker run --env-file .env -p 8080:8080 ghcr.io/overture-stack/song-server:lates
 
 3. **Accessing Song:** 
 
-Song should now be running and accessible at `http://localhost:8080`.
+Song should now be running and accessible at `http://localhost:8080/swagger-ui.html#/`.
