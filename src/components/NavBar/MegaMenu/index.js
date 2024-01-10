@@ -13,7 +13,7 @@ const data = {
   documentation: {
     explore: {
       title: 'Explore our documentation',
-      text: 'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
+      text: 'Learn how to install and use o individual products using our easy-to-use tutorials.',
       link: {
         to: '/documentation/',
         text: 'Documentation Overview',
@@ -100,6 +100,38 @@ const data = {
             to: 'documentation/ego',
             text: 'Monitoring & Logging',
           },
+        ],
+      },
+    ],
+  },
+  tutorials: {
+    explore: {
+      title: 'Explore our tutorials and Tutorials',
+      text: 'Covering a range of topics for data consumers, providers, and administrators, these step-by-step tutorials provide practical insight and hands-on experience.',
+      link: {
+        to: '/tutorials/',
+        text: 'tutorials and Tutorials',
+      },
+    },
+    sections: [
+      {
+        title: 'Data Consumers',
+        color: 'blue',
+        links: [
+        ],
+      },
+      {
+        title: 'Data Providers',
+        color: 'dark-blue',
+        links: [
+   
+        ],
+      },
+      {
+        title: 'Data Administrators',
+        color: 'yellow',
+        links: [
+
         ],
       },
     ],

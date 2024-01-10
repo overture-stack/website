@@ -7,6 +7,11 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
 
   const megaMenuActive = path.startsWith(`/${type}`);
 
+  // Function to determine if the arrow should be displayed
+  const shouldDisplayArrow = (name) => {
+    return name === 'Documentation' || name === 'Tutorials';
+  };
+
   return (
     <div className="megamenu-link-box" key={key} activeClassName="active-item">
       <div style={{ flex: '1', display: 'flex' }}>
@@ -18,7 +23,7 @@ const MegaMenuLink = ({ children, isActive, name, path, toggleMegaMenu, type }) 
           onClick={() => toggleMegaMenu(type)}
         >
           {name}
-          {name === 'Documentation' ? (
+          {shouldDisplayArrow(name) ? (
             <Icon
               img="arrowDownNavbar"
               className={`documentation-down-arrow ${
