@@ -90,15 +90,19 @@ const data = {
         links: [
           {
             to: 'documentation/song',
-            text: 'Deployment Procedures',
+            text: 'Deployment',
           },
           {
             to: 'documentation/score',
-            text: 'Load Balancing & Scaling',
+            text: 'Load Balancing',
           },
           {
             to: 'documentation/ego',
-            text: 'Monitoring & Logging',
+            text: 'Logging',
+          },
+          {
+            to: 'documentation/ego',
+            text: 'Recovery',
           },
         ],
       },
@@ -115,23 +119,57 @@ const data = {
     },
     sections: [
       {
-        title: 'Data Consumers',
+        title: 'Consumers',
         color: 'blue',
         links: [
+          {
+            to: 'documentation/song',
+            text: 'Downloading Data',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Visualizing data with Jbrowse2',
+          },
         ],
       },
       {
-        title: 'Data Providers',
+        title: 'Providers',
         color: 'dark-blue',
         links: [
-   
+          {
+            to: 'documentation/song',
+            text: 'Submitting Data (CLI)',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Bulk Data Submission (Scripting)',
+          },
         ],
       },
       {
-        title: 'Data Administrators',
+        title: 'Administrators',
         color: 'yellow',
         links: [
-
+          {
+            to: 'documentation/song',
+            text: 'Local Setup',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Server Setup',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Data Modeling',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Portal Customization',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Managing Permissions',
+          },
         ],
       },
     ],

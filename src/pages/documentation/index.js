@@ -127,14 +127,14 @@ export default function GettingStartedPage() {
             <div className="upper-grey-section__docs-holder">
               <div className="upper-grey-section__doc-holder">
                 <div className="upper-grey-section__doc-title">
-                  <H3>Data Consumers</H3>
+                  <H3>Consumers</H3>
                 </div>
                 <div className="upper-grey-section__doc-columns-holder">
                   {/* User Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="/documentation/arranger">Navigating the exploration page</Link>
+                        <Link to="/documentation/arranger">Downloading data</Link>
                       </li>
                     </ul>
                   </div>
@@ -143,11 +143,8 @@ export default function GettingStartedPage() {
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item menu-selection-link">
                         <Link className="menu-selection-link" to="/documentation/ego">
-                          Downloading data
+                        Visualizing data with JBrowse2
                         </Link>
-                      </li>
-                      <li className="upper-grey-section__bullets-item">
-                        <Link to="/documentation/maestro"> Visualization with JBrowse2</Link>
                       </li>
                     </ul>
                   </div>
@@ -157,27 +154,24 @@ export default function GettingStartedPage() {
               {/* Developer Documentation Section */}
               <div className="upper-grey-section__doc-holder">
                 <div className="upper-grey-section__doc-title">
-                  <H3>Data Providers</H3>
+                  <H3>Providers</H3>
                 </div>
                 <div className="upper-grey-section__doc-columns-holder">
                   {/* Developer Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={EGO_GITHUB_LINK}>CLI data submission</Link>
+                        <Link to={EGO_GITHUB_LINK}>Submitting Data (CLI)</Link>
                       </li>
                     </ul>
                   </div>
                   {/* Developer Documentation bullets right */}
                   <div>
-                    <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">
-                        <Link to={MAESTRO_GITHUB_LINK}>Programatic data submission</Link>
+                    <ul>
+                  <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Bulk Data Submission (Scripting)</Link>
                       </li>
-                      <li className="upper-grey-section__bullets-item">
-                        <Link to={MAESTRO_GITHUB_LINK}>Data Migration</Link>
-                      </li>
-                    </ul>
+                      </ul>
                   </div>
                 </div>
               </div>
@@ -186,33 +180,37 @@ export default function GettingStartedPage() {
               {/* Developer Documentation Section */}
               <div className="upper-grey-section__doc-holder">
                 <div className="upper-grey-section__doc-title">
-                  <H3>Data Administrators</H3>
+                  <H3>Administrators</H3>
                 </div>
                 <div className="upper-grey-section__doc-columns-holder">
                   {/* Developer Documentation bullets left */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={SONG_GITHUB_LINK}>Schema generation and management</Link>
+                        <Link to={SONG_GITHUB_LINK}>Local Setup (Using Docker)</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={EGO_GITHUB_LINK}>Creating a data dictionary</Link>
+                        <Link to={SONG_GITHUB_LINK}>Server Setup (Using Helm)</Link>
                       </li>
                     </ul>
                   </div>
                   {/* Developer Documentation bullets right */}
                   <div>
                     <ul className="upper-grey-section__doc-column">
-                      <li className="upper-grey-section__bullets-item">
-                        <Link to={MAESTRO_GITHUB_LINK}>Customizing your search interface</Link>
+                    <li className="upper-grey-section__bullets-item">
+                        <Link to={EGO_GITHUB_LINK}>Data Modeling</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={ARRANGER_GITHUB_LINK}>Managing user permissions</Link>
+                        <Link to={MAESTRO_GITHUB_LINK}>Portal Customization</Link>
+                      </li>
+                      <li className="upper-grey-section__bullets-item">
+                        <Link to={ARRANGER_GITHUB_LINK}>Managing User and Application Permissions</Link>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
+              
 
             </div>
 
@@ -314,7 +312,7 @@ export default function GettingStartedPage() {
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={EGO_GITHUB_LINK}>Deployment procedures</Link>
+                        <Link to={EGO_GITHUB_LINK}>Deployment</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
                         <Link to={EGO_GITHUB_LINK}>Backup and Recovery</Link>
