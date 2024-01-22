@@ -4,19 +4,21 @@ title: Installation
 
 To install the DMS-UI follow these steps.
 
-1. Clone the repository to your machine
+1. **Clone the repository:** Clone the repository to your machine
 
 ```bash
 git clone https://github.com/overture-stack/dms-ui.git
 ```
 
-2. To install the dependencies, run the following command:
+2. **Install dependencies:** Run the following command
 
 ```bash
 npm ci
 ```
 
-3. Deploy the DMS-UI locally by running the following command:
+<Warning>**Note:** Ensure you are using Node.js version 20 or greater for optimal performance and compatibility.</Warning>
+
+3. **Deploy:** Deploy the DMS-UI locally by running the following command
 
 ```bash
 npm run dev
