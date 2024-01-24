@@ -14,7 +14,7 @@ Before installing Ego, ensure that the following tools and services are installe
 
     - We store all [Ego related data](/documentation/ego/technical) within PostgreSQL databases
     - Instructions for <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener noreferrer">downloading and installing PostgreSQL can be found here</a>
-    - We also provide a docker quickstart for database setup below that does not require PostgreSQL installation
+    - We also provide a docker quickstart for database setup below. This does not require PostgreSQL installation
 
 
 3. **Setup Identity Provider Secrets**
@@ -23,7 +23,7 @@ Before installing Ego, ensure that the following tools and services are installe
 
 # PostgreSQL Quickstart
 
-We will be using docker to set up our PostgreSQL database for Ego and PgAdmin4 to help in monitoring and configuring the database.
+We will be using docker to set up our PostgreSQL database for Ego.
 
 1. **Pull and Run PostgreSQL** 
 
@@ -37,7 +37,7 @@ This command spins up a PostgreSQL container named `postgresEgo` with the defaul
 
 2. **Pull and Run PgAdmin4 (optional)** 
 
-Use the following command to pull and run the PgAdmin4 docker container:
+PgAdmin4 is an open-source, web-based tool that provides a convenient and user-friendly interface for managing PostgreSQL databases. Use the following command to pull and run the PgAdmin4 docker container:
 
 ```bash
 docker run --name my-pgadmin -p 82:80 -e 'PGADMIN_DEFAULT_EMAIL=email@domain.com' -e 'PGADMIN_DEFAULT_PASSWORD=abc123' -d dpage/pgadmin4
@@ -45,21 +45,20 @@ docker run --name my-pgadmin -p 82:80 -e 'PGADMIN_DEFAULT_EMAIL=email@domain.com
 
 This command spins up a PgAdmin4 container accessible from `http://localhost:82/`. Once deployed you will need to login using the credentials specified within the docker run command. In our example above this is `email@domain.com` with the password `abc123`.
 
-<Note title='PgAdmin4'>Is an open-source, web-based tool that provides a convenient and user-friendly interface for managing PostgreSQL databases.</Note>
-
 3. **Connect your database to PgAdmin4 (optional)**  
 
 Select **Add New Server** name your server and then **select the connection tab** and input the following:
 
 ![Entity Diagram](../../assets/pgadmin-config.png 'PgAdmin Configuration')
 
+These values may be different depending on the values you provided during step 1
+
 | Field | Value |
 |---|---|
 | Host name/address: | `host.docker.internal` |
-| Port:* | `5432` |
-| Username:* | `postgres` |
-| Username:* | `abc123` |
-** * ** These values may be different depending on the values you provided during step 1
+| Port: | `5432` |
+| Username: | `postgres` |
+| Password: | `abc123` |
 
 4. **Click Save** 
 

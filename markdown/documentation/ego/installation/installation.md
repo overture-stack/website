@@ -14,7 +14,7 @@ Based on your configuration, create an `.env.ego` file with the necessary enviro
 
 Here's an example of the `.env.ego` file with a description of each variable in the table below:
 
-```bash
+```ENV
 # Active Profiles (only auth needed)
 SPRING_PROFILES_ACTIVE=auth
 
@@ -45,21 +45,17 @@ DEFAULT_USER_STATUS=APPROVED
 
 | Variable                                                         | Description                                                |
 |------------------------------------------------------------------|------------------------------------------------------------|
-| `SPRING_PROFILES_ACTIVE`                                         | Specifies active Spring profiles, by default it will be set to 'auth'.  |
+| `SPRING_PROFILES_ACTIVE`                                         | Specifies active Spring profiles, by default it will be set to `auth`.  |
 | `SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTID`     | Client ID for Google OAuth credentials.                  |
 | `SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_CLIENTSECRET` | Client Secret for Google OAuth credentials.     |
 | `SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GOOGLE_REDIRECTURI`  | The redirect URI for google authentication, update the base URL according to your setup environment. |
-| `SPRING_DATASOURCE_URL`                                          | URL for the database connection, with placeholders for host and database name. |
-| `SPRING_DATASOURCE_USERNAME`                                     | Username for the database connection.                      |
-| `SPRING_DATASOURCE_PASSWORD`                                     | Password for the database connection.                      |
-| `INITIALIZATION_ENABLED` & `INITIALIZATION_APPLICATIONS`         | These variables are for the later initialization of the Ego Admin UI, these can be left as is for now or updated according to your setup environment.    |
+| `SPRING_DATASOURCE_URL`                                          | URL for the database connection, with placeholders for host and database name (ex. `5432/egoDb`). |
+| `SPRING_DATASOURCE_USERNAME`                                     | Username for the database connection (ex. `postgres`).                      |
+| `SPRING_DATASOURCE_PASSWORD`                                     | Password for the database connection (ex. `abc123`).                      |
+| `INITIALIZATION_ENABLED` & `INITIALIZATION_APPLICATIONS`         | These variables are for the later initialization of the Ego Admin UI and can be left as is for now or updated according to your setup environment.    |
+| `DEFAULT_USER`                                                   | By default, new users do not have ADMIN roles and therefore cannot modify Ego or use the Ego Admin UI. To allow the first user to log in as an ADMIN user, we include the `DEFAULT_USER_FIRST_USER_AS_ADMIN`, `DEFAULT_USER_TYPE`, and `DEFAULT_USER_STATUS` fields.  |
 
-The remaining variables can be left as is for now.
-
-<Note title='Variables for other OAuth providers'> Modify the `...GOOGLE_CLIENTID` and `...GOOGLE_CLIENTSECRET` variables to configure them for different OAuth services. To do this, create separate variables for each OAuth service you intend to use with Ego, such as `GITHUB`, `ORCID`, or `LINKEDIN`. Replace 'GOOGLE' in the variable names with the respective service name.</Note>
-
-<Note title='First Users'> By default, new users do not have ADMIN roles and therefore cannot modify Ego or use the Ego Admin UI. To allow the first user to log in as an ADMIN user, we include the `DEFAULT_USER_FIRST_USER_AS_ADMIN`, `DEFAULT_USER_TYPE`, and `DEFAULT_USER_STATUS` configurations in the .env.ego file as shown above.</Note>
-
+<Warning>Modify the `...GOOGLE_CLIENTID` and `...GOOGLE_CLIENTSECRET` variables to configure them for different OAuth services. To do this, create separate variables for each OAuth service you intend to use with Ego, such as `GITHUB`, `ORCID`, or `LINKEDIN`. Replace 'GOOGLE' in the variable names with the respective service name and update the values accordingly.</Warning>
 
 2. **Docker Run**
 
