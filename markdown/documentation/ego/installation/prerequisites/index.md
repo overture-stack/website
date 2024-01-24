@@ -6,7 +6,7 @@ Before installing Ego, ensure that the following tools and services are installe
 
 1. **Docker**
 
-    - For ease of use we recommend using <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer">Docker Desktop</a>
+    - For ease of use, we recommend using <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer">Docker Desktop</a>
     - If you prefer using the command line, you can install the <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer">Docker Engine here</a>
 
 
@@ -33,7 +33,7 @@ Use the following command to pull and run the PostgreSQL docker container:
 docker run --name postgresEgo -e POSTGRES_PASSWORD=abc123 -e POSTGRES_DB=egoDb -p 5432:5432 -d postgres                                       
 ```
 
-This command spins up a PostgreSQL container named `postgresEgo` with the default username `postgres` a password of `abc123` and create a database called `egoDb`. 
+This command spins up a PostgreSQL container named `postgresEgo` with the default username `postgres`, password of `abc123` and creates a database within it called `egoDb`. 
 
 2. **Pull and Run PgAdmin4 (optional)** 
 
@@ -67,13 +67,13 @@ From the left-hand server drop-down, you can now view the connected database(s)
 
 # Setting up Identity Provider Secrets
 
-To properly use the identity providers with Ego, OAuth credentials must be setup with each provider you want to use, specifically a client ID and client secret.
+To properly use the identity providers with Ego, OAuth credentials must be set up with each provider you want to use, specifically a client ID and client secret.
 
 The secret is known only to your web application and the provider's authorization server.  It serves to protect your resources by only granting tokens to authorized requestors.
 
 <Note title='Secrets Managment Software'>If you or your organization needs a secure solution to store, manage, and control access to all your secrets in one place, you may wish to consult with your IT department about adopting a 3rd party tool such as [HashiCorp's Vault](https://www.vaultproject.io/).</Note>
 
-Each identity provider has a different process for setting up their client secrets. On this page we have provided summaries for setting up for each available identity provider:
+Each identity provider has a different process for setting up their client secrets. Linked below are summaries for setting up each available identity provider:
 
 - [Google](/documentation/ego/installation/prerequisites/google)
 - [GitHub](/documentation/ego/installation/prerequisites/github)

@@ -52,7 +52,7 @@ DEFAULT_USER_STATUS=APPROVED
 | `SPRING_DATASOURCE_URL`                                          | URL for the database connection, with placeholders for host and database name. |
 | `SPRING_DATASOURCE_USERNAME`                                     | Username for the database connection.                      |
 | `SPRING_DATASOURCE_PASSWORD`                                     | Password for the database connection.                      |
-| `INITIALIZATION_ENABLED` & `INITIALIZATION_APPLICATIONS`                               | These variables are for the later initialization of the Ego Admin UI, these can be left as is for now or updated according to your setup environment.    |
+| `INITIALIZATION_ENABLED` & `INITIALIZATION_APPLICATIONS`         | These variables are for the later initialization of the Ego Admin UI, these can be left as is for now or updated according to your setup environment.    |
 
 The remaining variables can be left as is for now.
 
