@@ -6,11 +6,11 @@ Before integrating Ego with the DMS-UI make sure you have Ego running and config
 
 To add Ego to the DMS UI:
 
-1. On the left hand panel select Applications. From the Applications screen on the right hand side click create. 
+1. **Add the DMS-UI to Ego:** From the Ego Admin UI's left-hand panel select **Applications**. From the Applications screen on the right-hand side click **Create**. 
 
 ![Entity](../../assets/dmsappcreate.jpg 'Ego-UI creating a new application')
 
-2. To set up Ego with the DMS-UI locally insert the following information:
+Insert the following information:
 
 |Field|Value|
 |--|--|
@@ -18,35 +18,46 @@ To add Ego to the DMS UI:
 |Status|Approved|
 |Client|dms-ui|
 |Client Secret|dms-ui|
-|Redirect URI|http://localhost:3000/logged-in|
+|Redirect URI|http://localhost:3000/api/auth/callback/ego|
 |Error Redirect URI|http://localhost:3000/error|
 
-You can leave the Groups and Users fields blank. Click the save button on the top right of the panel.
+You can leave the Groups and Users fields blank. Click the **save** button on the top right of the panel.
 
-![Entity](../../assets/dmsuiappcreatefilled.jpg 'New DMS-UI application values')
+![Entity](../../assets/dmsuiappcreatepopulated.jpg 'New DMS-UI application values')
 
-4. Within the DMS-UI locate your `.env.local` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.local`.
+4.  **Create an environment variable file:** Within the cloned DMS-UI repository locate your `.env.dmsui` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.dmsui`.
 
 
-5. Variables within this file are already preconfigured for a local setup:
+5. **Update environment variables:**Variables within this file are already preconfigured for a local setup:
 
-```Shell
+```ENV
 ######### Ego
+
+# Auth provider
+NEXT_PUBLIC_AUTH_PROVIDER=ego
+ACCESSTOKEN_ENCRYPTION_SECRET=super_secret
+SESSION_ENCRYPTION_SECRET=this_is_a_super_secret_secret
+
 # Base url for Ego API
-NEXT_PUBLIC_EGO_API_ROOT=http://localhost:8081/
+NEXT_PUBLIC_EGO_API_ROOT=http://localhost:8081
+
 # Ego registered app id
 NEXT_PUBLIC_EGO_CLIENT_ID=dms-ui
 ```
 
 However, you will need to update the `NEXT_PUBLIC_SSO_PROVIDERS` variable in line with the SSO provider(s) you want available: 
 
-```Shell
-######### DMS
+```ENV
 NEXT_PUBLIC_SSO_PROVIDERS=GOOGLE,GITHUB,ORCID,LINK
+
+######### Optional features/functionalities
+
+NEXT_PUBLIC_DEBUG=true
+
 ```
 
 <Warning>**Note:** you will need to set up a client ID and client Secret through each provider. For more information see our documentation on [setting up identity provider secrets](https://www.overture.bio/documentation/ego/installation/prereq/#setup-identity-provider-secrets)</Warning>
 
-6. Restart the DMS-UI by exiting out and re-running `npm run dev`
+6. **Restart the DMS-UI:** From the command line exit out (Ctrl/Cmd + C), and re-run the DMS-UI `npm run dev`. 
 
 Once compiled you should be able to access Ego by clicking login on the upper right corner of the DMS-UI.
