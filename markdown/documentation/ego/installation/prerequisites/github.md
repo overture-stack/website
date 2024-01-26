@@ -23,8 +23,8 @@ For your convenience, we provide summary steps below:
 
 6. **Configure Authorized Callback URIs:** In the **Authorized callback URIs** field, enter the URL where GitHub will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Depending on your deployment, enter the following:
 
- - **Local:** http://localhost:`<port>`/ego-api/oauth/login/github
-  - **Server:** https://`<myDomain>`/ego-api/oauth/login/github
+ - **Local:** http://localhost:`<port>`/oauth/code/github
+  - **Server:** https://`<myDomain>`/oauth/code/github
 
 7. **Register the Application:** Click on **Register application.**
 
