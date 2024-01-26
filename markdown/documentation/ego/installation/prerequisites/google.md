@@ -4,7 +4,7 @@ title: Google OAuth Setup
 
 For full details on setting up OAUTH 2.0 for an application to work with Google, see the <a href="https://support.google.com/cloud/answer/6158849?hl=en" target="_blank" rel="noopener noreferrer">Official Google Developer Documentation</a>.
 
-For your convenience, we provide summary steps here:
+For your convenience, we provide a summary of the steps here:
 
 1. **Create an account with <a href="https://console.developers.google.com/" target="_blank" rel="noopener noreferrer">Google Developer Console</a>:** If you don't already have one. If you are an individual working alone with the Overture suite, you may use a personal account. However, if you work for a larger organization or institution, consult your IT department for a designated account.
 
@@ -53,15 +53,14 @@ For your convenience, we provide summary steps here:
 - **Application type:** Set to `Web application`
 - **Name:** Enter a name for the client
 
-11. **Add Authorized Redirect URIs:** Under Under **Authorized redirect URIs**, add a URI. This is the URI where Google will redirect users once they have authenticated with the provider. The URI should be in the following format:
+11. **Add Authorized Redirect URIs:** Under **Authorized Redirect URIs**, add a URI. This is the URI where Google will redirect users once they have authenticated with the provider. The URI should be in the following format:
 
-`<url>/ego-api/oauth/login/google`
+`<url>/oauth/code/google`
 
 Replace `<url>` with the base URL where you have deployed Ego. For example:
 
-- `https://ego.overture.bio/ego-api/oauth/login/google`
-- `https://dms.test.cancercollaboratory.org/ego-api/oauth/login/google`
-- `http://localhost:80/ego-api/oauth/login/google`
+- `http://localhost:8081/oauth/code/google`
+- `https://ego.overture.bio/oauth/code/google`
 
 12. **Click Create:** Click on **Create** to proceed:
 
