@@ -36,8 +36,8 @@ For your convenience, we provide summary steps below:
 
 7. **Configure Authorized Redirect URL:** In the app's top navigation menu, go to **Auth** and under **OAuth 2.0 settings**, add an **Authorized redirect URL** for your app. This is the URI where LinkedIn will redirect users once they have authenticated with the provider (i.e., redirect them back to Ego once logged in successfully). Depending on your deployment, enter the following:
 
-- **Local:** http://localhost:`<port>`/ego-api/oauth/login/linkedin
-- **Server:** https://`<myDomain>`:443/ego-api/oauth/login/linkedin 
+- **Local:** http://localhost:`<port>`/oauth/code/linkedin
+- **Server:** https://`<myDomain>`:443/oauth/code/linkedin 
 
 8. **Use Client ID and Client Secret:** During [Ego installation](/documentation/ego/installation/installation), provide the **Client ID** and **Client Secret** when prompted. **However, LinkedIn requires a few additional steps after Ego installation for the process to be complete.**
 

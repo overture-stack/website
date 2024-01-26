@@ -389,19 +389,19 @@ ego:
       google:
         clientId: "abc123"
         clientSecret: "abc123"
-        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/google"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/oauth/code/google"
       github:
         clientId: "abc123"
         clientSecret: "abc123"
-        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/github"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/oauth/code/github"
       linkedin:
         clientId: "abc123"
         clientSecret: "abc123"
-        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/linkedin"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/oauth/code/linkedin"
       orcid:
         clientId: "abc123"
         clientSecret: "abc123"
-        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/orcid"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/oauth/code/orcid"
     url: "https://dms.test.cancercollaboratory.org:443/ego-api"
     dmsAppCredential:
       name: "dms"
