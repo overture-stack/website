@@ -9,7 +9,7 @@ Invoke a command by running the `score-client` executable and appending the nece
 For instance, to use the `upload` command with the `--manifest` option:
 
 ```BASH
-./score-client-<latest-release-number>/bin/score-client upload --manifest ./<directory>/manifest.txt
+docker exec score-client sh -c "./score-client-<latest-release-number>/bin/score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
 # Commands
