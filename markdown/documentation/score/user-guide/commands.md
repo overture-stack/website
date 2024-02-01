@@ -61,7 +61,7 @@ The `manifest` command shows entries of a specific Score manifest file. It can b
 
 ## Mount
 
-The `mount` command is a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noopener noreferrer">FUSE</a> filesystem view of the object storage repository in use by Score. This command can be used with the following option flags:
+The `mount` command is a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noopener noreferrer">FUSE</a> filesystem view of the object storage repository in use by Score, and it can be used with the following optional flags:
 
 | Option | Description |
 | -------| ------------|
