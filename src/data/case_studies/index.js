@@ -160,7 +160,7 @@ export default [
     portalLink: IHCC_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={IHCC_LINK}>International HundredK+ Cohorts Consortium (IHCC)</Link> is
+        The <Link to={IHCC_LINK}>International Health Cohorts Consortium (IHCC)</Link> is
         improving clinical care and population health by aggregating large genomic data cohorts to
         help translational researchers uncover the biological and genetic factors of disease. With
         exception to underrepresented cohorts & populations, all hosted member cohorts are
