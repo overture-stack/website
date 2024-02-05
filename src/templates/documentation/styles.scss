@@ -339,9 +339,18 @@
       }
     }
     .gatsby-resp-image-wrapper {
-      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
-      border: solid 1px $grey-3;
-    }
+      width: 65%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); 
+      border: 1px solid $grey-3; 
+      border-radius: 4px; 
+      overflow: hidden; 
+    
+      img {
+        max-width: 100%; 
+        height: auto;
+        display: block; 
+      }
+    }    
   }
   &__toc-headings {
     flex: 0 0 300px;

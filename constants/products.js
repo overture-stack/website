@@ -64,6 +64,10 @@ const productsObj = {
     iconWhite: 'productDMSWhite',
     title: 'DMS-UI',
   },
+  'setup': {
+    iconWhite: 'productDMSWhite',
+    title: 'Setup',
+  },
 };
 
 const productsDict = Object.entries(productsObj).reduce(
