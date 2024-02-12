@@ -108,7 +108,7 @@ After creating our client, the next step is configuring the resource name, scope
 
 #### Scopes
 
-Scopes represent actions that users can perform on a particular resource. They define the level of access a user has to a resource, such as reading, writing, updating, or deleting. For more information see [inset](relvant-doc)
+Scopes represent actions that users can perform on a particular resource. They define the level of access a user has to a resource, such as reading, writing, updating, or deleting. For more details, checkout the following [Keycloak documentation](https://www.keycloak.org/docs/latest/authorization_services/index.html#scope)
 
 ![New Scope](../../assets/auth-scope.png)
 
@@ -117,7 +117,8 @@ Scopes represent actions that users can perform on a particular resource. They d
 
 #### Resources
 
-Resources are objects or entities that users can interact with, such as a database, a file, or an API endpoint. When defining resources, you assign them to specific scopes, indicating what actions can be performed on those resources. For more information see [inset](relvant-doc)
+Resources are objects or entities that users can interact with, such as a database, a file, or an API endpoint. When defining resources, you assign them to specific scopes, indicating what actions can be performed on those resources. For more details, checkout the following [Keycloak documentation](https://www.keycloak.org/docs/latest/authorization_services/index.html#resource)
+
 
 1. From the **Resource tab**, select **"Create Resource"**.
 2. Your first resource is generalized and will not be associated with any specific study or program. Name the resource `score`, and from the **authorization scopes field** dropdown select **"READ" and "WRITE"**.
@@ -129,7 +130,7 @@ Resources are objects or entities that users can interact with, such as a databa
 
 #### Policies
 
-Policies are rules that determine who can access resources based on certain conditions. They encapsulate the logic to decide whether to grant or deny access. Policies can be based on group membership, user attributes, or time-based conditions. For more information see [inset](relvant-doc)
+Policies are rules that determine who can access resources based on certain conditions. They encapsulate the logic to decide whether to grant or deny access. Policies can be based on group membership, user attributes, or time-based conditions. For more details, checkout the following [Keycloak documentation](https://www.keycloak.org/docs/latest/authorization_services/index.html#policy)
 
 ![New Policy](../../assets/new-policy.png)
 
@@ -139,7 +140,8 @@ Policies are rules that determine who can access resources based on certain cond
 
 #### Permissions
 
-Permissions are the final decision-making mechanism connecting resources, scopes, and policies. They define which users or groups can access which resources under what circumstances. Permissions are evaluated based on the evaluation strategy chosen (e.g., Affirmative, Unanimous, or Consensus).  Permissions can be resource-based, meaning they apply directly to a resource, or they can be scope-based, meaning they apply to a scope or combination of scopes and resources. For more information see [inset](relvant-doc)
+Permissions are the final decision-making mechanism connecting resources, scopes, and policies. They define which users or groups can access which resources under what circumstances. Permissions are evaluated based on the evaluation strategy chosen (e.g., Affirmative, Unanimous, or Consensus).  Permissions can be resource-based, meaning they apply directly to a resource, or they can be scope-based, meaning they apply to a scope or combination of scopes and resources. For more details, checkout the following [Keycloak documentation](https://www.keycloak.org/docs/latest/authorization_services/index.html#permission)
+
 
 1. Select the **permissions tab**, click **"Create Permission"** and from the dropdown select **"Create resource-based permission**.
 2. Assign the newly created resource, scope, and policy. Select `Affirmative strategy`.
