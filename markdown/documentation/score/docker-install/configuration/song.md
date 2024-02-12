@@ -2,17 +2,20 @@
 title: Song Server Integration
 ---
 
-For comprehensive guidance on establishing a Song server, please refer to our [Song Documentation](/documentation/song/). This resource provides detailed instructions and best practices for setting up and configuring the Song server. 
+Song is a companion application to Score, and is required for any file uploading or downloading. For detailed instructions and best practices for setting up and configuring the Song server refer to our [Song Documentation](/documentation/song/).
+
+# Environment Variable Setup
 
 Once your Song server is operational, the next step is to configure Score to connect with it. This connection is established by modifying your `.env.score` file. The required changes include specifying the metadata URL and SSL settings as illustrated below:
 
 ```bash
-# Configure the production profile
-SPRING_PROFILES_ACTIVE=prod
+# ============================
+# Song Configruation Variables
+# ============================
 
 # Specify the Song server details
-METADATA_URL="{{metadata_url}}" # Example: http://localhost:8089/
-METADATA_SSL_ENABLED="{{ssl_enabled}}" # Options: 'true' or 'false'
+METADATA_URL={{metadata_url}} # Example: http://localhost:8089/
+METADATA_SSL_ENABLED={{ssl_enabled}} # Options: 'true' or 'false'
 ```
 
 The table below summarizes the variables you need to set:

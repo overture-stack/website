@@ -1,35 +1,35 @@
 sectionSlug: score
 sectionTitle: Score
 pages:
-- title: Introduction
-  url: score
-- title: Installation Guide
-  url: score/installation
-  isHeading: true
-  pages:
-  - title: Installation
-    url: score/installation/installation
-  - title: Configuration
-    url: score/installation/configuration
+  - title: Introduction
+    url: score
+  - title: Installation Guide
+    url: score/docker-install
     isHeading: true
     pages:
-    - title: Song Server Integration
-      url: score/installation/configuration/song
-    - title: Object Storage Integration
-      url: score/installation/configuration/object-storage
-    - title: OAuth Provider  
-      url: score/installation/configuration/authentication
-    - title: HashiCorp Vault (optional)
-      url: score/installation/configuration/bootstrap
-- title: User Guide
-  url: score/user-guide
-  isHeading: true
-  pages:
-  - title: Setting Up the Score Client
-    url: score/user-guide/client-setup
-  - title: Uploading Data
-    url: score/user-guide/upload
-  - title: Downloading Data
-    url: score/user-guide/download
-  - title: Score-Client Commands
-    url: score/user-guide/commands
+    - title: Configuration
+      url: score/docker-install/configuration
+      isHeading: true
+      pages:
+      - title: Song Server Integration
+        url: score/docker-install/configuration/song
+      - title: Object Storage Integration
+        url: score/docker-install/configuration/object-storage
+      - title: OAuth Provider  
+        url: score/docker-install/configuration/authentication
+      - title: HashiCorp Vault (optional)
+        url: score/docker-install/configuration/bootstrap
+    - title: Installation
+      url: score/docker-install/installation
+  - title: User Guide
+    url: score/user-guide
+    isHeading: true
+    pages:
+    - title: Setting Up the Score Client
+      url: score/user-guide/client-setup
+    - title: Uploading Data
+      url: score/user-guide/upload
+    - title: Downloading Data
+      url: score/user-guide/download
+    - title: Score-Client Commands
+      url: score/user-guide/commands
