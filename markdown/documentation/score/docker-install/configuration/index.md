@@ -4,7 +4,9 @@ title: Configuring Score for Docker Install
 
 # Prerequisite
 
-The following sections outline how to configure and run Score as a docker image. Before beginning, ensure that you have Docker installed and running. You can follow the <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer">Official Docker Engine download & installation instructions</a> or [download and install the Docker desktop application](https://www.docker.com/products/docker-desktop/).
+The following sections outline configuring and running Score as a docker image. Before beginning, please make sure that you have Docker installed and running. You can follow the <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener noreferrer">Official Docker Engine download & installation instructions</a> or [download and install the Docker desktop application](https://www.docker.com/products/docker-desktop/).
+
+<Note title="Song Setup">Score interacts with a required companion application, Song, which validates, catalogues and manages all the metadata associated with the file data that Score transfers. Please note that although both services are needed, there is no necessary order of installation required.</Note>
 
 # Configuration Overview
 
