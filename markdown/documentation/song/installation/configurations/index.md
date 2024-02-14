@@ -2,10 +2,14 @@
 title: Song Configuration
 ---
 
-The sections below cover the essential components that must be configured for the proper functioning of the Song server:
+# Configuration Overview
 
-- [Run Profiles](/documentation/song/installation/configurations/profiles/): Define how the Song server operates.
-- [Score Integration](/documentation/song/installation/configurations/score/): Connect Song with the Score server.
-- [ID Management](/documentation/song/installation/configurations/id/): Define how to manage unique identifiers.
-- [Schema Strictness](/documentation/song/installation/configurations/schema/): Define how strictly schemas should be adhered to.
-- [Kafka Event Management](/documentation/song/installation/configurations/profiles/#kafka-profile-optional): Manage real-time data streaming events.
+All configurations for Song are centralized to a single environment variable file `.env.song`. These configurations are essential for linking Song with other services. 
+
+**There are five primary steps for successfully configuring Song for installation:**
+
+1. [Connecting Song with it's companion file transfer service (Score)](/documentation/song/installation/configurations/score/)
+2. [Setting up and linking Song to an OAuth service](/documentation/score/installation-guide/configuration/authentication)
+3. [Connecting Kafka](/documentation/song/installation/configurations/profiles/#kafka-profile-optional)
+4. [Configuring ID management](/documentation/score/installation-guide/configuration/authentication)
+5. [Configuring Schema Strictness](/documentation/score/installation-guide/configuration/authentication)
