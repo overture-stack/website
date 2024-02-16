@@ -32,6 +32,8 @@ The Overture API Key provider extends Keycloak's functionality, by adding custom
 2. **Move the** `keycloak-apikeys.jar` file to the provider's folder within Keycloak (`opt/keycloak/providers/`).
 3. **Restart the Keycloak server** for the updated provider to take effect.
 
+<Note title="Does this look familiar?">If you have previously set up Score with Keycloak, you can skip ahead to the application setup section on this page.</Note>
+
 ## Realm Configuration
 
 ### Login to the admin console
@@ -150,7 +152,7 @@ Permissions are the final decision-making mechanism connecting resources, scopes
 
 As mentioned previously, when introducing a new study or program, the creation of an additional resource within Keycloak is required. This includes re-applying policies and permissions to desired users and groups. 
 
-To add a new study, **create a new resource** with the desired name of your study or program (i.e. `study123`) and **repeat the steps outline above**, specficially the Resources, Policies and Permissions sections of [configuring your application](/documentation/score/docker-install/configuration/authentication/#configuring-your-application). Once complete you should have the following:
+To add a new study, **create a new resource** with the desired name of your study or program (i.e. `study123`) and **repeat the steps outline above**, specifically the Resources, Policies and Permissions sections of [configuring your application](/documentation/score/docker-install/configuration/authentication/#configuring-your-application). Once complete you should have the following:
 
 ![Completed](../../assets/complete.png)
 
@@ -215,7 +217,9 @@ Replace any default values with the values specific to your environment. The tab
 | `LOGGING_LEVEL_BIO_OVERTURE_SCORE_SERVER`        | Optional    | Sets the logging level for Score Server components. Default is `INFO`. |
 | `LOGGING_LEVEL_ROOT`                             | Optional    | Sets the root logging level. Default is `INFO`. |
 
-# Ego
+# Ego Setup
+
+For help installing Ego and the Ego admin UI, please refer to our <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a>.
 
 If you're using <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> the `secure` profile is essential. It enables authentication for requests to the Score API via API keys issued by Ego. To set up your Score server with Ego modify your `.env.score` file as follows:
 
@@ -255,6 +259,8 @@ Replace placeholders found in `{{brackets}}` with your values. The table below s
 | `AUTH_SERVER_SCOPE_UPLOAD_SYSTEM`                | Required    | System-level upload scope using an API key. |
 | `AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX`          | Required    | Prefix for study-level upload scopes. |
 | `AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX`          | Required    | Suffix for study-level upload scopes. |
+
+<Note title="Ego User Guide">For information on setting up uses, groups and applications in Ego, please refer to our documentation on [using the Ego admin UI](/documentation/ego/user-guide/admin-ui/).</Note>
 
 ## JWT Profile (Optional)
 
