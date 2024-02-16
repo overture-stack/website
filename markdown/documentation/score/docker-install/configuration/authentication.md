@@ -32,7 +32,7 @@ The Overture API Key provider extends Keycloak's functionality, by adding custom
 2. **Move the** `keycloak-apikeys.jar` file to the provider's folder within Keycloak (`opt/keycloak/providers/`).
 3. **Restart the Keycloak server** for the updated provider to take effect.
 
-<Note title="Does this look familiar?">If you have previously set up Score with Keycloak, you can skip ahead to the application setup section on this page.</Note>
+<Note title="Does this look familiar?">If you have previously set up Song with Keycloak, you can skip ahead to the application setup section on this page.</Note>
 
 ## Realm Configuration
 
