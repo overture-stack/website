@@ -20,10 +20,6 @@ pages:
             url: ego/installation/prerequisites/linkedin
       - title: Installation
         url: ego/installation/installation
-      - title: Configuration
-        url: ego/installation/configuration
-      - title: Authentication
-        url: ego/installation/authentication
   - title: User Guide
     url: ego/user-guide
     isHeading: true

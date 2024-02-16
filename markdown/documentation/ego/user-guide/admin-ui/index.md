@@ -2,33 +2,19 @@
 title: Using the Admin UI
 ---
 
-The Ego administrative UI allows you to easily manage your applications, users, groups, and policies all from a single web interface.
+Ego's Admin UI streamlines the management of user and application authorization. Here we summarize relevant sections to check out within our Admin UI user guide:
 
-# Logging In
+- [Managing Applications](/documentation/ego/user-guide/admin-ui/applications): For step-by-step instructions to add, modify, or delete applications.
 
-To log into the Ego admin UI, follow these steps:
+- [Managing Policies](/documentation/ego/user-guide/admin-ui/policies): Information and guidelines for creating, modifying, and removing policies.
 
-1. Navigate to `<url>/ego-ui` (replace `<url>` with the base URL or domain where you have deployed Ego).
+- [Managing Groups](/documentation/ego/user-guide/admin-ui/groups): Information and guidelines for creating, modifying, and removing Groups.
 
-![Ego Login](../../assets/ego-ui-login.png)
+- [Managing Users](/documentation/ego/user-guide/admin-ui/users): Add, edit, or remove users and ensure proper access control within your applications.
 
-2. Choose the identity provider you want to use for login. In this example, we will use ORCiD.
+<Warning> **Note:** Although the Ego UI handles most tasks, direct API interactions might be necessary for certain user or application needs. For comprehensive instructions on API usage, please refer to our [Ego API user guide](/documentation/ego/user-guide/api).</Warning>
 
-![ORCiD Login](../../assets/orcid-login.png)
 
-3. Grant access to Ego for your profile on the selected identity provider.
 
-![ORCiD Grant Access](../../assets/orcid-grant2.png)
 
-<Warning> **NOTE:** If you prefer not to grant Ego access, your only option is to log in again using a different identity provider that you are comfortable granting access to.</Warning>
-
-4. After granting access, you might encounter an error message if your email address is not set to public on your identity provider profile.
-
-![No Primary Email](../../assets/no-email.png)
-
-If your identity provider allows adjusting this setting, you should make your email accessible. Refer to the <a href="../../../../installation/configuration/prereq/emails" target="_blank" rel="noopener noreferrer">instructions here</a> for guidance. Alternatively, you can log in using a different provider that either doesn't have such a setting or doesn't necessitate making your email public.
-
-5. Once logged in successfully, the default view displays the list of users registered in Ego.
-
-![Users](../../assets/users.png)
 

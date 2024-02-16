@@ -1,177 +1,89 @@
 ---
-title: Installing Maestro
+title: Installing Maestro via Docker
 ---
 
-# Dependencies
+This page will walk you through installing Maestro using Docker. Ensure you've completed all the applicable prerequisite steps before starting the installation.
+# Installation Steps
 
-Before installing Maestro, the following software services needs to be installed and running:
+1. **Setting Up Your Environment Variables:**
 
-| Service | Version | Requirement | Notes |
-|---------|---------|-------------|-------------|
-| [Elasticsearch](https://www.elastic.co/downloads/elasticsearch) | 7 or up | Required | For Maestro to build the index in |
-| [Song](https://github.com/overture-stack/SONG/releases) | Latest | Required | See [here](/documentation/song/installation) for installation instructions | 
-| [Apache Kafka](https://kafka.apache.org/downloads/) | Latest | Optional | Optional, only needed if you want to setup event-based indexing |
+Based on your configuration, create a `.env.maestro` file with the necessary environment variables. Here's an example of a completed `.env.maestro` file:
 
-# Installation
+```bash
+# ============================
+# Server configuration
+# ============================
 
-Follow these steps to install and setup Maestro.
+LOGGING_LEVEL_ROOT=DEBUG
+SERVER_PORT=11235
+SPRING_MVC_ASYNC_REQUESTTIMEOUT=-1
+MAESTRO_FAILURELOG_DIR=/app/app-data
+MAESTRO_NOTIFICATIONS_SLACK_ENABLED=false
 
-## Download Source
+# ============================
+# Elasticseach Integration (Required)
+# ============================
 
-From your command line, clone the Maestro repository:
+MAESTRO_ELASTICSEARCH_CLIENT_BASICAUTH_ENABLED=true
+MAESTRO_ELASTICSEARCH_CLIENT_BASICAUTH_PASSWORD=
+MAESTRO_ELASTICSEARCH_CLIENT_BASICAUTH_USER=elastic
+MAESTRO_ELASTICSEARCH_CLIENT_CONNECTIONTIMEOUT=300000
+MAESTRO_ELASTICSEARCH_CLIENT_SOCKETTIMEOUT=300000
+MAESTRO_ELASTICSEARCH_CLIENT_TRUSTSELFSIGNEDCERT=true
+MAESTRO_ELASTICSEARCH_CLUSTERNODES_0=http://host.docker.internal:9200
+MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_ENABLED=false
+MAESTRO_ELASTICSEARCH_INDEXES_FILE_CENTRIC_NAME=file_centric_1.0
 
-```shell
-$ git@github.com:overture-stack/maestro.git
+# ============================
+# Song Integration (Required)
+# ============================
+
+MAESTRO_REPOSITORIES_0_CODE=song.collab
+MAESTRO_REPOSITORIES_0_COUNTRY=CA
+MAESTRO_REPOSITORIES_0_NAME=local song
+MAESTRO_REPOSITORIES_0_ORGANIZATION=overture
+MAESTRO_REPOSITORIES_0_URL=http://host.docker.internal:8080
+MAESTRO_SONG_PAGELIMIT=50
+MAESTRO_SONG_TIMEOUTSEC_ANALYSIS=3600
+MAESTRO_SONG_TIMEOUTSEC_STUDY=3600
+
+# ============================
+# Kafka Event Management Configuration
+# ============================
+
+SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=host.docker.internal:9092
+SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION=song_analysis
 ```
 
-## Enable Indexing
+2. **Run Docker:**
 
-First, we must make sure that indexing is enabled in the configuration file.  Although by default this setting is enabled, it is good practice to check.
+Start the Maestro container using the docker run command, specifying the mounted `.env.maestro` file:
 
-1. From your command line, switch to the `config` directory and locate the `application.yml` file:
+**For Linux (Recommended)**
 
-```shell
-cd maestro/maestro-app/src/main/resources/config
+```bash
+docker run --env-file .env.maestro --network=host -d -p 11235:11235 ghcr.io/overture-stack/maestro-server:edge
 ```
 
-2. Open the file and verify the following:
+**For Mac and Windows**
 
-* `disableIndexing` = `false` - This ensures Maestro indexing functionality will run
-* `disableEventIndexing` = `false` - This is only needed if you are using Kafka for event-based indexing
-
-## Configure Connections
-
-Next, we must configure the connections to the Elasticsearch, Song, and Kafka services installed as part our prerequisite setup.
-
-1. From your command line, switch to the `config` directory and locate the `application.yml` file:
-
-```shell
-cd maestro/maestro-app/src/main/resources/config
+```bash
+docker run --env-file .env.maestro -p 11235:11235 --name maestro ghcr.io/overture-stack/maestro:edge
 ```
 
-2. Open the file, locate the `elasticsearch` -> `clusterNodes` section and edit the value to point to the URL where your Elasticsearch instance is hosted:
+3. **Accessing Maestro:**
 
-```yaml
-# elastic search server to connect to & client properties
-  elasticsearch:
-    # elasticsearch server nodes to send requests to
-    clusterNodes:
-      - http://localhost:9200
-```
+Maestro should now be running and accessible at `http://localhost:11235/api-docs`.
 
-3. Locate the `repositories` section.  This is where you will specify each Song repository that Maestro will connect with.  Add a block for each repository you wish to configure.  For each repository, the following mandatory values must be provided:
+# Configuration Overview
 
-| Property | Description |
-|----------|-------------|
-| `code` | This is a unique ID to represent the Song repository.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
-| `url` | URL where you have deployed the Song server |
-| `name` | A descriptive name for the repository |
+Before you proceed with the Maestro installation, be aware that there are several configurations for a Maestro server:
 
-```yaml
-# List of Genomic files repositories (SONGs)
-  repositories:
-    # these properties will be used in the document (see ../file_centric.json)
-    - code: song.overture # must be unique & must match song.serverId if using kafka integration with song
-      url: https://song.domain.com # Change this to a valid domain where the song exists in your setup
-      name: local song
-      # optional
-      storageType: S3
-      organization: ICGC
-      country: CA
-    # you can other SONGs as needed
-    - code: song.overture1
-      url: http://localhost:8080
-      name: local song
-      # optional
-      storageType: S3
-      organization: overture
-      country: LH
-```
+| Component |	Description |	Requirement |
+|---|---|---|
+| [Elasticsearch index mapping and client](/documentation/maestro/installation/configuration/elastic/) | Set the index mapping and configure connection parameters and error handling mechanisms. |	Required |
+| [Kafka Brokers](/documentation/maestro/installation/configuration/kafka/) | Specify the location where you've deployed the Kafka broker for event-based indexing.	| Required |
+| [Slack Integration](/documentation/maestro/installation/configuration/slack/) | Send notifications through a Slack webhook integration.	| Optional |
+| [Exclusion Rules](/documentation/maestro/installation/configuration/exclusion/) | Omit specific analyses from being indexed	| Optional |
 
-4. Optionally, if you are using Kafka for event-based indexing, locate the `kafka` -> `binders` -> `brokers` block and set the `brokers` value to the location where you have deployed the Kafka broker:
-
-```yaml
-      kafka:
-        binder:
-          brokers: localhost:9092
-```
-
-# Run the Service
-
-## Running Locally
-
-To run the Maestro service locally, a `Makefile` is provided for your convenience.  However, if you are unable to use make, you may examine the `Makefile` contents for the raw commands.
-
-### Running from Docker (Recommended for Local Installations)
-
-It is highly recommended that for local installations, you run Maestro from Docker.
-
-In this mode a `docker-compose.yml` file is provided that contains a Dockerized version of Elastidsearh and Kafka.  You can examine this file at `./run/docker-compose/docker-compose.yml`.  To run Song with Docker, please refer to our [Song documentation](/documentation/song).
-
-For reference, the Docker image for Maestro can be found on GitHub [here](https://github.com/orgs/overture-stack/packages/container/package/maestro).
-
-To start Maestro from a Docker image with all needed infrastructure, run this command:
-
-```shell
-make docker-start
-```
-
-### Running from Source (No Docker)**
-
-If you need to run Maestro from source without Docker, it will be your responsibility to ensure:
-
-* You have JDK 11 and up installed
-* All [dependencies](/documentation/maestro/installation/installation#dependencies) described earlier are installed
-* Configured the `application.yml` file per your environment
-
-If the above is complete, then run this command:
-
-Provided that you have JDK11+ and all dependencies (see Dependencies) running and modified application.yaml based on your environment and needs, you can run the following command:
-
-```shell
-make run
-```
-
-## Running on Kubernetes (Helm)
-
-If you wanto to run Maestro as a service in a Kubernetes cluster than you can use the provided Maestro Helm chart in the Overture chart repository [here](https://overture-stack.github.io/charts-server/).
-
-Do the following:
-
-1. Modify your `values-override.yml` file based on your deployment environment.  You can provide the Maestro application configurations as environment variables using the `extraEnv` key.
-
-For example, similar to our native `application.yml` file, we must provide the following mandatory values:
-
-| Property | Description |
-|----------|-------------|
-| `MAESTRO_ELASTICSEARCH_CLUSTERNODES_0` | URL to your Elasticsearch cluster node |
-| `SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS` | URL to your Kafka broker, if using Kafka for event-based indexing |
-| `MAESTRO_REPOSITORIES_<X>_CODE` | For each Song repository `<X>` you want to setup, this is the unique ID for that repository.  If you are integrating with Kafka, then this must match the `song.serverId` that you have deployed. |
-| `MAESTRO_REPOSITORIES_<X>_URL` | For each Song repository `<X>` you want to setup, this is the URL where you have deployed the Song server  |
-| `MAESTRO_REPOSITORIES_<X>_NAME` | For each Song repository `<X>` you want to setup, this is a descriptive name for the repository |
-
-```yaml
-extraEnv:
-  SERVER_PORT: "11235"
-  MAESTRO_ELASTICSEARCH_CLUSTERNODES_0: "http://localhost:9200"
-  SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS: "localhost:9092"
-  # repos
-  MAESTRO_REPOSITORIES_0_CODE: "song"
-  MAESTRO_REPOSITORIES_0_URL: "https://song1:8080"
-  MAESTRO_REPOSITORIES_0_NAME: "song1"
-  MAESTRO_REPOSITORIES_0_ORGANIZATION: "ICGC"
-  MAESTRO_REPOSITORIES_0_COUNTRY: "CA"
-  MAESTRO_REPOSITORIES_1_CODE: "song2"
-  MAESTRO_REPOSITORIES_1_URL: "http://song2:8080"
-  MAESTRO_REPOSITORIES_1_NAME: "song2"
-  MAESTRO_REPOSITORIES_1_ORGANIZATION: "overture"
-  MAESTRO_REPOSITORIES_1_COUNTRY: "OICR"
-  MAESTRO_FAILURELOG_DIR: "/app-log"
-```
-
-2.  Next add the Overture [chart repository](https://overture-stack.github.io/charts-server/) and install the chart:
-
-```yaml
-helm repo add overture https://overture-stack.github.io/charts-server/
-helm install -f values-override.yml overture/maestro
-```
+For detailed information on configuration options and guidelines, including setting up your environment variables file, refer to our [configuration section](/documentation/maestro/installation/configuration/),
