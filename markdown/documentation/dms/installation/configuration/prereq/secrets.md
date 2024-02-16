@@ -71,8 +71,8 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:`<port>`/ego-api/oauth/login/google |
-| Server  | https://`<myDomain>`/ego-api/oauth/login/google |
+| Local   | http://localhost:`<port>`/oauth/code/google |
+| Server  | https://`<myDomain>`/oauth/code/google |
 
 Where:
 - `<port>` is the port on which you will deploy the DMS Gateway in local mode
@@ -123,8 +123,8 @@ Where:
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:`<port>`/ego-api/oauth/login/github |
-| Server  | https://`<myDomain>`/ego-api/oauth/login/github |
+| Local   | http://localhost:`<port>`/oauth/code/github |
+| Server  | https://`<myDomain>`/oauth/code/github |
 
 Where:
 - `<port>` is the port on which you will deploy the DMS Gateway in local mode
@@ -181,8 +181,8 @@ However, specifically for the DMS setup, see the summary steps below for acquiri
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:`<port>`/ego-api/oauth/login/linkedin |
-| Server  | https://`<myDomain>`:443/ego-api/oauth/login/linkedin |
+| Local   | http://localhost:`<port>`/oauth/code/linkedin |
+| Server  | https://`<myDomain>`:443/oauth/code/linkedin |
 
 Where:
 - `<port>` is the port on which you will deploy the DMS Gateway in local mode
@@ -254,8 +254,8 @@ Where `<myDomain>` is the registered [domain you will configure](../domain) for 
 
 | Mode               | URI |
 | --------------------| ------------|
-| Local   | http://localhost:`<port>`/ego-api/oauth/login/orcid |
-| Server  | https://`<myDomain>`/ego-api/oauth/login/orcid |
+| Local   | http://localhost:`<port>`/oauth/code/orcid |
+| Server  | https://`<myDomain>`/oauth/code/orcid |
 
 Where:
 - `<port>` is the port on which you will deploy the DMS Gateway in local mode

@@ -81,7 +81,7 @@ export default [
     portalLink: VIRUSSEQ_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={VIRUSSEQ_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
+        The <Link to={VIRUSSEQ_PORTAL_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
         open-access data portal for all Canadian SARS-CoV-2 sequences and associated non-personal
         contextual data. VirusSeq harmonizes, validates, and automates submission to international
         databases, providing critical information for public health and policy decisions, testing
@@ -110,7 +110,7 @@ export default [
         "The VirusSeq Data Portal is an open-access data portal for all Canadian SARS-CoV-2 sequences. Using Overture, the portal was created within a 4 week timeframe. Initially intented to store 150,000 viral sequences, with Overture's scalable indexing, it has expanded to host 500,000 genomes.",
       ],
     ],
-    clientLink: VIRUSSEQ_LINK,
+    clientLink: VIRUSSEQ_PORTAL_LINK,
     details: [{ title: 'Chart', description: 'Virus Seq Chart', screenshot: virusseq_chart }],
   },
   {
@@ -160,7 +160,7 @@ export default [
     portalLink: IHCC_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={IHCC_LINK}>International HundredK+ Cohorts Consortium (IHCC)</Link> is
+        The <Link to={IHCC_LINK}>International Health Cohorts Consortium (IHCC)</Link> is
         improving clinical care and population health by aggregating large genomic data cohorts to
         help translational researchers uncover the biological and genetic factors of disease. With
         exception to underrepresented cohorts & populations, all hosted member cohorts are

@@ -40,8 +40,8 @@ For your convenience, we provide summary steps here:
 
 8. **Add Redirect URIs:** Under **Redirect URIs**, enter the URI where ORCiD will redirect users once they have authenticated with the provider, redirecting them back to Ego upon successful login:
 
-  - **Local:** http://localhost:`<port>`/ego-api/oauth/login/orcid
-  - **Server:**  https://`<myDomain>`/ego-api/oauth/login/orcid
+  - **Local:** http://localhost:`<port>`/oauth/code/orcid
+  - **Server:**  https://`<myDomain>`/oauth/code/orcid
 
 <Warning>**NOTE:** ORCiD may give a warning that "**Only https redirect URIs are accepted**", but can still enter an HTTP URI as indicated above. The application will still save and the Client ID and Secret will still be generated.</Warning>
 

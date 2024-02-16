@@ -30,7 +30,7 @@ Here's a step-by-step guide to uploading files using a previously created manife
 1. Execute the following command from your home directory:
 
 ```bash
-./score-client-<latest-release-number>/bin/score-client upload --manifest ./<directory>/manifest.txt
+docker exec score-client sh -c "score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
 Replace `<directory>` with the location of the previously generated manifest file.

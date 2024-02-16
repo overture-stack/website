@@ -1,19 +1,39 @@
-sectionSlug: maestro
-sectionTitle: Maestro
-pages:
-- title: Introduction
-  url: maestro
-- title: Installation Guide
-  url: maestro/installation
-  isHeading: true
+- sectionSlug: maestro
+  sectionTitle: Maestro
   pages:
-  - title: Installation
-    url: maestro/installation/installation
-  - title: Configuration
-    url: maestro/installation/configuration
-- title: User Guide
-  url: maestro/user-guide
-  isHeading: true
-  pages:
-  - title: Indexing Data
-    url: maestro/user-guide/indexing
+    - title: Introduction
+      url: maestro
+    - title: Installation Guide
+      url: maestro/installation
+      isHeading: true
+      pages:
+        - title: Prerequisites
+          url: maestro/installation/prerequisites
+        - title: Installation
+          url: maestro/installation/installation
+        - title: Configuration
+          url: maestro/installation/configuration
+          pages:
+            - title: Elasticsearch
+              url: /maestro/installation/configuration/elastic
+            - title: Kafka Topics
+              url: /maestro/installation/configuration/kafka
+            - title: Slack Notifications
+              url: /maestro/installation/configuration/slack
+            - title: Exclusions Rules
+              url: /maestro/installation/configuration/exclusion
+    - title: User Guide
+      url: maestro/
+      isHeading: true
+      pages:
+        - title: Managing Index Mappings
+          url: maestro/admin-guide/mappings
+        - title: Indexing Data
+          url: maestro/user-guide
+          pages:
+            - title: Repository Indexing
+              url: maestro/user-guide/repo
+            - title: Study Indexing
+              url: maestro/user-guide/study
+            - title: Analysis Indexing
+              url: maestro/user-guide/analysis

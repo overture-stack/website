@@ -69,7 +69,7 @@ If running, the Swagger API will be accessible via your browser in graphical for
 Before logging into the Ego UI, you may wish to check again that all your identity providers have the correctd **redirect URI** configured in their developer console's OAUTH 2.0 settings.  This was configured earlier when [setting up your secrets](../configuration/prereq/secrets), but double-checking is a good practice.
 
 The redirect URI you must authorize can be found in that provider's Ego configuration section in the `~/.dms/config.yaml` file.  Look for the `preEstablishedRedirectUri`.  In the example below, the
-`preEstablishedRedirectUri` for Google is `https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/google`
+`preEstablishedRedirectUri` for Google is `https://dms.test.cancercollaboratory.org:443/oauth/code/google`
 
 ```shell
 ego:
@@ -86,7 +86,7 @@ ego:
       google:
         clientId: "abc123"
         clientSecret: "abc123"
-        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/ego-api/oauth/login/google"
+        preEstablishedRedirectUri: "https://dms.test.cancercollaboratory.org:443/oauth/code/google"
 ```
 
 <Warning>**NOTE:** When entering the domain in LinkedIn for server mode, you **must** append the port `:443` to the end of the domain.  The true redirect URI sent by the DMS actually contains `:443` suffixed to the domain.  While other identity providers ignore or drop this suffix, LinkedIn requires the redirect URI to match exactly, hence `:443` must be explicitly entered.</Warning>
