@@ -56,7 +56,6 @@ Keycloak supports the creation of realms for managing isolated groups of applica
 
 As an example, we will create a `data submitters` group. After, we will configure and apply the appropriate permissions for this group.
 
-
 ![Creating a new group](../../assets/new-group.png)
 
 1. From the left-hand panel, select **"Groups"** and click **"Create group"**.
@@ -159,8 +158,6 @@ To add a new study, **create a new resource** with the desired name of your stud
 
 Update your `.env.song` file with the required Keycloak variables, the following code block will help you get started:
 
-<!--need to confirm and discuss prod vs secure spring profiles-->
-
 ```bash
 # ============================
 # Keycloak Integration
@@ -200,7 +197,7 @@ Replace any default values with the values specific to your environment. The tab
 
 # Ego Setup
 
-For help installing Ego, please refer to our <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a>.
+For help installing Ego and the Ego admin UI, please refer to our <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a>.
 
 If you're using [Ego](/documentation/ego) the `secure` profile is essential. It enables authentication for requests to the Song API via API keys issued by Ego. To set up your Song server with Ego modify your `.env.song` file as follows:
 
@@ -237,20 +234,4 @@ Replace placeholders found in `{{brackets}}` with your values. The table below s
 | `AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX`          | Required    | Prefix for study-level upload scopes. |
 | `AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX`          | Required    | Suffix for study-level upload scopes. |
 
-## Prod Profile
-
-<!-Not sure the if we should supply both secure and prod-->
-
-The prod profile is designed for production deployments. Specify your Postgres details for the production environment:
-
-```bash
-# Production Database Configuration
-SPRING_PROFILES_ACTIVE=prod
-SPRING_DATASOURCE_DRIVER-CLASS-NAME=org.postgresql.Driver
-SPRING_DATASOURCE_URL=jdbc:tc:postgresql:9.6.12://{{host}}:5432/{{database_name}}?stringtype=unspecified
-SPRING_DATASOURCE_USERNAME={{username-here}}
-SPRING_DATASOURCE_PASSWORD={{password-here}}
-SPRING_DATASOURCE_MAX_ACTIVE=10
-SPRING_DATASOURCE_MAX_IDLE=1
-SPRING_DATASOURCE_MIN_IDLE=1
-```
+<Note title="Ego User Guide">For information on setting up uses, groups and applications in Ego, please refer to our documentation on [using the Ego admin UI](/documentation/ego/user-guide/admin-ui/).</Note>
