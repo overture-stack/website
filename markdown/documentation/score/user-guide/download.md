@@ -1,52 +1,56 @@
 ---
-title: Downloading Data
+title: Uploading Data
 ---
-# The Score-Client Download Command
 
-File downloads can be run using the Score Client's `download` command.
+# The Score-Client Upload Command
 
-The `download` command offers various methods for downloading file data. The main methods are as follows:
+File uploads can be executed with the Score client's `upload` command.
 
-- `--analysis-id`: Downloads files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> analysis ID. 
-- `--manifest`: Downloads specific files based on a manifest file ID, manifest file URL, or path to the manifest file.
-- `--object-id`: Downloads a specific file object ID.
-- `--program-id`: Downloads files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> program ID.
-- `--study-id`: Downloads files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> study ID.
+The `upload` command offers various methods for uploading file data. The main methods are summarized below:
 
-The table below details the options available when using the Score-Client `download` command:
+- `--file` option: Upload a particular file by specifying its path.
+- `--manifest` option: Upload specific files using a manifest. This can be done by providing the manifest file ID, its URL, or the path to it.
+- `--object-id` option: Upload a particular file by specifying its object ID.
 
-| Option | Description |
-| -------| ------------|
-| `--analysis-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> analysis ID. |
-| `--force` | Re-download the file if it already exists locally (overrides local file). |
-| `--index` | If available, also download the file index. |
-| `--length` | Restrict the download size to this number of bytes. By default, the whole file is downloaded unless this option is specified. |
-| `--manifest` | Download specific files based on a manifest file ID, URL, or its path. |
-| `--object-id` | Download a specific file object ID. |
-| `--offset` | Byte position in the source file from where the download begins. By default, the whole file is downloaded unless this option is specified. |
-| `--output-dir` | Path to the output directory where files will be downloaded to. |
-| `--output-layout` | Layout of the output directory, one of: |
-| | * `bundle` : Saved according to the filename under the Song bundle ID directory. |
-| | * `filename` : Saved according to the filename in the output directory. |
-| | * `id` : Saved according to the object ID in the output directory. |
-| `--program-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> program ID. |
-| `--study-id` | Download files for a specific <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a> study ID. |
-| `--validate` | If available, validate the file using the MD5 checksum. |
-| `--verify-connection` | First verify the connection to the object storage repository. |
+Here are the different options available with the Score-Client `upload` command:
 
-# Download Example
+| Option                | Description                                                                                           |
+| --------------------- | ----------------------------------------------------------------------------------------------------- |
+| `--file`              | Upload a particular file by specifying its path.                                                      |
+| `--force`             | Redownload the file if it already exists in the object storage, replacing the file in the repository. |
+| `--manifest`          | Upload specific files using a manifest by providing the manifest file ID, its URL, or the path to it. |
+| `--md5`               | MD5 checksum value of the file being uploaded.                                                        |
+| `--object-id`         | Upload a particular file by specifying its object ID.                                                 |
+| `--validate`          | If available, validate the file using its MD5 checksum.                                               |
+| `--verify-connection` | Initially, verify the connection to the object storage repository.                                    |
 
-Here is an example of downloading files using a previously generated manifest file from Song.
+# Upload Example
 
-Execute the following command from your home directory:
+For a complete guide on uploading data, including generating a manifest, check out our guide on [data submission using Song and Score](/documentation/song/user/submit/). The following example outlines uploading files using a previously created manifest file from Song:
 
-```shell
-docker exec score-client sh -c "score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>"
+1. Execute the following command from your home directory:
+
+```bash
+docker exec score-client sh -c "score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
--  `<manifestDirectory>` represents the location of the earlier generated manifest file
-- `<outputDirectory>` specifies where you intend to download the files
+Replace `<directory>` with the location of the previously created manifest file.
 
-<Note title="What is a Manifest?"> To understand more about key terms in Overture's data submission workflow, check this guide on [data submission using Song and Score](/documentation/song/user/submit/).</Note>
+2. If successful, the Score client will indicate that the upload is complete. You'll see an output similar to:
 
-If successful the Score Client will indicate the upload has completed.
+```shell
+Uploading object: '/home/ubuntu/songdata/input-files/example.vcf.gz.idx' using the object id e98daf88-fdf8-5a89-9803-9ebafb41de94
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 1000B/s, Read/sec: 0B/s
+Finalizing...
+Total execution time:         3.141 s
+Total bytes read    :               0
+Total bytes written :              24
+Upload completed
+Uploading object: '/home/ubuntu/songdata/input-files/example.vcf.gz' using the object id 440f4559-e905-55ec-bdeb-9518f823e287
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 7.8K/s, Read/sec: 0B/s
+Finalizing...
+Total execution time:         3.105 s
+Total bytes read    :               0
+Total bytes written :              52
+Upload completed
+```
