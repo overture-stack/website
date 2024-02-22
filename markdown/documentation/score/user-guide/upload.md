@@ -26,7 +26,7 @@ Here are the different options available with the Score-Client `upload` command:
 
 # Upload Example
 
-For a complete guide on uploading data, including generating a manifest, check out our guide on [data submission using Song and Score](/documentation/song/user/submit/). The following example outlines uploading files using a previously created manifest file from Song:
+For complete information on uploading data, including generating a manifest, check out our guide on [data submission using Song and Score](/documentation/song/user/submit/). The following example outlines uploading files using a previously created manifest file from Song:
 
 1. Execute the following command from your home directory:
 
