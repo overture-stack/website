@@ -15,9 +15,9 @@ Supply the required environment variables as shown in the command below:
 ```bash
 docker run -d -it \
 --name score-client \
--e ACCESSTOKEN=${token} \
--e STORAGE_URL=http://<INSERT-URL>/score-api \
--e METADATA_URL=http://<INSERT-URL>/song-api \
+-e CLIENT_ACCESS_TOKEN=${token} \
+-e STORAGE_URL=http://<INSERT-URL> \
+-e METADATA_URL=http://<INSERT-URL> \
 --network="host" \
 --mount type=bind,source="$(pwd)",target=/output \
 ghcr.io/overture-stack/score:latest
