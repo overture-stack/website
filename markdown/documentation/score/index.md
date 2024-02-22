@@ -4,7 +4,7 @@ title: Introduction
 
 The primary purpose of Score is to securely upload and download file data to and from an object storage provider. To ensure secure access to file data within object storage, Score utilizes time-limited <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html" target="_blank" rel="noopener noreferrer">pre-signed URLs</a>. 
 
-Score specializes in data transfer, leaving metadata complexities to its companion application, <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a>. Song handles the validation and tracking of metadata in its own repository, apart from object storage. Together, Score and Song streamline distributed data organization.
+Score specializes in data transfer, leaving metadata complexities to its companion application, <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a>, which handles the validation and tracking of metadata in its own repository, separate from object storage concerns. Together, Score and Song streamline distributed data organization.
 
 # High Performance Transfers
 
