@@ -1,5 +1,5 @@
 ---
-title:  ID Management
+title: ID Management
 ---
 
 # ID Management modes
@@ -11,7 +11,7 @@ Song offers two distinct modes for managing primary keys across Donors, Specimen
 
 <Warning> It is crucial to note that you cannot combine these two modes of ID management. If you choose to use one, it must apply to all IDs; either all are managed locally by Song or all are handled externally by a third-party service. </Warning>
 
-# Environment Variable Setup 
+# Environment Variable Setup
 
 ## Local ID Management
 
@@ -27,7 +27,7 @@ ID_USELOCAL=true
 
 ## External ID Management
 
-When using external ID management, Song communicates with an external ID database for each entity type. If the data submission contains entity IDs not validated by this external database, Song will decline the submission. Once an ID is verified, it's stored within the Song database. 
+When using external ID management, Song communicates with an external ID database for each entity type. If the data submission contains entity IDs not validated by this external database, Song will decline the submission. Once an ID is verified, it's stored within the Song database.
 
 There are two types of external ID management supported by Song:
 
@@ -67,7 +67,7 @@ ID_FEDERATED_AUTH_BEARER_CREDENTIALS_CLIENTSECRET=authClientSecret
 
 ### URI Parameters
 
-If you choose to use externally managed ID's, you **must** provide Song with the expected ID according to the specifications below. 
+If you choose to use externally managed ID's, you **must** provide Song with the expected ID according to the specifications below.
 
 - External ID servers **must** implement GET controllers for the configured URI templates.
 - At boot-time, Song validates the URI templates to ensure necessary template variables are present.
@@ -77,25 +77,25 @@ If you choose to use externally managed ID's, you **must** provide Song with the
 
 The table below describes the required template variables with examples:
 
-| Entity ID Type      | Description                                                       | URI Template Config Property       | Required Variables | Examples                                                                | Request Type | Response Type |
-|---------------------|-------------------------------------------------------------------|------------------------------------------|---------------------|--------------------------------------------------------------------------|--------------|---------------|
-| donor               | Id Service returns a donorId that maps to the submitterId and studyId.   | ID_FEDERATED_URITEMPLATE_DONOR          | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| specimen            | ID Service returns a specimenId that maps to the submitterId and studyId. | ID_FEDERATED_URITEMPLATE_SPECIMEN       | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| sample              | ID Service returns a sampleId that maps to the submitterId and studyId.   | ID_FEDERATED_URITEMPLATE_SAMPLE         | studyId, submitterId | `https://id.server.example.org/sample/id?sid={submitterId}&projectcode={studyId}` | `GET` | plaintext |
-| file                | ID Service returns a fileId that maps to the analysisId and fileName.    | ID_FEDERATED_URITEMPLATE_FILE           | analysisId, fileName | `https://id.server.example.org/file/id?anid={analysisId}&fname={fileName}` | `GET` | plaintext |
-| analysis.existence  | ID Service returns a boolean indicating the existence of the analysisId. | ID_FEDERATED_URITEMPLATE_ANALYSIS_EXISTENCE | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | plaintext |
-| analysis.generate  | ID Service returns a generated candidate analysisId without persisting it. Does not require any inputs. | ID_FEDERATED_URITEMPLATE_ANALYSIS_GENERATE | -- | `https://id.server.example.org/analysis/generate` | `GET` | plaintext |
-| analysis.save       | ID Service persists the input analysisId and does not return anything. | ID_FEDERATED_URITEMPLATE_ANALYSIS_SAVE  | analysisId | `https://id.server.example.org/analysis/{analysisId}` | `GET` | -- |
+| Entity ID Type     | Description                                                                                             | URI Template Config Property                | Required Variables   | Examples                                                                            | Request Type | Response Type |
+| ------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------- | ------------ | ------------- |
+| donor              | Id Service returns a donorId that maps to the submitterId and studyId.                                  | ID_FEDERATED_URITEMPLATE_DONOR              | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}`    | `GET`        | plaintext     |
+| specimen           | ID Service returns a specimenId that maps to the submitterId and studyId.                               | ID_FEDERATED_URITEMPLATE_SPECIMEN           | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET`        | plaintext     |
+| sample             | ID Service returns a sampleId that maps to the submitterId and studyId.                                 | ID_FEDERATED_URITEMPLATE_SAMPLE             | studyId, submitterId | `https://id.server.example.org/sample/id?sid={submitterId}&projectcode={studyId}`   | `GET`        | plaintext     |
+| file               | ID Service returns a fileId that maps to the analysisId and fileName.                                   | ID_FEDERATED_URITEMPLATE_FILE               | analysisId, fileName | `https://id.server.example.org/file/id?anid={analysisId}&fname={fileName}`          | `GET`        | plaintext     |
+| analysis.existence | ID Service returns a boolean indicating the existence of the analysisId.                                | ID_FEDERATED_URITEMPLATE_ANALYSIS_EXISTENCE | analysisId           | `https://id.server.example.org/analysis/{analysisId}`                               | `GET`        | plaintext     |
+| analysis.generate  | ID Service returns a generated candidate analysisId without persisting it. Does not require any inputs. | ID_FEDERATED_URITEMPLATE_ANALYSIS_GENERATE  | --                   | `https://id.server.example.org/analysis/generate`                                   | `GET`        | plaintext     |
+| analysis.save      | ID Service persists the input analysisId and does not return anything.                                  | ID_FEDERATED_URITEMPLATE_ANALYSIS_SAVE      | analysisId           | `https://id.server.example.org/analysis/{analysisId}`                               | `GET`        | --            |
 
 ## ICGC ARGO Example
 
-The <a href="https://platform.icgc-argo.org/" target="_blank" rel="noopener noreferrer">ICGC ARGO Data Platform</a> is an international initiative with several distributed processing centres. This required the use of a central ID Service. An example of a URI donor request used by this system is as follows: 
+The <a href="https://platform.icgc-argo.org/" target="_blank" rel="noopener noreferrer">ICGC ARGO Data Platform</a> is an international initiative with several distributed processing centres. This required the use of a central ID Service. An example of a URI donor request used by this system is as follows:
 
 `https://clinical.platform.icgc-argo.org/clinical/donors/id?programId=PACA-CA&submitterId=PCSI_0591`
 
-In the provided URI, a researcher requests the centralized ID service to retrieve the unique identifier for a **donor** associated with the programId **PACA-CA** and the submitterID **PCSI_0591**. 
+In the provided URI, a researcher requests the centralized ID service to retrieve the unique identifier for a **donor** associated with the programId **PACA-CA** and the submitterID **PCSI_0591**.
 
-### 200 Response: 
+### 200 Response:
 
 ```shell
 DO224719

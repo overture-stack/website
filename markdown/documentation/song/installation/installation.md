@@ -6,7 +6,7 @@ Following the previous configuration steps, your `.env.song` file should look si
 
 ```bash
 # ============================
-# Database Configuration 
+# Database Configuration
 # ============================
 
 # PostgreSQL connection details
@@ -42,7 +42,7 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI={{keycloak-host-url}}/realms
 
 
 # ============================
-# Ego Integration 
+# Ego Integration
 # ============================
 
 AUTH_SERVER_URL={{ego-host-url}}/o/check_api_key/
@@ -65,13 +65,13 @@ SCORE_CLIENTCREDENTIALS_TOKENURL={{ego-host-url}}/oauth/token
 SCORE_CLIENTCREDENTIALS_SYSTEMSCOPE=score.WRITE
 
 # ============================
-# ID Management configuration 
+# ID Management configuration
 # ============================
 
 ID_USELOCAL=true
 
 # ============================
-# Schema Strictness Configuration 
+# Schema Strictness Configuration
 # ============================
 
 SCHEMAS_ENFORCELATEST=true
