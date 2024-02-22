@@ -4,7 +4,7 @@ title: Introduction
 
 Score's primary function is to facilitate the secure upload and download of file data to and from an object storage provider. Utilizing time-limited <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html" target="_blank" rel="noopener noreferrer">pre-signed URLs</a>, Score ensures secure access to file data within object storage.
 
-Score specializes in data transfer, leaving metadata complexities to its companion application, <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a>. Song manages metadata validation and tracking, maintaining a separate repository from object storage. Together, Score and Song provide an efficient solution for distributed data organization.
+Score specializes in data transfer, leaving metadata complexities to its companion application, <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a>, which handles the validation and tracking of metadata in its own repository, separate from object storage concerns. Together, Score and Song streamline distributed data organization.
 
 # High Performance Transfers
 
