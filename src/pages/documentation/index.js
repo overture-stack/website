@@ -79,7 +79,7 @@ export default function GettingStartedPage() {
                         <Link to="/documentation/arranger">Arranger</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="/documentation/dms-ui">DMS-UI</Link>
+                        <Link to="/documentation/Stage">Stage</Link>
                       </li>
                     </ul>
                   </div>
@@ -116,7 +116,7 @@ export default function GettingStartedPage() {
                         <Link to={ARRANGER_GITHUB_LINK}>Arranger</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={DMS_UI_GITHUB_LINK}>DMS-UI</Link>
+                        <Link to={DMS_UI_GITHUB_LINK}>Stage</Link>
                       </li>
                     </ul>
                   </div>

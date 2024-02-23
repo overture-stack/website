@@ -66,7 +66,7 @@ export default function AcknowledgementsPage() {
       </section>
 
       {/* Canarie  */}
-      <section  className="grey-bg">
+      <section className="grey-bg">
         <div className="container">
           {/* header */}
           <div className="header">
@@ -91,11 +91,9 @@ export default function AcknowledgementsPage() {
               <H3>Canarie funded the development of the following:</H3>
               <L1>
                 <li>The creation of the Overture DMS.</li>
+                <li>The DMS Command Line Tool</li>
                 <li>
-                  The DMS Command Line Tool
-                </li>
-                <li>
-                  The DMS-UI which provides a hosted login page, user profile, and customizable UI.
+                  Stage, which provides a hosted login page, user profile, and customizable UI.
                 </li>
                 <li>Improved documentation to help DMS administrators</li>
               </L1>

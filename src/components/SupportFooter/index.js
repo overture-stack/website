@@ -31,7 +31,7 @@ function SupportFooter({ location }) {
       return urlJoin(githubPrefix, url, 'index.md');
     } else if (
       (url.includes('arranger') ||
-        url.includes('dms-ui') ||
+        url.includes('stage') ||
         url.includes('song') ||
         url.includes('score')) &&
       url.endsWith('configuration/')

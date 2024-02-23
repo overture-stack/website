@@ -47,8 +47,8 @@ const data = {
             text: 'Ego',
           },
           {
-            to: 'documentation/dms-ui',
-            text: 'DMS-UI',
+            to: 'documentation/stage',
+            text: 'Stage',
           },
         ],
       },
