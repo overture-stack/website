@@ -11,7 +11,7 @@ import {
   MAESTRO_GITHUB_LINK,
   ARRANGER_GITHUB_LINK,
   SCORE_GITHUB_LINK,
-  DMS_UI_GITHUB_LINK,
+  STAGE_GITHUB_LINK,
 } from 'constants/external-links';
 import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import './styles.scss';
@@ -116,7 +116,7 @@ export default function GettingStartedPage() {
                         <Link to={ARRANGER_GITHUB_LINK}>Arranger</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to={DMS_UI_GITHUB_LINK}>Stage</Link>
+                        <Link to={STAGE_GITHUB_LINK}>Stage</Link>
                       </li>
                     </ul>
                   </div>

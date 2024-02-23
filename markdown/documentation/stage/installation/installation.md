@@ -7,7 +7,7 @@ To install Stage follow these steps.
 1. **Clone the repository:** Clone the repository to your machine
 
 ```bash
-git clone https://github.com/overture-stack/dms-ui.git
+git clone https://github.com/overture-stack/stage.git
 ```
 
 2. **Install dependencies:** Run the following command
