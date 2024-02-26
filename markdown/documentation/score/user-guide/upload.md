@@ -25,7 +25,7 @@ Here are the different options available with the Score-Client `upload` command:
 
 # Upload Example
 
-Here's a step-by-step guide to uploading files using a previously created manifest file from Song:
+For complete information on uploading data, including generating a manifest, check out our guide on [data submission using Song and Score](/documentation/song/user/submit/). The following example outlines uploading files using a previously created manifest file from Song:
 
 1. Execute the following command from your home directory:
 
@@ -33,9 +33,7 @@ Here's a step-by-step guide to uploading files using a previously created manife
 docker exec score-client sh -c "score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
-Replace `<directory>` with the location of the previously created manifest file.
-
-<Note title="What is a Manifest?">To understand more about key terms in Overture's data submission workflow, check this guide on [data submission using Song and Score.](/documentation/song/user/submit/)</Note>
+Replace `<directory>` with the location of the previously generated manifest file.
 
 2. If successful, the Score client will indicate that the upload is complete. You'll see an output similar to:
 

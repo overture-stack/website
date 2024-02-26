@@ -2,7 +2,7 @@
 title: OAuth Provider
 ---
 
-For Authorization and Authentication, Song readily supports two options:
+For Authorization and Authentication, Score readily supports two options:
 
 - [Keycloak](https://www.keycloak.org/), a highly regarded open-source identity and access management (IAM) service developed by Red Hat
 
@@ -12,7 +12,7 @@ The most suitable platform will depend on your project's specific requirements. 
 
 # Keycloak Setup
 
-There are multiple methods of deploying Keycloak, documentation on Keycloak deployment can be found on the [Official Keycloak website](https://www.keycloak.org/guides#getting-started). 
+There are multiple methods of deploying Keycloak, documentation on Keycloak deployment can be found on the [Official Keycloak website](https://www.keycloak.org/guides#getting-started).
 
 To expedite the setup process using docker, execute the following command in your terminal:
 
@@ -20,25 +20,25 @@ To expedite the setup process using docker, execute the following command in you
 docker run --name Keycloak -d -p 8080:8080 -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin quay.io/keycloak/keycloak:22.0 start-dev
 ```
 
-This command starts Keycloak exposed on local port `8080` and creates an initial admin user with the username `admin` and password `admin`
+This command starts Keycloak exposed on local port `8080`and creates an initial admin user with the username `admin` and password `admin`
 
 <Note title="Development Configuration Caution">This setup is designated for development and testing purposes and should not be used in production settings. For production deployments, please refer to [Configuring Keycloak for Production](https://www.keycloak.org/server/configuration-production).</Note>
 
 ## Overture API Key Provider
 
-The Overture API Key provider extends Keycloak's functionality, by adding custom logic that allows Keycloak to interact with Song. The following steps outline how to download and install the Overtures API Key provider.
+The Overture API Key provider extends Keycloak's functionality, by adding custom logic that allows Keycloak to interact with Score. The following steps outline how to download and install the Overtures API Key provider.
 
 1. Using the following link **download the [Overture API Key Provider](https://github.com/oicr-softeng/keycloak-apikeys/releases/download/1.0.1/keycloak-apikeys-1.0.1.jar)**.
 2. **Move the** `keycloak-apikeys.jar` file to the provider's folder within Keycloak (`opt/keycloak/providers/`).
 3. **Restart the Keycloak server** for the updated provider to take effect.
 
-<Note title="Does this look familiar?">If you have previously set up Score with Keycloak, you can skip ahead to the application setup section on this page.</Note>
+<Note title="Does this look familiar?">If you have previously set up Song with Keycloak, you can skip ahead to the application setup section on this page.</Note>
 
 ## Realm Configuration
 
 ### Login to the admin console
 
-![Keycloak Login](../../assets/kc-login.png)
+![Keycloak Login](../../assets/KC-Login.png)
 
 To access the admin console, navigate to `<url>/admin` (e.g., `localhost:8080/admin`) and log in with the credentials made during your Keycloak deployment.
 
@@ -59,7 +59,6 @@ As an example, we will create a `data submitters` group. After, we will configur
 ![Creating a new group](../../assets/new-group.png)
 
 1. From the left-hand panel, select **"Groups"** and click **"Create group"**.
-
 2. **Name the group** `data submitters` and select **"create"**.
 
 ### Creating a User
@@ -75,7 +74,6 @@ To populate the realm with its first user:
 
 Next, a password must be established:
 
-
 1. At the top of the **User details page**, select the **""Credentials" tab"**
 2. **Input your Password**. To avoid mandatory password updates upon first login **set "Temporary" to "Off"**
 3. Using the newly created username and password **login to the Keycloak Account Console** accessed from `http://localhost:8080/realms/myrealm/account/`.
@@ -86,19 +84,19 @@ From the Account Console, users can manage their accounts, modify profiles, acti
 
 ## Application Setup
 
-Before we set up and apply permissions we must create a "client" for the Song API.
+Before we set up and apply permissions we must create a "client" for the Score API.
 
 1. Re-open your Keycloak admin console located at `<url>/admin` and confirm you are within your recently created realm.
 2. Select **"Clients"** and then **"Create client"** and input the following:
 
-| Field      | Value          |
-|------------|----------------|
-| **Client Type**   | OpenID Connect  |
-| **Client ID** | song-api |
+| Field           | Value          |
+| --------------- | -------------- |
+| **Client Type** | OpenID Connect |
+| **Client ID**   | score-api      |
 
 3. Select **"Next"** and **turn on Client Authentication**, confirm **Standard flow is enabled**, turn **authorization on** and then click **"next"** and then **"Save"** (Nothing needs to be inputted for login settings).
 
-![Client Configuration](../../assets/capability-configs.png)
+![Client Configuration](../../assets/capability-config.png)
 
 <Warning>Make sure you have toggled on both **"Client Authentication"** and **"Authorization"**</Warning>
 
@@ -148,35 +146,49 @@ Permissions are the final decision-making mechanism connecting resources, scopes
 
 ## Creating a New Study
 
-
 As mentioned previously, when introducing a new study or program, the creation of an additional resource within Keycloak is required. This includes re-applying policies and permissions to desired users and groups.
 
-To add a new study, **create a new resource** with the desired name of your study or program (i.e. `PROGRAM.study123`) and **repeat the steps outline above**, specficially the Resources, Policies and Permissions sections of [configuring your application](/documentation/score/docker-install/configuration/authentication/#configuring-your-application). Once complete you should have the following:
+To add a new study, **create a new resource** with the desired name of your study or program (i.e. `score.study123`) and **repeat the steps outline above**, specifically the Resources, Policies and Permissions sections of [configuring your application](/documentation/score/docker-install/configuration/authentication/#configuring-your-application). Once complete you should have the following:
 
 ![Completed](../../assets/complete.png)
 
-## Integration with Song
+## Integration with Score
 
-Update your `.env.song` file with the required Keycloak variables, the following code block will help you get started:
+Update your `.env.score` file with the required Keycloak variables, the following code block will help you get started:
 
 ```bash
 # ============================
-# Keycloak Integration
+# Keycloak Configurations
 # ============================
 
-SPRING_CONFIG_ACTIVATE_ON_PROFILE=secure
+# Keycloak-specific profile configuration
+SPRING_PROFILES_ACTIVE=collaboratory,prod,secure
 
+# Server and authentication settings
+SERVER_PORT=8087
+SERVER_SSL_ENABLED=false
+
+# Logging
+LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB=INFO
+LOGGING_LEVEL_BIO_OVERTURE_SCORE_SERVER=INFO
+LOGGING_LEVEL_ROOT=INFO
+
+# Server Authentication integration
 AUTH_SERVER_PROVIDER=keycloak
-AUTH_SERVER_TOKENNAME=apiKey
-AUTH_SERVER_KEYCLOAK_HOST={{keycloak-host-url}}
+AUTH_SERVER_KEYCLOAK_HOST=http://localhost:8080
 AUTH_SERVER_KEYCLOAK_REALM=myrealm
-AUTH_SERVER_CLIENTID={{song-client-ID}}
-AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
-AUTH_SERVER_SCOPE_STUDY_PREFIX=PROGRAM.study123
-AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
-AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
-AUTH_SERVER_INTROSPECTIONURI={{keycloak-host-url}}/realms/{{keycloak-realm}}/apikey/check_api_key/
-SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{keycloak-host-url}}/realms/{{keycloak-realm}}/protocol/openid-connect/certs
+AUTH_SERVER_URL=http://localhost:8080/realms/{{realmName}}/apikey/check_api_key/
+AUTH_SERVER_TOKENNAME=apiKey
+AUTH_SERVER_CLIENTID=score-api
+AUTH_SERVER_CLIENTSECRET=scoresecret
+AUTH_SERVER_SCOPE_STUDY_PREFIX=score.
+AUTH_SERVER_SCOPE_UPLOAD_SUFFIX=.WRITE
+AUTH_SERVER_SCOPE_DOWNLOAD_SUFFIX=.READ
+AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM=score.WRITE
+AUTH_SERVER_SCOPE_DOWNLOAD_SUFFIX=.READ
+AUTH_SERVER_SCOPE_UPLOAD_SYSTEM=score.READ
+AUTH_SERVER_SCOPE_UPLOAD_SUFFIX=.WRITE
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI=http://localhost:8080/realms/{{realm-name}}/protocol/openid-connect/certs
 ```
 
 Replace any default values with the values specific to your environment. The table below summarizes the variables shown above:
@@ -195,45 +207,55 @@ Replace any default values with the values specific to your environment. The tab
 | `AUTH_SERVER_SCOPE_UPLOAD_SYSTEM`                     | Required    | Scope (permission) for system-level uploads to Score using an API key. If following the above instrutions for application setup this value will be `score-api.`. |
 | `AUTH_SERVER_SCOPE_UPLOAD_SUFFIX`                     | Required    | Suffix after the Song study name when assigning study-level upload scopes for Score. Default: `.WRITE`.                                                          |
 | `SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI` | Required    | URI for JWT JSON Web Key Set (JWK Set) for the OAuth2 resource server. Specify the Keycloak server URI by inserting your realm name.                             |
+| `SERVER_PORT`                                         | Optional    | The port number on which the server will listen. Default is `8087`.                                                                                              |
+| `SERVER_SSL_ENABLED`                                  | Optional    | Indicates whether SSL is enabled for the server. Default is `false`.                                                                                             |
+| `LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB`               | Optional    | Sets the logging level for Spring Framework's web components. Default is `INFO`.                                                                                 |
+| `LOGGING_LEVEL_BIO_OVERTURE_SCORE_SERVER`             | Optional    | Sets the logging level for Score Server components. Default is `INFO`.                                                                                           |
+| `LOGGING_LEVEL_ROOT`                                  | Optional    | Sets the root logging level. Default is `INFO`.                                                                                                                  |
 
 # Ego Setup
 
 For help installing Ego and the Ego admin UI, please refer to our <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego installation documentation</a>.
 
-If you're using [Ego](/documentation/ego) the `secure` profile is essential. It enables authentication for requests to the Song API via API keys issued by Ego. To set up your Song server with Ego modify your `.env.song` file as follows:
-
+If you're using <a href="/documentation/ego" target="_blank" rel="noopener noreferrer">Ego</a> the `secure` profile is essential. It enables authentication for requests to the Score API via API keys issued by Ego. To set up your Score server with Ego modify your `.env.score` file as follows:
 
 ```bash
 # ============================
-# Ego Integration (Required)
+# Ego Configurations
 # ============================
+
 # Configuration for the secure profile
 SPRING_PROFILES_ACTIVE=secure
 
 # Ego authentication settings
-AUTH_SERVER_URL={{ego-host-url}}/o/check_api_key/
-AUTH_SERVER_CLIENTID={{song-client-ID}}
-AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
-AUTH_SERVER_TOKENNAME={{API-key}}
-AUTH_SERVER_SCOPE_STUDY_PREFIX=song.
-AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
-AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
-SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_PUBLIC_KEY_LOCATION={{ego-host-url}}/oauth/token/public_key
+AUTH_SERVER_PROVIDER=ego
+AUTH_SERVER_URL={{auth_server_url}} # e.g., http://localhost:8080/ego/api/oauth/token
+AUTH_SERVER_TOKENNAME={{token_name}} # Default: 'apiKey'
+AUTH_SERVER_CLIENTID={{client_id}}
+AUTH_SERVER_CLIENTSECRET={{client_secret}}
+AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM={{download_system_scope}} # Default: 'score.READ'
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX={{download_study_prefix}} # Default: 'score.'
+AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX={{download_study_suffix}} # Default: '.READ'
+AUTH_SERVER_SCOPE_UPLOAD_SYSTEM={{upload_system_scope}} # Default: 'score.WRITE'
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX={{upload_study_prefix}} # Default: 'score.'
+AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX={{upload_study_suffix}} # Default: '.WRITE'
+AUTH_JWT_PUBLIC_KEY_URL={{public_key_url}} # e.g., https://localhost:8443/oauth/token/public_key
 ```
 
 Replace placeholders found in `{{brackets}}` with your values. The table below summarizes the variables outlined above:
 
-| Setting                                   | Requirement | Description                                                                                        |
-| ----------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------- |
-| `AUTH_SERVER_URL`                         | Required    | Ego API endpoint URL for API key authentication.                                                   |
-| `AUTH_SERVER_TOKENNAME`                   | Required    | Token identifier, typically `apiKey`.                                                              |
-| `AUTH_SERVER_CLIENTID`                    | Required    | Client ID for Score [registered in Ego](/documentation/ego/user-guide/admin-ui/applications/).     |
-| `AUTH_SERVER_CLIENTSECRET`                | Required    | Client secret for Score [registered in Ego](/documentation/ego/user-guide/admin-ui/applications/). |
-| `AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM`       | Required    | System-level download scope using an API key.                                                      |
-| `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX` | Required    | Prefix for study-level download scopes.                                                            |
-| `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX` | Required    | Suffix for study-level download scopes.                                                            |
-| `AUTH_SERVER_SCOPE_UPLOAD_SYSTEM`         | Required    | System-level upload scope using an API key.                                                        |
-| `AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX`   | Required    | Prefix for study-level upload scopes.                                                              |
-| `AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX`   | Required    | Suffix for study-level upload scopes.                                                              |
+| Setting                                   | Requirement | Description                                                                                                               |
+| ----------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `AUTH_SERVER_URL`                         | Required    | Ego API endpoint URL for API key authentication.                                                                          |
+| `AUTH_SERVER_TOKENNAME`                   | Required    | Token identifier, typically `apiKey`.                                                                                     |
+| `AUTH_SERVER_CLIENTID`                    | Required    | Client ID for Score [registered in Ego](/documentation/ego/user-guide/admin-ui/applications/).                            |
+| `AUTH_SERVER_CLIENTSECRET`                | Required    | Client secret for Score [registered in Ego](/documentation/ego/user-guide/admin-ui/applications/).                        |
+| `AUTH_SERVER_SCOPE_DOWNLOAD_SYSTEM`       | Required    | System-level download scope using an API key.                                                                             |
+| `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_PREFIX` | Required    | Prefix for study-level download scopes.                                                                                   |
+| `AUTH_SERVER_SCOPE_DOWNLOAD_STUDY_SUFFIX` | Required    | Suffix for study-level download scopes.                                                                                   |
+| `AUTH_SERVER_SCOPE_UPLOAD_SYSTEM`         | Required    | System-level upload scope using an API key.                                                                               |
+| `AUTH_SERVER_SCOPE_UPLOAD_STUDY_PREFIX`   | Required    | Prefix for study-level upload scopes.                                                                                     |
+| `AUTH_SERVER_SCOPE_UPLOAD_STUDY_SUFFIX`   | Required    | Suffix for study-level upload scopes.                                                                                     |
+| `AUTH_JWT_PUBLIC_KEY_URL`                 | Optional    | Ego API endpoint for retrieving a user's public key. Specify the endpoint's host and port. Use `/oauth/token/public_key`. |
 
 <Note title="Ego User Guide">For information on setting up uses, groups and applications in Ego, please refer to our documentation on [using the Ego admin UI](/documentation/ego/user-guide/admin-ui/).</Note>
