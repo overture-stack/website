@@ -4,8 +4,8 @@ import { HOME_PATH } from '../../constants/pages';
 export default function NotFoundPage() {
   return (
     <div>
-      <section className="hero is-primary">
-        <div className="hero-body">
+      <section className="hero is-fullheight">
+        <div className="hero-body ">
           <div className="container">
             <div className="columns">
               <div className="column is-10 is-offset-1">
