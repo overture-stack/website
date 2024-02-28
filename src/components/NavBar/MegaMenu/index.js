@@ -13,7 +13,7 @@ const data = {
   documentation: {
     explore: {
       title: 'Explore our documentation',
-      text: 'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
+      text: 'Learn how to install and use o individual products using our easy-to-use tutorials.',
       link: {
         to: '/documentation/',
         text: 'Documentation Overview',
@@ -21,7 +21,39 @@ const data = {
     },
     sections: [
       {
-        title: 'Products',
+        title: 'User Docs',
+        color: 'blue',
+        links: [
+          {
+            to: 'documentation/song',
+            text: 'Song',
+          },
+          {
+            to: 'documentation/score',
+            text: 'Score',
+          },
+
+          {
+            to: 'documentation/maestro',
+            text: 'Maestro',
+          },
+          {
+            to: 'documentation/arranger',
+            text: 'Arranger',
+          },
+
+          {
+            to: 'documentation/ego',
+            text: 'Ego',
+          },
+          {
+            to: 'documentation/dms-ui',
+            text: 'DMS-UI',
+          },
+        ],
+      },
+      {
+        title: 'Developer Docs',
         color: 'dark-blue',
         links: [
           {
@@ -53,31 +85,146 @@ const data = {
         ],
       },
       {
-        title: 'dms bundle',
-        color: 'yellow-green',
+        title: 'System Admin Docs',
+        color: 'yellow',
         links: [
           {
-            to: '/documentation/dms/',
-            text: 'Introduction',
+            to: 'documentation/song',
+            text: 'Deployment',
           },
           {
-            to: '/documentation/dms/installation/installation',
-            text: 'How to Install',
-          },
-
-          {
-            to: '/documentation/dms/admin-guide/tasks',
-            text: 'For Administrators',
+            to: 'documentation/score',
+            text: 'Load Balancing',
           },
           {
-            to: '/documentation/dms/user-guide/data-portal',
-            text: 'For Users',
+            to: 'documentation/ego',
+            text: 'Logging',
+          },
+          {
+            to: 'documentation/ego',
+            text: 'Recovery',
           },
         ],
       },
     ],
   },
+  tutorials: {
+    explore: {
+      title: 'Explore our tutorials and Tutorials',
+      text: 'Covering a range of topics for data consumers, providers, and administrators, these step-by-step tutorials provide practical insight and hands-on experience.',
+      link: {
+        to: '/tutorials/',
+        text: 'tutorials and Tutorials',
+      },
+    },
+    sections: [
+      {
+        title: 'Consumers',
+        color: 'blue',
+        links: [
+          {
+            to: 'documentation/song',
+            text: 'Downloading Data',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Visualizing data with Jbrowse2',
+          },
+        ],
+      },
+      {
+        title: 'Providers',
+        color: 'dark-blue',
+        links: [
+          {
+            to: 'documentation/song',
+            text: 'Submitting Data (CLI)',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Bulk Data Submission (Scripting)',
+          },
+        ],
+      },
+      {
+        title: 'Administrators',
+        color: 'yellow',
+        links: [
+          {
+            to: 'documentation/song',
+            text: 'Local Setup',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Server Setup',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Data Modeling',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Portal Customization',
+          },
+          {
+            to: 'documentation/song',
+            text: 'Managing Permissions',
+          },
+        ],
+      },
+    ],
+  },
+  community: {
+    explore: {
+      title: 'Check out our Community Information',
+      text: 'Connect with our community resources covering feature requests, deployment showcases, events, office hours and scholarly contributions.      ',
+      link: {
+        to: '',
+        text: '',
+      },
+    },
+    sections: [
+      {
+        title: '',
+        color: 'blue',
+        links: [
+          {
+            text: 'Feature Requests'
+          },
+          {
+            text: 'How to Contribute'
+          },
+          {
+            text: 'Public Roadmap'
+          },
+          {
+            text: 'Deployment List'
+          },
+        ],
+      },
+      {
+        title: '',
+        color: 'dark-blue',
+        links: [
+          {
+            text: 'Events'
+          },
+          {
+            text: 'Office Hours'
+          },
+          {
+            text: 'Publications '
+          },
+          {
+            text: 'How to Cite Us '
+          },
+
+        ],
+      },
+    ],
+  },
 };
+
 
 const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
   if (!megaMenuType) {

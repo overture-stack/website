@@ -18,6 +18,7 @@ import {
 import { SLACK_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
+import { Construction } from 'lucide-react';
 
 class NavBar extends Component {
   render() {
@@ -71,8 +72,43 @@ class NavBar extends Component {
                   )}
                 </div>
               </MegaMenuLink>
+              <MegaMenuLink
+                isActive={megaMenuType === 'tutorials'}
+                name={<><Construction style={{ marginRight: '8px' }}/>Tutorials</>}
+                path={path}
+                toggleMegaMenu={toggleMegaMenu}
+                type="tutorials"
+              >
+                <div ref={(ref) => (this.popoverRef = ref)}>
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="tutorials"
+                      path={path}
+                    />
+                  )}
+                </div>
+              </MegaMenuLink>
               <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
-              {/* <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" /> */}
+              <MegaMenuLink
+                isActive={megaMenuType === 'community'}
+                name={<><Construction style={{ marginRight: '8px' }}/>Community</>}
+                path={path}
+                toggleMegaMenu={toggleMegaMenu}
+                type="community"
+              >
+                <div ref={(ref) => (this.popoverRef = ref)}>
+                  {mobileMegaCheck && (
+                    <MegaMenu
+                      className="open"
+                      closeMenus={closeMenus}
+                      megaMenuType="community"
+                      path={path}
+                    />
+                  )}
+                </div>
+              </MegaMenuLink>             
               <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
               <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
             </div>

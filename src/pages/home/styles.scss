@@ -272,7 +272,7 @@
 
     &__text {
       font-family: $font-sans-serif;
-      font-weight: 900;
+      font-weight: 00;
       font-size: 20px;
       line-height: 36px;
       color: $navy-black;
@@ -284,7 +284,7 @@
       }
 
       @include breakpoint(desktop-up) {
-        font-size: 40px;
+        font-size: 38px;
         line-height: 70px;
       }
     }
@@ -344,6 +344,7 @@
         padding: 0 30px;
       }
     }
+    
 
     &__content {
       padding: 0 10px;
@@ -552,5 +553,153 @@
     @include breakpoint(desktop-up) {
       left: 80px;
     }
+  }
+}
+
+.mid-white-section {
+  @include breakpoint(tablet-up) {
+    overflow-x: hidden;
+  }
+
+  &__holder {
+    margin: 1em auto;
+
+    @include breakpoint(desktop-up) {
+      display: flex;
+    }
+  }
+
+  &__non-img-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8em;
+
+    @include breakpoint(desktop-up) {
+      align-items: flex-start;
+      width: 50%;
+      margin-right: -2em;
+      max-width: 450px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      max-width: none;
+      margin-right: 0.4em;
+      margin-top: 0.6em;
+    }
+  }
+
+  &__subtitle-holder {
+    max-width: 350px;
+    text-align: center;
+
+    @include breakpoint(tablet-up) {
+      max-width: none;
+    }
+    @include breakpoint(desktop-up) {
+      text-align: left;
+      margin-top: 1em;
+    }
+  }
+
+  &__img-holder {
+    background-image: url('./assets/img_circle_blue.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    padding: 28px;
+    margin: 1em auto;
+  }
+
+  &__mobile-tablet-img-holder {
+    @include breakpoint(tablet-up) {
+      background-position: left;
+      width: 200%;
+      margin-right: -3em;
+    }
+    @include breakpoint(desktop-up) {
+      display: none;
+    }
+  }
+
+  &__desktop-img-holder {
+    display: none;
+
+    @include breakpoint(desktop-up) {
+      display: flex;
+      align-items: center;
+      width: 64%;
+      padding: 30px;
+      margin-right: -5em;
+      background-position: left;
+    }
+
+    @include breakpoint(desktop-wide) {
+      padding: 68px;
+      margin: -3.5em;
+      background-position: left;
+      margin-right: -5.5em;
+    }
+  }
+
+  &__img {
+    @include breakpoint(tablet-up) {
+      position: relative;
+      left: 130px;
+      min-width: auto;
+      max-width: 190%;
+      max-height: 415px;
+    }
+    @include breakpoint(desktop-up) {
+      left: 300px;
+      max-width: 200%;
+      max-height: 660px;
+    }
+
+    @include breakpoint(desktop-wide) {
+      left: 360px;
+      max-width: 220%;
+      max-height: 710px;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      left: 300px;
+    }
+  }
+
+  &__content-holder {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(tablet-up) {
+      flex-direction: row;
+    }
+  }
+
+  &__text-button-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+
+    @include breakpoint(tablet-up) {
+      order: -1;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+    @include breakpoint(desktop-up) {
+      gap: 2.6em;
+    }
+    @include breakpoint(desktop-wide) {
+      gap: 3.4em;
+    }
+    @include breakpoint(desktop-ultra-wide) {
+      gap: 3.6em;
+    }
+  }
+
+  &__text-holder {
+    width: 88%;
   }
 }

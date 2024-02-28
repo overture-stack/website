@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, H1, H2, P1, ProductPageSection, Hero } from 'components';
-import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
+import { DOCUMENTATION_PATH } from 'constants/pages';
 import Helmet from 'react-helmet';
 import imgDMS from './assets/img_DMS.svg';
 import imgArranger from './assets/img_products_arranger.svg';
@@ -149,7 +149,7 @@ export default function ProductsPage() {
                 </div>
                 <div className="lower-blue-section__button-holder">
                   <Button
-                    link={DOCS_DMS_INSTALL_LINK}
+                    link={DOCUMENTATION_PATH}
                     type="primary"
                     size="medium"
                     className="lower-blue-section__button"
