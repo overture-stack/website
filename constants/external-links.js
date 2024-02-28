@@ -23,7 +23,8 @@ export const OICR_LINK = 'https://oicr.on.ca';
 export const OVERTURE_YOUTUBE_LINK = 'https://www.youtube.com/embed/NrgL8vpFm5s';
 export const POLICIES_LINK = 'https://oicr.on.ca/oicr-policies-and-procedures/';
 export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
-export const SLACK_LINK = 'https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw';
+export const SLACK_LINK =
+  'https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw';
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
 export const VIRUSSEQ_LINK = 'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
@@ -43,7 +44,7 @@ export const ARRANGER_GITHUB_LINK = 'https://github.com/overture-stack/arranger'
 // DMS
 export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
 export const CANARIE_LINK = 'https://www.canarie.ca/';
-export const DMS_UI_GITHUB_LINK = 'https://github.com/overture-stack/dms-ui';
+export const STAGE_GITHUB_LINK = 'https://github.com/overture-stack/stage';
 
 // ego
 export const EGO_SQL_LINK = `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;

@@ -4,13 +4,13 @@ title: Submitting Data to Song
 
 # Data Submission Overview
 
-Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes the data file). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects. 
+Submitted data consists of data files (e.g. sequencing reads or VCFs), as well as any associated file metadata (data that describes the data file). Data is submitted to Song & Score using the Song and Score CLIs (Command Line Clients). The Song and Score clients are used in conjunction to upload raw data files while maintaining file metadata and provenance, which is tracked through Song metadata analysis objects.
 
 # Installing the Song-Client
 
-**Running the song-client docker image** 
+**Running the song-client docker image**
 
-You must supply environment variables for the `CLIENT_STUDY_ID`, the `CLIENT_SERVER_URL` and your `CLIENT_ACCESS_TOKEN`. The access token is supplied from Ego or your profile page within the DMS-UI.
+You must supply environment variables for the `CLIENT_STUDY_ID`, the `CLIENT_SERVER_URL` and your `CLIENT_ACCESS_TOKEN`. The access token is supplied from Ego or your profile page within Stage.
 
 ```bash
 docker run -d -it --name song-client \
@@ -24,7 +24,7 @@ ghcr.io/overture-stack/song-client:latest
 
 # Installing the Score-Client
 
-**Running the score-client docker image** 
+**Running the score-client docker image**
 
 You will be required to supply environment variables for the `STORAGE_URL`, the `METADATA_URL` and your `CLIENT_ACCESS_TOKEN`.
 
@@ -39,17 +39,17 @@ docker run -d -it \
 ghcr.io/overture-stack/score:latest
 ```
 
-# Data Submission Workflow 
+# Data Submission Workflow
 
 ## Step 1. Prepare a payload
 
-First, a metadata payload must be prepared. The payload must conform to an `analysis_type` registered as a schema.  For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
- 
+First, a metadata payload must be prepared. The payload must conform to an `analysis_type` registered as a schema. For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
+
 ## Step 2. Upload the metadata payload file
 
 Once you have formatted the payload correctly, use the song-client `submit` command to upload the payload.
 
-```bash 
+```bash
 docker exec song-client sh -c "sing submit -f /output/example-payload.json"
 ```
 
@@ -68,15 +68,15 @@ At this point, since the payload data has successfully been submitted and accept
 
 ## Step 3. Generate a manifest file
 
-Use the returned `analysis_id` to generate a manifest for file upload. This manifest will used by the score-client in the next step. 
+Use the returned `analysis_id` to generate a manifest for file upload. This manifest will used by the score-client in the next step.
 
-The manifest establishes a link between the analysis-id that has been submitted and the data file on your local systems that is being uploaded. 
+The manifest establishes a link between the analysis-id that has been submitted and the data file on your local systems that is being uploaded.
 
 Using the song-client `manifest` command, define
 
 - The analysis id using the `-a` parameter
 - The location of your input files with the `-d` parameter
-- The output file path for the manifest file with the `-f` parameter. **Note**: this is a *file path* not a directory path
+- The output file path for the manifest file with the `-f` parameter. **Note**: this is a _file path_ not a directory path
 
 Here is an example of a manifest command:
 
@@ -102,15 +102,16 @@ docker exec score-client sh -c "score-client  upload --manifest manifest.txt"
 
 Once the file(s) successfully upload, you will receive an `Upload completed` message.
 
-### Troubleshooting Upload 
+### Troubleshooting Upload
 
-- If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly. 
+- If you receive a connection or internal server error message, have your admin check that Song and Score are configured to talk to each other correctly.
 
-Sometimes, if an upload is stuck, you can reinitiate the upload using the `--force` command. 
+Sometimes, if an upload is stuck, you can reinitiate the upload using the `--force` command.
 
 ```bash
 docker exec score-client sh -c "score-client  upload --manifest manifest.txt --force "
 ```
+
 For more information on Score, please see the <a href="/documentation/score" target="_blank" rel="noopener noreferrer">Score documentation page</a>.
 
 ## Step 5. Publish the analysis
@@ -129,4 +130,4 @@ AnalysisId a4142a01-1274-45b4-942a-01127465b422 successfully published
 
 A published analysis will now be searchable in Song. In the next section, we will outline how to search for data in Song.
 
-<Note title="Integration Tips">Song is a relational database designed for secure and consistent storage of data.  For an optimal data query experience, use Song with a search platform.  The Overture components [Maestro](/documentation/maestro) and [Arranger](/documentation/arranger) can be used to index and view data from Song from an intuitive search portal linked to a graphQL API.</Note>
+<Note title="Integration Tips">Song is a relational database designed for secure and consistent storage of data. For an optimal data query experience, use Song with a search platform. The Overture components [Maestro](/documentation/maestro) and [Arranger](/documentation/arranger) can be used to index and view data from Song from an intuitive search portal linked to a graphQL API.</Note>

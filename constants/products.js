@@ -60,9 +60,9 @@ const productsObj = {
     iconWhite: 'productSongWhite',
     title: 'Song',
   },
-  'dms-ui': {
+  stage: {
     iconWhite: 'productDMSWhite',
-    title: 'DMS-UI',
+    title: 'Stage',
   },
 };
 
