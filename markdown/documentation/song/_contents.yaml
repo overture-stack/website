@@ -9,19 +9,21 @@ pages:
     pages:
       - title: Setup Prerequisites
         url: song/installation/prerequisites
-      - title: Installation
-        url: song/installation/installation
       - title: Configurations
         url: song/installation/configurations
         pages: 
-          - title: Run Profiles
-            url: song/installation/configurations/profiles
           - title: Score Integration
             url: song/installation/configurations/score
+          - title: Kafka Integration
+            url: song/installation/configurations/kafka
+          - title: OAuth Provider 
+            url: song/installation/configurations/oauth
           - title: ID Management 
             url: song/installation/configurations/id
           - title: Schema Strictness
             url: song/installation/configurations/schema
+      - title: Installation
+        url: song/installation/installation
   - title: User Guide 
     url: song/user
     isHeading: true

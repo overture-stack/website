@@ -28,5 +28,4 @@ As part of the larger Overture.bio software suite, Song can be optionally used w
 
 - **Event Streaming:** Built-in support for <a href="https://kafka.apache.org/" target="_blank" rel="noopener noreferrer">Apache Kafka</a> event streaming allows other services to respond when analyses are registered and published.
 
-
 - **Maestro Indexing:** Song is built to natively integrate with <a href="/documentation/maestro/" target="_blank" rel="noopener noreferrer">Maestro</a>, which will easily index data into a configurable Elasticsearch index, to be used for convenient searching of data. 

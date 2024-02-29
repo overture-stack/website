@@ -7,7 +7,7 @@ To invoke a command, run the `song-client` executable and append any options req
 For information on the available commands, use the following:
 
 ```shell
-song-client-5.0.2/bin/sing --help
+docker exec song-client sh -c "sing --help"
 ```
 
 The following is provided as a reference to all the commands and command options currently supported by the Song client.

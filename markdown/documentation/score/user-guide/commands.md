@@ -9,7 +9,7 @@ Invoke a command by running the `score-client` executable and appending the nece
 For instance, to use the `upload` command with the `--manifest` option:
 
 ```BASH
-./score-client-<latest-release-number>/bin/score-client upload --manifest ./<directory>/manifest.txt
+docker exec score-client sh -c "score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
 # Commands
@@ -18,7 +18,7 @@ The sections below provide a reference for all commands and their respective opt
 
 ## Download
 
-Retrieve file object(s) from the remote storage repository.
+The `download` command is used to retrieve file object(s) from the remote storage repository and can be used with the following option flags:
 
 | Option | Description |
 | -------| ------------|
@@ -41,11 +41,11 @@ Retrieve file object(s) from the remote storage repository.
 
 ## Help
 
-Displays detailed information about Score client commands and their options.
+The `help` command can be used to display detailed information about Score client commands and their options.
 
 ## Info
 
-Presents the active configuration details of the Score client.
+The `info` command shows the active configuration details of the Score client. It can be used with the following option flag:
 
 | Option | Description |
 | -------| ------------|
@@ -53,7 +53,7 @@ Presents the active configuration details of the Score client.
 
 ## Manifest
 
-Show the entries of a specific Score manifest file.
+The `manifest` command shows entries of a specific Score manifest file. It can be used with the following option flag:
 
 | Option | Description |
 | -------| ------------|
@@ -61,7 +61,7 @@ Show the entries of a specific Score manifest file.
 
 ## Mount
 
-Mount a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noopener noreferrer">FUSE</a> filesystem view of the object storage repository in use by Score.
+The `mount` command is a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noopener noreferrer">FUSE</a> filesystem view of the object storage repository in use by Score, and it can be used with the following optional flags:
 
 | Option | Description |
 | -------| ------------|
@@ -77,7 +77,7 @@ Mount a read-only <a href="https://github.com/libfuse/" target="_blank" rel="noo
 
 ## Upload
 
-Send file object(s) to the remote storage repository.
+The `upload` command sends file object(s) to the remote storage repository. It can be used with the following option flags:
 
 
 | Option | Description |
@@ -92,7 +92,7 @@ Send file object(s) to the remote storage repository.
 
 ## Url
 
-Reveal the URL of a specific file object in the object storage repository.
+The `url` command reveals the URL of a specific file object in the object storage repository. It is used with the following option flag:
 
 | Option | Description |
 | -------| ------------|
@@ -100,11 +100,11 @@ Reveal the URL of a specific file object in the object storage repository.
 
 ## Version
 
-Provide the current version details of the Score client.
+The `version` command provides the current version details of the Score client.
 
 ## View
 
-Store locally and showcase parts or the entirety of a <a href="https://samtools.github.io/hts-specs/SAMv1.pdf" target="_blank" rel="noopener noreferrer">SAM or BAM</a> file.
+The `view` command stores locally and showcases a <a href="https://samtools.github.io/hts-specs/SAMv1.pdf" target="_blank" rel="noopener noreferrer">SAM or BAM</a> file. It can be used with the following option flags:
 
 | Option | Description |
 | -------| ------------|

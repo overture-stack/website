@@ -1,37 +1,15 @@
 ---
-title: Installing Song Via Docker 
+title: Running Song via Docker
 ---
 
-This page will walk you through installing Song using Docker. Ensure you've completed all the applicable [prerequisite steps](/documentation/song/installation/prerequisites/) before starting the installation.
-
-# Configuration Overview
-
-Before you proceed with the Song installation, be aware that there are several configurations for a Song server:
-
-| Component                                                    | Description                                | Requirement |
-|--------------------------------------------------------------|--------------------------------------------|-------------|
-| [Run Profiles](/documentation/song/installation/configurations/profiles/)                | Define how the Song server operates.       | Required    |
-| [Score Integration](/documentation/song/installation/configurations/score/)              | Connect Song with the Score server.        | Required    | 
-| [Ego Integration (Secure Profile)](/documentation/song/installation/configurations/profiles/#secure-profile)                   | Set up authentication and authorization.   | Required    | 
-| [ID Management](/documentation/song/installation/configurations/id/)                      | Define how to manage unique identifiers for data.        | Required    | 
-| [Schema Strictness](/documentation/song/installation/configurations/schema/)             | Define how strictly schemas should be followed. | Required | 
-| [Kafka Event Management](/documentation/song/installation/configurations/kafka/)        | Manage real-time data streaming events.    | Optional    |
-
-For detailed information on configuration options and guidelines, including setting up your environment variables file, see our section on <a href="/documentation/song/installation/configuration/" target="_blank" rel="noopener noreferrer">Configurations</a> section. 
-
-# Installation Steps
-
-1. **Setting Up Your Environment Variables**: 
-
-Based on your configuration, create an `.env.song` file with the necessary environment variables. Replace placeholders like `{{ego-host-url}}` with your actual values. Here's an example of the `.env.song` file:
+Following the previous configuration steps, your `.env.song` file should look similar to the template below:
 
 ```bash
-
 # ============================
-# Database Configuration (Required)
+# Database Configuration
 # ============================
 
-# PostgreSQL JDBC connection details
+# PostgreSQL connection details
 SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/song?stringtype=unspecified
 SPRING_DATASOURCE_USERNAME={{Postgres-Username}}
 SPRING_DATASOURCE_PASSWORD={{Postgres-Password}}
@@ -40,14 +18,31 @@ SPRING_FLYWAY_ENABLED=true
 SPRING_FLYWAY_LOCATIONS=classpath:flyway/sql,classpath:db/migration
 
 # ============================
-# Spring Run Profiles (Required)
+# Spring Run Profiles
 # ============================
 
 # Active profiles to determine app behavior & configs
-SPRING_PROFILES_ACTIVE=secure,score-client-cred
+SPRING_PROFILES_ACTIVE=secure,score-client-cred,kafka
 
 # ============================
-# Ego Integration (Required)
+# Keycloak Integration
+# ============================
+
+AUTH_SERVER_INTROSPECTIONURI={{keycloak-host-url}}/realms/{{keycloak-realm}}/apikey/check_api_key/
+AUTH_SERVER_CLIENTID={{song-client-ID}}
+AUTH_SERVER_CLIENTSECRET={{song-client-secret}}
+AUTH_SERVER_TOKENNAME={{API-key-name}}
+AUTH_SERVER_PROVIDER=keycloak
+AUTH_SERVER_KEYCLOAK_HOST={{keycloak-host-url}}
+AUTH_SERVER_KEYCLOAK_REALM={{keycloak-realm}}
+AUTH_SERVER_SCOPE_STUDY_PREFIX=PROGRAMDATA.
+AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
+AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI={{keycloak-host-url}}/realms/{{keycloak-realm}}/protocol/openid-connect/certs
+
+
+# ============================
+# Ego Integration
 # ============================
 
 AUTH_SERVER_URL={{ego-host-url}}/o/check_api_key/
@@ -70,43 +65,41 @@ SCORE_CLIENTCREDENTIALS_TOKENURL={{ego-host-url}}/oauth/token
 SCORE_CLIENTCREDENTIALS_SYSTEMSCOPE=score.WRITE
 
 # ============================
-# ID Management configuration (Required)
+# ID Management configuration
 # ============================
 
 ID_USELOCAL=true
 
 # ============================
-# Schema Strictness Configuration (Required)
+# Schema Strictness Configuration
 # ============================
 
 SCHEMAS_ENFORCELATEST=true
 
 # ============================
-# Kafka Event Management Configuration (Optional)
-# Required as an active spring profile variable
-# ex. SPRING_PROFILES_ACTIVE=secure,score-client-cred,kafka
+# Kafka Event Management Configuration
 # ============================
 
-# SPRING_KAFKA_BOOTSTRAP-SERVERS={{Kakfa-server-URL}}
-# SPRING_KAFKA_TEMPLATE_DEFAULT-TOPIC=song-analysis
-
+SPRING_KAFKA_BOOTSTRAP-SERVERS={{Kakfa-server-URL}}
+SPRING_KAFKA_TEMPLATE_DEFAULT-TOPIC=song-analysis
 ```
 
-2. **Run Docker:** 
+## Running Docker
 
-Start the Song container using the `docker run` command, specifying the mounted `.env` file:
+Initiate the Song container using `docker run` and mount the `.env.song` file:
 
 **For Linux (Recommended)**
+
 ```bash
-docker run --env-file .env --network=host -d -p 8080:8080 ghcr.io/overture-stack/song-server:latest
+docker run --name Song --env-file .env.song --network=host -d -p 8081:8081 ghcr.io/overture-stack/song-server:latest
 ```
 
 **For Mac and Windows**
 
 ```bash
-docker run --env-file .env -p 8080:8080 ghcr.io/overture-stack/song-server:latest
+docker run --name Song --env-file .env.song -p 8081:8081 ghcr.io/overture-stack/song-server:latest
 ```
 
-3. **Accessing Song:** 
+## Accessing Song
 
 Song should now be running and accessible at `http://localhost:8080/swagger-ui.html#/`.

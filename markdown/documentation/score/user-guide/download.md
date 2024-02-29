@@ -41,7 +41,7 @@ Here is an example of downloading files using a previously generated manifest fi
 Execute the following command from your home directory:
 
 ```shell
-./score-client-<latest-release-number>/bin/score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>
+docker exec score-client sh -c "score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>"
 ```
 
 -  `<manifestDirectory>` represents the location of the earlier generated manifest file
