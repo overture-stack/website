@@ -79,7 +79,7 @@ export default function GettingStartedPage() {
                         <Link to="/documentation/arranger">Arranger</Link>
                       </li>
                       <li className="upper-grey-section__bullets-item">
-                        <Link to="/documentation/Stage">Stage</Link>
+                        <Link to="/documentation/stage">Stage</Link>
                       </li>
                     </ul>
                   </div>
