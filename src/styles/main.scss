@@ -18,6 +18,10 @@ $family-primary: $family-serif;
 
 @import '../../node_modules/bulma/bulma.sass';
 
+.hero {
+  background-color: $blue-top !important;
+}
+
 // override bulma's hover CSS for the top navbar
 a.navbar-item:hover {
   color: $navy-black;
@@ -137,3 +141,4 @@ a.column {
 .blue-bg {
   background-color: $blue-block;
 }
+

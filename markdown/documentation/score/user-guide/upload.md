@@ -33,7 +33,7 @@ For complete information on uploading data, including generating a manifest, che
 docker exec score-client sh -c "score-client upload --manifest ./<directory>/manifest.txt"
 ```
 
-Replace `<directory>` with the location of the previously created manifest file.
+Replace `<directory>` with the location of the previously generated manifest file.
 
 2. If successful, the Score client will indicate that the upload is complete. You'll see an output similar to:
 

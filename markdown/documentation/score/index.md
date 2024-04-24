@@ -2,27 +2,27 @@
 title: Introduction
 ---
 
-The primary purpose of Score is to securely upload and download file data to and from an object storage provider. To ensure secure access to file data within object storage, Score utilizes time-limited <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html" target="_blank" rel="noopener noreferrer">pre-signed URLs</a>. 
+Score's primary function is to facilitate the secure upload and download of file data to and from an object storage provider. Utilizing time-limited <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html" target="_blank" rel="noopener noreferrer">pre-signed URLs</a>, Score ensures secure access to file data within object storage.
 
 Score specializes in data transfer, leaving metadata complexities to its companion application, <a href="/documentation/song" target="_blank" rel="noopener noreferrer">Song</a>, which handles the validation and tracking of metadata in its own repository, separate from object storage concerns. Together, Score and Song streamline distributed data organization.
 
 # High Performance Transfers
 
-Score offers a multipart transfer solution with several key advantages:
+Score offers a high-performance multipart transfer system with several advantages:
 
-- File downloads can be segmented, allowing users to pause and resume as needed
-- File transfers will automatically resume if paused or interrupted mid-transfer (e.g., due to connection issues)
-- Parallelizing transfer operations ensures efficient and rapid file uploads and downloads
+- Enables segmented file downloads, allowing for pause and resume functionality
+- Automatically resumes file transfers if interrupted, for instance, due to connection issues
+- Utilizes parallelization for efficient and rapid file uploads and downloads
 
 # Data Integrity
 
-- Score ensures the authenticity of file transfers by performing standardized <a href="https://www.ietf.org/rfc/rfc1321.txt" target="_blank" rel="noopener noreferrer">MD5 validations</a> against all file uploads and downloads
+- Score guarantees file transfer authenticity by conducting <a href="https://www.ietf.org/rfc/rfc1321.txt" target="_blank" rel="noopener noreferrer">MD5 validations</a> on all file uploads and downloads
 
 # BAM & CRAM Slicing
 
-- Integration of additional <a href="http://www.htslib.org/" target="_blank" rel="noopener noreferrer">samtools</a> features in the Score client, including the capability to view reads from a BAM file
-- Ability to slice BAM and CRAM files by genomic regions using integrated command line tools
+- Score client incorporates <a href="http://www.htslib.org/" target="_blank" rel="noopener noreferrer">samtools</a> features, enabling viewing of reads from BAM files
+- Provides the capability to slice BAM and CRAM files by genomic regions using command line tools
 
 # The Score Client
 
-The Score-Client is a command-line tool developed to streamline interactions with Score's REST API endpoints. With the score client, you can upload files, download files, and view various parameters related to Score. For more information on Score-Client commands, see our <a href="./reference/commands.md" target="_blank" rel="noopener noreferrer">score client reference documentation</a>.
+The Score-Client, a command-line tool, simplifies interactions with Score's REST API endpoints. With Score-Client, users can efficiently upload and download files, and access various Score-related parameters. For detailed information on Score-Client commands, refer to our <a href="/documentation/score/user-guide/commands/" target="_blank" rel="noopener noreferrer">score client reference documentation</a>.
