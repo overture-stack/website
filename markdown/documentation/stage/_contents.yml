@@ -1,12 +1,11 @@
 - sectionSlug: stage
-  sectionTitle: Stage
-  pages:
+ sectionTitle: Stage
+ pages:
     - title: Introduction
       url: stage
     - title: Installation
       url: stage/installation/installation
     - title: Integrations
-      url: stage/installation
       isHeading: true
       pages:
         - title: Integrating Arranger
