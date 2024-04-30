@@ -38,7 +38,7 @@ AUTH_SERVER_KEYCLOAK_REALM={{keycloak-realm}}
 AUTH_SERVER_SCOPE_STUDY_PREFIX=PROGRAMDATA.
 AUTH_SERVER_SCOPE_STUDY_SUFFIX=.WRITE
 AUTH_SERVER_SCOPE_SYSTEM=song.WRITE
-SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWKSETURI={{keycloak-host-url}}/realms/{{keycloak-realm}}/protocol/openid-connect/certs
+SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI={{keycloak-host-url}}/realms/{{keycloak-realm}}/protocol/openid-connect/certs
 
 
 # ============================
