@@ -14,9 +14,8 @@ Arranger integrates with your underlying Elasticsearch cluster to automatically 
 
 ![Entity](./assets/arrangercomponents.jpg 'Panels')
 
-  - The left hand box (in red) is Arrangers **faceted search** component
-  - The bottom box (in blue) is Arrangers **Data Table** component
-  - The top box (in yellow) is Arrangers **SQON Viewer** component
-  
+- The left hand box (in red) is Arranger's **faceted search** component
+- The bottom box (in blue) is Arranger's **Data Table** component
+- The top box (in yellow) is Arranger's **SQON Viewer** component
 
-<Note title="DMS-UI">Arranger works best when paired with a user interface (UI) to host its search components. We recommend using the [DMS-UI](https://www.overture.bio/documentation/dms-ui/), a React-based UI specifically designed to facilitate Arranger components and the integration of our OAuth tool, Ego. The DMS-UI offers an extensible layout, reusable components, and a themeable front-end interface. Ultimately the DMS-UI enables you to integrate these services into any web-based application.</Note>
+<Note title="Stage">Arranger works best when paired with a user interface (UI) to host its search components. We recommend using the [Stage](https://www.overture.bio/documentation/stage/), a React-based UI specifically designed to facilitate Arranger components and the integration of our OAuth tool, Ego. Stage offers an extensible layout, reusable components, and a themeable front-end interface. Ultimately, Stage enables you to integrate these services into any web-based application.</Note>
