@@ -11,3 +11,7 @@ yarn-error.log
 
 # Local Netlify folder
 .netlify
+
+# Dev tool configuration files
+.prettierignore
+.prettierrc

@@ -2,9 +2,9 @@
 title: Adding Overture Services
 ---
 
-# DMS-UI
+# Stage
 
-To add DMS-UI to Ego:
+To add Stage to Ego:
 
 1. **Create a new application:** From the Ego Admin UI's left-hand panel select **Applications**. From the Applications screen on the right-hand side click **Create**.
 
@@ -14,17 +14,17 @@ Insert the following information:
 
 | Field              | Value                                       |
 | ------------------ | ------------------------------------------- |
-| Name               | DMS-UI                                      |
+| Name               | Stage                                       |
 | Status             | Approved                                    |
 | Application Type   | CLIENT                                      |
-| Client             | DMS-UI                                      |
-| Client Secret      | DMS-UI                                      |
+| Client             | Stage                                       |
+| Client Secret      | Stage                                       |
 | Redirect URI       | http://localhost:3000/api/auth/callback/ego |
 | Error Redirect URI | http://localhost:3000/error                 |
 
 You can leave the Groups and Users fields blank. Click the **save** button on the top right of the panel.
 
-2.  **Create an environment variable file:** Within the cloned DMS-UI repository locate your `.env.dmsui` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.dmsui`.
+2.  **Create an environment variable file:** Within the cloned Stage repository locate your `.env.dmsui` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.dmsui`.
 
 3.  **Update environment variables:** Variables within this file are already preconfigured for a local setup:
 
@@ -40,7 +40,7 @@ SESSION_ENCRYPTION_SECRET=this_is_a_super_secret_secret
 NEXT_PUBLIC_EGO_API_ROOT=http://localhost:8081
 
 # Ego registered app id
-NEXT_PUBLIC_EGO_CLIENT_ID=DMS-UI
+NEXT_PUBLIC_EGO_CLIENT_ID=Stage
 ```
 
 You will also need to update the `NEXT_PUBLIC_SSO_PROVIDERS` variable in line with the SSO provider(s) you have configured:
@@ -49,9 +49,9 @@ You will also need to update the `NEXT_PUBLIC_SSO_PROVIDERS` variable in line wi
 NEXT_PUBLIC_SSO_PROVIDERS=GOOGLE,GITHUB,ORCID,LINK
 ```
 
-6. **Restart the DMS-UI:** From the command line exit out (Ctrl/Cmd + C), and re-run the DMS-UI `npm run dev`.
+6. **Restart Stage:** From the command line exit out (Ctrl/Cmd + C), and re-run Stage `npm run dev`.
 
-Once compiled you should be able to access Ego by clicking login on the upper right corner of the DMS-UI.
+Once compiled you should be able to access Ego by clicking login on the upper right corner of Stage.
 
 # Song
 
