@@ -69,7 +69,7 @@ pages:
 ## Algolia search
 
 - Current implementation is based on [Gatsby docs: Adding Search with Algolia](https://www.gatsbyjs.com/docs/adding-search-with-algolia/)
-- The site is re-indexed only in production, i.e. automatically when you merge a PR into the master branch on Github.
+- The site is re-indexed only in production, i.e. automatically when you merge a PR into the main branch on Github.
 - Algolia search only indexes the Documentation Markdown pages, that aren't marked as drafts.
 - To test indexing locally:
   - Make a temporary search index in our Algolia account on their website.

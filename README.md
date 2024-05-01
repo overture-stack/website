@@ -35,7 +35,7 @@ Overture.bio requires NPM v^8.3.0, to ensure all dependencies are installed corr
 Check your QA builds locally! (See **Environments**)
 
 - Deploy to a Netlify draft URL for QA: `npm run deploy`
-- Deploy to <https://overture.bio>: Merge a PR into the master branch.
+- Deploy to <https://overture.bio>: Merge a PR into the main branch.
 
 ## Environments
 
@@ -64,8 +64,8 @@ Gatsby development and production builds are significantly different, so conside
 
 These environments only apply when deploying to Netlify. The non-secret settings are stored in `netlify.toml`.
 
-- `production`: The live site at <https://overture.bio>, deployed automatically by Netlify when a PR is merged into master.
-- `deploy-preview`: Netlify deploys that are automatically generated when there is a PR created/updated on the master branch.
+- `production`: The live site at <https://overture.bio>, deployed automatically by Netlify when a PR is merged into the main branch.
+- `deploy-preview`: Netlify deploys that are automatically generated when there is a PR created/updated on the main branch.
 - `branch-deploy`: Other branches and PRs, deployed manually.
 
 ## Feature flags & environment variables
