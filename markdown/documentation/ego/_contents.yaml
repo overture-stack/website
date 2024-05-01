@@ -20,6 +20,8 @@ pages:
             url: ego/installation/prerequisites/linkedin
       - title: Installation
         url: ego/installation/installation
+      - title: Adding Overture Services
+        url: ego/installation/adding-overture-services
   - title: User Guide
     url: ego/user-guide
     isHeading: true
