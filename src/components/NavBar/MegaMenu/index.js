@@ -21,7 +21,7 @@ const data = {
     },
     sections: [
       {
-        title: 'Products',
+        title: 'Product Documentation',
         color: 'dark-blue',
         links: [
           {
@@ -53,25 +53,24 @@ const data = {
         ],
       },
       {
-        title: 'dms bundle',
+        title: 'Guides',
         color: 'yellow-green',
         links: [
           {
-            to: '/documentation/dms/',
-            text: 'Introduction',
+            to: '/documentation/guides/deployment/introduction',
+            text: 'Deployment',
           },
           {
-            to: '/documentation/dms/installation/installation',
-            text: 'How to Install',
-          },
-
-          {
-            to: '/documentation/dms/admin-guide/tasks',
-            text: 'For Administrators',
+            to: '/documentation/guides/submission/introduction',
+            text: 'Submission',
           },
           {
-            to: '/documentation/dms/user-guide/data-portal',
-            text: 'For Users',
+            to: '/documentation/guides/administration/introduction',
+            text: 'Administration',
+          },
+          {
+            to: '/documentation/guides/download/introduction',
+            text: 'Download',
           },
         ],
       },

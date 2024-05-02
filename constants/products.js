@@ -29,6 +29,10 @@ const productsObj = {
     iconWhite: 'productEgoWhite',
     title: 'Ego',
   },
+  guides: {
+    iconWhite: 'productDMSWhite',
+    title: 'Guides',
+  },
   jukebox: {
     githubUrl: urlJoin(OVERTURE_GITHUB_LINK, 'jupyter'),
     iconWhite: 'productJukeboxWhite',

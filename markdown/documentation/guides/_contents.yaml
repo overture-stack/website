@@ -1,0 +1,52 @@
+sectionSlug: guides
+sectionTitle: Guides
+pages:
+  - title: Getting Started
+    url: guides
+  - title: Deployment Guide
+    url: guides/deployment
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/deployment/introduction
+     - title: Authorization Service Setup
+       url: guides/deployment/oauth
+     - title: Data Management & Storage
+       url: guides/deployment/datamanagement
+     - title: Setting Up a Search Portal
+       url: guides/deployment/dataportal
+  - title: Administration Guide
+    url: guides/
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/administration/introduction
+     - title: Updating the Data Model
+       url: guides/administration/modelling
+     - title: Configuring the Index Mapping
+       url: guides/administration/indexmapping
+     - title: Customizing the Search Portal
+       url: guides/administration/portalcustomization
+  - title: Submission Guide
+    url: guides/submission
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/submission/introduction
+     - title: CLI Submissions
+       url: guides/submission/clientsubmission
+     - title: Programmatic Submissions
+       url: guides/submission/programmaticsubmission
+  - title: Download Guide
+    url: guides/download
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/download/introduction
+     - title: Client Downloads
+       url: guides/download/clientdownload
+     - title: Programmatic Downloads
+       url: guides/download/programmaticdownloads
+
+ 
+ 
