@@ -4,12 +4,14 @@ title: Making Schemas
 
 # Schema Template
 
-The basic portion of a dynamic schema requires at a minimum: 
+The basic portion of a dynamic schema requires at a minimum:
+
 - an `analysis_type`
-- an `experiment` object 
+- an `experiment` object
+
 ```json
 
-This template can be used to start your dynamic schema: 
+This template can be used to start your dynamic schema:
 {
  "name": "variant_calling_example",
  "schema":{
@@ -26,7 +28,7 @@ This template can be used to start your dynamic schema:
 
 Here are some resources to help with the creation of new schemas for your projects:
 
-- <a href="https://json-schema.org/understanding-json-schema/index.html" target="_blank" rel="noopener noreferrer">Understanding JSON Schema guide</a>: This guide provides detailed information on JSON Schema formatting, offering a comprehensive resource for understanding and working with JSON schemas.
+- <a href="https://json-schema.org/understanding-json-schema" target="_blank" rel="noopener noreferrer">Understanding JSON Schema guide</a>: This guide provides detailed information on JSON Schema formatting, offering a comprehensive resource for understanding and working with JSON schemas.
 
 - <a href="https://raw.githubusercontent.com/cancogen-virus-seq/metadata-schemas/main/schemas/consensus_sequence.json" target="_blank" rel="noopener noreferrer">Example schema</a>: If you're looking for a sample schema, you can refer to this example schema used for the CanCOGeN's VirusSeq Portal. It can serve as a reference or starting point for creating your own schemas.
 
