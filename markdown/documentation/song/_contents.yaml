@@ -9,7 +9,7 @@ pages:
     pages:
       - title: Setup Prerequisites
         url: song/installation/prerequisites
-      - title: configurations
+      - title: Configurations
         url: song/installation/configuration
         pages:
           - title: Score Integration
