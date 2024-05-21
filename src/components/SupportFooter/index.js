@@ -50,7 +50,7 @@ function SupportFooter({ location }) {
         return urlJoin(githubPrefix, url, 'index.md');
 
       /*
-       * The rest is logic for handling for handling paths unique paths where the url points to an index.md file in the relevant directory.
+       * The rest is logic for handling paths unique paths where the url points to an index.md file in the relevant directory.
        */
       case url.includes('song') && (url.endsWith('schemas/') || url.endsWith('api/')):
         return urlJoin(githubPrefix, url, 'index.md');
