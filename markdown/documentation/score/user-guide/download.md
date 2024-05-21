@@ -47,6 +47,6 @@ docker exec score-client sh -c "score-client download --manifest ./<manifestDire
 -  `<manifestDirectory>` represents the location of the earlier generated manifest file
 - `<outputDirectory>` specifies where you intend to download the files
 
-<Note title="What is a Manifest?"> To understand more about key terms in Overture's data submission workflow, check this guide on [data submission using Song and Score](/documentation/song/user/submit/).</Note>
+<Note title="What is a Manifest?"> To understand more about key terms in Overture's data workflows, check this guide on [data submission using Song and Score](/documentation/song/user/submit/).</Note>
 
-If successful the Score Client will indicate the upload has completed.
+If successful the Score Client will indicate the download has completed.
