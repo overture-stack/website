@@ -20,27 +20,53 @@ function SupportFooter({ location }) {
     }
   };
 
-  //contribution url is the github prefix + current pathname - "/" + ".md" except for two edge cases
-  //case 1: when pathname ends with a product name which is also when the pathname is short and only has three "/"
-  //case 2: when pathname contains ("arranger" OR "dmi-ui") AND must ends with "configuration/"
-  //for both of these edge cases, the contribution url is github prefix + current pathname + "index.md"
+  /**
+   * Constructs a GitHub contribution URL based on the current page's pathname.
+   * The URL format is determined by specific rules to accommodate various scenarios.
+   */
   function getContributionURL() {
-    const githubPrefix = 'https://github.com/overture-stack/website/tree/develop/markdown';
+    // Base URL prefix for GitHub repository links (updated to main)
+    const githubPrefix = 'https://github.com/overture-stack/website/tree/main/markdown';
+    // Extract the pathname from the current location object
     const url = location.pathname;
-    if (url.replace(/[^/]/g, '').length === 3) {
-      return urlJoin(githubPrefix, url, 'index.md');
-    } else if (
-      (url.includes('arranger') ||
-        url.includes('stage') ||
-        url.includes('song') ||
-        url.includes('score')) &&
-      url.endsWith('configuration/')
-    ) {
-      return urlJoin(githubPrefix, url, 'index.md');
-    } else if (url.includes('song') && (url.endsWith('schema/') || url.endsWith('analysis/'))) {
-      return urlJoin(githubPrefix, url, 'index.md');
-    } else {
-      return urlJoin(githubPrefix, url.slice(0, url.length - 1) + '.md');
+
+    /*
+     * The following logic determines the contribution URL format based on the URL.
+     * Non-ideal solution as there are several hardcoded edge cases, however this works for now
+     */
+    switch (true) {
+      /*
+       * Edge Case 1: When the pathname is short (only three segments), indicating a direct link to a product.
+       * In this case, the contribution URL points to the index.md file of the relevant directory.
+       */
+      case url.replace(/[^/]/g, '').length === 3:
+        return urlJoin(githubPrefix, url, 'index.md');
+
+      /*
+       * Edge Case 2: When the pathname ends with 'configuration/'.
+       * The contribution URL again points to the index.md file, facilitating contributions to these configurations.
+       */
+      case url.endsWith('configuration/'):
+        return urlJoin(githubPrefix, url, 'index.md');
+
+      /*
+       * The rest is logic for handling for handling paths unique paths where the url points to an index.md file in the relevant directory.
+       */
+      case url.includes('song') && (url.endsWith('schemas/') || url.endsWith('api/')):
+        return urlJoin(githubPrefix, url, 'index.md');
+
+      case url.includes('maestro') && url.endsWith('user-guide/'):
+        return urlJoin(githubPrefix, url, 'index.md');
+
+      case url.includes('ego') && (url.endsWith('prerequisites/') || url.endsWith('admin-ui/')):
+        return urlJoin(githubPrefix, url, 'index.md');
+
+      /*
+       * For all other paths, the contribution URL is constructed by removing the trailing '/' from the pathname
+       * and appending '.md', creating the typical Markdown file structure in our documentation folder.
+       */
+      default:
+        return urlJoin(githubPrefix, url.slice(0, url.length - 1) + '.md');
     }
   }
 
