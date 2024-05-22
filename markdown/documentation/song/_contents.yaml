@@ -3,43 +3,43 @@ sectionTitle: Song
 pages:
   - title: Introduction
     url: song
-  - title: Installation Guide 
+  - title: Installation Guide
     url: song/installation
     isHeading: true
     pages:
       - title: Setup Prerequisites
         url: song/installation/prerequisites
       - title: Configurations
-        url: song/installation/configurations
-        pages: 
+        url: song/installation/configuration
+        pages:
           - title: Score Integration
-            url: song/installation/configurations/score
+            url: song/installation/configuration/score
           - title: Kafka Integration
-            url: song/installation/configurations/kafka
-          - title: OAuth Provider 
-            url: song/installation/configurations/oauth
-          - title: ID Management 
-            url: song/installation/configurations/id
+            url: song/installation/configuration/kafka
+          - title: OAuth Provider
+            url: song/installation/configuration/oauth
+          - title: ID Management
+            url: song/installation/configuration/id
           - title: Schema Strictness
-            url: song/installation/configurations/schema
+            url: song/installation/configuration/schema
       - title: Installation
         url: song/installation/installation
-  - title: User Guide 
+  - title: User Guide
     url: song/user
     isHeading: true
     pages:
       - title: API Usage
         url: song/user/api
-        pages: 
+        pages:
           - title: Retrieving Metadata
             url: song/user/api/retrieve
           - title: Updating Metadata
             url: song/user/api/update
-      - title: Submitting Data 
+      - title: Submitting Data
         url: song/user/submit
       - title: Schema Management
         url: song/admin/schemas
-        pages: 
+        pages:
           - title: Making Schemas
             url: song/admin/schemas/makingschemas
           - title: Registering Schemas
