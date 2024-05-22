@@ -40,15 +40,11 @@ function SupportFooter({ location }) {
        * In this case, the contribution URL points to the index.md file of the relevant directory.
        */
       case url.replace(/[^/]/g, '').length === 3:
-        return urlJoin(githubPrefix, url, 'index.md');
-
       /*
        * Edge Case 2: When the pathname ends with 'configuration/'.
        * The contribution URL again points to the index.md file, facilitating contributions to these configurations.
        */
       case url.endsWith('configuration/'):
-        return urlJoin(githubPrefix, url, 'index.md');
-
       /*
        * The rest is logic for handling paths unique paths where the url points to an index.md file in the relevant directory.
        */
