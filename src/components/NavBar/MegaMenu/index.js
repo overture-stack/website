@@ -21,7 +21,7 @@ const data = {
     },
     sections: [
       {
-        title: 'Product Documentation',
+        title: 'Microservice Documentation',
         color: 'dark-blue',
         links: [
           {
@@ -53,7 +53,7 @@ const data = {
         ],
       },
       {
-        title: 'Guides',
+        title: 'Platform Guides',
         color: 'yellow-green',
         links: [
           {

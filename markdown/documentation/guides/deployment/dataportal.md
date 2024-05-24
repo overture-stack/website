@@ -1,3 +1,3 @@
 ---
-title: Deploying Stage & Arranger
+title: Deployment Guide
 ---
