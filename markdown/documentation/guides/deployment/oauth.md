@@ -4,9 +4,9 @@ title: Deployment Guide
 
 # Authorization Service Setup
 
-The Keycloak authorization service will be set up first as it will be brokering authorization tokens that will allow Overture services to communicate securely.
+Keycloak will be set up first as it will be brokering authorization tokens that will allow Overture services to communicate securely.
 
-## Setting up your database
+## Setting up the Keycloak database
 
 1. **Create a new network in docker:** All services interacting with databases will be connected to the custom network `db-network`. This setup ensures isolated communication between services that require database access, specifically Song, Score, and Maestro.
 
@@ -14,7 +14,7 @@ The Keycloak authorization service will be set up first as it will be brokering 
 docker network create db-network
 ```
 
-2. **Run PostgreSQL:** Use the following command to pull and run the PostgreSQL docker container:
+2. **Run PostgreSQL:** Use the following command to pull and run the PostgreSQL docker container
 
 ```bash
 docker run --name keycloak-db --network db-network  -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=keycloakDb -v./keycloak-db-data:/var/lib/postgresql/data -d postgres
@@ -25,7 +25,7 @@ This command runs a postgres image named `keycloak-db` on the `db-network` with 
 
 <Note title="Persistent Volumes"> It also includes a defined persistent volume `-v./keycloak-db-data:/var/lib/postgresql/data `. This volume will be a folder generated at runtime to serve as persistent storage. Meaning the data in your database will persist regardless of the container's status, in this case, located in the root of the directory where you run the container.</Note>
 
-3. **Run PgAdmin4 (optional):** PgAdmin4 is an open-source, web-based tool that provides a convenient and user-friendly interface for managing PostgreSQL databases. Use the following command to pull and run the PgAdmin4 docker container:
+<!-- 3. **Run PgAdmin4 (optional):** PgAdmin4 is an open-source, web-based tool that provides a convenient and user-friendly interface for managing PostgreSQL databases. Use the following command to pull and run the PgAdmin4 docker container:
 
 ```bash
 docker run --name pgadmin --network db-network -e PGADMIN_DEFAULT_EMAIL=admin@example.com -e PGADMIN_DEFAULT_PASSWORD=admin123 -p 5051:80 -d dpage/pgadmin4:latest
@@ -44,71 +44,69 @@ Once logged in, select **Add New Server** name your server and then **select the
 | Username:          | `admin`                |
 | Password:          | `admin123`             |
 
-Click **Save** and from the left-hand server drop-down, you can now view the connected database(s).
+Click **Save** and from the left-hand server drop-down, you can now view the connected database(s). -->
 
 ## Setting up Keycloak
 
-1. **Generate a certificate**
+1. **Create a folder titled `keycloakConfigs` and place the following configuration files within it:**
 
-This command generates a self-signed certificate for secure communication within the Keycloak environment. 
+   - The **[Overture API Key Provider](https://github.com/oicr-softeng/keycloak-apikeys/releases/download/1.0.1/keycloak-apikeys-1.0.1.jar)**, for extending Keycloak's functionality to support API key authentication.
 
-```bash
-keytool -genkeypair -storepass password -storetype PKCS12 -keyalg RSA -keysize 2048 -dname "CN=server" -alias server -ext "SAN:c=DNS:localhost,IP:127.0.0.1" -keystore server.keystore
-```
+   - The **[Realm.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-realm.json)**, containing pre-configurated settings for our Overture Keycloak realm.
 
-<Note title="KeyCloak Configurations">This guide covers a generalized deployment example running on your local machine. If you are looking for specific information for deploying Keycloak on a server we recommended seeing [Keycloaks official server documentation](https://www.keycloak.org/guides#server). Should you require assistance with deployments tailored to your specific needs, please feel free to reach out to us for consultation at contact@overture.bio.</Note>
-
-2. **Download the Overture API Key Provider and Realm configuration files**
-
-- **Download the [Overture API Key Provider](https://github.com/oicr-softeng/keycloak-apikeys/releases/download/1.0.1/keycloak-apikeys-1.0.1.jar)**.
-   - This file is for extending Keycloak's functionality to support API key authentication.
-- **Download the [realm.json]**
-   - This file contains pre-configurated settings for realms in Keycloak.
-- **Download the [users.json]**
-   - This file contains pre-configured user configurations for realms in Keycloak.
+   - The **[Users.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)**, containing pre-configured user information to populate the realm.
 
 
-3. **Run Keycloak**
-
-To deploy Keycloak, execute the following command. Make sure to run it from the same directory where you have gathered the necessary files mentioned above.
+2. **Run Keycloak:** To deploy Keycloak, execute the following command. Make sure to run it from the same directory where you have gathered the necessary files mentioned above.
 
 ```bash
-docker run --name keycloak -d -p 8443:8443 \
--e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin123 -e KC_HOSTNAME=localhost \
--v ./server.keystore:/opt/keycloak/conf/server.keystore \
--v ./keycloak-apikeys-1.0.1.jar:/opt/keycloak/providers/keycloak-apikeys.jar \
--v ./myrealm-realm.json:/opt/keycloak/data/import/myrealm-realm.json \
--v ./myrealm-users-0.json:/opt/keycloak/data/import/myrealm-users-0.json \
---network db-network \
-quay.io/keycloak/keycloak:22.0 start --import-realm \
---db=postgres \
---db-url=jdbc:postgresql://keycloak-db:5432/keycloakDb --db-username=admin --db-password=admin123 \
---https-key-store-file=/opt/keycloak/conf/server.keystore --https-key-store-password=password
+docker run --name keycloak -d -p 8180:8080 \
+  -e KEYCLOAK_ADMIN=admin \
+  -e KEYCLOAK_ADMIN_PASSWORD=admin123 \
+  -e KC_HOSTNAME=localhost \
+  -e KC_HEALTH_ENABLED=true \
+  -v ./keycloakConfigs/keycloak-apikeys-1.0.1.jar:/opt/keycloak/providers/keycloak-apikeys.jar \
+  -v ./keycloakConfigs/myrealm-realm.json:/opt/keycloak/data/import/myrealm-realm.json \
+  -v ./keycloakConfigs/myrealm-users-0.json:/opt/keycloak/data/import/myrealm-users-0.json \
+  --network db-network \
+  quay.io/keycloak/keycloak:22.0 start-dev \
+  --hostname-port=8180 \
+  --import-realm \
+  --db=postgres \
+  --db-url=jdbc:postgresql://keycloak-db:5432/keycloakDb \
+  --db-username=admin \
+  --db-password=admin123
 ```
 
-Once running you should be able to access the Keycloak admin console from `https://localhost:8443/admin`
+Once running you should be able to access the Keycloak admin console from `http://localhost:8180/admin`
 
-<Warning>**Note:** If using a self-signed certificate as described above, your browser will likely give you a warning. Select **Advanced** and, depending on your browser, click the button to accept the risk and continue.
-</Warning>
+<details>
+  <summary><b>For more details, click here</b></summary>
 
-### Command Breakdown:
+<br></br>
 
-Refer to the table below for a breakdown of some of the keycloak speicific options used in the docker run command above:
-
-| Name                                         | Command Snippet                                       | Description                                                                                                                                                         |
-|----------------------------------------------|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Port                                         | `-p 8443:8443`                               | Maps port 8443 on the host machine to port 8443 on the container, allowing access to Keycloak's HTTPS interface.                                                    |
-| Keystore                                     | `-v ./server.keystore:/opt/keycloak/conf/server.keystore` | Mounts the `server.keystore` file from the host machine to `/opt/keycloak/conf/server.keystore` in the container.                                       |
-| API Key Provider                             | `-v ./keycloak-apikeys-1.0.1.jar:/opt/keycloak/providers/keycloak-apikeys.jar` | Mounts the `keycloak-apikeys-1.0.1.jar` file from the host machine to `/opt/keycloak/providers/keycloak-apikeys.jar` in the container. |
-| Realm.json                                       | `-v ./myrealm-realm.json:/opt/keycloak/data/import/myrealm-realm.json` | Mounts the `myrealm-realm.json` file from the host machine to `/opt/keycloak/data/import/myrealm-realm.json` in the container.                        |
-| Users.json                                       | `-v ./myrealm-users-0.json:/opt/keycloak/data/import/myrealm-users-0.json` | Mounts the `myrealm-users-0.json` file from the host machine to `/opt/keycloak/data/import/myrealm-users-0.json` in the container.                        |
-| Network                                      | `--network db-network`                       | Connects the container to the `db-network`.                                                                                                                         |
-| Image                                        | `quay.io/keycloak/keycloak:22.0`             | Specifies the Keycloak Docker image with the tag `22.0`.                                                                                                             |
-| Start Command                                | `start --import-realm`                       | Starts Keycloak and imports the specified realm configuration.                                                                                                      |
-| Database                                     | `--db=postgres`                              | Specifies PostgreSQL as the database backend.                                                                                                                       |
-| Database URL                                 | `--db-url=jdbc:postgresql://keycloak-db:5432/keycloakDb` | Sets the URL of the PostgreSQL database to `jdbc:postgresql://keycloak-db:5432/keycloakDb`. Here, `keycloak-db` refers to the PostgreSQL database container. |
-| HTTPS Key Store File                         | `--https-key-store-file=/opt/keycloak/conf/server.keystore` | Specifies the location of the HTTPS key store file within the container.                                                                                            |
-| HTTPS Key Store Password                     | `--https-key-store-password=password`        | Sets the password for the HTTPS key store file to "password".                                                                                                       |
+- **Local Port Mapping:** The `-p 8180:8080` option maps port `8180` on the host machine to port `8080` inside the Docker container. This is crucial as port `8080` is the default port Keycloak listens on, but it's often occupied by other services. By mapping it to port 8180 on the host, we are ensuring that Keycloak remains accessible without interfering with other services running on the same machine.
 
 
-With Keycloak successfully deployed, you are now prepared to proceed with deploying our file management and storage services, Song and Score.
+- **Configuration Files:** The `-v` options mount the local directories containing the Keycloak configuration files (`realm.json`, `users.json`, and the `API key provider JAR`) to the corresponding paths inside the container. This ensures that Keycloak starts with the desired realm configuration and user definitions, as well as the extended functionality provided by the API key provider.
+
+
+- **Custom Network:** The `--network db-network` option connects the Keycloak container to a custom Docker network named` db-network`. This is particularly useful if when running other services, such as a PostgreSQL database, in separate containers and want them to communicate seamlessly. It facilitates secure and efficient communication between containers without exposing unnecessary ports to the outside world.
+
+
+- **Base Image:** `quay.io/keycloak/keycloak:22.0` specifies the Docker image to use, which is version 22.0 of Keycloak from Quay.io. This image includes Keycloak and all its dependencies, optimized for performance and security.
+
+
+- **Start Command:** The `start-dev` argument passed to the container instructs Keycloak to start in development mode. This mode is suitable for our example deployment. A production deployment is largely the same with exception to requring a SSL certificate on startup. 
+
+
+- **Realm Import:** The `--import-realm` flag tells Keycloak to import the realm configuration from the specified JSON file upon startup. This is essential for setting up realms with predefined roles, users, and other settings without requiring manual configurations.
+
+
+- **Database Connection:** The database-related flags (`--db`, `--db-url`, `--db-username`, `--db-password`) configure Keycloak to connect to the PostgreSQL database. These settings are critical for persisting user data, sessions, and other operational data securely and reliably.
+
+</details>
+
+<br></br>
+
+<Note title="Server Deployments">If you are looking for information on deploying Keycloak on a server we recommended seeing [Keycloaks official server documentation](https://www.keycloak.org/guides#server). Should you require assistance with deployments tailored to your specific needs, please feel free to reach out to us for consultation at contact@overture.bio.</Note>
