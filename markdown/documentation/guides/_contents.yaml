@@ -9,11 +9,11 @@ pages:
     pages:
      - title: Introduction
        url: guides/deployment/introduction
-     - title: Authorization Service Setup
+     - title: Authorization
        url: guides/deployment/oauth
      - title: Data Management & Storage
        url: guides/deployment/datamanagement
-     - title: Setting Up a Search Portal
+     - title: Search Portal
        url: guides/deployment/dataportal
   - title: Administration Guide
     url: guides/
