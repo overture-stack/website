@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import productsDict from 'constants/products';
 import { DOCUMENTATION_PATH } from 'constants/pages';
-import {
-  CanarieCredits,
-  Icon,
-  LinkHelper as Link,
-  Search,
-  SectionTableOfContents,
-} from 'components';
+import { Credits, Icon, LinkHelper as Link, Search, SectionTableOfContents } from 'components';
 
 const searchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
 const searchIndices = [{ name: searchIndex, title: searchIndex }];
@@ -39,7 +33,7 @@ export default function DocsWrapper({ children, data, path }) {
       <div className="docs__header">
         <div className="docs__header-title">
           <Icon className="icon" size={45} img={iconWhite} />
-          <h1>{title} Documentation</h1>
+          <h1>{sectionSlug !== 'guides' ? `${title} Documentation` : 'Platform Guides'}</h1>
         </div>
         <div className="docs__header-search">
           <Search indices={searchIndices} />
@@ -58,7 +52,7 @@ export default function DocsWrapper({ children, data, path }) {
               Documentation Overview
             </Link>
             <SectionTableOfContents pages={pages} path={path} />
-            {sectionSlug === 'dms' && <CanarieCredits />}
+            {sectionSlug === 'guides' && <Credits />}
           </div>
         </div>
         {children}
