@@ -147,22 +147,22 @@ export default function GettingStartedPage() {
           <div className="list-section">
             <ul className="doc-column">
               <li className="bullet-item">
-                <a href={DEPLOYMENT_GUIDE}>Deployment:</a> A generalized
-                deployment of our platform from start to finish
+                <a href={DEPLOYMENT_GUIDE}>Deployment:</a> generalized
+                instructions for deploying our platform from start to finish
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={SUBMISSION_GUIDE}>Submission:</a> Detailed stepwise
+                <a href={SUBMISSION_GUIDE}>Submission:</a> detailed stepwise
                 instructions for customizing your platform
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={DOWNLOAD_GUIDE}>Download:</a> Stepwise instructions on
+                <a href={DOWNLOAD_GUIDE}>Download:</a> stepwise instructions on
                 submitting data to your platform
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={ADMINISTRATION_GUIDE}>Administration:</a> Stepwise
+                <a href={ADMINISTRATION_GUIDE}>Administration:</a> stepwise
                 instructions on downloading data from your platform
               </li>
             </ul>
