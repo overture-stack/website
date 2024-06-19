@@ -20,6 +20,11 @@ const productsObj = {
     iconWhite: 'productEnrolmentWhite',
     title: 'Enrolment',
   },
+  dms: {
+    iconWhite: 'productDMSWhite',
+    productsPath: null,
+    title: 'DMS',
+  },
   ego: {
     iconWhite: 'productEgoWhite',
     title: 'Ego',
