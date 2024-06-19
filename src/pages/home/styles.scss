@@ -9,14 +9,14 @@
     @include breakpoint(tablet-up) {
       background-image: url('./assets/home_hero_img.svg');
       background-repeat: no-repeat;
-      background-position-x: 96%;
-      background-size: 420px;
+      background-position-x: 100%;
+      background-size: 450px;
       height: fit-content;
-      min-height: 440px;
+      max-height: 470px;
       padding: 3.8em 0;
     }
     @include breakpoint(desktop-up) {
-      background-size: 480px;
+      background-size: 450px;
     }
     @include breakpoint(desktop-wide) {
       background-position-x: 90%;
