@@ -5,12 +5,19 @@ export const ACKNOWLEDGEMENTS_PATH = '/acknowledgements/';
 export const CASE_STUDIES_PATH = '/case-studies/';
 export const CONTACT_US_PATH = '/contact-us/';
 export const COMMUNITY_PATH = '/community/';
-export const DOCUMENTATION_PATH = '/documentation/';
+export const GETTING_STARTED_PATH = '/getting-started/';
 export const PRIVACY_PATH = '/privacy/';
 export const PRODUCTS_PATH = '/products/';
 export const SERVICES_PATH = '/services/';
 export const TERMS_PATH = '/terms-conditions/';
 export const HOME_PATH = '/';
+export const DEPLOYMENT_GUIDE =
+  '/documentation/guides/deployment/introduction/';
+export const ADMINISTRATION_GUIDE =
+  '/documentation/guides/administration/introduction/';
+export const SUBMISSION_GUIDE =
+  '/documentation/guides/submission/introduction/';
+export const DOWNLOAD_GUIDE = '/documentation/guides/download/introduction/';
 
 export const caseStudyAnchors = {
   icgcargo: internalUrlJoin([CASE_STUDIES_PATH, '#icgcargo']),

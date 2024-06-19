@@ -1,7 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Button, H1, H2, H3, P1, P3, Search, YellowButton, LinkHelper as Link } from 'components';
-import imgScreenshotDMS from './assets/img_DMS_screenshot.png';
+import {
+  Button,
+  H1,
+  H2,
+  H3,
+  P1,
+  P3,
+  Search,
+  YellowButton,
+  LinkHelper as Link,
+} from 'components';
+import img_overtureQuickstartPortal from './assets/img_overtureQuickstartPortal.webp';
 import {
   OVERTURE_GITHUB_LINK,
   GITHUB_ISSUES_LINK,
@@ -57,7 +67,10 @@ export default function GettingStartedPage() {
                   <div>
                     <ul className="upper-grey-section__doc-column">
                       <li className="upper-grey-section__bullets-item menu-selection-link">
-                        <Link className="menu-selection-link" to="/documentation/ego">
+                        <Link
+                          className="menu-selection-link"
+                          to="/documentation/ego"
+                        >
                           Ego
                         </Link>
                       </li>
@@ -145,7 +158,7 @@ export default function GettingStartedPage() {
                 <div className="mid-white-section__mobile-tablet-img-holder mid-white-section__img-holder">
                   <img
                     alt="DMS screenshot"
-                    src={imgScreenshotDMS}
+                    src={img_overtureQuickstartPortal}
                     className="mid-white-section__img"
                   />
                 </div>
@@ -153,15 +166,17 @@ export default function GettingStartedPage() {
                   <div className="mid-white-section__text-holder">
                     <P1>
                       <span>
-                        Built from our core collection of microservices, the DMS offers turnkey
-                        installation, configuration, and deployment of the Overture software.
+                        Built from our core collection of microservices, the DMS
+                        offers turnkey installation, configuration, and
+                        deployment of the Overture software.
                       </span>
                       <br />
                       <br />
                       <span>
-                        While a custom solution will offer greater scalability, the DMS is an ideal
-                        starting point for anyone looking to explore Overture and experience how our
-                        microservices work in concert to create comprehensive data management
+                        While a custom solution will offer greater scalability,
+                        the DMS is an ideal starting point for anyone looking to
+                        explore Overture and experience how our microservices
+                        work in concert to create comprehensive data management
                         systems.
                       </span>
                     </P1>
@@ -181,7 +196,11 @@ export default function GettingStartedPage() {
             </div>
             {/* this img holding div is for desktop and larger view */}
             <div className="mid-white-section__desktop-img-holder mid-white-section__img-holder">
-              <img alt="DMS screenshot" src={imgScreenshotDMS} className="mid-white-section__img" />
+              <img
+                alt="DMS screenshot"
+                src={img_overtureQuickstartPortal}
+                className="mid-white-section__img"
+              />
             </div>
           </div>
         </div>
@@ -193,11 +212,14 @@ export default function GettingStartedPage() {
           <div className="lower-grey-section__holder">
             <div className="lower-grey-section__titles-holder">
               <div className="lower-grey-section__title-holder">
-                <h1 className="lower-grey-section__title">Connect with Our Community</h1>
+                <h1 className="lower-grey-section__title">
+                  Connect with Our Community
+                </h1>
               </div>
               <div className="lower-grey-seciton__subtitle-holder">
                 <P3 className="lower-grey-section__subtitle-mobile-tablet">
-                  Join us in contributing software tools that accelerate scientific discovery.
+                  Join us in contributing software tools that accelerate
+                  scientific discovery.
                 </P3>
                 <P3 className="lower-grey-section__subtitle-desktop">
                   Get help, share knowledge, and stay current.

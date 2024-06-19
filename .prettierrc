@@ -1,8 +1,10 @@
 {
-  "printWidth": 100,
-  "jsxBracketSameLine": false,
+  "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "disabledLanguage": ["markdown"]
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "printWidth": 80
 }

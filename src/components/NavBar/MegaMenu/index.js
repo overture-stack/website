@@ -13,15 +13,37 @@ const data = {
   documentation: {
     explore: {
       title: 'Explore our documentation',
-      text: 'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
+      text: 'Build, deploy, and discover with our documentation, guides and Quickstart resources.',
       link: {
-        to: '/documentation/',
-        text: 'Documentation Overview',
+        to: '/getting-started/',
+        text: 'Get Started',
       },
     },
     sections: [
       {
-        title: 'Microservice Documentation',
+        title: 'Platform Guides',
+        color: 'yellow-green',
+        links: [
+          {
+            to: '/documentation/guides/deployment/introduction',
+            text: 'Deployment',
+          },
+          {
+            to: '/documentation/guides/submission/introduction',
+            text: 'Submission',
+          },
+          {
+            to: '/documentation/guides/administration/introduction',
+            text: 'Administration',
+          },
+          {
+            to: '/documentation/guides/download/introduction',
+            text: 'Download',
+          },
+        ],
+      },
+      {
+        title: 'Product Documentation',
         color: 'dark-blue',
         links: [
           {
@@ -52,28 +74,6 @@ const data = {
           },
         ],
       },
-      {
-        title: 'Platform Guides',
-        color: 'yellow-green',
-        links: [
-          {
-            to: '/documentation/guides/deployment/introduction',
-            text: 'Deployment',
-          },
-          {
-            to: '/documentation/guides/submission/introduction',
-            text: 'Submission',
-          },
-          {
-            to: '/documentation/guides/administration/introduction',
-            text: 'Administration',
-          },
-          {
-            to: '/documentation/guides/download/introduction',
-            text: 'Download',
-          },
-        ],
-      },
     ],
   },
 };
@@ -87,12 +87,20 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
 
   const MenuItem = (link) =>
     link.comingSoon && !ENABLE_DRAFTS ? (
-      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <span
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
         {link.text} <ComingSoonBadge />
       </span>
     ) : (
       <Link
-        className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
+        className={`menu-section-link ${
+          path.startsWith(link.to) ? 'active' : ''
+        }`}
         onClick={() => closeMenus()}
         to={link.to}
       >
@@ -126,7 +134,9 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
 
             <ul
               className={`menu-section-links ${section.color}-section ${
-                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+                verticalMobileMenuSections.includes(section.title)
+                  ? 'vertical'
+                  : ''
               }`}
             >
               {section.links.map((link) => (

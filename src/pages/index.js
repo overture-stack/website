@@ -4,14 +4,28 @@ import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import {
   ABOUT_US_PATH,
-  DOCUMENTATION_PATH,
   PRODUCTS_PATH,
   SERVICES_PATH,
   caseStudyAnchors,
   productsAnchors,
+  GETTING_STARTED_PATH,
 } from 'constants/pages';
-import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
-import { Button, H1, H2, H3, P1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
+import {
+  OVERTURE_GITHUB_LINK,
+  SLACK_LINK,
+  DEMO_LINK,
+} from '../../constants/external-links.js';
+import {
+  Button,
+  H1,
+  H2,
+  H3,
+  P1,
+  Icon,
+  HomeProductLink,
+  YellowButton,
+  P2,
+} from 'components';
 import caseData from 'data/case_studies';
 import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
@@ -28,10 +42,14 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 export default function HomePage() {
   const [carouselPage, setCarouselPage] = useState(0);
   const handleLeftArrowClick = () => {
-    carouselPage === 0 ? setCarouselPage(caseData.length - 1) : setCarouselPage(carouselPage - 1);
+    carouselPage === 0
+      ? setCarouselPage(caseData.length - 1)
+      : setCarouselPage(carouselPage - 1);
   };
   const handleRightArrowClick = () => {
-    carouselPage === caseData.length - 1 ? setCarouselPage(0) : setCarouselPage(carouselPage + 1);
+    carouselPage === caseData.length - 1
+      ? setCarouselPage(0)
+      : setCarouselPage(carouselPage + 1);
   };
 
   return (
@@ -54,15 +72,16 @@ export default function HomePage() {
           <section className="Hero__section">
             <H1>Build. Deploy. Discover.</H1>
             <P1>
-              Overture is a collection of open-source software used to create discovery platforms
-              where researchers manage, share and access genomics data.
+              Overture is a collection of open-source software used to create
+              platforms where researchers manage, share and access genomics
+              data.
             </P1>
             <div className="Hero__small-buttons-container">
-              <Button link={PRODUCTS_PATH} size="medium" type="primary">
-                See Our Products
+              <Button link={GETTING_STARTED_PATH} size="medium" type="primary">
+                Get Started
               </Button>
-              <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
-                Explore Our Docs
+              <Button link={DEMO_LINK} size="medium" type="primary">
+                View Demo
               </Button>
             </div>
           </section>
@@ -73,15 +92,22 @@ export default function HomePage() {
       <section className="section top-white">
         <div className="top-white__title-container">
           <H2 className="top-white__title">Powering big-data at scale</H2>
-          <P1>Overture has been successfully deployed in a diversity of large-scale projects.</P1>
+          <P1>
+            Overture has been successfully deployed in a diversity of
+            large-scale projects.
+          </P1>
         </div>
 
         {/* logos scroll bar  */}
         <div className="top-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'top-white__logo-container-active' : '';
+            let active =
+              idx === carouselPage ? 'top-white__logo-container-active' : '';
             return (
-              <div className={`top-white__logo-container ${active}`} key={data.slug}>
+              <div
+                className={`top-white__logo-container ${active}`}
+                key={data.slug}
+              >
                 <img
                   src={data.logo}
                   alt={data.slug}
@@ -115,7 +141,11 @@ export default function HomePage() {
                   handleLeftArrowClick();
                 }}
               />
-              <a href={caseData[carouselPage].portalLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href={caseData[carouselPage].portalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={caseData[carouselPage].details[0].screenshot}
                   alt="screenshot"
@@ -142,7 +172,9 @@ export default function HomePage() {
                     handleLeftArrowClick();
                   }}
                 />
-                <H3 className="top-white__blue-container-title">{caseData[carouselPage].title}</H3>
+                <H3 className="top-white__blue-container-title">
+                  {caseData[carouselPage].title}
+                </H3>
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
@@ -187,9 +219,9 @@ export default function HomePage() {
       <section className="section upper-grey bg-grey">
         <div className="upper-grey__mobile">
           <h2 className="upper-grey__text">
-            We are a team of software engineers, data scientists, and cloud infrastructure
-            specialists creating applications that store, manage, and explore massive genomic
-            datasets.
+            We are a team of software engineers, data scientists, and cloud
+            infrastructure specialists creating applications that store, manage,
+            and explore massive genomic datasets.
           </h2>
         </div>
 
@@ -208,17 +240,32 @@ export default function HomePage() {
             />
             <span className="upper-grey__text">software</span>
             <span className="upper-grey__text">engineers,</span>
-            <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Data Icon"
+              img="data"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">data</span>
             <span className="upper-grey__text">scientists</span>
             <span className="upper-grey__text">and</span>
-            <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Cloud Icon"
+              img="cloudWeather"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">cloud </span>
             <span className="upper-grey__text">infrastructure</span>
             <span className="upper-grey__text">specialists </span>
             <span className="upper-grey__text">creating</span>
             <span className="upper-grey__text">applications</span>
-            <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Big Data Icon"
+              img="bigData"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">to</span>
             <span className="upper-grey__text">store,</span>
             <span className="upper-grey__text">manage,</span>
@@ -238,16 +285,21 @@ export default function HomePage() {
       </section>
 
       {/* floating yellow cube */}
-      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
+      <img
+        src={cubeYellow}
+        alt="Floating Yellow Cube"
+        className="yellow-cube"
+      />
 
       {/* middle white section - titled our products */}
       <section className="middle-white section">
         <div className="middle-white__titles-holder">
           <H2>Our Products</H2>
           <P1 className="middle-white__title-text">
-            Built to be reusable and scalable, Overture was created to share our data science
-            components with the community. Our ecosystem of research software tools reduces
-            redundant efforts and enables the creation of robust genomics data applications.
+            Built to be reusable and scalable, Overture was created to share our
+            data science components with the community. Our ecosystem of
+            research software tools reduces redundant efforts and enables the
+            creation of robust genomics data applications.
           </P1>
         </div>
         <div className="middle-white__content">
@@ -300,9 +352,9 @@ export default function HomePage() {
       <section className="section upper-grey bg-grey">
         <div className="upper-grey__mobile">
           <h2 className="upper-grey__text">
-            Our components are well documented, actively supported, and welcome external feedback
-            and contributions. If you need assistance, we also offer consulting, support, and
-            collaborative services.
+            Our components are well documented, actively supported, and welcome
+            external feedback and contributions. If you need assistance, we also
+            offer consulting, support, and collaborative services.
           </h2>
         </div>
 
@@ -319,19 +371,36 @@ export default function HomePage() {
             />
             <span className="upper-grey__text">documented</span>
             <span className="upper-grey__text">actively</span>
-            <Icon alt="support Icon" img="support" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="support Icon"
+              img="support"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">supported,</span>
             <span className="upper-grey__text">and</span>
-            <Icon alt="feedback Icon" img="feedback" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="feedback Icon"
+              img="feedback"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">welcome</span>
             <span className="upper-grey__text">external feedback</span>
             <span className="upper-grey__text">and contributions.</span>
             <span className="upper-grey__text">If you need</span>
-            <Icon alt="assistance Icon" img="assistance" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="assistance Icon"
+              img="assistance"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">assistance,</span>
             <span className="upper-grey__text">we also offer</span>
             <span className="upper-grey__text">consulting, support,</span>
-            <span className="upper-grey__text">and collaborative services.</span>
+            <span className="upper-grey__text">
+              and collaborative services.
+            </span>
           </h2>
         </div>
         <div className="mt3 lower-grey__buttons">
@@ -355,7 +424,11 @@ export default function HomePage() {
       </section>
 
       {/* floating marron cuve */}
-      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
+      <img
+        src={cubeMaroon}
+        alt="Floating Maroon Cube"
+        className="maroon-cube"
+      />
 
       <section className="section lower-white">
         <div className="lower-white__title-container">
@@ -387,17 +460,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
+      <img
+        src={cubeTealBlue}
+        alt="Floating Blueish Teal Cube"
+        className="teal-blue-cube"
+      />
 
-      <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
+      <img
+        src={cubeChartreuse}
+        alt="Floating Yellowish Green Cube"
+        className="chartreuse-cube"
+      />
 
       <section className="lower-grey section bg-grey">
         <div className="lower-grey__container">
           <h2 className="upper-grey__text lower-grey__text">
-            Build. Deploy. Discover. <br></br>Craft tomorrow's data solution, today.
+            Build. Deploy. Discover. <br></br>Craft tomorrow's data solution,
+            today.
           </h2>
           <div className="mt3 lower-grey__buttons">
-            <Button type="primary" size="medium" link={DOCUMENTATION_PATH}>
+            <Button type="primary" size="medium" link={GETTING_STARTED_PATH}>
               Get Started
             </Button>
             <Button type="primary" size="medium" link={PRODUCTS_PATH}>
@@ -409,7 +491,11 @@ export default function HomePage() {
 
       {/* floating bright teal cube */}
       <div className="bg-grey">
-        <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+        <img
+          src={cubeBrightTeal}
+          alt="Floating Bright Teal Cube"
+          className="bright-teal-cube"
+        />
       </div>
     </main>
   );

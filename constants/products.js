@@ -20,11 +20,6 @@ const productsObj = {
     iconWhite: 'productEnrolmentWhite',
     title: 'Enrolment',
   },
-  dms: {
-    iconWhite: 'productDMSWhite',
-    productsPath: null,
-    title: 'DMS',
-  },
   ego: {
     iconWhite: 'productEgoWhite',
     title: 'Ego',
@@ -47,7 +42,11 @@ const productsObj = {
     iconWhite: 'productOncoWhite',
     title: 'OncoJS',
   },
-  overture: { githubUrl: OVERTURE_GITHUB_LINK, productsPath: null, title: 'Overture' },
+  overture: {
+    githubUrl: OVERTURE_GITHUB_LINK,
+    productsPath: null,
+    title: 'Overture',
+  },
   persona: {
     iconWhite: 'productPersonaWhite',
     title: 'Persona',

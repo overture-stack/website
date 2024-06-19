@@ -26,6 +26,7 @@ import chevronMagenta from './icons/chevron-magenta.svg';
 import cloudWeather from './icons/cloud-weather.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
+import cog from './icons/cog.svg';
 import copy from './icons/copy.svg';
 import customizable from './icons/customizable.svg';
 import data from './icons/data.svg';
@@ -141,6 +142,7 @@ const icons = {
   cloud,
   cloudWeather,
   cloudSquare,
+  cog,
   copy,
   customizable,
   data,

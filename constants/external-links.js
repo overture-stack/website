@@ -1,3 +1,6 @@
+export const DEMO_LINK = 'https://demo.overture.bio/';
+export const DOCKER_DOWNLOAD = 'https://www.docker.com/products/docker-desktop/';
+
 export const ICGC_ARGO_LINK = 'https://www.icgc-argo.org/';
 export const ICGC_ARGO_PORTAL_LINK = 'https://platform.icgc-argo.org/';
 export const CGC_LINK = 'https://cancercollaboratory.org/';
