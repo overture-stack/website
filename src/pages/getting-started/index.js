@@ -51,9 +51,9 @@ export default function GettingStartedPage() {
             <div className="upper-grey-section__title-holder">
               <H2>Getting Started</H2>
 
-              <P2 className="text-section">
-                <code>3</code> Steps, <code>2</code> Commands, <code>1</code>{' '}
-                Data Platform
+              <P2 className="text-subtitle">
+                <code>3</code> steps, <code>2</code> commands, <code>1</code>{' '}
+                platform
               </P2>
             </div>
             <div className="upper-grey-section__content-holder">
@@ -73,7 +73,7 @@ export default function GettingStartedPage() {
                   </b>
                 </P2>
 
-                <span>
+                <span className="text-section">
                   In Docker Desktop click the cog{' '}
                   <Icon
                     alt=""
@@ -103,7 +103,7 @@ export default function GettingStartedPage() {
 
                 <div className="relative">
                   <Terminal prompts={['docker compose up -d']} />
-                  <span>
+                  <span className="text-section">
                     Your portal will now be accessible from your:{' '}
                     <code>localhost:3000</code>
                   </span>
@@ -132,8 +132,7 @@ export default function GettingStartedPage() {
 
             <div className="text-subtitle">
               <P2>
-                Guides and documentation to help get you started using our
-                platform
+                Guides and documentation to get you started using our platform
               </P2>
             </div>
           </div>
@@ -144,8 +143,8 @@ export default function GettingStartedPage() {
           <div className="text-section">
             <H3>Platform Guides</H3>
             <P2>
-              These stepwise tutorials provide practical insight and hands-on
-              experience using the Overture platform
+              Stepwise tutorials for practical insight and hands-on experience
+              using the Overture platform
             </P2>
           </div>
 
@@ -227,7 +226,7 @@ export default function GettingStartedPage() {
               className="getting-started-notebox"
             >
               If you can't find what your are looking for please reach out to us
-              on our <Link to={SLACK_LINK}>Slack channel</Link> or by email at
+              on our <Link to={SLACK_LINK}>Slack channel</Link> or by email at{' '}
               <b>contact@overture.bio</b>
             </NoteBox>
           </div>
