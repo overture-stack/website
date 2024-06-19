@@ -54,6 +54,7 @@ import lockCode from './icons/lock_code.svg';
 import magnify from './icons/magnify.svg';
 import mail from './icons/mail.png';
 import notes from './icons/notes.svg';
+import notes2 from './icons/notes2.svg';
 import pageWhite from './icons/page_white.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
@@ -170,6 +171,7 @@ const icons = {
   magnify,
   mail,
   notes,
+  notes2,
   pageWhite,
   palette,
   play,

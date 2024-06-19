@@ -27,6 +27,7 @@ import {
   DOWNLOAD_GUIDE,
   SUBMISSION_GUIDE,
 } from '../../../constants/pages';
+import { FEATURE_REQUESTS } from '../../../constants/external-links';
 
 export default function GettingStartedPage() {
   const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
@@ -50,11 +51,6 @@ export default function GettingStartedPage() {
           <div className="upper-grey-section__holder">
             <div className="upper-grey-section__title-holder">
               <H2>Getting Started</H2>
-
-              <P2 className="text-subtitle">
-                <code>3</code> steps, <code>2</code> commands, <code>1</code>{' '}
-                platform
-              </P2>
             </div>
             <div className="upper-grey-section__content-holder">
               {/* The img holding div below displays in mobile/tablet view.*/}
@@ -222,12 +218,14 @@ export default function GettingStartedPage() {
           </div>
           <div>
             <NoteBox
+              icon="notes2"
               title="Help us make our docs better"
               className="getting-started-notebox"
             >
-              If you can't find what your are looking for please reach out to us
-              on our <Link to={SLACK_LINK}>Slack channel</Link> or by email at{' '}
-              <b>contact@overture.bio</b>
+              If you can't find what you are looking for, please submit{' '}
+              <b>
+                <Link to={FEATURE_REQUESTS}>a GitHub request</Link>
+              </b>
             </NoteBox>
           </div>
         </div>
@@ -268,16 +266,6 @@ export default function GettingStartedPage() {
               ></YellowButton>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* lower blue section - only shows in desktop viewport */}
-      <section className="lower-blue-section blue-bg">
-        <div className="lower-blue-section__text-holder">
-          <H3 className="lower-blue-section__text">
-            Do you have a suggestion? Are we missing anything?
-            <Link to={GITHUB_ISSUES_LINK}>Let us know</Link>
-          </H3>
         </div>
       </section>
     </main>

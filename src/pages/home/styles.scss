@@ -504,7 +504,12 @@
       margin-bottom: -200px;
     }
     @include breakpoint(desktop-up) {
-      left: 140px;
+      left: -30px;
+      bottom: 100px;
+    }
+    @include breakpoint(desktop-wide) {
+      left: -20px;
+      bottom: 100px;
     }
   }
 
@@ -550,7 +555,104 @@
       z-index: 1;
     }
     @include breakpoint(desktop-up) {
-      left: 80px;
+      left: 0px;
+      bottom: 200px;
     }
   }
+
+  .lower-blue-section {
+    
+    &__holder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+    }
+
+    &__title-holder {
+      margin-bottom: 4em;
+    }
+
+    &__content-holder {
+      background-color: $blue-block;
+      width: 100%;
+    }
+
+    &__img-holder {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__img {
+      position: relative;
+      image-rendering: crisp-edges;
+      max-width: 1000px;
+      width: 70%;
+      bottom: 70px;
+    }
+
+    &__text-button-holder {
+      position: relative;
+      bottom: 70px;
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.6em;
+    }
+
+    &__text-holder {
+      width: 70%;
+      max-width: 1000px;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 30px;
+      max-width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.6em;
+    }
+  }
+
+  .text-subtitle {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    max-width: fit-content;
+    margin-inline: auto;
+    code {
+      font-weight: 900;
+      color: $title-pink;
+      font-size: 20px;
+      line-height: 1.5; 
+      background-color: $blue-block;
+      border-radius: 5px;
+      margin: 5px;
+      font-family: $font-monospace;
+    }
+  }
+
+
+  .text-section {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 2;
+    code {
+      color: $blue-light;
+      font-weight: 900;
+      background-color: $grey-darkest;
+      border-radius: 5px;
+      margin: 5px;
+      font-family: $font-monospace;
+    }
+  }
+
+  .terminal-section {
+    margin-top: -2.6em;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
