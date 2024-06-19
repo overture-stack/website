@@ -7,7 +7,7 @@ import './styles.scss';
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
-const verticalMobileMenuSections = ['DMS Bundle'];
+const verticalMobileMenuSections = ['Platform Guides'];
 
 const data = {
   documentation: {
