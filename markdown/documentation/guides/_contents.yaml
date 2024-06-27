@@ -35,8 +35,6 @@ pages:
        url: guides/submission/introduction
      - title: CLI Submissions
        url: guides/submission/clientsubmission
-     - title: Programmatic Submissions
-       url: guides/submission/programmaticsubmission
   - title: Download Guide
     url: guides/download
     isHeading: true
@@ -45,8 +43,3 @@ pages:
        url: guides/download/introduction
      - title: CLI Downloads
        url: guides/download/clientdownload
-     - title: Programmatic Downloads
-       url: guides/download/programmaticdownloads
-
- 
- 

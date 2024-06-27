@@ -7,7 +7,7 @@ title: Deployment Guide
 - Anyone seeking guidance on how to deploy an Overture platform
 
 
-- The guide is split into three segments, Authorization, Data Management & Storage and Search Portal setup
+- The guide is split into three segments: Authorization, Data Management & Storage and Search Portal setup
 
 ![Portal Overview](./assets/guideOverview.webp 'Guide Overview')
 
@@ -27,9 +27,9 @@ A summary of each Overture and third-party service used in this guide is detaile
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **KeyCloak**             | A highly regarded open-source identity and access management (IAM) service developed by Red Hat.                        |
 | **Postgres**             | A free and open-source relational database management system. |
-| **Minio**                | A high performance open0source object storage provider.                                                                                              |
+| **Minio**                | A high-performance open-source object storage provider.                                                                                              |
 | **Kafka**                | The messaging system used to enable asynchronous communication between Song and Maestro.                                       |                                     |
-| **Elasticsearch**        | A search and analytics engine used to help query massive datasets flexibly and effiecently.                                              |
+| **Elasticsearch**        | A search and analytics engine used to help query massive datasets flexibly and efficiently.                                              |
 
 # You will need
 

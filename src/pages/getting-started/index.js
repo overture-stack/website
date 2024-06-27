@@ -16,7 +16,6 @@ import {
 import img_overtureQuickstartPortal from './assets/img_overtureQuickstartPortal.webp';
 import {
   OVERTURE_GITHUB_LINK,
-  GITHUB_ISSUES_LINK,
   SLACK_LINK,
   DOCKER_DOWNLOAD,
 } from 'constants/external-links';
