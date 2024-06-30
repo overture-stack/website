@@ -29,7 +29,7 @@ const data = {
             text: 'Deployment',
           },
           {
-            to: '/documentation/guides/submission/introduction',
+            to: '/documentation/guides/submission/clientsubmission/',
             text: 'Submission',
           },
           {
@@ -37,7 +37,7 @@ const data = {
             text: 'Administration',
           },
           {
-            to: '/documentation/guides/download/introduction',
+            to: '/documentation/guides/download/clientdownload/',
             text: 'Download',
           },
         ],

@@ -8,16 +8,16 @@ Welcome to the Overture platform guides, here you will find information on deplo
 
  Our guides currently cover the following topics:
 
-- **[Deployment:]()** A generalized deployment of our platform from start to finish
+- **[Deployment:](/documentation/guides/deployment/introduction)** A generalized deployment of our platform from start to finish
 
 
-- **[Administration:]()** Detailed stepwise instructions for customizing our platform
+- **[Administration:](/documentation/guides/administration/introduction)** Detailed stepwise instructions for customizing our platform
 
 
-- **[Submission:]()** Stepwise instructions on submitting data to our platform 
+- **[Submission:](/documentation/guides/submission/clientsubmission)** Stepwise instructions on submitting data to our platform 
 
 
-- **[Download:]()** Stepwise instructions on downloading data from our platform
+- **[Download:](/documentation/guides/download/clientdownload)** Stepwise instructions on downloading data from our platform
 
 <Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
 

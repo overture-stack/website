@@ -34,7 +34,7 @@ docker compose up -d
 
 # CLI Submssion
 
-## Step 1: Retrieve your API Key
+## Step 1: Generate an API Key
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
@@ -43,7 +43,7 @@ API Keys are brokered by Keycloak and accessible when logged in to the Stage UI.
 
 2. **Once logged in, it's time to generate a new API token:** To do this, click on **Profile and Token** from your user drop down menu, located on the top right of the Stage UI. Then, select **Generate New Token**.
 
-![Accessing an API Key](./assets/apikey.png 'Accessing an API Key')
+![Accessing an API Key](./assets/apikeys.png 'Accessing an API Key')
 
 ## Step 2: Run the Song and Score Clients
 
@@ -139,11 +139,12 @@ docker run -d -it --name score-client \
 
   - `--mount type=bind,source=./guideContent/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideContent/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
+---
 
 </details>
 <br></br>
 
-<Warning>**Note:** Ensure you are running the following commands from the root directory of the quickstart folder. The values here reflect those compatible with the Overture QuickStart.</Warning>
+<Warning>**Note:** Ensure you are running the following commands from the root directory of the quickstart folder. The values here reflect those compatible with theclea Overture QuickStart.</Warning>
 
 ## Step 3: Submit metadata to Song
 
