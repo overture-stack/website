@@ -34,7 +34,7 @@ Instructions on running our Quickstart are found here and at the begining of eac
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone -b develop https://github.com/overture-stack/composer.git
+git clone https://github.com/overture-stack/composer.git
 ```
 
 **2. Run the docker-compose**
@@ -43,4 +43,4 @@ git clone -b develop https://github.com/overture-stack/composer.git
 docker compose up -d
 ```
 
-<Warning>**Note:** Ensure enough resources are allocated to docker. We recommend a `CPU limit of 8`, `memory limit of 12gb`, `swap of 4gb`, and `virtual disk limit of 128gb`. These settings can be accessing in docker desktop by selecting the **cog wheel** found on the top right and selecting **resources** from the left panel.</Warning>
+<Warning>**Note:** Ensure enough resources get allocated to Docker** We recommend a minimuim CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>

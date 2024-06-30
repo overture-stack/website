@@ -31,15 +31,11 @@ pages:
     url: guides/submission
     isHeading: true
     pages:
-     - title: Introduction
-       url: guides/submission/introduction
      - title: CLI Submissions
        url: guides/submission/clientsubmission
   - title: Download Guide
     url: guides/download
     isHeading: true
     pages:
-     - title: Introduction
-       url: guides/download/introduction
      - title: CLI Downloads
        url: guides/download/clientdownload

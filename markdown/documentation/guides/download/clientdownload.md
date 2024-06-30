@@ -2,23 +2,27 @@
 title: Download Guide
 ---
 
+**This guide is for** anyone seeking guidance on how to download data from an Overture platform. 
+
+**You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
+
 # Getting Started
 
-If you do not have an Overture Platform to work with you can run our quickstart using the following commands:
+## Clone and run our Quickstart
 
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone -b develop https://github.com/overture-stack/composer.git
+git clone https://github.com/overture-stack/composer.git
 ```
 
-**2. Run the docker-compose**
+**2. With Docker open run the docker-compose**
 
 ```bash
 docker compose up -d
 ```
 
-<Warning>**Note:** Ensure enough resources are allocated to docker. We recommend a `CPU limit of 8`, `memory limit of 12gb`, `swap of 4gb`, and `virtual disk limit of 128gb`. These settings can be accessing in docker desktop by selecting the **cog wheel** found on the top right and selecting **resources** from the left panel.</Warning>
+<Warning>**Ensure enough resources get allocated to Docker** We recommend a minimuim CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>
 
 # Data Download with the Score Client
 
@@ -105,3 +109,5 @@ The table below details the options available when using the Score-Client `downl
 
 </details>
 <br></br>
+
+<Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>s

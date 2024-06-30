@@ -76,9 +76,9 @@ export default function GettingStartedPage() {
                     size={32}
                     style={{ verticalAlign: 'middle' }}
                   />{' '}
-                  icon , then resources. Set CPU to <code>8</code>, memory to{' '}
-                  <code>12GB</code>, swap to <code>4GB</code>, and virtual disk
-                  to <code>128GB</code>
+                  icon , then resources. We recommend at minimum setting your
+                  CPU limit to <code>8</code>, memory to <code>8GB</code>, swap
+                  to <code>4GB</code>, and virtual disk to <code>64GB</code>
                 </span>
 
                 <P2 className="text-section">

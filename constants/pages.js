@@ -16,8 +16,9 @@ export const DEPLOYMENT_GUIDE =
 export const ADMINISTRATION_GUIDE =
   '/documentation/guides/administration/introduction/';
 export const SUBMISSION_GUIDE =
-  '/documentation/guides/submission/introduction/';
-export const DOWNLOAD_GUIDE = '/documentation/guides/download/introduction/';
+  '/documentation/guides/submission/clientsubmission/';
+export const DOWNLOAD_GUIDE =
+  '/documentation/guides/download/clientsubmission/';
 
 export const caseStudyAnchors = {
   icgcargo: internalUrlJoin([CASE_STUDIES_PATH, '#icgcargo']),
