@@ -4,7 +4,7 @@ title: Deployment Guide
 
 **This guide is for** anyone seeking guidance on how to deploy an Overture platform
 
-**You will need** Docker, we recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
+**You will need** Docker, we recommend using Docker Desktop; for more information, visit [Docker'ss website](https://www.docker.com/products/docker-desktop/)
 
 <Note title="File Management">To simplify managing your configuration files, create a folder (e.g., `localOverturePlatform`) as the root directory of your project. All commands should be run from this directory.</Note>
 
@@ -26,7 +26,7 @@ A summary of each Overture and third-party service used in this guide is detaile
 | **Score**         | Our file transfer microservice that supports fault-tolerant multi-part parallel transfer.               |
 | **Maestro**       | Our indexing service for transforming metadata in Song into an Elasticsearch search index.        |
 | **Arranger**      | Our search API and UI component generation services.                      |
-| **Stage**         | Our react-based user interface designed to allow easy deployment of data portals. |
+| **Stage**         | Our React-based user interface designed to allow easy deployment of data portals. |
 
 | Third Party Services | Description                                                                                                                               |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |

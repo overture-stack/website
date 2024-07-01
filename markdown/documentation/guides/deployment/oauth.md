@@ -4,7 +4,7 @@ title: Deployment Guide
 
 # Authorization Service Setup
 
-Keycloak will be set up first as it will be brokering authorization tokens that will allow Overture services to communicate securely.
+Keycloak will be set up first to broker authorization tokens, enabling secure communication for Overture services.
 
 ## Setting up the Keycloak database
 
@@ -95,6 +95,7 @@ Once running, you will be able to access the Keycloak admin console from `http:/
 
 - **Database Connection:** The database-related flags (`--db`, `--db-url`, `--db-username`, `--db-password`) configure Keycloak to connect to the PostgreSQL database. These settings are critical for persisting user data, sessions, and other operational data securely and reliably.
 
+---
 </details>
 
 <br></br>

@@ -196,6 +196,8 @@ SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION=song-analysis
 - `SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION` is the destination topic for the Song input binding. The value is `song-analysis`, pointing to the Kafka topic we configured earlier
 
 <br></br>
+
+---
 </details>
 <br></br>
 
@@ -289,13 +291,14 @@ Make sure to confirm the `./arrangerConfigs/` path aligns with the actual paths 
     - `table.json` defines the formattoing of the tables found on the data exploration page in Stage
     - `matchbox.json` Contains matchbox configuration settings
 
+
+---
 </details>
 <br></br>
 
 <Note title= "Configuring Arranger">If you want to lean more about configuring Arranger see our administration guide on [customizing the search portal](/documentation/guides/administration/portalcustomization/).</Note>
 
 ## Setting up Stage
-
 
 1. **Create a env file:** Create a file named `.env.stage` with the following content:
 
@@ -325,7 +328,7 @@ NEXT_PUBLIC_SCORE_API_URL=http://score:8087
 NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE=file
 NEXT_PUBLIC_ARRANGER_INDEX=file_centric
 NEXT_PUBLIC_ARRANGER_API_URL=http://arranger-server:5050
-NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=repositories.code, analysis.analysis_id, object_id, file_type, file.name, file.size, file.md5sum, file.index_file.object_id, file.index_file.file_type, file.index_file.name, file.index_file.size, file.index_file.md5sum, donors.donor_id, donors.specimens.samples.sample_id
+NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=repositories.code, object_id, analysis.analysis_id, study_id, file_type, file.name, file.size, file.md5sum, file.index_file.object_id, donors.donor_id, donors.specimens.samples.sample_id
 ```
 
 <details>
@@ -375,6 +378,8 @@ NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=repositories.code, analysis.analysis_id, o
 
 
 - `NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS` lists the columns to be included in the manifest generated for download with Score
+
+---
 
 </details>
 <br></br>

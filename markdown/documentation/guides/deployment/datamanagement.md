@@ -64,6 +64,7 @@ You should now be able to access the minio console from the `localhost:9000`
 
 - **Data directory & Heliograph File:** The `put` command seeds an empty' heliograph' file within the object storage data folder. Score uses this dummy file to test that the server can successfully communicate with the storage provider and that your client can successfully retrieve files from it, too.
 
+---
 
 </details>
 
@@ -87,6 +88,7 @@ docker run --name song-db --network db-network  -e POSTGRES_USER=admin -e POSTGR
 
 - We are including a defined persistent volume `-v ./persistentStorage/song-db-data:/var/lib/postgresql/data`. This volume will be a folder generated at runtime to serve as persistent storage, meaning the data in your database will persist regardless of the container's status, in this case, located in the root of the directory where you run the container
 
+---
 </details>
 
 <br></br>
@@ -254,6 +256,7 @@ SWAGGER_ALTERNATEURL=/swagger-api
 
 <br></br>
 
+---
 </details>
 
 <br></br>
@@ -365,6 +368,8 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://keycloak:8080/realm
 - **Introspection and JWT Validation**: Provides the URL for checking the validity of a token (`http://keycloak:8080/realms/myrealm/apikey/check_api_key/`) and the location of the JSON Web Key Set (JWS) for validating JWT tokens (`http://keycloak:8080/realms/myrealm/protocol/openid-connect/certs`). These mechanisms ensure that tokens are valid and have not been tampered with, maintaining the security of the authentication process.
 
 <br></br>
+
+---
 </details>
 <br></br>
 
