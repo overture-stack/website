@@ -25,7 +25,7 @@ pages:
        url: guides/administration/modelling
      - title: Index Mappings
        url: guides/administration/indexmapping
-     - title: Search Interface Customization
+     - title: Customizing the Data Portal
        url: guides/administration/portalcustomization
   - title: Submission Guide
     url: guides/submission

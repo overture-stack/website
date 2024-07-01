@@ -2,22 +2,55 @@
 title: Customizing your Data Portal
 ---
 
-# Search Component Configurations
+# Getting Started
 
-Arrangers simplifies graphQL queries over elasticsearch indices with it's front-end library of search components. The configurable components for this guide are the left hand search facet and the central data table seen below.
+## Introduction
+
+Arrangers simplifies graphQL queries over elasticsearch indices with it's front-end library of search components. The primary configurable components for this guide are the left hand search facet and the central data table seen below.
 
 ![Portal](./assets/portal.png 'Portal')
 
+<Note title="Arranger Configration Files">All configurations for these components are made through four configuration files: `base.json`, `extended.json`, `table.json` and `facets.json`. We will cover each in the following sections.</Note>
+
+
 ## Viewing Elasticsearch Documents
 
-Indices in Elasticsearch are are a collection of related documents with simialr characteristics. This field defines the index in Elasticsearch being used to store our data. 
+Indices in Elasticsearch are a collection of related documents with similar characteristics.
+
+**ElasticVue** offers a convenient and user-friendly interface for managing and exploring your Elasticsearch data. With ElasticVue, you can:
+
+- Easily visualize and search through indexed documents.
+- Quickly access and interact with JSON documents.
+- Simplify the management and troubleshooting of Elasticsearch indices.
+
+**To install ElasticVue, follow these steps:**
+
+1. Visit the Chrome Web Store (or Firefox Add-ons) and search for the **ElasticVue** browser extension.
 
 
-<Note title="Arranger Configration Files">All configurations for these components are made through four configuration files: `base.json`, `extended.json`, `table.json` and `facets.json`. We will cover each in the following sections.</Note>
+2. Click on **"Add to Chrome"** (or **"Add to Firefox"**) to install the extension.
+
+
+3. Open ElasticVue and enter your Elasticsearch URL. For the Overture Quickstart, this will be `localhost:9200`.
+
+
+4. Select basic authentication and enter the default username `elastic` and password `myelasticpassword`.
+
+### Using ElasticVue
+
+From the ElasticVue dashboard's top navigation, select **search**.
+
+![ElasticVue](./assets/elasticvue.png 'ElasticVue')
+
+This page displays all indexed Elasticsearch documents created by Maestro from published Song analyses and used by Arranger. Clicking any of the `_index` rows will give you a direct view of the JSON documents that populate the index.
+
+Being able to easily view the JSON documents within your elastic search instance will be beneficial when configuring your Arranger configs.
+
+# Arranger Configurations
 
 ## Base Configuration
 
-The base.json file contains only two fields, `documenType` and `index`: 
+The [base.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/base.json) contains only two fields, `documenType` and `index`: 
 
 ```json
 {
@@ -32,13 +65,11 @@ The base.json file contains only two fields, `documenType` and `index`:
 
 -  `documentType` informs arranger of the mapping type being used by Maestro, `analysis` or `file` centric
 
-<Note title="Learn More">For more information related to Overture see our administration guide covering index mappings</Note>
+<Note title="Learn More">For more information on index mappings and index centricity, see our [administration guide covering index mappings.](/documentation/guides/administration/indexmapping/)</Note>
 
 ## Extended Configuration
 
-The extended configuration file defines all the fields and admin-defined display names that you wish to use within your front-end portal interface.
-
-Below we have provided a simplified list taken from our QuickStart extended.json configuration:
+The extended.json configuration file defines all the fields and display names you wish to populate your front-end portal with. Below, we have provided a simplified list taken from our [QuickStart extended.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/extended.json) configuration:
 
 ```JSON
 {
@@ -60,22 +91,22 @@ Below we have provided a simplified list taken from our QuickStart extended.json
 
 ```
 
-The`displayName` field outlines how you want your fields displayed on the frontend UI when used within the search facets and or table
+The`displayName` field outlines how you want your fields displayed on the front-end UI when used within the search facets and or table.
 
 The `fieldName` values are written as represented within your Elasticsearch documents:
 
-- Object ID can be found at the root of the [Elasticsearch Documents]() and therefore is simply the fieldName shown here
+- Object ID can be found at the root of the [Elasticsearch Documents](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L217) and therefore is simply the fieldName shown here
 
 
-- The Analysis Id is a nested element contained with the Analysis field, we denote nesting by adding a period `.` making the appropriate fieldName `analysis.analysis_id`
+- The Analysis Id is a nested element [found inside the Analysis field](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61C1-L80C61), we denote nesting by adding a period `.` making the appropriate fieldName `analysis.analysis_id`
 
 
-- By looking at the `treatmentDuration` field we can see it is nested relatively deeper than our other three fields outlined above, the same rules however apply and by working backwords and adding a `.` for each nested element we end up with `analysis.donor.primaryDiagnosis.treatment.treatmentDuration`
+- By looking at the `treatmentDuration` field, we can see it is nested [relatively deeper](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61-L138) than our other three fields outlined above. The same rules, however apply, and by working backwards and adding a `.` for each nested element, we end up with `analysis.donor.primaryDiagnosis.treatment.treatmentDuration`
 
 
 ## Table Configuration
 
-The table.json file is responsible for configuring the columns displayed in the data table within the portal. It specifies which fields are shown, their visibility, and their sortability.
+The [table.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/table.json) configures the columns displayed in the data table. These configurations specify which fields are shown, their visibility, and their sortability.
 
 ```JSON
 {
@@ -123,7 +154,7 @@ The table.json file is responsible for configuring the columns displayed in the 
 
 ### jsonPath
 
-The `jsonPath` field specifies the JSON path needed to extract nested data from Elasticsearch documents. This field is used to define the path to data that is nested within arrays.
+The `jsonPath` field specifies the JSON path to extract nested data from Elasticsearch documents. This field defines the path to data nested within arrays.
 
 For example, suppose we have an Elasticsearch document structured like this:
 
@@ -173,7 +204,7 @@ This follows a similar structure to our JSON path but is written in GraphQL synt
 }
 ```
 
-When flattened this matches the configuration shown in our example above:
+When flattened, this matches the configuration shown in our example above:
 
 ```JSON
 "analysis { collaborator { hits { edges { node { name } } } } }",
@@ -184,7 +215,7 @@ When flattened this matches the configuration shown in our example above:
 
 ## Facet Configuration
 
-The `facets.json` file defines how aggregations (also known as facets in Elasticsearch) are configured for data exploration and filtering.
+The [facets.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/facets.json) defines how aggregations (also known as facets in Elasticsearch) are configured for data exploration and filtering.
 
 ```JSON
 {
