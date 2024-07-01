@@ -56,7 +56,7 @@ docker run -d -it --name song-client \
   -e CLIENT_SERVER_URL=http://localhost:8080 \
   --network="host" \
   --platform="linux/amd64" \
-  --mount type=bind,source=./guideContent/dataSubmission,target=/output \
+  --mount type=bind,source=./guideMaterials/dataSubmission,target=/output \
   ghcr.io/overture-stack/song-client:5.1.1
 ```
 
@@ -87,7 +87,7 @@ docker run -d -it --name song-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideContent/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideContent/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 </details>
 
@@ -106,7 +106,7 @@ docker run -d -it --name score-client \
     -e METADATA_URL=http://song:8080 \
     --network="host" \
     --platform="linux/amd64" \
-    --mount type=bind,source=./guideContent/dataSubmission,target=/output \
+    --mount type=bind,source=./guideMaterials/dataSubmission,target=/output \
     ghcr.io/overture-stack/score:47f006ce
 ```
 
@@ -137,7 +137,7 @@ docker run -d -it --name score-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideContent/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideContent/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 ---
 
@@ -152,7 +152,7 @@ docker run -d -it --name score-client \
 
 We will now begin submitting our payload to the Overture platform. In this context a payload refers to a collection of related metadata and file data to be uploaded to the resource.
 
-- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/composer/blob/develop/guideContent/dataSubmission/">composer/guideContent/dataSubmission/</a> directory
+- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataSubmission/">composer/guideMaterials/dataSubmission/</a> directory
 
 
 - The files included are two VCF data files (`SP059902.snv.vcf.gz` and `SP059902.snv.vcf.gz.tbi`) and a JSON file, `SP059902.vcf.json` that contains all the associated metadata

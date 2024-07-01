@@ -48,7 +48,7 @@ docker run -d --name elasticsearch \
 
 - `-e ELASTIC_PASSWORD=myelasticpassword` Sets the password for the elastic user
 
-
+---
 </details>
 <br></br>
 
@@ -325,7 +325,7 @@ NEXT_PUBLIC_SCORE_API_URL=http://score:8087
 NEXT_PUBLIC_ARRANGER_DOCUMENT_TYPE=file
 NEXT_PUBLIC_ARRANGER_INDEX=file_centric
 NEXT_PUBLIC_ARRANGER_API_URL=http://arranger-server:5050
-NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=repository.code, analysis.analysis_id, object_id, file_type, file.name, file.size, file.md5sum, file.index_file.object_id, file.index_file.file_type, file.index_file.name, file.index_file.size, file.index_file.md5sum, donors.donor_id, donors.specimens.samples.sample_id
+NEXT_PUBLIC_ARRANGER_MANIFEST_COLUMNS=repositories.code, analysis.analysis_id, object_id, file_type, file.name, file.size, file.md5sum, file.index_file.object_id, file.index_file.file_type, file.index_file.name, file.index_file.size, file.index_file.md5sum, donors.donor_id, donors.specimens.samples.sample_id
 ```
 
 <details>

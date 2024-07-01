@@ -8,7 +8,7 @@ title: Deployment Guide
 
 <Note title="File Management">To simplify managing your configuration files, create a folder (e.g., `localOverturePlatform`) as the root directory of your project. All commands should be run from this directory.</Note>
 
-**Background:** This guide provides a step-by-step deployment of an Overture platform, including configuration details and explanations. It is divided into three setup segments:
+**Overview:** This guide provides a step-by-step deployment of an Overture platform, including configuration details and explanations. It is divided into three setup segments:
 
 1. **Authorization** using Keycloak
 

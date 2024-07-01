@@ -6,8 +6,6 @@ title: Download Guide
 
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
-**Background** 
-
 ![Retrieval Overview](./assets/dataRetrieval.png 'End Goal')
 
 # Getting Started
@@ -61,7 +59,7 @@ docker run -d -it --name score-client \
     -e METADATA_URL=http://song:8080 \
     --network="host" \
     --platform="linux/amd64" \
-    --mount type=bind,source=./guideContent/dataDownload,target=/output \
+    --mount type=bind,source=./guideMaterials/dataDownload,target=/output \
     ghcr.io/overture-stack/score:47f006ce
 ```
 
@@ -92,7 +90,7 @@ docker run -d -it --name score-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideContent/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and with your docker container.  
+  - `--mount type=bind,source=./guideMaterials/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and with your docker container.  
 
 ---
 </details>
@@ -117,4 +115,4 @@ If successful the Score Client will indicate the download has completed and your
 
 For more information on using the Score-Client see our [Score-Client command reference documentation](/documentation/score/user-guide/commands/)
 
-<Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>s
+<Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
