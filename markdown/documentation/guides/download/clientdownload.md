@@ -115,4 +115,4 @@ UPDATE FOLLOWING SCORE FIX
 
 For more information on using the Score-Client see our [Score-Client command reference documentation](/documentation/score/user-guide/commands/)
 
-<Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
+<Note title="Help us make our guides better">If you can't find what you're looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>

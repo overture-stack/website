@@ -4,17 +4,17 @@ title: CLI Submissions
 
 # Introduction
 
-**This guide is for** anyone seeking guidance on how to submit data to an Overture platform. By the end of this guide you will have completed a full data submission workflow, including updating the submitted data to conform to the data model enforced by Song.
+**This guide is for** anyone seeking guidance on submitting data to an Overture platform. By the end of this guide you will have completed a full data submission workflow, including updating the submitted data to conform to the data model enforced by Song.
 
 
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
-**Background:** Submitting data to an Overture platform typically includes data files (BAMS, CRAMS, VCFs, etc.) along with associated metadata that provides context including donor information and descriptions about the data files themselves. This guide focuses on submitting data to Song & Score using their Command Line Clients (CLIs).
+**Background:** Submitting data to an Overture platform typically includes data files (BAMS, CRAMS, VCFs, etc.) along with associated metadata that provides context including donor information and descriptions of the data files. This guide focuses on submitting data to Song & Score using their Command Line Clients (CLIs).
 
 
 ![Submission Overview](./assets/submissionOverview.webp 'End Goal')
 
- The Song and Score clients work together to upload raw data files to object storage while tracking all related metadata stored in Songs metadata repository.
+ The Song and Score clients work together to upload raw data files to object storage and track all related metadata stored in the Song metadata repository.
 
 # Getting Started
 
@@ -24,7 +24,7 @@ title: CLI Submissions
 git clone https://github.com/overture-stack/composer.git
 ```
 
-**2. With Docker open run the docker-compose**
+**2. With Docker open, run the docker-compose**
 
 ```bash
 docker compose up -d
@@ -72,7 +72,7 @@ docker run -d -it --name song-client \
   - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
 
-  - `-e CLIENT_ACCESS_TOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the song-client with a pre-configured system-wide access token. Alternatively you can log in through stage found on  `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
+  - `-e CLIENT_ACCESS_TOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the song-client with a pre-configured system-wide access token. Alternatively, you can log in through Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
 
 
   - `-e CLIENT_STUDY_ID=demo` the quickstart is pre-configured with a `Study ID` named `demo`, we supply the `Study ID` value to the song-client on start-up
@@ -87,7 +87,7 @@ docker run -d -it --name song-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 </details>
 
@@ -122,7 +122,7 @@ docker run -d -it --name score-client \
   - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
 
-  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively you can log in through stage found on  `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
+  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in to Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
 
 
   - `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
@@ -137,7 +137,7 @@ docker run -d -it --name score-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 ---
 
@@ -1057,7 +1057,7 @@ The response body will provide you a JSON document outlining Songs data model. I
 <br></br>
 
 
-By looking at the `primarySite` field found within the quickStartSchema we can see an array of values which indeed do not include `windpipe`, however it does included the value `trachea`. 
+By looking at the `primarySite` field found within the quickStartSchema, we can see an array of values that do not include `windpipe`; however, it does include the value `trachea`. 
 
 Therefore, we can simply append the `windpipe` value on line 64 of our `SP059902.vcf.json` to `trachea`.
 
@@ -1068,7 +1068,7 @@ Therefore, we can simply append the `windpipe` value on line 64 of our `SP059902
     "vitalStatus": "Alive",
 ```
 
-**Resubmision:**
+**Resubmission:**
 
 Save and resubmit the corrected metadata file:
 
@@ -1085,22 +1085,22 @@ Now that your metadata file is correctly formatted, you should recieve a status 
 }
 ```
 
-An analysis Id is a randomly generated UUID created by Song, as such yours will differ, please take note of your analysisID and use it for all subsequent steps that reference its usage.
+An analysis ID is a randomly generated UUID created by Song; as such, yours will differ. Please note your analysis ID and use it for all subsequent steps referencing its usage.
 
 <Note title="What is an analysis?">
-At this point, since the metadata data has successfully been submitted and accepted by Song and provided an analysisID, it is now considered to be part of a Song analysis. To complete the analysis we will need to upload its associated file data.</Note>
+Since the metadata data has successfully been submitted and accepted by Song and provided an analysis ID, it is now considered part of a Song analysis. To complete the analysis, we will need to upload its associated file data.</Note>
 
 ## Step 4: Generate a manifest
 
-With your `analysis_id` we will now generate a manifest for file upload. 
+With your `analysis_id`, we will now generate a manifest for file upload. 
 
-- The manifest establishes a link between the analysis-id that has been submitted and the data file(s) on your local system that is being uploaded. 
+- The manifest establishes a link between the analysis ID that has been submitted and the data file(s) on your local system that is being uploaded. 
 
-- This step also validates that all files being uploaded are in line with those documented in the metadata tagged with the corresponding analysisId.
+- This step also validates that all files being uploaded are in line with those documented in the metadata tagged with the corresponding analysis ID.
 
-### Manifest command
+### Manifest Command
 
-Make sure to replace `{AnalysisId}` with your previously generated Song analysisID
+Make sure to replace `{AnalysisId}` with your previously generated Song analysis ID
 
 ```bash
 docker exec song-client sh -c "sing manifest -a {AnalysisId} -f /output/manifest.txt -d /output/"
@@ -1114,9 +1114,9 @@ The `manifest.txt` file will be written out to a defined output file path. If th
 Wrote manifest file '/output/manifest.txt' for analysisId '4d9ed1c5-1053-4377-9ed1-c51053f3771f'
 ```
 
-## Step 5: Upload you data files with Score
+## Step 5: Upload your data files with Score
 
-Use the following score-client upload command to transfer your file data to object storage using your previously generated manifest
+Use the following score-client upload command to transfer your file data to object storage using your previously generated manifest.
 
 ```bash
 docker exec score-client sh -c "score-client  upload --manifest /output/manifest.txt"
@@ -1143,7 +1143,7 @@ Upload completed
 
 # Publishing the analysis
 
-The final step in data submission is to set the state of the analysis to `PUBLISHED`. A published analysis signals maestro to index the data making it available on the front end portal interface.
+The final step in data submission is to set the state of the analysis to `PUBLISHED`. A published analysis signals Maestro to index the data making it available on the front end portal interface.
 
 ### Publish Command
 
@@ -1161,4 +1161,4 @@ You should now be able to find you uploaded data on the front-end portal found a
 
 ![Success](./assets/success.png 'Success')
 
-<Note title="Help us make our guides better">If you can't find what your are looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
+<Note title="Help us make our guides better">If you can't find what you're looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
