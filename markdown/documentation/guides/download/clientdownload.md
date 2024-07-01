@@ -24,19 +24,19 @@ git clone https://github.com/overture-stack/composer.git
 docker compose up -d
 ```
 
-<Warning>**Ensure enough resources get allocated to Docker** We recommend a minimuim CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>
+<Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>
 
 # Data Download with the Score Client
 
 ## Step 1: Generate a Manifest
 
-1. **Build your Query:** From the portal exploration page (`localhost:3000/explorer`) build our your query using the search facets panel and data table.
+1. **Build your Query:** From the portal exploration page (`localhost:3000/explorer`), build your query using the search facets panel and data table.
 
 ![Build Query](./assets/buildQueries.png 'Build Query')
 
-2. **Download your manifest:** With your data of intrest selected click the download dropdown and select file manifest
+2. **Download your manifest:** With your data of interest selected, click the download dropdown and select file manifest
 
-<Note title="Why a Manifest?">The file manifest provides a detailed list of fields relevant to your query in a TSV (Tab-Separated Values) format. This file is essential for Score to efficiently locate and download your data. We utilize manifests in conjunction with specialized file transfer services because large genomic datasets require reliable multi-part download sessions, which are not suitable for browser-based transfers.</Note>
+<Note title="Why a Manifest?">The file manifest provides a detailed list of fields relevant to your query in a TSV (Tab-Separated Values) format. This file is essential for Score to locate and download your data efficiently. We utilize manifests in conjunction with specialized file transfer services because large genomic datasets require reliable multi-part download sessions, which are not suitable for browser-based transfers.</Note>
 
 ## Step 2: Retrieve your API Key
 
@@ -44,7 +44,7 @@ API Keys are brokered by Keycloak and accessible when logged in to the Stage UI.
 
 **1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Composer will be username `admin` and password `admin123`.
 
-**2. Generate a new API token** by selecting **Profile and Token** from your user drop down found on the top right of the Stage UI, select **Generate New Token**. 
+**2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
 
 ![Accessing an API Key](../submission/assets/apikeys.png 'Accessing an API Key')
 
@@ -75,7 +75,7 @@ docker run -d -it --name score-client \
   - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
 
-  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively you can log in through stage found on  `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
+  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in through stage found on  `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
 
 
   - `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
@@ -90,7 +90,7 @@ docker run -d -it --name score-client \
   - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
 
-  - `--mount type=bind,source=./guideMaterials/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and with your docker container.  
+  - `--mount type=bind,source=./guideMaterials/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and in your docker container.  
 
 ---
 </details>
@@ -110,7 +110,7 @@ docker exec score-client sh -c "score-client download --manifest ./<manifestDire
 If successful the Score Client will indicate the download has completed and your files will now be located within your output directory.
 
 ```bash
-
+UPDATE FOLLOWING SCORE FIX
 ```
 
 For more information on using the Score-Client see our [Score-Client command reference documentation](/documentation/score/user-guide/commands/)
