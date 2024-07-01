@@ -69,7 +69,11 @@ export default function DocumentationPage({ data, location, path }) {
 
   // get page info
   const headingsTableOfContents = tableOfContents.items || null;
-  const { nextPage, prevPage } = findNextPrevPages({ pagesFlat, sectionSlug, pagePath });
+  const { nextPage, prevPage } = findNextPrevPages({
+    pagesFlat,
+    sectionSlug,
+    pagePath,
+  });
 
   // REDIRECTS:
   // if this page is marked 'isHeading' in _contents.yaml,
@@ -77,10 +81,13 @@ export default function DocumentationPage({ data, location, path }) {
   // redirect to the first of its child pages.
 
   const pagePathIndex = Object.values(pagesFlat).indexOf(pagePath);
-  const pagePathKey = pagePathIndex >= 0 && Object.keys(pagesFlat)[pagePathIndex];
-  const pageIsHeading = pagePathKey && pagesFlat[pagePathKey.replace('url', 'isHeading')];
+  const pagePathKey =
+    pagePathIndex >= 0 && Object.keys(pagesFlat)[pagePathIndex];
+  const pageIsHeading =
+    pagePathKey && pagesFlat[pagePathKey.replace('url', 'isHeading')];
   const redirectDest =
-    pageIsHeading && `/documentation/${pagesFlat[pagePathKey.replace('url', 'pages.0.url')]}/`;
+    pageIsHeading &&
+    `/documentation/${pagesFlat[pagePathKey.replace('url', 'pages.0.url')]}/`;
   // redirectDest will be undefined if there are no child pages
 
   useEffect(() => {
@@ -95,17 +102,21 @@ export default function DocumentationPage({ data, location, path }) {
       <div className="docs__main">
         <div className="docs__main-container">
           {/* GITHUB BUTTON */}
-          <div className="docs__github-btn">
-            <Button
-              icon="githubWhite"
-              link={productsDict[sectionSlug].githubUrl}
-              size="navGithub"
-              type="primary"
-            >
-              {sectionTitle} Github
-            </Button>
-          </div>
-          <h1 className="docs__main-title">{redirectDest ? 'Redirecting...' : title}</h1>
+          {sectionSlug !== 'guides' && (
+            <div className="docs__github-btn">
+              <Button
+                icon="githubWhite"
+                link={productsDict[sectionSlug].githubUrl}
+                size="navGithub"
+                type="primary"
+              >
+                <Icon img="githubWhite" size={20} /> {sectionTitle} github
+              </Button>
+            </div>
+          )}
+          <h1 className="docs__main-title">
+            {redirectDest ? 'Redirecting...' : title}
+          </h1>
           {!redirectDest && (
             <React.Fragment>
               <MDXProvider
@@ -113,12 +124,24 @@ export default function DocumentationPage({ data, location, path }) {
                   ...replacedComponents,
                   ...shortcodes,
                   a: (props) => <Link {...props} location={location} />,
-                  h1: (props) => <AnchorHeading location={location} size="h2" {...props} />,
-                  h2: (props) => <AnchorHeading location={location} size="h3" {...props} />,
-                  h3: (props) => <AnchorHeading location={location} size="h4" {...props} />,
-                  h4: (props) => <AnchorHeading location={location} size="h5" {...props} />,
-                  h5: (props) => <AnchorHeading location={location} size="h6" {...props} />,
-                  h6: (props) => <AnchorHeading location={location} size="h6" {...props} />,
+                  h1: (props) => (
+                    <AnchorHeading location={location} size="h2" {...props} />
+                  ),
+                  h2: (props) => (
+                    <AnchorHeading location={location} size="h3" {...props} />
+                  ),
+                  h3: (props) => (
+                    <AnchorHeading location={location} size="h4" {...props} />
+                  ),
+                  h4: (props) => (
+                    <AnchorHeading location={location} size="h5" {...props} />
+                  ),
+                  h5: (props) => (
+                    <AnchorHeading location={location} size="h6" {...props} />
+                  ),
+                  h6: (props) => (
+                    <AnchorHeading location={location} size="h6" {...props} />
+                  ),
                 }}
               >
                 <MDXRenderer>{body}</MDXRenderer>
@@ -144,7 +167,8 @@ export default function DocumentationPage({ data, location, path }) {
                   {nextPage && (
                     <div className="chevron-link">
                       <Link to={nextPage.url}>
-                        {nextPage.title} <Icon size={12} img="arrowRightMagenta" />
+                        {nextPage.title}{' '}
+                        <Icon size={12} img="arrowRightMagenta" />
                       </Link>
                     </div>
                   )}
@@ -169,7 +193,10 @@ export default function DocumentationPage({ data, location, path }) {
           </Button>
         )}
         {!redirectDest && headingsTableOfContents && (
-          <HeadingsTableOfContents items={headingsTableOfContents} location={location} />
+          <HeadingsTableOfContents
+            items={headingsTableOfContents}
+            location={location}
+          />
         )}
       </div>
     </React.Fragment>
