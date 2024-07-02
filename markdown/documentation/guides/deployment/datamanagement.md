@@ -384,4 +384,4 @@ docker run -d \
   ghcr.io/overture-stack/score-server:47f006ce
 ```
 
-Once running you should be able to access the Song Swagger UI from `http://localhost:8087/swagger-ui`
+Once running you should be able to access the Score Swagger UI from `http://localhost:8087/swagger-ui`
