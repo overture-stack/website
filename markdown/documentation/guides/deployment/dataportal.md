@@ -395,4 +395,29 @@ docker run --env-file .env.stage \
 
 The front-end portal will now be available in your browser at `localhost:3000`
 
+## Retrieving and updating access tokens
+
+Now that we have our platform setup we will need to generate an API key too enable secure communication between Song and Score. 
+
+API Keys are brokered by Keycloak and accessible when logged in to the Stage UI `localhost:3000/login`.
+
+**1. Login through the Stage UI** by selecting login from the top right. 
+
+Default credentials were pre-configured when we imported our **[Users.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)** file into Keycloak, our default admin account credentials are **username** `admin` and **password** `admin123`.
+
+**2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
+
+![Accessing an API Key](../submission/assets/apikeys.png 'Accessing an API Key')
+
+**3. Update the `SCORE_ACCESSTOKEN` variable within your `.env.song`** and once updated, remove the existing Song container and re-run Song with your updated `.env.song`
+
+```bash
+docker run -d \
+  --name song \
+  --platform linux/amd64 \
+  -p 8080:8080 \
+  --env-file .env.song \
+  ghcr.io/overture-stack/song-server:438c2c42
+```
+
 <Note title="Next Steps">Now that you have the end-to-end portal setup we recommend you check out our [administration guide on updating the data model](/documentation/guides/administration/modelling/).</Note>

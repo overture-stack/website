@@ -171,6 +171,8 @@ SPRING_KAFKA_TEMPLATE_DEFAULTTOPIC=song-analysis
 SWAGGER_ALTERNATEURL=/swagger-api
 ```
 
+<Note title="Score Access Token">We will update our `SCORE_ACCESSTOKEN` value after portal deployment. Once Stage, our portal UI is deployed, we can more easily generate an admin API key with the appropriate credentials</Note>
+
 <details>
 
   <summary><b>Click here for a detailed breakdown</b></summary>

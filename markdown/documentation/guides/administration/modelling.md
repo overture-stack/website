@@ -79,8 +79,6 @@ There are many different type values available in JSON schema, here is a list of
 - `enum`  A fixed set of values.
 - `null`  Represents a null value
 
-**Additional Contraints in JSON Schema
-
 JSON Schema can include various additional constraints:
 
 - **Regex Patterns:** Fields can use regex patterns to enforce specific formatting rules
@@ -91,13 +89,13 @@ JSON Schema can include various additional constraints:
 
 - **Conditional Logic (if-then):** Logic to enforce required fields based on conditions.
 
-### Detailed Examples
+## Examples
 
 Let's break down a more complex schema example, you can [view the entire schema here](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). We will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
 
 **Required Fields**
 
-Line 5 of the reference Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"experiment"` are required fields:
+Here our Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"experiment"` are required fields:
 
 ```JSON
 {
@@ -110,7 +108,7 @@ Line 5 of the reference Schema dictates that `"donor"`, `"specimen"`, `"workflow
  
 **Enum, Types, and Patterns**
 
-Usage of propertyNames, enum, required, type and regex patterns
+Here we can see the use of propertyNames, enum, required fields, types and regex patterns
 
 ```JSON
       "workflow": {
@@ -308,7 +306,7 @@ API Keys are brokered by Keycloak and accessible when logged in to the Stage UI.
 <Note title="Verifying Schemas">
 To verify your schema has successfully been added, you can use the `GET` **ListAnalysisTypes** endpoint found under the Schema dropdown. If updating a pre-existing schema, use the `GET` **GetAnalysisTypeVersion** endpoint.</Note>
 
-## Using a Curl command
+## Using the Curl command
 
 The following curl command makes a POST request with the required authorization tokens, headers and data:
 
@@ -326,7 +324,3 @@ curl -X POST "https://localhost:8080/schemas" -H "accept: */*" -H "Authorization
 `-H "Content-Type: application/json"` Adds an HTTP header specifying the content type of the request body as JSON.
 
 `-d '{ ... }'` is the data to be sent with the POST request. This is the JSON payload defining the schema.
-
-
-
-
