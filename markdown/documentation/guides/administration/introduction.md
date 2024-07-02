@@ -2,7 +2,7 @@
 title: Administration Guides
 ---
 
-**This guide is for** anyone seeking guidance on configuring and using an Overture platform. We will walk you through the essential steps to configure your Overture environment effectively. By the end of this guide, you will have completed the necessary configurations and be well-equipped to manage your Overture platform.
+**These guides are for** anyone seeking information on configuring and using an Overture platform. We will walk you through the essential information for configuring your Overture platform. 
 
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
@@ -36,32 +36,3 @@ git clone https://github.com/overture-stack/composer.git
 ```bash
 docker compose up -d
 ```
-
-## Installing ElasticVue 
-
-ElasticVue offers a convenient and user-friendly interface for managing and exploring your Elasticsearch data. With ElasticVue, you can:
-
-- Easily visualize and search through indexed documents.
-- Quickly access and interact with JSON documents.
-- Simplify the management and troubleshooting of Elasticsearch indices.
-
-**To install ElasticVue, follow these steps:**
-
-1. Visit the Chrome Web Store (or Firefox Add-ons) and search for the **ElasticVue** browser extension.
-
-
-2. Click on **"Add to Chrome"** (or **"Add to Firefox"**) to install the extension.
-
-
-3. Open ElasticVue and enter your Elasticsearch URL. For the Overture Quickstart, this will be `localhost:9200`.
-
-
-4. Select basic authentication and enter the default username `elastic` and password `myelasticpassword`.
-
-### Using ElasticVue
-
-From the ElasticVue dashboard's top navigation, select **search**.
-
-![ElasticVue](./assets/elasticvue.png 'ElasticVue')
-
-This page displays all indexed Elasticsearch documents created by Maestro from published Song analyses and used by Arranger. Clicking any of the `_index` rows will give you a direct view of the JSON documents that populate the index.
