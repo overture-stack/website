@@ -1,54 +1,21 @@
 ---
 title: Configuring your data model
 ---
-# Song Schemas
+# Schema Validation and Submission
 
-The data administrator can create and submit schemas to Song to validate data submissions. This ensures that required administrator-defined fields are present and that the contents of a field match the desired data type or allowed values.
+Data administrators can configure custom data submission validations for Song by creating and submitting Song schemas. These schemas act as blueprints for validating submissions, ensuring that every piece of data adheres to the requirements specified by the administrators. This validation process guarantees that all essential fields are included and that the data within these fields conforms to the designated data types or permitted value sets.
 
-Song includes a [base schema](https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/schemas/analysis/analysisBase.json) that is combined with all user-created schemas upon submission. When creating your schemas, it is important to reference the base schema to avoid specifying conflicting properties and to ensure compatibility with Song's schema structure.
+## Integration with Song's Base Schema
 
-<Note title="Song Base Schema">The Song base schema can be restrictive for data models outside of cancer research contexts, as it requires tumour and normal samples. We are aware of this limitation and are currently working on a new data-agnostic submission system. For more information, contact us on Slack or email us at contact@overture.bio</Note>
+Song merges all admin-defined schemas with its pre-existing [base schema](https://github.com/overture-stack/SONG/blob/develop/song-server/src/main/resources/schemas/analysis/analysisBase.json). Therefore, when creating your schemas, it is important to reference the base schema to avoid specifying conflicting properties.
+
+<Note title="Song Base Schema">The Song base schema can be restrictive for data models outside of cancer research contexts, as it requires tumor and normal samples. We are aware of this limitation and are currently working on a new data-agnostic submission system. For more information, contact us on Slack or email us at contact@overture.bio.</Note>
 
 # Building Schemas
 
 ## Schema Basics
 
-The most basic schema requires, at a minimum, an `analysisType` defined by the `name` field and a single object within it. In the example below, this object is a field termed `experiment`:
-
-```JSON
-{
- "name": "basicShcemaExample",
- "schema":{
-     "type": "object",
-     "required":[
-         "experiment"
-     ],
-     "properties":{
-        "experiment":{}
-     }
-  }
-}
- ```
-
-The `analysisType` is defined in data submissions to Song. This field informs Song which data model the submission should be validated against:
-
- ```JSON
- {
-  "studyId": "MICR-CA",
-  "analysisType": {
-    "name": "basicSchemaExample"
-  },
-  "experiment": "myNewExperiment"
-}
-```
-
-In this example, the schema named `basicSchemaExample` is used to validate the data submission. The `analysisType` field specifies that the submission should adhere to the `basicSchemaExample` model, ensuring that all required fields, such as `experiment`, are present and correctly formatted.
-
-The field `studyId` comes from and is required by the base schema and is used to identify what group this collection of data belongs to.
-
-## Schema Structure
-
-The following schema defines that a data submission using the `analysisType` of `exampleSchema` must contain two fields: `field1` (a string) and `field2` (a number):
+The following schema defines any data submission using the `analysisType` of `exampleSchema` must contain two fields: `field1` (a string) and `field2` (a number):
 
 ```JSON
 {
@@ -79,23 +46,116 @@ There are many different type values available in JSON schema, here is a list of
 - `enum`  A fixed set of values.
 - `null`  Represents a null value
 
-JSON Schema can include various additional constraints:
+**JSON Schema can also include various additional constraints:**
 
-- **Regex Patterns:** Fields can use regex patterns to enforce specific formatting rules
+**Regex Patterns:** Fields can use regex patterns to enforce specific formatting rules
 
-- **Required Fields:** Defines which fields must be present in the data object
+```JSON
+"field1": {
+  "type": "string",
+  "pattern": "^[A-Za-z]+$"
+}
 
-- **Array Constraints:**  Allows setting minimum (minItems) and maximum (maxItems) array lengths
+```
 
-- **Conditional Logic (if-then):** Logic to enforce required fields based on conditions.
+**Required Fields:** Defines which fields must be present in the data object
 
-## Examples
+```JSON
+"required": ["field1", "field2"]
+```
 
-Let's break down a more complex schema example, you can [view the entire schema here](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). We will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
+**Array Constraints:**  Allows setting minimum (minItems) and maximum (maxItems) array lengths
+
+```JSON
+"field3": {
+  "type": "array",
+  "minItems": 1,
+  "maxItems": 5
+}
+
+```
+
+**Conditional Logic (if-then):** Logic to enforce required fields based on conditions.
+
+```JSON
+"if": {
+  "properties": { "field4": { "const": "value1" } }
+},
+"then": {
+  "required": ["field5"]
+}
+```
+
+## Basic Example
+
+In the context of Song here is a basic schema, it requires at a minimum, an `analysisType` defined by the `name` field and a single object within it. In the example below, this object is a field termed `experiment`:
+
+```JSON
+{
+ "name": "basicShcemaExample",
+ "schema":{
+     "type": "object",
+     "required":[
+         "experiment"
+     ],
+     "properties":{
+        "experiment":{}
+     }
+  }
+}
+ ```
+
+<details>
+
+  <summary><b>Click here for a detailed breakdown</b></summary>
+
+<br></br>
+
+- `name` is the name of the schema, which identifies the schema for validation purposes
+
+- `schema` contains the schema definition
+
+- `type` is the data type of the schema, in this case, an object
+
+- `required` is a list of fields that must be included in any data submission validated against this schema
+
+- `properties` are the fields that the schema expects. In this example, the schema expects an `experiment` field.
+
+
+---
+
+</details>
+<br></br>
+
+The `analysisType` is defined in data submissions to Song. This field informs Song which data model the submission should be validated against. Below is an example of a mock data submission:
+
+
+ ```JSON
+ {
+  "studyId": "MICR-CA",
+  "analysisType": {
+    "name": "basicSchemaExample"
+  },
+  "experiment": "myNewExperiment"
+}
+```
+
+- In this example, the schema named `basicSchemaExample` is used to validate the data submission
+
+
+- The `analysisType` field specifies that the submission should adhere to the `basicSchemaExample` model, ensuring that all required fields, such as `experiment`, are present and correctly formatted
+
+
+- The field `studyId` comes from and is required by Songs base schema and is used to identify what group this collection of data belongs to
+
+
+## Detailed Examples
+
+Let's break down some more complex schema examples. We will pull from a reference schema that can be found [here](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). In the following sections, we will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
 
 **Required Fields**
 
-Here our Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"experiment"` are required fields:
+Here, our Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"experiment"` are required fields:
 
 ```JSON
 {
@@ -108,7 +168,7 @@ Here our Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"exper
  
 **Enum, Types, and Patterns**
 
-Here we can see the use of propertyNames, enum, required fields, types and regex patterns
+Within `workflow`, we can see the use of `propertyNames`, `enum`, `required fields`, `types` and `regex patterns`
 
 ```JSON
       "workflow": {
@@ -134,6 +194,12 @@ Here we can see the use of propertyNames, enum, required fields, types and regex
             "enum": ["GRCh37", "GRCh38_hla_decoy_ebv", "GRCh38_Verily_v1"]
           },
 ```
+<details>
+
+  <summary><b>Click here for a detailed breakdown</b></summary>
+
+<br></br>
+
 
 - `workflow` Defines an object containing properties related to workflow.
 
@@ -151,10 +217,14 @@ Here we can see the use of propertyNames, enum, required fields, types and regex
 
 
 - `genomeBuild` requires a string (`"type": "string"`) that can only be one of the specified values (`"enum": ["GRCh37", "GRCh38_hla_decoy_ebv", "GRCh38_Verily_v1"]`).
+---
+
+</details>
+<br></br>
 
 **minItems & maxItems**
 
-The snippet below is a simplification of the workflow field to show to usage of minItems and maxItems
+The JSON Schema below is a simplified workflow property made to show to usage of minItems and maxItems
 
 ```JSON
       "workflow": {
@@ -188,6 +258,12 @@ The snippet below is a simplification of the workflow field to show to usage of 
         }
 ```
 
+<details>
+
+  <summary><b>Click here for a detailed breakdown</b></summary>
+
+<br></br>
+
 - `"minItems": 1,` If you submit data according to this schema then you must include at least one complete set of inputs (A complete set consists of `analysisType`, `normalAnalysisId`, and `tumourAnalysisId`).
 
 
@@ -195,9 +271,14 @@ The snippet below is a simplification of the workflow field to show to usage of 
 
 The `minItems` and `maxItems` constraints apply to the number of these sets (or arrays) within the inputs array, not to the individual fields within each set.
 
+---
+
+</details>
+<br></br>
+
 **Conditional Logic**
 
-The following snippet demonstrates the usage of if, then, and properties for conditional logic:
+The Schema segment below demonstrates the usage of conditional if, and then logic used to determine if the fields `causeOfDeath` and `survivalTime` are required
 
 ```JSON
           "vitalStatus": {
@@ -217,6 +298,13 @@ The following snippet demonstrates the usage of if, then, and properties for con
       },
 ```
 
+
+<details>
+
+  <summary><b>Click here for a detailed breakdown</b></summary>
+
+<br></br>
+
 This conditional schema structure allows for dynamic validation based on the value of `vitalStatus`, ensuring that `causeOfDeath` and `survivalTime` are only required when `vitalStatus` is `Deceased`.
 
 
@@ -228,10 +316,15 @@ This conditional schema structure allows for dynamic validation based on the val
 
 - `const` is a validation keyword that specifies that a property's value must exactly match for the submission to be considered valid
 
- 
+---
+
+</details>
+
+<br></br>
+
 **Null Values**
 
-Null values can provide flexibility by allowing a property to be explicitly null when no valid string value is applicable or known.
+Null values can provide flexibility by allowing a property to be explicitly null when no valid string value is applicable or known. The schema segement below shows the use of a `null` enum value for a `relapseType` propery.
 
 ```JSON
   "relapseType": {
@@ -245,19 +338,30 @@ Null values can provide flexibility by allowing a property to be explicitly null
     ]
 ```
 
+
+<details>
+
+  <summary><b>Click here for a detailed breakdown</b></summary>
+
+<br></br>
+
 If `relapseType` is a string, it must match exactly one of the values listed in the enum array ("Distant recurrence/metastasis", "Local recurrence", "Local recurrence and distant metastasis", "Progression (liquid tumours)")
 
 If relapseType is `null`
 
-```
+```JSON
 {
   "relapseType": null
 }
 ```
 
-It is considered valid according to the schema.
+The above key value pair is considered valid according to the schema. This allows for scenarios where relapseType might not have a defined value or where its value is intentionally absent or unknown.
 
-This allows for scenarios where relapseType might not have a defined value or where its value is intentionally absent or unknown.
+---
+
+</details>
+
+<br></br>
 
 **Minimum & Maximum**
 
@@ -270,7 +374,7 @@ Minimum and maximum keywords in JSON Schema provide straightforward ways to enfo
 },
 ```
 
-- `"minimum": 0` ensures that `treatmentDuration` can only accept non-negative integer values
+Here, `"minimum": 0` ensures that `treatmentDuration` can only accept non-negative integer values
 
 <Note title="Want to learn more?">If you want to learn more about JSON schema take a look at the following [JSON Schema guide](https://json-schema.org/understanding-json-schema).
 </Note>
@@ -278,7 +382,7 @@ Minimum and maximum keywords in JSON Schema provide straightforward ways to enfo
 
 # Updating the Schema
 
-To customize and extend Song's data model to suit your project's requirements, you can update schemas using either Swagger or curl commands. 
+You can update Song schemas using the Song servers Swagger UI or using curl commands. 
 
 ## Using the Swagger UI
 
@@ -324,3 +428,5 @@ curl -X POST "https://localhost:8080/schemas" -H "accept: */*" -H "Authorization
 `-H "Content-Type: application/json"` Adds an HTTP header specifying the content type of the request body as JSON.
 
 `-d '{ ... }'` is the data to be sent with the POST request. This is the JSON payload defining the schema.
+
+<Note title="Whats Next?">With your data model updated, we next need to ensure we configure an accurate index mapping to help enable our downstream search and portal UI components</Note>

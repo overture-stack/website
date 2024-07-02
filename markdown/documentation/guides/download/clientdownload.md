@@ -107,10 +107,27 @@ docker exec score-client sh -c "score-client download --manifest ./<manifestDire
 
 - `<outputDirectory>` specifies where you intend to download the files
 
-If successful the Score Client will indicate the download has completed and your files will now be located within your output directory.
+If successful the Score Client should produce the following logs and your files will now be located within your output directory.
 
 ```bash
-UPDATE FOLLOWING SCORE FIX
+Downloading...                                                                                                                                                 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+[1/2] Downloading object: 5b3bf92a-8f57-54b9-9ab9-6dcf34a0dc78 (SP011501.indel.vcf.gz)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 177.7K/s, Read/sec: 177.7K/s                                 
+Finalizing...
+Total execution time:        122.6 ms
+Total bytes read    :          17,346
+Total bytes written :          17,346
+Verifying checksum...---------------------------------------------------------------------------------------------------------------------------------------------------------------
+[2/2] Downloading object: 30697525-1033-543c-a86b-1ab428c7e8d5 (SP011501.indel.vcf.gz.tbi)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 2.9K/s, Read/sec: 2.9K/s                                     
+Finalizing...
+Total execution time:        56.86 ms
+Total bytes read    :             144
+Total bytes written :             144
+Verifying checksum...Done. 
 ```
 
 For more information on using the Score-Client see our [Score-Client command reference documentation](/documentation/score/user-guide/commands/)
