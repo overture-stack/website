@@ -24,7 +24,7 @@ Insert the following information:
 
 You can leave the Groups and Users fields blank. Click the **save** button on the top right of the panel.
 
-2.  **Create an environment variable file:** Within the cloned Stage repository locate your `.env.dmsui` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.dmsui`.
+2.  **Create an environment variable file:** Within the cloned Stage repository locate your `.env.stage` file, if you have not created one yet duplicate the `env.schema` file and rename it to `.env.stage`.
 
 3.  **Update environment variables:** Variables within this file are already preconfigured for a local setup:
 

@@ -7,21 +7,43 @@ import './styles.scss';
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
-const verticalMobileMenuSections = ['DMS Bundle'];
+const verticalMobileMenuSections = ['Platform Guides'];
 
 const data = {
   documentation: {
     explore: {
       title: 'Explore our documentation',
-      text: 'Learn how to install the Data Management System (DMS) or individual products using our easy-to-use guides.',
+      text: 'Build, deploy, and discover with our documentation, guides and Quickstart resources.',
       link: {
-        to: '/documentation/',
-        text: 'Documentation Overview',
+        to: '/getting-started/',
+        text: 'Get Started',
       },
     },
     sections: [
       {
-        title: 'Products',
+        title: 'Platform Guides',
+        color: 'yellow-green',
+        links: [
+          {
+            to: '/documentation/guides/deployment/introduction',
+            text: 'Deployment',
+          },
+          {
+            to: '/documentation/guides/submission/clientsubmission/',
+            text: 'Submission',
+          },
+          {
+            to: '/documentation/guides/administration/introduction',
+            text: 'Administration',
+          },
+          {
+            to: '/documentation/guides/download/clientdownload/',
+            text: 'Download',
+          },
+        ],
+      },
+      {
+        title: 'Product Documentation',
         color: 'dark-blue',
         links: [
           {
@@ -52,29 +74,6 @@ const data = {
           },
         ],
       },
-      {
-        title: 'dms bundle',
-        color: 'yellow-green',
-        links: [
-          {
-            to: '/documentation/dms/',
-            text: 'Introduction',
-          },
-          {
-            to: '/documentation/dms/installation/installation',
-            text: 'How to Install',
-          },
-
-          {
-            to: '/documentation/dms/admin-guide/tasks',
-            text: 'For Administrators',
-          },
-          {
-            to: '/documentation/dms/user-guide/data-portal',
-            text: 'For Users',
-          },
-        ],
-      },
     ],
   },
 };
@@ -88,12 +87,20 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
 
   const MenuItem = (link) =>
     link.comingSoon && !ENABLE_DRAFTS ? (
-      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <span
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
         {link.text} <ComingSoonBadge />
       </span>
     ) : (
       <Link
-        className={`menu-section-link ${path.startsWith(link.to) ? 'active' : ''}`}
+        className={`menu-section-link ${
+          path.startsWith(link.to) ? 'active' : ''
+        }`}
         onClick={() => closeMenus()}
         to={link.to}
       >
@@ -127,7 +134,9 @@ const MegaMenu = ({ className, closeMenus, megaMenuType, path }) => {
 
             <ul
               className={`menu-section-links ${section.color}-section ${
-                verticalMobileMenuSections.includes(section.title) ? 'vertical' : ''
+                verticalMobileMenuSections.includes(section.title)
+                  ? 'vertical'
+                  : ''
               }`}
             >
               {section.links.map((link) => (

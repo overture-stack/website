@@ -26,6 +26,7 @@ import chevronMagenta from './icons/chevron-magenta.svg';
 import cloudWeather from './icons/cloud-weather.svg';
 import cloud from './icons/cloud.svg';
 import cloudSquare from './icons/cloud_square.svg';
+import cog from './icons/cog.svg';
 import copy from './icons/copy.svg';
 import customizable from './icons/customizable.svg';
 import data from './icons/data.svg';
@@ -53,6 +54,7 @@ import lockCode from './icons/lock_code.svg';
 import magnify from './icons/magnify.svg';
 import mail from './icons/mail.png';
 import notes from './icons/notes.svg';
+import notes2 from './icons/notes2.svg';
 import pageWhite from './icons/page_white.svg';
 import palette from './icons/palette.svg';
 import play from './icons/play.svg';
@@ -141,6 +143,7 @@ const icons = {
   cloud,
   cloudWeather,
   cloudSquare,
+  cog,
   copy,
   customizable,
   data,
@@ -168,6 +171,7 @@ const icons = {
   magnify,
   mail,
   notes,
+  notes2,
   pageWhite,
   palette,
   play,

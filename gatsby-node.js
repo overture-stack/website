@@ -9,7 +9,8 @@ const properUrlJoin = require('proper-url-join');
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
-const urlJoin = (url = []) => properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
+const urlJoin = (url = []) =>
+  properUrlJoin(...url, { leadingSlash: true, trailingSlash: true });
 
 const onCreateNode = ({ actions, getNode, node }) => {
   // nodes in gatsby are the main data interface. everything is a node.
@@ -18,7 +19,13 @@ const onCreateNode = ({ actions, getNode, node }) => {
   if (node.internal.type === 'Mdx') {
     // markdown nodes/pages
     const mdxPage = getNode(node.parent);
-    const { ext, name: pageName, relativeDirectory, relativePath, sourceInstanceName } = mdxPage;
+    const {
+      ext,
+      name: pageName,
+      relativeDirectory,
+      relativePath,
+      sourceInstanceName,
+    } = mdxPage;
 
     // make index the root page of the folder
     const isIndex = pageName === 'index';
@@ -204,4 +211,9 @@ const createSchemaCustomization = ({ actions }) => {
   actions.createTypes(documentationTypeDefs);
 };
 
-module.exports = { createPages, createSchemaCustomization, onCreateNode, onCreateWebpackConfig };
+module.exports = {
+  createPages,
+  createSchemaCustomization,
+  onCreateNode,
+  onCreateWebpackConfig,
+};

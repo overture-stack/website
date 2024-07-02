@@ -3,7 +3,7 @@ import { useSSRWorkaround } from 'hooks';
 import { Icon, LinkHelper as Link } from 'components';
 import './styles.scss';
 
-const makeUrl = url => `/documentation/${url}/`;
+const makeUrl = (url) => `/documentation/${url}/`;
 
 const MenuItems = ({ level = 1, pages = [], path }) => {
   if (!pages.length) return null;
@@ -14,7 +14,7 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
 
   return (
     <ol className={olClassName}>
-      {pages.map(page => {
+      {pages.map((page) => {
         const { isHeading, pages: subpages, title } = page;
         const url = makeUrl(page.url);
         const isLinkActive = path === url;

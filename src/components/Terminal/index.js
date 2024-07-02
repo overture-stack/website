@@ -17,9 +17,8 @@ export const Terminal = ({ prompts }) => (
   <div className="Terminal">
     <TrafficLights />
     <div className="Terminal-inner">
-      {prompts.map(p => (
+      {prompts.map((p) => (
         <div key={p} className="Terminal-text">
-          <span className="pr2">$</span>
           {p}
         </div>
       ))}
@@ -31,7 +30,7 @@ export const UrlBar = ({ prompts }) => (
   <div className="Browser">
     <TrafficLights />
     <div className="url-bar mx2">
-      {prompts.map(p => React.cloneElement(p, { key: p, className: 'url-text' }))}
+      {prompts.map((p) => React.cloneElement(p, { key: p, className: 'url-text' }))}
     </div>
   </div>
 );

@@ -29,6 +29,10 @@ const productsObj = {
     iconWhite: 'productEgoWhite',
     title: 'Ego',
   },
+  guides: {
+    iconWhite: 'productDMSWhite',
+    title: 'Guides',
+  },
   jukebox: {
     githubUrl: urlJoin(OVERTURE_GITHUB_LINK, 'jupyter'),
     iconWhite: 'productJukeboxWhite',
@@ -43,7 +47,11 @@ const productsObj = {
     iconWhite: 'productOncoWhite',
     title: 'OncoJS',
   },
-  overture: { githubUrl: OVERTURE_GITHUB_LINK, productsPath: null, title: 'Overture' },
+  overture: {
+    githubUrl: OVERTURE_GITHUB_LINK,
+    productsPath: null,
+    title: 'Overture',
+  },
   persona: {
     iconWhite: 'productPersonaWhite',
     title: 'Persona',

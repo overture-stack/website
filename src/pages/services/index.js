@@ -1,7 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Button, P1, H2, Hero, ServicesPageSection } from 'components';
-import { CONTACT_US_PATH } from 'constants/pages';
+import { Hero, ServicesPageSection } from 'components';
 import imgTechnicalSupport from './assets/img_top_white_section.svg';
 import imgConsulting from './assets/img_grey_section.svg';
 import imgAcademicCollaborations from './assets/img_bottom_white_section.svg';

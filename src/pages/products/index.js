@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, H1, H2, P1, ProductPageSection, Hero } from 'components';
-import { DOCS_DMS_INSTALL_LINK } from 'constants/docs';
 import Helmet from 'react-helmet';
-import imgDMS from './assets/img_DMS.svg';
+import imgQuickStartPortal from './assets/img_overtureQuickstartPortal.webp';
 import imgArranger from './assets/img_products_arranger.svg';
 import imgEgo from './assets/img_products_ego.svg';
 import imgMaestro from './assets/img_products_maestro.svg';
 import imgScore from './assets/img_products_score.svg';
 import imgSong from './assets/img_products_song.svg';
 import './styles.scss';
+import { GETTING_STARTED_PATH } from '../../../constants/pages';
 
 export default function ProductsPage() {
   return (
@@ -25,7 +25,10 @@ export default function ProductsPage() {
         />
       </Helmet>
 
-      <Hero title="Our Products" subtitle="Linking the gaps between data and discovery." />
+      <Hero
+        title="Our Products"
+        subtitle="Linking the gaps between data and discovery."
+      />
 
       {/* Song section - white background */}
       <ProductPageSection
@@ -122,39 +125,36 @@ export default function ProductsPage() {
         <div className="lower-blue-section__container">
           <div className="lower-blue-section__holder">
             <div className="lower-blue-section__title-holder">
-              <H2>The Overture Data Management System (DMS)</H2>
+              <H2>Getting Started</H2>
             </div>
             {/* div with the blue background */}
             <div className="lower-blue-section__top-gradient"></div>
             <div className="lower-blue-section__content-holder">
               <div className="lower-blue-section__img-holder">
-                <img src={imgDMS} alt="DMS screenshot" className="lower-blue-section__img" />
+                <img
+                  src={imgQuickStartPortal}
+                  alt="Overture QuickStart Portal screenshot"
+                  className="lower-blue-section__img"
+                />
               </div>
               <div className="lower-blue-section__text-button-holder">
                 <div className="lower-blue-section__text-holder">
                   <P1 className="lower-blue-section__text">
                     <span>
-                      Built from our core collection of microservices, the DMS offers turnkey
-                      installation, configuration, and deployment of the Overture software.
-                    </span>
-                    <br />
-
-                    <br />
-                    <span>
-                      While a custom solution will offer greater scalability, the DMS is an ideal
-                      starting point for anyone looking to explore Overture and experience how our
-                      microservices work in concert to create comprehensive data management systems.
+                      Built from our core collection of microservices, we
+                      provide an Overture Quickstart for a fast and frictionless
+                      setup of our data platform locally.
                     </span>
                   </P1>
                 </div>
                 <div className="lower-blue-section__button-holder">
                   <Button
-                    link={DOCS_DMS_INSTALL_LINK}
+                    link={GETTING_STARTED_PATH}
                     type="primary"
                     size="medium"
                     className="lower-blue-section__button"
                   >
-                    Installation Instructions
+                    Get Started
                   </Button>
                 </div>
               </div>
