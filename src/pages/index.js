@@ -433,10 +433,12 @@ export default function HomePage() {
                     <P2 className="text-section">
                       <b>3. Run the Docker Compose</b>
                     </P2>
-                    <Terminal prompts={['docker compose up -d']} />
+                    <Terminal
+                      prompts={['docker compose up --attach composer']}
+                    />
                     <div className="text-section">
                       <span>
-                        Your portal will be accessible from your:{' '}
+                        Your portal should take will be accessible from your:{' '}
                         <code>localhost:3000</code>
                       </span>
                     </div>

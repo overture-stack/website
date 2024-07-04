@@ -27,7 +27,7 @@ git clone https://github.com/overture-stack/composer.git
 **2. With Docker open, run the docker-compose**
 
 ```bash
-docker compose up -d
+docker compose up --attach composer
 ```
 
 <Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>

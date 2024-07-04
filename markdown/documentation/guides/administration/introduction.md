@@ -34,5 +34,5 @@ git clone https://github.com/overture-stack/composer.git
 **2. With Docker open run the docker-compose**
 
 ```bash
-docker compose up -d
+docker compose up --attach composer
 ```

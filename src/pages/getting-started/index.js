@@ -97,7 +97,7 @@ export default function GettingStartedPage() {
                 </P2>
 
                 <div className="relative">
-                  <Terminal prompts={['docker compose up -d']} />
+                  <Terminal prompts={['docker compose up --attach composer']} />
                   <span className="text-section">
                     Your portal will now be accessible from your:{' '}
                     <code>localhost:3000</code>
