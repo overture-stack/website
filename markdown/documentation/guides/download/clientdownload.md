@@ -55,8 +55,8 @@ API Keys are brokered by Keycloak and accessible when logged in to the Stage UI.
 ```bash
 docker run -d -it --name score-client \
     -e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528 \
-    -e STORAGE_URL=http://score:8087 \
-    -e METADATA_URL=http://song:8080 \
+    -e STORAGE_URL=http://localhost:8087 \
+    -e METADATA_URL=http://localhost:8080 \
     --network="host" \
     --platform="linux/amd64" \
     --mount type=bind,source=./guideMaterials/dataDownload,target=/output \
@@ -99,7 +99,7 @@ docker run -d -it --name score-client \
 ## Step 4: Download your Data
 
 ```bash
-docker exec score-client sh -c "score-client download --manifest ./<manifestDirectory>/manifest.txt --output-dir ./<outputDirectory>"
+docker exec score-client sh -c "score-client download --manifest ./output/manifest.txt --output-dir ./output"
 ```
 
 -  `<manifestDirectory>` represents the location of the earlier generated manifest file for simplicity you can either point to your download folder or move your manifest.tsv to the dataDownload folder in the quickstart repository

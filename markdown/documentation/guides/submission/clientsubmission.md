@@ -1148,7 +1148,7 @@ The final step in data submission is to set the state of the analysis to `PUBLIS
 ### Publish Command
 
 ```bash
-docker exec song-client sh -c "sing publish -a 4d9ed1c5-1053-4377-9ed1-c51053f3771f"
+docker exec song-client sh -c "sing publish -a {AnalysisId}"
 ```
 
 ### Expected Response
