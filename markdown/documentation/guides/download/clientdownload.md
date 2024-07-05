@@ -15,7 +15,7 @@ title: Download Guide
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone https://github.com/overture-stack/composer.git
+git clone -b develop https://github.com/overture-stack/composer.git
 ```
 
 **2. With Docker open run the docker-compose**
@@ -24,7 +24,7 @@ git clone https://github.com/overture-stack/composer.git
 docker compose up --attach composer
 ```
 
-<Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel.</Warning>
+<Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**</Warning>
 
 # Data Download with the Score Client
 

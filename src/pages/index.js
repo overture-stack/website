@@ -405,7 +405,7 @@ export default function HomePage() {
                           rel="noopener noreferrer"
                           href={DOCKER_DOWNLOAD}
                         >
-                          Docker Desktop
+                          Docker Desktop (4.32.0+)
                         </a>
                       </b>
                     </P2>
@@ -420,14 +420,14 @@ export default function HomePage() {
                       icon , then resources. We recommend at minimum setting
                       your CPU limit to <code>8</code>, memory to{' '}
                       <code>8GB</code>, swap to <code>2GB</code>, and virtual
-                      disk limit to <code>64GB</code>
+                      disk limit to <code>64GB</code>.
                     </span>
                     <P2 className="text-section">
                       <b>2. Clone the QuickStart Repository</b>
                     </P2>
                     <Terminal
                       prompts={[
-                        'git clone https://github.com/overture-stack/composer.git && cd composer',
+                        'git clone -b develop https://github.com/overture-stack/composer.git && cd composer',
                       ]}
                     />
                     <P2 className="text-section">

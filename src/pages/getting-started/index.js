@@ -64,7 +64,7 @@ export default function GettingStartedPage() {
                 <P2 className="text-section">
                   <b>
                     1. Download and configure{' '}
-                    <Link to={DOCKER_DOWNLOAD}>Docker Desktop</Link>
+                    <Link to={DOCKER_DOWNLOAD}>Docker Desktop (4.32.0+)</Link>
                   </b>
                 </P2>
 
@@ -88,7 +88,7 @@ export default function GettingStartedPage() {
                 <div className="relative">
                   <Terminal
                     prompts={[
-                      'git clone https://github.com/overture-stack/composer.git && cd composer',
+                      'git clone -b develop https://github.com/overture-stack/composer.git && cd composer',
                     ]}
                   />
                 </div>
