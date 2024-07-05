@@ -421,7 +421,7 @@ export default function HomePage() {
                       your CPU limit to <code>8</code>, memory to{' '}
                       <code>8GB</code>, swap to <code>2GB</code>, with
                       <code>64GB</code> of virtual disk space available. If you
-                      have Docker installed ensure it is up to date.
+                      have Docker already installed ensure it is up to date.
                     </span>
                     <P2 className="text-section">
                       <b>2. Clone the QuickStart Repository</b>
