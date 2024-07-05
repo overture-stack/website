@@ -78,7 +78,9 @@ export default function GettingStartedPage() {
                   />{' '}
                   icon , then resources. We recommend at minimum setting your
                   CPU limit to <code>8</code>, memory to <code>8GB</code>, swap
-                  to <code>4GB</code>, and virtual disk to <code>64GB</code>
+                  to <code>4GB</code>, with <code>64GB</code> of virtual disk
+                  space available. If you have Docker already installed ensure
+                  it is up to date.
                 </span>
 
                 <P2 className="text-section">
