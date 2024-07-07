@@ -28,11 +28,11 @@ If you do not have an Overture platform deployed, you can use our docker compose
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone -b develop https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/composer.git
 ```
 
 **2. With Docker open run the docker-compose**
 
 ```bash
-docker compose up --attach composer
+docker compose up --attach conductor
 ```

@@ -428,14 +428,14 @@ export default function HomePage() {
                     </P2>
                     <Terminal
                       prompts={[
-                        'git clone -b develop https://github.com/overture-stack/composer.git && cd composer',
+                        'git clone  https://github.com/overture-stack/composer.git && cd composer',
                       ]}
                     />
                     <P2 className="text-section">
                       <b>3. Run the Docker Compose</b>
                     </P2>
                     <Terminal
-                      prompts={['docker compose up --attach composer']}
+                      prompts={['docker compose up --attach conductor']}
                     />
                     <div className="text-section">
                       <span>
