@@ -29,12 +29,20 @@ const MenuItems = ({ level = 1, pages = [], path }) => {
           setIsOpen(!isMenuOpen);
         };
 
-        useEffect(() => {
-          if (isMenuActive) setIsOpen(true);
-        }, []);
+        if (isMenuActive) {
+          useEffect(() => {
+            setIsOpen(true);
+          }, []);
+        }
 
         const liClassName = `${
-          isHeading ? 'menu-heading' : isMenuActive ? 'menu-active' : isMenuOpen ? 'menu-open' : ''
+          isHeading
+            ? 'menu-heading'
+            : isMenuActive
+            ? 'menu-active'
+            : isMenuOpen
+            ? 'menu-open'
+            : ''
         } ${isLinkActive ? 'link-active' : ''}`;
         const iconImg = isLinkActive ? 'chevronMagenta' : 'chevronGrey';
         const iconStyle = isMenuOpen ? { transform: 'rotate(90deg)' } : {};
