@@ -2,7 +2,7 @@
 title: Administration Guides
 ---
 
-**These guides are for** anyone seeking information on configuring and using an Overture platform. We will walk you through the essential information for configuring your Overture platform. 
+**These guides are for** anyone seeking information on configuring and using Overture as their platforms's foundation. We will walk you through the essential information for configuring it. 
 
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
