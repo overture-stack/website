@@ -15,7 +15,7 @@ docker run -d --name elasticsearch \
   -p 9200:9200 \
   -e discovery.type=single-node \
   -e cluster.name=workflow.elasticsearch \
-  -e ES_JAVA_OPTS=-Xms512m -Xmx2048m \
+  -e ES_JAVA_OPTS="-Xms512m -Xmx2048m" \
   -e ELASTIC_PASSWORD=myelasticpassword \
   -e xpack.security.enabled=true \
   -e MANAGE_INDEX_TEMPLATES=true \
@@ -52,29 +52,29 @@ docker run -d --name elasticsearch \
 </details>
 <br></br>
 
-2. **Supply an index tempalte:** Create a folder titled `elasticsearchConfigs`
+2. **Supply an index template:** Create a folder titled `elasticsearchConfigs`
 
 
-   - Download and place the following **[quickstart_index_template.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)** within your `elasticsearchConfigs` folder. This file specifies settings, mappings, and configurations that will be applied automatically to new indices that match the template's pattern
+   - Download and place the following **[quickstart_index_template.json](https://raw.githubusercontent.com/overture-stack/composer/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)** within your `elasticsearchConfigs` folder. This file specifies settings, mappings, and configurations that will be applied automatically to new indices that match the template's pattern
 
 
 <Note title="Learn More">If you'd like to learn more about creating an index mapping for your own data see our [administration guide on configuring the index mapping](/documentation/guides/administration/indexmapping/).</Note>
 
-3. **Initialize your index:** Run the following scripts to set up your elasticsearch cluster
+3. **Initialize your index:** Run the following scripts to set up your Elasticsearch cluster
 
-Update elasticsearch with your index template using the following `curl` commmand:
-
-```bash
-curl -u elastic:myelasticpassword -X PUT 'http://elasticsearch:9200/_template/index_template' -H 'Content-Type: application/json' -d ./elasticsearchConfigs/quickstart_index_template.json 
-```
-
-Create a new alias in elasticsearch using the following `curl` command:
+Update Elasticsearch with your index template using the following `curl` commmand:
 
 ```bash
-curl -u elastic:myelasticpassword -X PUT 'http://elasticsearch:9200/overture-quickstart-index'
+curl -u elastic:myelasticpassword -X PUT 'http://localhost:9200/_template/index_template' -H 'Content-Type: application/json' -d ./elasticsearchConfigs/quickstart_index_template.json 
 ```
 
-If successful you should be able to view the updated index in your browser from `http://localhost:9200/overture-quickstart-index`
+Create a new alias in Elasticsearch using the following `curl` command:
+
+```bash
+curl -u elastic:myelasticpassword -X PUT 'http://localhost:9200/overture-quickstart-index'
+```
+
+If successful you should be able to view the updated index in your browser from `http://localhost:9200/overture-quickstart-index` with the username `elastic` and password `myelasticpassword`.
 
 <Note title="How this works">Any index alias that starts with `overture-` will use the mapping of the index template we initially provided. This is defined on [line two of our `quickstart_index_template`](https://github.com/overture-stack/composer/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json#L2).</Note>
 
@@ -132,7 +132,7 @@ SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION=song-analysis
 - `MAESTRO_FAILURELOG_DIR` sets the directory path where failure logs are stored. The value should be `app/logs/maestro` or another path of your choosing
 
 
-- `MAESTRO_LOGGING_LEVEL_ROOT` sets the root logging level for Maestro. The value can be `INFO`, `DEBUG`, `WARN`, etc. It determines the level of detail included in logs, where `INFO` is standard and `DEBUG` provides more detailed information
+- `MAESTRO_LOGGING_LEVEL_ROOT` sets the root logging level for Maestro. The value can be `INFO`, `DEBUG` or `WARN`. It determines the level of detail included in logs, where `INFO` is standard and `DEBUG` provides more detailed information
 
 
 - `MAESTRO_NOTIFICATIONS_SLACK_ENABLED` enables or disables Slack notifications. When set to `true`, Maestro can send notifications to a Slack channel
@@ -148,17 +148,17 @@ SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION=song-analysis
 - `MAESTRO_REPOSITORIES_0_NAME` defines the display name for the repository. The value is `Overture`, providing a human-readable name for the repository used in logs and interfaces
 
 
-- `MAESTRO_REPOSITORIES_0_ORGANIZATION`: defines the name of the organization that owns the repository
+- `MAESTRO_REPOSITORIES_0_ORGANIZATION` defines the name of the organization that owns the repository
 
 
 - `MAESTRO_REPOSITORIES_0_COUNTRY` defines  the country code for the repository's location. The value is `CA` (Canada), indicating the country associated with the repository
 
 #### Elasticsearch Variables
 
-- `MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_ENABLED` set to `true` specifing that analysis-centric index are to be expected
+- `MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_ENABLED` set to `true` specifing that analysis-centric indices are to be expected
 
 
-- `MAESTRO_ELASTICSEARCH_INDEXES_FILECENTRIC_ENABLED` set to `false` specifing to Maestro that file-centric index are not to be expected
+- `MAESTRO_ELASTICSEARCH_INDEXES_FILECENTRIC_ENABLED` set to `false` specifing to Maestro that file-centric indices are not to be expected
 
 
 - `MAESTRO_ELASTICSEARCH_CLIENT_BASICAUTH_ENABLED` enables basic authentication for the Elasticsearch client
@@ -208,8 +208,6 @@ docker run --env-file .env.maestro \
     --name maestro \
     --platform linux/amd64 \
     -p 11235:11235 \
-    --network db-network \
-    --network index-network \
     ghcr.io/overture-stack/maestro:4.3.0
 
 ```
@@ -241,7 +239,7 @@ REACT_APP_ARRANGER_ADMIN_ROOT=http://arranger-server:5050/graphql
    - The **[extended.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/extended.json)**, containing all possible fields inputted into arranger
    - The **[facets.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/facets.json)**,  defines the facets found within the facet panel of the data exploration page in Stage
    - The **[matchbox.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/matchbox.json)**, containing matchbox configuration settings
-   - The **[table.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/table.json)**, defines the formattoing of the tables found on the data exploration page in Stage
+   - The **[table.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/table.json)**, defines the formatting of the tables found on the data exploration page in Stage
 
 
 3. **Run Arranger:** Use the docker run command with your `.env.arranger` file:
@@ -266,7 +264,7 @@ Make sure to confirm the `./arrangerConfigs/` path aligns with the actual paths 
 
 ### When creating the .env.arranger file:
 
-- `ES_HOST` is thehe URL of your Elasticsearch instance
+- `ES_HOST` is the URL of your Elasticsearch instance
 
 
 - `ES_USER` and `ES_PASS` are the credentials for accessing Elasticsearch
@@ -282,14 +280,12 @@ Make sure to confirm the `./arrangerConfigs/` path aligns with the actual paths 
 - `-p 5050:5050` maps port 5050 of the host to port 5050 of the container.
 
 
-- `--network index-network` connects the container to the index-network Docker network
-
 - `-v ./arrangerConfigs/...:/app/modules/server/configs/...` mounts configuration files into the container
     - `base.json` contains the base configuration for the Arranger server
     - `extended.json` contains all possible fields inputted into arranger
     - `facets.json` defines the facets found within the facet panel of the data exploration page in Stage
-    - `table.json` defines the formattoing of the tables found on the data exploration page in Stage
-    - `matchbox.json` Contains matchbox configuration settings
+    - `table.json` defines the formatting of the tables found on the data exploration page in Stage
+    - `matchbox.json` contains matchbox configuration settings
 
 
 ---
@@ -397,7 +393,7 @@ The front-end portal will now be available in your browser at `localhost:3000`
 
 ## Retrieving and updating access tokens
 
-Now that we have our platform setup we will need to generate an API key too enable secure communication between Song and Score. 
+Now that we have our platform setup we will need to generate an API key to enable secure communication between Song and Score. 
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI `localhost:3000/login`.
 

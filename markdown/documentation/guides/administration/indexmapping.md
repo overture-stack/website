@@ -256,7 +256,7 @@ The index mapping template used within the Quickstart can be found in [the direc
 
 Upon initial deployment, this index template is uploaded to Elasticsearch, and a new alias, `overture-quickstart-index`, is created in alignment with the defined `"index_patterns": ["overture-*"]"`. The Docker container and associated script that automate this process is [located in the docker-compose.yml here](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L344-L379).
 
-If you customize this template to match your own Song Schema, and wish to populate Elasticsearch with your new index template, ensure you check the following:
+If you change this template to match your own custom schema, and wish to populate Elasticsearch with your new index template, ensure you check the following:
 
 - **Stage Arranger Variables:** Ensure [the environment variables in Stage](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L446-L448) are adjusted to specify the updated documentType and Index name according to your modified Elasticsearch mapping
 

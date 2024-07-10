@@ -4,11 +4,11 @@ title: Deployment Guide
 
 # Data Management and Storage Setup
 
-Song, Score and their dependent services (Postgres, Minio, Kafka, and Zookeeper) will be set up next, together these services will manage, track and store all our data on the backend. 
+Song, Score and their dependent services (Postgres, Minio, and Kafka) will be set up next. These services will manage, track and store all our data on the backend. 
 
 ## Setting up Object Storage
 
-The file transfer service Score is compatible with any S3 storage provider; for simplicity, we will use the open-source Object Storage provider Minio for this setup. 
+The file transfer service Score is compatible with any S3 storage provider; for simplicity, we will use the open-source object Storage provider Minio for this setup. 
 
 1. **Run Minio:** Use the following command to pull and run the Minio docker container
 
@@ -22,7 +22,7 @@ docker run -d --name minio \
   server /data
 ```
 
-2. **Run the Minio client:** This command will start up a minio-client set up to create an object and state bucket
+**Create buckets in Minio:** Run the following command to create two buckets in the running Minio server using the Minio CLI - this will create an **object** bucket to store uploaded files and a **state** bucket for metadata files managed by Score.
 
 ```bash
 docker run --name minio-client \
@@ -38,7 +38,7 @@ docker run --name minio-client \
   exit 0;'
 ```
 
-You should now be able to access the minio console from the `localhost:9000`
+You should now be able to access the minio console from the browser at `localhost:9000`
 
 <details>
 
@@ -48,15 +48,15 @@ You should now be able to access the minio console from the `localhost:9000`
 
 ### Minio Image
 
-- The `-v $./persistentStorage/data-minio:/data` will store our uploaded mock file data in our local directory
+- The `-v $./persistentStorage/data-minio:/data` configures Minio to store data in our local filesystem instead of in the docker container. Files you upload to Minio will be stored at the path `./persistentStorage/data-minio`.
 
 ### Minio Client Image
 
 
-- **Alias:** `alias set myminio http://host.docker.internal:9000 admin admin123` creates an `alias` for the Minio server, with an `admin` user with a the password `admin123`
+- **Alias:** `alias set myminio http://host.docker.internal:9000 admin admin123` creates an `alias` for the Minio server, with an `admin` user with a the password `admin123`.
 
 
-- **State Bucket:** `mb myminio/state` creates a bucket named "state". The "state" bucket is designated for storing application state data. This could include metadata about the objects stored in the "object" bucket
+- **State Bucket:** `mb myminio/state` creates a bucket named "state". The "state" bucket is designated for storing application state data. This could include metadata about the objects stored in the "object" bucket.
 
 
 - **Object Bucket:** `mb myminio/object` creates another bucket named "object". The "object" bucket is intended for storing the actual content objects, such as VCFs, BAMs, etc. 
@@ -75,7 +75,12 @@ You should now be able to access the minio console from the `localhost:9000`
 1. **Run PostgreSQL:** Use the following command to pull and run the PostgreSQL docker container
 
 ```bash
-docker run --name song-db --network db-network  -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=songDb -v./persistentStorage/data-song-db:/var/lib/postgresql/data -d postgres:11.1
+docker run --name song-db \
+ -e POSTGRES_USER=admin \
+ -e POSTGRES_PASSWORD=admin123 \
+ -e POSTGRES_DB=songDb 
+ -v ./persistentStorage/data-song-db:/var/lib/postgresql/data \
+-d postgres:11.1 
 ```
 <details>
 
@@ -83,10 +88,10 @@ docker run --name song-db --network db-network  -e POSTGRES_USER=admin -e POSTGR
 
 <br></br>
 
-- This command runs a postgres image named `song-db` on the `db-network` with the username `admin`, password `admin123` and a database within it called `songDb`.
+- This command runs a postgres image named `song-db` with the username `admin`, password `admin123` and a database within it called `songDb`.
 
 
-- We are including a defined persistent volume `-v ./persistentStorage/song-db-data:/var/lib/postgresql/data`. This volume will be a folder generated at runtime to serve as persistent storage, meaning the data in your database will persist regardless of the container's status, in this case, located in the root of the directory where you run the container
+- We have included a persistent volume `-v ./persistentStorage/song-db-data:/var/lib/postgresql/data`/. This volume stores Songs Postgres data in our local filesystem instead of the docker container; in other words, the data contained in the Song database will be stored at the path `./persistentStorage/song-db-data:/var/lib/postgresql/data`.
 
 ---
 </details>
@@ -95,41 +100,37 @@ docker run --name song-db --network db-network  -e POSTGRES_USER=admin -e POSTGR
 
 <Note title="Bringing it together">By setting up Minio alongside PostgreSQL, we have created an environment capable of handling both relational and object data storage, simulating a backend infrastructure similar to what you'd find in a cloud-based application.</Note>
 
-## Running Zookeeper and Kafka
+## Running Kafka
 
-1. **Run Zookeeper:** Use the following command to pull and run the Zookeeper docker container
-
-```bash
-docker run -d --name zookeeper \
-  -p 2181:2181 \
-  -e ZOOKEEPER_CLIENT_PORT=2181 \
-  -e ZOOKEEPER_TICK_TIME=2000 \
-  confluentinc/cp-zookeeper:7.6.1
-```
-
-2. **Run the Kafka:** Use the following command to pull and run the Kafka docker container
+**Run Kafka:** Use the following command to pull and run the Kafka docker container
 
 ```bash
 docker run -d --name kafka \
   --platform linux/amd64 \
-  -p 29092:29092 \
-  -p 9092:9092 \
-  -e KAFKA_BROKER_ID=1 \
-  -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 \
-  -e KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT \
-  -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:29092,PLAINTEXT_HOST://kafka:9092 \
+  -p 9092:9092 -p 29092:29092 \
+  -e KAFKA_PROCESS_ROLES="broker,controller" \
+  -e KAFKA_NODE_ID=1 \
+  -e KAFKA_LISTENERS="PLAINTEXT://kafka:9092,CONTROLLER://kafka:9093" \
+  -e KAFKA_ADVERTISED_LISTENERS="PLAINTEXT://kafka:9092" \
+  -e KAFKA_LISTENER_SECURITY_PROTOCOL_MAP="PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT" \
+  -e KAFKA_INTER_BROKER_LISTENER_NAME="PLAINTEXT" \
+  -e KAFKA_CONTROLLER_QUORUM_VOTERS="1@kafka:9093" \
+  -e KAFKA_CONTROLLER_LISTENER_NAMES="CONTROLLER" \
+  -e KAFKA_LOG_DIRS="/var/lib/kafka/data" \
   -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
-  -e CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS=kafka:9092 \
-  -e CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT=zookeeper:2181 \
-  confluentinc/cp-kafka:5.4.0
-
+  -e KAFKA_AUTO_CREATE_TOPICS_ENABLE=false \
+  -e KAFKA_NUM_PARTITIONS=1 \
+  -e CLUSTER_ID="q1Sh-9_ISia_zwGINzRvyQ" \
+  confluentinc/cp-kafka:7.6.1
 ```
 
-<Note title="What is this for?">Kafka handles the distribution and processing of data streams, while Zookeeper manages the coordination and configuration aspects of the Kafka cluster. Together they serve as the backbone messaging system for Song, enabling asynchronous communication between Song and Maestro ensuring efficient and reliable job execution, queuing, and processing..</Note>
+<Note title="What is this for?">Kafka serves as a distributed streaming platform, enabling high-throughput, fault-tolerant, and scalable messaging between Song and Maestro. Kafka acts as the backbone messaging system for Song and Maestro, facilitating asynchronous communication ensuring efficient and reliable job execution, queuing, and processing.</Note>
+
+For more detailed information on Kafka configurations, please refer to the [official Confluent Kafka documentation](https://docs.confluent.io/platform/current/installation/docker/config-reference.html#confluent-ak-configuration).
 
 ## Running Song
 
-Song is our data cataloging system. It will automate submission validations and track and manage all our metadata and file data.
+Song is our data cataloging system. It will provide submission validations and track and manage all our metadata and file data.
 
 1. **Create a env file:** Create a file named `.env.song` with the following content:
 
@@ -147,7 +148,7 @@ ID_USELOCAL=true
 SCHEMAS_ENFORCELATEST=true
 # Score Variables
 SCORE_URL=http://score:8087
-SCORE_ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528
+SCORE_ACCESSTOKEN=
 # Keycloak Variables
 AUTH_SERVER_PROVIDER=keycloak
 AUTH_SERVER_CLIENTID=dms
@@ -192,69 +193,69 @@ SWAGGER_ALTERNATEURL=/swagger-api
 
 #### Flyway Variables
 
-- `SPRING_FLYWAY_ENABLED` enables the initialization of the Song database with a Flyway database migration, setting up the necessary tables for API interactions. This migration utilizes SQL scripts located within Song and [found here](https://github.com/overture-stack/SONG/tree/develop/song-server/src/main/resources/db/migration). Without this setting, the database would remain uninitialized, leading to generic SQL errors (SQL Error: 0) with a SQLState of 42P01, corresponding to an undefined_table
+- The `SPRING_FLYWAY_ENABLED` variable enables the initialization of the Song database with a Flyway database migration, setting up the necessary tables for API interactions. This migration utilizes SQL scripts located within Song and [found here](https://github.com/overture-stack/SONG/tree/develop/song-server/src/main/resources/db/migration). Without this setting, the database would remain uninitialized, leading to generic SQL errors (SQL Error: 0) with a SQLState of 42P01, corresponding to an undefined_table.
 
 
 #### Song Variables
 
-- `ID_USELOCAL` This mode indicates that Song will handle ID management internally, storing identifiers within its own system. Song can also be configured to use external ID management, for more information see our documentation for [ID management in Song](https://www.overture.bio/documentation/song/installation/configuration/id/)
+- The `ID_USELOCAL` mode indicates that Song will handle ID management internally, storing identifiers within its own system. Song can also be configured to use external ID management, for more information see our documentation for [ID management in Song](https://www.overture.bio/documentation/song/installation/configuration/id/).
 
 
-- `SCHEMAS_ENFORCELATEST` by setting `true`, the Song server will enforce that data conforms to the latest schema versions. Conversely, if set to `false`, data can be submitted to any schema version specified with the metadata submission. For more information, see our [documentation on Song Schema Management](https://www.overture.bio/documentation/song/admin/schemas/)
+- By setting `SCHEMAS_ENFORCELATEST` to `true`, the Song server will enforce that data conforms to the latest schema versions. Conversely, if set to `false`, data can be submitted to any schema version specified with the metadata submission. For more information, see our [documentation on Song Schema Management](https://www.overture.bio/documentation/song/admin/schemas/).
 
 
 #### Score Variables
 
-- The `SCORE_URL` specifies the future URL of the Score service (`http://host.docker.internal:8087`)
+- The `SCORE_URL` specifies the future URL of the Score service (`http://host.docker.internal:8087`).
 
 
-- `SCORE_ACCESSTOKEN` used by Song for authorized communicatation with Score. For example, during data publication Song will need to call Score to check if object’s exists before publishing this access token, generated by Keycloak, encodes the permissions neccesary to communicate securly.
+- The `SCORE_ACCESSTOKEN` is used by Song for authorized communication with Score. For example, during data publication Song will need to call Score to check if object’s exists before publishing this access token, generated by Keycloak, encodes the permissions neccesary to communicate securly.
 
 #### Keycloak Variables
 
-- `AUTH_SERVER_PROVIDER` specifies the authentication server provider, in this case, Keycloak
+- `AUTH_SERVER_PROVIDER` specifies the authentication server provider, in this case, Keycloak.
 
 
-- `AUTH_SERVER_CLIENTID` the client ID assigned to the application by Keycloak. This identifier is used by the application to authenticate itself to the Keycloak server
+- `AUTH_SERVER_CLIENTID` the client ID assigned to the application by Keycloak. This identifier is used by the application to authenticate itself to the Keycloak server.
 
 
-- `AUTH_SERVER_CLIENTSECRET` the client secret associated with the client ID. This secret is used by the application to prove its identity to the Keycloak server
+- `AUTH_SERVER_CLIENTSECRET` the client secret associated with the client ID. This secret is used by the application to prove its identity to the Keycloak server.
 
 
-- `AUTH_SERVER_TOKENNAME`: the name of the token issued by Keycloak. This token is used by the application to authenticate subsequent requests to protected resources
+- `AUTH_SERVER_TOKENNAME`: the name of the token issued by Keycloak. This token is used by the application to authenticate subsequent requests to protected resources.
 
 
-- `AUTH_SERVER_KEYCLOAK_HOST` the URL where the Keycloak server is hosted
+- `AUTH_SERVER_KEYCLOAK_HOST` the URL where the Keycloak server is hosted.
 
 
-- `AUTH_SERVER_KEYCLOAK_REALM` the realm in Keycloak that contains the users and roles. The realm encapsulates the grouping of applications and users configured to Keycloak for this application
+- `AUTH_SERVER_KEYCLOAK_REALM` the realm in Keycloak that contains the users and roles. The realm encapsulates the grouping of applications and users configured to Keycloak for this application.
 
 
-- `AUTH_SERVER_SCOPE_STUDY_PREFIX` the prefix added to the scope claim in the token. Scopes define the level of access granted to the token holder. In this case, it indicates a specific type of access related to studies
+- `AUTH_SERVER_SCOPE_STUDY_PREFIX` the prefix added to the scope claim in the token. Scopes define the level of access granted to the token holder. In this case, it indicates a specific type of access related to studies.
 
 
-- `AUTH_SERVER_SCOPE_STUDY_SUFFIX` the suffix added to the scope claim in the token, further defining the level of access. Here, it specifies write access to study-related resources
+- `AUTH_SERVER_SCOPE_STUDY_SUFFIX` the suffix added to the scope claim in the token, further defining the level of access. Here, it specifies write access to study-related resources.
 
 
-- `AUTH_SERVER_SCOPE_SYSTEM` is the scope for system-level permissions, indicating write access to system resources managed by the application
+- `AUTH_SERVER_SCOPE_SYSTEM` is the scope for system-level permissions, indicating write access to system resources managed by the application.
 
 
-- `SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI` is the URL where the JSON Web Key Set (JWS) for the JWT tokens is located. This key set is used by the application to validate the signature of the JWT tokens issued by Keycloak
+- `SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI` is the URL where the JSON Web Key Set (JWS) for the JWT tokens is located. This key set is used by the application to validate the signature of the JWT tokens issued by Keycloak.
 
 
-- `AUTH_SERVER_INTROSPECTIONURI`: the URL used by the application to check the validity of a token against the Keycloak server. Introspection allows the application to verify that a token has not been revoked or expired
+- `AUTH_SERVER_INTROSPECTIONURI` the URL used by the application to check the validity of a token against the Keycloak server. Introspection allows the application to verify that a token has not been revoked or expired.
 
 #### PostgreSQL connection details
 
-- `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD` are the connection details for the PostgreSQL database. The value for the `SPRING_DATASOURCE_URL` needs to be appended with  `?stringtype=unspecified` (Song as it is coded requires string type to be unspecified to interact with JSONb columns)
+- `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD` are the connection details for the PostgreSQL database. The value for the `SPRING_DATASOURCE_URL` needs to be appended with  `?stringtype=unspecified` (Song as it is coded requires string type to be unspecified to interact with JSONb columns).
 
 #### Kafka Variables
 
-- `SPRING_KAFKA_BOOTSTRAP-SERVERS` and `SPRING_KAFKA_TEMPLATE_DEFAULT-TOPIC` specifies the bootstrap servers and default topics for message publishing
+- `SPRING_KAFKA_BOOTSTRAP-SERVERS` and `SPRING_KAFKA_TEMPLATE_DEFAULT-TOPIC` specifies the bootstrap servers and default topics for message publishing.
 
 #### Custom Swagger URL
 
-- `SWAGGER_ALTERNATEURL` specifies an custome URL for accessing the Swagger UI (`/swagger-ui`)
+- `SWAGGER_ALTERNATEURL` specifies an custome URL for accessing the Swagger UI (`/swagger-ui`).
 
 <br></br>
 
@@ -271,7 +272,7 @@ docker run -d \
   --platform linux/amd64 \
   -p 8080:8080 \
   --env-file .env.song \
-  ghcr.io/overture-stack/song-server:438c2c42
+  ghcr.io/overture-stack/song-server:5.2.0
 ```
 
 Once running you should be able to access the Song Swagger UI from `http://localhost:8080/swagger-ui`
@@ -329,11 +330,11 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://keycloak:8080/realm
 
 #### Spring Run Profiles
 
-- **Spring Run Profiles** activates specific profiles for the application with defined configurations. Profiles and their specified enviorment variables are defined in the [Score server application.yml](https://github.com/overture-stack/score/blob/develop/score-server/src/main/resources/application.yml). The profiles used here are summarized below
+- **Spring Run Profiles** activates specific profiles for the application with defined configurations. Profiles and their specified enviorment variables are defined in the [Score server application.yml](https://github.com/overture-stack/score/blob/develop/score-server/src/main/resources/application.yml). The profiles used here are summarized below.
 
 | Profile       | Description                                                                                                                                                                                                 |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `collaboratory` | Configures the service for use with the Cancer Collaboratory, including S3 endpoint, metadata server URL, and legacy mode settings.                                                            |
+| `collaboratory` | Configures the service for use with an S3 backend.                                             |
 | `prod`        | Optimizes the service for production use, enabling S3 security features and specifying the metadata server URL.                                                                                           |
 | `secure`      | Implements OAuth authentication, specifying the authentication server URL, token name, client ID, client secret, and scopes for download and upload operations.                                  |
 | `JWT`      |  The JWT (JSON Web Token) profile is used to configure the authentication method based on JWT. This profile includes settings to obtain the public key for token validation from an OAuth server.                             |
@@ -341,14 +342,14 @@ SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=http://keycloak:8080/realm
 
 #### Song & Score Variables
 
-  - `SERVER_PORT` and `SERVER_SSL_ENABLED` specifies the port for the Score service (`8087`) and disables SSL (`false`), indicating HTTP communication.
+  - `SERVER_PORT` and `SERVER_SSL_ENABLED` specifies the port for the Score service (`8087`) and disables SSL (`false`), indicating HTTP communication. SSL is disabled to simplify deployment by avoiding the need to configure SSL certificates for HTTPS. This configuration should only be used in development environments and not in production.
 
 
-  - `METADATA_URL` points to the url for our previously deployed song-server at `http://song:8080`
+  - `METADATA_URL` points to the url for our previously deployed song-server at `http://song:8080`.
 
 #### Object Storage Variables
 
-- `S3_ENDPOINT`, `S3_ACCESSKEY`, `S3_SECRETKEY`, `BUCKET_NAME_OBJECT`, `BUCKET_NAME_STATE` defines access to object storage, including the endpoint (`minio:9001`), access key (`admin`), secret key (`admin123`), bucket names for objects (`object`) and state (`state`)
+- `S3_ENDPOINT`, `S3_ACCESSKEY`, `S3_SECRETKEY`, `BUCKET_NAME_OBJECT`, `BUCKET_NAME_STATE` defines access to object storage, including the endpoint (`minio:9001`), access key (`admin`), secret key (`admin123`), bucket names for objects (`object`) and state (`state`).
 
 
 - `UPLOAD_PARTSIZE` specifies the maximum size of individual parts when uploading large files to an object storage service. Large files are typically split into smaller parts to facilitate parallel uploads and to manage network bandwidth efficiently. If network bandwidth is limited, smaller part sizes might be beneficial to keep the upload process moving quickly. On the other hand, if the application requires high throughput and can afford to wait longer for uploads to complete, larger part sizes might be preferable.
@@ -383,7 +384,7 @@ docker run -d \
   --platform linux/amd64 \
   -p 8087:8087 \
   --env-file .env.score \
-  ghcr.io/overture-stack/score-server:47f006ce
+  ghcr.io/overture-stack/score-server:5.11.0
 ```
 
 Once running you should be able to access the Score Swagger UI from `http://localhost:8087/swagger-ui`

@@ -224,7 +224,7 @@ Within `workflow`, we can see the use of `propertyNames`, `enum`, `required fiel
 
 **minItems & maxItems**
 
-The JSON Schema below is a simplified workflow property made to show to usage of minItems and maxItems
+The JSON Schema below is a simplified workflow property made to show to usage of `minItems` and `maxItems`
 
 ```JSON
       "workflow": {

@@ -60,7 +60,7 @@ docker run -d -it --name score-client \
     --network="host" \
     --platform="linux/amd64" \
     --mount type=bind,source=./guideMaterials/dataDownload,target=/output \
-    ghcr.io/overture-stack/score:47f006ce
+    ghcr.io/overture-stack/score:latest
 ```
 
 <details>

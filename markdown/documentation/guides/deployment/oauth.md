@@ -11,7 +11,12 @@ Keycloak will be set up first to broker authorization tokens, enabling secure co
 1. **Run PostgreSQL:** Use the following command to pull and run the PostgreSQL docker container
 
 ```bash
-docker run --name keycloak-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin123 -e POSTGRES_DB=keycloakDb -v./persistentStorage/keycloak-db-data:/var/lib/postgresql/data -d postgres
+docker run --name keycloak-db \
+ -e POSTGRES_USER=admin \
+ -e POSTGRES_PASSWORD=admin123 \
+ -e POSTGRES_DB=keycloakDb \
+ -v ./persistentStorage/keycloak-db-data:/var/lib/postgresql/data \
+ -d postgres:14
 ```
 
 This command runs a postgres image named `keycloak-db` with the username `admin`, password `admin123` and a database within it called `keycloakDb`.
