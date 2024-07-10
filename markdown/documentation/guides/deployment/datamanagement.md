@@ -22,7 +22,7 @@ docker run -d --name minio \
   server /data
 ```
 
-**Create buckets in Minio:** Run the following command to create two buckets in the running Minio server using the Minio CLI - this will create an **object** bucket to store uploaded files and a **state** bucket for metadata files managed by Score.
+**Create buckets in MinIO:** Run the following command to create two buckets in the running MinIO server using the MinIO CLI - this will create an **object** bucket to store uploaded files and a **state** bucket for metadata files managed by Score.
 
 ```bash
 docker run --name minio-client \
