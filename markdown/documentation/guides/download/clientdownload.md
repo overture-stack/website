@@ -59,9 +59,11 @@ docker run -d -it --name score-client \
     -e METADATA_URL=http://localhost:8080 \
     --network="host" \
     --platform="linux/amd64" \
-    --mount type=bind,source=./guideMaterials/dataDownload,target=/output \
+    --mount type=bind,source=./guideMaterials/dataDownload/,target=/output \
     ghcr.io/overture-stack/score:latest
 ```
+
+<Warning>**Note:** Ensure you are running the following commands from the root directory of the quickstart folder. The values here reflect those compatible with the Overture QuickStart.</Warning>
 
 <details>
 
@@ -98,16 +100,19 @@ docker run -d -it --name score-client \
 
 ## Step 4: Download your Data
 
+Add the manifest to the `./guideMaterials/dataDownload` folder in your QuickStart repository. For simplicity, update its name to manifest.tsv. After moving and renaming the manifest, you can run the provided command:
+
 ```bash
-docker exec score-client sh -c "score-client download --manifest ./output/manifest.txt --output-dir ./output"
+docker exec score-client sh -c "score-client download --manifest /output/manifest.tsv --output-dir /output""
 ```
 
--  `<manifestDirectory>` represents the location of the earlier generated manifest file for simplicity you can either point to your download folder or move your manifest.tsv to the dataDownload folder in the quickstart repository
+
+-  `/dataFiles/manifest.tsv` represents the location of the earlier generated manifest file for simplicity you can either point to your download folder or move your manifest.tsv to the dataDownload folder in the quickstart repository
 
 
-- `<outputDirectory>` specifies where you intend to download the files
+- `/output` specifies the directory you intend to download the files too
 
-If successful the Score Client should produce the following logs and your files will now be located within your output directory.
+If successful the Score Client should produce the following logs and your files will now be located within your output directory (`./guideMaterials/dataDownload`).
 
 ```bash
 Downloading...                                                                                                                                                 
