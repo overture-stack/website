@@ -4,7 +4,9 @@ title: Deployment Guide
 
 **This guide is for** anyone seeking guidance on how to deploy an Overture platform
 
-**You will need** Docker, we recommend using Docker Desktop; for more information, visit [Docker'ss website](https://www.docker.com/products/docker-desktop/)
+**You will need** Docker, we recommend using Docker Desktop version `4.32.0` or higher. If you already have Docker installed, please ensure it's up to date. For more information see, [Dockers website here](https://www.docker.com/products/docker-desktop/).
+
+<Warning>**Note:** Ensure enough resources get allocated to Docker. We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**.</Warning>
 
 <Note title="File Management">To simplify managing your configuration files, create a folder (e.g., `localOverturePlatform`) as the root directory of your project. All commands should be run from this directory.</Note>
 

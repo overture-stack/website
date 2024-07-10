@@ -4,7 +4,9 @@ title: Administration Guides
 
 **These guides are for** anyone seeking information on configuring and using Overture as their platforms's foundation. We will walk you through the essential information for configuring it. 
 
-**You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
+**You will need** Docker, we recommend using Docker Desktop version `4.32.0` or higher. If you already have Docker installed, please ensure it's up to date. For more information see, [Dockers website here](https://www.docker.com/products/docker-desktop/).
+
+<Warning>**Note:** Ensure enough resources get allocated to Docker. We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**.</Warning>
 
 **Overview:** This guide covers basic administration tasks associated with setting up and maintaining an Overture platform. Topics covered include:
 
