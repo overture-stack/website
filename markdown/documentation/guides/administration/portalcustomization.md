@@ -6,7 +6,7 @@ title: Customizing your Data Portal
 
 ## Introduction
 
-Arrangers simplifies graphQL queries over elasticsearch indices with it's front-end library of search components. The primary configurable components for this guide are the left hand search facet and the central data table seen below.
+Arranger simplifies GraphQL queries over Elasticsearch indices with it's front-end library of reusable search components. The primary configurable components for this guide are the left hand search facets and the central data table seen below.
 
 ![Portal](./assets/portal.png 'Portal')
 
