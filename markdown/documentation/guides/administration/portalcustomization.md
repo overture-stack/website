@@ -17,7 +17,7 @@ Arrangers simplifies graphQL queries over elasticsearch indices with it's front-
 
 Indices in Elasticsearch are a collection of related documents with similar characteristics.
 
-**ElasticVue** offers a convenient and user-friendly interface for managing and exploring your Elasticsearch data. With ElasticVue, you can:
+**[Elasticvue](https://elasticvue.com/)** offers a convenient and user-friendly interface for managing and exploring your Elasticsearch data. With elasticvue, you can:
 
 - Easily visualize and search through indexed documents.
 - Quickly access and interact with JSON documents.
