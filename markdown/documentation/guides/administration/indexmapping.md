@@ -264,7 +264,7 @@ If you change this template to match your own custom schema, and wish to populat
 - **Maestro Elasticsearch Variables:** Maestro requires specific information about the alias and centrality of the index. Make sure [these variables are updated](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L303-L307)
 
 
-- **Arranger Configuration Files:** Update [Arrangers configuration](https://github.com/overture-stack/composer/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the frontend search interface, correctly interprets and interacts with your Elasticsearch data
+- **Arranger Configuration Files:** Update [Arranger configuration](https://github.com/overture-stack/composer/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the front-end search interface, correctly interprets and interacts with your Elasticsearch data
 
 <Note title="Updating Arranger Configuration Files">For detailed instructions on customizing the search interface in Arranger to align with your updated mapping, refer to the next section on search interface customization.</Note>
 
