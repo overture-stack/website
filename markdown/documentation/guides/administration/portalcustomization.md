@@ -180,7 +180,7 @@ $.analysis.collaborator.hits.edges[*].node.name
 - `$.` designates the root of our elasticsearch documents
 - `analysis.collaborator` is the key for our desired nested object within the root
 - `hits.edges[*].node` specifies that we're accessing an array (`[*]` translates to "all elements" in the array)
-- `name` specifies the desired field we want to extract from our elasticsearch documents
+- `name` specifies the desired field we want to extract from our Elasticsearch documents
 
 ### query
 
