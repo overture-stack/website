@@ -98,7 +98,7 @@ docker run --name song-db \
 
 <br></br>
 
-<Note title="Bringing it together">By setting up Minio alongside PostgreSQL, we have created an environment capable of handling both relational and object data storage, simulating a backend infrastructure similar to what you'd find in a cloud-based application.</Note>
+<Note title="Bringing it together">By setting up MinIO alongside PostgreSQL, we have created an environment capable of handling both relational and object data storage, simulating a backend infrastructure similar to what you'd find in a cloud-based application.</Note>
 
 ## Running Kafka
 
