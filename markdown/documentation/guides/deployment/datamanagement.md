@@ -53,7 +53,7 @@ You should now be able to access the minio console from the browser at `localhos
 ### Minio Client Image
 
 
-- **Alias:** `alias set myminio http://host.docker.internal:9000 admin admin123` creates an `alias` for the Minio server, with an `admin` user with a the password `admin123`.
+- **Alias:** `alias set myminio http://host.docker.internal:9000 admin admin123` creates an `alias` for the MinIO server, with an `admin` user with a the password `admin123`.
 
 
 - **State Bucket:** `mb myminio/state` creates a bucket named "state". The "state" bucket is designated for storing application state data. This could include metadata about the objects stored in the "object" bucket.
