@@ -23,7 +23,7 @@ Indices in Elasticsearch are a collection of related documents with similar char
 - Quickly access and interact with JSON documents.
 - Simplify the management and troubleshooting of Elasticsearch indices.
 
-**To install ElasticVue, follow these steps:**
+**To install elasticvue, follow these steps:**
 
 1. Visit the Chrome Web Store (or Firefox Add-ons) and search for the **ElasticVue** browser extension.
 
