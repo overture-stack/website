@@ -63,7 +63,7 @@ The [base.json file](https://github.com/overture-stack/composer/blob/develop/con
 -  The `index` field specifies the name of the Elasticsearch index, in this example the `overture-quickstart-index`
 
 
--  `documentType` informs arranger of the mapping type being used by Maestro, `analysis` or `file` centric
+-  `documentType` informs Arranger of the mapping type being used by Maestro, `analysis` or `file` centric
 
 <Note title="Learn More">For more information on index mappings and index centricity, see our [administration guide covering index mappings.](/documentation/guides/administration/indexmapping/)</Note>
 
