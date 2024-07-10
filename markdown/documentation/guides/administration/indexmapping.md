@@ -57,7 +57,7 @@ Here we define our alias as `file_centric` providing us some context on the meth
 
 The settings section is for configuring index behavior. Each setting plays a role in defining how data is indexed, stored, and queried in Elasticsearch, optimizing performance and scalability based on specific use cases and requirements. 
 
-Most of these will be automatically be configured by Maestro however, we will outline the additional settings used in our index template including `analyzers`, `filters`, and `tokenizers`, essential components in Elasticsearch that contribute to how text data is indexed, analyzed, and searched.
+Most of these will be automatically configured by Maestro. However, we will outline the additional settings used in our index template including `analyzers`, `filters`, and `tokenizers`, essential components in Elasticsearch that contribute to how text data is indexed, analyzed, and searched.
 
 ```json
   "settings": {
