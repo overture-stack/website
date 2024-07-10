@@ -155,18 +155,18 @@ export default function GettingStartedPage() {
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={SUBMISSION_GUIDE}>Submission:</a> detailed stepwise
-                instructions for customizing your platform
+                <a href={SUBMISSION_GUIDE}>Submission:</a>stepwise instructions
+                on submitting data to our platform
               </li>
               <li className="bullet-item">
                 {' '}
                 <a href={DOWNLOAD_GUIDE}>Download:</a> stepwise instructions on
-                submitting data to your platform
+                downloading data from our platform
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={ADMINISTRATION_GUIDE}>Administration:</a> stepwise
-                instructions on downloading data from your platform
+                <a href={ADMINISTRATION_GUIDE}>Administration:</a> detailed
+                stepwise instructions for customizing your platform
               </li>
             </ul>
           </div>
