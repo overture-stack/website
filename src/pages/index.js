@@ -46,6 +46,7 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 export default function HomePage() {
   const [carouselPage, setCarouselPage] = useState(0);
   const handleLeftArrowClick = () => {
+    // this allows for carousel looping from the first slide
     carouselPage === 0
       ? setCarouselPage(caseData.length - 1)
       : setCarouselPage(carouselPage - 1);
