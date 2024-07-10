@@ -38,9 +38,9 @@ Indices in Elasticsearch are a collection of related documents with similar char
 
 ### Using ElasticVue
 
-From the ElasticVue dashboard's top navigation, select **search**.
+From the elasticvue dashboard's top navigation, select **search**.
 
-![ElasticVue](./assets/elasticvue.png 'ElasticVue')
+![Elasticvue](./assets/elasticvue.png 'Elasticvue')
 
 This page displays all indexed Elasticsearch documents created by Maestro from published Song analyses and used by Arranger. Clicking any of the `_index` rows will give you a direct view of the JSON documents that populate the index.
 
