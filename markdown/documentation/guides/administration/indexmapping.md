@@ -10,7 +10,7 @@ Maestro is responsible for taking published Song metadata and translating it int
 
 Depending on how Maestro is configured it can index data into documents in one of two ways:
 
-- **File Centric Indexing:** Each indexed document in Elasticsearch describes all related information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
+- **File Centric Indexing:** Each document indexed in Elasticsearch describes all information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
 
 
 - **Analysis Centric Indexing** Each indexed document in Elasticsearch describes all related information central to a specific analysis. [Click here to see an example of a analysis centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-analysisCentric-document.json).
