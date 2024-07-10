@@ -38,7 +38,7 @@ docker run --name minio-client \
   exit 0;'
 ```
 
-You should now be able to access the minio console from the browser at `localhost:9000`
+You should now be able to access the MinIO console from the browser at `localhost:9000`
 
 <details>
 
