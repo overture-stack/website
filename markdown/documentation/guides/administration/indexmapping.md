@@ -8,7 +8,7 @@ An index mapping defines how documents and their fields are stored and indexed i
 
 Maestro is responsible for taking published Song metadata and translating it into Elasticsearch documents. With these documents Arranger uses the index mapping and generates our GraphQL server which enables fast and flexible queries.
 
-Depending on how Maestro is configure it can index data into documents in one of two ways:
+Depending on how Maestro is configured it can index data into documents in one of two ways:
 
 - **File Centric Indexing:** Each indexed document in Elasticsearch describes all related information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
 
