@@ -52,6 +52,7 @@ export default function HomePage() {
       : setCarouselPage(carouselPage - 1);
   };
   const handleRightArrowClick = () => {
+    // this allows for carousel looping from the last slide
     carouselPage === caseData.length - 1
       ? setCarouselPage(0)
       : setCarouselPage(carouselPage + 1);
