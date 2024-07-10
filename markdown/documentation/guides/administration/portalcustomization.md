@@ -25,7 +25,7 @@ Indices in Elasticsearch are a collection of related documents with similar char
 
 **To install elasticvue, follow these steps:**
 
-1. Visit the Chrome Web Store (or Firefox Add-ons) and search for the **ElasticVue** browser extension.
+1. Search for **elasticvue**  in your browser's extension catalogue. E.g. Chrome Web Store, Firefox Add-ons, Microsoft Webstore.
 
 
 2. Click on **"Add to Chrome"** (or **"Add to Firefox"**) to install the extension.
