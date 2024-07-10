@@ -53,7 +53,7 @@ const AboutUsPage = () => {
               <P2>
                 We are the{' '}
                 <Link to={GI_PROGRAM_LINK}>
-                  Genome Informatics team from Ontario's Institute for Cancer
+                  Genome Informatics Software Engineering team from Ontario Institute for Cancer
                   Research
                 </Link>
                 . At OICR we develop new software, databases and other necessary
