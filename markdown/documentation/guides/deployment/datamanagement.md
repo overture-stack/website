@@ -48,7 +48,7 @@ You should now be able to access the minio console from the browser at `localhos
 
 ### Minio Image
 
-- The `-v $./persistentStorage/data-minio:/data` configures Minio to store data in our local filesystem instead of in the docker container. Files you upload to Minio will be stored at the path `./persistentStorage/data-minio`.
+- The `-v $./persistentStorage/data-minio:/data` configures MinIO to store data in our local file system instead of in the docker container. Files you upload to MinIO will be stored at the path `./persistentStorage/data-minio`.
 
 ### Minio Client Image
 
