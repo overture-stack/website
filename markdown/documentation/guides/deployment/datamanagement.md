@@ -4,7 +4,7 @@ title: Deployment Guide
 
 # Data Management and Storage Setup
 
-Song, Score and their dependent services (Postgres, Minio, and Kafka) will be set up next. These services will manage, track and store all our data on the backend. 
+Song, Score and the services they depend on (Postgres, Minio, and Kafka) will be set up next. These Overture services will manage, track and store all our data on the backend. 
 
 ## Setting up Object Storage
 
