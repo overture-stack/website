@@ -31,7 +31,7 @@ Indices in Elasticsearch are a collection of related documents with similar char
 2. Click on **"Add to Chrome"** (or **"Add to Firefox"**) to install the extension.
 
 
-3. Open ElasticVue and enter your Elasticsearch URL. For the Overture Quickstart, this will be `localhost:9200`.
+3. Open elasticvue and enter your Elasticsearch URL. For the Overture Quickstart, this will be `http://localhost:9200`.
 
 
 4. Select basic authentication and enter the default username `elastic` and password `myelasticpassword`.
