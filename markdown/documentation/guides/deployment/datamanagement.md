@@ -8,7 +8,7 @@ Song, Score and the services they depend on (Postgres, Minio, and Kafka) will be
 
 ## Setting up Object Storage
 
-The file transfer service Score is compatible with any S3 storage provider; for simplicity, we will use the open-source object Storage provider Minio for this setup. 
+The file transfer service Score is compatible with any S3 storage provider; for simplicity, we will use the open-source object Storage provider MinIO for this setup. 
 
 1. **Run MinIO:** Use the following command to pull and run the MinIO docker container
 
