@@ -10,7 +10,7 @@ import { Button, LinkHelper as Link } from 'components';
 import {
   ABOUT_US_PATH,
   CASE_STUDIES_PATH,
-  DOCUMENTATION_PATH,
+  GETTING_STARTED_PATH,
   HOME_PATH,
   PRODUCTS_PATH,
   SERVICES_PATH,
@@ -21,14 +21,22 @@ import './styles.scss';
 
 class NavBar extends Component {
   render() {
-    const { closeMenus, megaMenuType, mobileMenuOpen, path, toggleMegaMenu, toggleMobileMenu } =
-      this.props;
+    const {
+      closeMenus,
+      megaMenuType,
+      mobileMenuOpen,
+      path,
+      toggleMegaMenu,
+      toggleMobileMenu,
+    } = this.props;
 
     let mobileMenuClass = mobileMenuOpen ? 'is-active' : '';
     let navbarMenuClass = `navbar-menu ${mobileMenuClass}`;
     let burgerClass = `button navbar-burger ${mobileMenuClass}`;
     const mobileMegaCheck =
-      typeof window !== 'undefined' && mobileMenuOpen && window.innerWidth < 1216;
+      typeof window !== 'undefined' &&
+      mobileMenuOpen &&
+      window.innerWidth < 1216;
 
     return (
       <nav
@@ -52,7 +60,11 @@ class NavBar extends Component {
           </div>
           <div className={navbarMenuClass} id="navMenu">
             <div className="navbar-start items-center">
-              <NavLink closeMenus={closeMenus} url={PRODUCTS_PATH} name="Products" />
+              <NavLink
+                closeMenus={closeMenus}
+                url={PRODUCTS_PATH}
+                name="Products"
+              />
               <MegaMenuLink
                 isActive={megaMenuType === 'documentation'}
                 name="Documentation"
@@ -71,10 +83,22 @@ class NavBar extends Component {
                   )}
                 </div>
               </MegaMenuLink>
-              <NavLink closeMenus={closeMenus} url={CASE_STUDIES_PATH} name="Case Studies" />
+              <NavLink
+                closeMenus={closeMenus}
+                url={CASE_STUDIES_PATH}
+                name="Case Studies"
+              />
               {/* <NavLink closeMenus={closeMenus} url={COMMUNITY_PATH} name="Community" /> */}
-              <NavLink closeMenus={closeMenus} url={SERVICES_PATH} name="Services" />
-              <NavLink closeMenus={closeMenus} url={ABOUT_US_PATH} name="About Us" />
+              <NavLink
+                closeMenus={closeMenus}
+                url={SERVICES_PATH}
+                name="Services"
+              />
+              <NavLink
+                closeMenus={closeMenus}
+                url={ABOUT_US_PATH}
+                name="About Us"
+              />
             </div>
             {/* grey section with three cubes */}
             <div
@@ -95,7 +119,11 @@ class NavBar extends Component {
                   Join us on Slack
                 </Button>
 
-                <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
+                <Button
+                  link={GETTING_STARTED_PATH}
+                  size="medium"
+                  type="primary"
+                >
                   Get Started
                 </Button>
               </div>

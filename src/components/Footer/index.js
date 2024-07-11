@@ -7,15 +7,19 @@ import {
   ABOUT_US_PATH,
   ACKNOWLEDGEMENTS_PATH,
   CASE_STUDIES_PATH,
-  DOCUMENTATION_PATH,
   PRIVACY_PATH,
   PRODUCTS_PATH,
   SERVICES_PATH,
   TERMS_PATH,
 } from 'constants/pages';
-import { NETLIFY_LINK, NETLIFY_IMAGE_LINK, OICR_LINK } from 'constants/external-links';
+import {
+  NETLIFY_LINK,
+  NETLIFY_IMAGE_LINK,
+  OICR_LINK,
+} from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
+import { GETTING_STARTED_PATH } from '../../../constants/pages';
 
 const links = [
   {
@@ -25,14 +29,6 @@ const links = [
     newTab: true,
     className: '',
     key: 1,
-  },
-  {
-    name: 'Documentation',
-    url: DOCUMENTATION_PATH,
-    icon: null,
-    newTab: false,
-    className: '',
-    key: 2,
   },
   {
     name: 'About Us',

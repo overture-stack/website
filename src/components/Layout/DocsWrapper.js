@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import productsDict from 'constants/products';
-import { DOCUMENTATION_PATH } from 'constants/pages';
+import { GETTING_STARTED_PATH } from 'constants/pages';
 import {
-  CanarieCredits,
+  Credits,
   Icon,
   LinkHelper as Link,
   Search,
@@ -28,7 +28,9 @@ export default function DocsWrapper({ children, data, path }) {
       <div className="docs__mobile-sidebar__button">
         <button
           type="button"
-          className={`button navbar-burger ${isMobileSidebarOpen ? 'is-active' : ''}`}
+          className={`button navbar-burger ${
+            isMobileSidebarOpen ? 'is-active' : ''
+          }`}
           onClick={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
         >
           <span></span>
@@ -39,7 +41,11 @@ export default function DocsWrapper({ children, data, path }) {
       <div className="docs__header">
         <div className="docs__header-title">
           <Icon className="icon" size={45} img={iconWhite} />
-          <h1>{title} Documentation</h1>
+          <h1>
+            {sectionSlug !== 'guides'
+              ? `${title} Documentation`
+              : 'Platform Guides'}
+          </h1>
         </div>
         <div className="docs__header-search">
           <Search indices={searchIndices} />
@@ -53,12 +59,12 @@ export default function DocsWrapper({ children, data, path }) {
           }`}
         >
           <div className="docs__sidebar__sticky">
-            <Link to={DOCUMENTATION_PATH} className="docs__sidebar__overview">
+            <Link to={GETTING_STARTED_PATH} className="docs__sidebar__overview">
               <Icon size={6} img="arrowLeftBlue" />
               Documentation Overview
             </Link>
             <SectionTableOfContents pages={pages} path={path} />
-            {sectionSlug === 'dms' && <CanarieCredits />}
+            {sectionSlug === 'guides' && <Credits />}
           </div>
         </div>
         {children}

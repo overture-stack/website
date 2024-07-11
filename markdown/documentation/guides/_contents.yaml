@@ -1,0 +1,41 @@
+sectionSlug: guides
+sectionTitle: Platform Guides
+pages:
+  - title: Getting Started
+    url: guides
+  - title: Deployment Guide
+    url: guides/deployment
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/deployment/introduction
+     - title: Authorization
+       url: guides/deployment/oauth
+     - title: Data Management & Storage
+       url: guides/deployment/datamanagement
+     - title: Search Portal
+       url: guides/deployment/dataportal
+  - title: Administration Guide
+    url: guides/
+    isHeading: true
+    pages:
+     - title: Introduction
+       url: guides/administration/introduction
+     - title: Updating the Data Model
+       url: guides/administration/modelling
+     - title: Index Mappings
+       url: guides/administration/indexmapping
+     - title: Customizing the Data Portal
+       url: guides/administration/portalcustomization
+  - title: Submission Guide
+    url: guides/submission
+    isHeading: true
+    pages:
+     - title: CLI Submissions
+       url: guides/submission/clientsubmission
+  - title: Download Guide
+    url: guides/download
+    isHeading: true
+    pages:
+     - title: CLI Downloads
+       url: guides/download/clientdownload

@@ -4,14 +4,30 @@ import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import {
   ABOUT_US_PATH,
-  DOCUMENTATION_PATH,
   PRODUCTS_PATH,
   SERVICES_PATH,
   caseStudyAnchors,
   productsAnchors,
+  GETTING_STARTED_PATH,
 } from 'constants/pages';
-import { OVERTURE_GITHUB_LINK, SLACK_LINK } from '../../constants/external-links.js';
-import { Button, H1, H2, H3, P1, Icon, HomeProductLink, YellowButton, P2 } from 'components';
+import {
+  OVERTURE_GITHUB_LINK,
+  SLACK_LINK,
+  DEMO_LINK,
+  DOCKER_DOWNLOAD,
+} from '../../constants/external-links.js';
+import {
+  Button,
+  H1,
+  H2,
+  H3,
+  P1,
+  Icon,
+  HomeProductLink,
+  YellowButton,
+  P2,
+  Terminal,
+} from 'components';
 import caseData from 'data/case_studies';
 import bodyImg from './home/assets/overture_illustration.svg';
 import cubeMaroon from './home/assets/cube_maroon.svg';
@@ -20,7 +36,9 @@ import cubeYellow from './home/assets/cube_yellow.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
+import imgQuickStartPortal from './home/assets/img_overtureQuickstartPortal.webp';
 import './home/styles.scss';
+import { Link } from 'gatsby';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -28,10 +46,16 @@ Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
 export default function HomePage() {
   const [carouselPage, setCarouselPage] = useState(0);
   const handleLeftArrowClick = () => {
-    carouselPage === 0 ? setCarouselPage(caseData.length - 1) : setCarouselPage(carouselPage - 1);
+    // this allows for carousel looping from the first slide
+    carouselPage === 0
+      ? setCarouselPage(caseData.length - 1)
+      : setCarouselPage(carouselPage - 1);
   };
   const handleRightArrowClick = () => {
-    carouselPage === caseData.length - 1 ? setCarouselPage(0) : setCarouselPage(carouselPage + 1);
+    // this allows for carousel looping from the last slide
+    carouselPage === caseData.length - 1
+      ? setCarouselPage(0)
+      : setCarouselPage(carouselPage + 1);
   };
 
   return (
@@ -54,15 +78,16 @@ export default function HomePage() {
           <section className="Hero__section">
             <H1>Build. Deploy. Discover.</H1>
             <P1>
-              Overture is a collection of open-source software used to create discovery platforms
-              where researchers manage, share and access genomics data.
+              Overture is a collection of open-source software used to create
+              platforms where researchers manage, share and access genomics
+              data.
             </P1>
             <div className="Hero__small-buttons-container">
-              <Button link={PRODUCTS_PATH} size="medium" type="primary">
-                See Our Products
+              <Button link={GETTING_STARTED_PATH} size="medium" type="primary">
+                Get Started
               </Button>
-              <Button link={DOCUMENTATION_PATH} size="medium" type="primary">
-                Explore Our Docs
+              <Button link={DEMO_LINK} size="medium" type="primary">
+                View Demo
               </Button>
             </div>
           </section>
@@ -73,15 +98,22 @@ export default function HomePage() {
       <section className="section top-white">
         <div className="top-white__title-container">
           <H2 className="top-white__title">Powering big-data at scale</H2>
-          <P1>Overture has been successfully deployed in a diversity of large-scale projects.</P1>
+          <P1>
+            Overture has been successfully deployed in a diversity of
+            large-scale projects.
+          </P1>
         </div>
 
         {/* logos scroll bar  */}
         <div className="top-white__logos">
           {caseData.map((data, idx) => {
-            let active = idx === carouselPage ? 'top-white__logo-container-active' : '';
+            let active =
+              idx === carouselPage ? 'top-white__logo-container-active' : '';
             return (
-              <div className={`top-white__logo-container ${active}`} key={data.slug}>
+              <div
+                className={`top-white__logo-container ${active}`}
+                key={data.slug}
+              >
                 <img
                   src={data.logo}
                   alt={data.slug}
@@ -115,7 +147,11 @@ export default function HomePage() {
                   handleLeftArrowClick();
                 }}
               />
-              <a href={caseData[carouselPage].portalLink} target="_blank" rel="noopener noreferrer">
+              <a
+                href={caseData[carouselPage].portalLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={caseData[carouselPage].details[0].screenshot}
                   alt="screenshot"
@@ -142,7 +178,9 @@ export default function HomePage() {
                     handleLeftArrowClick();
                   }}
                 />
-                <H3 className="top-white__blue-container-title">{caseData[carouselPage].title}</H3>
+                <H3 className="top-white__blue-container-title">
+                  {caseData[carouselPage].title}
+                </H3>
                 <Button
                   icon={'arrowRightBlack'}
                   type="default"
@@ -187,9 +225,9 @@ export default function HomePage() {
       <section className="section upper-grey bg-grey">
         <div className="upper-grey__mobile">
           <h2 className="upper-grey__text">
-            We are a team of software engineers, data scientists, and cloud infrastructure
-            specialists creating applications that store, manage, and explore massive genomic
-            datasets.
+            We are a team of software engineers, data scientists, and cloud
+            infrastructure specialists creating applications that store, manage,
+            and explore massive genomic datasets.
           </h2>
         </div>
 
@@ -208,17 +246,32 @@ export default function HomePage() {
             />
             <span className="upper-grey__text">software</span>
             <span className="upper-grey__text">engineers,</span>
-            <Icon alt="Data Icon" img="data" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Data Icon"
+              img="data"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">data</span>
             <span className="upper-grey__text">scientists</span>
             <span className="upper-grey__text">and</span>
-            <Icon alt="Cloud Icon" img="cloudWeather" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Cloud Icon"
+              img="cloudWeather"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">cloud </span>
             <span className="upper-grey__text">infrastructure</span>
             <span className="upper-grey__text">specialists </span>
             <span className="upper-grey__text">creating</span>
             <span className="upper-grey__text">applications</span>
-            <Icon alt="Big Data Icon" img="bigData" size="60px" className="upper-grey__icon" />
+            <Icon
+              alt="Big Data Icon"
+              img="bigData"
+              size="60px"
+              className="upper-grey__icon"
+            />
             <span className="upper-grey__text">to</span>
             <span className="upper-grey__text">store,</span>
             <span className="upper-grey__text">manage,</span>
@@ -227,27 +280,41 @@ export default function HomePage() {
             <span className="upper-grey__text">massive genomic datasets.</span>
           </h2>
         </div>
-        <Button
-          link={ABOUT_US_PATH}
-          size="medium"
-          type="primary"
-          className="upper-grey__button mt2"
-        >
-          About Us
-        </Button>
+        <div className="mt3 lower-grey__buttons">
+          <Button
+            link={ABOUT_US_PATH}
+            size="medium"
+            type="primary"
+            className="upper-grey__button mt2"
+          >
+            About Us
+          </Button>
+          <Button
+            link={SERVICES_PATH}
+            size="medium"
+            type="primary"
+            className="upper-grey__button mt2"
+          >
+            Our Services
+          </Button>
+        </div>
       </section>
 
       {/* floating yellow cube */}
-      <img src={cubeYellow} alt="Floating Yellow Cube" className="yellow-cube" />
+      <img
+        src={cubeYellow}
+        alt="Floating Yellow Cube"
+        className="yellow-cube"
+      />
 
       {/* middle white section - titled our products */}
       <section className="middle-white section">
         <div className="middle-white__titles-holder">
           <H2>Our Products</H2>
           <P1 className="middle-white__title-text">
-            Built to be reusable and scalable, Overture was created to share our data science
-            components with the community. Our ecosystem of research software tools reduces
-            redundant efforts and enables the creation of robust genomics data applications.
+            Built to be reusable and scalable, our ecosystem of research
+            software tools reduces redundant efforts and enables the creation of
+            robust genomics data applications
           </P1>
         </div>
         <div className="middle-white__content">
@@ -296,120 +363,134 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* upper grey section */}
-      <section className="section upper-grey bg-grey">
-        <div className="upper-grey__mobile">
-          <h2 className="upper-grey__text">
-            Our components are well documented, actively supported, and welcome external feedback
-            and contributions. If you need assistance, we also offer consulting, support, and
-            collaborative services.
-          </h2>
-        </div>
+      <img
+        src={cubeMaroon}
+        alt="Floating Maroon Cube"
+        className="maroon-cube"
+      />
 
-        <div className="upper-grey__not-mobile">
-          <h2 className="upper-grey__line ">
-            <span className="upper-grey__text">Overture’s components</span>
-            <span className="upper-grey__text">are</span>
-            <span className="upper-grey__text">well</span>
-            <Icon
-              alt="exploreDocs Icon"
-              img="exploreDocs"
-              size="60px"
-              className="upper-grey__icon"
-            />
-            <span className="upper-grey__text">documented</span>
-            <span className="upper-grey__text">actively</span>
-            <Icon alt="support Icon" img="support" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">supported,</span>
-            <span className="upper-grey__text">and</span>
-            <Icon alt="feedback Icon" img="feedback" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">welcome</span>
-            <span className="upper-grey__text">external feedback</span>
-            <span className="upper-grey__text">and contributions.</span>
-            <span className="upper-grey__text">If you need</span>
-            <Icon alt="assistance Icon" img="assistance" size="60px" className="upper-grey__icon" />
-            <span className="upper-grey__text">assistance,</span>
-            <span className="upper-grey__text">we also offer</span>
-            <span className="upper-grey__text">consulting, support,</span>
-            <span className="upper-grey__text">and collaborative services.</span>
-          </h2>
-        </div>
-        <div className="mt3 lower-grey__buttons">
-          <Button
-            link={SERVICES_PATH}
-            size="medium"
-            type="primary"
-            className="upper-grey__button mt2"
-          >
-            Our Services
-          </Button>
-          <Button
-            link={OVERTURE_GITHUB_LINK}
-            size="medium"
-            type="primary"
-            className="upper-grey__button mt2"
-          >
-            Our GitHub
-          </Button>
-        </div>
-      </section>
+      {/* lower blue section */}
+      <section className="lower-blue-section">
+        <div className="lower-blue-section__container">
+          <div className="lower-blue-section__holder">
+            <div className="lower-blue-section__title-holder">
+              <H2>Getting Started</H2>
+              <P2 className="text-subtitle">
+                <b>
+                  <code>3</code> Steps, <code>2</code> Commands, <code>1</code>{' '}
+                  Platform
+                </b>
+              </P2>
+              <P1 className="middle-white__title-text">
+                The Overture Quickstart enables a fast and frictionless setup of
+                our data platform locally.
+              </P1>
+            </div>
+            {/* div with the blue background */}
 
-      {/* floating marron cuve */}
-      <img src={cubeMaroon} alt="Floating Maroon Cube" className="maroon-cube" />
-
-      <section className="section lower-white">
-        <div className="lower-white__title-container">
-          <H2 className=" lower-white__title ">Getting Started</H2>
-          <P1>Ready to jump in? We've got some resources to help.</P1>
-        </div>
-        <div className="lower-white__yellow-buttons">
-          <YellowButton
-            img_src="identifyNeeds"
-            alt="identifyNeeds Icon"
-            title="See Our Products"
-            text="Learn about our core components and how they work."
-            link="/products/"
-          />
-          <YellowButton
-            img_src="exploreDocs"
-            alt="exploreDocs Icon"
-            title="Explore Our Docs"
-            text="See how to deploy, configure and use our software."
-            link="/documentation/"
-          />
-          <YellowButton
-            img_src="joinCommunity"
-            alt="joinCommunity Icon"
-            title="Join Our Community"
-            text="Get help, share knowledge, and stay current."
-            link={SLACK_LINK}
-          />
-        </div>
-      </section>
-
-      <img src={cubeTealBlue} alt="Floating Blueish Teal Cube" className="teal-blue-cube" />
-
-      <img src={cubeChartreuse} alt="Floating Yellowish Green Cube" className="chartreuse-cube" />
-
-      <section className="lower-grey section bg-grey">
-        <div className="lower-grey__container">
-          <h2 className="upper-grey__text lower-grey__text">
-            Build. Deploy. Discover. <br></br>Craft tomorrow's data solution, today.
-          </h2>
-          <div className="mt3 lower-grey__buttons">
-            <Button type="primary" size="medium" link={DOCUMENTATION_PATH}>
-              Get Started
-            </Button>
-            <Button type="primary" size="medium" link={PRODUCTS_PATH}>
-              Learn More
-            </Button>
+            <div className="lower-blue-section__content-holder">
+              <div className="lower-blue-section__img-holder">
+                <img
+                  src={imgQuickStartPortal}
+                  alt="Overture QuickStart Portal screenshot"
+                  className="lower-blue-section__img"
+                />
+              </div>
+              <div className="upper-grey-section__content-holder">
+                <div className="upper-grey-section__text-holder">
+                  <div className="terminal-section">
+                    <P2 className="text-section">
+                      <b>
+                        1. Download and configure{' '}
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={DOCKER_DOWNLOAD}
+                        >
+                          Docker Desktop (4.32.0+)
+                        </a>
+                      </b>
+                    </P2>
+                    <span className="text-section">
+                      In Docker Desktop click the cog{' '}
+                      <Icon
+                        alt=""
+                        img="cog"
+                        size={32}
+                        style={{ verticalAlign: 'middle' }}
+                      />{' '}
+                      icon , then resources. We recommend at minimum setting
+                      your CPU limit to <code>8</code>, memory to{' '}
+                      <code>8GB</code>, swap to <code>2GB</code>, with
+                      <code>64GB</code> of virtual disk space available. If you
+                      have Docker already installed ensure it is up to date.
+                    </span>
+                    <P2 className="text-section">
+                      <b>2. Clone the QuickStart Repository</b>
+                    </P2>
+                    <Terminal
+                      prompts={[
+                        'git clone  https://github.com/overture-stack/composer.git && cd composer',
+                      ]}
+                    />
+                    <P2 className="text-section">
+                      <b>3. Run the Docker Compose</b>
+                    </P2>
+                    <Terminal
+                      prompts={['docker compose up --attach conductor']}
+                    />
+                    <div className="text-section">
+                      <span>
+                        Your portal should take will be accessible from your:{' '}
+                        <code>localhost:3000</code>
+                      </span>
+                    </div>
+                    <div className="mt3 lower-blue-section__buttons">
+                      <Button
+                        link={GETTING_STARTED_PATH}
+                        size="medium"
+                        type="primary"
+                        className="upper-grey__button mt1"
+                      >
+                        Guides & Documentation
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      <img
+        src={cubeTealBlue}
+        alt="Floating Blueish Teal Cube"
+        className="teal-blue-cube"
+      />
+
+      <img
+        src={cubeChartreuse}
+        alt="Floating Yellowish Green Cube"
+        className="chartreuse-cube"
+      />
+
+      <section className="lower-grey section bg-grey">
+        <div className="lower-grey__container">
+          <h2 className="upper-grey__text lower-grey__text">
+            Build. Deploy. Discover. <br></br>Craft tomorrow's data solution,
+            today.
+          </h2>
+        </div>
+      </section>
+
       {/* floating bright teal cube */}
-      <div className="bg-grey">
-        <img src={cubeBrightTeal} alt="Floating Bright Teal Cube" className="bright-teal-cube" />
+      <div>
+        <img
+          src={cubeBrightTeal}
+          alt="Floating Bright Teal Cube"
+          className="bright-teal-cube"
+        />
       </div>
     </main>
   );
