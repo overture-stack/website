@@ -9,7 +9,6 @@ import {
   VIRUSSEQ_LINK,
   VIRUSSEQ_PORTAL_LINK,
   KIDS_FIRST_LINK,
-  KIDS_FIRST_PORTAL_LINK,
   IHCC_LINK,
   IHCC_PORTAL_LINK,
   HCMIS_LINK,
@@ -43,11 +42,12 @@ export default [
     portalLink: ICGC_ARGO_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={ICGC_ARGO_LINK}>ICGC ARGO Data Platform platform</Link> builds on the legacy
-        of the ICGC 25K Data Portal by harmonizing molecular and high-quality clinical data from
-        global genomics efforts into a collective and unified knowledge base. ICGC ARGO will improve
-        patient outcomes by enabling discovery through the responsible sharing of this curated data
-        set with researchers worldwide.
+        The <Link to={ICGC_ARGO_LINK}>ICGC ARGO Data Platform platform</Link>{' '}
+        builds on the legacy of the ICGC 25K Data Portal by harmonizing
+        molecular and high-quality clinical data from global genomics efforts
+        into a collective and unified knowledge base. ICGC ARGO will improve
+        patient outcomes by enabling discovery through the responsible sharing
+        of this curated data set with researchers worldwide.
       </P2>
     ),
     logo: icgcargo_logo,
@@ -58,12 +58,18 @@ export default [
         'IGGC DACO governs the responsible sharing of this data for use in research',
       ],
       [
-        { 'Song:': 'Validates all submitted sequence meta(data) against a custom data model' },
+        {
+          'Song:':
+            'Validates all submitted sequence meta(data) against a custom data model',
+        },
         {
           'Score:':
             'Manages file transfers and object storage with added SamTools functionalities to help handle large WGS files',
         },
-        { 'Maestro:': 'Indexes multiple song repositories into one elastic search instance' },
+        {
+          'Maestro:':
+            'Indexes multiple song repositories into one elastic search instance',
+        },
         { 'Arranger:': 'Facilitates filtering and querying' },
         { 'Ego:': 'Provides stateless authentication and authorization' },
       ],
@@ -72,7 +78,9 @@ export default [
       ],
     ],
     clientLink: ICGC_ARGO_LINK,
-    details: [{ title: 'Chart', description: 'ICGC', screenshot: icgcargo_chart }],
+    details: [
+      { title: 'Chart', description: 'ICGC', screenshot: icgcargo_chart },
+    ],
   },
 
   {
@@ -81,12 +89,14 @@ export default [
     portalLink: VIRUSSEQ_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={VIRUSSEQ_PORTAL_LINK}>Canadian VirusSeq Data Portal</Link> is an open-source and
-        open-access data portal for all Canadian SARS-CoV-2 sequences and associated non-personal
-        contextual data. VirusSeq harmonizes, validates, and automates submission to international
-        databases, providing critical information for public health and policy decisions, testing
-        and tracing strategies, virus detection and surveillance methods, vaccine and drug
-        development, and understanding susceptibility, disease severity, and clinical outcomes.
+        The <Link to={VIRUSSEQ_PORTAL_LINK}>Canadian VirusSeq Data Portal</Link>{' '}
+        is an open-source and open-access data portal for all Canadian
+        SARS-CoV-2 sequences and associated non-personal contextual data.
+        VirusSeq harmonizes, validates, and automates submission to
+        international databases, providing critical information for public
+        health and policy decisions, testing and tracing strategies, virus
+        detection and surveillance methods, vaccine and drug development, and
+        understanding susceptibility, disease severity, and clinical outcomes.
       </P2>
     ),
     logo: virusseq_logo,
@@ -98,7 +108,10 @@ export default [
       ],
       [
         { 'Score:': 'Managed file transfers and object storage' },
-        { 'Song:': 'Modified for the validation and tracking of viral sequencing metadata' },
+        {
+          'Song:':
+            'Modified for the validation and tracking of viral sequencing metadata',
+        },
         { 'Maestro:': 'Indexed sample data for downstream search' },
         {
           'Arranger:':
@@ -111,19 +124,27 @@ export default [
       ],
     ],
     clientLink: VIRUSSEQ_PORTAL_LINK,
-    details: [{ title: 'Chart', description: 'Virus Seq Chart', screenshot: virusseq_chart }],
+    details: [
+      {
+        title: 'Chart',
+        description: 'Virus Seq Chart',
+        screenshot: virusseq_chart,
+      },
+    ],
   },
   {
     title: 'Kids First Data Portal',
     slug: 'kidsFirst',
-    portalLink: KIDS_FIRST_PORTAL_LINK,
+    portalLink: KIDS_FIRST_LINK,
     description: (
       <P2>
-        The <Link to={KIDS_FIRST_LINK}>Kids First Data Resource Center</Link> brings together
-        clinical and genetic data from pediatric cancer and structural birth defect cohorts into a
-        centralized, cloud-based discovery portal. We created a collaborative, community focused
-        portal that brings together researchers, health professionals, and patients to accelerate
-        discoveries that improve the lives of pediatric patients and their families.
+        The <Link to={KIDS_FIRST_LINK}>Kids First Data Resource Center</Link>{' '}
+        brings together clinical and genetic data from pediatric cancer and
+        structural birth defect cohorts into a centralized, cloud-based
+        discovery portal. We created a collaborative, community focused portal
+        that brings together researchers, health professionals, and patients to
+        accelerate discoveries that improve the lives of pediatric patients and
+        their families.
       </P2>
     ),
     logo: kf_logo,
@@ -160,12 +181,17 @@ export default [
     portalLink: IHCC_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={IHCC_LINK}>International Health Cohorts Consortium (IHCC)</Link> is
-        improving clinical care and population health by aggregating large genomic data cohorts to
-        help translational researchers uncover the biological and genetic factors of disease. With
-        exception to underrepresented cohorts & populations, all hosted member cohorts are
-        disease-agnostic and have available biospecimens and longitudinal follow-up activities. Most
-        notably, hosted member cohorts comprise one hundred thousand participants or more.
+        The{' '}
+        <Link to={IHCC_LINK}>
+          International Health Cohorts Consortium (IHCC)
+        </Link>{' '}
+        is improving clinical care and population health by aggregating large
+        genomic data cohorts to help translational researchers uncover the
+        biological and genetic factors of disease. With exception to
+        underrepresented cohorts & populations, all hosted member cohorts are
+        disease-agnostic and have available biospecimens and longitudinal
+        follow-up activities. Most notably, hosted member cohorts comprise one
+        hundred thousand participants or more.
       </P2>
     ),
     logo: ihcc_logo,
@@ -201,12 +227,13 @@ export default [
     portalLink: HCMIS_PORTAL_LINK,
     description: (
       <P2>
-        The <Link to={HCMIS_LINK}>Human Cancer Models Initiative (HCMI)</Link> is a catalogue of
-        unique cancer models alongside clinical, biospecimen, and molecular data. It also includes
-        protocols, consent templates, and clinical data forms, making it a comprehensive resource
-        for researchers determining which cancer models to use within their studies. The ultimate
-        goal of the HCMI is to support translational cancer research and improve personalized
-        patient treatment plans.
+        The <Link to={HCMIS_LINK}>Human Cancer Models Initiative (HCMI)</Link>{' '}
+        is a catalogue of unique cancer models alongside clinical, biospecimen,
+        and molecular data. It also includes protocols, consent templates, and
+        clinical data forms, making it a comprehensive resource for researchers
+        determining which cancer models to use within their studies. The
+        ultimate goal of the HCMI is to support translational cancer research
+        and improve personalized patient treatment plans.
       </P2>
     ),
     listItems: [
