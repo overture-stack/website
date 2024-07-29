@@ -21,9 +21,8 @@ export const HCMIS_PORTAL_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const ICGC_LINK = 'https://dcc.icgc.org/';
 export const IHCC_LINK = 'https://ihccglobal.org/';
 export const IHCC_PORTAL_LINK = 'https://atlas.ihccglobal.org/';
-export const KIDS_FIRST_LINK = 'https://portal.kidsfirstdrc.org/';
-export const KIDS_FIRST_PORTAL_LINK =
-  'https://kf-keycloak.kidsfirstdrc.org/auth/realms/kidsfirstdrc/protocol/openid-connect/auth?client_id=portal-ui&redirect_uri=https%3A%2F%2Fportal.kidsfirstdrc.org%2F%2Fdashboard&state=d1bf7005-7844-4e93-a3a5-42aa6ea00677&response_mode=fragment&response_type=code&scope=openid&nonce=373fadf9-6879-4346-b716-3430d4195afa';
+export const KIDS_FIRST_LINK =
+  'https://portal.kidsfirstdrc.org/login?redirect_path=/dashboard?';
 export const NETLIFY_IMAGE_LINK =
   'https://www.netlify.com/img/global/badges/netlify-color-bg.svg';
 export const NETLIFY_LINK = 'https://www.netlify.com/';
