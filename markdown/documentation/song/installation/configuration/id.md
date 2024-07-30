@@ -73,12 +73,12 @@ If you choose to use externally managed ID's, you **must** provide Song with the
 - At boot-time, Song validates the URI templates to ensure necessary template variables are present.
 - External ID servers should support one of these authorization schemes: `FEDERATED_STATIC_AUTH` (static access token) or `FEDERATED_DYNAMIC_AUTH` (dynamically managed JWT).
 
-<Note title="URI Templates"> A URI template is a URI-like string that contains variables enclosed by braces. These can be expanded to produce an actual URI. Since the `IdService` method requires specific arguments for each entity ID retrieval method, URI Templates allow custom mapping of these arguments. Song will require specific template variables in each entity URI Template string. </Note>
+<details>
+  <summary><b>Click here for a detailed breakdown of the required template variables with examples</b></summary>
+<br></br>
 
-The table below describes the required template variables with examples:
-
-| Entity ID Type     | Description                                                                                             | URI Template Config Property                | Required Variables   | Examples                                                                            | Request Type | Response Type |
-| ------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------- | ------------ | ------------- |
+| Entity ID Type | Description | URI Template Config Propert | Required Variables | Examples | Request Type | Response Type |
+| --| -- | -- | --| --| -- | -- |
 | donor              | Id Service returns a donorId that maps to the submitterId and studyId.                                  | ID_FEDERATED_URITEMPLATE_DONOR              | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}`    | `GET`        | plaintext     |
 | specimen           | ID Service returns a specimenId that maps to the submitterId and studyId.                               | ID_FEDERATED_URITEMPLATE_SPECIMEN           | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET`        | plaintext     |
 | sample             | ID Service returns a sampleId that maps to the submitterId and studyId.                                 | ID_FEDERATED_URITEMPLATE_SAMPLE             | studyId, submitterId | `https://id.server.example.org/sample/id?sid={submitterId}&projectcode={studyId}`   | `GET`        | plaintext     |
@@ -86,6 +86,12 @@ The table below describes the required template variables with examples:
 | analysis.existence | ID Service returns a boolean indicating the existence of the analysisId.                                | ID_FEDERATED_URITEMPLATE_ANALYSIS_EXISTENCE | analysisId           | `https://id.server.example.org/analysis/{analysisId}`                               | `GET`        | plaintext     |
 | analysis.generate  | ID Service returns a generated candidate analysisId without persisting it. Does not require any inputs. | ID_FEDERATED_URITEMPLATE_ANALYSIS_GENERATE  | --                   | `https://id.server.example.org/analysis/generate`                                   | `GET`        | plaintext     |
 | analysis.save      | ID Service persists the input analysisId and does not return anything.                                  | ID_FEDERATED_URITEMPLATE_ANALYSIS_SAVE      | analysisId           | `https://id.server.example.org/analysis/{analysisId}`                               | `GET`        | --            |
+
+---
+</details>
+<br></br>
+
+<Note title="URI Templates"> A URI template is a URI-like string that contains variables enclosed by braces. These can be expanded to produce an actual URI. Since the `IdService` method requires specific arguments for each entity ID retrieval method, URI Templates allow custom mapping of these arguments. Song will require specific template variables in each entity URI Template string. </Note>
 
 ## ICGC ARGO Example
 
