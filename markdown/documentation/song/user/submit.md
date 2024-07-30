@@ -43,7 +43,7 @@ ghcr.io/overture-stack/score:latest
 
 ## Step 1. Prepare a payload
 
-First, a metadata payload must be prepared. The payload must conform to an `analysis_type` registered as a schema. For help with creating or updating schemas please see the <a href="/documentation/song/user-guide/schema" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
+First, a metadata payload must be prepared. The payload must conform to an `analysis_type` registered as a schema. For help with creating or updating schemas please see the <a href="/documentation/song/admin/schemas/" target="_blank" rel="noopener noreferrer">Dynamic Schemas documentation</a>.
 
 ## Step 2. Upload the metadata payload file
 
