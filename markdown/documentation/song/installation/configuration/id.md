@@ -77,7 +77,7 @@ If you choose to use externally managed ID's, you **must** provide Song with the
   <summary><b>Click here for a detailed breakdown of the required template variables with examples</b></summary>
 <br></br>
 
-| Entity ID Type | Description | URI Template Config Propert | Required Variables | Examples | Request Type | Response Type |
+| Entity ID Type | Description | URI Template Config Property | Required Variables | Examples | Request Type | Response Type |
 | --| -- | -- | --| --| -- | -- |
 | donor              | Id Service returns a donorId that maps to the submitterId and studyId.                                  | ID_FEDERATED_URITEMPLATE_DONOR              | studyId, submitterId | `https://id.server.example.org/donor/id?sid={submitterId}&projectcode={studyId}`    | `GET`        | plaintext     |
 | specimen           | ID Service returns a specimenId that maps to the submitterId and studyId.                               | ID_FEDERATED_URITEMPLATE_SPECIMEN           | studyId, submitterId | `https://id.server.example.org/specimen/id?sid={submitterId}&projectcode={studyId}` | `GET`        | plaintext     |
