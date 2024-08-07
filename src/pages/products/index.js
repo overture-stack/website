@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, H1, H2, P1, ProductPageSection, Hero } from 'components';
 import Helmet from 'react-helmet';
-import imgQuickStartPortal from './assets/img_overtureQuickstartPortal.webp';
+import imgQuickStartPortal from './assets/overtureQuickstartPortal.webp';
 import imgArranger from './assets/img_products_arranger.svg';
 import imgEgo from './assets/img_products_ego.svg';
 import imgMaestro from './assets/img_products_maestro.svg';
