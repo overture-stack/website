@@ -13,7 +13,7 @@ import {
   Icon,
   NoteBox,
 } from 'components';
-import img_overtureQuickstartPortal from './assets/img_overtureQuickstartPortal.webp';
+import img_overtureQuickstartPortal from './assets/overtureQuickstartPortal.webp';
 import {
   OVERTURE_GITHUB_LINK,
   SLACK_LINK,

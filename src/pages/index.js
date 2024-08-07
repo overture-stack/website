@@ -4,18 +4,12 @@ import Helmet from 'react-helmet';
 import Modal from 'react-modal';
 import {
   ABOUT_US_PATH,
-  PRODUCTS_PATH,
   SERVICES_PATH,
   caseStudyAnchors,
   productsAnchors,
   GETTING_STARTED_PATH,
 } from 'constants/pages';
-import {
-  OVERTURE_GITHUB_LINK,
-  SLACK_LINK,
-  DEMO_LINK,
-  DOCKER_DOWNLOAD,
-} from '../../constants/external-links.js';
+import { DEMO_LINK, DOCKER_DOWNLOAD } from '../../constants/external-links.js';
 import {
   Button,
   H1,
@@ -24,7 +18,6 @@ import {
   P1,
   Icon,
   HomeProductLink,
-  YellowButton,
   P2,
   Terminal,
 } from 'components';
@@ -36,7 +29,7 @@ import cubeYellow from './home/assets/cube_yellow.svg';
 import cubeChartreuse from './home/assets/cube_chartreuse.svg';
 import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
-import imgQuickStartPortal from './home/assets/img_overtureQuickstartPortal.webp';
+import imgQuickStartPortal from './home/assets/overtureQuickstartPortal.webp';
 import './home/styles.scss';
 import { Link } from 'gatsby';
 
@@ -441,7 +434,7 @@ export default function HomePage() {
                     />
                     <div className="text-section">
                       <span>
-                        Your portal should take will be accessible from your:{' '}
+                        Your portal will now be accessible from your:{' '}
                         <code>localhost:3000</code>
                       </span>
                     </div>
