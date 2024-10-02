@@ -103,7 +103,7 @@ docker run -d -it --name score-client \
 Add the manifest to the `./guideMaterials/dataDownload` folder in your QuickStart repository. For simplicity, update its name to manifest.tsv. After moving and renaming the manifest, you can run the provided command:
 
 ```bash
-docker exec score-client sh -c "score-client download --manifest /output/manifest.tsv --output-dir /output""
+docker exec score-client sh -c "score-client download --manifest /output/manifest.tsv --output-dir /output"
 ```
 
 
