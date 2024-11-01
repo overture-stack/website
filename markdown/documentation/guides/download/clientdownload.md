@@ -18,11 +18,10 @@ title: Download Guide
 git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**2. With Docker open run the docker-compose**
+**2. Launch the Platform by running the appropriate command for your operating system:**
 
-```bash
-docker compose up --attach conductor
-```
+- For Unix/macOS run `make platform`
+- For Windows run `make.bat platform`
 
 <Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**</Warning>
 

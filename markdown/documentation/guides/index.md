@@ -35,8 +35,7 @@ We provide an Overture Quickstart for a fast and frictionless setup of our data 
 git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**3. Run the docker-compose**
+**3. Launch the Platform by running the appropriate command for your operating system:**
 
-```bash
-docker compose up --attach conductor
-```
+- For Unix/macOS run `make platform`
+- For Windows run `make.bat platform`
