@@ -32,7 +32,7 @@ We provide an Overture Quickstart for a fast and frictionless setup of our data 
 **2. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/conductor.git
 ```
 
 **3. Run the docker-compose**

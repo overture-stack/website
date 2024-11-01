@@ -15,7 +15,7 @@ title: Download Guide
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/conductor.git
 ```
 
 **2. With Docker open run the docker-compose**
@@ -42,7 +42,7 @@ docker compose up --attach conductor
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
-**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Composer will be username `admin` and password `admin123`.
+**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture conductor will be username `admin` and password `admin123`.
 
 **2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
 

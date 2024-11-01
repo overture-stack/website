@@ -9,7 +9,7 @@ import './styles.scss';
 
 const Hero = ({ title, subtitle }) => {
   return (
-    <div className="Hero grey-bg">
+    <div className="Hero blue-bg">
       <div className="container">
         <section className="Hero__section">
           <H1>{title}</H1>

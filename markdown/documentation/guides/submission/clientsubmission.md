@@ -21,7 +21,7 @@ title: CLI Submissions
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/conductor.git
 ```
 
 **2. With Docker open, run the docker-compose**
@@ -152,7 +152,7 @@ docker run -d -it --name score-client \
 
 We will now begin submitting our payload to the Overture platform. In this context a payload refers to a collection of related metadata and file data to be uploaded to the resource.
 
-- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataSubmission/">composer/guideMaterials/dataSubmission/</a> directory
+- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataSubmission/">conductor/guideMaterials/dataSubmission/</a> directory
 
 
 - The files included are two VCF data files (`SP059902.snv.vcf.gz` and `SP059902.snv.vcf.gz.tbi`) and a JSON file, `SP059902.vcf.json` that contains all the associated metadata

@@ -51,9 +51,9 @@ Click **Save** and from the left-hand server drop-down, you can now view the con
 
    - The **[Overture API Key Provider](https://github.com/oicr-softeng/keycloak-apikeys/releases/download/1.0.1/keycloak-apikeys-1.0.1.jar)**, for extending Keycloak's functionality to support API key authentication.
 
-   - The **[Realm.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-realm.json)**, containing pre-configurated settings for our Overture Keycloak realm.
+   - The **[Realm.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/keycloakConfigs/myrealm-realm.json)**, containing pre-configurated settings for our Overture Keycloak realm.
 
-   - The **[Users.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)**, containing pre-configured user information to populate the realm.
+   - The **[Users.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)**, containing pre-configured user information to populate the realm.
 
 
 2. **Run Keycloak:** To deploy Keycloak, execute the following command. Make sure to run it in the directory containing the files mentioned above.

@@ -31,7 +31,6 @@ import cubeTealBlue from './home/assets/cube_teal_blue.svg';
 import cubeBrightTeal from './home/assets/cube_bright_teal.svg';
 import imgQuickStartPortal from './home/assets/overtureQuickstartPortal.webp';
 import './home/styles.scss';
-import { Link } from 'gatsby';
 
 Modal.setAppElement('#___gatsby');
 Modal.defaultStyles.overlay.backgroundColor = 'rgba(0, 0, 0, 0.85)';
@@ -390,64 +389,60 @@ export default function HomePage() {
                 />
               </div>
               <div className="upper-grey-section__content-holder">
-                <div className="upper-grey-section__text-holder">
-                  <div className="terminal-section">
-                    <P2 className="text-section">
-                      <b>
-                        1. Download and configure{' '}
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href={DOCKER_DOWNLOAD}
-                        >
-                          Docker Desktop (4.32.0+)
-                        </a>
-                      </b>
-                    </P2>
-                    <span className="text-section">
-                      In Docker Desktop click the cog{' '}
-                      <Icon
-                        alt=""
-                        img="cog"
-                        size={32}
-                        style={{ verticalAlign: 'middle' }}
-                      />{' '}
-                      icon , then resources. We recommend at minimum setting
-                      your CPU limit to <code>8</code>, memory to{' '}
-                      <code>8GB</code>, swap to <code>2GB</code>, with
-                      <code>64GB</code> of virtual disk space available. If you
-                      have Docker already installed ensure it is up to date.
-                    </span>
-                    <P2 className="text-section">
-                      <b>2. Clone the QuickStart Repository</b>
-                    </P2>
-                    <Terminal
-                      prompts={[
-                        'git clone  https://github.com/overture-stack/composer.git && cd composer',
-                      ]}
-                    />
-                    <P2 className="text-section">
-                      <b>3. Run the Docker Compose</b>
-                    </P2>
-                    <Terminal
-                      prompts={['docker compose up --attach conductor']}
-                    />
-                    <div className="text-section">
-                      <span>
-                        Your portal will now be accessible from your:{' '}
-                        <code>localhost:3000</code>
-                      </span>
-                    </div>
-                    <div className="mt3 lower-blue-section__buttons">
-                      <Button
-                        link={GETTING_STARTED_PATH}
-                        size="medium"
-                        type="primary"
-                        className="upper-grey__button mt1"
+                <div className="terminal-section">
+                  <P2 className="text-section">
+                    <b>
+                      1. Download and configure{' '}
+                      <a
+                        href={DOCKER_DOWNLOAD}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        Guides & Documentation
-                      </Button>
-                    </div>
+                        Docker Desktop (4.32.0+)
+                      </a>
+                    </b>
+                  </P2>
+
+                  <span className="text-section">
+                    In Docker Desktop click the cog{' '}
+                    <Icon alt="" img="cog" size={32} className="icon" /> icon,
+                    then resources. We recommend at minimum setting your CPU
+                    limit to <code>8</code>, memory to <code>8GB</code>, swap to{' '}
+                    <code>2GB</code>, with
+                    <code>64GB</code> of virtual disk space available. If you
+                    have Docker already installed ensure it is up to date.
+                  </span>
+
+                  <P2 className="text-section">
+                    <b>2. Clone the QuickStart Repository</b>
+                  </P2>
+                  <Terminal
+                    prompts={[
+                      'git clone https://github.com/overture-stack/conductor.git && cd conductor',
+                    ]}
+                  />
+
+                  <P2 className="text-section">
+                    <b>3. Run the Docker Compose</b>
+                  </P2>
+                  <span className="text-section">For Unix/macOS run:</span>
+                  <Terminal prompts={['make platform']} />
+                  <span className="text-section">For Windows run:</span>
+                  <Terminal prompts={['make.bat platform']} />
+                  <div className="text-section">
+                    Your portal will now be accessible from your:{' '}
+                    <code>localhost:3000</code>
+                  </div>
+
+                  <div className="mt3 lower-blue-section__buttons">
+                    <Button
+                      link={GETTING_STARTED_PATH}
+                      size="medium"
+                      type="primary"
+                      className="upper-grey__button mt1"
+                    >
+                      Guides & Documentation
+                    </Button>
                   </div>
                 </div>
               </div>

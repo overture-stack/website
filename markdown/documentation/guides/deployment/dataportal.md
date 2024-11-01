@@ -55,7 +55,7 @@ docker run -d --name elasticsearch \
 2. **Supply an index template:** Create a folder titled `elasticsearchConfigs`
 
 
-   - Download and place the following **[quickstart_index_template.json](https://raw.githubusercontent.com/overture-stack/composer/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)** within your `elasticsearchConfigs` folder. This file specifies settings, mappings, and configurations that will be applied automatically to new indices that match the template's pattern
+   - Download and place the following **[quickstart_index_template.json](https://raw.githubusercontent.com/overture-stack/conductor/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)** within your `elasticsearchConfigs` folder. This file specifies settings, mappings, and configurations that will be applied automatically to new indices that match the template's pattern
 
 
 <Note title="Learn More">If you'd like to learn more about creating an index mapping for your own data see our [administration guide on configuring the index mapping](/documentation/guides/administration/indexmapping/).</Note>
@@ -76,7 +76,7 @@ curl -u elastic:myelasticpassword -X PUT 'http://localhost:9200/overture-quickst
 
 If successful you should be able to view the updated index in your browser from `http://localhost:9200/overture-quickstart-index` with the username `elastic` and password `myelasticpassword`.
 
-<Note title="How this works">Any index alias that starts with `overture-` will use the mapping of the index template we initially provided. This is defined on [line two of our `quickstart_index_template`](https://github.com/overture-stack/composer/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json#L2).</Note>
+<Note title="How this works">Any index alias that starts with `overture-` will use the mapping of the index template we initially provided. This is defined on [line two of our `quickstart_index_template`](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json#L2).</Note>
 
 ## Running Maestro
 
@@ -164,7 +164,7 @@ SPRING_CLOUD_STREAM_BINDINGS_SONGINPUT_DESTINATION=song-analysis
 - `MAESTRO_ELASTICSEARCH_CLIENT_BASICAUTH_ENABLED` enables basic authentication for the Elasticsearch client
 
 
-- `MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_NAME` is the name of the analysis-centric Elasticsearch index. The value is `analysis-composer-index`, aligned with our previously created index
+- `MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_NAME` is the name of the analysis-centric Elasticsearch index. The value is `analysis-conductor-index`, aligned with our previously created index
 
 
 - `MAESTRO_ELASTICSEARCH_INDEXES_ANALYSISCENTRIC_ALIAS` is the alias for the analysis-centric Elasticsearch index
@@ -235,11 +235,11 @@ REACT_APP_ARRANGER_ADMIN_ROOT=http://arranger-server:5050/graphql
 2. **Create a folder titled `arrangerConfigs` and place the following configuration files within it:**
 
 
-   - The **[base.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/base.json)**, containing the base configuration for the Arranger server
-   - The **[extended.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/extended.json)**, containing all possible fields inputted into arranger
-   - The **[facets.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/facets.json)**,  defines the facets found within the facet panel of the data exploration page in Stage
-   - The **[matchbox.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/matchbox.json)**, containing matchbox configuration settings
-   - The **[table.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/table.json)**, defines the formatting of the tables found on the data exploration page in Stage
+   - The **[base.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/base.json)**, containing the base configuration for the Arranger server
+   - The **[extended.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/extended.json)**, containing all possible fields inputted into arranger
+   - The **[facets.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/facets.json)**,  defines the facets found within the facet panel of the data exploration page in Stage
+   - The **[matchbox.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/matchbox.json)**, containing matchbox configuration settings
+   - The **[table.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/table.json)**, defines the formatting of the tables found on the data exploration page in Stage
 
 
 3. **Run Arranger:** Use the docker run command with your `.env.arranger` file:
@@ -399,7 +399,7 @@ API Keys are brokered by Keycloak and accessible when logged in to the Stage UI 
 
 **1. Login through the Stage UI** by selecting login from the top right. 
 
-Default credentials were pre-configured when we imported our **[Users.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)** file into Keycloak, our default admin account credentials are **username** `admin` and **password** `admin123`.
+Default credentials were pre-configured when we imported our **[Users.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/keycloakConfigs/myrealm-users-0.json)** file into Keycloak, our default admin account credentials are **username** `admin` and **password** `admin123`.
 
 **2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
 
