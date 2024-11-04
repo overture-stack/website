@@ -29,7 +29,7 @@ export default function ProductPageSection({
   const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
   const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
-  const userDocsLink = `https://www.overture.bio/documentation/${title.toLowerCase()}`;
+  const userDocsLink = `https://overture.bio/documentation/${title.toLowerCase()}`;
   const gitHubLink = `https://github.com/overture-stack/${title}`;
 
   return (
