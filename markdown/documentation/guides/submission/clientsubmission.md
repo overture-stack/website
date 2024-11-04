@@ -24,7 +24,7 @@ title: CLI Submissions
 git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**2. Launch the Platform by running the appropriate command for your operating system:**
+**2. Launch the platform by running the appropriate command for your operating system:**
 
 - For Unix/macOS run `make platform`
 - For Windows run `make.bat platform`

@@ -35,7 +35,7 @@ We provide an Overture Quickstart for a fast and frictionless setup of our data 
 git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**3. Launch the Platform by running the appropriate command for your operating system:**
+**3. Launch the platform by running the appropriate command for your operating system:**
 
 - For Unix/macOS run `make platform`
 - For Windows run `make.bat platform`

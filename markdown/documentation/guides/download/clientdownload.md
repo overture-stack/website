@@ -18,7 +18,7 @@ title: Download Guide
 git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**2. Launch the Platform by running the appropriate command for your operating system:**
+**2. Launch the platform by running the appropriate command for your operating system:**
 
 - For Unix/macOS run `make platform`
 - For Windows run `make.bat platform`
@@ -41,7 +41,7 @@ git clone  https://github.com/overture-stack/conductor.git
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
-**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture conductor will be username `admin` and password `admin123`.
+**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Conductor will be username `admin` and password `admin123`.
 
 **2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
 
