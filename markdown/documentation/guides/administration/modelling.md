@@ -151,7 +151,7 @@ The `analysisType` is defined in data submissions to Song. This field informs So
 
 ## Detailed Examples
 
-Let's break down some more complex schema examples. We will pull from a reference schema that can be found [here](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). In the following sections, we will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
+Let's break down some more complex schema examples. We will pull from a reference schema that can be found [here](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). In the following sections, we will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
 
 **Required Fields**
 

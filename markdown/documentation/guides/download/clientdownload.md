@@ -15,14 +15,13 @@ title: Download Guide
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**2. With Docker open run the docker-compose**
+**2. Launch the platform by running the appropriate command for your operating system:**
 
-```bash
-docker compose up --attach conductor
-```
+- For Unix/macOS run `make platform`
+- For Windows run `make.bat platform`
 
 <Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**</Warning>
 
@@ -42,7 +41,7 @@ docker compose up --attach conductor
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
-**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Composer will be username `admin` and password `admin123`.
+**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Conductor will be username `admin` and password `admin123`.
 
 **2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
 

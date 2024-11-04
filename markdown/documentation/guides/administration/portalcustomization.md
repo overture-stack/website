@@ -50,7 +50,7 @@ Being able to easily view the JSON documents within your elastic search instance
 
 ## Base Configuration
 
-The [base.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/base.json) contains only two fields, `documenType` and `index`: 
+The [base.json file](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/base.json) contains only two fields, `documenType` and `index`: 
 
 ```json
 {
@@ -69,7 +69,7 @@ The [base.json file](https://github.com/overture-stack/composer/blob/develop/con
 
 ## Extended Configuration
 
-The extended.json configuration file defines all the fields and display names you wish to populate your front-end portal with. Below, we have provided a simplified list taken from our [QuickStart extended.json](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/extended.json) configuration:
+The extended.json configuration file defines all the fields and display names you wish to populate your front-end portal with. Below, we have provided a simplified list taken from our [QuickStart extended.json](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/extended.json) configuration:
 
 ```JSON
 {
@@ -95,18 +95,18 @@ The`displayName` field outlines how you want your fields displayed on the front-
 
 The `fieldName` values are written as represented within your Elasticsearch documents:
 
-- Object ID can be found at the root of the [Elasticsearch Documents](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L217) and therefore is simply the fieldName shown here
+- Object ID can be found at the root of the [Elasticsearch Documents](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L217) and therefore is simply the fieldName shown here
 
 
-- The Analysis ID is a nested element [found inside the Analysis field](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61C1-L80C61), we denote nesting by adding a period `.` making the appropriate fieldName `analysis.analysis_id`
+- The Analysis ID is a nested element [found inside the Analysis field](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61C1-L80C61), we denote nesting by adding a period `.` making the appropriate fieldName `analysis.analysis_id`
 
 
-- By looking at the `treatmentDuration` field, we can see it is nested [relatively deeper](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61-L138) than our other three fields outlined above. The same rules, however apply, and by working backwards and adding a `.` for each nested element, we end up with `analysis.donor.primaryDiagnosis.treatment.treatmentDuration`
+- By looking at the `treatmentDuration` field, we can see it is nested [relatively deeper](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json#L61-L138) than our other three fields outlined above. The same rules, however apply, and by working backwards and adding a `.` for each nested element, we end up with `analysis.donor.primaryDiagnosis.treatment.treatmentDuration`
 
 
 ## Table Configuration
 
-The [table.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/table.json) configures the columns displayed in the data table. These configurations specify which fields are shown, their visibility, and their sortability.
+The [table.json file](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/table.json) configures the columns displayed in the data table. These configurations specify which fields are shown, their visibility, and their sortability.
 
 ```JSON
 {
@@ -215,7 +215,7 @@ When flattened, this matches the configuration shown in our example above:
 
 ## Facet Configuration
 
-The [facets.json file](https://github.com/overture-stack/composer/blob/develop/configurationFiles/arrangerConfigs/facets.json) defines how aggregations (also known as facets in Elasticsearch) are configured for data exploration and filtering.
+The [facets.json file](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/arrangerConfigs/facets.json) defines how aggregations (also known as facets in Elasticsearch) are configured for data exploration and filtering.
 
 ```JSON
 {
