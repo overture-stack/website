@@ -30,11 +30,10 @@ If you do not have an Overture platform deployed, you can use our docker compose
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/composer.git
+git clone  https://github.com/overture-stack/conductor.git
 ```
 
-**2. With Docker open run the docker-compose**
+**2. Launch the platform by running the appropriate command for your operating system:**
 
-```bash
-docker compose up --attach conductor
-```
+- For Unix/macOS run `make platform`
+- For Windows run `make.bat platform`

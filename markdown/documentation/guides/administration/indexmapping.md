@@ -10,10 +10,10 @@ Maestro is responsible for taking published Song metadata and translating it int
 
 Depending on how Maestro is configured it can index data into documents in one of two ways:
 
-- **File Centric Indexing:** Each document indexed in Elasticsearch describes all information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
+- **File Centric Indexing:** Each document indexed in Elasticsearch describes all information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
 
 
-- **Analysis Centric Indexing** Each document indexed in Elasticsearch describes all information central to a specific analysis. [Click here to see an example of a analysis centric JSON document](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-analysisCentric-document.json).
+- **Analysis Centric Indexing** Each document indexed in Elasticsearch describes all information central to a specific analysis. [Click here to see an example of a analysis centric JSON document](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-analysisCentric-document.json).
 
 <Note title="File or Analysis Centric Indexing">If your queries focus on individual files and their attributes, choose file-centric indexing. If your queries center on analyses/participants and their associated data, choose analysis-centric indexing.</Note>
 
@@ -35,7 +35,7 @@ When broken down the index template has four components, `index_patterns`, `alia
 }
 ```
 
-The above code snippet references [the Overture Quickstart Index template](https://github.com/overture-stack/composer/blob/develop/guideMaterials/dataAdministration/ES-index-template.json), feel free to have this open as a reference, we will refer to it where ever appropriate
+The above code snippet references [the Overture Quickstart Index template](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-index-template.json), feel free to have this open as a reference, we will refer to it where ever appropriate
 
 ## Index Patterns
 
@@ -252,19 +252,19 @@ curl -u elastic:myelasticpassword -X PUT 'http://elasticsearch:9200/{index-name}
 
 ## Using the Quickstart Index
 
-The index mapping template used within the Quickstart can be found in [the directory linked here](https://github.com/overture-stack/composer/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)
+The index mapping template used within the Quickstart can be found in [the directory linked here](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)
 
-Upon initial deployment, this index template is uploaded to Elasticsearch, and a new alias, `overture-quickstart-index`, is created in alignment with the defined `"index_patterns": ["overture-*"]"`. The Docker container and associated script that automate this process is [located in the docker-compose.yml here](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L344-L379).
+Upon initial deployment, this index template is uploaded to Elasticsearch, and a new alias, `overture-quickstart-index`, is created in alignment with the defined `"index_patterns": ["overture-*"]"`. The Docker container and associated script that automate this process is [located in the docker-compose.yml here](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L344-L379).
 
 If you change this template to match your own custom schema, and wish to populate Elasticsearch with your new index template, ensure you check the following:
 
-- **Stage Arranger Variables:** Ensure [the environment variables in Stage](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L446-L448) are adjusted to specify the updated documentType and Index name according to your modified Elasticsearch mapping
+- **Stage Arranger Variables:** Ensure [the environment variables in Stage](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L446-L448) are adjusted to specify the updated documentType and Index name according to your modified Elasticsearch mapping
 
 
-- **Maestro Elasticsearch Variables:** Maestro requires specific information about the alias and centrality of the index. Make sure [these variables are updated](https://github.com/overture-stack/composer/blob/develop/docker-compose.yml#L303-L307)
+- **Maestro Elasticsearch Variables:** Maestro requires specific information about the alias and centrality of the index. Make sure [these variables are updated](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L303-L307)
 
 
-- **Arranger Configuration Files:** Update [Arranger configuration](https://github.com/overture-stack/composer/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the front-end search interface, correctly interprets and interacts with your Elasticsearch data
+- **Arranger Configuration Files:** Update [Arranger configuration](https://github.com/overture-stack/conductor/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the front-end search interface, correctly interprets and interacts with your Elasticsearch data
 
 <Note title="Updating Arranger Configuration Files">For detailed instructions on customizing the search interface in Arranger to align with your updated mapping, refer to the next section on search interface customization.</Note>
 

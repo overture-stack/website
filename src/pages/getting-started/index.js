@@ -90,7 +90,7 @@ export default function GettingStartedPage() {
                 <div className="relative">
                   <Terminal
                     prompts={[
-                      'git clone  https://github.com/overture-stack/composer.git && cd composer',
+                      'git clone  https://github.com/overture-stack/conductor.git && cd conductor',
                     ]}
                   />
                 </div>
@@ -99,9 +99,10 @@ export default function GettingStartedPage() {
                 </P2>
 
                 <div className="relative">
-                  <Terminal
-                    prompts={['docker compose up --attach conductor']}
-                  />
+                  <span className="text-section">For Unix/macOS run:</span>
+                  <Terminal prompts={['make platform']} />
+                  <span className="text-section">For Windows run:</span>
+                  <Terminal prompts={['make.bat platform']} />
                   <span className="text-section">
                     Your portal will now be accessible from your:{' '}
                     <code>localhost:3000</code>

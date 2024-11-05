@@ -3,7 +3,6 @@ import { Button, H1, H2, P1, ProductPageSection, Hero } from 'components';
 import Helmet from 'react-helmet';
 import imgQuickStartPortal from './assets/overtureQuickstartPortal.webp';
 import imgArranger from './assets/img_products_arranger.svg';
-import imgEgo from './assets/img_products_ego.svg';
 import imgMaestro from './assets/img_products_maestro.svg';
 import imgScore from './assets/img_products_score.svg';
 import imgSong from './assets/img_products_song.svg';
@@ -45,7 +44,7 @@ export default function ProductsPage() {
         yellowButtonText1="All data submissions adhere to user-defined standards and structure"
         yellowButtonText2="Automated global identifiers tracks metadata across geographically distributed Song repositories"
         yellowButtonText3="Control the publication status of data with configurable data states"
-        isGrey={false}
+        isGrey
       />
 
       {/* Score section - grey background */}
@@ -63,7 +62,6 @@ export default function ProductsPage() {
         yellowButtonText1="Support for AWS S3, Azure Storage, Google Cloud and more"
         yellowButtonText2="Including BAM and CRAM file slicing"
         yellowButtonText3="Resumable multipart uploads and downloads"
-        isGrey={true}
       />
 
       {/* Maestro section - white background */}
@@ -81,7 +79,7 @@ export default function ProductsPage() {
         yellowButtonText1="Connect to one or multiple Song servers and produce a single Elasticsearch index"
         yellowButtonText2="Control indexing of discrete units of data"
         yellowButtonText3="Send notifications through a Slack webhook integration"
-        isGrey={false}
+        isGrey
       />
 
       {/* Arranger section - grey background */}
@@ -99,25 +97,6 @@ export default function ProductsPage() {
         yellowButtonText1="Generate a GraphQL API from any Elasticsearch Index"
         yellowButtonText2="Prop up a front end web portal for users to filter and query your data"
         yellowButtonText3="Helping you create a customized discovery portal"
-        isGrey={true}
-      />
-
-      {/* Ego section - white background */}
-      <ProductPageSection
-        src={imgEgo}
-        title="Ego"
-        subtitle="Authorization and User Management"
-        description="Ego safeguards data with a secure protocol for authenticating users and authorizing the information and applications those users can access. Ego provides a secure permission management system and an administrative UI, making administrative tasks accessible to all collaborators."
-        yellowButtonIcon1="productSingleSignOn"
-        yellowButtonIcon2="productStateless"
-        yellowButtonIcon3="productScalable"
-        yellowButtonTitle1="Single Sign-on"
-        yellowButtonTitle2="Stateless"
-        yellowButtonTitle3="Scalable"
-        yellowButtonText1="Sign in using credentials from popular identity providers"
-        yellowButtonText2="Uses JSON Web Tokens (JWT) for authorization eliminating the need for session management"
-        yellowButtonText3="No limits to the number of applications you can govern Ego with"
-        isGrey={false}
       />
 
       {/* lower blue section */}

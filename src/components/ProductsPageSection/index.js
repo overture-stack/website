@@ -29,7 +29,7 @@ export default function ProductPageSection({
   const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
   const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
-  const userDocsLink = `/documentation/${title.toLowerCase()}`;
+  const userDocsLink = `https://overture.bio/documentation/${title.toLowerCase()}`;
   const gitHubLink = `https://github.com/overture-stack/${title}`;
 
   return (
@@ -44,7 +44,10 @@ export default function ProductPageSection({
           {/* container of text and button */}
           <div className="text-content-holder">
             {/* title text */}
-            <div className="title-holder" id={`${mobileViewPort && title.toLowerCase()}`}>
+            <div
+              className="title-holder"
+              id={`${mobileViewPort && title.toLowerCase()}`}
+            >
               <H2>{title}</H2>
             </div>
             {/* subtitle text */}
@@ -70,7 +73,7 @@ export default function ProductPageSection({
                 GitHub
               </Button>
               <Button link={userDocsLink} type="primary" size="medium">
-                User Docs
+                Documentation
               </Button>
             </div>
           </div>
