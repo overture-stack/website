@@ -428,7 +428,7 @@ export default function HomePage() {
                   <span className="text-section">For Unix/macOS run:</span>
                   <Terminal prompts={['make platform']} />
                   <span className="text-section">For Windows run:</span>
-                  <Terminal prompts={['make.bat platform']} />
+                  <Terminal prompts={['./make.bat platform']} />
                   <div className="text-section">
                     Your portal will now be accessible from your:{' '}
                     <code>localhost:3000</code>

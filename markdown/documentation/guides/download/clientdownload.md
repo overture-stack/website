@@ -21,7 +21,7 @@ git clone  https://github.com/overture-stack/conductor.git
 **2. Launch the platform by running the appropriate command for your operating system:**
 
 - For Unix/macOS run `make platform`
-- For Windows run `make.bat platform`
+- For Windows run `./make.bat platform`
 
 <Warning>**Ensure enough resources get allocated to Docker** We recommend a minimum CPU limit of `8`, memory limit of `8 GB`, swap of `2 GB`, and virtual disk limit of `64 GB`. You can access these settings by selecting the **cog wheel** found on the top right of the Docker desktop app and selecting **resources** from the left panel. **If you already have docker desktop installed be ensure you are on version 4.32.0 or higher**</Warning>
 
