@@ -13,11 +13,13 @@ import {
 } from 'components';
 import {
   OVERTURE_GITHUB_LINK,
-  GITHUB_ISSUES_LINK,
-  SLACK_LINK,
   GI_PROGRAM_LINK,
 } from 'constants/external-links';
 import './styles.scss';
+import {
+  OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
+  OVERTURE_DOCUMENTATION_SUPPORT_LINK,
+} from '../../../constants/external-links';
 
 const AboutUsPage = () => {
   return (
@@ -53,8 +55,8 @@ const AboutUsPage = () => {
               <P2>
                 We are the{' '}
                 <Link to={GI_PROGRAM_LINK}>
-                  Genome Informatics Software Engineering team from Ontario Institute for Cancer
-                  Research
+                  Genome Informatics Software Engineering team from Ontario
+                  Institute for Cancer Research
                 </Link>
                 . At OICR we develop new software, databases and other necessary
                 components to store, organize and compute over the large and
@@ -136,16 +138,16 @@ const AboutUsPage = () => {
             {/* yellow button div */}
             <div className="grey-section__yellow-button-holder">
               <YellowButton
-                link={SLACK_LINK}
-                img_src="slackJoin"
-                alt="Join Us on Slack"
-                title="Join Us on Slack"
+                link={OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK}
+                img_src="githubYellow"
+                alt="Get Involved"
+                title="Get Involved"
               />
               <YellowButton
-                link={OVERTURE_GITHUB_LINK}
+                link={OVERTURE_DOCUMENTATION_SUPPORT_LINK}
                 img_src="githubFindUs"
-                alt="Find Us on Github"
-                title="Find Us on Github"
+                alt="Get in touch"
+                title="Get in Touch"
               ></YellowButton>
             </div>
           </div>

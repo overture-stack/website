@@ -3,8 +3,6 @@
  * subcomponents: MegaMenu and NavLink
  */
 import React, { Component } from 'react';
-import MegaMenu from './MegaMenu';
-import MegaMenuLink from './MegaMenuLink';
 import NavLink from './NavLink';
 import { Button, LinkHelper as Link } from 'components';
 import {
@@ -15,20 +13,18 @@ import {
   PRODUCTS_PATH,
   SERVICES_PATH,
 } from 'constants/pages';
-import { SLACK_LINK } from 'constants/external-links';
+import { SDOCUMENTATION_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
+import {
+  DOCUMENTATION_LINK,
+  OVERTURE_GITHUB_LINK,
+} from '../../../constants/external-links';
 
 class NavBar extends Component {
   render() {
-    const {
-      closeMenus,
-      megaMenuType,
-      mobileMenuOpen,
-      path,
-      toggleMegaMenu,
-      toggleMobileMenu,
-    } = this.props;
+    const { closeMenus, megaMenuType, mobileMenuOpen, toggleMobileMenu } =
+      this.props;
 
     let mobileMenuClass = mobileMenuOpen ? 'is-active' : '';
     let navbarMenuClass = `navbar-menu ${mobileMenuClass}`;
@@ -65,24 +61,11 @@ class NavBar extends Component {
                 url={PRODUCTS_PATH}
                 name="Products"
               />
-              <MegaMenuLink
-                isActive={megaMenuType === 'documentation'}
-                name="Documentation"
-                path={path}
-                toggleMegaMenu={toggleMegaMenu}
-                type="documentation"
-              >
-                <div ref={(ref) => (this.popoverRef = ref)}>
-                  {mobileMegaCheck && (
-                    <MegaMenu
-                      className="open"
-                      closeMenus={closeMenus}
-                      megaMenuType="documentation"
-                      path={path}
-                    />
-                  )}
-                </div>
-              </MegaMenuLink>
+              <NavLink
+                closeMenus={closeMenus}
+                url={DOCUMENTATION_LINK}
+                name="Guides & Docs"
+              />
               <NavLink
                 closeMenus={closeMenus}
                 url={CASE_STUDIES_PATH}
@@ -101,22 +84,17 @@ class NavBar extends Component {
               />
             </div>
             {/* grey section with three cubes */}
-            <div
-              className={`navbar-mid bg-grey ${
-                megaMenuType === 'documentation' ? 'is-active' : ''
-              }`}
-            ></div>
             <div className="navbar-end ">
               <div className="navbar-item nav-link navbar-buttons">
                 <Button
+                  link={OVERTURE_GITHUB_LINK}
                   iconAlt="slack logo"
-                  className="slack-button"
-                  icon="slackNew"
-                  link={SLACK_LINK}
-                  size="navSlack"
+                  className="github-button"
+                  icon="githubMagenta"
+                  size="large"
                   type="secondary"
                 >
-                  Join us on Slack
+                  Check us out on GitHub
                 </Button>
 
                 <Button
