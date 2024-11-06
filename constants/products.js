@@ -1,7 +1,7 @@
 import urlJoin from 'proper-url-join';
 import { internalUrlJoin } from '../utils';
 import { PRODUCTS_PATH } from './pages';
-import { ONCOJS_GITHUB_LINK, OVERTURE_GITHUB_LINK } from './external-links';
+import { OVERTURE_GITHUB_LINK } from './external-links';
 
 // products info that is created or accessed programmatically
 // for other external link constants use external-links.js
@@ -43,7 +43,6 @@ const productsObj = {
     title: 'Maestro',
   },
   oncojs: {
-    githubUrl: ONCOJS_GITHUB_LINK,
     iconWhite: 'productOncoWhite',
     title: 'OncoJS',
   },

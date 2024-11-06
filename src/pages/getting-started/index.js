@@ -26,7 +26,17 @@ import {
   DOWNLOAD_GUIDE,
   SUBMISSION_GUIDE,
 } from '../../../constants/pages';
-import { FEATURE_REQUESTS } from '../../../constants/external-links';
+import {
+  ADMINISTRATION_GUIDES,
+  API_REFERENCE_GUIDE,
+  DEPLOYMENT_GUIDES,
+  FEATURE_REQUESTS,
+  OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
+  OVERTURE_DOCUMENTATION_CORE_SOFTWARE,
+  OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT,
+  OVERTURE_GITHUB_DISSCUSSION_LINK,
+  USER_GUIDES,
+} from '../../../constants/external-links';
 
 export default function GettingStartedPage() {
   const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
@@ -136,9 +146,6 @@ export default function GettingStartedPage() {
               </P2>
             </div>
           </div>
-          <div className="search-bar">
-            <Search indices={searchIndices} />
-          </div>
 
           <div className="text-section">
             <H3>Platform Guides</H3>
@@ -151,84 +158,66 @@ export default function GettingStartedPage() {
           <div className="list-section">
             <ul className="doc-column">
               <li className="bullet-item">
-                <a href={DEPLOYMENT_GUIDE}>Deployment:</a> generalized
-                instructions for deploying our platform from start to finish
+                {' '}
+                <a href={USER_GUIDES}>User guides:</a> stepwise guides covering
+                platform usage.
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={SUBMISSION_GUIDE}>Submission:</a>stepwise instructions
-                on submitting data to our platform
+                <a href={ADMINISTRATION_GUIDES}>Administration:</a> detailed
+                stepwise instructions for customizing our platform.
+              </li>
+              <li className="bullet-item">
+                <a href={DEPLOYMENT_GUIDES}>Deployment:</a> generalized
+                instructions for deploying our platform from start to finish.
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={DOWNLOAD_GUIDE}>Download:</a> stepwise instructions on
-                downloading data from our platform
-              </li>
-              <li className="bullet-item">
-                {' '}
-                <a href={ADMINISTRATION_GUIDE}>Administration:</a> detailed
-                stepwise instructions for customizing your platform
+                <a href={API_REFERENCE_GUIDE}>API Reference:</a> explore
+                endpoints, request parameters and response schemas through a
+                Swagger UI.
               </li>
             </ul>
           </div>
 
-          <div>
-            <div className="text-section">
-              <H3>Product Documentation</H3>
-              <P2>
-                Detailed product documentation for administrators and developers
-              </P2>
-            </div>
-            <div className="upper-grey-section__docs-holder">
-              <div className="list-columns">
-                {/* User Documentation bullets left */}
-                <div>
-                  <ul>
-                    <li className="bullet-item">
-                      <Link to="/documentation/ego">Ego:</Link> authentication
-                      and authorization for users and applications
-                    </li>
-                    <li className="bullet-item">
-                      <Link to="/documentation/song">Song:</Link> data
-                      management with automated submission validations
-                    </li>
-                    <li className="bullet-item">
-                      <Link to="/documentation/score">Score:</Link> secure
-                      multipart file transfers to and from object storage
-                    </li>
-                  </ul>
-                </div>
-                {/* User Documentation bullets right */}
-                <div>
-                  <ul>
-                    <li className="bullet-item">
-                      <Link to="/documentation/maestro">Maestro: </Link>
-                      indexes published Song metadata into Elastisearch
-                    </li>
-                    <li className="bullet-item">
-                      <Link to="/documentation/arranger">Arranger: </Link>
-                      search API generation with customizable UI component
-                      library
-                    </li>
-                    <li className="bullet-item">
-                      <Link to="/documentation/stage">Stage: </Link>
-                      react-based portal UI made to integrate with Overture
-                      services
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="text-section">
+            <H3>Developer Documentation</H3>
+            <P2>
+              Detailed product documentation for administrators and developers
+            </P2>
           </div>
+
+          <div className="list-section">
+            <ul className="doc-column">
+              <li className="bullet-item">
+                {' '}
+                <a href={OVERTURE_DOCUMENTATION_CORE_SOFTWARE}>
+                  Core Software:
+                </a>{' '}
+                documentation covering the core components of the Overture
+                platform.
+              </li>
+              <li className="bullet-item">
+                {' '}
+                <a href={OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT}>
+                  Under Development:
+                </a>{' '}
+                new components not quite ready for production.
+              </li>
+            </ul>
+          </div>
+
           <div>
             <NoteBox
               icon="notes2"
               title="Help us make our docs better"
               className="getting-started-notebox"
             >
-              If you can't find what you are looking for, please submit{' '}
+              If you can't find what you are looking for, please let us know{' '}
               <b>
-                <Link to={FEATURE_REQUESTS}>a GitHub request</Link>
+                <Link to={OVERTURE_GITHUB_DISSCUSSION_LINK}>
+                  using our ideas discussion forum.
+                </Link>
               </b>
             </NoteBox>
           </div>
@@ -257,16 +246,16 @@ export default function GettingStartedPage() {
             </div>
             <div className="lower-grey-section__yellow-buttons-holder">
               <YellowButton
-                link={SLACK_LINK}
-                img_src="slackJoin"
-                alt="Join Us on Slack"
-                title="Join Us on Slack"
+                link={OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK}
+                img_src="githubYellow"
+                alt="Get Involved"
+                title="Get Involved"
               />
               <YellowButton
-                link={OVERTURE_GITHUB_LINK}
+                link={OVERTURE_GITHUB_DISSCUSSION_LINK}
                 img_src="githubFindUs"
-                alt="Find Us on Github"
-                title="Find Us on Github"
+                alt="Reach Out"
+                title="Reach Out"
               ></YellowButton>
             </div>
           </div>

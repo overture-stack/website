@@ -1,5 +1,8 @@
 import React from 'react';
-import { SLACK_LINK, EMAIL_LINK } from '../../../constants/external-links';
+import {
+  EMAIL_LINK,
+  OVERTURE_DOCUMENTATION_SUPPORT_LINK,
+} from '../../../constants/external-links';
 import { Button, P1, H2 } from 'components';
 import './styles.scss';
 
@@ -47,7 +50,7 @@ const ServicesPageSection = ({
             {buttonText && (
               <div className="ServicesPageSection__button-holder">
                 <Button
-                  link={EMAIL_LINK}
+                  link={OVERTURE_DOCUMENTATION_SUPPORT_LINK}
                   type="primary"
                   size="medium"
                   className="ServicesPageSection__button"

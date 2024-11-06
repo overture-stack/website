@@ -4,7 +4,10 @@ import { LinkHelper as Link } from 'components';
 import {
   GITHUB_REQUEST_FEATURES_LINK,
   GITHUB_SUBMIT_ISSUES_LINK,
-  SLACK_LINK,
+  OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
+  OVERTURE_DOCUMENTATION_SUPPORT_LINK,
+  OVERTURE_GITHUB_DISSCUSSION_LINK,
+  OVERTURE_GITHUB_LINK,
 } from '../../../constants/external-links';
 import urlJoin from 'proper-url-join';
 import smileyFace from './assets/smileyFace.svg';
@@ -26,7 +29,8 @@ function SupportFooter({ location }) {
    */
   function getContributionURL() {
     // Base URL prefix for GitHub repository links (updated to main)
-    const githubPrefix = 'https://github.com/overture-stack/website/tree/main/markdown';
+    const githubPrefix =
+      'https://github.com/overture-stack/website/tree/main/markdown';
     // Extract the pathname from the current location object
     const url = location.pathname;
 
@@ -48,9 +52,11 @@ function SupportFooter({ location }) {
       /*
        * The rest is logic for handling paths unique paths where the url points to an index.md file in the relevant directory.
        */
-      case url.includes('song') && (url.endsWith('schemas/') || url.endsWith('api/')):
+      case url.includes('song') &&
+        (url.endsWith('schemas/') || url.endsWith('api/')):
       case url.includes('maestro') && url.endsWith('user-guide/'):
-      case url.includes('ego') && (url.endsWith('prerequisites/') || url.endsWith('admin-ui/')):
+      case url.includes('ego') &&
+        (url.endsWith('prerequisites/') || url.endsWith('admin-ui/')):
         return urlJoin(githubPrefix, url, 'index.md');
 
       /*
@@ -75,7 +81,9 @@ function SupportFooter({ location }) {
             <div className="feedback-buttons-holder">
               <button
                 onClick={() => handleFeedbackClick(true)}
-                className={`feedback-button ${feedback === true && 'icon-inverted'}`}
+                className={`feedback-button ${
+                  feedback === true && 'icon-inverted'
+                }`}
                 aria-label="Positive feedback"
                 id="postive-feedback"
               >
@@ -83,7 +91,9 @@ function SupportFooter({ location }) {
               </button>
               <button
                 onClick={() => handleFeedbackClick(false)}
-                className={`feedback-button ${feedback === false && 'icon-inverted'}`}
+                className={`feedback-button ${
+                  feedback === false && 'icon-inverted'
+                }`}
                 aria-label="Negative feedback"
                 id="negative-feedback"
               >
@@ -93,20 +103,34 @@ function SupportFooter({ location }) {
           </div>
           {/* second column - submit issues and make contribution */}
           <div className="support-footer__second-column">
-            <p className="support-footer__sub-title">Help make our docs better</p>
+            <p className="support-footer__sub-title">
+              Help make our docs better
+            </p>
             <ul>
               <li>
-                <a href={GITHUB_SUBMIT_ISSUES_LINK} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={OVERTURE_DOCUMENTATION_SUPPORT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Submit an issue
                 </a>
               </li>
               <li>
-                <a href={GITHUB_REQUEST_FEATURES_LINK} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Submit a feature request
                 </a>
               </li>
               <li>
-                <a href={contributionURL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Make a contribution
                 </a>
               </li>
@@ -115,25 +139,41 @@ function SupportFooter({ location }) {
           {/* third column - slack link */}
           <div className="support-footer__third-column">
             <p className="support-footer__sub-title">Still need help?</p>
-            <Link to={SLACK_LINK}>Ask us on Slack</Link>
+            <Link to={OVERTURE_GITHUB_LINK}>
+              Check out our GitHub Discussion Forum
+            </Link>
           </div>
           {/* joint column - second and third column*/}
           <div className="support-footer__joint-second-third-column">
             <div className="support-footer__joint-second-column">
-              <p className="support-footer__sub-title">Help make our docs better</p>
+              <p className="support-footer__sub-title">
+                Help make our docs better
+              </p>
               <ul>
                 <li>
-                  <a href={GITHUB_SUBMIT_ISSUES_LINK} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={OVERTURE_DOCUMENTATION_SUPPORT_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Submit an issue
                   </a>
                 </li>
                 <li>
-                  <a href={GITHUB_REQUEST_FEATURES_LINK} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={OVERTURE_DOCUMENTATION_SUPPORT_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Submit a feature request
                   </a>
                 </li>
                 <li>
-                  <a href={contributionURL} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Make a contribution
                   </a>
                 </li>
@@ -142,7 +182,9 @@ function SupportFooter({ location }) {
             {/* third column - slack link */}
             <div className="support-footer__joint-third-column">
               <p className="support-footer__sub-title">Still need help?</p>
-              <Link to={SLACK_LINK}>Ask us on Slack</Link>
+              <Link to={OVERTURE_GITHUB_DISSCUSSION_LINK}>
+                Ask us on GitHub
+              </Link>
             </div>
           </div>
         </div>
