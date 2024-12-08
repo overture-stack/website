@@ -13,7 +13,6 @@ import {
   PRODUCTS_PATH,
   SERVICES_PATH,
 } from 'constants/pages';
-import { SDOCUMENTATION_LINK } from 'constants/external-links';
 import logo from './assets/overture_logo.svg';
 import './styles.scss';
 import {
@@ -64,7 +63,7 @@ class NavBar extends Component {
               <NavLink
                 closeMenus={closeMenus}
                 url={DOCUMENTATION_LINK}
-                name="Guides & Docs"
+                name="Documentation"
               />
               <NavLink
                 closeMenus={closeMenus}

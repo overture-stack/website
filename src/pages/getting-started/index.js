@@ -4,7 +4,6 @@ import {
   H2,
   H3,
   P3,
-  Search,
   YellowButton,
   LinkHelper as Link,
   Terminal,
@@ -14,23 +13,12 @@ import {
   NoteBox,
 } from 'components';
 import img_overtureQuickstartPortal from './assets/overtureQuickstartPortal.webp';
-import {
-  OVERTURE_GITHUB_LINK,
-  SLACK_LINK,
-  DOCKER_DOWNLOAD,
-} from 'constants/external-links';
+import { DOCKER_DOWNLOAD } from 'constants/external-links';
 import './styles.scss';
-import {
-  ADMINISTRATION_GUIDE,
-  DEPLOYMENT_GUIDE,
-  DOWNLOAD_GUIDE,
-  SUBMISSION_GUIDE,
-} from '../../../constants/pages';
 import {
   ADMINISTRATION_GUIDES,
   API_REFERENCE_GUIDE,
   DEPLOYMENT_GUIDES,
-  FEATURE_REQUESTS,
   OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
   OVERTURE_DOCUMENTATION_CORE_SOFTWARE,
   OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT,
@@ -59,7 +47,7 @@ export default function GettingStartedPage() {
         <div className="container">
           <div className="upper-grey-section__holder">
             <div className="upper-grey-section__title-holder">
-              <H2>Getting Started</H2>
+              <H2>Run our QuickStart</H2>
             </div>
             <div className="upper-grey-section__content-holder">
               {/* The img holding div below displays in mobile/tablet view.*/}

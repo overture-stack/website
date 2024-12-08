@@ -1,28 +1,27 @@
 // Overture Docs + Demo
 
 export const DEMO_LINK = 'https://demo.overture.bio/';
-export const DOCUMENTATION_LINK = 'https://main--overturedev.netlify.app/';
+export const DOCUMENTATION_LINK = 'https://docs.overture.bio/';
 export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
 export const OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK =
-  'https://main--overturedev.netlify.app/community/contribution';
+  'https://docs.overture.bio/community/contribution';
 export const OVERTURE_GITHUB_DISSCUSSION_LINK =
   'https://github.com/overture-stack/docs/discussions';
 export const OVERTURE_DOCUMENTATION_SUPPORT_LINK =
-  'https://main--overturedev.netlify.app/community/support';
+  'https://docs.overture.bio/community/support';
 export const FEATURE_REQUESTS =
   'https://github.com/overture-stack/website/issues/new?assignees=&labels=&projects=&template=Feature_Requests.md';
-export const USER_GUIDES =
-  'https://main--overturedev.netlify.app/guides/user-guides/';
+export const USER_GUIDES = 'https://docs.overture.bio/guides/user-guides/';
 export const ADMINISTRATION_GUIDES =
-  'https://main--overturedev.netlify.app/guides/administration-guides/';
+  'https://docs.overture.bio/guides/administration-guides/';
 export const DEPLOYMENT_GUIDES =
-  'https://main--overturedev.netlify.app/guides/deployment-guide/';
+  'https://docs.overture.bio/guides/deployment-guide/';
 export const API_REFERENCE_GUIDE =
-  'https://main--overturedev.netlify.app/guides/api-reference';
+  'https://docs.overture.bio/guides/api-reference';
 export const OVERTURE_DOCUMENTATION_CORE_SOFTWARE =
-  'https://main--overturedev.netlify.app/docs/core-software/';
+  'https://docs.overture.bio/docs/core-software/';
 export const OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT =
-  'https://main--overturedev.netlify.app/docs/under-development/';
+  'https://docs.overture.bio/docs/under-development/';
 
 // Case Study Links
 
