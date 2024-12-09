@@ -140,17 +140,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
-    {
-      resolve: 'gatsby-plugin-algolia',
-      options: {
-        apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        chunkSize: 10000, // default 1000
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
-        queries: require('./meta/algolia-queries.js'),
-        skipIndexing: !ENABLE_SEARCH_INDEXING,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-algolia',
+    //   options: {
+    //     apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
+    //     appId: process.env.GATSBY_ALGOLIA_APP_ID,
+    //     chunkSize: 10000, // default 1000
+    //     indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
+    //     queries: require('./meta/algolia-queries.js'),
+    //     skipIndexing: !ENABLE_SEARCH_INDEXING,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
