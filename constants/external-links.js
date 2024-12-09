@@ -1,21 +1,31 @@
+// Overture Docs + Demo
+
 export const DEMO_LINK = 'https://demo.overture.bio/';
-export const DOCKER_DOWNLOAD =
-  'https://www.docker.com/products/docker-desktop/';
+export const DOCUMENTATION_LINK = 'https://docs.overture.bio/';
+export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
+export const OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK =
+  'https://docs.overture.bio/community/contribution';
+export const OVERTURE_GITHUB_DISSCUSSION_LINK =
+  'https://github.com/overture-stack/docs/discussions';
+export const OVERTURE_DOCUMENTATION_SUPPORT_LINK =
+  'https://docs.overture.bio/community/support';
 export const FEATURE_REQUESTS =
   'https://github.com/overture-stack/website/issues/new?assignees=&labels=&projects=&template=Feature_Requests.md';
+export const USER_GUIDES = 'https://docs.overture.bio/guides/user-guides/';
+export const ADMINISTRATION_GUIDES =
+  'https://docs.overture.bio/guides/administration-guides/';
+export const DEPLOYMENT_GUIDES =
+  'https://docs.overture.bio/guides/deployment-guide/';
+export const API_REFERENCE_GUIDE =
+  'https://docs.overture.bio/guides/api-reference';
+export const OVERTURE_DOCUMENTATION_CORE_SOFTWARE =
+  'https://docs.overture.bio/docs/core-software/';
+export const OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT =
+  'https://docs.overture.bio/docs/under-development/';
 
-export const ICGC_ARGO_LINK = 'https://www.icgc-argo.org/';
-export const ICGC_ARGO_PORTAL_LINK = 'https://platform.icgc-argo.org/';
-export const CGC_LINK = 'https://cancercollaboratory.org/';
-export const FAQ_LINK =
-  'https://oicr.on.ca/information-practices-frequently-asked-questions/';
+// Case Study Links
+
 export const GDC_LINK = 'https://portal.gdc.cancer.gov/';
-export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
-export const GITHUB_ISSUES_LINK = `${OVERTURE_GITHUB_LINK}roadmap/issues`;
-export const GITHUB_SUBMIT_ISSUES_LINK =
-  'https://github.com/overture-stack/website/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=BUG+-+';
-export const GITHUB_REQUEST_FEATURES_LINK =
-  'https://github.com/overture-stack/website/issues/new?assignees=&labels=new-feature&projects=&template=Feature_Request.md&title=Feature+Request+';
 export const HCMIS_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const HCMIS_PORTAL_LINK = 'https://hcmi-searchable-catalog.nci.nih.gov/';
 export const ICGC_LINK = 'https://dcc.icgc.org/';
@@ -23,26 +33,32 @@ export const IHCC_LINK = 'https://ihccglobal.org/';
 export const IHCC_PORTAL_LINK = 'https://atlas.ihccglobal.org/';
 export const KIDS_FIRST_LINK =
   'https://portal.kidsfirstdrc.org/login?redirect_path=/dashboard?';
+export const VIRUSSEQ_LINK =
+  'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
+export const VIRUSSEQ_PORTAL_LINK = 'https://virusseq-dataportal.ca/explorer';
+export const ICGC_ARGO_LINK = 'https://www.icgc-argo.org/';
+export const ICGC_ARGO_PORTAL_LINK = 'https://platform.icgc-argo.org/';
+export const CGC_LINK = 'https://cancercollaboratory.org/';
+
+// Misc Links
+
+export const DOCKER_DOWNLOAD =
+  'https://www.docker.com/products/docker-desktop/';
 export const NETLIFY_IMAGE_LINK =
   'https://www.netlify.com/img/global/badges/netlify-color-bg.svg';
 export const NETLIFY_LINK = 'https://www.netlify.com/';
 export const OICR_LINK = 'https://oicr.on.ca';
-export const OVERTURE_YOUTUBE_LINK =
-  'https://www.youtube.com/embed/NrgL8vpFm5s';
 export const POLICIES_LINK = 'https://oicr.on.ca/oicr-policies-and-procedures/';
 export const PRIVACY_EMAIL_LINK = 'mailto:privacy@oicr.on.ca';
-export const SLACK_LINK =
-  'https://join.slack.com/t/overture-bio/shared_invite/zt-21tdumtdh-9fP1TFeLepK4~Lc377rOYw';
 export const TEAM_BLOG_LINK = 'https://softeng.oicr.on.ca/';
 export const TEAM_LINK = 'https://softeng.oicr.on.ca/team/';
-export const VIRUSSEQ_LINK =
-  'https://genomecanada.ca/challenge-areas/cancogen/virusseq/';
-export const VIRUSSEQ_PORTAL_LINK = 'https://virusseq-dataportal.ca/explorer';
 export const EMAIL_LINK = 'mailto:contact@overture.bio';
 export const GI_PROGRAM_LINK =
   'https://oicr.on.ca/programs/genome-informatics/';
+export const FAQ_LINK =
+  'https://oicr.on.ca/information-practices-frequently-asked-questions/';
 
-// PRODUCTS LINKS
+// Product Links
 
 // arranger
 export const ARRANGER_GETTING_STARTED_LINK =
@@ -53,9 +69,7 @@ export const ARRANGER_UPDATES_LINK =
 export const ARRANGER_GITHUB_LINK =
   'https://github.com/overture-stack/arranger';
 
-// DMS
-export const DMS_RELEASE_NOTES = `${OVERTURE_GITHUB_LINK}dms/releases`;
-export const CANARIE_LINK = 'https://www.canarie.ca/';
+// stage
 export const STAGE_GITHUB_LINK = 'https://github.com/overture-stack/stage';
 
 // ego
@@ -63,31 +77,10 @@ export const EGO_SQL_LINK = `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/re
 export const EGO_UPDATES_LINK = 'https://www.overture.bio/documentation/ego/';
 export const EGO_GITHUB_LINK = 'https://github.com/overture-stack/ego';
 
-// jukebox
-export const JUKEBOX_BLOG_POST_LINK =
-  'http://softeng.oicr.on.ca/kevin_hartmann/2018/03/28/Drops-of-Jupyter/';
-export const JUPYTER_LINK = 'https://jupyter.org/index.html';
-export const JUPYTER_INSTALL_LINK = 'https://jupyter.org/install.html';
-
-// oncojs
-export const LOLLIPLOT_EXAMPLE_LINK =
-  'https://portal.gdc.cancer.gov/genes/ENSG00000183914';
-export const ONCOGRID_EXAMPLE_LINK =
-  'https://dcc.icgc.org/analysis/view/oncogrid/ce6fd9fd-b76e-488d-88a5-93bdc690f79e';
-export const SURVIVALPLOT_EXAMPLE_LINK =
-  'https://dcc.icgc.org/analysis/view/phenotype/15c7c81a-7717-49e3-a0f7-be09fdc400b6';
-export const PATHWAYVIEWER_EXAMPLE_LINK =
-  'https://dcc.icgc.org/genesets/R-HSA-1236974/pathway-viewer';
-export const ONCOJS_GITHUB_LINK = 'https://github.com/oncojs';
-
 // maestro
 export const MAESTRO_UPDATES_LINK =
   'https://www.overture.bio/documentation/maestro/';
 export const MAESTRO_GITHUB_LINK = 'https://github.com/overture-stack/maestro';
-
-// persona
-export const PERSONA_LOCAL_LINK = 'http://localhost:3232/graphql';
-export const PERSONA_ENV_SCHEMA_LINK = `${OVERTURE_GITHUB_LINK}persona/blob/master/.env.schema`;
 
 // song
 export const SONG_DOCS_LINK = 'https://www.overture.bio/documentation/song/';

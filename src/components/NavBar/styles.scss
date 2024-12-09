@@ -134,7 +134,7 @@
     }
   }
 
-  .slack-button {
+  .github-button {
     margin-right: 1rem;
     background: $grey-2;
 
@@ -152,9 +152,9 @@
     @include breakpoint(navmenu-below) {
       gap: 3em;
     }
-    .slack-button {
+    .github-button {
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     @media (max-width: 400px) {
@@ -162,7 +162,7 @@
       justify-content: flex-start;
       gap: 0;
 
-      .slack-button {
+      .github-button {
         margin: 0.5rem;
       }
     }

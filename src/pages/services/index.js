@@ -36,7 +36,7 @@ const ServicesPage = () => {
         list1="Technical audits"
         list2="Step-by-step guidance"
         list3="Troubleshooting"
-        buttonText="Contact us on Slack"
+        buttonText="Community Supports"
         contactMessage="or email us at contact@overture.bio"
       />
       {/* grey section */}
