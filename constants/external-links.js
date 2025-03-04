@@ -22,6 +22,8 @@ export const OVERTURE_DOCUMENTATION_CORE_SOFTWARE =
   'https://docs.overture.bio/docs/core-software/';
 export const OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT =
   'https://docs.overture.bio/docs/under-development/';
+export const OVERTURE_DOCUMENTATION_LICENSING =
+  'https://docs.overture.bio/community/licensing';
 
 // Case Study Links
 

@@ -16,10 +16,10 @@ import {
   NETLIFY_LINK,
   NETLIFY_IMAGE_LINK,
   OICR_LINK,
+  OVERTURE_DOCUMENTATION_LICENSING,
 } from 'constants/external-links';
 import './styles.scss';
 import logo from './logo.svg';
-import { GETTING_STARTED_PATH } from '../../../constants/pages';
 
 const links = [
   {
@@ -36,7 +36,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
-    key: 3,
+    key: 2,
   },
   {
     name: 'Acknowledgements',
@@ -44,7 +44,7 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
-    key: 4,
+    key: 3,
   },
   {
     name: 'Services',
@@ -52,11 +52,19 @@ const links = [
     icon: null,
     newTab: false,
     className: '',
-    key: 5,
+    key: 4,
   },
   {
     name: 'Case Studies',
     url: CASE_STUDIES_PATH,
+    icon: null,
+    newTab: false,
+    className: '',
+    key: 5,
+  },
+  {
+    name: 'Software Licensing',
+    url: OVERTURE_DOCUMENTATION_LICENSING,
     icon: null,
     newTab: false,
     className: '',

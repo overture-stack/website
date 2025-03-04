@@ -15,7 +15,7 @@ Everything else is handled with custom (S)CSS.
 
 a css class that serves a very specific purpose. Example: `bg-green` applies:
 
-``` css
+```css
 .bg-green {
   background: #00ddbe;
 }
@@ -27,14 +27,18 @@ classes used.
 CSS utilities are great but don't always work well responsively, also, if you
 end up writing a DOM element like so:
 
-``` html
-<div class="flex flex-column items-center bg-green text-magenta py2 mr0
-is-hidden-mobile">Foo </div>
+```html
+<div
+  class="flex flex-column items-center bg-green text-magenta py2 mr0
+is-hidden-mobile"
+>
+  Foo
+</div>
 ```
 
 Then you should probably refactor that into a more BEM-ish class.
 
-## How Styles are Organized 
+## How Styles are Organized
 
 Styling is handled at three seperate levels:
 
@@ -42,7 +46,7 @@ Styling is handled at three seperate levels:
 
 - All components have a `styles.scss` file in the component directory:
 
-``` 
+```
 ├── Button
 │   ├── index.js
 │   └── styles.scss
@@ -61,7 +65,7 @@ the site is fairly unique in it's own way, these styles can help fill in the
 gaps where utility classes and components can't do the job.
 
 _caveat_: some pages are very simple and can get by without a styles.scss because
-they rely on utility classes, basscss, or just the provided components. 
+they rely on utility classes, basscss, or just the provided components.
 
 ### Top Level (high-level / global)
 
