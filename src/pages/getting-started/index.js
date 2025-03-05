@@ -62,7 +62,7 @@ export default function GettingStartedPage() {
                 <P2 className="text-section">
                   <b>
                     1. Download and configure{' '}
-                    <Link to={DOCKER_DOWNLOAD}>Docker Desktop (4.32.0+)</Link>
+                    <Link to={DOCKER_DOWNLOAD}>Docker Desktop (4.39.0+)</Link>
                   </b>
                 </P2>
 
