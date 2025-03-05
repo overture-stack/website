@@ -398,7 +398,7 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Docker Desktop (4.32.0+)
+                        Docker Desktop (4.39.0+)
                       </a>
                     </b>
                   </P2>
