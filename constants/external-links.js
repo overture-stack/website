@@ -24,6 +24,7 @@ export const OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT =
   'https://docs.overture.bio/docs/under-development/';
 export const OVERTURE_DOCUMENTATION_LICENSING =
   'https://docs.overture.bio/community/licensing';
+export const OVERTURE_SUPPORT = 'https://docs.overture.bio/community/support';
 
 // Case Study Links
 

@@ -18,6 +18,7 @@ import './styles.scss';
 import {
   DOCUMENTATION_LINK,
   OVERTURE_GITHUB_LINK,
+  OVERTURE_SUPPORT,
 } from '../../../constants/external-links';
 
 class NavBar extends Component {
@@ -80,6 +81,11 @@ class NavBar extends Component {
                 closeMenus={closeMenus}
                 url={ABOUT_US_PATH}
                 name="About Us"
+              />
+              <NavLink
+                closeMenus={closeMenus}
+                url={OVERTURE_SUPPORT}
+                name="Support"
               />
             </div>
             {/* grey section with three cubes */}
