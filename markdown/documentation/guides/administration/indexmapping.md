@@ -4,16 +4,15 @@ title: Updating the Index Mapping
 
 # Indexing in Overture
 
-An index mapping defines how documents and their fields are stored and indexed in Elasticsearch. 
+An index mapping defines how documents and their fields are stored and indexed in Elasticsearch.
 
 Maestro is responsible for taking published Song metadata and translating it into Elasticsearch documents. With these documents Arranger uses the index mapping and generates our GraphQL server which enables fast and flexible queries.
 
 Depending on how Maestro is configured it can index data into documents in one of two ways:
 
-- **File Centric Indexing:** Each document indexed in Elasticsearch describes all information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
+- **File Centric Indexing:** Each document indexed in Elasticsearch describes all information central to a specific file. [Click here to see an example of a file centric JSON document](https://github.com/overture-stack/quickstart/blob/develop/guideMaterials/dataAdministration/ES-fileCentric-document.json).
 
-
-- **Analysis Centric Indexing** Each document indexed in Elasticsearch describes all information central to a specific analysis. [Click here to see an example of a analysis centric JSON document](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-analysisCentric-document.json).
+- **Analysis Centric Indexing** Each document indexed in Elasticsearch describes all information central to a specific analysis. [Click here to see an example of a analysis centric JSON document](https://github.com/overture-stack/quickstart/blob/develop/guideMaterials/dataAdministration/ES-analysisCentric-document.json).
 
 <Note title="File or Analysis Centric Indexing">If your queries focus on individual files and their attributes, choose file-centric indexing. If your queries center on analyses/participants and their associated data, choose analysis-centric indexing.</Note>
 
@@ -26,16 +25,13 @@ When broken down the index template has four components, `index_patterns`, `alia
 ```json
 {
   "index_patterns": ["overture-*"],
-  "aliases": {
-  },
-  "mappings": {
-  },
-  "settings": {
-  }
+  "aliases": {},
+  "mappings": {},
+  "settings": {}
 }
 ```
 
-The above code snippet references [the Overture Quickstart Index template](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/ES-index-template.json), feel free to have this open as a reference, we will refer to it where ever appropriate
+The above code snippet references [the Overture Quickstart Index template](https://github.com/overture-stack/quickstart/blob/develop/guideMaterials/dataAdministration/ES-index-template.json), feel free to have this open as a reference, we will refer to it where ever appropriate
 
 ## Index Patterns
 
@@ -43,7 +39,7 @@ In Elasticsearch, the `index_patterns` setting specifies which indices the index
 
 ## Aliases
 
-Here we can define an alias for indices that use this template. <a target="_blank" rel="noopener noreferrer" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/aliases.html">Aliases</a> are a secondary and more generalized index name typically used to group related indices. 
+Here we can define an alias for indices that use this template. <a target="_blank" rel="noopener noreferrer" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/aliases.html">Aliases</a> are a secondary and more generalized index name typically used to group related indices.
 
 Here we define our alias as `file_centric` providing us some context on the method of indexing configured with Maestro:
 
@@ -55,7 +51,7 @@ Here we define our alias as `file_centric` providing us some context on the meth
 
 ## Settings
 
-The settings section is for configuring index behavior. Each setting plays a role in defining how data is indexed, stored, and queried in Elasticsearch, optimizing performance and scalability based on specific use cases and requirements. 
+The settings section is for configuring index behavior. Each setting plays a role in defining how data is indexed, stored, and queried in Elasticsearch, optimizing performance and scalability based on specific use cases and requirements.
 
 Most of these will be automatically configured by Maestro. However, we will outline the additional settings used in our index template including `analyzers`, `filters`, and `tokenizers`, essential components in Elasticsearch that contribute to how text data is indexed, analyzed, and searched.
 
@@ -94,7 +90,7 @@ Most of these will be automatically configured by Maestro. However, we will outl
 
 **Filters** in Elasticsearch are specific processing steps, typically used for text transformations within an analyzer or independently applied during indexing or querying. Filters are used to improve search relevance and efficiency by modifying or discarding certain tokens.
 
-**Tokens and Tokenizers** are fundamental concepts in text processing and search indexing. Tokens are individual units of text generated during tokenization. Tokenizers are components responsible for breaking down text into tokens (tokenization). They define how text is segmented based on rules like whitespace, punctuation, or specific character patterns. 
+**Tokens and Tokenizers** are fundamental concepts in text processing and search indexing. Tokens are individual units of text generated during tokenization. Tokenizers are components responsible for breaking down text into tokens (tokenization). They define how text is segmented based on rules like whitespace, punctuation, or specific character patterns.
 
 <Note title="For more information">For more information on tokenizers, analyzers and filters refer to [Elasticsearch's documentation on the Anatomy of analyzers]("https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analyzer-anatomy.html").</Note>
 
@@ -108,7 +104,6 @@ With this information, lets breakdown some of the settings found in our index te
 ```
 
 The above section defines an analyzer named `lowercase_keyword`. It uses the `"keyword"` tokenizer, which indexes the entire input as a single token. The `"lowercase"` filter is applied to convert all tokens to lowercase, enabling case-insensitive search.
-
 
 ```json
       "filter": {
@@ -139,7 +134,7 @@ Here, `autocomplete_analyzed` is defined with a `Tokenizer` using the <a href="h
 
 ## Mappings
 
-The mappings section defines the structure of the documents in our index. Each field should relate to the data collected by Song and indexed by Maestro, this mapping is needed by Elasticsearch and Arranger to use our data. 
+The mappings section defines the structure of the documents in our index. Each field should relate to the data collected by Song and indexed by Maestro, this mapping is needed by Elasticsearch and Arranger to use our data.
 
 **The following is a summary of the basic units of an index mapping:**
 
@@ -163,19 +158,18 @@ The mappings section defines the structure of the documents in our index. Each f
 
 **Properties:** Each field within the mapping section defines a specific attribute or property of the documents. These properties describe the structure and type of data that can be indexed.
 
-**Field Names:** Field names such as `analysisStateHistory` denote individual attributes within documents. They represent specific data points that help organize and categorize information. 
+**Field Names:** Field names such as `analysisStateHistory` denote individual attributes within documents. They represent specific data points that help organize and categorize information.
 
 **Types:** Each field in your documents should have a defined data type to ensure Elasticsearch understands how to index and query your data effectively. A summary of common types are provided below:
 
-| Type       | Description                                                                                          |
-|------------|------------------------------------------------------------------------------------------------------|
-| `keyword`  | Exact value fields not intended for full-text search. Ideal for fields like IDs, keywords, enums.    |
-| `text`     | Full-text fields used for search and indexing. Analyzed by default to support partial matches.       |
-| `integer`  | Integer numeric fields for storing whole numbers. Useful for numerical operations and aggregations.  |
-| `date`     | Date/time fields that support date formats and time zones. Allows for date-based querying and sorting. |
+| Type      | Description                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------ |
+| `keyword` | Exact value fields not intended for full-text search. Ideal for fields like IDs, keywords, enums.      |
+| `text`    | Full-text fields used for search and indexing. Analyzed by default to support partial matches.         |
+| `integer` | Integer numeric fields for storing whole numbers. Useful for numerical operations and aggregations.    |
+| `date`    | Date/time fields that support date formats and time zones. Allows for date-based querying and sorting. |
 
 **Nested Types** are used to model hierarchical data structures within documents. They allow for the nesting of objects or arrays within a single field. This is particularly useful when dealing with entities that have multiple properties or attributes, such as `analysisStateHistory` shown above.
-
 
 **copy_to & file_autocomplete:** The `copy_to` <a rel="noopener noreferrer" target="_blank" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.17/copy-to.html)">parameter in Elasticsearch</a> allows you to copy the values of one or more fields into a designated target field. This feature is useful when you want to create a single field that aggregates content from multiple other fields.
 
@@ -210,13 +204,11 @@ The mappings section defines the structure of the documents in our index. Each f
   }
 ```
 
-The  `object_id` field here is defined as the `"type": "keyword"` and includes a `copy_to` parameter pointing to `file_autocomplete`. 
+The `object_id` field here is defined as the `"type": "keyword"` and includes a `copy_to` parameter pointing to `file_autocomplete`.
 
 - This means that the value of `object_id` will be copied into the `file_autocomplete` field
 
-
 - The `file_autocomplete` field is initially defined as `"type": "keyword"` and includes the sub-fields (`analyzed`, `lowercase`, and `prefix`) using the three text analyzers (`autocomplete_analyzed`, `autocomplete_prefix`, `lowercase_keyword`) configured in our settings sections.
-
 
 - These sub-fields enable different types of searches and queries on the copied content from `object_id`.
 
@@ -226,14 +218,11 @@ By aggregating relevant metadata into `file_autocomplete` this setup enables use
 
 1. **Prepare your Template File:** Start by preparing your Elasticsearch index template file with your desired mappings and settings. Ensure this reflects the structure and configuration specific to your data model being used in Song.
 
-
-2. **Update the Index Template:** Use the following `curl` command to update Elasticsearch with your index template. The values here reflect those of the Overture Quickstart. 
+2. **Update the Index Template:** Use the following `curl` command to update Elasticsearch with your index template. The values here reflect those of the Overture Quickstart.
 
 ```JSON
 curl -u elastic:myelasticpassword -X PUT 'http://elasticsearch:9200/_template/index_template' -H 'Content-Type: application/json' -d @/directory/to/your/index_template.json
 ```
-
-
 
 - Replace `elastic:myelasticpassword` with your Elasticsearch username and password combination
 - Adjust the URL (`http://elasticsearch:9200/_template/index_template`) to match your Elasticsearch host
@@ -247,25 +236,20 @@ curl -u elastic:myelasticpassword -X PUT 'http://elasticsearch:9200/{index-name}
 
 - Replace `elastic:myelasticpassword` with your Elasticsearch username and password combination
 - Adjust the URL (`http://elasticsearch:9200/{index-name}/_alias/file_centric`) to match your Elasticsearch host, index name, and alias name (`file_centric`). \
-- `{"is_write_index": true}` sets the alias to be the write index meaning new documents submitted to this alias through indexing operations (Maestro) will be routed to this index 
-
+- `{"is_write_index": true}` sets the alias to be the write index meaning new documents submitted to this alias through indexing operations (Maestro) will be routed to this index
 
 ## Using the Quickstart Index
 
-The index mapping template used within the Quickstart can be found in [the directory linked here](https://github.com/overture-stack/conductor/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)
+The index mapping template used within the Quickstart can be found in [the directory linked here](https://github.com/overture-stack/quickstart/blob/develop/configurationFiles/elasticsearchConfigs/quickstart_index_template.json)
 
-Upon initial deployment, this index template is uploaded to Elasticsearch, and a new alias, `overture-quickstart-index`, is created in alignment with the defined `"index_patterns": ["overture-*"]"`. The Docker container and associated script that automate this process is [located in the docker-compose.yml here](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L344-L379).
+Upon initial deployment, this index template is uploaded to Elasticsearch, and a new alias, `overture-quickstart-index`, is created in alignment with the defined `"index_patterns": ["overture-*"]"`. The Docker container and associated script that automate this process is [located in the docker-compose.yml here](https://github.com/overture-stack/quickstart/blob/develop/docker-compose.yml#L344-L379).
 
 If you change this template to match your own custom schema, and wish to populate Elasticsearch with your new index template, ensure you check the following:
 
-- **Stage Arranger Variables:** Ensure [the environment variables in Stage](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L446-L448) are adjusted to specify the updated documentType and Index name according to your modified Elasticsearch mapping
+- **Stage Arranger Variables:** Ensure [the environment variables in Stage](https://github.com/overture-stack/quickstart/blob/develop/docker-compose.yml#L446-L448) are adjusted to specify the updated documentType and Index name according to your modified Elasticsearch mapping
 
+- **Maestro Elasticsearch Variables:** Maestro requires specific information about the alias and centrality of the index. Make sure [these variables are updated](https://github.com/overture-stack/quickstart/blob/develop/docker-compose.yml#L303-L307)
 
-- **Maestro Elasticsearch Variables:** Maestro requires specific information about the alias and centrality of the index. Make sure [these variables are updated](https://github.com/overture-stack/conductor/blob/develop/docker-compose.yml#L303-L307)
-
-
-- **Arranger Configuration Files:** Update [Arranger configuration](https://github.com/overture-stack/conductor/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the front-end search interface, correctly interprets and interacts with your Elasticsearch data
+- **Arranger Configuration Files:** Update [Arranger configuration](https://github.com/overture-stack/quickstart/tree/develop/configurationFiles/arrangerConfigs) files to reflect any changes made to your index mapping. This ensures that Arranger, the front-end search interface, correctly interprets and interacts with your Elasticsearch data
 
 <Note title="Updating Arranger Configuration Files">For detailed instructions on customizing the search interface in Arranger to align with your updated mapping, refer to the next section on search interface customization.</Note>
-
-

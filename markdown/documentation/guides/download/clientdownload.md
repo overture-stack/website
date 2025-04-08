@@ -2,7 +2,7 @@
 title: Download Guide
 ---
 
-**This guide is for** anyone seeking guidance on how to download data from an Overture platform. 
+**This guide is for** anyone seeking guidance on how to download data from an Overture platform.
 
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
@@ -15,7 +15,7 @@ title: Download Guide
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/conductor.git
+git clone  https://github.com/overture-stack/quickstart.git
 ```
 
 **2. Launch the platform by running the appropriate command for your operating system:**
@@ -41,9 +41,9 @@ git clone  https://github.com/overture-stack/conductor.git
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
-**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Conductor will be username `admin` and password `admin123`.
+**1. Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture Quickstart will be username `admin` and password `admin123`.
 
-**2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**. 
+**2. Generate a new API token** by selecting **Profile and Token** from your user dropdown menu at the top right of the Stage UI and selecting **Generate New Token**.
 
 ![Accessing an API Key](../submission/assets/apikeys.png 'Accessing an API Key')
 
@@ -70,30 +70,24 @@ docker run -d -it --name score-client \
 
 <br></br>
 
-  - `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
+- `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
 
+- `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
-  - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
+- `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in through stage found on `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
 
+- `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
 
-  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in through stage found on  `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page you can generate your own API key and supply it here
+- `-e METADATA_URL=http://song:8080` is the url for the song server that the score-client will interact with
 
+- `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
 
-  - `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
+- `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
-
-  - `-e METADATA_URL=http://song:8080` is the url for the song server that the score-client will interact with
-
-
-  - `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
-
-
-  - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
-
-
-  - `--mount type=bind,source=./guideMaterials/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and in your docker container.  
+- `--mount type=bind,source=./guideMaterials/dataDownload,target=/output` mounts the directory and its contents from the host machine to the container. Any changes made to the files in this directory will be reflected locally and in your docker container.
 
 ---
+
 </details>
 <br></br>
 
@@ -105,20 +99,18 @@ Add the manifest to the `./guideMaterials/dataDownload` folder in your QuickStar
 docker exec score-client sh -c "score-client download --manifest /output/manifest.tsv --output-dir /output"
 ```
 
-
--  `/dataFiles/manifest.tsv` represents the location of the earlier generated manifest file for simplicity you can either point to your download folder or move your manifest.tsv to the dataDownload folder in the quickstart repository
-
+- `/dataFiles/manifest.tsv` represents the location of the earlier generated manifest file for simplicity you can either point to your download folder or move your manifest.tsv to the dataDownload folder in the quickstart repository
 
 - `/output` specifies the directory you intend to download the files too
 
 If successful the Score Client should produce the following logs and your files will now be located within your output directory (`./guideMaterials/dataDownload`).
 
 ```bash
-Downloading...                                                                                                                                                 
+Downloading...
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 [1/2] Downloading object: 5b3bf92a-8f57-54b9-9ab9-6dcf34a0dc78 (SP011501.indel.vcf.gz)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 177.7K/s, Read/sec: 177.7K/s                                 
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 177.7K/s, Read/sec: 177.7K/s
 Finalizing...
 Total execution time:        122.6 ms
 Total bytes read    :          17,346
@@ -126,12 +118,12 @@ Total bytes written :          17,346
 Verifying checksum...---------------------------------------------------------------------------------------------------------------------------------------------------------------
 [2/2] Downloading object: 30697525-1033-543c-a86b-1ab428c7e8d5 (SP011501.indel.vcf.gz.tbi)
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 2.9K/s, Read/sec: 2.9K/s                                     
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 2.9K/s, Read/sec: 2.9K/s
 Finalizing...
 Total execution time:        56.86 ms
 Total bytes read    :             144
 Total bytes written :             144
-Verifying checksum...Done. 
+Verifying checksum...Done.
 ```
 
 For more information on using the Score-Client see our [Score-Client command reference documentation](/documentation/score/user-guide/commands/)
