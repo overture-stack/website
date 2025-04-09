@@ -1,6 +1,7 @@
 ---
 title: Configuring your data model
 ---
+
 # Schema Validation and Submission
 
 Data administrators can configure custom data submission validations for Song by creating and submitting Song schemas. These schemas act as blueprints for validating submissions, ensuring that every piece of data adheres to the requirements specified by the administrators. This validation process guarantees that all essential fields are included and that the data within these fields conforms to the designated data types or permitted value sets.
@@ -38,13 +39,13 @@ The following schema defines any data submission using the `analysisType` of `ex
 There are many different type values available in JSON schema, here is a list of commonly used in JSON type values definitions:
 
 - `string` Textual data e.g., "a word"
-- `number` Numeric data (integer or float), e.g. `-5`, `10`, `-5.8`, `10.2`  
+- `number` Numeric data (integer or float), e.g. `-5`, `10`, `-5.8`, `10.2`
 - `integer` Integer values (`16`, `0`, `-20`)
-- `boolean` Boolean values (`true` or `false`)   
+- `boolean` Boolean values (`true` or `false`)
 - `object` Key-value pairs where keys are strings and values can be any type
-- `array` Ordered lists of items, which can contain any data type   
-- `enum`  A fixed set of values.
-- `null`  Represents a null value
+- `array` Ordered lists of items, which can contain any data type
+- `enum` A fixed set of values.
+- `null` Represents a null value
 
 **JSON Schema can also include various additional constraints:**
 
@@ -64,7 +65,7 @@ There are many different type values available in JSON schema, here is a list of
 "required": ["field1", "field2"]
 ```
 
-**Array Constraints:**  Allows setting minimum (minItems) and maximum (maxItems) array lengths
+**Array Constraints:** Allows setting minimum (minItems) and maximum (maxItems) array lengths
 
 ```JSON
 "field3": {
@@ -103,7 +104,7 @@ In the context of Song here is a basic schema, it requires at a minimum, an `ana
      }
   }
 }
- ```
+```
 
 <details>
 
@@ -121,7 +122,6 @@ In the context of Song here is a basic schema, it requires at a minimum, an `ana
 
 - `properties` are the fields that the schema expects. In this example, the schema expects an `experiment` field.
 
-
 ---
 
 </details>
@@ -129,29 +129,25 @@ In the context of Song here is a basic schema, it requires at a minimum, an `ana
 
 The `analysisType` is defined in data submissions to Song. This field informs Song which data model the submission should be validated against. Below is an example of a mock data submission:
 
-
- ```JSON
- {
-  "studyId": "MICR-CA",
-  "analysisType": {
-    "name": "basicSchemaExample"
-  },
-  "experiment": "myNewExperiment"
+```JSON
+{
+ "studyId": "MICR-CA",
+ "analysisType": {
+   "name": "basicSchemaExample"
+ },
+ "experiment": "myNewExperiment"
 }
 ```
 
 - In this example, the schema named `basicSchemaExample` is used to validate the data submission
 
-
 - The `analysisType` field specifies that the submission should adhere to the `basicSchemaExample` model, ensuring that all required fields, such as `experiment`, are present and correctly formatted
-
 
 - The field `studyId` comes from and is required by Songs base schema and is used to identify what group this collection of data belongs to
 
-
 ## Detailed Examples
 
-Let's break down some more complex schema examples. We will pull from a reference schema that can be found [here](https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). In the following sections, we will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
+Let's break down some more complex schema examples. We will pull from a reference schema that can be found [here](https://github.com/overture-stack/quickstart/blob/develop/guideMaterials/dataAdministration/SONG-schema.json). In the following sections, we will provide snippets of this schema along with explainations of the structure, function, and any embedded logic.
 
 **Required Fields**
 
@@ -165,7 +161,7 @@ Here, our Schema dictates that `"donor"`, `"specimen"`, `"workflow"`, and `"expe
     "required": ["donor", "specimen", "workflow", "experiment"],
     "properties": { ...
 ```
- 
+
 **Enum, Types, and Patterns**
 
 Within `workflow`, we can see the use of `propertyNames`, `enum`, `required fields`, `types` and `regex patterns`
@@ -194,29 +190,25 @@ Within `workflow`, we can see the use of `propertyNames`, `enum`, `required fiel
             "enum": ["GRCh37", "GRCh38_hla_decoy_ebv", "GRCh38_Verily_v1"]
           },
 ```
+
 <details>
 
   <summary><b>Click here for a detailed breakdown</b></summary>
 
 <br></br>
 
-
 - `workflow` Defines an object containing properties related to workflow.
-
 
 - `propertyNames` Limits the allowed property names within workflow to those listed
 
-
 - `required` specifies that `workflowName`, `genomeBuild`, and `inputs` must be present within the workflow object
-
 
 - `type` indicates that workflow is an object type and therefore contains nested key value pairs
 
-
 - `workflowName` Requires a string (`"type": "string"`) that matches the specified regex pattern (`"pattern": ^[a-zA-Z][a-zA-Z0-9 _\\-]+[a-zA-Z0-9]+$`). This ensures it starts with a letter, allows alphanumeric characters, spaces, underscores, and hyphens, and ends with alphanumeric characters.
 
-
 - `genomeBuild` requires a string (`"type": "string"`) that can only be one of the specified values (`"enum": ["GRCh37", "GRCh38_hla_decoy_ebv", "GRCh38_Verily_v1"]`).
+
 ---
 
 </details>
@@ -266,7 +258,6 @@ The JSON Schema below is a simplified workflow property made to show to usage of
 
 - `"minItems": 1,` If you submit data according to this schema then you must include at least one complete set of inputs (A complete set consists of `analysisType`, `normalAnalysisId`, and `tumourAnalysisId`).
 
-
 - `"maxItems": 2` You can include up to two complete sets of inputs in a single submission.
 
 The `minItems` and `maxItems` constraints apply to the number of these sets (or arrays) within the inputs array, not to the individual fields within each set.
@@ -298,7 +289,6 @@ The Schema segment below demonstrates the usage of conditional if, and then logi
       },
 ```
 
-
 <details>
 
   <summary><b>Click here for a detailed breakdown</b></summary>
@@ -307,12 +297,9 @@ The Schema segment below demonstrates the usage of conditional if, and then logi
 
 This conditional schema structure allows for dynamic validation based on the value of `vitalStatus`, ensuring that `causeOfDeath` and `survivalTime` are only required when `vitalStatus` is `Deceased`.
 
-
 - If `vitalStatus` is `"Deceased"`, then the submission must include `causeOfDeath` and `survivalTime`.
 
-
 - If `vitalStatus` is `"Alive"`, then there are no additional requirements needed.
-
 
 - `const` is a validation keyword that specifies that a property's value must exactly match for the submission to be considered valid
 
@@ -337,7 +324,6 @@ Null values can provide flexibility by allowing a property to be explicitly null
       null
     ]
 ```
-
 
 <details>
 
@@ -378,11 +364,10 @@ Here, `"minimum": 0` ensures that `treatmentDuration` can only accept non-negati
 
 <Note title="Want to learn more?">If you want to learn more about JSON schema take a look at the following [JSON Schema guide](https://json-schema.org/understanding-json-schema).
 </Note>
- 
 
 # Updating the Schema
 
-You can update Song schemas using the Song servers Swagger UI or using curl commands. 
+You can update Song schemas using the Song servers Swagger UI or using curl commands.
 
 ## Using the Swagger UI
 
@@ -394,18 +379,17 @@ To update the schema using the Swagger UI:
 
 ![Entity](./assets/swagger_register_schema.png 'register new schema')
 
-2. **Select *Try it out* and input your API key and Schema:** enter your authorization token in the authorization field (Bearer {API-Key}), and place your new schema inside the request field.
+2. **Select _Try it out_ and input your API key and Schema:** enter your authorization token in the authorization field (Bearer {API-Key}), and place your new schema inside the request field.
 
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
 - **Login through the Stage UI** by selecting login from the top right. Default credentials when using the Overture QuickStart will be username `admin` and password `admin123`.
 
-
-- **Generate a new API token** by selecting **Profile and Token** from your user drop down found on the top right of the Stage UI, select **Generate New Token**. 
+- **Generate a new API token** by selecting **Profile and Token** from your user drop down found on the top right of the Stage UI, select **Generate New Token**.
 
 ![Accessing an API Key](../submission/assets/apikeys.png 'Accessing an API Key')
 
-3. **Select Execute:** expected responses as well as response codes and descriptions, are conviently documented within Swagger-UI. 
+3. **Select Execute:** expected responses as well as response codes and descriptions, are conviently documented within Swagger-UI.
 
 <Note title="Verifying Schemas">
 To verify your schema has successfully been added, you can use the `GET` **ListAnalysisTypes** endpoint found under the Schema dropdown. If updating a pre-existing schema, use the `GET` **GetAnalysisTypeVersion** endpoint.</Note>

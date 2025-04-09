@@ -6,22 +6,20 @@ title: CLI Submissions
 
 **This guide is for** anyone seeking guidance on submitting data to an Overture platform. By the end of this guide you will have completed a full data submission workflow, including updating the submitted data to conform to the data model enforced by Song.
 
-
 **You will need** docker installed. We recommend using Docker Desktop; for more information, visit [Dockers website](https://www.docker.com/products/docker-desktop/)
 
 **Background:** Submitting data to an Overture platform typically includes data files (BAMS, CRAMS, VCFs, etc.) along with associated metadata that provides context including donor information and descriptions of the data files. This guide focuses on submitting data to Song & Score using their Command Line Clients (CLIs).
 
-
 ![Submission Overview](./assets/submissionOverview.webp 'End Goal')
 
- The Song and Score clients work together to upload raw data files to object storage and track all related metadata stored in the Song metadata repository.
+The Song and Score clients work together to upload raw data files to object storage and track all related metadata stored in the Song metadata repository.
 
 # Getting Started
 
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/conductor.git
+git clone  -b quickstart https://github.com/overture-stack/prelude.git
 ```
 
 **2. Launch the platform by running the appropriate command for your operating system:**
@@ -38,7 +36,6 @@ git clone  https://github.com/overture-stack/conductor.git
 API Keys are brokered by Keycloak and accessible when logged in to the Stage UI. For the Overture QuickStart, Stage can access from `localhost:3000`
 
 1. **Login through the Stage UI** by selecting login from the top right. The default credentials will be username `admin` and password `admin123` when using the Overture QuickStart.
-
 
 2. **Once logged in, it's time to generate a new API token:** To do this, click on **Profile and Token** from your user drop down menu, located on the top right of the Stage UI. Then, select **Generate New Token**.
 
@@ -65,28 +62,21 @@ docker run -d -it --name song-client \
 
 <br></br>
 
-  - `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
+- `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
 
+- `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
-  - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
+- `-e CLIENT_ACCESS_TOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the song-client with a pre-configured system-wide access token. Alternatively, you can log in through Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
 
+- `-e CLIENT_STUDY_ID=demo` the quickstart is pre-configured with a `Study ID` named `demo`, we supply the `Study ID` value to the song-client on start-up
 
-  - `-e CLIENT_ACCESS_TOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the song-client with a pre-configured system-wide access token. Alternatively, you can log in through Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
+- `-e CLIENT_SERVER_URL=http://localhost:8080` is the url for the Song server which the Song-Client will interact with
 
+- `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
 
-  - `-e CLIENT_STUDY_ID=demo` the quickstart is pre-configured with a `Study ID` named `demo`, we supply the `Study ID` value to the song-client on start-up
+- `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
-
-  - `-e CLIENT_SERVER_URL=http://localhost:8080` is the url for the Song server which the Song-Client will interact with
-
-
-  - `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
-
-
-  - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
-
-
-  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+- `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 </details>
 
@@ -94,9 +84,7 @@ docker run -d -it --name song-client \
 
 <Warning>**Note:** Ensure you are running the following commands from the root directory of the quickstart folder. The values here reflect those compatible with the Overture QuickStart.</Warning>
 
-
 2. **Running the Score Client:** Use the following command with your API token to pull and run a Score Client docker container
-
 
 ```bash
 docker run -d -it --name score-client \
@@ -115,28 +103,21 @@ docker run -d -it --name score-client \
 
 <br></br>
 
-  - `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
+- `-d` runs the container in detached mode, meaning it runs in the background and does not receive input or display output in the terminal
 
+- `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
 
-  - `-it` combines the `-i` (interactive) and `-t` (allocate a pseudo-TTY) options, allowing you to interact with the container via the terminal
+- `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in to Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
 
+- `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
 
-  - `-e ACCESSTOKEN=68fb42b4-f1ed-4e8c-beab-3724b99fe528` sets up the score-client with a pre-configured system-wide access token. Alternatively, you can log in to Stage from `localhost:3000/login` with the username `admin` and password `admin123`. From the profile page, you can generate your API key and supply it here
+- `-e METADATA_URL=http://song:8080` is the url for the song server that the score-client will interact with
 
+- `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
 
-  - `-e STORAGE_URL=http://score:8087` is the url for the Score server that the Score-Client will interact with
+- `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
 
-
-  - `-e METADATA_URL=http://song:8080` is the url for the song server that the score-client will interact with
-
-
-  - `--network="host"` Uses the host network stack inside the container, bypassing the usual network isolation. This means the container shares the network namespace with the host machine
-
-
-  - `--platform="linux/amd64"` Specifies the platform the container should emulate. In this case, it's set to linux/amd64, indicating the container is intended to run on a Linux system with an AMD64 architecture
-
-
-  - `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
+- `--mount type=bind,source=./guideMaterials/dataSubmission,target=/output` mounts the directory and its contents (volume) from the host machine to the container. In this case, the mockData being used for our submission. It binds the directory ./guideMaterials/dataSubmission from the host to /output inside the container. Any changes made to the files in this directory will be reflected in both locations
 
 ---
 
@@ -151,17 +132,15 @@ docker run -d -it --name score-client \
 
 We will now begin submitting our payload to the Overture platform. In this context a payload refers to a collection of related metadata and file data to be uploaded to the resource.
 
-- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/conductor/blob/develop/guideMaterials/dataSubmission/">conductor/guideMaterials/dataSubmission/</a> directory
-
+- The mock data we will use can be found in the Overture Quickstart repository from the <a target="_blank" rel="noopener noreferrer" href="https://github.com/overture-stack/quickstart/blob/develop/guideMaterials/dataSubmission/">quickstart/guideMaterials/dataSubmission/</a> directory
 
 - The files included are two VCF data files (`SP059902.snv.vcf.gz` and `SP059902.snv.vcf.gz.tbi`) and a JSON file, `SP059902.vcf.json` that contains all the associated metadata
- 
+
 <details>
 
   <summary><b>Click here to view the metadata file (SP059902.vcf.json)</b></summary>
 
 <br></br>
-
 
 ```JSON
 {
@@ -296,10 +275,10 @@ We will now begin submitting our payload to the Overture platform. In this conte
 ```
 
 ---
+
 </details>
 
 <br></br>
-
 
 ### The Submission Command
 
@@ -357,7 +336,15 @@ To address our second error we will have to take a look at the resources data mo
     "properties": {
       "workflow": {
         "propertyNames": {
-          "enum": ["workflowName", "workflowShortName", "workflowVersion", "genomeBuild", "inputs","sessionId","runId"]
+          "enum": [
+            "workflowName",
+            "workflowShortName",
+            "workflowVersion",
+            "genomeBuild",
+            "inputs",
+            "sessionId",
+            "runId"
+          ]
         },
         "required": ["workflowName", "genomeBuild", "inputs"],
         "type": "object",
@@ -450,7 +437,12 @@ To address our second error we will have to take a look at the resources data mo
             "primaryDiagnosis"
           ]
         },
-        "required": ["submitterDonorId", "primarySite", "vitalStatus", "primaryDiagnosis"],
+        "required": [
+          "submitterDonorId",
+          "primarySite",
+          "vitalStatus",
+          "primaryDiagnosis"
+        ],
         "properties": {
           "submitterDonorId": {
             "type": "string"
@@ -556,7 +548,11 @@ To address our second error we will have to take a look at the resources data mo
                   "followUp"
                 ]
               },
-              "required": ["submitterPrimaryDiagnosisId", "ageAtDiagnosis", "cancerTypeCode"],
+              "required": [
+                "submitterPrimaryDiagnosisId",
+                "ageAtDiagnosis",
+                "cancerTypeCode"
+              ],
               "properties": {
                 "submitterPrimaryDiagnosisId": {
                   "type": "string"
@@ -822,13 +818,24 @@ To address our second error we will have to take a look at the resources data mo
                         "items": {
                           "type": "object",
                           "propertyNames": {
-                            "enum": ["radiationTherapyModality", "anatomicalSiteIrradiated"]
+                            "enum": [
+                              "radiationTherapyModality",
+                              "anatomicalSiteIrradiated"
+                            ]
                           },
-                          "required": ["radiationTherapyModality", "anatomicalSiteIrradiated"],
+                          "required": [
+                            "radiationTherapyModality",
+                            "anatomicalSiteIrradiated"
+                          ],
                           "properties": {
                             "radiationTherapyModality": {
                               "type": "string",
-                              "enum": ["Electron", "Heavy Ions", "Photon", "Proton"]
+                              "enum": [
+                                "Electron",
+                                "Heavy Ions",
+                                "Photon",
+                                "Proton"
+                              ]
                             },
                             "anatomicalSiteIrradiated": {
                               "type": "string",
@@ -999,30 +1006,22 @@ To address our second error we will have to take a look at the resources data mo
       "collaborator": {
         "type": "array",
         "items": {
-            "type": "object",
-            "propertyNames": {
-                "enum": [
-                    "name",
-                    "contactEmail"
-                ]
+          "type": "object",
+          "propertyNames": {
+            "enum": ["name", "contactEmail"]
+          },
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string"
             },
-            "required": [
-              "name"
-            ],
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "contactEmail": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "pattern": "^\\S+@\\S+\\.\\S+$"
-                }
-             }       
-           }
+            "contactEmail": {
+              "type": ["string", "null"],
+              "pattern": "^\\S+@\\S+\\.\\S+$"
+            }
+          }
         }
+      }
     }
   }
 }
@@ -1044,7 +1043,6 @@ To address our second error we will have to take a look at the resources data mo
 
 ![Song Swagger](./assets/song-swagger.png 'Song Swagger')
 
-
 The response body will provide you a JSON document outlining Songs data model. In this case we are interested in the `quickStartSchema` as it was the `analysisType` used for validation of our payload.
 
 ---
@@ -1055,8 +1053,7 @@ The response body will provide you a JSON document outlining Songs data model. I
 
 <br></br>
 
-
-By looking at the `primarySite` field found within the quickStartSchema, we can see an array of values that do not include `windpipe`; however, it does include the value `trachea`. 
+By looking at the `primarySite` field found within the quickStartSchema, we can see an array of values that do not include `windpipe`; however, it does include the value `trachea`.
 
 Therefore, we can simply append the `windpipe` value on line 64 of our `SP059902.vcf.json` to `trachea`.
 
@@ -1091,9 +1088,9 @@ Since the metadata data has successfully been submitted and accepted by Song and
 
 ## Step 4: Generate a manifest
 
-With your `analysis_id`, we will now generate a manifest for file upload. 
+With your `analysis_id`, we will now generate a manifest for file upload.
 
-- The manifest establishes a link between the analysis ID that has been submitted and the data file(s) on your local system that is being uploaded. 
+- The manifest establishes a link between the analysis ID that has been submitted and the data file(s) on your local system that is being uploaded.
 
 - This step also validates that all files being uploaded are in line with those documented in the metadata tagged with the corresponding analysis ID.
 
@@ -1125,14 +1122,14 @@ docker exec score-client sh -c "score-client  upload --manifest /output/manifest
 
 ```bash
 Uploading object: '/output/SP059902.snv.vcf.gz.tbi' using the object id d7442418-7d59-5063-91d4-2e083549c9b2
-100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 2.0K/s, Read/sec: 0B/s    
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 2.0K/s, Read/sec: 0B/s
 Finalizing...
 Total execution time:         3.239 s
 Total bytes read    :               0
 Total bytes written :             141
 Upload completed
 Uploading object: '/output/SP059902.snv.vcf.gz' using the object id 0e3ed34d-8f4d-554e-a23e-59b1ae60b75b
-100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 1.3M/s, Read/sec: 0B/s    
+100% [##################################################]  Parts: 1/1, Checksum: 100%, Write/sec: 1.3M/s, Read/sec: 0B/s
 Finalizing...
 Total execution time:         3.139 s
 Total bytes read    :               0

@@ -2,7 +2,7 @@
 title: Administration Guides
 ---
 
-**These guides are for** anyone seeking information on configuring and using Overture as their platforms's foundation. We will walk you through the essential information for configuring it. 
+**These guides are for** anyone seeking information on configuring and using Overture as their platforms's foundation. We will walk you through the essential information for configuring it.
 
 **You will need** Docker, we recommend using Docker Desktop version `4.32.0` or higher. If you already have Docker installed, please ensure it's up to date. For more information see, [Dockers website here](https://www.docker.com/products/docker-desktop/).
 
@@ -10,16 +10,13 @@ title: Administration Guides
 
 **Overview:** This guide covers basic administration tasks associated with setting up and maintaining an Overture platform. Topics covered include:
 
-   - **[Updating the Data Model](/documentation/guides/administration/modelling/):** Learn how to update your data model to reflect your data requirements
+- **[Updating the Data Model](/documentation/guides/administration/modelling/):** Learn how to update your data model to reflect your data requirements
 
+- **[Index Mappings](/documentation/guides/administration/indexmapping/):** Understand what Index mappings are and how to configure them
 
-   - **[Index Mappings](/documentation/guides/administration/indexmapping/):** Understand what Index mappings are and how to configure them
+- **[Search Portal Customization](/documentation/guides/administration/portalcustomization/):** Learn how to customize how data is displayed in your front-end data facets and table components
 
-
-   - **[Search Portal Customization](/documentation/guides/administration/portalcustomization/):** Learn how to customize how data is displayed in your front-end data facets and table components
-
-
- <Note title="Help us make our guides better">If you can't find what you're looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
+<Note title="Help us make our guides better">If you can't find what you're looking for please reach out to us on our Slack channel linked on the top right of your screen or by email at contact@overture.bio</Note>
 
 # Getting Started
 
@@ -30,7 +27,7 @@ If you do not have an Overture platform deployed, you can use our docker compose
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/conductor.git
+git clone  -b quickstart https://github.com/overture-stack/prelude.git
 ```
 
 **2. Launch the platform by running the appropriate command for your operating system:**
