@@ -418,7 +418,7 @@ export default function HomePage() {
                   </P2>
                   <Terminal
                     prompts={[
-                      'git clone https://github.com/overture-stack/quickstart.git && cd quickstart',
+                      'git clone -b quickstart https://github.com/overture-stack/prelude.git && cd quickstart',
                     ]}
                   />
 

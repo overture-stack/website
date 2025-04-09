@@ -29,7 +29,7 @@ We provide an Overture Quickstart for a fast and frictionless setup of our data 
 **2. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/quickstart.git
+git clone  -b quickstart https://github.com/overture-stack/prelude.git
 ```
 
 **3. Launch the platform by running the appropriate command for your operating system:**

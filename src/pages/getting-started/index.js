@@ -88,7 +88,7 @@ export default function GettingStartedPage() {
                 <div className="relative">
                   <Terminal
                     prompts={[
-                      'git clone  https://github.com/overture-stack/quickstart.git && cd quickstart',
+                      'git clone  -b quickstart https://github.com/overture-stack/prelude.git && cd quickstart',
                     ]}
                   />
                 </div>

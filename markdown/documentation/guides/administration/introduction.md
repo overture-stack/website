@@ -27,7 +27,7 @@ If you do not have an Overture platform deployed, you can use our docker compose
 **1. Clone the Quickstart repository**
 
 ```bash
-git clone  https://github.com/overture-stack/quickstart.git
+git clone  -b quickstart https://github.com/overture-stack/prelude.git
 ```
 
 **2. Launch the platform by running the appropriate command for your operating system:**
