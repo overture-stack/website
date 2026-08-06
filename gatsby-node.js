@@ -149,7 +149,20 @@ const createMarkdownPages = async ({ actions, graphql }) => {
     });
 };
 
-const onCreateWebpackConfig = ({ actions }) => {
+const onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
+  if (stage === 'develop') {
+    // Gatsby 4 injects its own ESLint plugin into the develop bundle and only
+    // recognizes eslintrc-style config, so it ignores eslint.config.mjs and
+    // enforces its own rules instead: a second lint authority that can fail the
+    // dev bundle over rules this project has deliberately turned off. Lint runs
+    // through `npm run lint` (and any editor reading the flat config).
+    const config = getConfig();
+    config.plugins = config.plugins.filter(
+      (plugin) => plugin.constructor.name !== 'ESLintPlugin'
+    );
+    actions.replaceWebpackConfig(config);
+  }
+
   actions.setWebpackConfig({
     resolve: {
       alias: {

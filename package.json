@@ -3,8 +3,8 @@
   "description": "",
   "version": "1.5.2",
   "engines": {
-    "npm": ">=8.0.0 <9.0.0",
-    "node": ">=16.0.0 <17.0.0"
+    "npm": ">=10.0.0",
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.17.4",
@@ -70,7 +70,7 @@
     "deploy": "npm run build-qa && netlify deploy -o",
     "dev": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "lint": "eslint --ext js,jsx --ignore-path .gitignore .",
+    "lint": "eslint .",
     "prod": "npm run build-prod && npm run serve",
     "qa": "npm run build-qa && npm run serve",
     "serve": "NODE_ENV=production gatsby serve",
@@ -78,16 +78,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-react": "^7.0.2",
-    "eslint-config-standard-trailing-commas": "^6.1.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.25.1",
-    "eslint-plugin-standard": "^4.0.0",
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.9.0",
     "prettier": "^2.5.1"
   },
   "overrides": {

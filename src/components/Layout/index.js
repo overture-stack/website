@@ -9,7 +9,6 @@ import DocsWrapper from './DocsWrapper';
 class TemplateWrapper extends Component {
   constructor() {
     super();
-    this.popOverRef;
   }
 
   state = {

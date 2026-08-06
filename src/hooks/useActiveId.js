@@ -6,9 +6,13 @@ import { useEffect, useState } from 'react';
 // ref: https://nickymeuleman.netlify.app/blog/table-of-contents#get-the-active-headings-id
 
 export default function useActiveId(itemIds = []) {
-  if (!itemIds.length) return;
   const [activeId, setActiveId] = useState('');
   useEffect(() => {
+    // A page whose table of contents has no entries observes nothing, but the
+    // hooks above still have to run: their order cannot depend on the argument.
+    if (!itemIds.length) {
+      return;
+    }
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {

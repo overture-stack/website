@@ -40,7 +40,13 @@ export default function LinkHelper({
   };
 
   return isExternal ? (
-    <a {...props} href={url} onClick={onClick} target="_blank" />
+    <a
+      {...props}
+      href={url}
+      onClick={onClick}
+      target="_blank"
+      rel="noopener noreferrer"
+    />
   ) : url ? (
     <Link
       {...props}
