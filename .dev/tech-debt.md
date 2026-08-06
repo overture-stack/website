@@ -6,34 +6,10 @@ Ordered roughly by severity. Most entries were logged from the 2026-08-06 audit;
 
 ---
 
-Lint runs, and reports 22 errors and 89 warnings against existing code, so `npm run lint` exits non-zero and cannot be a gate yet. Four of the errors are real defects: `src/components/SupportFooter/index.js:51` and `:55` fall through between `switch` cases; `src/components/NavBar/MegaMenuLink/index.js:11` passes `activeClassName` to a plain DOM element, where it silently does nothing; `src/components/Code/index.js:32` and `:34` render iterated elements without a `key`; `src/components/ImageCrossfade/index.js:12` uses `componentWillReceiveProps`, removed in React 18, so it also blocks phase 3. The remaining 18 are cosmetic or already scheduled to disappear: nine unescaped apostrophes, two missing display names, two `react/no-children-prop` and two `set-state-in-effect` reports in code phase 2 deletes, and one unreachable statement in the dead `GridFeature`.
-fix: fix the four defects, verifying each against a build rather than trusting autofix, and take `react/no-unescaped-entities` as a config decision (switching it off is defensible for prose-heavy JSX). Leave the rest for phase 2 and phase 3 to remove. The 89 warnings are almost entirely unused variables, which the dead-code and phase 2 entries clear in bulk.
+Lint runs, and reports 15 errors and 68 warnings against existing code, so `npm run lint` exits non-zero and cannot be a gate yet. Three of the errors are real: `src/components/NavBar/MegaMenuLink/index.js:11` passes `activeClassName` to a plain DOM element, where it silently does nothing; `src/components/ImageCrossfade/index.js:12` uses `componentWillReceiveProps`, removed in React 18, so it also blocks phase 3; and `src/hooks/useSSRWorkaround.js` sets state directly in an effect. The other twelve are cosmetic or die with the dead components: nine unescaped apostrophes, two missing display names, and one unreachable statement in `GridFeature`.
+fix: fix the three real ones, verifying each against a build rather than trusting autofix, and take `react/no-unescaped-entities` as a config decision (switching it off is defensible for prose-heavy JSX). The 68 warnings are almost entirely unused variables, which the dead-component entry below clears in bulk.
 standalone: no
-context: blocks the CI entry below, since a workflow added now would be red from its first run. Four findings were already fixed at source during phase 1: duplicate `default` keys in `Button`, external links opening with `target="_blank"` and no `rel`, a no-op `this.popOverRef;` statement in `Layout`, and conditional hooks in `useActiveId`.
-
----
-
-Three dependency advisories are fixable now, without waiting for the framework upgrade. `sharp` is pinned at ^0.30.1: CVE-2023-4863 in the bundled libwebp needs >=0.32.6, and four 2026 libvips CVEs need >=0.35.0. `lodash` at ^4.17.21 is covered by a `_.template` code-injection advisory and two prototype-pollution advisories, all fixed in 4.18.1. `gatsby-source-git` carries a critical advisory and is not used at all (see the unused-dependency entry below), so deleting it resolves it outright.
-fix: bump `sharp` to ^0.35.x and `lodash` to ^4.18.1, delete `gatsby-source-git`, then rebuild and check the image pipeline, since `sharp` is what `gatsby-plugin-sharp` renders through and a major bump there has historically needed a matching plugin version.
-standalone: yes
-
----
-
-Matomo tracks local development traffic into production analytics and ignores Do Not Track while doing it. `gatsby-config.js` sets `dev: process.env.NODE_ENV === 'development'`, which is inverted relative to intent: the plugin's `dev` option means "load tracking scripts even outside production", and its own documentation notes that in that mode all hits are sent as in production and the browser's DNT header is ignored. Production is siteId 76 on `webstats.oicr.on.ca`, so every `npm run dev` session pollutes real site statistics.
-fix: set `dev: false`, or gate it behind an explicit opt-in variable (`GATSBY_MATOMO_DEV`) for the rare case of testing tracking locally.
-standalone: yes
-
----
-
-Six declared dependencies are unreferenced anywhere in the codebase: `gatsby-source-git` (also a critical advisory), `gatsby-plugin-offline` (the config uses `gatsby-plugin-remove-serviceworker` instead, so the two are contradictory intentions and only the removal is wired up), `gatsby-plugin-image`, `lodash.find`, `lodash-webpack-plugin` (never wired into the webpack config), and `@babel/plugin-proposal-export-default-from` (the repo has no Babel config file at all). `gatsby-plugin-algolia` is referenced only inside a commented-out config block.
-fix: delete all six. `gatsby-plugin-algolia` and the rest of the search stack go with `roadmap.md` § Phase 2, along with `src/templates/documentation/utils.js`, which is the only file importing the full `lodash` package; that leaves `lodash.startcase` in `gatsby-node.js` as the only lodash dependency, so no rewrite of the `findIndex` call is needed if phase 2 lands first.
-standalone: yes
-
----
-
-`gatsby-config.js` requires `dotenv` at its first line, but `dotenv` is not declared in `package.json`. It resolves today only because Gatsby depends on it transitively, so a Gatsby upgrade that drops or hoists it differently breaks environment loading, and the failure appears as missing environment variables rather than a missing module.
-fix: add `dotenv` to `dependencies` explicitly. Gatsby 5 loads `.env.<NODE_ENV>` itself, so check whether the manual `require` is still needed at all before keeping it.
-standalone: yes
+context: blocks the CI entry below, since a workflow added now would be red from its first run. Six lint findings were fixed at source across phases 1 and 2: duplicate `default` keys in `Button`, external links with no `rel`, a no-op statement in `Layout`, conditional hooks in `useActiveId`, and two more that went with the deleted documentation components.
 
 ---
 
@@ -49,22 +25,16 @@ standalone: yes
 
 ---
 
-`meta/config.js` carries three settings that resolve to nothing. `siteLogo: '/logos/logo-512x512.png'` points at a directory that does not exist (`static/` has `icons/`, not `logos/`). `siteRss: '/rss.xml'` and the entire `rssMetadata` block in `gatsby-config.js` describe a feed that no plugin generates, since there is no `gatsby-plugin-feed`. `siteFBAppID` is an empty string.
-fix: point `siteLogo` at the real `/icons/icon-512x512.png` (and check wherever it is consumed for social preview images), then delete `siteRss`, `rssMetadata`, and `siteFBAppID`, or add `gatsby-plugin-feed` if a feed is actually wanted.
-standalone: yes
-
----
-
 The site's canonical host and its configured host disagree. `meta/config.js` sets `siteUrl: 'https://overture.bio'`, but the apex domain 301-redirects every path to `www.overture.bio` (verified). Everything derived from `siteUrl`, including the sitemap's URLs and any canonical or Open Graph tag, therefore names a host that immediately redirects.
 fix: set `siteUrl` to `https://www.overture.bio` to match what Netlify actually serves, or change the Netlify domain configuration to make the apex canonical. One or the other, not both.
 standalone: yes
 
 ---
 
-Search engines cannot find the sitemap. There is no `robots.txt` at all (404), and `gatsby-plugin-sitemap` is configured with no `output` option, so it writes to its default `/sitemap/sitemap-index.xml` rather than the conventional `/sitemap-index.xml` (both verified against the live site: the default path serves, the conventional one 404s).
-fix: add a `robots.txt` naming the sitemap URL, and either set the plugin's `output` to `/` or keep the default and reference it from `robots.txt`. Fix the `siteUrl` entry above first, since the sitemap's URLs come from it.
+There is still no `robots.txt` (404 on the live site), so nothing points crawlers at the sitemap. The sitemap itself now builds at the conventional `/sitemap-index.xml`, fixed in phase 2 by setting the plugin's `output` to `/`.
+fix: add a `static/robots.txt` naming the sitemap URL. Fix the `siteUrl` entry above first, since the sitemap's URLs come from it and would otherwise advertise the redirecting apex host.
 standalone: no
-context: coupled to the `siteUrl` entry above; fixing the sitemap's discoverability while its URLs still name the redirecting host would only publish the wrong hostname more widely.
+context: coupled to the `siteUrl` entry above.
 
 ---
 
@@ -99,17 +69,9 @@ context: depends on the lint repair above; wiring CI to a lint command that cann
 
 ---
 
-Ego is discontinued, but the marketing side of the site still presents it as a current product: `constants/products.js` carries an `ego` entry with an icon and title, `constants/pages.js` exposes a `#ego` products anchor, `constants/external-links.js` has three Ego links, and `src/components/NavBar/MegaMenu/index.js` links `documentation/ego`. Keycloak is the current auth recommendation, so a page presenting Ego as a live option is actively misleading.
-fix: remove the product entry, the anchor, the three links, and the megamenu entry. The megamenu link is also covered by `roadmap.md` § Phase 2 (it redirects to the deployment guide's authorization page), so do that one in whichever lands first, not twice.
+Ego is discontinued, but it is still a product on the marketing pages: `constants/products.js` carries an `ego` entry with an icon and title, `constants/pages.js` exposes a `#ego` products anchor, and the homepage links to it (`src/pages/index.js:350`). Keycloak is the current auth recommendation, so presenting Ego as a live option is misleading. Phase 2 removed its documentation section, its megamenu entry, and its three link constants.
+fix: remove the product entry, the anchor, and the homepage tile, alongside the other retired products in the entry below.
 standalone: yes
-context: softeng conventions treat any live Ego reference as debt. The documentation section itself is not part of this entry: it goes with the rest of `markdown/documentation/` in phase 2.
-
----
-
-`constants/external-links.js` has three problems beyond the legacy documentation links that phase 2 replaces. `ARRANGER_LOCAL_LINK` is `https://localhost:8080`, which is both the wrong scheme for a local Arranger and a localhost link shipped on a public site. `OVERTURE_GITHUB_DISSCUSSION_LINK` is misspelled. And five constants (Arranger installation and updates, Ego updates, Maestro updates, Song docs) point at `https://www.overture.bio/documentation/...`, which phase 2 retires.
-fix: delete `ARRANGER_LOCAL_LINK` if nothing renders it, rename the misspelled constant, and repoint the five legacy documentation constants at their `docs.overture.bio` targets rather than root-relative paths, using the table in `roadmap.md` § Phase 2.
-standalone: no
-context: the five documentation constants are part of phase 2's link repointing; the localhost link and the typo are independent and can go any time.
 
 ---
 
@@ -127,4 +89,10 @@ standalone: yes
 
 `src/html.js` loads two Google Fonts stylesheets directly from `fonts.googleapis.com`, with no `preconnect`, and `Source Code Pro` lacks the `display=swap` the Lato request has. Each visit makes a third-party request before text renders, and the privacy page discusses cookies and analytics without naming either Matomo or Google as recipients of visitor data.
 fix: self-host the two fonts through the build, which removes the third-party request and the render-blocking round trip together. Whether the privacy page needs updating is a question for whoever owns it, not a code fix: Matomo can be configured cookieless and self-hosted (it is, on `webstats.oicr.on.ca`), and that configuration was not checked as part of this audit.
+standalone: yes
+
+---
+
+`src/pages/case-studies/navigation.js` is a component, not a page, but it sits under `src/pages/`, so Gatsby publishes it as a route: `/case-studies/navigation/` renders a bare navigation strip with no page around it, and phase 2's build confirmed it is also listed in the sitemap.
+fix: move the file out of `src/pages/` (a `components/` subdirectory next to its only consumer) and update the import. Check the built output afterwards to confirm the route and its sitemap entry are gone.
 standalone: yes

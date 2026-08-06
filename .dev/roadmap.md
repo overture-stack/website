@@ -24,7 +24,7 @@ A full audit on 2026-08-06 found the site itself healthy in production (pages se
 
 Four phases, ordered so each one is independently shippable and reviewable.
 
-### Phase 1: unblock local development and lint (done, uncommitted 2026-08-06)
+### Phase 1: unblock local development and lint (done, committed 2026-08-06)
 
 **The verified pairing is Node 22 with Gatsby 4.25.** `engines` now asks for `>=22.0.0` and npm `>=10.0.0`, `.nvmrc` pins `22` so the version is picked up automatically, and `.npmrc`'s `engine-strict=true` is kept, since the range it enforces is now a supported runtime rather than an end-of-life one. Node 20 was rejected as the target: it left LTS maintenance in April 2026, so it would have meant landing on an already-expired runtime.
 
@@ -38,7 +38,27 @@ Gatsby 4 needs no changes to build on Node 22, which was the open risk. Verified
 
 The security fixes that need none of this (`sharp`, `lodash`, deleting the unused `gatsby-source-git`) are logged separately in `tech-debt.md` and are the natural next small change.
 
-### Phase 2: retire the on-site documentation section
+### Phase 2: retire the on-site documentation section (done, uncommitted 2026-08-06)
+
+**Do not deploy this to production before [overture-stack/docs#48](https://github.com/overture-stack/docs/pull/48) is live.** Every redirect target and every documentation link on the site now names a docs v2 route, and those routes 404 on `docs.overture.bio` until that PR merges (checked directly). All 25 of them were verified present in a local production build of that branch instead.
+
+What landed, against the plan below:
+
+- `netlify.toml`: twelve 301 redirects, `force = true` so a stale published file cannot shadow them, catch-all last since Netlify matches in file order. Also replaced the inert `YARN_VERSION`/`YARN_FLAGS` with `NODE_VERSION = "22"`, closing the phase 1 gap about Netlify's implicit Node, and dropped the now-unused `ENABLE_SEARCH_INDEXING` context variables
+- Deleted: `markdown/documentation/` (118 pages, 60MB), `src/templates/` entirely (the documentation template plus a dead Gatsby v1 era `index.js` nothing imported), `DocsWrapper`, eight components (`AnchorHeading`, `Credits`, `HeadingsTableOfContents`, `SectionTableOfContents`, `SupportFooter`, `WarningBox`, `Code`, `Search`), three hooks, `meta/algolia-queries.js`, `constants/docs.js`, `README-documentation.md`, and 27 dependencies
+- `gatsby-node.js` and `gatsby-config.js`: the Mdx and Yaml page creation, the `_contents.yaml` schema customization, the docs filesystem source, and the MDX, remark, YAML, and sharp plugins are gone. `gatsby-plugin-sharp` and `gatsby-transformer-sharp` went too, which the plan had not listed: nothing queries `childImageSharp`, so image processing existed only for Markdown
+- Links repointed to v2 routes in `constants/external-links.js` (with a single `DOCS` base), the megamenu, the products page section, the homepage, and the getting-started page
+
+Corrections to the plan made while doing it:
+
+- **`useSSRWorkaround` stays.** The plan said its only callers were documentation components; `MegaMenuLink` uses it too, so it is not dead.
+- **`gatsby-source-git`, `lodash`, and `sharp` are gone rather than bumped,** so the standalone security entry that proposed bumping them is resolved by deletion. Advisories fell from 118 to 87, criticals from 7 to 2, and direct-dependency advisories from 21 to 8.
+- **Two `tech-debt.md` items were fixed in passing** because they lived in files being rewritten anyway: Matomo's inverted `dev` flag, and `gatsby-plugin-sitemap` writing to a path nothing links (now `output: '/'`, so the sitemap is at `/sitemap-index.xml`).
+- **One content bullet was removed** from the getting-started page: its "Under Development" link pointed at a docs category that v2 does not have, so it would have 404'd either way. Worth a look from whoever owns the page copy.
+
+Result: 14 built pages instead of 131, a 12 second production build instead of 62, and no content pipeline. Verified: `npm run lint` (15 errors, 68 warnings, down from 22 and 89), `gatsby build` (exit 0), `gatsby develop` (serves, zero errors), and no `/documentation` link left anywhere in the built output.
+
+### Phase 2 plan, as written before the work
 
 118 Markdown pages across eight sections (arranger, dms, ego, guides, maestro, score, song, stage) plus the whole pipeline that renders them. This is the single largest simplification available to the repo, and doing it before phase 3 shrinks that phase substantially: the MDX and YAML plumbing is exactly where a Gatsby 5 upgrade is most likely to break, since `gatsby-plugin-mdx` v5 moves to MDX 2 and the documentation template leans on `MDXRenderer`, `mdx-utils`, `react-markdown` shortcodes, and 59 Markdown files using `<Note>` and `<Warning>`.
 
@@ -46,20 +66,20 @@ The security fixes that need none of this (`sharp`, `lodash`, deleting the unuse
 
 **Step 1: redirect, and repoint the megamenu.** Add `[[redirects]]` rules to `netlify.toml` (301) and change the ten megamenu links to the same targets, so internal navigation goes straight to the docs site rather than through a redirect hop:
 
-| Legacy path | Target on docs.overture.bio |
-| --- | --- |
-| `/documentation/song/*` | `/develop/Song/overview` |
-| `/documentation/score/*` | `/develop/Score/overview` |
-| `/documentation/maestro/*` | `/develop/Maestro/overview` |
-| `/documentation/arranger/*` | `/develop/Arranger/overview` |
-| `/documentation/stage/*` | `/develop/Stage/overview` |
-| `/documentation/guides/deployment/*` | `/deploy/deployment` |
-| `/documentation/guides/administration/*` | `/use` |
-| `/documentation/guides/submission/*` | `/use/cli-submissions` |
-| `/documentation/guides/download/*` | `/use/cli-downloads` |
-| `/documentation/dms/*` | `/deploy/prelude` |
-| `/documentation/ego/*` | `/deploy/deployment/keycloak` |
-| `/documentation/*` (catch-all) | `/develop` |
+| Legacy path                              | Target on docs.overture.bio   |
+| ---------------------------------------- | ----------------------------- |
+| `/documentation/song/*`                  | `/develop/Song/overview`      |
+| `/documentation/score/*`                 | `/develop/Score/overview`     |
+| `/documentation/maestro/*`               | `/develop/Maestro/overview`   |
+| `/documentation/arranger/*`              | `/develop/Arranger/overview`  |
+| `/documentation/stage/*`                 | `/develop/Stage/overview`     |
+| `/documentation/guides/deployment/*`     | `/deploy/deployment`          |
+| `/documentation/guides/administration/*` | `/use`                        |
+| `/documentation/guides/submission/*`     | `/use/cli-submissions`        |
+| `/documentation/guides/download/*`       | `/use/cli-downloads`          |
+| `/documentation/dms/*`                   | `/deploy/prelude`             |
+| `/documentation/ego/*`                   | `/deploy/deployment/keycloak` |
+| `/documentation/*` (catch-all)           | `/develop`                    |
 
 **These targets belong to the docs v2 restructure, not to the docs site as it serves today.** They come from [overture-stack/docs#48](https://github.com/overture-stack/docs/pull/48), which moves the site to four audience journeys (`/develop`, `/deploy`, `/use`, `/community`) and retires the `/docs/core-software/...` and `/guides/...` paths the site currently serves. Every target in the table was confirmed present in a local production build of that branch on 2026-08-06, and none of them exist on the live site yet.
 

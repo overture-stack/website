@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import { Footer, NavBar, MegaMenu } from 'components';
 import config from 'meta/config';
 import 'styles/main.scss';
-import DocsWrapper from './DocsWrapper';
 
 class TemplateWrapper extends Component {
   constructor() {
@@ -94,11 +93,10 @@ class TemplateWrapper extends Component {
    */
   render() {
     const { megaMenuOpen, megaMenuType, mobileMenuOpen, popOverRef } = this.state;
-    const { children, data = {}, path } = this.props;
+    const { children, path } = this.props;
     const megaMenuClass = megaMenuOpen ? 'open' : 'closed';
     const desktopMegaMenuCheck =
       typeof window !== 'undefined' && !mobileMenuOpen && window.innerWidth > 1160;
-    const isDocs = path.includes('/documentation/') && data.mdx;
 
     return (
       <div id="page-element">
@@ -133,13 +131,7 @@ class TemplateWrapper extends Component {
 
         <div className="site-wrapper">
           <div onClick={() => this.closeMegaMenu()} className="site-wrapper__content">
-            {isDocs ? (
-              <DocsWrapper path={path} data={data}>
-                {children}
-              </DocsWrapper>
-            ) : (
-              <React.Fragment>{children}</React.Fragment>
-            )}
+            {children}
           </div>
           <Footer />
         </div>

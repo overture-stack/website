@@ -9,7 +9,11 @@ import {
   productsAnchors,
   GETTING_STARTED_PATH,
 } from 'constants/pages';
-import { DEMO_LINK, DOCKER_DOWNLOAD } from '../../constants/external-links.js';
+import {
+  DEMO_LINK,
+  DOCKER_DOWNLOAD,
+  STAGE_DOCS_LINK,
+} from 'constants/external-links';
 import {
   Button,
   H1,
@@ -349,7 +353,7 @@ export default function HomePage() {
               icon={'productDMS'}
               title={'Stage'}
               text={'Rapidly integrate overture into a React-based web portal.'}
-              link={'documentation/stage'}
+              link={STAGE_DOCS_LINK}
             />
           </div>
         </div>

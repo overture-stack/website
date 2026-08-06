@@ -3,6 +3,17 @@
  */
 import React from 'react';
 import { Badge, ComingSoonBadge, Icon, LinkHelper as Link } from 'components';
+import {
+  ADMINISTRATION_GUIDES,
+  ARRANGER_DOCS_LINK,
+  DEPLOYMENT_GUIDES,
+  DOWNLOAD_GUIDES,
+  MAESTRO_DOCS_LINK,
+  SCORE_DOCS_LINK,
+  SONG_DOCS_LINK,
+  STAGE_DOCS_LINK,
+  SUBMISSION_GUIDES,
+} from 'constants/external-links';
 import './styles.scss';
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
@@ -25,19 +36,19 @@ const data = {
         color: 'yellow-green',
         links: [
           {
-            to: '/documentation/guides/deployment/introduction',
+            to: DEPLOYMENT_GUIDES,
             text: 'Deployment',
           },
           {
-            to: '/documentation/guides/submission/clientsubmission/',
+            to: SUBMISSION_GUIDES,
             text: 'Submission',
           },
           {
-            to: '/documentation/guides/administration/introduction',
+            to: ADMINISTRATION_GUIDES,
             text: 'Administration',
           },
           {
-            to: '/documentation/guides/download/clientdownload/',
+            to: DOWNLOAD_GUIDES,
             text: 'Download',
           },
         ],
@@ -47,29 +58,23 @@ const data = {
         color: 'dark-blue',
         links: [
           {
-            to: 'documentation/song',
+            to: SONG_DOCS_LINK,
             text: 'Song',
           },
           {
-            to: 'documentation/score',
+            to: SCORE_DOCS_LINK,
             text: 'Score',
           },
-
           {
-            to: 'documentation/maestro',
+            to: MAESTRO_DOCS_LINK,
             text: 'Maestro',
           },
           {
-            to: 'documentation/arranger',
+            to: ARRANGER_DOCS_LINK,
             text: 'Arranger',
           },
-
           {
-            to: 'documentation/ego',
-            text: 'Ego',
-          },
-          {
-            to: 'documentation/stage',
+            to: STAGE_DOCS_LINK,
             text: 'Stage',
           },
         ],

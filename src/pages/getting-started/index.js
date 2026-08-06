@@ -13,22 +13,19 @@ import {
   NoteBox,
 } from 'components';
 import img_overtureQuickstartPortal from './assets/overtureQuickstartPortal.webp';
-import { DOCKER_DOWNLOAD } from 'constants/external-links';
 import './styles.scss';
 import {
   ADMINISTRATION_GUIDES,
   API_REFERENCE_GUIDE,
   DEPLOYMENT_GUIDES,
+  DOCKER_DOWNLOAD,
   OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
   OVERTURE_DOCUMENTATION_CORE_SOFTWARE,
-  OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT,
-  OVERTURE_GITHUB_DISSCUSSION_LINK,
+  OVERTURE_GITHUB_DISCUSSION_LINK,
   USER_GUIDES,
-} from '../../../constants/external-links';
+} from 'constants/external-links';
 
 export default function GettingStartedPage() {
-  const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-  const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
   return (
     <main className="GettingStartedPage">
       <Helmet>
@@ -185,13 +182,6 @@ export default function GettingStartedPage() {
                 documentation covering the core components of the Overture
                 platform.
               </li>
-              <li className="bullet-item">
-                {' '}
-                <a href={OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT}>
-                  Under Development:
-                </a>{' '}
-                new components not quite ready for production.
-              </li>
             </ul>
           </div>
 
@@ -203,7 +193,7 @@ export default function GettingStartedPage() {
             >
               If you can't find what you are looking for, please let us know{' '}
               <b>
-                <Link to={OVERTURE_GITHUB_DISSCUSSION_LINK}>
+                <Link to={OVERTURE_GITHUB_DISCUSSION_LINK}>
                   using our ideas discussion forum.
                 </Link>
               </b>
@@ -240,7 +230,7 @@ export default function GettingStartedPage() {
                 title="Get Involved"
               />
               <YellowButton
-                link={OVERTURE_GITHUB_DISSCUSSION_LINK}
+                link={OVERTURE_GITHUB_DISCUSSION_LINK}
                 img_src="githubFindUs"
                 alt="Reach Out"
                 title="Reach Out"

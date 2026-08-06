@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, H2, H3, P1, YellowButton } from 'components';
+import { DOCS_DEVELOP } from 'constants/external-links';
 import './styles.scss';
 
 export default function ProductPageSection({
@@ -29,7 +30,9 @@ export default function ProductPageSection({
   const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
   const desktopUltraWideViewPort = isBrowser && 1408 < width;
 
-  const userDocsLink = `https://docs.overture.bio/docs/core-software/${title.toLowerCase()}/overview/`;
+  // Component reference lives under the Develop journey on docs.overture.bio,
+  // where the path segment is the component's capitalized name.
+  const userDocsLink = `${DOCS_DEVELOP}/${title}/overview`;
   const gitHubLink = `https://github.com/overture-stack/${title}`;
 
   return (

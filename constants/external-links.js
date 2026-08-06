@@ -1,30 +1,33 @@
 // Overture Docs + Demo
 
+// docs.overture.bio is the only Overture documentation surface. Its content is
+// organized into four audience journeys (develop, deploy, use, community); these
+// constants name current routes rather than older ones the docs site still
+// redirects, so a visitor takes one hop instead of two.
+const DOCS = 'https://docs.overture.bio';
+
+// Component reference sits under the Develop journey, one path segment per
+// component, capitalized (`/develop/Song/overview`).
+export const DOCS_DEVELOP = `${DOCS}/develop`;
+
 export const DEMO_LINK = 'https://demo.overture.bio/';
-export const DOCUMENTATION_LINK = 'https://docs.overture.bio/';
+export const DOCUMENTATION_LINK = `${DOCS}/`;
 export const OVERTURE_GITHUB_LINK = 'https://github.com/overture-stack/';
-export const OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK =
-  'https://docs.overture.bio/community/contribution';
-export const OVERTURE_GITHUB_DISSCUSSION_LINK =
+export const OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK = `${DOCS}/community/contribution`;
+export const OVERTURE_GITHUB_DISCUSSION_LINK =
   'https://github.com/overture-stack/docs/discussions';
-export const OVERTURE_DOCUMENTATION_SUPPORT_LINK =
-  'https://docs.overture.bio/community/support';
+export const OVERTURE_DOCUMENTATION_SUPPORT_LINK = `${DOCS}/community/support`;
 export const FEATURE_REQUESTS =
   'https://github.com/overture-stack/website/issues/new?assignees=&labels=&projects=&template=Feature_Requests.md';
-export const USER_GUIDES = 'https://docs.overture.bio/guides/user-guides/';
-export const ADMINISTRATION_GUIDES =
-  'https://docs.overture.bio/guides/administration-guides/';
-export const DEPLOYMENT_GUIDES =
-  'https://docs.overture.bio/guides/deployment-guide/';
-export const API_REFERENCE_GUIDE =
-  'https://docs.overture.bio/guides/api-reference';
-export const OVERTURE_DOCUMENTATION_CORE_SOFTWARE =
-  'https://docs.overture.bio/docs/core-software/';
-export const OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT =
-  'https://docs.overture.bio/docs/under-development/';
-export const OVERTURE_DOCUMENTATION_LICENSING =
-  'https://docs.overture.bio/community/licensing';
-export const OVERTURE_SUPPORT = 'https://docs.overture.bio/community/support';
+export const ADMINISTRATION_GUIDES = `${DOCS}/use`;
+export const API_REFERENCE_GUIDE = `${DOCS}/develop/api-reference`;
+export const DEPLOYMENT_GUIDES = `${DOCS}/deploy/deployment`;
+export const DOWNLOAD_GUIDES = `${DOCS}/use/cli-downloads`;
+export const SUBMISSION_GUIDES = `${DOCS}/use/cli-submissions`;
+export const USER_GUIDES = `${DOCS}/use`;
+export const OVERTURE_DOCUMENTATION_CORE_SOFTWARE = `${DOCS}/develop`;
+export const OVERTURE_DOCUMENTATION_LICENSING = `${DOCS}/community/licensing`;
+export const OVERTURE_SUPPORT = `${DOCS}/community/support`;
 
 // Case Study Links
 
@@ -64,32 +67,24 @@ export const FAQ_LINK =
 // Product Links
 
 // arranger
-export const ARRANGER_GETTING_STARTED_LINK =
-  'https://www.overture.bio/documentation/arranger/installation/installation/';
-export const ARRANGER_LOCAL_LINK = 'https://localhost:8080';
-export const ARRANGER_UPDATES_LINK =
-  'https://www.overture.bio/documentation/arranger/';
+export const ARRANGER_DOCS_LINK = `${DOCS}/develop/Arranger/overview`;
 export const ARRANGER_GITHUB_LINK =
   'https://github.com/overture-stack/arranger';
 
 // stage
+export const STAGE_DOCS_LINK = `${DOCS}/develop/Stage/overview`;
 export const STAGE_GITHUB_LINK = 'https://github.com/overture-stack/stage';
 
-// ego
-export const EGO_SQL_LINK = `${OVERTURE_GITHUB_LINK}ego/blob/develop/src/main/resources/schemas/01-psql-schema.sql`;
-export const EGO_UPDATES_LINK = 'https://www.overture.bio/documentation/ego/';
-export const EGO_GITHUB_LINK = 'https://github.com/overture-stack/ego';
-
 // maestro
-export const MAESTRO_UPDATES_LINK =
-  'https://www.overture.bio/documentation/maestro/';
+export const MAESTRO_DOCS_LINK = `${DOCS}/develop/Maestro/overview`;
 export const MAESTRO_GITHUB_LINK = 'https://github.com/overture-stack/maestro';
 
 // song
-export const SONG_DOCS_LINK = 'https://www.overture.bio/documentation/song/';
+export const SONG_DOCS_LINK = `${DOCS}/develop/Song/overview`;
 export const SONG_BLOG_POST_LINK =
   'https://softeng.oicr.on.ca/alex_lepsa/2018/03/22/Spring-Method-Security-Using-JWTs/';
 export const SONG_GITHUB_LINK = 'https://github.com/overture-stack/song';
 
-//score
+// score
+export const SCORE_DOCS_LINK = `${DOCS}/develop/Score/overview`;
 export const SCORE_GITHUB_LINK = 'https://github.com/overture-stack/score';
