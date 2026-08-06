@@ -5,26 +5,22 @@
 
 ## Additional READMEs
 
-- [Documentation section](README-documentation.md)
 - [Styles](src/styles/README.md)
 - [Components](src/components/README.md)
 
+Overture's documentation is not part of this site. It lives at
+<https://docs.overture.bio> (source: [overture-stack/docs](https://github.com/overture-stack/docs)).
+
 ## Installation
 
-- Node 16 NPM 8
-- Gatsby CLI: `npm install -g gatsby-cli@4.7.0`
-- Netlify CLI: `npm install -g netlify-cli`
+- Node 22 with npm 10 or newer. `nvm use` picks the right version up from `.nvmrc`
+- Netlify CLI (only needed for QA deploys): `npm install -g netlify-cli`
 - `npm install`
 - Setup Netlify deployment: `netlify link` and choose 'Use current git remote origin'.
 
 ### Troubleshooting
 
-Overture.bio requires NPM v^8.3.0, to ensure all dependencies are installed correctly
-
-```bash
-# If you need to update your NPM version first, use the following command:
-  npm i -g npm
-```
+`engines` in `package.json` is enforced (`.npmrc` sets `engine-strict`), so `npm install` fails outright on an older Node rather than half-working. The error names both the required and the actual version; switch Node and run it again.
 
 ## Local development
 

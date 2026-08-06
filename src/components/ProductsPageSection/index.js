@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, H2, H3, P1, YellowButton } from 'components';
+import { DOCS_DEVELOP } from 'constants/external-links';
 import './styles.scss';
 
 export default function ProductPageSection({
@@ -18,22 +19,16 @@ export default function ProductPageSection({
   yellowButtonText3,
   isGrey,
 }) {
-  // To line up the AnchorLink scroll, we need to place id={`${title.toLowerCase()}`} at the correct height of the section at different screen width.
-  // see the gatsby anchor link plugin for more detail. current offset value is -300 to line up with sections in the  CaseStudies page, which has a nav bar
-
-  let isBrowser = typeof window !== 'undefined';
-  let width = isBrowser && window.innerWidth;
-  const mobileViewPort = isBrowser && width <= 767;
-  const tabletViewPort = isBrowser && 767 < width && width <= 1023;
-  const desktopViewPort = isBrowser && 1023 < width && width <= 1215;
-  const desktopWideViewPort = isBrowser && 1215 < width && width <= 1407;
-  const desktopUltraWideViewPort = isBrowser && 1408 < width;
-
-  const userDocsLink = `https://docs.overture.bio/docs/core-software/${title.toLowerCase()}/overview/`;
+  // Component reference lives under the Develop journey on docs.overture.bio,
+  // where the path segment is the component's capitalized name.
+  const userDocsLink = `${DOCS_DEVELOP}/${title}/overview`;
   const gitHubLink = `https://github.com/overture-stack/${title}`;
 
   return (
-    <section className={`ProductsSection ${isGrey && `grey-bg`}`}>
+    <section
+      className={`ProductsSection ${isGrey && `grey-bg`}`}
+      id={title.toLowerCase()}
+    >
       <div className={`container`}>
         <div className="holder">
           {/* image/logo container */}
@@ -44,23 +39,11 @@ export default function ProductPageSection({
           {/* container of text and button */}
           <div className="text-content-holder">
             {/* title text */}
-            <div
-              className="title-holder"
-              id={`${mobileViewPort && title.toLowerCase()}`}
-            >
+            <div className="title-holder">
               <H2>{title}</H2>
             </div>
             {/* subtitle text */}
-            <div
-              className="subtitle-holder"
-              id={`${
-                (desktopUltraWideViewPort ||
-                  desktopWideViewPort ||
-                  desktopViewPort ||
-                  tabletViewPort) &&
-                title.toLowerCase()
-              }`}
-            >
+            <div className="subtitle-holder">
               <H3>{subtitle}</H3>
             </div>
             {/* description text */}

@@ -3,74 +3,108 @@
  */
 import React from 'react';
 import { Badge, ComingSoonBadge, Icon, LinkHelper as Link } from 'components';
+import {
+  ADMINISTRATION_GUIDES,
+  API_REFERENCE_GUIDE,
+  ARRANGER_DOCS_LINK,
+  DEPLOYMENT_GUIDES,
+  DOWNLOAD_GUIDES,
+  LECTERN_DOCS_LINK,
+  LYRIC_DOCS_LINK,
+  MAESTRO_DOCS_LINK,
+  PRELUDE_DOCS_LINK,
+  SCORE_DOCS_LINK,
+  SONG_DOCS_LINK,
+  STAGE_DOCS_LINK,
+  SUBMISSION_GUIDES,
+} from 'constants/external-links';
 import './styles.scss';
 
 const ENABLE_DRAFTS = process.env.GATSBY_ENABLE_DRAFTS === 'true';
 
-const verticalMobileMenuSections = ['Platform Guides'];
+const verticalMobileMenuSections = ['Deploy', 'Use'];
 
 const data = {
   documentation: {
     explore: {
       title: 'Explore our documentation',
-      text: 'Build, deploy, and discover with our documentation, guides and Quickstart resources.',
+      text: 'Reference for building on Overture, guides for deploying a platform, and walkthroughs for using one.',
       link: {
         to: '/getting-started/',
         text: 'Get Started',
       },
     },
+    // These sections mirror the audience journeys docs.overture.bio is
+    // organized into, so the vocabulary a visitor reads here is the vocabulary
+    // they meet on arrival.
     sections: [
       {
-        title: 'Platform Guides',
-        color: 'yellow-green',
+        title: 'Develop',
+        color: 'dark-blue',
         links: [
           {
-            to: '/documentation/guides/deployment/introduction',
-            text: 'Deployment',
+            to: SONG_DOCS_LINK,
+            text: 'Song',
           },
           {
-            to: '/documentation/guides/submission/clientsubmission/',
-            text: 'Submission',
+            to: SCORE_DOCS_LINK,
+            text: 'Score',
           },
           {
-            to: '/documentation/guides/administration/introduction',
-            text: 'Administration',
+            to: MAESTRO_DOCS_LINK,
+            text: 'Maestro',
           },
           {
-            to: '/documentation/guides/download/clientdownload/',
-            text: 'Download',
+            to: ARRANGER_DOCS_LINK,
+            text: 'Arranger',
+          },
+          {
+            to: STAGE_DOCS_LINK,
+            text: 'Stage',
+          },
+          {
+            to: LECTERN_DOCS_LINK,
+            text: 'Lectern',
+          },
+          {
+            to: LYRIC_DOCS_LINK,
+            text: 'Lyric',
+          },
+          {
+            to: API_REFERENCE_GUIDE,
+            text: 'API reference',
           },
         ],
       },
       {
-        title: 'Product Documentation',
+        title: 'Deploy',
+        color: 'yellow-green',
+        links: [
+          {
+            to: DEPLOYMENT_GUIDES,
+            text: 'Deployment guides',
+          },
+          {
+            to: PRELUDE_DOCS_LINK,
+            text: 'Prelude',
+          },
+        ],
+      },
+      {
+        title: 'Use',
         color: 'dark-blue',
         links: [
           {
-            to: 'documentation/song',
-            text: 'Song',
+            to: SUBMISSION_GUIDES,
+            text: 'Submitting data',
           },
           {
-            to: 'documentation/score',
-            text: 'Score',
-          },
-
-          {
-            to: 'documentation/maestro',
-            text: 'Maestro',
+            to: DOWNLOAD_GUIDES,
+            text: 'Downloading data',
           },
           {
-            to: 'documentation/arranger',
-            text: 'Arranger',
-          },
-
-          {
-            to: 'documentation/ego',
-            text: 'Ego',
-          },
-          {
-            to: 'documentation/stage',
-            text: 'Stage',
+            to: ADMINISTRATION_GUIDES,
+            text: 'Administration',
           },
         ],
       },

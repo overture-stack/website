@@ -13,22 +13,20 @@ import {
   NoteBox,
 } from 'components';
 import img_overtureQuickstartPortal from './assets/overtureQuickstartPortal.webp';
-import { DOCKER_DOWNLOAD } from 'constants/external-links';
 import './styles.scss';
 import {
-  ADMINISTRATION_GUIDES,
   API_REFERENCE_GUIDE,
-  DEPLOYMENT_GUIDES,
+  DOCKER_DOWNLOAD,
+  DOCS_COMMUNITY,
+  DOCS_DEPLOY,
+  DOCS_DEVELOP,
+  DOCS_USE,
+  DOCUMENTATION_LINK,
   OVERTURE_DOCUMENTATION_CONTRIBUTION_LINK,
-  OVERTURE_DOCUMENTATION_CORE_SOFTWARE,
-  OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT,
-  OVERTURE_GITHUB_DISSCUSSION_LINK,
-  USER_GUIDES,
-} from '../../../constants/external-links';
+  OVERTURE_GITHUB_DISCUSSION_LINK,
+} from 'constants/external-links';
 
 export default function GettingStartedPage() {
-  const docsSearchIndex = process.env.GATSBY_ALGOLIA_INDEX_NAME;
-  const searchIndices = [{ name: docsSearchIndex, title: docsSearchIndex }];
   return (
     <main className="GettingStartedPage">
       <Helmet>
@@ -136,10 +134,11 @@ export default function GettingStartedPage() {
           </div>
 
           <div className="text-section">
-            <H3>Platform Guides</H3>
+            <H3>Four Ways In</H3>
             <P2>
-              Stepwise tutorials for practical insight and hands-on experience
-              using the Overture platform
+              Our documentation is organized by what you are trying to do. Each
+              section below is a starting point on{' '}
+              <a href={DOCUMENTATION_LINK}>docs.overture.bio</a>.
             </P2>
           </div>
 
@@ -147,50 +146,25 @@ export default function GettingStartedPage() {
             <ul className="doc-column">
               <li className="bullet-item">
                 {' '}
-                <a href={USER_GUIDES}>User guides:</a> stepwise guides covering
-                platform usage.
+                <a href={DOCS_DEPLOY}>Deploy:</a> stand up an Overture platform,
+                component by component, from authorization through to the data
+                portal.
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={ADMINISTRATION_GUIDES}>Administration:</a> detailed
-                stepwise instructions for customizing our platform.
-              </li>
-              <li className="bullet-item">
-                <a href={DEPLOYMENT_GUIDES}>Deployment:</a> generalized
-                instructions for deploying our platform from start to finish.
+                <a href={DOCS_USE}>Use:</a> submit and retrieve data, and
+                administer a running platform.
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={API_REFERENCE_GUIDE}>API Reference:</a> explore
-                endpoints, request parameters and response schemas through a
-                Swagger UI.
-              </li>
-            </ul>
-          </div>
-
-          <div className="text-section">
-            <H3>Developer Documentation</H3>
-            <P2>
-              Detailed product documentation for administrators and developers
-            </P2>
-          </div>
-
-          <div className="list-section">
-            <ul className="doc-column">
-              <li className="bullet-item">
-                {' '}
-                <a href={OVERTURE_DOCUMENTATION_CORE_SOFTWARE}>
-                  Core Software:
-                </a>{' '}
-                documentation covering the core components of the Overture
-                platform.
+                <a href={DOCS_DEVELOP}>Develop:</a> reference for each
+                component, including configuration and the{' '}
+                <a href={API_REFERENCE_GUIDE}>API reference</a>.
               </li>
               <li className="bullet-item">
                 {' '}
-                <a href={OVERTURE_DOCUMENTATION_UNDER_DEVELOPMENT}>
-                  Under Development:
-                </a>{' '}
-                new components not quite ready for production.
+                <a href={DOCS_COMMUNITY}>Community:</a> support, contributing,
+                licensing, and how to cite Overture.
               </li>
             </ul>
           </div>
@@ -203,7 +177,7 @@ export default function GettingStartedPage() {
             >
               If you can't find what you are looking for, please let us know{' '}
               <b>
-                <Link to={OVERTURE_GITHUB_DISSCUSSION_LINK}>
+                <Link to={OVERTURE_GITHUB_DISCUSSION_LINK}>
                   using our ideas discussion forum.
                 </Link>
               </b>
@@ -240,7 +214,7 @@ export default function GettingStartedPage() {
                 title="Get Involved"
               />
               <YellowButton
-                link={OVERTURE_GITHUB_DISSCUSSION_LINK}
+                link={OVERTURE_GITHUB_DISCUSSION_LINK}
                 img_src="githubFindUs"
                 alt="Reach Out"
                 title="Reach Out"

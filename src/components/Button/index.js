@@ -17,7 +17,6 @@ const btnSizes = {
   navGithub: 'is-medium',
   navSlack: 'is-medium',
   small: 'is-small',
-  default: '',
 };
 
 // Icon sizes vary based on passed in button size prop.
@@ -28,7 +27,6 @@ const iconSizes = {
   navGithub: 20,
   navSlack: 22,
   small: 16,
-  default: 16,
 };
 
 /**

@@ -3,71 +3,16 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const remarkSlug = require('remark-slug');
 const config = require('./meta/config');
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
-
-const ENABLE_SEARCH_INDEXING = process.env.ENABLE_SEARCH_INDEXING === 'true';
-
-const REMARK_MAX_WIDTH = 1035;
 
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     siteUrl: config.siteUrl,
-    rssMetadata: {
-      site_url: config.siteUrl + pathPrefix,
-      feed_url: config.siteUrl + pathPrefix + config.siteRss,
-      title: config.siteTitle,
-      description: config.siteDescription,
-      image_url: `${config.siteUrl + pathPrefix}/icons/icon-512x512.png`,
-      author: config.userName,
-      copyright: config.copyright,
-    },
   },
   plugins: [
     'gatsby-plugin-react-helmet', // adds meta tags
     'gatsby-plugin-remove-serviceworker', // Supposedly this fixes possible caching issues. https://stackoverflow.com/a/56548989/5378196
-    // Google Analytics
-
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'docs',
-        path: `${__dirname}/markdown/documentation`,
-      },
-    },
-    'gatsby-remark-images',
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        // required for headings table of contents
-        // adds ID to H# tags
-        remarkPlugins: [remarkSlug],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: REMARK_MAX_WIDTH,
-            },
-          },
-          {
-            // copies over *any* random files you linked to
-            // from a markdown page
-            resolve: 'gatsby-remark-copy-linked-files',
-          },
-        ],
-        extensions: ['.mdx', '.md'],
-        plugins: ['gatsby-remark-images'],
-      },
-    },
-    'gatsby-transformer-remark',
-    {
-      resolve: `gatsby-transformer-yaml`,
-      options: {
-        typeName: 'Yaml',
-      },
-    },
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
@@ -80,33 +25,19 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/img`,
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-sitemap`,
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: REMARK_MAX_WIDTH,
-            },
-          },
-        ],
+        // Default output is /sitemap/sitemap-index.xml, which nothing links to.
+        output: '/',
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -140,17 +71,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify',
-    // {
-    //   resolve: 'gatsby-plugin-algolia',
-    //   options: {
-    //     apiKey: process.env.ALGOLIA_ADMIN_API_KEY,
-    //     appId: process.env.GATSBY_ALGOLIA_APP_ID,
-    //     chunkSize: 10000, // default 1000
-    //     indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
-    //     queries: require('./meta/algolia-queries.js'),
-    //     skipIndexing: !ENABLE_SEARCH_INDEXING,
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-anchor-links',
       options: {
@@ -163,8 +83,9 @@ module.exports = {
         siteId: process.env.GATSBY_MATOMO_SITE_ID,
         matomoUrl: process.env.GATSBY_MATOMO_URL,
         siteUrl: process.env.GATSBY_MATOMO_SITE_URL,
-        // set variable dev to true when testing in dev
-        dev: process.env.NODE_ENV === 'development',
+        // Tracking in development would send local hits to production statistics
+        // and ignore the browser's Do Not Track header.
+        dev: false,
       },
     },
   ],
