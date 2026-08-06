@@ -6,9 +6,13 @@
 // redirects, so a visitor takes one hop instead of two.
 const DOCS = 'https://docs.overture.bio';
 
-// Component reference sits under the Develop journey, one path segment per
-// component, capitalized (`/develop/Song/overview`).
+// The four audience journeys the docs site is organized into. Component
+// reference sits under Develop, one path segment per component, capitalized
+// (`/develop/Song/overview`).
 export const DOCS_DEVELOP = `${DOCS}/develop`;
+export const DOCS_DEPLOY = `${DOCS}/deploy`;
+export const DOCS_USE = `${DOCS}/use`;
+export const DOCS_COMMUNITY = `${DOCS}/community/support`;
 
 export const DEMO_LINK = 'https://demo.overture.bio/';
 export const DOCUMENTATION_LINK = `${DOCS}/`;
@@ -88,3 +92,12 @@ export const SONG_GITHUB_LINK = 'https://github.com/overture-stack/song';
 // score
 export const SCORE_DOCS_LINK = `${DOCS}/develop/Score/overview`;
 export const SCORE_GITHUB_LINK = 'https://github.com/overture-stack/score';
+
+// lectern
+export const LECTERN_DOCS_LINK = `${DOCS}/develop/Lectern/overview`;
+
+// lyric
+export const LYRIC_DOCS_LINK = `${DOCS}/develop/Lyric/overview`;
+
+// prelude, the development environment that replaced the Quickstart
+export const PRELUDE_DOCS_LINK = `${DOCS}/deploy/prelude`;

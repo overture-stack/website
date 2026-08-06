@@ -2,6 +2,11 @@
 @import '../../styles/variables';
 
 .ProductsSection {
+  // Each section carries an id so /products/#song and friends can be linked to.
+  // The offset keeps the heading clear of the fixed navbar when a browser jumps
+  // straight to the anchor, which is what happens on a direct URL entry.
+  scroll-margin-top: 5rem;
+
   .container {
     display: flex;
     justify-content: center;

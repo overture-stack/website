@@ -1,10 +1,10 @@
 # Overture website: roadmap
 
-Planned work and open questions for <https://overture.bio>. This is the durable plan and the session-start entry point; per-change detail lives in `sessions/` and git history.
+Planned work and open questions for <https://overture.bio>. This is the durable plan and the session-start entry point; it holds only what is still ahead. Completed work lives in `sessions/` and git history.
 
 ## Working documents
 
-- **`roadmap.md`** (this file): the durable plan, active work, open questions, deferred items.
+- **`roadmap.md`** (this file): the durable plan, open questions, deferred items.
 - **`tech-debt.md`**: known issues and deferred fixes. Entry format: `conventions/session-discipline.md` § Tech-debt entry format (see [AGENTS.md](../AGENTS.md)).
 - **`sessions/`**: dated work log, one file per contributor per day.
 
@@ -12,115 +12,77 @@ Planned work and open questions for <https://overture.bio>. This is the durable 
 
 ## Where things stand (2026-08-06)
 
-Recent shipped work has been incremental content and link upkeep rather than feature work: the Conductor section renamed to Quickstart and its commands updated, a support link added to the navbar, Docker version requirements refreshed, a licensing link added to the footer with the unused contact-us page removed, and `gatsby-plugin-algolia` removed from `gatsby-config.js`.
+A 13-route marketing site: Gatsby 4.25 on Node 22, no content pipeline, 14 built pages, a 12 second production build.
 
-A full audit on 2026-08-06 found the site itself healthy in production (pages serve, Matomo reports, the docs section renders) while the development toolchain around it has stopped working: the repo cannot be installed on a current Node, and lint has not run in a long time. Those two are the entry point for everything else, since almost every other item is either blocked behind the upgrade or trivial once the tooling runs again. Findings are logged individually in `tech-debt.md`.
+Documentation lives at <https://docs.overture.bio>. This site links into its four journeys and 301s its own legacy `/documentation/*` URLs there.
+
+**One thing gates the next deploy.** Those links and redirects name docs v2 routes, which 404 until [overture-stack/docs#48](https://github.com/overture-stack/docs/pull/48) is live, and that PR is waiting on five component documentation PRs and a submodule pin re-point. Nothing else blocks shipping.
 
 ## Decisions
 
-**<https://docs.overture.bio> is the only documentation surface for Overture (2026-08-06).** The `/documentation` section in this repo is outdated and is being retired, not maintained in parallel. No new content goes into `markdown/documentation/`, and a correction to component documentation belongs in that component's own repo, which flows into `docs.overture.bio`. Phase 2 below carries this out.
+**<https://docs.overture.bio> is the only documentation surface for Overture (2026-08-06).** No documentation content belongs in this repo. A correction to component documentation belongs in that component's own repo, which flows into the docs site.
+
+**This site consolidates into the Docusaurus site, and the Gatsby upgrade is cancelled (2026-08-06).** The 13 marketing routes move into `overture-stack/docs` and this repo is retired. Gatsby earns nothing here: **no GraphQL queries remain** (`useStaticQuery`, `StaticQuery`, and `graphql` tags all count zero) and case-study data is a plain `import`, so the data layer, image pipeline, and MDX all sit unused, while the build ships **1.3MB of JavaScript across 28 files** for 13 static pages. Consolidating also means one stack, one deploy, and one set of skills for a team that already writes substantial custom React in the docs repo.
+
+Alternatives considered and rejected: porting to Astro (a better technical fit for a marketing site, and it would ship almost no JavaScript, but it leaves two stacks and two deploys to maintain); Next.js static export (a much larger framework than a brochure site needs); and upgrading to Gatsby 5 with React 18, which the ESLint, Prettier, and Bulma majors were waiting on (about a day of work, made pointless by this decision).
+
+**The getting-started page stays, as a curated entry page (2026-08-06).** It is not collapsing into a navbar link. It is the site's one deliberate handoff into `docs.overture.bio`, so it presents the four journeys (Deploy, Use, Develop, Community) as the entry points, with a line each on what they are for, above the Quickstart and prerequisites content. Keep it that way: copy edits here should track the docs site's own structure, not drift back into naming individual components or sections.
+
+**Check the consolidation plan before fixing anything in this repo.** Fixing something here that the move deletes or replaces is wasted effort, and the lists at the end of that section say which items those are. Shipping the aligned site is the exception: that code is temporary, but it is what `overture.bio` serves in the meantime.
 
 ## Planned work
 
-Four phases, ordered so each one is independently shippable and reviewable.
+Two pieces, in order. The first ships the site as it stands; the second replaces it.
 
-### Phase 1: unblock local development and lint (done, committed 2026-08-06)
+### Ship the site (gated on `docs#48` going live)
 
-**The verified pairing is Node 22 with Gatsby 4.25.** `engines` now asks for `>=22.0.0` and npm `>=10.0.0`, `.nvmrc` pins `22` so the version is picked up automatically, and `.npmrc`'s `engine-strict=true` is kept, since the range it enforces is now a supported runtime rather than an end-of-life one. Node 20 was rejected as the target: it left LTS maintenance in April 2026, so it would have meant landing on an already-expired runtime.
+Three steps, none of them large. The point is that `overture.bio` serves correct links the day the docs site changes, and that the port afterwards starts from a deployed, known-good state.
 
-Gatsby 4 needs no changes to build on Node 22, which was the open risk. Verified: `gatsby build` exits 0, produces all 131 pages and the sitemap in about 60 seconds, and processes 784 images, because `sharp` and `lmdb` are N-API addons and stay ABI-compatible across Node majors without a rebuild.
+**Step 1: re-verify the docs URLs against the merged docs site.** Any earlier check was run against the `overtureDocsUpdate` branch, which is still moving: five component documentation PRs have to merge and their submodule pins be re-pointed before `docs#48` goes in, and re-pointing a pin can change component page slugs. The check is mechanical and worth scripting: extract every `docs.overture.bio` URL from the built site and from `netlify.toml`, request each one, require a 200. Run it against live `docs.overture.bio` once the PR is in, and again against this site's deploy preview. Note the megamenu is absent from server-rendered HTML, so its links have to come from the source, not from grepping the build.
 
-**Lint is rebuilt rather than repaired.** ESLint 5 with the never-installed `react-app` and `prettier` configs is replaced by ESLint 9 with flat config (`eslint.config.mjs`), `eslint-plugin-react`, `eslint-plugin-react-hooks`, and `eslint-config-prettier`; nine stale lint packages including `babel-eslint` are removed, and the `lint` script drops the `--ext` and `--ignore-path` flags that ESLint 9 no longer accepts. ESLint 10 was the first choice and does not work here: no released `eslint-plugin-react` supports it (the current 7.37.5 caps its peer range at `^9.7`), and forcing it with `--legacy-peer-deps` would install a combination upstream says is unsupported.
+**Step 2: check the deploy preview.** Netlify applies `netlify.toml` redirects to previews, so the `/documentation/*` rules are testable before production. Confirm: the build picks up `NODE_VERSION = "22"` (never yet confirmed against a real Netlify build, and with `engine-strict=true` a wrong default now fails the install rather than quietly building on the wrong runtime), all 13 routes render, a sample of legacy `/documentation` URLs 301 to the right place, and `/sitemap-index.xml` is served.
 
-`react/prop-types` is off. It accounted for 279 of the 306 errors on first run, and turning it on in earnest would mean annotating every component before lint could pass. What remains is a real baseline of 24 errors and 89 warnings, logged in `tech-debt.md`, including a genuine hook-order bug and two `switch` fallthroughs. Two findings were fixed at source in this phase: duplicate `default` keys in `Button`, and external links opening with `target="_blank"` and no `rel`, which is a tabnabbing risk on every outbound link on the site.
+**Step 3: deploy, then verify live.** Re-run the URL check against production, spot-check two or three redirects by hand, and confirm Matomo is still receiving hits on siteId 76.
 
-**Still open in this phase:** Netlify's build Node version is implicit. `.nvmrc` should be honoured by Netlify automatically, but that has not been confirmed against a real deploy, and with `engine-strict=true` an older Netlify default would now fail the install rather than silently building on the wrong runtime. Confirm on the first deploy preview; the fallback is setting `NODE_VERSION` in `netlify.toml`.
+**Rollback:** if `docs#48` is reverted after this ships, every `/documentation/*` redirect starts pointing at 404s. Repoint the redirects at `https://docs.overture.bio/` root until the docs side is healthy, rather than reverting this deploy.
 
-The security fixes that need none of this (`sharp`, `lodash`, deleting the unused `gatsby-source-git`) are logged separately in `tech-debt.md` and are the natural next small change.
+### Consolidate into the Docusaurus site (separate branch, after the above is deployed)
 
-### Phase 2: retire the on-site documentation section (done, uncommitted 2026-08-06)
+Porting from production rather than an unreleased branch keeps the two copies from diverging, and makes the port a clean translation instead of a translation plus a merge. While it is in progress, keep changes here to what is genuinely urgent: anything else is work done twice.
 
-**Do not deploy this to production before [overture-stack/docs#48](https://github.com/overture-stack/docs/pull/48) is live.** Every redirect target and every documentation link on the site now names a docs v2 route, and those routes 404 on `docs.overture.bio` until that PR merges (checked directly). All 25 of them were verified present in a local production build of that branch instead.
+Four stages, and only stage 3 is user-visible.
 
-What landed, against the plan below:
+**Stage 1: port the pages into the docs repo, with no DNS change.** Work happens in `overture-stack/docs`, under `website/src/pages/`, one directory per route. It already serves a custom `index.tsx`, so the pattern exists.
 
-- `netlify.toml`: twelve 301 redirects, `force = true` so a stale published file cannot shadow them, catch-all last since Netlify matches in file order. Also replaced the inert `YARN_VERSION`/`YARN_FLAGS` with `NODE_VERSION = "22"`, closing the phase 1 gap about Netlify's implicit Node, and dropped the now-unused `ENABLE_SEARCH_INDEXING` context variables
-- Deleted: `markdown/documentation/` (118 pages, 60MB), `src/templates/` entirely (the documentation template plus a dead Gatsby v1 era `index.js` nothing imported), `DocsWrapper`, eight components (`AnchorHeading`, `Credits`, `HeadingsTableOfContents`, `SectionTableOfContents`, `SupportFooter`, `WarningBox`, `Code`, `Search`), three hooks, `meta/algolia-queries.js`, `constants/docs.js`, `README-documentation.md`, and 27 dependencies
-- `gatsby-node.js` and `gatsby-config.js`: the Mdx and Yaml page creation, the `_contents.yaml` schema customization, the docs filesystem source, and the MDX, remark, YAML, and sharp plugins are gone. `gatsby-plugin-sharp` and `gatsby-transformer-sharp` went too, which the plan had not listed: nothing queries `childImageSharp`, so image processing existed only for Markdown
-- Links repointed to v2 routes in `constants/external-links.js` (with a single `DOCS` base), the megamenu, the products page section, the homepage, and the getting-started page
+- **Do not port the chrome.** `Layout`, `NavBar`, `MegaMenu`, `MegaMenuLink`, `NavLink`, `Footer`, and `useSSRWorkaround` all go away: Docusaurus supplies layout, navbar, and footer through `docusaurus.config.ts`, and it has real SSR plus `<BrowserOnly>` for the cases the 2020 rehydration workaround existed for. This is the largest single simplification in the move, since the megamenu and the `Layout` class component carry most of what is left of this site's complexity.
+- **Do not port the dead components** (`BottomCallout`, `GettingStarted`, `GridFeature`, `MarketingSection`, `ProductHero`, `WindowGui`, and the two they orphan). Deleting by not porting resolves that `tech-debt.md` entry.
+- **Swap the Gatsby-specific layer:** `LinkHelper` becomes `@docusaurus/Link`, `react-helmet` becomes Docusaurus `<Head>`, `gatsby-plugin-anchor-links` becomes plain anchors, and nprogress is unnecessary in this setup.
+- **Port as-is:** `Icon`, `Button`, `Typography`, `Hero`, `CaseStudy`, `Content`, `Terminal`, `NoteBox`, `Badge`, `ProductsPageSection`, `ServicesPageSection`, `HomeProductLink`, `ImageCrossfade`, `YellowButton`, plus `constants/` and the `src/data/case_studies` YAML. Assets go to `website/static/`.
+- **Sass needs adding.** The docs site has no Sass support today (plain `src/css/custom.css`), so the 39 SCSS files need `docusaurus-plugin-sass` and `sass` to port unchanged. Check current versions against the registry before adding.
+- **The real risk is CSS, not JavaScript.** Bulma's global resets will fight Infima, the Docusaurus theme. Mitigation: scope the marketing styles under a wrapper class so they cannot leak into doc pages, then trim Bulma usage over time. Rewriting the marketing styles onto Infima variables is the cleaner end state and a much larger job; do not attempt it in the same change.
+- **Analytics needs nothing.** Both sites already report to Matomo siteId 76 on `webstats.oicr.on.ca`, and the docs site mounts its `MatomoTracking` component in a swizzled `Layout`, so ported pages inherit tracking and `gatsby-plugin-matomo` simply disappears.
+- **Link checking improves for free.** The docs site builds with `onBrokenLinks: "throw"`, so a bad link in a ported page fails the build. This site has never had link checking at all.
 
-Corrections to the plan made while doing it:
+**Stage 2: review on a branch deploy.** Netlify builds branch deploys for the docs repo, so the merged site can be reviewed at a preview URL with nothing user-visible changing. Styling review belongs here, before any DNS work.
 
-- **`useSSRWorkaround` stays.** The plan said its only callers were documentation components; `MegaMenuLink` uses it too, so it is not dead.
-- **`gatsby-source-git`, `lodash`, and `sharp` are gone rather than bumped,** so the standalone security entry that proposed bumping them is resolved by deletion. Advisories fell from 118 to 87, criticals from 7 to 2, and direct-dependency advisories from 21 to 8.
-- **Two `tech-debt.md` items were fixed in passing** because they lived in files being rewritten anyway: Matomo's inverted `dev` flag, and `gatsby-plugin-sitemap` writing to a path nothing links (now `output: '/'`, so the sitemap is at `/sitemap-index.xml`).
-- **One content bullet was removed** from the getting-started page: its "Under Development" link pointed at a docs category that v2 does not have, so it would have 404'd either way. Worth a look from whoever owns the page copy.
+**Stage 3: cut the domain over.** Both sites are already on Netlify, so this is DNS plus redirect rules rather than a hosting migration. The recommended shape: serve the merged site at `overture.bio`, keeping the docs paths exactly as they are (`/develop`, `/deploy`, `/use`, `/community`), then 301 `docs.overture.bio/*` to `overture.bio/*` path-for-path. That preserves every docs URL `docs#48` created, changing only the host, and gives the brand domain the marketing homepage rather than leaving it as a redirect to a subdomain. Serving the merged site from `docs.overture.bio` instead is the alternative, and is worse: it puts marketing pages on a documentation subdomain.
 
-Result: 14 built pages instead of 131, a 12 second production build instead of 62, and no content pipeline. Verified: `npm run lint` (15 errors, 68 warnings, down from 22 and 89), `gatsby build` (exit 0), `gatsby develop` (serves, zero errors), and no `/documentation` link left anywhere in the built output.
+Two details that are easy to miss: the `/documentation/*` redirects must be rewritten to same-host targets so no visitor takes two hops, and the apex-versus-`www` question resolves itself, because Docusaurus takes an explicit `url` rather than deriving one.
 
-### Phase 2 plan, as written before the work
+**Stage 4: retire this repo.** Archive `overture-stack/website` once the merged site serves production, keeping its Netlify site briefly as a rollback. `.dev/` and `AGENTS.md` are archived with it; anything still open in `tech-debt.md` moves to the docs repo's own list rather than being lost.
 
-118 Markdown pages across eight sections (arranger, dms, ego, guides, maestro, score, song, stage) plus the whole pipeline that renders them. This is the single largest simplification available to the repo, and doing it before phase 3 shrinks that phase substantially: the MDX and YAML plumbing is exactly where a Gatsby 5 upgrade is most likely to break, since `gatsby-plugin-mdx` v5 moves to MDX 2 and the documentation template leans on `MDXRenderer`, `mdx-utils`, `react-markdown` shortcodes, and 59 Markdown files using `<Note>` and `<Warning>`.
+**What the move resolves outright,** so it should not be worked on here first: the dead components, the basscss and Bulma question (the theme decides it), Google Fonts loading, the Prettier config conflict, the absence of CI, sitemap and `robots.txt`, the `siteUrl` host mismatch, the stray `/case-studies/navigation` route, and Netlify Node pinning.
 
-**Most of the marketing side has already moved.** `src/pages/getting-started/` is the site's documentation hub and already links out to `docs.overture.bio` for user, administration, deployment, and API guides. Every constant in `constants/docs.js` and the four `*_GUIDE` constants in `constants/pages.js` have no consumers left at all. The only live entry point into the legacy section is the navbar megamenu, which hardcodes ten paths (four under Platform Guides, six under Product Documentation).
-
-**Step 1: redirect, and repoint the megamenu.** Add `[[redirects]]` rules to `netlify.toml` (301) and change the ten megamenu links to the same targets, so internal navigation goes straight to the docs site rather than through a redirect hop:
-
-| Legacy path                              | Target on docs.overture.bio   |
-| ---------------------------------------- | ----------------------------- |
-| `/documentation/song/*`                  | `/develop/Song/overview`      |
-| `/documentation/score/*`                 | `/develop/Score/overview`     |
-| `/documentation/maestro/*`               | `/develop/Maestro/overview`   |
-| `/documentation/arranger/*`              | `/develop/Arranger/overview`  |
-| `/documentation/stage/*`                 | `/develop/Stage/overview`     |
-| `/documentation/guides/deployment/*`     | `/deploy/deployment`          |
-| `/documentation/guides/administration/*` | `/use`                        |
-| `/documentation/guides/submission/*`     | `/use/cli-submissions`        |
-| `/documentation/guides/download/*`       | `/use/cli-downloads`          |
-| `/documentation/dms/*`                   | `/deploy/prelude`             |
-| `/documentation/ego/*`                   | `/deploy/deployment/keycloak` |
-| `/documentation/*` (catch-all)           | `/develop`                    |
-
-**These targets belong to the docs v2 restructure, not to the docs site as it serves today.** They come from [overture-stack/docs#48](https://github.com/overture-stack/docs/pull/48), which moves the site to four audience journeys (`/develop`, `/deploy`, `/use`, `/community`) and retires the `/docs/core-software/...` and `/guides/...` paths the site currently serves. Every target in the table was confirmed present in a local production build of that branch on 2026-08-06, and none of them exist on the live site yet.
-
-**So this step is blocked on that PR merging.** Shipping these redirects earlier would send every retired URL to a 404. Pointing them at today's live paths instead is not a safe alternative: those paths survive the restructure only as `plugin-client-redirects` pages, which are HTML meta-refresh documents, so a visitor would take a 301 from this site into a client-side hop on the other, and search engines would follow a redirect chain ending in a soft redirect. One hop to a real page is the outcome worth waiting for.
-
-**Target section front doors, not per-page equivalents.** A 118-entry deep-link map buys little and breaks on the next restructure; the docs site owns its own internal moves through its redirect plugin. Two sections have no successor page at all, which is why their rows point at the nearest live topic: Ego is discontinued (the new site has no Ego docs, and its predecessor authorization guide now redirects to the Keycloak deployment page) and the DMS bundle was superseded by Prelude, which is also where the retired Quickstart page now lands.
-
-**Step 2: delete the pipeline.** Once the redirects are live and verified:
-
-- `markdown/documentation/` (118 pages, and with it the 60MB of uncompressed screenshots and the `_contents.yaml` navigation convention)
-- `src/templates/documentation/`, `src/components/Layout/DocsWrapper.js`, and `README-documentation.md`
-- The six components used only by the documentation pipeline: `AnchorHeading`, `Credits`, `HeadingsTableOfContents`, `SectionTableOfContents`, `SupportFooter`, `WarningBox`. Also `Code` (only the docs template renders it) and `Search` with `meta/algolia-queries.js`, since the only render site is `DocsWrapper`; the unused `searchIndices` variable in `src/pages/getting-started/index.js` goes with it. `NoteBox` stays: the getting-started page uses it.
-- The documentation branches of `gatsby-node.js` (page creation from Mdx and Yaml nodes, the `_contents.yaml` schema customization) and `gatsby-config.js` (the `docs` filesystem source, the MDX, remark, and YAML plugins)
-- `constants/docs.js` entirely, and the four dead `*_GUIDE` constants in `constants/pages.js`
-- Dependencies that exist only for this pipeline: `@mdx-js/mdx`, `@mdx-js/react`, `gatsby-plugin-mdx`, `gatsby-transformer-remark`, `gatsby-remark-images`, `gatsby-remark-copy-linked-files`, `gatsby-transformer-yaml`, `mdx-utils`, `react-markdown`, `remark-gfm`, `remark-slug`, `flat`, `prism-react-renderer`, `algoliasearch`, `react-instantsearch-dom`, and the already-unused `gatsby-plugin-algolia`
-- `src/hooks/useSSRWorkaround.js`, whose only callers are documentation components
-
-What remains is a marketing site of roughly thirteen routes with no content pipeline, which is the right shape for what this repo actually is.
-
-**Step 3: check inbound links.** These URLs have been public for years, so before deleting, pull the top `/documentation/*` paths from Matomo (siteId 76 on `webstats.oicr.on.ca`) and confirm the busiest ones land somewhere useful rather than on the catch-all. Also grep the other Overture repos for `overture.bio/documentation` links, since a redirect is a courtesy and a corrected link is better.
-
-**Ordering against the docs repo.** `overture-stack/docs#48` merges first, then this phase. That PR is itself blocked on component documentation PRs in five submodules, so the realistic sequence is: those merge, its pins are re-pointed, it merges, the new journey URLs go live, and only then do these redirects land. Phase 1 and the standalone `tech-debt.md` items are not blocked by any of that and can proceed in parallel.
-
-### Phase 3: framework majors
-
-Gatsby 4.25.9 to 5.16.1, React 17 to 18 or 19, and the remaining `gatsby-*` plugins alongside them. This clears the bulk of the dependency advisories (77 high, 8 critical, mostly transitive through Gatsby 4), so treat the advisory count as an outcome of this phase rather than a task of its own. After phase 2 this is a much smaller migration: static pages, images, Sass, and the sitemap, with no MDX pipeline in the way.
-
-### Phase 4: everything the majors unlock
-
-ESLint 9 or 10 with flat config, Prettier 3, Bulma 1.0, and the remaining dependency and dead-code removals in `tech-debt.md` that are cheap to confirm once lint and a working build are back.
+**What follows the content and still needs doing** in its new home: missing `alt` text on 15 images, and the duplicated `keywords` meta, which is a rewrite rather than a copy since Docusaurus owns head tags.
 
 ## Open questions
 
-**Whether the Gatsby upgrade is worth it at all, versus a platform move.** Phase 3 is a real project on a framework whose momentum has slowed since Netlify acquired it. If the medium-term intent is to fold this site into the Docusaurus stack already running `docs.overture.bio`, then that migration is work thrown away. Phase 2 changes this calculation in both directions: it makes the Gatsby upgrade smaller, and it also makes a platform move cheaper, since a thirteen-route marketing site with no content pipeline is far easier to port than the same site with a documentation system attached. Worth deciding before phase 3 starts, not during it. Phases 1 and 2 are worth doing under any answer.
+**Which host serves the merged site.** Recommended, and assumed by stage 3 above: `overture.bio`, with `docs.overture.bio` redirecting to it path-for-path. Needs whoever owns the DNS to confirm before that stage starts.
 
-**What the getting-started page should be once the section is gone.** It currently reads as a hub for both the on-site documentation and the docs site. After phase 2 it is purely a launch point into `docs.overture.bio`, and its Product Documentation framing (`Detailed product documentation for administrators and developers`) describes pages that will no longer exist here. Someone who owns the site's content should decide whether it stays as a curated entry page or collapses into a navbar link.
+**Whether the products page should cover the whole stack.** It has sections for Song, Score, Maestro, and Arranger. The docs site also documents Lectern, Lyric, and Stage, so the two surfaces disagree about what Overture contains. Adding three sections is content work for whoever owns that page, and it carries over to the port either way.
 
-## Deferred
-
-Nothing deferred yet.
+**Whether the megamenu comes back or gets deleted.** It is unreachable today: nothing opens it, and the component that would is imported by nothing (see `tech-debt.md` for the full subsystem, including the `Layout` state and the hook that exist only to serve it). Deciding to delete it removes most of what is left of the `Layout` class component; deciding to revive it means wiring it into `NavBar` and checking it in a browser, since none of it appears in server-rendered HTML.
 
 ## Deferred
 
-Nothing deferred yet.
+Nothing deferred.

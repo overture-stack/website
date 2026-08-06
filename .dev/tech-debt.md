@@ -4,9 +4,11 @@ Entry format: `conventions/session-discipline.md` § Tech-debt entry format (age
 
 Ordered roughly by severity. Most entries were logged from the 2026-08-06 audit; see `sessions/` for what was verified how.
 
+**Check `roadmap.md` § Consolidate into the Docusaurus site before fixing anything here.** This repo is being ported into that site, and several entries below are resolved by the move rather than by work here. Shipping the docs-aligned site first is the exception: that code is temporary, but it is what production serves in the meantime.
+
 ---
 
-Lint runs, and reports 15 errors and 68 warnings against existing code, so `npm run lint` exits non-zero and cannot be a gate yet. Three of the errors are real: `src/components/NavBar/MegaMenuLink/index.js:11` passes `activeClassName` to a plain DOM element, where it silently does nothing; `src/components/ImageCrossfade/index.js:12` uses `componentWillReceiveProps`, removed in React 18, so it also blocks phase 3; and `src/hooks/useSSRWorkaround.js` sets state directly in an effect. The other twelve are cosmetic or die with the dead components: nine unescaped apostrophes, two missing display names, and one unreachable statement in `GridFeature`.
+Lint runs, and reports 15 errors and 68 warnings against existing code, so `npm run lint` exits non-zero and cannot be a gate yet. Three of the errors are real: `src/components/NavBar/MegaMenuLink/index.js:11` passes `activeClassName` to a plain DOM element, where it silently does nothing; `src/components/ImageCrossfade/index.js:12` uses `componentWillReceiveProps`, deprecated since React 16.9, which matters because that component is one phase 3 ports rather than deletes; and `src/hooks/useSSRWorkaround.js` sets state directly in an effect, though that hook does not survive phase 3 at all. The other twelve are cosmetic or die with the dead components: nine unescaped apostrophes, two missing display names, and one unreachable statement in `GridFeature`.
 fix: fix the three real ones, verifying each against a build rather than trusting autofix, and take `react/no-unescaped-entities` as a config decision (switching it off is defensible for prose-heavy JSX). The 68 warnings are almost entirely unused variables, which the dead-component entry below clears in bulk.
 standalone: no
 context: blocks the CI entry below, since a workflow added now would be red from its first run. Six lint findings were fixed at source across phases 1 and 2: duplicate `default` keys in `Button`, external links with no `rel`, a no-op statement in `Layout`, conditional hooks in `useActiveId`, and two more that went with the deleted documentation components.
@@ -96,3 +98,23 @@ standalone: yes
 `src/pages/case-studies/navigation.js` is a component, not a page, but it sits under `src/pages/`, so Gatsby publishes it as a route: `/case-studies/navigation/` renders a bare navigation strip with no page around it, and phase 2's build confirmed it is also listed in the sitemap.
 fix: move the file out of `src/pages/` (a `components/` subdirectory next to its only consumer) and update the import. Check the built output afterwards to confirm the route and its sitemap entry are gone.
 standalone: yes
+
+---
+
+Every in-page product anchor on the site is dead. `src/components/ProductsPageSection/index.js:52` sets `id={`${mobileViewPort && title.toLowerCase()}`}`, and `mobileViewPort` is false during server rendering, so the built products page carries `id="false"` eight times and no `id="song"`, `id="score"`, `id="maestro"`, or `id="arranger"` at all. The homepage's five product tiles link to `/products/#song` and friends, so each one lands at the top of the products page and scrolls nowhere. Even after hydration the ids only exist at some viewport widths, which is what the conditional was for.
+fix: set the id unconditionally from the title and let CSS handle the scroll offset (`scroll-margin-top`), rather than deriving an id from a viewport measurement. Verify against the built HTML, not the dev server, since this is a server-rendering difference.
+standalone: yes
+
+---
+
+The homepage still promotes Ego, and its link goes nowhere. `src/pages/index.js:348` renders an Ego tile pointing at `/products/#ego`, but the products page has had no Ego section for some time: it covers Song, Score, Maestro, and Arranger only. So the tile advertises a discontinued product and lands on an unrelated page. Separately, the products page is missing Lectern, Lyric, and Stage, all of which the documentation site covers, so the page under-represents the current stack.
+fix: remove the Ego tile with the rest of the Ego cleanup, then decide whether the products page should grow sections for Lectern, Lyric, and Stage. The second half is a content decision for whoever owns the page, and it is worth taking together with the vocabulary alignment in `roadmap.md`, since both are about the site describing the current stack.
+standalone: no
+context: the anchor half of this is covered by the entry above; this entry is about which products the site claims to have.
+
+---
+
+The megamenu is unreachable, and a whole subsystem exists to serve it. `NavBar` renders plain `NavLink`s and never calls `toggleMegaMenu`, so `megaMenuType` is always null and `MegaMenu` only ever returns its empty animation div: "Explore our documentation" appears zero times in the built homepage. The component that would open it, `MegaMenuLink`, is imported by nothing at all. Dead alongside them: `NavBar`'s unused `megaMenuType` prop, `Layout`'s `megaMenuOpen`/`megaMenuType`/`popOverRef` state with `openMegaMenu`, `closeMegaMenu`, and `toggleMegaMenu`, the `desktopMegaMenuCheck` viewport measurement, and `src/hooks/useSSRWorkaround.js`, whose only consumer was `MegaMenuLink`. This also accounts for two of the 15 remaining lint errors.
+fix: decide whether the megamenu is coming back. If not, delete `MegaMenu`, `MegaMenuLink`, the `useSSRWorkaround` hook, and the megamenu state and handlers in `Layout`, which is most of what is left of that class component. If it is, wire `MegaMenuLink` into `NavBar` and check it against a browser, since none of this appears in server-rendered HTML. Either way the site's documentation navigation today is the plain "Documentation" navbar link, which points at the docs site root.
+standalone: yes
+context: this corrects an earlier note that `useSSRWorkaround` had to stay because `MegaMenuLink` used it. That consumer is itself dead, so the hook is too.
